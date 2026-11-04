@@ -56,8 +56,10 @@ class UserServiceTest {
         long total = pageNumber == 0 ? 2 : 12;
         when(users.findByVisible(eq(true), any(Pageable.class)))
                 .thenReturn(new PageImpl<>(List.of(first, second), returnedPage, total));
-        when(points.readCostByUser(first)).thenReturn(PointHistory.builder().cost(150L).build());
-        when(points.readCostByUser(second)).thenReturn(PointHistory.builder().cost(920L).build());
+        // Batch result order is deliberately different from the user Page order.
+        when(points.readCostsByUserIds(List.of(7L, 42L))).thenReturn(List.of(
+                PointHistory.builder().id(103L).user(second).cost(920L).build(),
+                PointHistory.builder().id(109L).user(first).cost(150L).build()));
 
         Page<UserReadResponseDTO> result = service.findAll(pageNumber);
 
@@ -73,6 +75,8 @@ class UserServiceTest {
         assertThat(pageable.getValue().getPageNumber()).isEqualTo(pageNumber);
         assertThat(pageable.getValue().getPageSize()).isEqualTo(5);
         assertThat(pageable.getValue().getSort()).isEqualTo(Sort.by(Sort.Direction.ASC, "userId"));
+        verify(points).readCostsByUserIds(List.of(7L, 42L));
+        verify(points, never()).readCostByUser(any());
         assertNoWrites();
     }
 
@@ -100,10 +104,91 @@ class UserServiceTest {
         User user = User.builder().userId(7L).build();
         when(users.findByVisible(eq(true), any(Pageable.class)))
                 .thenReturn(new PageImpl<>(List.of(user), PageRequest.of(0, 5), 1));
-        when(points.readCostByUser(user)).thenReturn(null);
+        when(points.readCostsByUserIds(List.of(7L))).thenReturn(List.of());
 
         // Characterizes a defect candidate, not an approved rule for users without history.
         assertThatThrownBy(() -> service.findAll(0)).isInstanceOf(NullPointerException.class);
+        assertNoWrites();
+    }
+
+    @Test
+    void fullPageMapsEveryUserByIdAndPreservesNullFieldsAndPointCost() {
+        List<User> pageUsers = List.of(new User(7L), new User(42L), new User(90L), new User(101L), new User(300L));
+        Pageable pageable = PageRequest.of(0, 5, Sort.by("userId").ascending());
+        when(users.findByVisible(eq(true), any(Pageable.class)))
+                .thenReturn(new PageImpl<>(pageUsers, pageable, 12));
+        when(points.readCostsByUserIds(List.of(7L, 42L, 90L, 101L, 300L))).thenReturn(List.of(
+                PointHistory.builder().id(220L).user(pageUsers.get(4)).cost(-15L).build(),
+                PointHistory.builder().id(215L).user(pageUsers.get(2)).cost(null).build(),
+                PointHistory.builder().id(218L).user(pageUsers.get(0)).cost(3L).build(),
+                PointHistory.builder().id(211L).user(pageUsers.get(3)).cost(0L).build(),
+                PointHistory.builder().id(219L).user(pageUsers.get(1)).cost(999L).build()));
+
+        Page<UserReadResponseDTO> result = service.findAll(0);
+
+        assertThat(result.getContent()).extracting(UserReadResponseDTO::getUserId)
+                .containsExactly(7L, 42L, 90L, 101L, 300L);
+        assertThat(result.getContent()).extracting(UserReadResponseDTO::getPoint)
+                .containsExactly(3L, 999L, null, 0L, -15L);
+        assertThat(result.getContent()).allSatisfy(dto -> {
+            assertThat(dto.getName()).isNull();
+            assertThat(dto.getNickName()).isNull();
+            assertThat(dto.getPhoneNumber()).isNull();
+            assertThat(dto.getEmail()).isNull();
+            assertThat(dto.getAccountBank()).isNull();
+            assertThat(dto.getAccountNumber()).isNull();
+            assertThat(dto.getAddress()).isNull();
+            assertThat(dto.getRole()).isNull();
+        });
+        assertThat(result.getPageable()).isEqualTo(pageable);
+        assertThat(result.getTotalElements()).isEqualTo(12);
+        assertThat(result.getTotalPages()).isEqualTo(3);
+        verify(points, never()).readCostByUser(any());
+        assertNoWrites();
+    }
+
+    @Test
+    void missingHistoryInMixedPageStillFailsInsteadOfDroppingUserOrDefaultingCost() {
+        User first = new User(7L);
+        User second = new User(42L);
+        when(users.findByVisible(eq(true), any(Pageable.class)))
+                .thenReturn(new PageImpl<>(List.of(first, second), PageRequest.of(0, 5), 2));
+        when(points.readCostsByUserIds(List.of(7L, 42L)))
+                .thenReturn(List.of(PointHistory.builder().user(first).cost(15L).build()));
+
+        assertThatThrownBy(() -> service.findAll(0)).isInstanceOf(NullPointerException.class);
+
+        assertNoWrites();
+    }
+
+    @Test
+    void unpagedListStillUsesExistingSingleUserLookup() {
+        User user = new User(7L);
+        when(users.findAll()).thenReturn(List.of(user));
+        when(points.readCostByUser(user)).thenReturn(PointHistory.builder().cost(15L).build());
+
+        assertThat(service.findAll()).singleElement().satisfies(dto -> {
+            assertThat(dto.getUserId()).isEqualTo(7L);
+            assertThat(dto.getPoint()).isEqualTo(15L);
+        });
+
+        verify(points).readCostByUser(user);
+        verify(points, never()).readCostsByUserIds(any());
+        assertNoWrites();
+    }
+
+    @Test
+    void singleUserDetailsStillUsesExistingSingleUserLookup() {
+        User user = new User(7L);
+        when(users.findById(7L)).thenReturn(java.util.Optional.of(user));
+        when(points.readCostByUser(user)).thenReturn(PointHistory.builder().cost(15L).build());
+
+        UserReadResponseDTO result = service.readUserById(7L);
+
+        assertThat(result.getUserId()).isEqualTo(7L);
+        assertThat(result.getPoint()).isEqualTo(15L);
+        verify(points).readCostByUser(user);
+        verify(points, never()).readCostsByUserIds(any());
         assertNoWrites();
     }
 

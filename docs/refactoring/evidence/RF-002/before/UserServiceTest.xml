@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.user.user.service.UserServiceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-04T08:04:29" hostname="redacted" time="0.664">
+  <properties/>
+  <testcase name="emptyPagePreservesMetadataAndDoesNotReadPoints()" classname="com.ngng.api.user.user.service.UserServiceTest" time="0.562"/>
+  <testcase name="[1] pageNumber=0" classname="com.ngng.api.user.user.service.UserServiceTest" time="0.054"/>
+  <testcase name="[2] pageNumber=2" classname="com.ngng.api.user.user.service.UserServiceTest" time="0.007"/>
+  <testcase name="missingPointHistoryCurrentlyFailsDuringMapping()" classname="com.ngng.api.user.user.service.UserServiceTest" time="0.007"/>
+  <testcase name="negativePageFailsBeforeRepositoryAccess()" classname="com.ngng.api.user.user.service.UserServiceTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

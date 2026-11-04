@@ -26,6 +26,7 @@ Windows PowerShell에서 각 저장소 디렉터리로 이동한 뒤 백엔드�
 - [BASELINE.md](BASELINE.md): 테스트와 성능 측정 기준선
 - [BACKLOG.md](BACKLOG.md): 근거 기반 후보와 우선순위
 - [tasks/TEMPLATE.md](tasks/TEMPLATE.md): 작업 명세 양식
+- [RF-002](tasks/RF-002.md): 관리자 사용자 목록 최신 포인트 일괄 조회. 사용자 승인 구현·오프라인 기능 테스트 15건 통과, 실제 DB 기능 미검증 및 성능 측정 유예로 전체 미완료
 - [REFACTORING_LOG.md](REFACTORING_LOG.md): 작업별 결과와 리뷰 기록
 - [PROMPTS.md](PROMPTS.md): 분석, 구현, 리뷰 요청 양식
 

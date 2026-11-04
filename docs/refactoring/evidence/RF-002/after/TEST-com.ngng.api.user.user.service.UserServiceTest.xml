@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.user.user.service.UserServiceTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-11-04T08:06:39" hostname="redacted" time="0.355">
+  <properties/>
+  <testcase name="singleUserDetailsStillUsesExistingSingleUserLookup()" classname="com.ngng.api.user.user.service.UserServiceTest" time="0.22"/>
+  <testcase name="emptyPagePreservesMetadataAndDoesNotReadPoints()" classname="com.ngng.api.user.user.service.UserServiceTest" time="0.011"/>
+  <testcase name="[1] pageNumber=0" classname="com.ngng.api.user.user.service.UserServiceTest" time="0.034"/>
+  <testcase name="[2] pageNumber=2" classname="com.ngng.api.user.user.service.UserServiceTest" time="0.007"/>
+  <testcase name="unpagedListStillUsesExistingSingleUserLookup()" classname="com.ngng.api.user.user.service.UserServiceTest" time="0.01"/>
+  <testcase name="fullPageMapsEveryUserByIdAndPreservesNullFieldsAndPointCost()" classname="com.ngng.api.user.user.service.UserServiceTest" time="0.011"/>
+  <testcase name="missingPointHistoryCurrentlyFailsDuringMapping()" classname="com.ngng.api.user.user.service.UserServiceTest" time="0.006"/>
+  <testcase name="missingHistoryInMixedPageStillFailsInsteadOfDroppingUserOrDefaultingCost()" classname="com.ngng.api.user.user.service.UserServiceTest" time="0.005"/>
+  <testcase name="negativePageFailsBeforeRepositoryAccess()" classname="com.ngng.api.user.user.service.UserServiceTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

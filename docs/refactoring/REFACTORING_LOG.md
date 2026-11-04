@@ -25,6 +25,25 @@
 - 롤백: RF-001의 테스트 파일과 해당 문서 기록만 선택적으로 되돌린다. 기존 로컬 환경 변경은 보존한다. RF-002는 시작하지 않았다.
 
 
+## 2026-11-04 — RF-002 작업 명세
+
+- 사용자가 다음 작업을 RF-002로 지정했다. 분석·계획 에이전트(GPT-6 Astra / High)가 기준 문서·호출 관계를 확인하고 [RF-002 명세](tasks/RF-002.md)를 템플릿에 따라 작성했다. 통합 HEAD `ab77676ae968354c47408002926119e3f3843c69`이며 기존 로컬 환경·RF-001 미커밋 변경이 존재한다.
+- 범위는 관리자 사용자 페이지의 최신 포인트 조회다. 사용자별 최대 이력 ID와 순서·페이지·기존 이력 부재 예외를 보존하고, RF-016 전체가 아닌 필요한 격리 DB fixture와 외부 연동 차단, 실제 SQL·실행계획·지연 측정을 선행 조건으로 명시했다. 동시 갱신 시 읽기 시점 차이는 별도 관찰 대상으로 남긴다.
+- 현재 SQL 수·성능·실제 DB 결과는 미측정이다. RF-020/021의 P0 위험은 별도로 남는다. 코드·테스트·설정 수정, 테스트·DB 접속, RF-002 구현은 이번 명세 작업에서 수행하지 않았다.
+- 자체 검토: 템플릿 항목, 적용 경로와 기존 기준점, 계약·격리·측정·롤백 경계를 점검했다. 차후 독립 구현 리뷰와 실제 측정은 미실시다.
+
+## 2026-11-04 — RF-002 최소 구현 및 오프라인 기능 검증
+
+- 상태: **진행, 전체 미완료**. 명세 확인 후 사용자 지시로 구현했다. 사용자가 성능 테스트(SQL 수·실행계획·지연 측정 포함)를 추후로 지정하여 선행 성능 기준선과 모든 성능 계측을 유예했다.
+- 기준: 현재 HEAD `17adfc75e1315b4ad832a5114f36953837870e9f`, 기존 미커밋 사용자 변경 보존. [변경 전 대상 원본·Git 상태·관련 파일 28개 해시·전후 테스트 XML](evidence/RF-002/README.md)을 남겼다. 설정 원문/비밀값을 복사하지 않았고 해시만으로 환경 복원이 된다고 가정하지 않는다.
+- 구현: 허용된 UserService 페이지 메서드, PointHistoryService 읽기 메서드, PointHistoryRepository 쿼리만 변경했다. 페이지 ID 안에서 사용자별 최대 이력 ID를 선택하고 결과 순서를 가정하지 않고 ID로 대응한다. 빈 Page·빈 ID는 포인트 조회에 도달하지 않는다. NPE 결함 후보를 0원/성공으로 바꾸지 않았다. 단건·무인자·쓰기·Controller/DTO·fetch·트랜잭션·인가·스키마·의존성은 유지했다.
+- 테스트: 기존 UserServiceTest의 DTO/Page assertion을 유지하고 역순 batch·5명·null/음수 비용·혼합 이력 누락·기존 단건/무인자 경로 회귀를 보강했다. 신규 PointHistoryRepositoryBatchTest는 DB 없이 Hibernate의 JPQL 경로 해석과 empty/위임을 검증한다. 컨트롤러 계약 테스트는 변경하지 않았다.
+- 실제 명령/결과: 첫 sandbox Wrapper는 캐시 lock 접근 거부, 캐시 접근 허용 후 첫 선택 test는 UP-TO-DATE. 변경 전 `./gradlew.bat --offline --no-daemon test --rerun-tasks --tests 'com.ngng.api.user.user.service.UserServiceTest' --tests 'com.ngng.api.user.user.controller.AdminUserControllerContractTest'` 실제 실행 성공(8건). 변경 후 `./gradlew.bat --offline --no-daemon compileTestJava test --tests 'com.ngng.api.user.user.service.UserServiceTest' --tests 'com.ngng.api.user.user.controller.AdminUserControllerContractTest' --tests 'com.ngng.api.user.point.repository.PointHistoryRepositoryBatchTest'` 성공(서비스 9·컨트롤러 3·repository 경계 3, 15건, 실패/오류/skip 각 0). 전후 XML timestamp와 원본은 기준선/증빙에 기록했다.
+- DB·성능 제약: loopback 13306 listener 미조회 및 mysqld CIM 조회 권한 제약으로 안전한 DB를 확인하지 못해 접속/쓰기하지 않았다. 실제 MySQL fixture·결과 동등성·무쓰기·동시 append·운영 JSON/오류 응답은 미검증이다. AdminUserPageQueryIntegrationTest/실DB fixture는 미구현. 기존 전체 test/build·외부 발송·서버 기동은 실행하지 않았다. SQL 수·실행계획·지연 측정은 사용자 지시로 실행하지 않았다. SQL 감소나 지연 개선은 주장하지 않는다.
+- 독립 리뷰: GPT-6 Astra / High가 구현 diff, 호출 관계, 전후 테스트 XML 및 기존 변경 보존을 검토했고 수정이 필요한 코드 결함은 발견하지 못했다. 명세의 재실행 이력 모순과 결과 파일 링크는 구현 담당자가 정정한 뒤 재확인했다. 기존 단건 쿼리/쓰기/인가/스키마/새 의존성 변경은 발견하지 못했다.
+- 남은 검증: 안전한 격리 DB·fixture 확보 후 실제 MySQL 기능·동시 읽기 검증과 사용자 지시에 따른 후속 성능 기준선/전후 비교 및 그 결과의 독립 리뷰가 필요하다. 이 검증 전 RF-002 완료로 표시하지 않는다.
+- 롤백: 보존한 변경 전 대상 원본을 참고해 RF-002의 메서드/쿼리/테스트/문서만 선택 복구한다. 전체 reset/clean 금지. DB·스키마 변경이 없어 데이터 롤백은 없다. commit/push는 하지 않았다.
+
 ## 이후 작업 기록 양식
 
 ## RF-NNN — 제목

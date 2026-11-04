@@ -15,6 +15,10 @@ public interface PointHistoryRepository extends JpaRepository<PointHistory,Long>
     @Query("SELECT p FROM PointHistory p WHERE p.user.id = :userId ORDER BY id DESC LIMIT 1" )
     Optional<PointHistory> findLastByUserId(@Param("userId") Long userId);
 
+    @Query("SELECT p FROM PointHistory p WHERE p.id IN " +
+            "(SELECT MAX(h.id) FROM PointHistory h WHERE h.user.userId IN :userIds GROUP BY h.user.userId)")
+    List<PointHistory> findLatestByUserIds(@Param("userIds") List<Long> userIds);
+
     @Query("SELECT p FROM PointHistory p WHERE p.user.id = :userId ORDER BY id DESC" )
     List<PointHistory> findAllByUserId(@Param("userId") Long userId);
 

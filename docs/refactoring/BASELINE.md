@@ -103,3 +103,14 @@ TTL 30분, 사용자 페이지 5개, 검색 20개, 메인 60개, 로그 10개는
 - 지연 제안: 전후 동일 조건, 워밍업 20회, 동시성 1로 100회씩 3회 반복. p50/p95·오류율·SQL 수 기록. 이는 계획값이며 실측값이 아니다. 부하 도구는 기존 가용성 확인 후 결정한다.
 - 완료 판단: JSON·페이지 메타데이터·순서 동일, 데이터 쓰기 없음, N회 최신 이력 조회 제거를 실제 SQL로 확인. 지연 개선은 반복 결과가 뒷받침할 때만 주장한다. SQL 감소에도 실행계획·지연이 악화하면 완료로 간주하지 않는다.
 - 운영 대표 규모·고동시성 검증은 실제 분포 확보 후 계획한다. 소규모 fixture를 운영 처리량으로 일반화하지 않는다.
+
+## RF-002 구현 기준과 기능 검증 — 2026-11-04
+
+- 구현 시작 통합 HEAD: `17adfc75e1315b4ad832a5114f36953837870e9f`(RF-001 반영). 명세의 옛 HEAD `ab77676`와 구분한다. 기존 사용자 미커밋 변경을 보존했다. [변경 전 원본·Git 상태·관련 설정 해시 및 XML](evidence/RF-002/README.md)을 보존했으며 HEAD만으로 미커밋 환경을 재현할 수 없다. 설정 원문·비밀값은 복사하지 않았다. 해시는 식별 자료이므로 후속 비교에는 일치하는 기존 파일이나 안전한 보관본이 필요하다.
+- 사용자 지시로 **SQL 수·실행계획·지연 등 성능 테스트 및 선행 성능 기준선을 유예**했다. 구현 전후 DB·SQL·서비스 지연을 측정하지 않았다. 아래는 오프라인 기능 테스트 결과이며 서비스 성능 수치가 아니다.
+- 환경: Java 17.0.10, Gradle Wrapper 8.7, 기존 의존성 캐시. 최초 sandbox Wrapper 실행은 캐시 `.lck` 접근 거부로 실패했다. 기존 캐시 접근을 허용한 후 `--offline`으로 실행했다. 첫 성공은 UP-TO-DATE여서 기준선 실행으로 세지 않고 `--rerun-tasks`로 실제 재실행했다.
+- 변경 전: `./gradlew.bat --offline --no-daemon test --rerun-tasks --tests 'com.ngng.api.user.user.service.UserServiceTest' --tests 'com.ngng.api.user.user.controller.AdminUserControllerContractTest'` 성공. 서비스 5건·컨트롤러 3건, 총 8건, 실패/오류/skip 각 0. XML timestamp service `2026-11-04T08:04:29`, controller `2026-11-04T08:04:27`(XML 시간대 미표기).
+- 변경 후: `./gradlew.bat --offline --no-daemon compileTestJava test --tests 'com.ngng.api.user.user.service.UserServiceTest' --tests 'com.ngng.api.user.user.controller.AdminUserControllerContractTest' --tests 'com.ngng.api.user.point.repository.PointHistoryRepositoryBatchTest'` 성공. 전체 테스트 소스 컴파일 후 선택 15건(서비스 9·컨트롤러 3·오프라인 repository 경계 3), 실패/오류/skip 각 0. XML timestamp repository `2026-11-04T08:06:34`, controller `2026-11-04T08:06:38`, service `2026-11-04T08:06:39`(시간대 미표기).
+- 범위: 기존 DTO/Page assertion을 유지하고 역순 batch·5명 매핑·null 의미·빈 조회 차단·단독/혼합 이력 누락 예외·단건 호출 유지 검증을 보강했다. repository 테스트는 세 엔티티의 Hibernate JPQL 경로 해석 및 mock 위임만 검증했다. JDBC 메타데이터 접근·DDL·자동 연결을 끄고 기존 application/test YAML을 로드하지 않았다.
+- 실제 DB 검증 제약: loopback 13306 listener 미조회, mysqld CIM 조회 권한 제한으로 격리 DB 대상/실행 상태를 증명하지 못했다. DB 접속·쓰기·fixture 생성은 하지 않았다. 실MySQL의 최대 ID 선택 결과·단건/배치 동등성·숨김/페이지 경계·무쓰기·동시 append·실제 오류 응답은 미검증이다. `AdminUserPageQueryIntegrationTest`와 실제 DB fixture는 미구현이다. 전체 기존 통합 테스트/build·실SecurityFilterChain·운영 ObjectMapper 검증도 하지 않았다.
+- 판정: 최소 구현과 오프라인 기능 검증 완료, 실제 DB 기능·동시 읽기·성능 검증은 후속 작업. repository 위임 수를 실제 SQL 수로 해석하지 않는다. 성능 효과는 미측정이며 RF-002 전체는 미완료다.

@@ -26,6 +26,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
@@ -58,8 +59,16 @@ public class UserService {
 
         Page<User> users = userRepository.findByVisible(true, pageable);
 
+        if (users.isEmpty()) {
+            return users.map(user -> new UserReadResponseDTO().from(user));
+        }
+
+        List<Long> userIds = users.getContent().stream().map(User::getUserId).toList();
+        Map<Long, PointHistory> latestPoints = pointHistoryService.readCostsByUserIds(userIds).stream()
+                .collect(Collectors.toMap(history -> history.getUser().getUserId(), history -> history));
+
         return users.map(user ->
-                new UserReadResponseDTO().from(user, pointHistoryService.readCostByUser(user))
+                new UserReadResponseDTO().from(user, latestPoints.get(user.getUserId()))
         );
     }
 
