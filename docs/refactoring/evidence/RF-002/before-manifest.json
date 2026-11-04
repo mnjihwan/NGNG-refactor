@@ -1,0 +1,139 @@
+{
+  "recordedAt": "2026-11-04T17:03:29.9812024+09:00",
+  "head": "17adfc75e1315b4ad832a5114f36953837870e9f",
+  "status": [
+    " M .gitignore",
+    " M NGNG-backend/src/main/java/com/ngng/api/global/config/AwsConfig.java",
+    " M NGNG-backend/src/main/java/com/ngng/api/user/user/service/PhoneNumberAuthService.java",
+    " M NGNG-frontend/next.config.mjs",
+    " M NGNG-frontend/src/app/my_page/_compoenets/MyInfo.tsx",
+    " M docs/refactoring/ARCHITECTURE.md",
+    " M docs/refactoring/BACKLOG.md",
+    " M docs/refactoring/BASELINE.md",
+    " M docs/refactoring/PROMPTS.md",
+    " M docs/refactoring/README.md",
+    " M docs/refactoring/REFACTORING_LOG.md",
+    " M docs/refactoring/tasks/TEMPLATE.md",
+    "?? NGNG-frontend/.env.local.example",
+    "?? compose.local.yml",
+    "?? docs/LOCAL_DEVELOPMENT.md",
+    "?? docs/refactoring/tasks/LOCAL-SETUP.md",
+    "?? docs/refactoring/tasks/RF-002.md",
+    "?? local/"
+  ],
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "E60CC71AD9F9DF5B4C18F5E2675349F0E299F71F520F94203E0A477E5471F140"
+    },
+    {
+      "path": "compose.local.yml",
+      "sha256": "EF7C8A1B8C2D7A1AB61EC657055A380242758814AB542603D9EA4EBB5E6D1236"
+    },
+    {
+      "path": "docs/LOCAL_DEVELOPMENT.md",
+      "sha256": "08E6DAD6DC22F22349960E30D513DF365124857273276A57EB290C85F47B34BF"
+    },
+    {
+      "path": "docs/refactoring/ARCHITECTURE.md",
+      "sha256": "29EB4B0122378D54BC65F7BB43D7996E2F70E6761DE01A8FFF2F5A5138991D84"
+    },
+    {
+      "path": "docs/refactoring/BACKLOG.md",
+      "sha256": "C9F92FA97F9A1A168EF04D57B930E3F1926BD3AB64090DF653C895B416DD2A3D"
+    },
+    {
+      "path": "docs/refactoring/BASELINE.md",
+      "sha256": "0F433AC3D09C0B032C8B0DEA2A597A39D0BBE0E9EFD5E8BF84D6CD2508D85592"
+    },
+    {
+      "path": "docs/refactoring/PROMPTS.md",
+      "sha256": "2D2D163AE93A598CC6FD050D28E826A5387916245D2074A8657F1856EE32CD2D"
+    },
+    {
+      "path": "docs/refactoring/README.md",
+      "sha256": "EC6A654E673DEE4A36453038F4F2CB8E1FBD6EF59A10266B31D9DCF1ACDC4549"
+    },
+    {
+      "path": "docs/refactoring/REFACTORING_LOG.md",
+      "sha256": "CAFBAE676D2125DA71A1521BD7D72EE9F838DF0C86853DC202670386177AA83C"
+    },
+    {
+      "path": "docs/refactoring/tasks/LOCAL-SETUP.md",
+      "sha256": "78EA5668B59FC1E091E827187BE44753EFBABEE43FB45EA45C73D2E3A3C426F6"
+    },
+    {
+      "path": "docs/refactoring/tasks/RF-002.md",
+      "sha256": "C46FE8357F3AD333F7705721D558375B6161FB4EE3A4AED7ADCD591F2AE1E4EA"
+    },
+    {
+      "path": "docs/refactoring/tasks/TEMPLATE.md",
+      "sha256": "7D20D72B193FD6B307F0F61AAF566E9F999BE2C0D3C64E3F1BD70B53FB99E0CE"
+    },
+    {
+      "path": "local/backend.yml",
+      "sha256": "235A6B3EAE28B78E825E4BCE7D035035D8A80B13106821BC84CD8D70A0525B37"
+    },
+    {
+      "path": "local/chat.yml",
+      "sha256": "900A774C4DF68F52ADFADAC444B7B78ACD75C9CA8E547BC0DDBEEB4495D39644"
+    },
+    {
+      "path": "local/schema.sql",
+      "sha256": "047A973B3A3DE110C5E87DB62FD0C8EDEE692CC669EE327845DC33829648429A"
+    },
+    {
+      "path": "NGNG-backend/build.gradle",
+      "sha256": "C452CBC16687B767A388D70453EEB4866A2E4C89852A13A4EF4F52589F195484"
+    },
+    {
+      "path": "NGNG-backend/gradle/wrapper/gradle-wrapper.properties",
+      "sha256": "0BD878C7CA27287C8C6C499797ABFE33E560FEF1B058B63583CEE6AD0D5B0A7D"
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/global/config/AwsConfig.java",
+      "sha256": "488C72990ED6790B3BB691E8A3E46135DDB7E0AB27F38D63C452D492DA105D04"
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/point/repository/PointHistoryRepository.java",
+      "sha256": "D82A857A212FCE70DF7AF2211AF2FB74EA62964B1C237B076AA872C43256E722"
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/point/service/PointHistoryService.java",
+      "sha256": "51247C9639AE9CCF0CA43EF7EBDFC47BDCFC2060FFDA4370D7DCE7FF24AECEB8"
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/service/PhoneNumberAuthService.java",
+      "sha256": "789404EC4A07406B701BFF4AFE4A071627A7AAFC14E34283815BFD34F5283A4A"
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/service/UserService.java",
+      "sha256": "3CBB5BC16B961030F1A2B83253E30C9BD37166CF7880CF28299AA87AEAC294F7"
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/user/user/controller/AdminUserControllerContractTest.java",
+      "sha256": "556CE9DDA0F61B9EC6FAFAE5E9B04BFAA22DA1D58DF206BCFCBCACF91BACFAEB"
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/user/user/service/UserServiceTest.java",
+      "sha256": "48D9222C899EE630918D75BF7B9707F5D2E98056215C41F681E93E34F8FEDF8B"
+    },
+    {
+      "path": "NGNG-backend/src/test/resources/application.yml",
+      "sha256": "3FF51FC263B6F2C6651F26B8C15372F15585FAA2EC77EBB2C0CE0982274CD7D3"
+    },
+    {
+      "path": "NGNG-frontend/.env.local.example",
+      "sha256": "1699FF565642A1581BA7A96321EDC05B89702FE5B5BA53CC1F37C33A441513F4"
+    },
+    {
+      "path": "NGNG-frontend/next.config.mjs",
+      "sha256": "E078411A47853641C36ACF90979AF40B84BAA1375017F7E16A6254B3DAAE871C"
+    },
+    {
+      "path": "NGNG-frontend/src/app/my_page/_compoenets/MyInfo.tsx",
+      "sha256": "9A5B87134C16E2A7E2EA9E858E68A7C7167DF4C7579369C2275526AEED861B7E"
+    }
+  ],
+  "note": "Content of pre-existing configuration is not copied. Hashes identify but cannot reconstruct those files. Preserve existing local files for subsequent comparison."
+}

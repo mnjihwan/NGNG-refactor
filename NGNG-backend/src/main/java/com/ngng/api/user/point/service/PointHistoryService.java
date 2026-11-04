@@ -43,6 +43,14 @@ public class PointHistoryService {
         return pointHistoryRepository.findLastByUserId(user.getUserId()).orElse(null);
 
     }
+
+    public List<PointHistory> readCostsByUserIds(List<Long> userIds) {
+        if (userIds.isEmpty()) {
+            return List.of();
+        }
+        return pointHistoryRepository.findLatestByUserIds(userIds);
+    }
+
     public PointHistory readCost(){
         User user = this.authService.readAuthUser();
         return pointHistoryRepository.findLastByUserId(user.getUserId()).orElse(null);

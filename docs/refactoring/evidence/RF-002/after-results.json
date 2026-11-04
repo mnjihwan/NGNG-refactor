@@ -1,0 +1,55 @@
+{
+  "head": "17adfc75e1315b4ad832a5114f36953837870e9f",
+  "results": [
+    {
+      "name": "com.ngng.api.user.point.repository.PointHistoryRepositoryBatchTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "timestamp": "2026-11-04T08:06:34"
+    },
+    {
+      "name": "com.ngng.api.user.user.controller.AdminUserControllerContractTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "timestamp": "2026-11-04T08:06:38"
+    },
+    {
+      "name": "com.ngng.api.user.user.service.UserServiceTest",
+      "tests": "9",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "timestamp": "2026-11-04T08:06:39"
+    }
+  ],
+  "files": [
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/service/UserService.java",
+      "sha256": "EFAC675913A1869C9EE2461E39855972FD91C342AAF1E49E7A401A144AA4422A"
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/point/service/PointHistoryService.java",
+      "sha256": "FF7AB5869939E58910C6A9AD68FB1429C885A781C373E5DC528D610B0EEDAE43"
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/point/repository/PointHistoryRepository.java",
+      "sha256": "75D61668F5B86F406049FA454D5A1D1D199CABD629563DA3FC3DB611F4D725D0"
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/user/user/service/UserServiceTest.java",
+      "sha256": "B259922A7657005EE83CB15A81CD73BEC6985F130188F5D2E0503D279D9D553A"
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/user/user/controller/AdminUserControllerContractTest.java",
+      "sha256": "556CE9DDA0F61B9EC6FAFAE5E9B04BFAA22DA1D58DF206BCFCBCACF91BACFAEB"
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/user/point/repository/PointHistoryRepositoryBatchTest.java",
+      "sha256": "F1D51F973C8F6C898B56407051B3234E31441B0DA622D40B7BC5E9D55238CC34"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.user.user.controller.AdminUserControllerContractTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-11-04T08:04:27" hostname="redacted" time="2.398">
+  <properties/>
+  <testcase name="nonNumericPageIsRejectedByStandaloneBinding()" classname="com.ngng.api.user.user.controller.AdminUserControllerContractTest" time="2.171"/>
+  <testcase name="requestedPageAndUserFieldsAreReturnedInJson()" classname="com.ngng.api.user.user.controller.AdminUserControllerContractTest" time="0.196"/>
+  <testcase name="omittedPageDefaultsToZeroAndReturnsEmptyPage()" classname="com.ngng.api.user.user.controller.AdminUserControllerContractTest" time="0.026"/>
+  <system-out><![CDATA[17:04:28.989 [Test worker] INFO org.hibernate.validator.internal.util.Version -- HV000001: Hibernate Validator 8.0.1.Final
+17:04:29.459 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+17:04:29.461 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+17:04:29.461 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+17:04:29.539 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; For input string: "invalid"]
+17:04:29.558 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+17:04:29.558 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+17:04:29.558 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+17:04:29.758 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+17:04:29.758 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+17:04:29.758 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
