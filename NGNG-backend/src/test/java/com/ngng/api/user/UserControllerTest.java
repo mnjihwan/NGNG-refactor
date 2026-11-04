@@ -231,7 +231,9 @@ public class UserControllerTest {
         String address = "떡잎마을";
         UserUpdateRequestDTO requestDto = new UserUpdateRequestDTO(
                 nickname,
-                address
+                address,
+                null,
+                null
         );
         String jsonStr = objectMapper.writeValueAsString(requestDto);
 

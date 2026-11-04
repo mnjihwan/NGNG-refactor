@@ -4,6 +4,8 @@
 
 ## 1. 기준 상태
 
+RF-001 구현 후 `NGNG-backend`에서 `./gradlew.bat --no-daemon compileTestJava` 성공. 기존 테스트 입력 생성자에 null 두 인자를 추가한 것 외 운영 코드 변경 없이 선택 테스트만 `./gradlew.bat --no-daemon test --tests 'com.ngng.api.user.user.service.UserServiceTest' --tests 'com.ngng.api.user.user.controller.AdminUserControllerContractTest'`로 실행했다. 결과 XML에서 서비스 5건·컨트롤러 3건, 총 8건 실패/오류/skip 0건을 확인했다. 기존 로컬 환경 작업의 미커밋 운영 코드 변경이 시작 전부터 있었으므로 HEAD만의 테스트 결과는 아니다. 실제 DB, 보안 필터, 전체 통합 테스트 및 build 성공을 뜻하지 않는다.
+
 | 저장소 | HEAD | 분석 시작 작업 트리 |
 |---|---|---|
 | NGNG-backend | `e0c81ade16b25ec683c24320100069fd0406e682` | git status --short 출력 없음 |
