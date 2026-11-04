@@ -1,0 +1,26 @@
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+.npmrc
+.netrc
+**/src/main/resources/application*.yml
+**/src/main/resources/application*.yaml
+**/src/main/resources/application*.properties
+**/src/test/resources/application*.yml
+**/src/test/resources/application*.yaml
+**/src/test/resources/application*.properties
+
+# Common local and generated files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
