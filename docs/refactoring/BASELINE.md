@@ -4,6 +4,12 @@
 
 ## 1. 기준 상태
 
+현재는 통합 저장소이며 2026-11-04 재확인 기준 HEAD는 `ab77676ae968354c47408002926119e3f3843c69`이다. 아래 표와 다음 두 문단은 통합 이전 분석 당시의 이력이다. 과거 세 커밋은 현재 객체 데이터베이스에서 확인되지 않아 현재 소스와 동일한지 검증하지 못했다.
+
+통합 이후 로컬 환경 작업에서 Java 17.0.10, Node 20.10.0, Gradle 8.7을 실행했고 양쪽 서버 `compileJava`는 성공했다. 백엔드 `compileTestJava`는 `UserControllerTest:232`의 DTO 2인자 생성자 불일치 1건으로 실패했다. 프런트 `npm ci`와 lint는 성공했으나 build는 백엔드가 없는 상태에서 상품 메타데이터 fetch에 실패했다. Docker 구성 구문은 검증했지만 WSL 2 가상화 제약으로 컨테이너와 서버 기동은 미검증이다. 이 결과는 아래의 이전 실행 기록과 별개다.
+
+이후 사용자 승인으로 독립 MySQL 8.0.35의 빈 `ngng_local`에 21개 테이블과 외래 키 31개를 생성했으며 양 서버의 엔티티별 Hibernate `validate`가 통과했다. 데이터 fixture와 전체 서버 실행은 검증하지 않았다. `local/schema.sql`은 이 스키마만 내보낸 개발용 SQL이다.
+
 RF-001 구현 후 `NGNG-backend`에서 `./gradlew.bat --no-daemon compileTestJava` 성공. 기존 테스트 입력 생성자에 null 두 인자를 추가한 것 외 운영 코드 변경 없이 선택 테스트만 `./gradlew.bat --no-daemon test --tests 'com.ngng.api.user.user.service.UserServiceTest' --tests 'com.ngng.api.user.user.controller.AdminUserControllerContractTest'`로 실행했다. 결과 XML에서 서비스 5건·컨트롤러 3건, 총 8건 실패/오류/skip 0건을 확인했다. 기존 로컬 환경 작업의 미커밋 운영 코드 변경이 시작 전부터 있었으므로 HEAD만의 테스트 결과는 아니다. 실제 DB, 보안 필터, 전체 통합 테스트 및 build 성공을 뜻하지 않는다.
 
 | 저장소 | HEAD | 분석 시작 작업 트리 |

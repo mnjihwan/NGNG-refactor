@@ -20,6 +20,9 @@ public class PhoneNumberAuthService {
     @Value("${message.from}")
     private String from;
 
+    @Value("${message.send-enabled:true}")
+    private boolean sendEnabled;
+
     public PhoneNumberAuthService(@Value("${message.key.api}")
                                   String apiKey,
                                   @Value("${message.key.secret}")
@@ -33,6 +36,10 @@ public class PhoneNumberAuthService {
     }
 
     public PhoneNumberAuthResponse sendMessage(PhoneNumberAuthRequest request) {
+
+        if (!sendEnabled) {
+            return PhoneNumberAuthResponse.fail();
+        }
 
         String phoneNumber = request.phoneNumber();
 

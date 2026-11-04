@@ -11,6 +11,12 @@
 *.keystore
 .npmrc
 .netrc
+.gradle-local/
+.npm-cache/
+.local-runtime/
+/local/backend.yml
+/local/chat.yml
+/local/*.private.md
 **/src/main/resources/application*.yml
 **/src/main/resources/application*.yaml
 **/src/main/resources/application*.properties

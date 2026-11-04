@@ -1,0 +1,51 @@
+server:
+  port: 8080
+  address: 127.0.0.1
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:13306/ngng_local?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: ngng
+    password: ${NGNG_MYSQL_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: true
+  redis:
+    host: 127.0.0.1
+    port: 16379
+  mail:
+    host: 127.0.0.1
+    port: 1025
+    username: local@example.invalid
+    properties:
+      mail.smtp.auth: false
+      mail.smtp.starttls.enable: false
+cloud:
+  aws:
+    credentials:
+      access-key: ${NGNG_MINIO_ROOT_USER}
+      secret-key: ${NGNG_MINIO_ROOT_PASSWORD}
+    region:
+      static: ap-northeast-2
+      auto: false
+    stack:
+      auto: false
+    s3:
+      bucket: ngng-local
+      endpoint: http://localhost:9000
+es:
+  host: localhost:19200
+  username: ""
+  password: ""
+jwt:
+  secret:
+    key: ${NGNG_JWT_SECRET}
+  expiration:
+    access: 3600000
+    refresh: 604800000
+message:
+  from: "01000000000"
+  send-enabled: false
+  key:
+    api: disabled-for-local-development
+    secret: disabled-for-local-development
