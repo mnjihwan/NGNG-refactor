@@ -11,7 +11,7 @@
 
 ## 2. 구조와 빌드
 
-루트는 Git 저장소가 아니며 세 프로젝트가 독립 Git 저장소다. 공통 분석 문서는 세 저장소의 Git 이력에 자동 포함되지 않는다.
+현재 루트는 세 프로젝트와 공통 분석 문서를 포함하는 단일 Git 저장소다. 과거 독립 저장소 분석 기준점은 BASELINE에 이력으로 보존한다.
 
 | 항목 | 확인한 내용 | 근거 |
 |---|---|---|
@@ -21,7 +21,7 @@
 | 프런트엔드 | Next.js 14.1.4, React 18 범위 의존성, TypeScript, SWR, STOMP | `NGNG-frontend/package.json` |
 | 채팅 | 별도 Java 17 / Boot 3.2.4; WebSocket, AMQP, JPA 의존성 | `NGNG-chat-server/build.gradle` |
 | 배포 | Docker 빌드에서 `build --exclude-task test`; 실행 시 외부 application-prod.yml과 TARGET 사용 | 백엔드 `Dockerfile:9-25` |
-| CI | develop push → 이미지 빌드/push → SSH deploy.sh; 별도 테스트 단계 없음 | 백엔드 `.github/workflows/deploy.yml` |
+| CI | 과거 배포 워크플로는 백엔드 하위 `.github/workflows/deploy.yml`에 위치; 통합 저장소에서 활성 여부는 미확인 | 백엔드 `.github/workflows/deploy.yml` |
 
 의존성은 Spring Web/Validation/Security/JPA/Redis/Elasticsearch/Mail, MySQL 드라이버, Lombok, JJWT 0.11.5, springdoc-openapi-ui 1.6.11, Thumbnailator 0.4.20, Spring Cloud AWS 2.2.6.RELEASE, Nurigo SDK 4.2.7, reactor-core다. 테스트는 starter-test와 spring-security-test다. 실제 해석된 전이 의존성·취약점은 미조사다. springdoc/AWS의 Boot 3 조합과 reactive Elasticsearch 설정/동기 검색 API의 빈 구성은 시작 검증 대상으로 남긴다. 현재 호환성 오류가 발생했다고 단정하지 않는다. 신규 라이브러리나 업그레이드는 이번 계획에 포함하지 않는다.
 

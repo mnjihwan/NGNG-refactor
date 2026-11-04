@@ -52,8 +52,14 @@ export default ({
       },
       {
         protocol: "http",
-        hostname: "localhost:3000",
-        port: "",
+        hostname: "localhost",
+        port: "9000",
+        pathname: "**",
+      },
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "3000",
         pathname: "**",
       },
       {

@@ -47,7 +47,7 @@ export default function MyInfo({ userInfo }: Props) {
         <div>
           <Image
             className="rounded-full"
-            src={"https://api.ngng.site/images/basicAvatar.png"}
+            src={process.env.NEXT_PUBLIC_AVATAR_URL || "https://api.ngng.site/images/basicAvatar.png"}
             width={300}
             height={300}
             alt="사용자 이미지"
