@@ -181,6 +181,13 @@
 - 격리/검증범위: Boot/application scan·실서비스설정/키·repository/외부client 없음. 합성키·명시bean·대역AuthenticationManager/probe endpoint 사용. 정상/실패/필수claim/만료·서명 및 실제 역할표21건·skip9건·인가403·재발급후403헤더·CORS/OPTIONS·연속요청컨텍스트·downstream예외 전파 확인. before/after·초기실패 XML/console 원본은 gitignored 로컬에 보존하고 비식별 공유 사본·소스snapshot·SHA256·환경은 [증빙](evidence/RF-005/README.md)에 보존했다.
 - 판정/한계: GPT-6 Astra / Medium 독립 리뷰에서 코드와 당시 원본 자료 22개 해시·링크를 검토해 확정 결함이 없었고 합의 범위 완료로 판정했다. 운영Boot/컨테이너HTTP·async/error dispatch·브라우저/cookie/프록시·실제업무/DB·정확 exp==현재·특이alg/nbf/iat·전체suite·성능은 미검증이다. [명세](tasks/RF-005.md)/증빙/백로그R5에 범위·근거·후속조건을 맞췄다. 추가검증·별도정책·RF004재개는 자동착수하지 않는다.
 
+## 2026-11-05 — RF-006 Long 소유자 비교 분석·계획
+
+- 상태: 정적 분석·계획 완료, 구현·실행 검증 대기. 기준 HEAD `2ef37de4ddb7a40e7b0b2e9c662c61d08b5b939a`, 분석 시작 clean. [명세](tasks/RF-006.md)·[증빙](evidence/RF-006/README.md) 신설 및 BACKLOG RF-006/R6만 변경했다.
+- 근거/결정: User ID 두 Long의 !=는 참조 비교다. Oracle JLS17/Long/Objects 공식 자료를 직접 확인하고, 값 동등 인스턴스를 상호교환하도록 권고하는 근거와 사용자 위임에 따라 두 비교만 Objects.equals로 수정하도록 계획했다. 역할·판매자 주체·401/DTO/트랜잭션·null/null 특성은 유지한다. 공식 자료를 새로운 업무 인가 정책의 승인 근거로 확대하지 않는다.
+- 호출/검증 설계: PUT controller→details service→AuthService email 재조회→상품 소유자/consumer 비교→상태 조회·setter→DTO. TokenFilter 비skip이므로 유효 인증이 필요하지만 서비스 role 제한/ADMIN 우회는 없다. 실제 AuthService와 대역 repository, 합성 JWT/명시 bean 체인에 역할3×소유권3조합 및 누락/실패·refresh를 계획했다. 별도 Long 객체를 명시 확인하고 작은 ID 캐시·동일 인스턴스만으로 성공하는 테스트를 피한다.
+- 수행/한계: 읽기/검색·git 상태와 HEAD·공식 문서 확인만 수행. 코드/테스트 변경·실행·DB 연결·브라우저·성능 측정 없음. 원시 읽기 출력은 대화 tool 결과뿐, XML·실행 로그 없음. 후일 실행은 새 자료로 보존한다. R6-격리/연동/정책에 미실행 사유·재개 조건 기록. RF-004 보류 유지, 다른 RF 착수 없음. 분석 담당자는 commit/merge/push를 하지 않았다.
+
 ## 이후 작업 기록 양식
 
 ## RF-NNN — 제목
@@ -192,3 +199,12 @@
 - 성능 변경 시 동일 조건의 측정 방법, 전후 결과 및 변동성:
 - diff와 독립 리뷰 결과, 조치 및 남은 문제:
 - 롤백 참고 사항:
+
+## 2026-11-05 — RF-006 최소 구현·선택 검증 (독립 리뷰 완료)
+
+- 기준 HEAD 2ef37de4ddb7a40e7b0b2e9c662c61d08b5b939a. 분석자가 작성한 RF006 문서 인계 후 같은 작업만 갱신했다. 운영 변경은 TransactionDetailsService Objects import와 비교2줄, 신규 fixture/서비스·standalone MVC/실제 security chain 테스트3파일이다. 역할/상품user·consumer 기준/ADMIN 비우회/&& 단락평가/null 특성/상태 조회·setter/DTO/트랜잭션을 유지한다. 새 의존성·스키마·설정·다른 저장소 수정 없음.
+- [명세](tasks/RF-006.md)·[증빙](evidence/RF-006/README.md)의 실제 명령/자료 참고. 최초 before 서비스24통과·체인 초기화1실패(property 누락) 자료 보존 후 합성 MapPropertySource 보정. 보정 before37/37로 서로 별도 Long 동일값 소유자401을 재현하고 after196/196(신규37+RF005118+거래41)통과했다. fail/error/skip0,5tasks 실제 실행으로 전체 test소스 compileTestJava도 성공. assemble exit0,3executed/2UP-TO-DATE. git diff --check 통과, 독립 리뷰 완료. 운영 빈도·성능 개선 주장은 없다.
+- Windows PowerShell/Oracle JDK17.0.10/Gradle8.7 기존 offline cache. 명시 SecurityConfig/JWT/filter/controller/service/실제AuthService와 mock repositories로 role3×소유권3, 인증미도달·refresh발급/status200 및 서비스/MVC null/단락평가·DTO/400/401/무변경을 확인했다. Boot/외부연결·transaction manager·실DB 없음. 원시 XML/console은 gitignored .local-runtime/rf006-raw, 공유 비식별 XML/console·before/after snapshot·SHA256 보존. 최초 실패 당시 전체 source snapshot은 미보존이며 chain source만 보존했다. JAVA_HOME stub 중단·sandbox cache lock 거부 후 자동승인 이력은 tool 결과이며 테스트 실패에 합산하지 않는다.
+- 구현·합의 선택 검증 및 독립 리뷰 완료. R6-격리/연동/정책에 반영했다. 실제 DB dirty checking/commit/rollback·OSIV/Boot HTTP·브라우저·프록시·외부연동/전체suite·성능은 미실행이며 대역/MockMvc/assemble 성공을 운영 보장으로 해석하지 않는다. 별도 지시와 안전 격리환경/fixture/외부연결 차단 후 추가 검증, 정책 변경은 별도 결정. RF004 보류·실DB 실패 상태를 해소/재개하지 않았고 다른 RF 자동 착수 없음. rollback은 해당 비교/import·신규 테스트/문서 변경만 검토하며 전체 reset 금지. 구현 담당자 commit/merge/push 없음.
+
+- RF-006 최종 독립 리뷰: 부모 담당자가 운영 코드·테스트 및 before37/after196 XML·초기 harness 실패와 보정을 확인해 수정 필요 결함이 없다고 보고했다. null/역할/단락평가 유지 및 실제 DB/Boot HTTP·브라우저·성능 미검증 구분 확인. 합의된 최소 변경·선택 검증·독립 리뷰 범위 완료이며 R6 잔여 항목은 유지한다.

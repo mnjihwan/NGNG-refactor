@@ -1,0 +1,168 @@
+package com.ngng.api.transaction.status;
+
+import com.ngng.api.global.security.config.SecurityConfig;
+import com.ngng.api.global.security.handler.CustomLogoutHandler;
+import com.ngng.api.global.security.handler.CustomLogoutSuccessHandler;
+import com.ngng.api.global.security.jwt.util.JwtTokenProvider;
+import com.ngng.api.global.security.jwt.util.JwtTokenVerifier;
+import com.ngng.api.product.product.repository.ProductRepository;
+import com.ngng.api.transaction.controller.TransactionController;
+import com.ngng.api.transaction.entity.TransactionDetails;
+import com.ngng.api.transaction.entity.TransactionStatus;
+import com.ngng.api.transaction.repository.TransactionDetailsRepository;
+import com.ngng.api.transaction.repository.TransactionStatusRepository;
+import com.ngng.api.transaction.service.TransactionDetailsService;
+import com.ngng.api.transaction.service.TransactionRequestService;
+import com.ngng.api.user.user.entity.User;
+import com.ngng.api.user.user.repository.UserRepository;
+import com.ngng.api.user.user.service.AuthService;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.io.Decoders;
+import io.jsonwebtoken.io.Encoders;
+import io.jsonwebtoken.security.Keys;
+import jakarta.servlet.http.Cookie;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
+import org.springframework.context.annotation.*;
+import org.springframework.mock.web.MockServletContext;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.test.util.ReflectionTestUtils;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import java.nio.charset.StandardCharsets;
+import java.util.Date;
+import java.util.Optional;
+import static com.ngng.api.transaction.status.StatusFixture.*;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+/** Actual SecurityConfig/filter/JWT/controller/service/AuthService, with repository mocks only.
+ * No Boot scan, application properties, datasource, network client, or transaction manager. */
+class TransactionStatusSecurityChainTest {
+    static final String SECRET = Encoders.BASE64URL.encode(
+            "rf006-synthetic-key-only-64-bytes-abcdefghijklmnopqrstuvwxyz-123456".getBytes(StandardCharsets.UTF_8));
+    static final String EMAIL = "rf006@example.test";
+    static AnnotationConfigWebApplicationContext context;
+    static MockMvc mvc;
+    TransactionDetailsRepository details;
+    TransactionStatusRepository statuses;
+    UserRepository users;
+    TransactionDetails transaction;
+    TransactionStatus next;
+    @BeforeAll static void start() {
+        context = new AnnotationConfigWebApplicationContext();
+        context.getEnvironment().getPropertySources().addFirst(new org.springframework.core.env.MapPropertySource(
+                "rf006-test-only", java.util.Map.of("jwt.expiration.access", "3600000", "jwt.expiration.refresh", "7200000")));
+        context.setServletContext(new MockServletContext());
+        context.register(IsolatedConfiguration.class);
+        context.refresh();
+        mvc = MockMvcBuilders.webAppContextSetup(context).apply(springSecurity()).build();
+    }
+    @AfterAll static void stop() { context.close(); }
+    @BeforeEach void setup() {
+        SecurityContextHolder.clearContext();
+        details = context.getBean(TransactionDetailsRepository.class);
+        statuses = context.getBean(TransactionStatusRepository.class);
+        users = context.getBean(UserRepository.class);
+        reset(details, statuses, users);
+        transaction = graph(distinctId(1000), distinctId(2000));
+        next = new TransactionStatus(4L, "completed");
+        when(details.findById(88L)).thenReturn(Optional.of(transaction));
+        when(statuses.findById(4L)).thenReturn(Optional.of(next));
+    }
+    @AfterEach void contextCleared() { assertNull(SecurityContextHolder.getContext().getAuthentication()); }
+    void caller(long id) {
+        User caller = user(distinctId(id));
+        when(users.findUserByEmail(EMAIL)).thenAnswer(invocation -> {
+            // Token principal carries no ID: AuthService must resolve by the token email.
+            var principal = (com.ngng.api.global.security.custom.CustomUserDetails)
+                    SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            assertNull(principal.getUser().getUserId());
+            return Optional.of(caller);
+        });
+        if (id == 1000) separateEqual(transaction.getProduct().getUser().getUserId(), caller.getUserId());
+        if (id == 2000) separateEqual(transaction.getConsumer().getUserId(), caller.getUserId());
+    }
+    static String token(String type, String role, long seconds) {
+        return Jwts.builder().setSubject(EMAIL).claim("role", role).claim("type", type)
+                .setExpiration(new Date(System.currentTimeMillis() + seconds * 1000))
+                .signWith(Keys.hmacShaKeyFor(Decoders.BASE64URL.decode(SECRET))).compact();
+    }
+    org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder update() {
+        return put("/transaction/88").contentType("application/json").content("{\"statusId\":4}");
+    }
+    @ParameterizedTest @CsvSource({
+            "USER,1000", "USER,2000", "USER,4000", "ADMIN,1000", "ADMIN,2000", "ADMIN,4000",
+            "UNCONFIRMED_USER,1000", "UNCONFIRMED_USER,2000", "UNCONFIRMED_USER,4000"})
+    void roleAndOwnershipMatrixCurrentlyRejectsSeparateEqualIds(String role, long id) throws Exception {
+        caller(id);
+        mvc.perform(update().header("Authorization", "Bearer " + token("access", role, 3600)))
+                .andExpect(status().isUnauthorized());
+        verify(users).findUserByEmail(EMAIL);
+        verify(details).findById(88L);
+        verifyNoInteractions(statuses);
+        assertEquals(1L, transaction.getStatus().getId());
+        verify(details, never()).save(any());
+    }
+    @ParameterizedTest @ValueSource(strings = {"missing", "malformed"})
+    void authenticationFailureNeverReachesRepositories(String credentials) throws Exception {
+        var request = update();
+        if (credentials.equals("malformed")) request.header("Authorization", "Bearer broken");
+        mvc.perform(request).andExpect(status().isUnauthorized()).andExpect(content().string(""))
+                .andExpect(header().doesNotExist("Authorization"));
+        verifyNoInteractions(details, users, statuses);
+    }
+    @ParameterizedTest @ValueSource(strings = {"missing", "expired"})
+    void refreshFallbackReachesActualEndpointButSeparateIdsCurrentlyDenied(String access) throws Exception {
+        caller(2000);
+        var request = update().cookie(new Cookie("refreshToken", token("refresh", "USER", 3600)));
+        if (access.equals("expired")) request.header("Authorization", "Bearer " + token("access", "USER", -3600));
+        var result = mvc.perform(request).andExpect(status().isUnauthorized())
+                .andExpect(header().string("Authorization", org.hamcrest.Matchers.startsWith("Bearer "))).andReturn();
+        String issued = result.getResponse().getHeader("Authorization");
+        var verifier = context.getBean(JwtTokenVerifier.class);
+        assertEquals(EMAIL, verifier.getEmail(issued));
+        assertEquals("access", verifier.getType(issued));
+        verify(users).findUserByEmail(EMAIL);
+        verifyNoInteractions(statuses);
+    }
+    @Configuration @EnableWebMvc @EnableWebSecurity @Import(SecurityConfig.class)
+    static class IsolatedConfiguration {
+        @Bean @Primary AuthenticationConfiguration authenticationConfiguration() throws Exception {
+            var config = mock(AuthenticationConfiguration.class);
+            when(config.getAuthenticationManager()).thenReturn(mock(AuthenticationManager.class));
+            return config;
+        }
+        @Bean JwtTokenVerifier verifier() { return new JwtTokenVerifier(SECRET); }
+        @Bean JwtTokenProvider provider() {
+            var provider = new JwtTokenProvider(SECRET);
+            ReflectionTestUtils.setField(provider, "accessTokenExpirationMs", 3_600_000);
+            return provider;
+        }
+        @Bean CustomLogoutHandler logoutHandler() { return new CustomLogoutHandler(); }
+        @Bean CustomLogoutSuccessHandler logoutSuccessHandler() { return new CustomLogoutSuccessHandler(); }
+        @Bean TransactionDetailsRepository details() { return mock(TransactionDetailsRepository.class); }
+        @Bean TransactionStatusRepository statuses() { return mock(TransactionStatusRepository.class); }
+        @Bean ProductRepository products() { return mock(ProductRepository.class); }
+        @Bean UserRepository users() { return mock(UserRepository.class); }
+        @Bean AuthService authService(UserRepository users) { return new AuthService(users); }
+        @Bean TransactionDetailsService service(TransactionDetailsRepository details, TransactionStatusRepository statuses,
+                                               ProductRepository products, AuthService auth) {
+            return new TransactionDetailsService(details, statuses, products, auth);
+        }
+        @Bean TransactionRequestService requests() { return mock(TransactionRequestService.class); }
+        @Bean TransactionController controller(TransactionDetailsService service, TransactionRequestService requests) {
+            return new TransactionController(service, requests);
+        }
+    }
+}
