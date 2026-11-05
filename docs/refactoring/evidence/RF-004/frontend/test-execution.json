@@ -1,0 +1,5 @@
+{
+  "command": "node --test tests/rf004-transaction-request.test.cjs",
+  "exitCode": 0,
+  "purpose": "Requested durable evidence rerun; prior sandbox TEMP logs unavailable after execution"
+}

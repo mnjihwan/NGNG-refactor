@@ -102,13 +102,13 @@ const usePrivateChatMessage = ({
     requestId: number;
     isAccepted: boolean;
   }) => {
-    mutate(
-      async (prev: PrivateChat | undefined) => {
-        const update = await updateTransactionRequestAPI({
-          isAccepted,
-          transactionRequestId: requestId,
-        });
+    await updateTransactionRequestAPI({
+      isAccepted,
+      transactionRequestId: requestId,
+    });
 
+    return mutate(
+      (prev: PrivateChat | undefined) => {
         return isAccepted
           ? ({
               ...prev,

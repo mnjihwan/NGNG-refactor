@@ -154,8 +154,17 @@ export const updateTransactionRequestAPI = async ({
       transactionRequestId,
       isAccepted,
     }),
-  }).then((res) => {
+  }).then(async (res) => {
     setAccessToken(res);
-    return res.json();
+    if (!res.ok) throw new Error("거래 요청 처리에 실패했습니다.");
+    const requestId: unknown = await res.json();
+    if (
+      typeof requestId !== "number" ||
+      !Number.isInteger(requestId) ||
+      requestId <= 0
+    ) {
+      throw new Error("거래 요청 처리 결과가 올바르지 않습니다.");
+    }
+    return requestId;
   });
 };

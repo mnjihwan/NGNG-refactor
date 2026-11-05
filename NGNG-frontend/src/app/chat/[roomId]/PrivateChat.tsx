@@ -61,30 +61,38 @@ export default function PrivateChat({ userId }: Props) {
       });
   };
 
-  const onAccept = () => {
+  const onAccept = async () => {
     const request = data?.request;
 
     request &&
-      updateTransactionRequest({
+      await updateTransactionRequest({
         requestId: request?.requestId,
         isAccepted: true,
-      }).then(() => {
-        setRequestProcessModalOpen(false);
-        mutate("/chat/private-chat/chat-room-id/user-id");
-      });
+      })
+        .then(() => {
+          setRequestProcessModalOpen(false);
+          mutate("/chat/private-chat/chat-room-id/user-id");
+        })
+        .catch(() => {
+          alert("거래 요청 수락에 실패했습니다. 다시 시도해 주세요.");
+        });
   };
 
-  const onDismiss = () => {
+  const onDismiss = async () => {
     const request = data?.request;
     // console.log("dismiss", request);
     request &&
-      updateTransactionRequest({
+      await updateTransactionRequest({
         requestId: request?.requestId,
         isAccepted: false,
-      }).then(() => {
-        setRequestProcessModalOpen(false);
-        mutate("/chat/private-chat/chat-room-id/user-id");
-      });
+      })
+        .then(() => {
+          setRequestProcessModalOpen(false);
+          mutate("/chat/private-chat/chat-room-id/user-id");
+        })
+        .catch(() => {
+          alert("거래 요청 거절에 실패했습니다. 다시 시도해 주세요.");
+        });
   };
   console.log("data", data);
   if (isLoading || data === undefined) {

@@ -1,0 +1,5 @@
+{
+  "command": "npx --offline next lint --file src/app/chat/_api.ts --file src/app/chat/_hooks/usePrivateChatMessgae.ts --file 'src/app/chat/[roomId]/PrivateChat.tsx'",
+  "exitCode": 0,
+  "purpose": "Requested durable evidence rerun; prior sandbox TEMP logs unavailable after execution"
+}

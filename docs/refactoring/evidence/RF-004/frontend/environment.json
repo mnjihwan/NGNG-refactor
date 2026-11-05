@@ -1,0 +1,9 @@
+{
+  "recordedAtUtc": "2026-11-05T00:37:21.5538588Z",
+  "node": "v20.10.0",
+  "npm": "10.2.3",
+  "typescript": "5.4.5",
+  "swr": "2.2.5",
+  "redaction": "No redaction needed: durable logs checked for personal absolute paths, machine name, and token values; none present.",
+  "priorEvidence": "Before-change 2-fail/29-skip baseline and intermediate SWR-error-revalidation 1-fail/30-skip are tool-output-only, not preserved raw logs. These durable logs are a later rerun of the final source."
+}

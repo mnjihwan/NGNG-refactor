@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-11-05T09:47:06.8740741+09:00",
+  "processId": 22580,
+  "loopbackListener": true,
+  "mysqldExecutableMatch": true,
+  "privateDatadirMatch": true,
+  "database": {
+    "db": "ngng_local",
+    "port": 13306,
+    "tags": 0,
+    "roles": 0,
+    "users": 0,
+    "images": 0,
+    "points": 0,
+    "account": "redacted",
+    "details": 0,
+    "version": "8.0.35",
+    "products": 0,
+    "requests": 0,
+    "isolation": "REPEATABLE-READ",
+    "categories": 0,
+    "thumbnails": 0,
+    "product_statuses": 0,
+    "transaction_statuses": 0
+  }
+}

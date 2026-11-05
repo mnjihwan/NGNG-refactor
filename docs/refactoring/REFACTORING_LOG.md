@@ -1,6 +1,6 @@
 # 리팩토링 작업 기록
 
-2026-11-05 최신 상태: RF-001 완료, RF-002 최소 구현·오프라인 검증 후 전체 미완료, RF-003 합의된 기능 검증·독립 리뷰 완료. 각 날짜의 계획·미완료·유예 기록은 당시 이력이며 최신 한계와 후속 조건은 해당 명세·증빙 및 BACKLOG 잔여 목록을 따른다.
+2026-11-05 최신 상태: RF-001 완료, RF-002 최소 구현·오프라인 검증 후 전체 미완료, RF-003 합의된 기능 검증·독립 리뷰 완료, RF-004는 실제 DB 관리 상태 정합성 실패로 사용자 지시 보류·전체 미완료/배포 부적합. 각 날짜의 계획·미완료·유예 기록은 당시 이력이며 최신 한계와 후속 조건은 해당 명세·증빙 및 BACKLOG 잔여 목록을 따른다.
 
 ## 2026-11-04 — 백엔드 사전 분석
 
@@ -125,6 +125,29 @@
 - 상태 정합성: RF-002는 이후 RF-003 작은 MySQL fixture의 단건/batch 결과 교차 확인만 추가됐다. 관리자 페이지 실DB 통합·동시 읽기 및 사용자 유예 성능 조건은 남아 전체 미완료다. RF-003 공통 role 기능 검증 완료와 운영 HTTP/브라우저/다른 writer/성능 한계를 분리했다.
 - 후속 추적: [BACKLOG 잔여 목록](BACKLOG.md#완료-후-잔여-검증별도-후보)에 근거·상태·재개 조건을 연결했다. RF-003 멱등성과 결제 성공 후 거래 상태 변경 실패의 원자성은 별도 정책·기능 후보이며 담당·일정·구현 승인을 정하지 않았다.
 - 검증: 기존 명세·로그·보존 자료와 수정 문서의 diff 및 상대 링크·추적 항목 대응을 확인하는 문서 검토만 수행했다. 애플리케이션/테스트/설정·스키마/의존성은 변경하지 않았고 테스트·DB 접속·성능 측정·commit/push는 하지 않았다. 최초 원시 자료 공백과 운영 검증 미완료 상태는 이 보완으로 해소되지 않는다.
+
+## 2026-11-05 — RF-004 분석 및 정책 반영
+
+- 상태·기준: 계획, 기능 전체 미완료. HEAD `63435d19dfd9fb0ac3488db5e9668b0f85bf0cc6`, 분석 시작 clean. 루트 지침·README/BACKLOG/TEMPLATE, 관련 RF 명세·증빙과 backend/frontend/chat-server 호출자를 읽고 [RF-004 명세](tasks/RF-004.md)·[증빙 README](evidence/RF-004/README.md)를 작성했다.
+- 확인 사실: request.update는 이미 Transactional이지만 상태 검사·명시적 잠금 없이 거래를 생성한다. 직접 POST `/transaction`이 같은 DetailsService.create를 호출해 수락만 보호하면 우회 경로가 남는다. local/schema.sql에는 details.product_id UNIQUE가 있으나 현재 실DB·운영 제약은 미확인이다. 중복 저장·제약 오류·교착은 실제 재현하지 않았다.
+- 사용자 결정: 최초 초안은 정책 답변 대기였고 이후 동일 수락 재요청은 구매자/가격 일치 시 무쓰기 기존200, 직접 생성 최소 보호·검증 및 frontend의 실패 시 성공 처리 방지 최소 수정·검증을 승인받았다. 충돌 코드는 에이전트 판단에 위임돼409를 선택했다. 이미 확정된 같은 상품의 거래/요청 상태 충돌을 표현하며 기존 미존재404·최초 정상200/201은 유지한다. 인증인가·스키마·추가 작업 승인은 없다.
+- 계획: 상품 PK를 공통 잠금 기준으로 삼고 잠금 뒤 request/details 최신 상태를 검사한다. RR snapshot·관리 엔티티 stale·eager 연관 잠금 범위, 다른 상품 독립성, 실제 flush/rollback 및 직접 생성 경합을 검증한다. frontend API res.ok 검사·hook Promise 전파·화면 실패 처리의 최소 범위를 명시했다.
+- DB 안전 조건: 현재 대상/제약/기존 행 재확인과 RF-004 전용 fixture 범위 합의 선행. 상품 연관 fixture 및 hardcode transaction_status ID1의 존재/의미·소유권을 확인하고 기존행 수정/삭제 금지. 실행 marker+PK+연관 소유권으로 worker 종료 뒤 이번 행만 FK 순서로 정리하고 새 연결에서 잔여0·기존행 불변을 확인한다. RF-003 user/point/role 승인을 확대하지 않는다.
+- 수행/한계: 소스·기존 테스트·로컬 DDL 파일 읽기와 git 상태/HEAD 확인만 했다. 코드/테스트 수정·test/build·서버/브라우저·DB 접속/쓰기·cleanup·성능 테스트는 하지 않았다. 원시 테스트 XML/실행 로그가 아직 없으며 통과로 기록하지 않는다. 별도 원시 분석 명령 로그는 보존하지 않았고 근거 경로·HEAD·서술을 명세에 남겼다.
+- 다음 단계: 승인된 최소 구현·오프라인 검증으로 진행 가능. 실DB는 대상·fixture 범위 확인 및 사전 안전 리뷰 후 수행하며 결과의 독립 리뷰가 필요하다. 운영/HTTP/브라우저·다른 writer·성능 한계와 범위 밖 후보는 BACKLOG R4 항목에서 추적한다. 후속 후보 자동 착수·commit/push는 없다. 롤백은 RF-004 diff만 선택 복구한다.
+
+## 2026-11-05 — RF-004 구현·실DB 결함 확인 및 사용자 보류
+
+- 상태: **사용자 지시 보류, 전체 미완료·현재 변경 배포 부적합**. 기준 HEAD `63435d19dfd9fb0ac3488db5e9668b0f85bf0cc6`와 초기 문서 변경을 보존했다. 자동 commit/push·배포·코드 롤백은 하지 않았다.
+- 승인 확장: 기존200/201·ID/DTO/Location과 미존재/입력 실패 경계를 보존하며 같은 요청 일치 재수락 무쓰기200·충돌409·직접생성 최소보호·frontend실패처리를 구현했다. 별도 격리fixture 및 부재 transaction_status1 생성/정리는 사용자 승인·사전 안전 리뷰 후 실행했다. 첫 DB 실패 설명 후 쓰기tx 유지+짧은 별도 RC readOnly reader/추가연결 설계·검증도 승인받았다. 스키마/의존성/인가·pool설정·성능 변경 승인은 없다.
+- 구현: 상품 PK scalar lock, 잠금 후 최신 scalar 검사, conditional native UPDATE와 VM timestamp bind. 초기 부재 details FOR UPDATE/sibling product_id 범위 UPDATE에서 다른상품 gap/next-key 충돌이 재현돼, own-visible+별도 committed ID union 및 details 정확PK current read/각 요청 정확PK update로 수정했다. 쓰기와 DTO매핑·rollback은 기존 write tx에 남겼다. frontend3파일은 status/숫자검사·Promise전파·실패표시/성공재조회 최소변경. chat-server는 수정하지 않았다.
+- 기준선·오프라인: 변경 전 request mock5건 통과 및 원문/XML 보존. 반복 create 재호출·수락→거절덮어쓰기는 당시 결함 특성이고 실제중복DB행 증거는 아니다. 직접create/MVC 변경 전 별도실행 미확보. 초기리뷰보정38건 XML은 after-initial, reader수정41건(Policy26/Creation15)fail/error/skip0 XML은 after 보존, 전체compileTestJava 성공. frontend31건/lint경고0/tsc 통과 TAP·로그·환경 보존. 명령은 [증빙 README](evidence/RF-004/README.md)를 따른다.
+- 실행 이력: opt-in 비활성18/20/27/29건은 skip이며 통과로 세지 않는다. 최초 실제시도는 Java process commandLine 조회 불가로 연결 전 guard초기화1실패·fixture0. read-only CIM fallback을 독립재리뷰한 뒤 재개했다. 최초 실제MySQL8.0.35/RR/InnoDB20건은17통과/3실패로 다른상품 request PK lock1205, details insert1205/1213을 확인했다. reader수정29건은27통과/2실패, gap독립성3개·별도reader실제connection/RC/readOnly·상위tx own rows/재호출/rollback은 통과했다.
+- **남은 실제 결함**: 승인된 service proxy를 상위tx에서 사용하여 미리관리된 Product/Request를 수락 후 unrelated field수정/flush하면 전체컬럼 dirty UPDATE가 native 변경을 덮어쓴다. 별도 새읽기에서 거래가 생성돼도 상품forSale=true·선택요청isAccepted=null이 남음을 재현했다. sibling은 selected assertion 실패에서 중단돼 실제값 미증빙이며 운영HTTP재현/발생빈도도 미검증. 이는 범위밖후보가 아니라 완료차단·배포보류 사유다.
+- 정리·증빙: 각실행 worker종료→marker+생성PK+연관소유권 기반 자식부터 정확행 삭제commit→새CLI 관련count0을 확인했다. status1은 시작부재라 테스트소유1행만 생성/정리, 기존행재사용분기 미실행. 원본은 `local/rf004-results/`에 보존, 이경로는 초기에는 untracked였고 이번 `.gitignore`로 제외했다. 정제 공유본XML/log/전후JSON·29실행당시운영5/테스트2소스와SHA256은 evidence/mysql에 보존했다. hostname/account/개인경로를 정제했고 datadir/password원문은 공유하지 않는다.
+- 실행후차이:29건 뒤 testclass assertAccepted의 soft assertion·정확2행검사 보강은 **미컴파일·미실행**. 기존29XML은 당시보존소스에만 해당한다. 초기 Mockito3실패·frontendbaseline/중간실패 원시로그 일부는 미보존이며 후일성공을 최초증빙으로 소급하지 않는다.
+- 검토대안/제약: 실제변경1행만 무락refresh하는 방식은 affected0/반복무쓰기·오래된RR 상태까지 해결하지 못한다. 단순setter/clear/detach/잠금refresh는 불필요쓰기·caller변경유실·eager/gap위험, 전역DynamicUpdate는 모든writerSQL영향/관리getterstale가 남는다. HibernateEntityEntry.loadedState와보호필드동시정렬 helper는 내부SPI/버전·auto-flush·유지보수부담이 있다. 사용자는 내부API추가설계/구현/검증을 하지말고 현재결과기록후보류하도록 명시했다. 어떤대안도 구현/검증하지 않았다. 추가reader의poolstarvation도 미검증·pool설정변경없음이다.
+- 중단·재개조건: 보류지시 이후 운영/테스트수정·재실행·DB접속/쓰기를 중단하고 문서/증빙보존만 마무리한다. 재개를 명시지시받고 설계를 합의한 뒤 affected1/0·반복무쓰기·관리객체/outerrollback·gap/reader·cleanup을 재검증하고 독립리뷰해야 완료판정가능하다. HTTP/브라우저·외부writer·성능/운영pool은 미검증으로 [BACKLOG](BACKLOG.md)의 R4-기능/연결/연동/운영/성능에서 추적한다. 추가후보 자동착수없음.
 
 ## 이후 작업 기록 양식
 

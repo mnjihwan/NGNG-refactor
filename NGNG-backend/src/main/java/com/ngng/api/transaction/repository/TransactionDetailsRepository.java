@@ -6,11 +6,34 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Isolation;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface TransactionDetailsRepository extends JpaRepository<TransactionDetails,Long> {
+
+    @Query("SELECT d.id FROM TransactionDetails d WHERE d.product.productId = :productId")
+    List<Long> findVisibleIdsByProductId(@Param("productId") Long productId);
+
+    // A short independent read avoids the outer RR snapshot without gap locks.
+    // The caller retains its product lock and merges its own uncommitted IDs.
+    @Transactional(propagation = Propagation.REQUIRES_NEW, isolation = Isolation.READ_COMMITTED, readOnly = true)
+    @Query("SELECT d.id FROM TransactionDetails d WHERE d.product.productId = :productId")
+    List<Long> findCommittedIdsByProductId(@Param("productId") Long productId);
+
+    @Query(value = "SELECT transaction_details_id AS id, consumer_id AS buyerId, seller_id AS sellerId, price AS price FROM transaction_details WHERE transaction_details_id = :detailsId FOR UPDATE", nativeQuery = true)
+    Optional<AcceptanceDetails> lockAcceptanceDetailsById(@Param("detailsId") Long detailsId);
+
+    interface AcceptanceDetails {
+        Long getId();
+        Long getBuyerId();
+        Long getSellerId();
+        Long getPrice();
+    }
 
 
 
