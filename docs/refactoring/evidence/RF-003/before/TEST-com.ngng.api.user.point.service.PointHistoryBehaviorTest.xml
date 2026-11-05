@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.user.point.service.PointHistoryBehaviorTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-11-04T08:51:33" hostname="redacted" time="0.048">
+  <properties/>
+  <testcase name="checkDoesNotAppendHistory()" classname="com.ngng.api.user.point.service.PointHistoryBehaviorTest" time="0.009"/>
+  <testcase name="signupStillCreatesZeroBalanceHistory()" classname="com.ngng.api.user.point.service.PointHistoryBehaviorTest" time="0.009"/>
+  <testcase name="chargePreservesHistoryFields()" classname="com.ngng.api.user.point.service.PointHistoryBehaviorTest" time="0.02"/>
+  <testcase name="paymentPreservesPositiveAddCostAndDescription()" classname="com.ngng.api.user.point.service.PointHistoryBehaviorTest" time="0.005"/>
+  <system-out><![CDATA[1000
+200
+17:51:33.256 [Test worker] INFO point-log -- Success Create PointHistory id: null User : 7 
+17:51:33.288 [Test worker] INFO point-log -- Success Charge Point UserId: 7 cost : 200 
+17:51:33.289 [Test worker] INFO point-log -- Success Payment Point UserId: 7 ProductId : 42 cost : 200 
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

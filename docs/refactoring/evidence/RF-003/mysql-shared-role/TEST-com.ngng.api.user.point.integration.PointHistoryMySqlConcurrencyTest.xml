@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.user.point.integration.PointHistoryMySqlConcurrencyTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2026-11-05T00:01:27" hostname="redacted" time="6.58">
+  <properties/>
+  <testcase name="concurrentChargeAndPaymentKeepCompleteChain()" classname="com.ngng.api.user.point.integration.PointHistoryMySqlConcurrencyTest" time="0.257"/>
+  <testcase name="realDatabasePoliciesRejectWithoutWritesAndAllowExactMaximumBalancePayment()" classname="com.ngng.api.user.point.integration.PointHistoryMySqlConcurrencyTest" time="0.246"/>
+  <testcase name="formerReadComputeAppendAlgorithmReproducesLostChargeWithBothReadsCompleted()" classname="com.ngng.api.user.point.integration.PointHistoryMySqlConcurrencyTest" time="0.079"/>
+  <testcase name="concurrentInsufficientPaymentsAllowOnlyOneEvenWhenBothChecksPassed()" classname="com.ngng.api.user.point.integration.PointHistoryMySqlConcurrencyTest" time="0.106"/>
+  <testcase name="concurrentPaymentsWithEnoughBalanceKeepCompleteChain()" classname="com.ngng.api.user.point.integration.PointHistoryMySqlConcurrencyTest" time="0.075"/>
+  <testcase name="sameRoleUserCompletesWhileFirstUserHoldsItsLockAndUncommittedAppend()" classname="com.ngng.api.user.point.integration.PointHistoryMySqlConcurrencyTest" time="0.17"/>
+  <testcase name="mixedInsufficientBoundaryMatchesActualSerialOutcome()" classname="com.ngng.api.user.point.integration.PointHistoryMySqlConcurrencyTest" time="0.076"/>
+  <testcase name="waitingWriterUsesCurrentBalanceDespiteEarlierRrSnapshotAndManagedHistory()" classname="com.ngng.api.user.point.integration.PointHistoryMySqlConcurrencyTest" time="0.066"/>
+  <testcase name="joinedTransactionRollbackOnlyDiscardsAppendAndReleasesLock()" classname="com.ngng.api.user.point.integration.PointHistoryMySqlConcurrencyTest" time="0.082"/>
+  <testcase name="flushedAppendRollsBackOnFailureAndNextRequestAcquiresLock()" classname="com.ngng.api.user.point.integration.PointHistoryMySqlConcurrencyTest" time="0.081"/>
+  <testcase name="concurrentChargesKeepCompleteBalanceChain()" classname="com.ngng.api.user.point.integration.PointHistoryMySqlConcurrencyTest" time="0.067"/>
+  <testcase name="lockTimeoutRejectsWaitingPaymentWithoutAppendAndAllowsNextRequest()" classname="com.ngng.api.user.point.integration.PointHistoryMySqlConcurrencyTest" time="5.138"/>
+  <testcase name="repeatedRequestsRemainIndependentAndExistingSingleAndBatchReadsAgree()" classname="com.ngng.api.user.point.integration.PointHistoryMySqlConcurrencyTest" time="0.129"/>
+  <system-out><![CDATA[09:01:24.496 [Test worker] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate -- Multiple Spring Data modules found, entering strict repository configuration mode
+09:01:24.500 [Test worker] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate -- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+09:01:24.634 [Test worker] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate -- Finished Spring Data repository scanning in 125 ms. Found 3 JPA repository interfaces.
+09:01:24.818 [Test worker] INFO org.hibernate.jpa.internal.util.LogHelper -- HHH000204: Processing PersistenceUnitInfo [name: default]
+09:01:24.869 [Test worker] INFO org.hibernate.Version -- HHH000412: Hibernate ORM core version 6.4.4.Final
+09:01:24.900 [Test worker] INFO org.hibernate.cache.internal.RegionFactoryInitiator -- HHH000026: Second-level cache disabled
+09:01:25.151 [Test worker] INFO org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo -- No LoadTimeWeaver setup: ignoring JPA class transformer
+09:01:25.636 [Test worker] INFO org.hibernate.validator.internal.util.Version -- HV000001: Hibernate Validator 8.0.1.Final
+09:01:26.311 [Test worker] INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+09:01:26.354 [Test worker] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean -- Initialized JPA EntityManagerFactory for persistence unit 'default'
+09:01:26.703 [Test worker] INFO org.springframework.data.jpa.repository.query.QueryEnhancerFactory -- Hibernate is in classpath; If applicable, HQL parser will be used.
+RF003 verified: db=ngng_local port=13306 account=ngng@127.0.0.1 version=8.0.35 isolation=REPEATABLE-READ InnoDB datadir-match=true shared-role=true role-id=1 role-marker=rf003_5fadb59b957d4779b98684221cd17097_role original-role-rows=0 run=rf003_5fadb59b957d4779b98684221cd17097
+09:01:27.526 [pool-1-thread-1] INFO point-log -- Success Charge Point UserId: 16 cost : 100 
+09:01:27.534 [pool-1-thread-2] INFO point-log -- Success Payment Point UserId: 16 ProductId : 42 cost : 200 
+09:01:27.776 [Test worker] INFO point-log -- Success Payment Point UserId: 17 ProductId : 42 cost : 9223372036854775807 
+RF003 legacy reproduction: both-before=1000 latest=1100 expected=1300
+09:01:27.989 [pool-3-thread-2] INFO point-log -- Success Payment Point UserId: 19 ProductId : 42 cost : 80 
+09:01:28.057 [pool-4-thread-2] INFO point-log -- Success Payment Point UserId: 20 ProductId : 42 cost : 200 
+09:01:28.064 [pool-4-thread-1] INFO point-log -- Success Payment Point UserId: 20 ProductId : 42 cost : 100 
+09:01:28.197 [pool-5-thread-2] INFO point-log -- Success Charge Point UserId: 22 cost : 200 
+RF003 shared-role independence: role-id=1 role-marker=rf003_5fadb59b957d4779b98684221cd17097_role first-user=21 second-user=22 both-authenticated-role-match=true B-committed=1200 A-uncommitted=true run=rf003_5fadb59b957d4779b98684221cd17097
+09:01:28.219 [pool-5-thread-1] INFO point-log -- Success Charge Point UserId: 21 cost : 100 
+09:01:28.301 [pool-6-thread-1] INFO point-log -- Success Charge Point UserId: 23 cost : 100 
+09:01:28.310 [pool-6-thread-2] INFO point-log -- Success Payment Point UserId: 23 ProductId : 42 cost : 150 
+09:01:28.368 [pool-7-thread-1] INFO point-log -- Success Charge Point UserId: 24 cost : 100 
+09:01:28.368 [pool-7-thread-2] INFO point-log -- Success Charge Point UserId: 24 cost : 200 
+09:01:28.434 [Test worker] INFO point-log -- Success Payment Point UserId: 25 ProductId : 42 cost : 100 
+09:01:28.461 [Test worker] INFO point-log -- Success Payment Point UserId: 25 ProductId : 42 cost : 100 
+09:01:28.534 [Test worker] INFO point-log -- Success Charge Point UserId: 26 cost : 100 
+09:01:28.603 [pool-8-thread-1] INFO point-log -- Success Charge Point UserId: 27 cost : 100 
+09:01:28.605 [pool-8-thread-2] INFO point-log -- Success Charge Point UserId: 27 cost : 200 
+09:01:33.717 [pool-9-thread-2] WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper -- SQL Error: 1205, SQLState: 40001
+09:01:33.717 [pool-9-thread-2] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper -- Lock wait timeout exceeded; try restarting transaction
+09:01:33.723 [pool-9-thread-1] INFO point-log -- Success Charge Point UserId: 28 cost : 100 
+09:01:33.749 [Test worker] INFO point-log -- Success Payment Point UserId: 28 ProductId : 42 cost : 100 
+RF003 intentional lock timeout: mysql-error=1205 no-waiter-append=true
+09:01:33.825 [Test worker] INFO point-log -- Success Payment Point UserId: 29 ProductId : 42 cost : 200 
+09:01:33.840 [Test worker] INFO point-log -- Success Payment Point UserId: 29 ProductId : 42 cost : 200 
+09:01:33.855 [Test worker] INFO point-log -- Success Charge Point UserId: 30 cost : 100 
+RF003 cleanup verified: users=15 histories=38 roles=1 role-id=1 role-marker=rf003_5fadb59b957d4779b98684221cd17097_role remaining-users=0 remaining-histories=0 role-rows-unchanged=true run=rf003_5fadb59b957d4779b98684221cd17097
+09:01:33.946 [Test worker] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean -- Closing JPA EntityManagerFactory for persistence unit 'default'
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

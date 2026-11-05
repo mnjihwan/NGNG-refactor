@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.user.user.controller.AdminUserControllerContractTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-11-04T08:51:33" hostname="redacted" time="0.751">
+  <properties/>
+  <testcase name="nonNumericPageIsRejectedByStandaloneBinding()" classname="com.ngng.api.user.user.controller.AdminUserControllerContractTest" time="0.617"/>
+  <testcase name="requestedPageAndUserFieldsAreReturnedInJson()" classname="com.ngng.api.user.user.controller.AdminUserControllerContractTest" time="0.115"/>
+  <testcase name="omittedPageDefaultsToZeroAndReturnsEmptyPage()" classname="com.ngng.api.user.user.controller.AdminUserControllerContractTest" time="0.017"/>
+  <system-out><![CDATA[17:51:33.868 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+17:51:33.868 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+17:51:33.872 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 3 ms
+17:51:33.943 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; For input string: "invalid"]
+17:51:33.956 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+17:51:33.956 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+17:51:33.956 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+17:51:34.074 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+17:51:34.074 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+17:51:34.074 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
