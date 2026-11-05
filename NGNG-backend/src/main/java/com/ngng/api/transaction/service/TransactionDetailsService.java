@@ -20,6 +20,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
@@ -137,8 +138,8 @@ public class TransactionDetailsService extends Exception {
             User user = authService.readAuthUser();
 
             if(
-                transactionDetails.getProduct().getUser().getUserId() != user.getUserId()  &&
-                transactionDetails.getConsumer().getUserId() != user.getUserId()
+                !Objects.equals(transactionDetails.getProduct().getUser().getUserId(), user.getUserId()) &&
+                !Objects.equals(transactionDetails.getConsumer().getUserId(), user.getUserId())
             ) throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,"소유권이 없는 유저 입니다.");
 
 //            TransactionStatus status = transactionStatusRepository.findById(request.getStatus().getId()).orElseThrow();
