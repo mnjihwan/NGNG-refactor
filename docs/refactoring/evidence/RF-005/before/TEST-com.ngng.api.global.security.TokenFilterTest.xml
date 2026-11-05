@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.global.security.TokenFilterTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-11-05T04:23:26" hostname="[redacted]" time="1.706">
+  <properties/>
+  <testcase name="baselineMissingAuthorizationThrowsBeforeRefresh()" classname="com.ngng.api.global.security.TokenFilterTest" time="1.441"/>
+  <testcase name="baselineRawAndCrossTypeAccessAreAccepted()" classname="com.ngng.api.global.security.TokenFilterTest" time="0.13"/>
+  <testcase name="validAccessKeepsPrincipalAndIgnoresBadRefresh()" classname="com.ngng.api.global.security.TokenFilterTest" time="0.043"/>
+  <testcase name="baselineMissingRefreshCookieNameThrows()" classname="com.ngng.api.global.security.TokenFilterTest" time="0.004"/>
+  <testcase name="expiredAccessRefreshesInSameRequest()" classname="com.ngng.api.global.security.TokenFilterTest" time="0.046"/>
+  <testcase name="baselineNoExpirationThrows()" classname="com.ngng.api.global.security.TokenFilterTest" time="0.008"/>
+  <testcase name="baselineAccessCookieIsAcceptedAsRefresh()" classname="com.ngng.api.global.security.TokenFilterTest" time="0.015"/>
+  <testcase name="baselineMalformedAccessThrowsDespiteRefresh()" classname="com.ngng.api.global.security.TokenFilterTest" time="0.006"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -149,6 +149,38 @@
 - 검토대안/제약: 실제변경1행만 무락refresh하는 방식은 affected0/반복무쓰기·오래된RR 상태까지 해결하지 못한다. 단순setter/clear/detach/잠금refresh는 불필요쓰기·caller변경유실·eager/gap위험, 전역DynamicUpdate는 모든writerSQL영향/관리getterstale가 남는다. HibernateEntityEntry.loadedState와보호필드동시정렬 helper는 내부SPI/버전·auto-flush·유지보수부담이 있다. 사용자는 내부API추가설계/구현/검증을 하지말고 현재결과기록후보류하도록 명시했다. 어떤대안도 구현/검증하지 않았다. 추가reader의poolstarvation도 미검증·pool설정변경없음이다.
 - 중단·재개조건: 보류지시 이후 운영/테스트수정·재실행·DB접속/쓰기를 중단하고 문서/증빙보존만 마무리한다. 재개를 명시지시받고 설계를 합의한 뒤 affected1/0·반복무쓰기·관리객체/outerrollback·gap/reader·cleanup을 재검증하고 독립리뷰해야 완료판정가능하다. HTTP/브라우저·외부writer·성능/운영pool은 미검증으로 [BACKLOG](BACKLOG.md)의 R4-기능/연결/연동/운영/성능에서 추적한다. 추가후보 자동착수없음.
 
+## 2026-11-05 — RF-004 공개 Session API 재개 검토·회귀 확대
+
+- 기준/승인: HEAD `aa25aaedf783870be1641a90f6c7db7ad08bd021`, 시작 clean. 사용자는 내부 SPI 직접 사용 없이 Hibernate6.4 공개 Session API 기반 동기화 접근과 격리 DB 회귀를 승인했고 안전성이 불확실하면 구현 중단하도록 했다. 기존 전용 fixture·소유행 정리 승인 범위에서만 실행했다.
+- 구현 차단: 공개 Session.setReadOnly 문서와 기존6.4.4.Final sources.jar를 확인했다. true에서 snapshot 제거, false에서 현재 전체값 deepCopy로 pending 비보호 값도 새 기준선에 포함될 수 있다. 선행 flush/단순 setter 역시 보호필드 stale 쓰기·무쓰기 요구를 함께 입증하지 못했다. 안전한 설계 미입증으로 운영 추가 구현 없이 회귀만 남겼다. 공개 API의 다른 설계 가능성 자체를 부정한 것은 아니다.
+- 변경/오프라인: MySQL 기존29건+신규8건(비보호 pending/후속dirty, affected0·무쓰기·read-only·proxy·예외·stale RR auto-flush). 테스트 관찰용 native affected count/Hibernate 공개 ORM update count만 추가했다. 독립 리뷰로 exact pending/후속 DB 필드 assertion을 보강한 뒤 compileTestJava와 offline41건 통과/opt-in-disabled37skip을 재확인했다. 성능 측정은 없다.
+- 안전/실행: 독립 테스트·runner 리뷰를 거쳤다. 첫 read-only preflight는 CLI batch JSON path escape로 fail-closed(쓰기0), --raw와 첫 --no-defaults 보강 후 동일PID/loopback/datadir/executable·8.0.35/RR·12테이블0 확인. fixture InnoDB/unique/FK 가드 통과 뒤 실37건29통과/8실패/error0/skip0, Gradle exit1이다.
+- 결과 한계: 기존2실패 재현, 최신 soft assertion으로 selected/sibling 둘다 null 복원 확인. 신규6실패는 Product affected0 getter true, 이미거절 Request getter null, read-only3필드 stale, RR반복3필드 stale, pending-first 필드 보존 성공 뒤 sale=true, stale+pending 반복409/rollback이다. Product affected0는 상품 UPDATE affected=0·ORM update=0 assertion을 통과했으나 요청 UPDATE·거래 INSERT는 발생했다. 이미거절/반복은 native writer0·ORM update0 assertion이 getter 실패 전에 통과했다. pending 변경 유실 및 커밋된 stale overwrite는 이번 결과로 증명하지 않는다. SQL 순서 직접 trace·실패 뒤 assertion은 미실행이다. 신규 proxy/예외 flag복구2건은 통과했다.
+- 정리/보존: worker종료→정확 소유행 details33/request80/thumbnail38/product40/user117/category1/status1/transaction_status1 삭제commit→새CLI 12테이블0 확인. status1 기존행 재사용은 이번에도 미실행. raw XML/로그·전후JSON은 gitignored local/rf004-results/public-session-review, 공유본은 [새 증빙](evidence/RF-004/public-session-review/README.md)의 XML/로그/summary/소스·해시와 비식별 JSON. 보강 전/후 offline XML을 구분하고 원시 offline 콘솔은 tool output만 보존한다.
+- 현재 판정/후속: 전체 미완료·배포 부적합. [명세](tasks/RF-004.md)·[증빙](evidence/RF-004/README.md)·[BACKLOG R4](BACKLOG.md)에 재개·설계차단·미도달 assertion/기존 운영 한계를 맞췄다. 안전한 설계 합의·독립 리뷰 후 동일 회귀와 cleanup을 다시 검증해야 한다. 운영/추가 테스트는 여기서 중단하고 추가 작업은 사용자 확인. 스키마/의존성/인가/pool/성능 변경·commit/push는 없다.
+## 2026-11-05 — RF-004 서비스 경계 대안 검토·현재 결과 보류
+
+- 사용자는 서비스 경계 변경의 검토를 선택했고 읽기 전용 분석 결과만 기록했다. main request.update는 TransactionController 한 곳, details.create는 직접 controller 및 수락 service가 호출한다. 외부 소비자와 실제 OSIV/사전 bound EntityManager는 미확인이다.
+- active transaction 거절+transaction worker 내 수락/내부 create 원자성 보존이 추천 검토안이지만, 기존 상위 tx 계약 변경 합의 및 사전 bound EM/OSIV 문제 해결이 필수다. 자체 EntityManager 소유 대안은 변경량·lifecycle 위험이 늘어난다. 단순 REQUIRES_NEW는 outer rollback 원자성·자기 잠금·stale overwrite·추가 연결 수 위험으로 비권고다. 검토일 뿐 대안 선택·구현 승인이 아니다.
+- 사용자는 최상위 작업 제한을 포함한 추가 상세 설계·검증을 현재 결과로 보류하도록 결정했다. 이후 문서만 갱신했으며 운영/테스트 변경·DB/테스트 실행은 없다. 최신37건29통과/8실패와 cleanup 증빙을 유지한다. 전체 미완료·배포 부적합이며 운영 pool/실DB·OSIV 검증 한계도 남는다.
+- 재개는 사용자 명시 지시·경계/호출자 계약·원자성·사전 EM/OSIV 처리 결정과 독립 리뷰 후 가능하다. 현재 결과는 해결 설계나 완료 증빙이 아니다. 명세·증빙 README·BACKLOG R4-경계에 근거·한계·보류 조건을 맞췄다. 호출관계 검색 원시 로그는 별도 파일 없이 경로/메서드 서술로 남겼다. commit/push하지 않았다.
+## 2026-11-05 — RF-005 인증 필터 정적 분석·계획
+
+- 상태: **정적 분석·계획 및 세 정책 승인 완료, 구현·검증 미착수**. HEAD `aa25aaedf783870be1641a90f6c7db7ad08bd021`, 시작부터 RF-004 테스트·문서·증빙 미커밋 변경 존재. 해당 변경/보류 이력을 보존하고 [RF-005 명세](tasks/RF-005.md)·[증빙 README](evidence/RF-005/README.md) 신설과 BACKLOG RF-005/R5 부분만 작성했다.
+- 확인 사실: Authorization null 역참조·다른 cookie만 있을 때 Optional.get, 만료 외 파싱 예외 전파, OR 검증으로 type 필수성이 없는 경로 및 skip/인가 matcher 차이. 정상 서명 교차 타입 수용은 정적 경로이며 HTTP 재현은 없다. 임의 위조 인증 우회·실제500/401/403을 확정하지 않는다.
+- 호출/계획: 로그인·계좌확인 발급 및 refresh 재발급 헤더, frontend get/setAccessToken·HTTP/STOMP 경계를 조사했다. 기존 controller의 addFilters=false/standalone 결과는 인증 증빙이 아니다. 기존 의존성의 실제 verifier/provider·테스트 키·mock servlet 및 최소 SecurityConfig context를 단계적으로 사용하고 업무 service를 대역으로 격리하는 계획이다.
+- 정책 제안: 누락/빈/정상서명 만료 access만 refresh fallback, 나머지 malformed/type 등 거부; Bearer access/raw refresh와 type/필수 claim 검증; 인증 거부 빈본문401 및 기존 인가403 유지 검증. 최초 권고안 작성 후 사용자가 세 항목을 각각 **승인**했다. 승인 자체는 구현·검증 결과가 아니다. 공개 matcher·쿠키·폐기/역할 최신화 정책은 자동 포함하지 않는다.
+- 수행/한계: 파일 읽기·검색·git 상태/HEAD 확인·계획 문서 작성만 수행. 코드/설정/테스트 변경, 테스트/build·실서비스·DB·브라우저·성능 실행 없음. 원시 분석 출력은 대화 tool 결과뿐이며 별도 로그/XML은 없다. 후일 테스트는 새 실행으로 보존한다. BACKLOG R5-정책/격리/연동/범위에 재개 조건과 미검증을 기록했다. commit/push하지 않았다.
+
+## 2026-11-05 — RF-005 승인 정책 최소 구현·격리 검증
+
+- 기준·보존: HEAD `aa25aaedf783870be1641a90f6c7db7ad08bd021`. 기존 RF-004 테스트/명세/증빙은 수정하지 않았고 이 로그·BACKLOG는 RF-005 부분만 갱신했다. 시작 byte snapshot이 없어 RF-004 전후 byte 대조는 미확인이다. RF-004 보류/배포 부적합 상태는 유지한다. commit/push 없음.
+- 구현: TokenFilter/JwtTokenVerifier2개와 신규 테스트2개만 수정/추가했다. 누락/빈/서명·type·claim 유효 만료 access만 refresh fallback, Bearer access/raw refresh·signature/type/subject/role/exp 검증, 인증 거부 빈본문401을 반영했다. 정상 우선순위·권한/principal·첫 cookie·재발급 헤더/chain1 유지, downstream chain은 JWT catch 밖이다. 기존 verifier API·SecurityConfig/matcher/인가표·발급·로그인/로그아웃·프런트/채팅·의존성/스키마 무변경. 성능 개선 주장은 없다.
+- 기준선·실패 이력: 실제 JWT/mock servlet 직접8건·실제 SecurityConfig 최소 체인32건 통과. 누락NPE·cookie Optional 예외·raw/교차 type 수용·exp부재 예외를 관측했다. 최초 chain harness 만료property 누락 초기화1실패 후 보완했다. 최초after116건113통과/3실패: exp배열의 JJWT IllegalStateException2개는 raw 파서 내부에서 JwtException변환, OPTIONS 기본MVC handler 호출수 기대값1개는0으로 보정했다. 실패XML·로그를 보존하며 최종결과로 대체하지 않는다.
+- 최종 명령/결과: NGNG-backend에서 `.\gradlew.bat --offline --no-daemon test --rerun-tasks --tests 'com.ngng.api.global.security.TokenFilterTest' --tests 'com.ngng.api.global.security.SecurityChainTest'` **118건통과(72+46), fail/error/skip0, exit0**. 전체 compileTestJava 포함5tasks 실제실행. `.\gradlew.bat --offline --no-daemon assemble` exit0,3executed/2UP-TO-DATE. 선택suite/패키징이며 전체test/build/서비스기동이 아니다. git diff --check 통과.
+- 격리/검증범위: Boot/application scan·실서비스설정/키·repository/외부client 없음. 합성키·명시bean·대역AuthenticationManager/probe endpoint 사용. 정상/실패/필수claim/만료·서명 및 실제 역할표21건·skip9건·인가403·재발급후403헤더·CORS/OPTIONS·연속요청컨텍스트·downstream예외 전파 확인. before/after·초기실패 XML/console 원본은 gitignored 로컬에 보존하고 비식별 공유 사본·소스snapshot·SHA256·환경은 [증빙](evidence/RF-005/README.md)에 보존했다.
+- 판정/한계: GPT-6 Astra / Medium 독립 리뷰에서 코드와 당시 원본 자료 22개 해시·링크를 검토해 확정 결함이 없었고 합의 범위 완료로 판정했다. 운영Boot/컨테이너HTTP·async/error dispatch·브라우저/cookie/프록시·실제업무/DB·정확 exp==현재·특이alg/nbf/iat·전체suite·성능은 미검증이다. [명세](tasks/RF-005.md)/증빙/백로그R5에 범위·근거·후속조건을 맞췄다. 추가검증·별도정책·RF004재개는 자동착수하지 않는다.
+
 ## 이후 작업 기록 양식
 
 ## RF-NNN — 제목

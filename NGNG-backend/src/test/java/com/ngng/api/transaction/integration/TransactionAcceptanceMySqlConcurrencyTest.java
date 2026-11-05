@@ -13,6 +13,9 @@ import com.ngng.api.transaction.service.TransactionRequestService;
 import com.ngng.api.user.user.repository.UserRepository;
 import com.ngng.api.user.user.service.AuthService;
 import jakarta.persistence.EntityManagerFactory;
+import org.hibernate.Hibernate;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
 import org.springframework.aop.support.AopUtils;
@@ -53,6 +56,7 @@ import static org.assertj.core.api.Assertions.*;
 class TransactionAcceptanceMySqlConcurrencyTest {
     private static final Hooks HOOKS = new Hooks();
     private static final ThreadLocal<List<ReaderTransaction>> READER_TRANSACTIONS = ThreadLocal.withInitial(ArrayList::new);
+    private static final ThreadLocal<List<Mutation>> MUTATIONS = ThreadLocal.withInitial(ArrayList::new);
     private static Rf004MySqlFixture fixture;
     private AnnotationConfigApplicationContext context;
     private TransactionTemplate tx;
@@ -80,7 +84,7 @@ class TransactionAcceptanceMySqlConcurrencyTest {
     }
 
     @AfterEach
-    void stopEveryWorkerBeforeAnyCleanup() throws Exception { HOOKS.clear(); READER_TRANSACTIONS.remove(); stopWorkers(); }
+    void stopEveryWorkerBeforeAnyCleanup() throws Exception { HOOKS.clear(); READER_TRANSACTIONS.remove(); MUTATIONS.remove(); stopWorkers(); }
 
     @AfterAll
     void removeOnlyTrackedFixtureRowsAfterAllWorkersStop() throws Exception {
@@ -281,6 +285,218 @@ class TransactionAcceptanceMySqlConcurrencyTest {
         assertThat(fixture.jdbc.queryForObject("SELECT created_at FROM transaction_request WHERE transaction_request_id=?",
                 java.sql.Timestamp.class, item.requestB())).isEqualTo(secondCreatedAt);
         assertAccepted(item, item.requestA(), item.buyerA(), 80);
+    }
+
+    @Test
+    void pendingCallerChangesBeforeFirstAcceptanceAndLaterEditsAreBothPreserved() {
+        var item = fixture.product(true);
+        var created = java.sql.Timestamp.valueOf("2026-11-05 13:00:00");
+        tx.executeWithoutResult(status -> {
+            var em = EntityManagerFactoryUtils.getTransactionalEntityManager(emf);
+            Product product = products.findById(item.product()).orElseThrow();
+            var selected = requestRepository.findById(item.requestA()).orElseThrow();
+            var sibling = requestRepository.findById(item.requestB()).orElseThrow();
+            product.setPurchaseAt(fixture.marker + "_pending");
+            selected.setCreatedAt(created);
+            sibling.setCreatedAt(created);
+            requests.update(item.requestA(), true);
+            // Flush before a second edit so losing the original pending fields is observable.
+            em.flush();
+            assertThat(fixture.jdbc.queryForObject("SELECT purchase_at FROM product WHERE product_id=?", String.class, item.product()))
+                    .isEqualTo(fixture.marker + "_pending");
+            assertThat(fixture.jdbc.queryForList("SELECT created_at FROM transaction_request WHERE product_id=?", java.sql.Timestamp.class, item.product()))
+                    .containsExactly(created, created);
+            product.setPurchaseAt(fixture.marker + "_later");
+            selected.setCreatedAt(java.sql.Timestamp.valueOf("2026-11-05 13:01:00"));
+            sibling.setCreatedAt(java.sql.Timestamp.valueOf("2026-11-05 13:02:00"));
+            em.flush();
+        });
+        assertThat(fixture.jdbc.queryForObject("SELECT purchase_at FROM product WHERE product_id=?", String.class, item.product()))
+                .isEqualTo(fixture.marker + "_later");
+        assertThat(fixture.jdbc.queryForObject("SELECT created_at FROM transaction_request WHERE transaction_request_id=?", java.sql.Timestamp.class, item.requestA()))
+                .isEqualTo(java.sql.Timestamp.valueOf("2026-11-05 13:01:00"));
+        assertThat(fixture.jdbc.queryForObject("SELECT created_at FROM transaction_request WHERE transaction_request_id=?", java.sql.Timestamp.class, item.requestB()))
+                .isEqualTo(java.sql.Timestamp.valueOf("2026-11-05 13:02:00"));
+        assertAccepted(item, item.requestA(), item.buyerA(), 80);
+    }
+
+    @Test
+    void productAffectedZeroStillSynchronizesManagedSaleWithoutAnOrmUpdate() {
+        var item = fixture.product(true);
+        tx.executeWithoutResult(status -> {
+            var em = EntityManagerFactoryUtils.getTransactionalEntityManager(emf);
+            Product product = products.findById(item.product()).orElseThrow();
+            assertThat(product.getForSale()).isTrue();
+            // Only this tracked fixture row changes; the managed object intentionally stays stale.
+            assertThat(fixture.jdbc.update("UPDATE product SET for_sale=false WHERE product_id=?", item.product())).isEqualTo(1);
+            MUTATIONS.get().clear();
+            long updates = entityUpdates();
+            requests.update(item.requestA(), true);
+            assertThat(MUTATIONS.get()).contains(new Mutation("markTransactionSold", item.product(), 0));
+            em.flush();
+            assertThat(entityUpdates()).isEqualTo(updates);
+            assertThat(product.getForSale()).as("affected=0 must synchronize a stale managed product").isFalse();
+            product.setPurchaseAt(fixture.marker + "_zero_later");
+            em.flush();
+        });
+        assertThat(fixture.jdbc.queryForObject("SELECT purchase_at FROM product WHERE product_id=?", String.class, item.product()))
+                .isEqualTo(fixture.marker + "_zero_later");
+        assertAccepted(item, item.requestA(), item.buyerA(), 80);
+    }
+
+    @Test
+    void alreadyRejectedRequestSynchronizesStaleManagedStateWithoutNativeOrOrmWrites() {
+        var item = fixture.product(true);
+        tx.executeWithoutResult(status -> {
+            var em = EntityManagerFactoryUtils.getTransactionalEntityManager(emf);
+            var selected = requestRepository.findById(item.requestA()).orElseThrow();
+            assertThat(selected.getIsAccepted()).isNull();
+            assertThat(fixture.jdbc.update("UPDATE transaction_request SET is_accepted=false WHERE transaction_request_id=?", item.requestA())).isEqualTo(1);
+            var before = fixture.state(item);
+            MUTATIONS.get().clear();
+            long updates = entityUpdates();
+            requests.update(item.requestA(), false);
+            em.flush();
+            assertThat(MUTATIONS.get()).isEmpty();
+            assertThat(entityUpdates()).isEqualTo(updates);
+            assertThat(fixture.state(item)).isEqualTo(before);
+            assertThat(selected.getIsAccepted()).as("already-rejected current row must synchronize the managed request").isFalse();
+            selected.setCreatedAt(java.sql.Timestamp.valueOf("2026-11-05 13:03:00"));
+            em.flush();
+        });
+        assertThat(fixture.jdbc.queryForObject("SELECT is_accepted FROM transaction_request WHERE transaction_request_id=?", Boolean.class, item.requestA())).isFalse();
+        assertThat(fixture.jdbc.queryForObject("SELECT created_at FROM transaction_request WHERE transaction_request_id=?", java.sql.Timestamp.class, item.requestA()))
+                .isEqualTo(java.sql.Timestamp.valueOf("2026-11-05 13:03:00"));
+    }
+
+    @Test
+    void originallyReadOnlyManagedEntitiesKeepTheirReadOnlyFlagsAndCurrentProtectedValues() {
+        var item = fixture.product(true);
+        tx.executeWithoutResult(status -> {
+            var em = EntityManagerFactoryUtils.getTransactionalEntityManager(emf);
+            Session session = em.unwrap(Session.class);
+            Product product = products.findById(item.product()).orElseThrow();
+            var selected = requestRepository.findById(item.requestA()).orElseThrow();
+            var sibling = requestRepository.findById(item.requestB()).orElseThrow();
+            session.setReadOnly(product, true);
+            session.setReadOnly(selected, true);
+            session.setReadOnly(sibling, true);
+            requests.update(item.requestA(), true);
+            assertThat(session.isReadOnly(product)).isTrue();
+            assertThat(session.isReadOnly(selected)).isTrue();
+            assertThat(session.isReadOnly(sibling)).isTrue();
+            org.assertj.core.api.SoftAssertions.assertSoftly(softly -> {
+                softly.assertThat(product.getForSale()).isFalse();
+                softly.assertThat(selected.getIsAccepted()).isTrue();
+                softly.assertThat(sibling.getIsAccepted()).isFalse();
+            });
+        });
+        assertAccepted(item, item.requestA(), item.buyerA(), 80);
+    }
+
+    @Test
+    void uninitializedProductReferenceStaysManagedAndExposesCurrentSaleAfterAcceptance() {
+        var item = fixture.product(true);
+        tx.executeWithoutResult(status -> {
+            var em = EntityManagerFactoryUtils.getTransactionalEntityManager(emf);
+            Product reference = em.getReference(Product.class, item.product());
+            assertThat(Hibernate.isInitialized(reference)).isFalse();
+            requests.update(item.requestA(), true);
+            assertThat(em.contains(reference)).isTrue();
+            assertThat(reference.getForSale()).isFalse();
+            reference.setPurchaseAt(fixture.marker + "_proxy_later");
+            em.flush();
+        });
+        assertThat(fixture.jdbc.queryForObject("SELECT purchase_at FROM product WHERE product_id=?", String.class, item.product()))
+                .isEqualTo(fixture.marker + "_proxy_later");
+        assertAccepted(item, item.requestA(), item.buyerA(), 80);
+    }
+
+    @Test
+    void failureRestoresOriginalReadOnlyFlagsWithoutDetachingCallerEntities() {
+        var item = fixture.product(true);
+        var before = fixture.state(item);
+        assertThatThrownBy(() -> tx.executeWithoutResult(status -> {
+            var em = EntityManagerFactoryUtils.getTransactionalEntityManager(emf);
+            Session session = em.unwrap(Session.class);
+            Product product = products.findById(item.product()).orElseThrow();
+            var selected = requestRepository.findById(item.requestA()).orElseThrow();
+            session.setReadOnly(product, true);
+            assertThat(session.isReadOnly(selected)).isFalse();
+            try {
+                withHook(HOOKS.afterSold, () -> { throw new InjectedFailure(); }, () -> requests.update(item.requestA(), true));
+                fail("Injected failure must propagate");
+            } catch (InjectedFailure expected) {
+                assertThat(em.contains(product)).isTrue();
+                assertThat(em.contains(selected)).isTrue();
+                assertThat(session.isReadOnly(product)).isTrue();
+                assertThat(session.isReadOnly(selected)).isFalse();
+                throw expected;
+            }
+        })).isInstanceOf(InjectedFailure.class);
+        assertThat(fixture.state(item)).isEqualTo(before);
+    }
+
+    @Test
+    void repeatAfterExternalCommitWithStaleManagedEntitiesDoesNotIssueAnyWrite() throws Exception {
+        assertStaleManagedRepeat(false);
+    }
+
+    @Test
+    void pendingCallerChangesAfterExternalCommitCannotUndoAcceptedStateDuringAutoFlush() throws Exception {
+        assertStaleManagedRepeat(true);
+    }
+
+    private long entityUpdates() { return emf.unwrap(SessionFactory.class).getStatistics().getEntityUpdateCount(); }
+
+    private void assertStaleManagedRepeat(boolean pendingChanges) throws Exception {
+        var item = fixture.product(true);
+        CountDownLatch snapshot = latch(1), committed = latch(1);
+        ExecutorService workers = executor();
+        Future<?> caller = workers.submit(() -> tx.executeWithoutResult(status -> {
+            var em = EntityManagerFactoryUtils.getTransactionalEntityManager(emf);
+            Product product = products.findById(item.product()).orElseThrow();
+            var selected = requestRepository.findById(item.requestA()).orElseThrow();
+            var sibling = requestRepository.findById(item.requestB()).orElseThrow();
+            assertThat(product.getForSale()).isTrue();
+            assertThat(selected.getIsAccepted()).isNull();
+            assertThat(sibling.getIsAccepted()).isNull();
+            snapshot.countDown(); await(committed);
+            if (pendingChanges) {
+                product.setPurchaseAt(fixture.marker + "_stale_pending");
+                selected.setCreatedAt(java.sql.Timestamp.valueOf("2026-11-05 13:04:00"));
+                sibling.setCreatedAt(java.sql.Timestamp.valueOf("2026-11-05 13:05:00"));
+            }
+            MUTATIONS.get().clear();
+            long updates = entityUpdates();
+            assertThat(requests.update(item.requestA(), true)).isEqualTo(item.requestA());
+            em.flush();
+            if (!pendingChanges) {
+                assertThat(MUTATIONS.get()).as("repeat must not call native writers").isEmpty();
+                assertThat(entityUpdates()).as("snapshot synchronization must not create an ORM update").isEqualTo(updates);
+            }
+            org.assertj.core.api.SoftAssertions.assertSoftly(softly -> {
+                softly.assertThat(product.getForSale()).isFalse();
+                softly.assertThat(selected.getIsAccepted()).isTrue();
+                softly.assertThat(sibling.getIsAccepted()).isFalse();
+            });
+        }));
+        await(snapshot);
+        try {
+            requests.update(item.requestA(), true);
+            var before = fixture.state(item);
+            committed.countDown();
+            caller.get(20, TimeUnit.SECONDS);
+            if (pendingChanges) {
+                assertThat(fixture.jdbc.queryForObject("SELECT purchase_at FROM product WHERE product_id=?", String.class, item.product()))
+                        .isEqualTo(fixture.marker + "_stale_pending");
+                assertThat(fixture.jdbc.queryForObject("SELECT created_at FROM transaction_request WHERE transaction_request_id=?", java.sql.Timestamp.class, item.requestA()))
+                        .isEqualTo(java.sql.Timestamp.valueOf("2026-11-05 13:04:00"));
+                assertThat(fixture.jdbc.queryForObject("SELECT created_at FROM transaction_request WHERE transaction_request_id=?", java.sql.Timestamp.class, item.requestB()))
+                        .isEqualTo(java.sql.Timestamp.valueOf("2026-11-05 13:05:00"));
+            } else assertThat(fixture.state(item)).isEqualTo(before);
+            assertAccepted(item, item.requestA(), item.buyerA(), 80);
+        } finally { committed.countDown(); }
     }
 
     @Test
@@ -581,6 +797,7 @@ class TransactionAcceptanceMySqlConcurrencyTest {
     private static int sqlError(Throwable failure) { for (Throwable cause = failure; cause != null; cause = cause.getCause()) if (cause instanceof SQLException sql) return sql.getErrorCode(); return 0; }
     private record Attempt(Object result, Throwable failure) { }
     private record ReaderTransaction(long connectionId, String isolation, boolean readOnly, boolean autoCommit, String error) { }
+    private record Mutation(String method, long id, int affected) { }
     private static final class InjectedFailure extends RuntimeException { }
     private static final class Hooks {
         final ThreadLocal<Runnable> beforeLock = ThreadLocal.withInitial(() -> () -> {});
@@ -597,6 +814,9 @@ class TransactionAcceptanceMySqlConcurrencyTest {
             if (method.getName().equals("lockTransactionProduct")) HOOKS.beforeLock.get().run();
             try {
                 Object result = method.invoke(delegate, arguments);
+                if (method.getName().equals("markTransactionSold") || method.getName().equals("updateAcceptance")) {
+                    MUTATIONS.get().add(new Mutation(method.getName(), ((Number) arguments[0]).longValue(), (Integer) result));
+                }
                 if (method.getName().equals("lockTransactionProduct")) HOOKS.afterLock.get().run();
                 if (method.getName().equals("markTransactionSold")) HOOKS.afterSold.get().run();
                 if (type == TransactionDetailsRepository.class && method.getName().equals("save")) {
@@ -626,6 +846,7 @@ class TransactionAcceptanceMySqlConcurrencyTest {
             factory.setPackagesToScan("com.ngng.api");
             factory.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
             factory.setJpaPropertyMap(Map.of("hibernate.hbm2ddl.auto", "validate", "hibernate.show_sql", "false",
+                    "hibernate.generate_statistics", "true",
                     "hibernate.physical_naming_strategy", "org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy"));
             return factory;
         }

@@ -1,0 +1,22 @@
+[
+  {
+    "path": "NGNG-backend/src/main/java/com/ngng/api/transaction/service/TransactionRequestService.java",
+    "sha256": "5fe977da187e8e1c19a770175fbf126f30de282466f3cd5149d9dcaed3233328"
+  },
+  {
+    "path": "NGNG-backend/src/main/java/com/ngng/api/transaction/repository/TransactionRequestRepository.java",
+    "sha256": "cf7392f1a9674de36fcf76729b908feefeca962c6c299c9422a98ee0640f41fe"
+  },
+  {
+    "path": "NGNG-backend/src/main/java/com/ngng/api/transaction/service/TransactionDetailsService.java",
+    "sha256": "2e20dec876ea74186e4c5090c2b13dd8ed3ecdf5d3e6a743c51006d00478dc88"
+  },
+  {
+    "path": "NGNG-backend/src/main/java/com/ngng/api/transaction/repository/TransactionDetailsRepository.java",
+    "sha256": "2fe1c4d29d1399bc615e2a5f31eab6d6b44fea7e2daa89f128098c89e2a96f7a"
+  },
+  {
+    "path": "NGNG-backend/src/main/java/com/ngng/api/product/product/repository/ProductRepository.java",
+    "sha256": "78f84489aa6ba0f68737af2c13bcdb39897fe75c2328403e24a3b0fa4387dc83"
+  }
+]

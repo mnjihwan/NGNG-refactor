@@ -1,0 +1,197 @@
+{
+  "head": "aa25aaedf783870be1641a90f6c7db7ad08bd021",
+  "tests": 37,
+  "passed": 29,
+  "failures": 8,
+  "errors": 0,
+  "skipped": 0,
+  "productionCodeChanged": false,
+  "testSourceSha256": "6e9d4e820b55d0fd01b0e3fc5e19ad85f497d3cbf71d2924bfc522d179c6a1b9",
+  "cases": [
+    {
+      "name": "simultaneousDirectCreatesUseSameProductGuard()",
+      "result": "passed",
+      "failure": null
+    },
+    {
+      "name": "mappingFailureAfterInsertRollsBackAcceptanceAndDirectCreation()",
+      "result": "passed",
+      "failure": null
+    },
+    {
+      "name": "firstAcceptanceAndIdenticalRepeatKeepExactlyOneUnchangedTransaction()",
+      "result": "passed",
+      "failure": null
+    },
+    {
+      "name": "differentProductsSharingSellerCategoryAndStatusCommitIndependently()",
+      "result": "passed",
+      "failure": null
+    },
+    {
+      "name": "repeatedAcceptanceInsideOneCallerTransactionSeesOwnDetailsAndCommitsOnce()",
+      "result": "passed",
+      "failure": null
+    },
+    {
+      "name": "simultaneousDifferentRequestsAcceptExactlyOneAndRejectTheOther()",
+      "result": "passed",
+      "failure": null
+    },
+    {
+      "name": "realLockTimeoutIsFailureWithoutWritesAndFollowingAcceptanceCanAcquireLock()",
+      "result": "passed",
+      "failure": null
+    },
+    {
+      "name": "productAffectedZeroStillSynchronizesManagedSaleWithoutAnOrmUpdate()",
+      "result": "failed",
+      "failure": "org.opentest4j.AssertionFailedError: [affected=0 must synchronize a stale managed product] \r\nExpecting value to be false but was true"
+    },
+    {
+      "name": "uninitializedProductReferenceStaysManagedAndExposesCurrentSaleAfterAcceptance()",
+      "result": "passed",
+      "failure": null
+    },
+    {
+      "name": "callerEditingAlreadyManagedRequestsAfterAcceptanceCannotRestoreStaleAcceptanceStates()",
+      "result": "failed",
+      "failure": "org.assertj.core.error.AssertJMultipleFailuresError: \r\nMultiple Failures (2 failures)\r\n-- failure 1 --\r\n[request 137 acceptance] \r\nexpected: true\r\n but was: null\r\nat TransactionAcceptanceMySqlConcurrencyTest.lambda$assertAccepted$79(TransactionAcceptanceMySqlConcurrencyTest.java:754)\r\n-- failure 2 --\r\n[request 138 acceptance] \r\nexpected: false\r\n but was: null\r\nat TransactionAcceptanceMySqlConcurrencyTest.lambda$assertAccepted$79(TransactionAcceptanceMySqlConcurrencyTest.java:754)"
+    },
+    {
+      "name": "differentProductsBothPassingAbsentDetailsReadCanBothInsertAndCommit()",
+      "result": "passed",
+      "failure": null
+    },
+    {
+      "name": "callerRollbackKeepsAllServiceWritesInCallerTransactionAndNextAcceptanceCanProceed()",
+      "result": "passed",
+      "failure": null
+    },
+    {
+      "name": "originallyReadOnlyManagedEntitiesKeepTheirReadOnlyFlagsAndCurrentProtectedValues()",
+      "result": "failed",
+      "failure": "org.assertj.core.error.AssertJMultipleFailuresError: \r\nMultiple Failures (3 failures)\r\n-- failure 1 --\r\nExpecting value to be false but was true\r\nat TransactionAcceptanceMySqlConcurrencyTest.lambda$originallyReadOnlyManagedEntitiesKeepTheirReadOnlyFlagsAndCurrentProtectedValues$34(TransactionAcceptanceMySqlConcurrencyTest.java:389)\r\n-- failure 2 --\r\nExpecting actual not to be null\r\nat TransactionAcceptanceMySqlConcurrencyTest.lambda$originallyReadOnlyManagedEntitiesKeepTheirReadOnlyFlagsAndCurrentProtectedValues$34(TransactionAcceptanceMySqlConcurrencyTest.java:390)\r\n-- failure 3 --\r\nExpecting actual not to be null\r\nat TransactionAcceptanceMySqlConcurrencyTest.lambda$originallyReadOnlyManagedEntitiesKeepTheirReadOnlyFlagsAndCurrentProtectedValues$34(TransactionAcceptanceMySqlConcurrencyTest.java:391)"
+    },
+    {
+      "name": "failureRestoresOriginalReadOnlyFlagsWithoutDetachingCallerEntities()",
+      "result": "passed",
+      "failure": null
+    },
+    {
+      "name": "rollbackOnlyAndBeforeCommitFailurePropagateInsteadOfLeavingPartialState()",
+      "result": "passed",
+      "failure": null
+    },
+    {
+      "name": "competingAcceptanceUsesCurrentStateAfterEarlierRrSnapshotAndManagedEntities()",
+      "result": "passed",
+      "failure": null
+    },
+    {
+      "name": "directCreationUsesCurrentStateAfterEarlierRrSnapshotAndManagedEntities()",
+      "result": "passed",
+      "failure": null
+    },
+    {
+      "name": "acceptanceThatOwnsProductLockCompletesBeforeConcurrentRejectionConflicts()",
+      "result": "passed",
+      "failure": null
+    },
+    {
+      "name": "failureAfterOtherRequestsAreChangedRollsBackAllWritesAndReleasesLock()",
+      "result": "passed",
+      "failure": null
+    },
+    {
+      "name": "directCreateThenAcceptanceInOneCallerTransactionSeesOwnDetailsAndRollsBackOnConflict()",
+      "result": "passed",
+      "failure": null
+    },
+    {
+      "name": "rejectingPendingOrRejectedRequestRemainsSuccessfulAndLaterAcceptanceIsAllowed()",
+      "result": "passed",
+      "failure": null
+    },
+    {
+      "name": "repeatedDirectCreateInsideOneCallerTransactionConflictsAndRollsBackTheFirstInsert()",
+      "result": "passed",
+      "failure": null
+    },
+    {
+      "name": "acceptanceAndDirectCreationRaceProduceExactlyOneCommittedTransaction()",
+      "result": "passed",
+      "failure": null
+    },
+    {
+      "name": "repeatAfterExternalCommitWithStaleManagedEntitiesDoesNotIssueAnyWrite()",
+      "result": "failed",
+      "failure": "org.assertj.core.error.AssertJMultipleFailuresError: \r\nMultiple Failures (3 failures)\r\n-- failure 1 --\r\nExpecting value to be false but was true\r\nat TransactionAcceptanceMySqlConcurrencyTest.lambda$assertStaleManagedRepeat$41(TransactionAcceptanceMySqlConcurrencyTest.java:479)\r\n-- failure 2 --\r\nExpecting actual not to be null\r\nat TransactionAcceptanceMySqlConcurrencyTest.lambda$assertStaleManagedRepeat$41(TransactionAcceptanceMySqlConcurrencyTest.java:480)\r\n-- failure 3 --\r\nExpecting actual not to be null\r\nat TransactionAcceptanceMySqlConcurrencyTest.lambda$assertStaleManagedRepeat$41(TransactionAcceptanceMySqlConcurrencyTest.java:481)"
+    },
+    {
+      "name": "repeatAcceptanceUsesCurrentStateAfterEarlierRrSnapshotAndManagedEntities()",
+      "result": "passed",
+      "failure": null
+    },
+    {
+      "name": "committedReaderUsesDifferentReadOnlyRcConnectionAndResumesUncommittedCallerConnection()",
+      "result": "passed",
+      "failure": null
+    },
+    {
+      "name": "pendingCallerChangesBeforeFirstAcceptanceAndLaterEditsAreBothPreserved()",
+      "result": "failed",
+      "failure": "org.opentest4j.AssertionFailedError: \r\nExpecting value to be false but was true"
+    },
+    {
+      "name": "simultaneousAcceptanceOfSameRequestReturnsTwoSuccessesAndOneTransaction()",
+      "result": "passed",
+      "failure": null
+    },
+    {
+      "name": "pendingCallerChangesAfterExternalCommitCannotUndoAcceptedStateDuringAutoFlush()",
+      "result": "failed",
+      "failure": "java.util.concurrent.ExecutionException: org.springframework.web.server.ResponseStatusException: 409 CONFLICT \"이미 확정된 거래 요청과 충돌합니다.\""
+    },
+    {
+      "name": "failureAfterRealTransactionInsertFlushRollsBackAllWritesAndReleasesLock()",
+      "result": "passed",
+      "failure": null
+    },
+    {
+      "name": "failureAfterProductSaleChangeRollsBackAllWritesAndReleasesLock()",
+      "result": "passed",
+      "failure": null
+    },
+    {
+      "name": "callerEditingAlreadyManagedProductAfterAcceptanceCannotRestoreStaleSaleState()",
+      "result": "failed",
+      "failure": "org.opentest4j.AssertionFailedError: \r\nExpecting value to be false but was true"
+    },
+    {
+      "name": "fixtureRequestsCreatedInsideCallerTransactionAreIncludedInAcceptanceAndSiblingRejection()",
+      "result": "passed",
+      "failure": null
+    },
+    {
+      "name": "directCreatePreservesSaleAndRequestsAndDuplicateConflictsWithoutWrites()",
+      "result": "passed",
+      "failure": null
+    },
+    {
+      "name": "alreadyRejectedRequestSynchronizesStaleManagedStateWithoutNativeOrOrmWrites()",
+      "result": "failed",
+      "failure": "java.lang.AssertionError: [already-rejected current row must synchronize the managed request] \r\nExpecting actual not to be null"
+    },
+    {
+      "name": "callerRollbackAlsoRemovesFixtureRowsCreatedBeforeAcceptanceInThatTransaction()",
+      "result": "passed",
+      "failure": null
+    },
+    {
+      "name": "anotherProductCanFinishWhileFirstIsHeldAfterAbsentDetailsReadBeforeInsert()",
+      "result": "passed",
+      "failure": null
+    }
+  ]
+}

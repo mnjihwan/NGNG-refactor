@@ -78,4 +78,18 @@ public class JwtTokenVerifier {
 
         return jwtClaims.getBody();
     }
+
+    // TokenFilter가 위치별 Bearer 형식을 검사한 뒤 서명·만료를 검증한다.
+    public Claims parseRawToken(String token) {
+
+        if (token == null || !token.matches("[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+")) {
+            throw new IllegalArgumentException("Invalid compact JWT format");
+        }
+        try {
+            return parseToken(token);
+        } catch (IllegalStateException e) {
+            // JJWT 0.11.5는 exp 등의 자료형 변환 실패를 JwtException 대신 던진다.
+            throw new io.jsonwebtoken.JwtException("Invalid token claims", e);
+        }
+    }
 }

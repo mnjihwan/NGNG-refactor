@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.global.security.TokenFilterTest" tests="70" skipped="0" failures="2" errors="0" timestamp="2026-11-05T04:28:07" hostname="[redacted]" time="0.473">
+  <properties/>
+  <testcase name="[1] refresh=false" classname="com.ngng.api.global.security.TokenFilterTest" time="0.049"/>
+  <testcase name="[2] refresh=true" classname="com.ngng.api.global.security.TokenFilterTest" time="0.007"/>
+  <testcase name="validAccessKeepsPrincipalAndIgnoresBadRefresh()" classname="com.ngng.api.global.security.TokenFilterTest" time="0.016"/>
+  <testcase name="[1] refresh=" classname="com.ngng.api.global.security.TokenFilterTest" time="0.007"/>
+  <testcase name="[2] refresh= " classname="com.ngng.api.global.security.TokenFilterTest" time="0.002"/>
+  <testcase name="[3] refresh=undefined" classname="com.ngng.api.global.security.TokenFilterTest" time="0.002"/>
+  <testcase name="[4] refresh=broken" classname="com.ngng.api.global.security.TokenFilterTest" time="0.002"/>
+  <testcase name="[5] refresh=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxNzkzODU2NDg4fQ.c8rrBNhlaE3LCvLlnv2PfLJI_yLBDKKX3senockw_QwxbwZB3gS6-5jlySg8fERg6QGopXg_aSgpXWhBxeMg6Q" classname="com.ngng.api.global.security.TokenFilterTest" time="0.002"/>
+  <testcase name="[6] refresh=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxNzkzODU2NDg4fQ.c8rrBNhlaE3LCvLlnv2PfLJI_yLBDKKX3senockw_QwxbwZB3gS6-5jlySg8fERg6QGopXg_aSgpXWhBxeMg6Q " classname="com.ngng.api.global.security.TokenFilterTest" time="0.001"/>
+  <testcase name="[7] refresh=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJhY2Nlc3MiLCJleHAiOjE3OTM4NTY0ODh9.k1AQT2vbJmGpU5oKg6YOLj9Cf92h3piHjFQV7nvmZts6Jn6HJAa3O5WTm9o83Rth-NnwN899_kVm8PAGspsPUQ" classname="com.ngng.api.global.security.TokenFilterTest" time="0.005"/>
+  <testcase name="[8] refresh=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxNzkzODQ5Mjg4fQ.GhU4EKNYV04SmprO639HwK7UXmVbjOOY22bws9kMpAIjvQlA8Du7I7HFOCPpq7UmJ5Yr-mJGu0nj8IxeF9TzRA" classname="com.ngng.api.global.security.TokenFilterTest" time="0.006"/>
+  <testcase name="[9] refresh=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxNzkzODU2NDg4fQ.A8rrBNhlaE3LCvLlnv2PfLJI_yLBDKKX3senockw_QwxbwZB3gS6-5jlySg8fERg6QGopXg_aSgpXWhBxeMg6Q" classname="com.ngng.api.global.security.TokenFilterTest" time="0.005"/>
+  <testcase name="[10] refresh=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJhY2Nlc3MiLCJleHAiOjE3OTM4NTY0ODh9.wHvJfCR7jqImOI62SnmBdNNqzhBr2NVxjXTNpVdDpLkDFbgU835XvnuX74HuDN5KcWiti4RyyB8DQ6mlfPVVEA" classname="com.ngng.api.global.security.TokenFilterTest" time="0.005"/>
+  <testcase name="[11] refresh=eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTM4NTY0ODgsInJvbGUiOiJVU0VSIiwidHlwZSI6InJlZnJlc2gifQ.W3olLrWtjpy0Cr1VAr1vrlDOqNZ3EuzGKJl0bs2UTDzflaATN8pYuq0pmyeW79AfSF-ysLm-YtALsJH8Fv8A-w" classname="com.ngng.api.global.security.TokenFilterTest" time="0.005"/>
+  <testcase name="[12] refresh=eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTM4NTY0ODgsInJvbGUiOiJVU0VSIiwidHlwZSI6InJlZnJlc2giLCJzdWIiOlsid3JvbmctdHlwZSJdfQ.nUqWn3GvhukOIXSPFAenw5oAs2y-t39j5S_jr0za9VaZ39XfJxMNgLe7PDc29789YX6QPgPEpVykmgeFJKfFHw" classname="com.ngng.api.global.security.TokenFilterTest" time="0.005"/>
+  <testcase name="[13] refresh=eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTM4NTY0ODgsInJvbGUiOiJVU0VSIiwidHlwZSI6InJlZnJlc2giLCJzdWIiOiIgIn0.nTleGZN2bmGSDNLt-Y41oBkjxbq6Db3Fj5X757g4ZFSt5G0-LuVYXCHGUclVMC4eJo4qR_y6KidUjJxgBWAhhA" classname="com.ngng.api.global.security.TokenFilterTest" time="0.006"/>
+  <testcase name="[14] refresh=eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTM4NTY0ODgsInN1YiI6InJmMDA1QGV4YW1wbGUudGVzdCIsInR5cGUiOiJyZWZyZXNoIn0.zilX7GRukO5fapFM0gSCokn5scG6Vt6hW_bJ-HdsgAts0TWPJpi7e5t3gjnToNKrnDYT9vzvO68K100aQfCemA" classname="com.ngng.api.global.security.TokenFilterTest" time="0.005"/>
+  <testcase name="[15] refresh=eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTM4NTY0ODgsInN1YiI6InJmMDA1QGV4YW1wbGUudGVzdCIsInR5cGUiOiJyZWZyZXNoIiwicm9sZSI6WyJ3cm9uZy10eXBlIl19.P9T95F0i_SMZ_xf447WSvBXxSuMwuYTIubQtAClMMTqwvUGu__VKqQeIph6qiP4GPtZ4IQmI-rp6pZiuY_fb8g" classname="com.ngng.api.global.security.TokenFilterTest" time="0.006"/>
+  <testcase name="[16] refresh=eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTM4NTY0ODgsInN1YiI6InJmMDA1QGV4YW1wbGUudGVzdCIsInR5cGUiOiJyZWZyZXNoIiwicm9sZSI6IiAifQ.7tbn6sRXTt9cr91c8z95oulVsKL6zysvRuZxa015xWZB9rzpgTliOoj6ZChgD8SGOBY5VYa2C4EhzBCb1x1TaA" classname="com.ngng.api.global.security.TokenFilterTest" time="0.006"/>
+  <testcase name="[17] refresh=eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTM4NTY0ODgsInJvbGUiOiJVU0VSIiwic3ViIjoicmYwMDVAZXhhbXBsZS50ZXN0In0.r585Et-H75CoOSywqDInYIrru09bVAjSZNFYbzFae7E8XOhjm3KRl249k1TlnFKhATOSm-PQnkcP3MtadRWtaQ" classname="com.ngng.api.global.security.TokenFilterTest" time="0.004"/>
+  <testcase name="[18] refresh=eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTM4NTY0ODgsInJvbGUiOiJVU0VSIiwic3ViIjoicmYwMDVAZXhhbXBsZS50ZXN0IiwidHlwZSI6WyJ3cm9uZy10eXBlIl19.OPuCAB1hys0Y2p3095L7NwCFZTH42A25ezmt9suDZDgeNK4bISVZu5gHNfdjcOgGLn7sfTRPtCfNd2JbUL5CNg" classname="com.ngng.api.global.security.TokenFilterTest" time="0.004"/>
+  <testcase name="[19] refresh=eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTM4NTY0ODgsInJvbGUiOiJVU0VSIiwic3ViIjoicmYwMDVAZXhhbXBsZS50ZXN0IiwidHlwZSI6IiAifQ.1Ak3a_9TyJrPqOUEwMdhFLGkQ5P1U6xgom2FzSKIAC8JHA94rFfVG1hE1Au1Mljl8oCmc1uF18r4Xrsrvwy9AA" classname="com.ngng.api.global.security.TokenFilterTest" time="0.004"/>
+  <testcase name="[20] refresh=eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiVVNFUiIsInN1YiI6InJmMDA1QGV4YW1wbGUudGVzdCIsInR5cGUiOiJyZWZyZXNoIn0._abidVZ_E0awpUxfPXRn6ZwMzMWs0qCYp2MXtEQr6FHXws6utLhzKFnINYqvbJPGXUBdsUYoL5eg3JeCwaDByg" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[21] refresh=eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiVVNFUiIsInN1YiI6InJmMDA1QGV4YW1wbGUudGVzdCIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjpbIndyb25nLXR5cGUiXX0.MYaJZKv2g-IE7SwSqo6i_Msa5ahbYFjBEc858JQUzwl-dRHRACR_c-lfkoHJvtKlBrqH-qxar-JGR5G7Lgxi6A" classname="com.ngng.api.global.security.TokenFilterTest" time="0.004">
+    <failure message="java.lang.IllegalStateException: Cannot create Date from 'exp' value '[wrong-type]'." type="java.lang.IllegalStateException">java.lang.IllegalStateException: Cannot create Date from 'exp' value '[wrong-type]'.
+	at io.jsonwebtoken.impl.JwtMap.toDate(JwtMap.java:57)
+	at io.jsonwebtoken.impl.JwtMap.toSpecDate(JwtMap.java:92)
+	at io.jsonwebtoken.impl.DefaultClaims.get(DefaultClaims.java:146)
+	at io.jsonwebtoken.impl.DefaultClaims.getExpiration(DefaultClaims.java:76)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:413)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:529)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:589)
+	at io.jsonwebtoken.impl.ImmutableJwtParser.parseClaimsJws(ImmutableJwtParser.java:173)
+	at com.ngng.api.global.security.jwt.util.JwtTokenVerifier.parseRawToken(JwtTokenVerifier.java:86)
+	at com.ngng.api.global.security.filter.TokenFilter.doFilterInternal(TokenFilter.java:43)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at com.ngng.api.global.security.TokenFilterTest.assertRejected(TokenFilterTest.java:217)
+	at com.ngng.api.global.security.TokenFilterTest.invalidRefreshIsEmpty401(TokenFilterTest.java:124)
+	at jdk.internal.reflect.GeneratedMethodAccessor27.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestTemplateMethod(TimeoutExtension.java:94)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask$DefaultDynamicTestExecutor.execute(NodeTestTask.java:226)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask$DefaultDynamicTestExecutor.execute(NodeTestTask.java:204)
+	at org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor.execute(TestTemplateTestDescriptor.java:142)
+	at org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor.lambda$execute$2(TestTemplateTestDescriptor.java:110)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor.execute(TestTemplateTestDescriptor.java:110)
+	at org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor.execute(TestTemplateTestDescriptor.java:44)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:119)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:94)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:89)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+</failure>
+  </testcase>
+  <testcase name="[22] refresh=eyJhbGciOiJIUzUxMiJ9.eyJleHAiOiI0MTAyNDQ0ODAwIiwicm9sZSI6IlVTRVIiLCJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJ0eXBlIjoicmVmcmVzaCJ9.NlxJd_n8wEvRZsIlnBogNj6Sr6tamxlUN3S-UInL3MHvpSP5PbjRTMc8hg3Hv0PT-b9igAsjI3RI7E2_y22emA" classname="com.ngng.api.global.security.TokenFilterTest" time="0.006"/>
+  <testcase name="[23] refresh=eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTM4NTY0ODgsInJvbGUiOiJVU0VSIiwic3ViIjoicmYwMDVAZXhhbXBsZS50ZXN0IiwidHlwZSI6InVua25vd24ifQ.sO5JapeyWjuvVzlVFqsxZIYdloj2tBH18NT73b4j7f2QJORr6Pb9sCv_7njqZ-pEzUIkV7vQNY9FDMGkxHoURg" classname="com.ngng.api.global.security.TokenFilterTest" time="0.006"/>
+  <testcase name="[24] refresh=eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTM4NDkyODgsInJvbGUiOiJVU0VSIiwidHlwZSI6InJlZnJlc2gifQ.Vfpgi2SuUkK-cJeIjB98DzBkYv0AHnw7ONj9lsht3elLYcZlSIc_P61E1XT-Qt5zPRqTfhwHzuOgT660X7OvuQ" classname="com.ngng.api.global.security.TokenFilterTest" time="0.005"/>
+  <testcase name="[25] refresh=eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTM4NDkyODgsInN1YiI6InJmMDA1QGV4YW1wbGUudGVzdCIsInR5cGUiOiJyZWZyZXNoIn0.26FGZL09Do1phOkDyJYvqdqjQEaKP2GmQEdM968U9nTBJT0dzT3G0FJJhGfvdPUWdN4Y5MyS9PZ9SK8zz2nHkA" classname="com.ngng.api.global.security.TokenFilterTest" time="0.006"/>
+  <testcase name="[26] refresh=eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTM4NDkyODgsInJvbGUiOiJVU0VSIiwic3ViIjoicmYwMDVAZXhhbXBsZS50ZXN0In0.6vEAgw8kyIUpTKGLrcpqTbTkevQkaFgwGNks_MNPblOrKRYB6PTHXNhnqUwD_OEX2Z7Av8hUIrJAD9riB8eifg" classname="com.ngng.api.global.security.TokenFilterTest" time="0.004"/>
+  <testcase name="existingRoleValuesAreNotWhitelisted()" classname="com.ngng.api.global.security.TokenFilterTest" time="0.006"/>
+  <testcase name="expiredAccessRefreshesInSameRequest()" classname="com.ngng.api.global.security.TokenFilterTest" time="0.014"/>
+  <testcase name="firstRefreshCookieStillWins()" classname="com.ngng.api.global.security.TokenFilterTest" time="0.002"/>
+  <testcase name="[1] access=null" classname="com.ngng.api.global.security.TokenFilterTest" time="0.006"/>
+  <testcase name="[2] access=" classname="com.ngng.api.global.security.TokenFilterTest" time="0.005"/>
+  <testcase name="[1] cookies=missing" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[2] cookies=empty" classname="com.ngng.api.global.security.TokenFilterTest" time="0.004"/>
+  <testcase name="[3] cookies=other" classname="com.ngng.api.global.security.TokenFilterTest" time="0.004"/>
+  <testcase name="[1] access= " classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[2] access=undefined" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[3] access=Basic eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJhY2Nlc3MiLCJleHAiOjE3OTM4NTY0ODh9.k1AQT2vbJmGpU5oKg6YOLj9Cf92h3piHjFQV7nvmZts6Jn6HJAa3O5WTm9o83Rth-NnwN899_kVm8PAGspsPUQ" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[4] access=bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJhY2Nlc3MiLCJleHAiOjE3OTM4NTY0ODh9.k1AQT2vbJmGpU5oKg6YOLj9Cf92h3piHjFQV7nvmZts6Jn6HJAa3O5WTm9o83Rth-NnwN899_kVm8PAGspsPUQ" classname="com.ngng.api.global.security.TokenFilterTest" time="0.002"/>
+  <testcase name="[5] access=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJhY2Nlc3MiLCJleHAiOjE3OTM4NTY0ODh9.k1AQT2vbJmGpU5oKg6YOLj9Cf92h3piHjFQV7nvmZts6Jn6HJAa3O5WTm9o83Rth-NnwN899_kVm8PAGspsPUQ" classname="com.ngng.api.global.security.TokenFilterTest" time="0.002"/>
+  <testcase name="[6] access=Bearer " classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[7] access=Bearer  eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJhY2Nlc3MiLCJleHAiOjE3OTM4NTY0ODh9.k1AQT2vbJmGpU5oKg6YOLj9Cf92h3piHjFQV7nvmZts6Jn6HJAa3O5WTm9o83Rth-NnwN899_kVm8PAGspsPUQ" classname="com.ngng.api.global.security.TokenFilterTest" time="0.002"/>
+  <testcase name="[8] access=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJhY2Nlc3MiLCJleHAiOjE3OTM4NTY0ODh9.k1AQT2vbJmGpU5oKg6YOLj9Cf92h3piHjFQV7nvmZts6Jn6HJAa3O5WTm9o83Rth-NnwN899_kVm8PAGspsPUQ " classname="com.ngng.api.global.security.TokenFilterTest" time="0.002"/>
+  <testcase name="[9] access=Bearer broken" classname="com.ngng.api.global.security.TokenFilterTest" time="0.002"/>
+  <testcase name="[10] access=Bearer null" classname="com.ngng.api.global.security.TokenFilterTest" time="0.002"/>
+  <testcase name="[11] access=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxNzkzODU2NDg4fQ.c8rrBNhlaE3LCvLlnv2PfLJI_yLBDKKX3senockw_QwxbwZB3gS6-5jlySg8fERg6QGopXg_aSgpXWhBxeMg6Q" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[12] access=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxNzkzODQ5Mjg4fQ.GhU4EKNYV04SmprO639HwK7UXmVbjOOY22bws9kMpAIjvQlA8Du7I7HFOCPpq7UmJ5Yr-mJGu0nj8IxeF9TzRA" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[13] access=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJhY2Nlc3MiLCJleHAiOjE3OTM4NTY0ODh9.A1AQT2vbJmGpU5oKg6YOLj9Cf92h3piHjFQV7nvmZts6Jn6HJAa3O5WTm9o83Rth-NnwN899_kVm8PAGspsPUQ" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[14] access=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJhY2Nlc3MiLCJleHAiOjE3OTM4NDkyODh9.AOaRabbxowTcytZZQ99FjJlMfRLG1yWdM6RNjAjv0oqO8boaytp2w3D_Y7B6xayOniyfulIvhWCa9Y8-e5gqug" classname="com.ngng.api.global.security.TokenFilterTest" time="0.002"/>
+  <testcase name="[15] access=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJhY2Nlc3MiLCJleHAiOjE3OTM4NTY0ODh9.wHvJfCR7jqImOI62SnmBdNNqzhBr2NVxjXTNpVdDpLkDFbgU835XvnuX74HuDN5KcWiti4RyyB8DQ6mlfPVVEA" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[16] access=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJhY2Nlc3MiLCJleHAiOjE3OTM4NDkyODh9.bt76nL8SvUqtF22EmtjLOp7zVsauoKfXynIaLRrEPkb6a1hyo6P-jJgLZdG_-BDXU-IzuYGMiPtKGH9goEugtA" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[17] access=Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTM4NTY0ODgsInJvbGUiOiJVU0VSIiwidHlwZSI6ImFjY2VzcyJ9.Sz-cw7fp4EdXbonKB0LpfNvWBAQTgIeI6wtrqrvY3k2ZyhoKRIzh5lMU_oL4eWJ1SVxcVqWmJvxXdGZXmB9PAQ" classname="com.ngng.api.global.security.TokenFilterTest" time="0.002"/>
+  <testcase name="[18] access=Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTM4NTY0ODgsInJvbGUiOiJVU0VSIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6WyJ3cm9uZy10eXBlIl19.2cPaEJOvQ85m_bPS74hqUyL0oMAn3J-NvjFycx-M4yEf_6fkzu2-Ajf3L9n9M_s8pGTX3HBLxr4WjlzmsfwL7Q" classname="com.ngng.api.global.security.TokenFilterTest" time="0.002"/>
+  <testcase name="[19] access=Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTM4NTY0ODgsInJvbGUiOiJVU0VSIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IiAifQ.Z3Cyuxji74YY6YAxhNRQQmBFomXO0a_pnRWYjNw-a2cZvbh-l9X04TYrOSgeM__IFuINyVBMparWukMswq2jJQ" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[20] access=Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTM4NTY0ODgsInN1YiI6InJmMDA1QGV4YW1wbGUudGVzdCIsInR5cGUiOiJhY2Nlc3MifQ.liHGF_JMOXZgqvfsbjNm6IYuJ2hBCwEaNFhFw_zN5jaQlwjiDbJ2fpYKQ1nrrNUOKeEFyEpX_aUHLE3-houb_w" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[21] access=Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTM4NTY0ODgsInN1YiI6InJmMDA1QGV4YW1wbGUudGVzdCIsInR5cGUiOiJhY2Nlc3MiLCJyb2xlIjpbIndyb25nLXR5cGUiXX0.EJVPwPDf6WQq7Enkvnw1DETK5XGwh11Rh6Xje2khePAzwrWkpa1ijZok_qQEFx7zzatffmlwdsyReMR_XOqxXQ" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[22] access=Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTM4NTY0ODgsInN1YiI6InJmMDA1QGV4YW1wbGUudGVzdCIsInR5cGUiOiJhY2Nlc3MiLCJyb2xlIjoiICJ9.R-Fx-DeRev3ZHsAbEJHMh69WYHiUVhW2XsCx4CaMzwMQOxu-YxxaMkyVQG13l_SLto_El61LV1TWYZ9_5EoX9w" classname="com.ngng.api.global.security.TokenFilterTest" time="0.004"/>
+  <testcase name="[23] access=Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTM4NTY0ODgsInJvbGUiOiJVU0VSIiwic3ViIjoicmYwMDVAZXhhbXBsZS50ZXN0In0.r585Et-H75CoOSywqDInYIrru09bVAjSZNFYbzFae7E8XOhjm3KRl249k1TlnFKhATOSm-PQnkcP3MtadRWtaQ" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[24] access=Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTM4NTY0ODgsInJvbGUiOiJVU0VSIiwic3ViIjoicmYwMDVAZXhhbXBsZS50ZXN0IiwidHlwZSI6WyJ3cm9uZy10eXBlIl19.OPuCAB1hys0Y2p3095L7NwCFZTH42A25ezmt9suDZDgeNK4bISVZu5gHNfdjcOgGLn7sfTRPtCfNd2JbUL5CNg" classname="com.ngng.api.global.security.TokenFilterTest" time="0.004"/>
+  <testcase name="[25] access=Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTM4NTY0ODgsInJvbGUiOiJVU0VSIiwic3ViIjoicmYwMDVAZXhhbXBsZS50ZXN0IiwidHlwZSI6IiAifQ.1Ak3a_9TyJrPqOUEwMdhFLGkQ5P1U6xgom2FzSKIAC8JHA94rFfVG1hE1Au1Mljl8oCmc1uF18r4Xrsrvwy9AA" classname="com.ngng.api.global.security.TokenFilterTest" time="0.004"/>
+  <testcase name="[26] access=Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiVVNFUiIsInN1YiI6InJmMDA1QGV4YW1wbGUudGVzdCIsInR5cGUiOiJhY2Nlc3MifQ.s4MyOBdt1xaMm7aIGn85ZzfLYTnYfeLK5ITo6iHAQgb-mutz0hQCBmofYa6Hw2HtoBvEyD6o11LkdV3X6nDNdA" classname="com.ngng.api.global.security.TokenFilterTest" time="0.004"/>
+  <testcase name="[27] access=Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiVVNFUiIsInN1YiI6InJmMDA1QGV4YW1wbGUudGVzdCIsInR5cGUiOiJhY2Nlc3MiLCJleHAiOlsid3JvbmctdHlwZSJdfQ.V9-SUHZaY8YIJzH2UNydyhwxETWRQ0mRQMRxoJh2SneBtRVpu0FS7wim1zwl98lP0Gsuzmgd9ZIIpL6FIgmf4w" classname="com.ngng.api.global.security.TokenFilterTest" time="0.005">
+    <failure message="java.lang.IllegalStateException: Cannot create Date from 'exp' value '[wrong-type]'." type="java.lang.IllegalStateException">java.lang.IllegalStateException: Cannot create Date from 'exp' value '[wrong-type]'.
+	at io.jsonwebtoken.impl.JwtMap.toDate(JwtMap.java:57)
+	at io.jsonwebtoken.impl.JwtMap.toSpecDate(JwtMap.java:92)
+	at io.jsonwebtoken.impl.DefaultClaims.get(DefaultClaims.java:146)
+	at io.jsonwebtoken.impl.DefaultClaims.getExpiration(DefaultClaims.java:76)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:413)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:529)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:589)
+	at io.jsonwebtoken.impl.ImmutableJwtParser.parseClaimsJws(ImmutableJwtParser.java:173)
+	at com.ngng.api.global.security.jwt.util.JwtTokenVerifier.parseRawToken(JwtTokenVerifier.java:86)
+	at com.ngng.api.global.security.filter.TokenFilter.readAccessClaims(TokenFilter.java:95)
+	at com.ngng.api.global.security.filter.TokenFilter.doFilterInternal(TokenFilter.java:40)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at com.ngng.api.global.security.TokenFilterTest.assertRejected(TokenFilterTest.java:217)
+	at com.ngng.api.global.security.TokenFilterTest.invalidAccessCannotUseValidRefresh(TokenFilterTest.java:107)
+	at jdk.internal.reflect.GeneratedMethodAccessor28.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestTemplateMethod(TimeoutExtension.java:94)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask$DefaultDynamicTestExecutor.execute(NodeTestTask.java:226)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask$DefaultDynamicTestExecutor.execute(NodeTestTask.java:204)
+	at org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor.execute(TestTemplateTestDescriptor.java:142)
+	at org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor.lambda$execute$2(TestTemplateTestDescriptor.java:110)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:310)
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor.execute(TestTemplateTestDescriptor.java:110)
+	at org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor.execute(TestTemplateTestDescriptor.java:44)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:119)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:94)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:89)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+</failure>
+  </testcase>
+  <testcase name="[28] access=Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOiI0MTAyNDQ0ODAwIiwicm9sZSI6IlVTRVIiLCJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJ0eXBlIjoiYWNjZXNzIn0.qvjYdCIPhvdIBtaiKaOqJTskedW37DW3NwXnZwmnz_86KPolJ0DFV_YarNGxKCv2v5SES9JVsPDo6ndDfD0l7A" classname="com.ngng.api.global.security.TokenFilterTest" time="0.006"/>
+  <testcase name="[29] access=Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTM4NTY0ODgsInJvbGUiOiJVU0VSIiwic3ViIjoicmYwMDVAZXhhbXBsZS50ZXN0IiwidHlwZSI6InVua25vd24ifQ.sO5JapeyWjuvVzlVFqsxZIYdloj2tBH18NT73b4j7f2QJORr6Pb9sCv_7njqZ-pEzUIkV7vQNY9FDMGkxHoURg" classname="com.ngng.api.global.security.TokenFilterTest" time="0.006"/>
+  <testcase name="[30] access=Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTM4NDkyODgsInJvbGUiOiJVU0VSIiwidHlwZSI6ImFjY2VzcyJ9.RtbIv3ac_-dNQDUSoMPTljkNMJfWxjH0jtxshqQvuv-r9z9AukECCBLr7h3joexOpdE20S1K6IP9LWfqkUIFiQ" classname="com.ngng.api.global.security.TokenFilterTest" time="0.005"/>
+  <testcase name="[31] access=Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTM4NDkyODgsInN1YiI6InJmMDA1QGV4YW1wbGUudGVzdCIsInR5cGUiOiJhY2Nlc3MifQ.WN-Fzj7RmRzbcb35hmP_YkbWjfk2UfZtO7MOJBz7hFRZlKWbRQcjxLCFkPM2p5aVVzqhbqlJ0Q7rjkWgzkWlvg" classname="com.ngng.api.global.security.TokenFilterTest" time="0.005"/>
+  <testcase name="[32] access=Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTM4NDkyODgsInJvbGUiOiJVU0VSIiwic3ViIjoicmYwMDVAZXhhbXBsZS50ZXN0In0.6vEAgw8kyIUpTKGLrcpqTbTkevQkaFgwGNks_MNPblOrKRYB6PTHXNhnqUwD_OEX2Z7Av8hUIrJAD9riB8eifg" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="firstValidRefreshCookieIgnoresLaterInvalidDuplicate()" classname="com.ngng.api.global.security.TokenFilterTest" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
