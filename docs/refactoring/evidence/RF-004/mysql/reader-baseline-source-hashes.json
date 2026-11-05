@@ -1,0 +1,30 @@
+[
+  {
+    "path": "src/main/java/com/ngng/api/product/product/repository/ProductRepository.java",
+    "sha256": "78F84489AA6BA0F68737AF2C13BCDB39897FE75C2328403E24A3B0FA4387DC83"
+  },
+  {
+    "path": "src/main/java/com/ngng/api/transaction/repository/TransactionDetailsRepository.java",
+    "sha256": "2FE1C4D29D1399BC615E2A5F31EAB6D6B44FEA7E2DAA89F128098C89E2A96F7A"
+  },
+  {
+    "path": "src/main/java/com/ngng/api/transaction/repository/TransactionRequestRepository.java",
+    "sha256": "CF7392F1A9674DE36FCF76729B908FEEFECA962C6C299C9422A98EE0640F41FE"
+  },
+  {
+    "path": "src/main/java/com/ngng/api/transaction/service/TransactionDetailsService.java",
+    "sha256": "2E20DEC876EA74186E4C5090C2B13DD8ED3ECDF5D3E6A743C51006D00478DC88"
+  },
+  {
+    "path": "src/main/java/com/ngng/api/transaction/service/TransactionRequestService.java",
+    "sha256": "5FE977DA187E8E1C19A770175FBF126F30DE282466F3CD5149D9DCAED3233328"
+  },
+  {
+    "path": "src/test/java/com/ngng/api/transaction/integration/Rf004MySqlFixture.java",
+    "sha256": "95EA25599B4BE5001E0DA14C00B9607DFD12930B789DA7B3A55E13B0F67CDA1E"
+  },
+  {
+    "path": "src/test/java/com/ngng/api/transaction/integration/TransactionAcceptanceMySqlConcurrencyTest.java",
+    "sha256": "5FEA4EAEA0C6810B33A035B88BA26EED33A7EC3DD8A3441D73C46A3E34E0C81B"
+  }
+]

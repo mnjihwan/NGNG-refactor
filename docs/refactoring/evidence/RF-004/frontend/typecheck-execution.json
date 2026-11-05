@@ -1,0 +1,5 @@
+{
+  "command": "npx --offline tsc --noEmit --incremental false",
+  "exitCode": 0,
+  "purpose": "Requested durable evidence rerun; prior sandbox TEMP logs unavailable after execution"
+}

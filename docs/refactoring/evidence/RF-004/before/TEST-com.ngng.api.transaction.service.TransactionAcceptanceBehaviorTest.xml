@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.transaction.service.TransactionAcceptanceBehaviorTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-05T00:33:32" hostname="redacted" time="0.206">
+  <properties/>
+  <testcase name="firstAcceptancePreservesFieldsAndRejectsOthers()" classname="com.ngng.api.transaction.service.TransactionAcceptanceBehaviorTest" time="0.19"/>
+  <testcase name="knownDefectAcceptanceCanBeOverwrittenByRejection()" classname="com.ngng.api.transaction.service.TransactionAcceptanceBehaviorTest" time="0.002"/>
+  <testcase name="missingRequestReturnsNegativeOne()" classname="com.ngng.api.transaction.service.TransactionAcceptanceBehaviorTest" time="0.002"/>
+  <testcase name="rejectionDoesNotCreateDetails()" classname="com.ngng.api.transaction.service.TransactionAcceptanceBehaviorTest" time="0.001"/>
+  <testcase name="knownDefectRepeatedAcceptanceCallsCreationAgain()" classname="com.ngng.api.transaction.service.TransactionAcceptanceBehaviorTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" tests="29" skipped="29" failures="0" errors="0" timestamp="2026-11-05T01:00:00" hostname="redacted" time="0.009">
+  <properties/>
+  <testcase name="simultaneousDirectCreatesUseSameProductGuard()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="mappingFailureAfterInsertRollsBackAcceptanceAndDirectCreation()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="firstAcceptanceAndIdenticalRepeatKeepExactlyOneUnchangedTransaction()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="differentProductsSharingSellerCategoryAndStatusCommitIndependently()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="repeatedAcceptanceInsideOneCallerTransactionSeesOwnDetailsAndCommitsOnce()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="simultaneousDifferentRequestsAcceptExactlyOneAndRejectTheOther()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="realLockTimeoutIsFailureWithoutWritesAndFollowingAcceptanceCanAcquireLock()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="callerEditingAlreadyManagedRequestsAfterAcceptanceCannotRestoreStaleAcceptanceStates()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="differentProductsBothPassingAbsentDetailsReadCanBothInsertAndCommit()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="callerRollbackKeepsAllServiceWritesInCallerTransactionAndNextAcceptanceCanProceed()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.001">
+    <skipped/>
+  </testcase>
+  <testcase name="rollbackOnlyAndBeforeCommitFailurePropagateInsteadOfLeavingPartialState()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="competingAcceptanceUsesCurrentStateAfterEarlierRrSnapshotAndManagedEntities()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="directCreationUsesCurrentStateAfterEarlierRrSnapshotAndManagedEntities()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="acceptanceThatOwnsProductLockCompletesBeforeConcurrentRejectionConflicts()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="failureAfterOtherRequestsAreChangedRollsBackAllWritesAndReleasesLock()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.001">
+    <skipped/>
+  </testcase>
+  <testcase name="directCreateThenAcceptanceInOneCallerTransactionSeesOwnDetailsAndRollsBackOnConflict()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="rejectingPendingOrRejectedRequestRemainsSuccessfulAndLaterAcceptanceIsAllowed()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="repeatedDirectCreateInsideOneCallerTransactionConflictsAndRollsBackTheFirstInsert()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="acceptanceAndDirectCreationRaceProduceExactlyOneCommittedTransaction()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="repeatAcceptanceUsesCurrentStateAfterEarlierRrSnapshotAndManagedEntities()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="committedReaderUsesDifferentReadOnlyRcConnectionAndResumesUncommittedCallerConnection()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="simultaneousAcceptanceOfSameRequestReturnsTwoSuccessesAndOneTransaction()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="failureAfterRealTransactionInsertFlushRollsBackAllWritesAndReleasesLock()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="failureAfterProductSaleChangeRollsBackAllWritesAndReleasesLock()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="callerEditingAlreadyManagedProductAfterAcceptanceCannotRestoreStaleSaleState()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="fixtureRequestsCreatedInsideCallerTransactionAreIncludedInAcceptanceAndSiblingRejection()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="directCreatePreservesSaleAndRequestsAndDuplicateConflictsWithoutWrites()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="callerRollbackAlsoRemovesFixtureRowsCreatedBeforeAcceptanceInThatTransaction()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="anotherProductCanFinishWhileFirstIsHeldAfterAbsentDetailsReadBeforeInsert()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

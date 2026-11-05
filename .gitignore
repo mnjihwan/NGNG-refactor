@@ -17,6 +17,7 @@
 /local/backend.yml
 /local/chat.yml
 /local/*.private.md
+/local/rf004-results/
 **/src/main/resources/application*.yml
 **/src/main/resources/application*.yaml
 **/src/main/resources/application*.properties
@@ -30,3 +31,4 @@ Thumbs.db
 .vscode/
 .idea/
 *.log
+!/docs/refactoring/evidence/RF-004/**/*.log

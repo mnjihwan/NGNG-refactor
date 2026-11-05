@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" tests="29" skipped="0" failures="2" errors="0" timestamp="2026-11-05T01:01:50" hostname="redacted" time="9.17">
+  <properties/>
+  <testcase name="simultaneousDirectCreatesUseSameProductGuard()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.282"/>
+  <testcase name="mappingFailureAfterInsertRollsBackAcceptanceAndDirectCreation()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.224"/>
+  <testcase name="firstAcceptanceAndIdenticalRepeatKeepExactlyOneUnchangedTransaction()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.209"/>
+  <testcase name="differentProductsSharingSellerCategoryAndStatusCommitIndependently()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.213"/>
+  <testcase name="repeatedAcceptanceInsideOneCallerTransactionSeesOwnDetailsAndCommitsOnce()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.153"/>
+  <testcase name="simultaneousDifferentRequestsAcceptExactlyOneAndRejectTheOther()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.113"/>
+  <testcase name="realLockTimeoutIsFailureWithoutWritesAndFollowingAcceptanceCanAcquireLock()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="5.228"/>
+  <testcase name="callerEditingAlreadyManagedRequestsAfterAcceptanceCannotRestoreStaleAcceptanceStates()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.124">
+    <failure message="org.opentest4j.AssertionFailedError: &#13;&#10;expected: true&#13;&#10; but was: null" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: 
+expected: true
+ but was: null
+	at java.base@17.0.10/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base@17.0.10/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base@17.0.10/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base@17.0.10/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at app//com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest.assertAccepted(TransactionAcceptanceMySqlConcurrencyTest.java:535)
+	at app//com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest.callerEditingAlreadyManagedRequestsAfterAcceptanceCannotRestoreStaleAcceptanceStates(TransactionAcceptanceMySqlConcurrencyTest.java:283)
+	at java.base@17.0.10/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@17.0.10/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base@17.0.10/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@17.0.10/java.lang.reflect.Method.invoke(Method.java:568)
+	at app//org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at app//org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at app//org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at app//org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at app//org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at app//org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at app//org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at app//org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at app//org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base@17.0.10/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base@17.0.10/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at app//org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at app//org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
+	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at app//org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at app//org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at app//org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:119)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:94)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:89)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62)
+	at java.base@17.0.10/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@17.0.10/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base@17.0.10/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@17.0.10/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
+	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+</failure>
+  </testcase>
+  <testcase name="differentProductsBothPassingAbsentDetailsReadCanBothInsertAndCommit()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.141"/>
+  <testcase name="callerRollbackKeepsAllServiceWritesInCallerTransactionAndNextAcceptanceCanProceed()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.195"/>
+  <testcase name="rollbackOnlyAndBeforeCommitFailurePropagateInsteadOfLeavingPartialState()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.225"/>
+  <testcase name="competingAcceptanceUsesCurrentStateAfterEarlierRrSnapshotAndManagedEntities()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.155"/>
+  <testcase name="directCreationUsesCurrentStateAfterEarlierRrSnapshotAndManagedEntities()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.099"/>
+  <testcase name="acceptanceThatOwnsProductLockCompletesBeforeConcurrentRejectionConflicts()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.089"/>
+  <testcase name="failureAfterOtherRequestsAreChangedRollsBackAllWritesAndReleasesLock()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.164"/>
+  <testcase name="directCreateThenAcceptanceInOneCallerTransactionSeesOwnDetailsAndRollsBackOnConflict()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.159"/>
+  <testcase name="rejectingPendingOrRejectedRequestRemainsSuccessfulAndLaterAcceptanceIsAllowed()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.13"/>
+  <testcase name="repeatedDirectCreateInsideOneCallerTransactionConflictsAndRollsBackTheFirstInsert()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.123"/>
+  <testcase name="acceptanceAndDirectCreationRaceProduceExactlyOneCommittedTransaction()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.076"/>
+  <testcase name="repeatAcceptanceUsesCurrentStateAfterEarlierRrSnapshotAndManagedEntities()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.117"/>
+  <testcase name="committedReaderUsesDifferentReadOnlyRcConnectionAndResumesUncommittedCallerConnection()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.091"/>
+  <testcase name="simultaneousAcceptanceOfSameRequestReturnsTwoSuccessesAndOneTransaction()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.082"/>
+  <testcase name="failureAfterRealTransactionInsertFlushRollsBackAllWritesAndReleasesLock()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.152"/>
+  <testcase name="failureAfterProductSaleChangeRollsBackAllWritesAndReleasesLock()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.123"/>
+  <testcase name="callerEditingAlreadyManagedProductAfterAcceptanceCannotRestoreStaleSaleState()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.082">
+    <failure message="org.opentest4j.AssertionFailedError: &#13;&#10;Expecting value to be false but was true" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: 
+Expecting value to be false but was true
+	at java.base@17.0.10/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base@17.0.10/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base@17.0.10/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base@17.0.10/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at app//com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest.assertAccepted(TransactionAcceptanceMySqlConcurrencyTest.java:532)
+	at app//com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest.callerEditingAlreadyManagedProductAfterAcceptanceCannotRestoreStaleSaleState(TransactionAcceptanceMySqlConcurrencyTest.java:261)
+	at java.base@17.0.10/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@17.0.10/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base@17.0.10/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@17.0.10/java.lang.reflect.Method.invoke(Method.java:568)
+	at app//org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at app//org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at app//org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at app//org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at app//org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at app//org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at app//org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at app//org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at app//org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base@17.0.10/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base@17.0.10/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at app//org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at app//org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
+	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at app//org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at app//org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at app//org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:119)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:94)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:89)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62)
+	at java.base@17.0.10/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@17.0.10/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base@17.0.10/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@17.0.10/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
+	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+</failure>
+  </testcase>
+  <testcase name="fixtureRequestsCreatedInsideCallerTransactionAreIncludedInAcceptanceAndSiblingRejection()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.099"/>
+  <testcase name="directCreatePreservesSaleAndRequestsAndDuplicateConflictsWithoutWrites()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.109"/>
+  <testcase name="callerRollbackAlsoRemovesFixtureRowsCreatedBeforeAcceptanceInThatTransaction()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.058"/>
+  <testcase name="anotherProductCanFinishWhileFirstIsHeldAfterAbsentDetailsReadBeforeInsert()" classname="com.ngng.api.transaction.integration.TransactionAcceptanceMySqlConcurrencyTest" time="0.142"/>
+  <system-out><![CDATA[RF004 read-only target verified: loopback-listener/process/datadir-match=true db=ngng_local account=ngng@127.0.0.1 port=13306 version=8.0.35 isolation=REPEATABLE-READ InnoDB=true empty-fixture-tables=true unique-product=true run=rf004_f9b8873d92ac4756a3bb5030f17cb978
+10:01:46.548 [Test worker] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate -- Multiple Spring Data modules found, entering strict repository configuration mode
+10:01:46.548 [Test worker] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate -- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+10:01:46.706 [Test worker] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate -- Finished Spring Data repository scanning in 149 ms. Found 8 JPA repository interfaces.
+10:01:47.064 [Test worker] INFO org.hibernate.jpa.internal.util.LogHelper -- HHH000204: Processing PersistenceUnitInfo [name: default]
+10:01:47.129 [Test worker] INFO org.hibernate.Version -- HHH000412: Hibernate ORM core version 6.4.4.Final
+10:01:47.161 [Test worker] INFO org.hibernate.cache.internal.RegionFactoryInitiator -- HHH000026: Second-level cache disabled
+10:01:47.470 [Test worker] INFO org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo -- No LoadTimeWeaver setup: ignoring JPA class transformer
+10:01:48.062 [Test worker] INFO org.hibernate.validator.internal.util.Version -- HV000001: Hibernate Validator 8.0.1.Final
+10:01:48.904 [Test worker] INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+10:01:48.947 [Test worker] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean -- Initialized JPA EntityManagerFactory for persistence unit 'default'
+10:01:49.311 [Test worker] INFO org.springframework.data.jpa.repository.query.QueryEnhancerFactory -- Hibernate is in classpath; If applicable, HQL parser will be used.
+10:01:50.309 [pool-1-thread-2] INFO transaction-log -- Success Create TransactionDetails id: 27 Seller : 100  Consumer : 101 
+10:01:50.466 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 28 Seller : 103  Consumer : 104 
+10:01:50.563 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 29 Seller : 106  Consumer : 107 
+10:01:50.655 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 30 Seller : 109  Consumer : 110 
+10:01:50.876 [pool-2-thread-1] INFO transaction-log -- Success Create TransactionDetails id: 31 Seller : 112  Consumer : 113 
+10:01:50.938 [pool-2-thread-2] INFO transaction-log -- Success Create TransactionDetails id: 32 Seller : 112  Consumer : 115 
+RF004 shared-seller/category/status: B-committed-before-A-release=true; not direct DB wait observation
+10:01:51.097 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 33 Seller : 117  Consumer : 118 
+10:01:51.233 [pool-3-thread-1] INFO transaction-log -- Success Create TransactionDetails id: 34 Seller : 120  Consumer : 121 
+10:01:56.412 [Test worker] WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper -- SQL Error: 1205, SQLState: 40001
+10:01:56.412 [Test worker] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper -- Lock wait timeout exceeded; try restarting transaction
+10:01:56.478 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 35 Seller : 123  Consumer : 124 
+RF004 intentional lock timeout: mysql-error=1205 no-waiter-writes=true
+10:01:56.575 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 36 Seller : 126  Consumer : 127 
+10:01:56.728 [pool-5-thread-1] INFO transaction-log -- Success Create TransactionDetails id: 37 Seller : 129  Consumer : 130 
+10:01:56.728 [pool-5-thread-2] INFO transaction-log -- Success Create TransactionDetails id: 38 Seller : 129  Consumer : 132 
+RF004 dual absent-read before-insert barrier: different-products-both-committed=true
+10:01:56.862 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 39 Seller : 134  Consumer : 135 
+10:01:56.929 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 40 Seller : 134  Consumer : 136 
+10:01:57.056 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 41 Seller : 137  Consumer : 138 
+10:01:57.107 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 42 Seller : 137  Consumer : 138 
+10:01:57.176 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 43 Seller : 137  Consumer : 138 
+10:01:57.288 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 44 Seller : 140  Consumer : 141 
+10:01:57.396 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 45 Seller : 143  Consumer : 144 
+10:01:57.520 [pool-8-thread-1] INFO transaction-log -- Success Create TransactionDetails id: 46 Seller : 146  Consumer : 147 
+10:01:57.628 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 47 Seller : 149  Consumer : 150 
+10:01:57.681 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 48 Seller : 149  Consumer : 150 
+10:01:57.760 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 49 Seller : 152  Consumer : 153 
+10:01:57.839 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 50 Seller : 152  Consumer : 153 
+10:01:57.977 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 51 Seller : 155  Consumer : 156 
+10:01:58.066 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 52 Seller : 158  Consumer : 159 
+10:01:58.122 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 53 Seller : 158  Consumer : 159 
+10:01:58.177 [pool-9-thread-2] INFO transaction-log -- Success Create TransactionDetails id: 54 Seller : 161  Consumer : 162 
+10:01:58.267 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 55 Seller : 164  Consumer : 165 
+10:01:58.378 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 56 Seller : 167  Consumer : 168 
+RF004 committed reader: different-connection=true read-only=true isolation=READ-COMMITTED caller-connection-resumed=true caller-write-uncommitted=true caller-rollback=true
+10:01:58.452 [pool-11-thread-2] INFO transaction-log -- Success Create TransactionDetails id: 57 Seller : 170  Consumer : 171 
+10:01:58.609 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 59 Seller : 173  Consumer : 174 
+10:01:58.744 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 60 Seller : 176  Consumer : 177 
+10:01:58.818 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 61 Seller : 179  Consumer : 180 
+10:01:58.899 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 62 Seller : 182  Consumer : 183 
+10:01:58.990 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 63 Seller : 185  Consumer : 186 
+10:01:59.090 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 64 Seller : 188  Consumer : 189 
+10:01:59.192 [pool-12-thread-2] INFO transaction-log -- Success Create TransactionDetails id: 65 Seller : 191  Consumer : 194 
+10:01:59.212 [pool-12-thread-1] INFO transaction-log -- Success Create TransactionDetails id: 66 Seller : 191  Consumer : 192 
+RF004 before-insert isolation: B-committed-after-A-absent-read-before-A-release=true
+RF004 cleanup committed and verified: exact-owned-row-deletes={transaction_details=29, transaction_request=64, product_thumbnail=30, product=32, user=93, category=1, status=1, transaction_status=1} empty-fixture-tables=true original-reference-rows-unchanged=true run=rf004_f9b8873d92ac4756a3bb5030f17cb978
+10:01:59.643 [Test worker] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean -- Closing JPA EntityManagerFactory for persistence unit 'default'
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,73 @@
+package com.ngng.api.transaction.service;
+
+import com.ngng.api.product.product.entity.Product;
+import com.ngng.api.product.product.service.ProductService;
+import com.ngng.api.transaction.dto.CreateTransactionDetailsRequestDTO;
+import com.ngng.api.transaction.entity.TransactionRequest;
+import com.ngng.api.transaction.repository.TransactionRequestRepository;
+import com.ngng.api.user.user.entity.User;
+import org.junit.jupiter.api.Test;
+
+import java.util.List;
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
+
+/** Pre-change behavior only; no Spring context or external connections. */
+class TransactionAcceptanceBehaviorTest {
+    TransactionRequestRepository requests = mock(TransactionRequestRepository.class);
+    ProductService products = mock(ProductService.class);
+    TransactionDetailsService details = mock(TransactionDetailsService.class);
+    TransactionRequestService service = new TransactionRequestService(requests, products, details);
+
+    TransactionRequest request(long id) {
+        return TransactionRequest.builder().transactionRequestId(id)
+                .product(Product.builder().productId(7L).build())
+                .buyer(User.builder().userId(11L).build()).price(300L).build();
+    }
+
+    @Test void firstAcceptancePreservesFieldsAndRejectsOthers() {
+        TransactionRequest selected = request(1), other = request(2);
+        when(requests.findById(1L)).thenReturn(Optional.of(selected));
+        when(requests.findAllByProductProductId(7L)).thenReturn(List.of(selected, other));
+        assertEquals(1L, service.update(1L, true));
+        assertTrue(selected.getIsAccepted());
+        assertFalse(other.getIsAccepted());
+        verify(products).updateForSale(7L, false);
+        verify(details).create(argThat(dto -> dto.getProductId().equals(7L)
+                && dto.getBuyerId().equals(11L) && dto.getPrice().equals(300L)));
+    }
+
+    @Test void rejectionDoesNotCreateDetails() {
+        TransactionRequest selected = request(1);
+        when(requests.findById(1L)).thenReturn(Optional.of(selected));
+        assertEquals(1L, service.update(1L, false));
+        assertFalse(selected.getIsAccepted());
+        verifyNoInteractions(products, details);
+    }
+
+    @Test void missingRequestReturnsNegativeOne() {
+        assertEquals(-1L, service.update(404L, true));
+        verifyNoInteractions(products, details);
+    }
+
+    @Test void knownDefectRepeatedAcceptanceCallsCreationAgain() {
+        TransactionRequest selected = request(1);
+        when(requests.findById(1L)).thenReturn(Optional.of(selected));
+        when(requests.findAllByProductProductId(7L)).thenReturn(List.of(selected));
+        service.update(1L, true);
+        service.update(1L, true);
+        verify(details, times(2)).create(any(CreateTransactionDetailsRequestDTO.class));
+    }
+
+    @Test void knownDefectAcceptanceCanBeOverwrittenByRejection() {
+        TransactionRequest selected = request(1);
+        when(requests.findById(1L)).thenReturn(Optional.of(selected));
+        when(requests.findAllByProductProductId(7L)).thenReturn(List.of(selected));
+        service.update(1L, true);
+        assertEquals(1L, service.update(1L, false));
+        assertFalse(selected.getIsAccepted());
+    }
+}

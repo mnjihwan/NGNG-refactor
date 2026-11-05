@@ -1,0 +1,45 @@
+{
+  "tests": 20,
+  "failures": 3,
+  "errors": 0,
+  "skipped": 0,
+  "passedTests": [
+    "simultaneousDirectCreatesUseSameProductGuard()",
+    "mappingFailureAfterInsertRollsBackAcceptanceAndDirectCreation()",
+    "firstAcceptanceAndIdenticalRepeatKeepExactlyOneUnchangedTransaction()",
+    "simultaneousDifferentRequestsAcceptExactlyOneAndRejectTheOther()",
+    "realLockTimeoutIsFailureWithoutWritesAndFollowingAcceptanceCanAcquireLock()",
+    "rollbackOnlyAndBeforeCommitFailurePropagateInsteadOfLeavingPartialState()",
+    "competingAcceptanceUsesCurrentStateAfterEarlierRrSnapshotAndManagedEntities()",
+    "directCreationUsesCurrentStateAfterEarlierRrSnapshotAndManagedEntities()",
+    "acceptanceThatOwnsProductLockCompletesBeforeConcurrentRejectionConflicts()",
+    "failureAfterOtherRequestsAreChangedRollsBackAllWritesAndReleasesLock()",
+    "rejectingPendingOrRejectedRequestRemainsSuccessfulAndLaterAcceptanceIsAllowed()",
+    "acceptanceAndDirectCreationRaceProduceExactlyOneCommittedTransaction()",
+    "repeatAcceptanceUsesCurrentStateAfterEarlierRrSnapshotAndManagedEntities()",
+    "simultaneousAcceptanceOfSameRequestReturnsTwoSuccessesAndOneTransaction()",
+    "failureAfterRealTransactionInsertFlushRollsBackAllWritesAndReleasesLock()",
+    "failureAfterProductSaleChangeRollsBackAllWritesAndReleasesLock()",
+    "directCreatePreservesSaleAndRequestsAndDuplicateConflictsWithoutWrites()"
+  ],
+  "failedTests": [
+    {
+      "name": "differentProductsSharingSellerCategoryAndStatusCommitIndependently()",
+      "type": "java.util.concurrent.ExecutionException"
+    },
+    {
+      "name": "differentProductsBothPassingAbsentDetailsReadCanBothInsertAndCommit()",
+      "type": "java.lang.AssertionError"
+    },
+    {
+      "name": "anotherProductCanFinishWhileFirstIsHeldAfterAbsentDetailsReadBeforeInsert()",
+      "type": "java.util.concurrent.ExecutionException"
+    }
+  ],
+  "mysqlErrors": [
+    1205,
+    1213
+  ],
+  "cleanupCommitted": true,
+  "separatePostflightZero": true
+}
