@@ -184,9 +184,12 @@ export const isPayment = async (cost: number) => {
     body: JSON.stringify({
       paymentCost: cost,
     }),
-  }).then((res) => {
+  }).then(async (res) => {
     setAccessToken(res);
-    return res.json();
+    if (!res.ok) throw new Error("포인트 확인에 실패했습니다.");
+    const data: unknown = await res.json();
+    if (typeof data !== "boolean") throw new Error("포인트 확인 응답이 올바르지 않습니다.");
+    return data;
   });
 };
 
@@ -209,6 +212,7 @@ export const paymentProduct = async ({
     }),
   }).then((res) => {
     setAccessToken(res);
+    if (!res.ok) throw new Error("포인트 결제에 실패했습니다.");
     return res.json();
   });
 };

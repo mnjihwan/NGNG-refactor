@@ -1,0 +1,16 @@
+{
+  "VerifiedAt": "2026-11-05T09:01:09.5466101+09:00",
+  "ListenerPid": 22580,
+  "ProcessRecordMatch": true,
+  "DataDirRecordMatch": true,
+  "DB": "ngng_local",
+  "Account": "ngng@127.0.0.1",
+  "Version": "8.0.35",
+  "Port": 13306,
+  "Isolation": "REPEATABLE-READ",
+  "InnoDBTables": 3,
+  "Users": 0,
+  "Points": 0,
+  "Roles": 0,
+  "RoleRows": []
+}

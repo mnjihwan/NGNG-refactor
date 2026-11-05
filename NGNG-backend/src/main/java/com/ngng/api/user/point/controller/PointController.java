@@ -39,14 +39,14 @@ public class PointController {
 
 
     @PostMapping("/payment")
-    public ResponseEntity<PointHistory> payProduct(@RequestBody PaymentPointRequestDto paymentPointRequestDto){
+    public ResponseEntity<PointHistory> payProduct(@RequestBody @Valid PaymentPointRequestDto paymentPointRequestDto){
 
         return ResponseEntity.ok().body(pointHistoryService.payment(paymentPointRequestDto));
     }
 
 
     @PostMapping("/check")
-    public ResponseEntity<Boolean> checkPoint(@RequestBody CheckPointRequestDTO checkPointRequestDTO) {
+    public ResponseEntity<Boolean> checkPoint(@RequestBody @Valid CheckPointRequestDTO checkPointRequestDTO) {
         return ResponseEntity.ok().body(pointHistoryService.isPaymnet(checkPointRequestDTO.getPaymentCost()));
     }
 

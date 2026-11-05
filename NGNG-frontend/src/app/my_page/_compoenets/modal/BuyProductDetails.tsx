@@ -23,21 +23,24 @@ export default function BuyProductDetails({ transactionDetails }: Props) {
   const onPayment = async () => {
     const cost = transactionDetails.price;
 
-    const isPay = await isPayment(cost);
+    try {
+      const isPay = await isPayment(cost);
 
-    if (!isPay) {
-      alert("포인트가 부족 합니다.");
-      return;
-    }
+      if (!isPay) {
+        alert("포인트가 부족 합니다.");
+        return;
+      }
 
-    if (confirm("결제 하는 과정은 스킵 합니다.")) {
-      const ss = await paymentProduct({
-        cost,
-        productId: transactionDetails.product.id,
-      });
-      // console.log(ss);
+      if (confirm("결제 하는 과정은 스킵 합니다.")) {
+        await paymentProduct({
+          cost,
+          productId: transactionDetails.product.id,
+        });
 
-      chnageStatus(PRODUCT_STATUS["입금 완료"]);
+        chnageStatus(PRODUCT_STATUS["입금 완료"]);
+      }
+    } catch {
+      alert("결제를 완료하지 못했습니다. 포인트와 거래 상태를 확인해 주세요.");
     }
   };
 

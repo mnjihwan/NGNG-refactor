@@ -4,6 +4,7 @@ import com.ngng.api.user.point.entity.PointHistory;
 import com.ngng.api.user.point.service.PointHistoryService;
 import com.ngng.api.user.user.entity.Role;
 import com.ngng.api.user.user.entity.User;
+import com.ngng.api.user.user.repository.UserRepository;
 import com.ngng.api.user.user.service.AuthService;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
@@ -51,7 +52,7 @@ class PointHistoryRepositoryBatchTest {
     void emptyUserIdsDoNotReachRepository() {
         PointHistoryRepository repository = mock(PointHistoryRepository.class);
         AuthService auth = mock(AuthService.class);
-        PointHistoryService service = new PointHistoryService(repository, auth);
+        PointHistoryService service = new PointHistoryService(repository, auth, mock(UserRepository.class));
 
         assertThat(service.readCostsByUserIds(List.of())).isEmpty();
 
@@ -62,7 +63,7 @@ class PointHistoryRepositoryBatchTest {
     void batchLookupPassesOnlyRequestedIdsAndLeavesSingleUserLookupUnchanged() {
         PointHistoryRepository repository = mock(PointHistoryRepository.class);
         AuthService auth = mock(AuthService.class);
-        PointHistoryService service = new PointHistoryService(repository, auth);
+        PointHistoryService service = new PointHistoryService(repository, auth, mock(UserRepository.class));
         User user = new User(7L);
         PointHistory latest = PointHistory.builder().id(109L).user(user).cost(15L).build();
         List<Long> ids = List.of(42L, 7L);

@@ -83,6 +83,41 @@
 - 추가 검증 및 독립 리뷰: 백엔드 `./gradlew.bat --offline --no-daemon compileJava` 성공(UP-TO-DATE), 프런트 `npm run lint` 성공(기존 경고 3건). GPT-6 Astra / High 독립 리뷰에서 공유 범위, 설정 예제·환경변수 정합성, 개인 경로와 기존 자격값 노출, 기존 기본 동작을 확인했고 수정이 필요한 문제는 발견하지 못했다. 실제 서버 간 연결을 증명하는 결과는 아니다.
 - 한계: Docker 엔진·서버·실제 DB 접속, 스키마 변경, 전체 통합 테스트와 성능 테스트는 실행하지 않았다. Compose 구문 검증이 서비스 간 연동 성공을 의미하지 않는다. 신규 의존성 추가와 commit/push는 하지 않았다. 원본 구성과 개인정보 기록을 되살릴 때는 보존한 ignored 파일을 참고하며 기존 데이터나 볼륨을 삭제하지 않는다.
 
+## 2026-11-04 — RF-003 분석 및 정책 확인
+
+- 상태·기준: 계획. 사용자 지정 RF-003의 분석 시작 HEAD `237224bd46e31f3d5c789d0699e1f896503b67c8`, 시작 Git 작업 트리 clean. 루트 지침·README·BACKLOG·TEMPLATE·RF-001/RF-002와 호출자를 검토하고 [RF-003 명세](tasks/RF-003.md)를 작성했다.
+- 확인 사실: updateCost/payment는 인증 → 최신 ID 이력 조회 → 계산 → append이며 서비스 트랜잭션·사용자 잠금이 없다. payment 잔액 검사는 없고 check만 `>`를 사용한다. 가입 초기화는 별도 가입 트랜잭션 안에 있다. 실제 동시 누락·HTTP 오류·잠금 범위는 미재현이다.
+- 사용자 정책: 양수 충전·결제만 허용, 같은 잔액 결제 허용, 부족 시 결제·이력 저장 거부. 중복 결제 방지는 별도 작업. 프런트 결제 실패 후 거래 상태 변경 차단의 최소 수정·검증도 사용자 승인됐다. check는 양수 및 잔액 이상 조건을 적용하며 신규 거부 조건의 HTTP 400·Long 오버플로 무쓰기 거부는 최소안으로 제안하고 실제 오류 계약 기록을 요구했다.
+- 제안: 사용자 PK 잠금과 쓰기용 최신 current/locking read를 같은 쓰기 트랜잭션에 두는 최소안. 인증 조회가 먼저 만드는 RR snapshot, eager 연관의 잠금 범위, 다른 사용자 독립성, rollback을 실제 MySQL 검증 완료 조건에 넣었다. 구현 선택과 성공을 아직 확정한 기록은 아니다.
+- 이번 변경 범위: 명세·백로그·로그만. 코드/테스트/설정/스키마·의존성·인증/인가 수정과 DB 접속/쓰기·테스트 실행·성능 측정은 하지 않았다. 격리 DB/fixture 안전 조건과 동시성 검증 계획을 기록했으며 실측 효과를 주장하지 않는다.
+- 남은 작업: 추가 계약 경계 확정, 최소 구현·기준선/회귀 테스트, 안전한 격리 MySQL 동시성·rollback 검증, diff·독립 리뷰. 성능 테스트 및 범위 밖 변경은 사전 확인 대상이다. 자동 commit/push 없음.
+
+## 2026-11-04 — RF-003 최소 구현 및 오프라인 검증
+
+- 상태·기준: **진행, 전체 미완료**. HEAD `237224bd46e31f3d5c789d0699e1f896503b67c8`의 분석 문서 변경을 보존했다. 명세가 허용한 코드/테스트/프런트 최소 범위만 구현했다.
+- 구현: 충전·결제를 쓰기 트랜잭션으로 묶고 사용자 PK native scalar `FOR UPDATE` → 최신 cost native scalar current read → 양수/잔액 검사 → append 순서를 공유한다. scalar는 eager User/Role 조인 및 관리 엔티티의 이전 잔액 재사용을 피하려는 선택이며 실제 MySQL 잠금 범위/효과는 미검증이다. 가입 초기 0원·조회/RF-002 최대 ID·성공 상태 및 PointHistory 응답 구조를 유지했다.
+- 금액/오류: 충전·결제는 양수, 결제 동액 성공, 부족·충전 Long overflow는 저장 전 400. check는 양수이며 balance >= amount일 때만 200 true, 0/음수는 200 false, null/누락/바인딩 실패는 400. standalone 부족 응답은 400·빈 본문·content type 없음으로 관찰됐으나 Boot `/error` 및 실제 필터 payload는 미검증이다. 새 advice/공통 DTO/재시도/자동 초기화는 없다.
+- 프런트: isPayment의 HTTP/Boolean 검사, paymentProduct의 HTTP 검사 및 onPayment 오류 처리를 적용했다. 실패 시 후속 거래 상태 변경을 호출하지 않으며 결제·거래 전체의 원자성과 멱등성은 별도로 남긴다.
+- 실행: 변경 전 backend 19건, 변경 후 **74건(신규 특성4/정책27/MVC28 + 기존15), 실패/오류/skip 0**. frontend API/버튼 handler 오프라인 Node **10건 통과**, 변경 파일 ESLint와 전체 tsc 통과, backend offline `assemble` 성공. 명령과 XML은 [RF-003 증빙](evidence/RF-003/README.md)에 보존했다. Wrapper의 최초 sandbox 캐시 lock 거부 후 같은 명령의 기존 캐시 접근을 허용받아 실행했다.
+- 한계: 실제 격리 대상·fixture 쓰기 범위가 확증되지 않아 DB 연결/쓰기/cleanup을 하지 않았다. 실제 MySQL SQL 실행·동시 충전/결제/혼합·부족 경쟁·RR snapshot·다른 사용자·DB rollback 및 실제 HTTP/오류 body는 미검증이다. 실DB 전용 테스트/fixture도 미구현이다. 기록용 transaction manager 프록시의 rollback 호출을 DB rollback 성공으로 세지 않는다. 전체 backend test/build 및 API를 조회하는 frontend 프로덕션 build, 서버 기동·성능 테스트는 실행하지 않았다.
+- 자체/독립 검토: diff와 `git diff --check`를 확인했다. 별도 리뷰 담당자가 구현 diff·호출 관계·19/74건 XML과 금액/잠금 순서·프런트 실패 차단을 검토했고 확정 코드 결함은 발견하지 못했다. 안전한 격리 DB 검증 및 그 결과의 후속 독립 리뷰가 남아 전체 미완료다. 실제 Boot 오류 body와 브라우저도 미검증이다. 스키마/의존성/인증/인가·성능 변경, commit/push는 없으며 롤백은 RF-003 diff만 선택 복구한다.
+
+## 2026-11-04 — RF-003 승인 후 격리 MySQL 기능 검증
+
+- 승인/범위: 사용자 지시로 격리 대상·정리 범위를 먼저 확인하고 테스트 전용 user/point_history만 생성·정리했다. 스키마/role/기존 데이터 변경과 성능 테스트는 하지 않았다.
+- 안전 확인: listener 13306의 소유 mysqld PID22580·실행 옵션/전용 datadir가 기존 ignored 로컬 기록과 일치했다. 읽기 전용 메타데이터는 ngng_local, ngng@127.0.0.1, MySQL8.0.35, RR, InnoDB 및 기존 PK/FK/인덱스와 user/point/role 각0행을 확인했다. 테스트 내부도 고정 loopback/schema·계정/port/datadir/RR/InnoDB·user/point 빈 상태를 재검사하며 Boot/YAML/외부 연동을 로드하지 않고 JPA validate만 쓴다.
+- 안전 리뷰/실행: opt-in 없는 실행은 13건 모두 skip하여 DB 비접속을 확인했다. 독립 안전 리뷰가 확정 오삭제/대상 혼동 결함 없음과 role 부재·잠금 대기 관측 한계를 확인한 뒤 실제 opt-in 13건을 실행했고 **실패/오류/skip0**으로 통과했다. 기존 read/compute/append의 누락(1000+100/+200 뒤 최신1200, 기대1300)을 barrier로 재현했다. 변경 서비스는 동시 충전·결제·혼합·부족, 실제 AuthService 일반 read의 RR snapshot/관리 엔티티 stale, 다른 사용자 진행, flush 후 rollback/rollback-only·잠금해제, 의도한 timeout1205, 정책/재전송/단건-batch 조회 회귀를 검증했다.
+- 정리: 실행 UUID marker+정확 user/email/name 및 point_id/user_id/type_detail을 검증해 user15/point38행만 정리했다. worker 종료 전 삭제하지 않고 전체 테이블/볼륨/role 삭제 없이 FK 순서로 수행했다. afterAll과 별도 읽기 전용 CLI 연결에서 user0/point0/role0·잔존 fixture0을 재확인했다. XML 및 재현/정리 로그는 [RF-003 증빙](evidence/RF-003/README.md)에 있다.
+- 남은 한계/상태: 공통 role 사례는 role0행이며 role 생성 승인 밖이라 미검증, 다른 사용자 진행은 role=null fixture 결과다. proxy beforeLock 도달/Future 미완료는 DB 내부 대기 직접 관측이 아니다. 실제 Boot 오류 body·보안 필터·브라우저·운영 DB/다른 writer·성능 검증은 수행하지 않았다.
+- 독립 리뷰/사용자 결정: 별도 리뷰 담당자가 실DB XML의 13건 통과·15/38행 정리 및 shared-role=false와 미충족 사항을 확인했다. 사용자는 공통 role 검증을 나중으로 지정했다. 추가 role 생성/변경·테스트 없이 종료하며 **공통 role 검증 유예로 RF-003 전체 미완료**를 유지한다. 후속 fixture 변경·검증에는 별도 승인 필요, commit/push 없음.
+
+## 2026-11-05 — RF-003 공통 role 검증 재개 및 완료
+
+- 사용자 승인: 격리 확인 후 테스트 전용 role 1행과 사용자·포인트 이력을 생성하고 그 행만 정리. 스키마 변경·성능 테스트는 제외했다.
+- 사전 독립 안전 리뷰와 대상 확인 후 MySQL 8.0.35/RR/InnoDB에서 실DB 테스트 13건을 실행해 실패·오류·skip 없이 통과했다. 새 role의 ID를 두 사용자 DB와 실제 AuthService 결과에서 확인했고 A flush·미커밋 중 B가 정상 커밋하는 것을 검증했다.
+- worker 종료 후 테스트 사용자 15행·이력 38행·role 1행만 정리했다. 별도 새 연결에서 user/point/role 및 실행 marker 잔여 0과 기존 role 목록 불변을 확인했다. 증빙은 [RF-003 기록](evidence/RF-003/README.md)에 있다.
+- 독립 리뷰: GPT-6 Astra / High가 실제 XML·전후 확인 자료 및 diff를 검토했으며 추가 수정이 필요한 문제는 발견하지 못했다. 공통 role 조건이 충족돼 RF-003의 합의된 기능 검증을 완료했다. 운영 보안 필터·Boot 오류 body·브라우저 E2E·운영 DB/다른 writer·성능은 미검증이다. 멱등성과 결제·거래 상태의 원자성은 별도 작업이다. commit/push는 하지 않았다.
+
 ## 이후 작업 기록 양식
 
 ## RF-NNN — 제목
