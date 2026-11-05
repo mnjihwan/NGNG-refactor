@@ -1,0 +1,7 @@
+{
+  "path": "NGNG-backend/src/test/java/com/ngng/api/transaction/integration/TransactionAcceptanceMySqlConcurrencyTest.java",
+  "sha256": "6e9d4e820b55d0fd01b0e3fc5e19ad85f497d3cbf71d2924bfc522d179c6a1b9",
+  "head": "aa25aaedf783870be1641a90f6c7db7ad08bd021",
+  "result": "compileTestJava successful; offline41 passed; integration37 skipped without opt-in",
+  "databaseAccess": "none"
+}

@@ -1,0 +1,46 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.7/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :compileJava
+> Task :processResources
+> Task :classes
+
+> Task :compileTestJava
+Note: C:\Users\[redacted]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\integration\TransactionAcceptanceMySqlConcurrencyTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :processTestResources
+> Task :testClasses
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+
+> Task :test
+
+SecurityChainTest > unskippedPermitAllPathsStillAcceptValidCredentials(String, String) > [4] method=OPTIONS, path=/unknown FAILED
+    org.opentest4j.AssertionFailedError at SecurityChainTest.java:118
+
+TokenFilterTest > invalidRefreshIsEmpty401(String) > [21] refresh=eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiVVNFUiIsInN1YiI6InJmMDA1QGV4YW1wbGUudGVzdCIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjpbIndyb25nLXR5cGUiXX0.MYaJZKv2g-IE7SwSqo6i_Msa5ahbYFjBEc858JQUzwl-dRHRACR_c-lfkoHJvtKlBrqH-qxar-JGR5G7Lgxi6A FAILED
+    java.lang.IllegalStateException at TokenFilterTest.java:217
+
+TokenFilterTest > invalidAccessCannotUseValidRefresh(String) > [27] access=Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiVVNFUiIsInN1YiI6InJmMDA1QGV4YW1wbGUudGVzdCIsInR5cGUiOiJhY2Nlc3MiLCJleHAiOlsid3JvbmctdHlwZSJdfQ.V9-SUHZaY8YIJzH2UNydyhwxETWRQ0mRQMRxoJh2SneBtRVpu0FS7wim1zwl98lP0Gsuzmgd9ZIIpL6FIgmf4w FAILED
+    java.lang.IllegalStateException at TokenFilterTest.java:217
+
+116 tests completed, 3 failed
+
+> Task :test FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':test'.
+> There were failing tests. See the report at: file:///C:/Users/[redacted]/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/PJT/NGNG/NGNG-backend/build/reports/tests/test/index.html
+
+* Try:
+
+> Run with --scan to get full insights.
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.7/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 22s
+5 actionable tasks: 5 executed

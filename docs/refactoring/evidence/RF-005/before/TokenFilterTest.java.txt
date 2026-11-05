@@ -1,0 +1,116 @@
+package com.ngng.api.global.security;
+
+import com.ngng.api.global.security.filter.TokenFilter;
+import com.ngng.api.global.security.jwt.util.JwtTokenProvider;
+import com.ngng.api.global.security.jwt.util.JwtTokenVerifier;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.io.Encoders;
+import io.jsonwebtoken.security.Keys;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.http.Cookie;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.mock.web.MockHttpServletResponse;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.test.util.ReflectionTestUtils;
+
+import java.nio.charset.StandardCharsets;
+import java.security.Key;
+import java.util.Date;
+
+import static org.assertj.core.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+class TokenFilterTest {
+    static final String SECRET = Encoders.BASE64URL.encode("rf005-synthetic-key-only-64-bytes-abcdefghijklmnopqrstuvwxyz-123456".getBytes(StandardCharsets.UTF_8));
+    static final Key KEY = Keys.hmacShaKeyFor(io.jsonwebtoken.io.Decoders.BASE64URL.decode(SECRET));
+    JwtTokenVerifier verifier;
+    JwtTokenProvider provider;
+    TokenFilter filter;
+    MockHttpServletRequest request;
+    MockHttpServletResponse response;
+    FilterChain chain;
+
+    @BeforeEach
+    void setUp() {
+        SecurityContextHolder.clearContext();
+        verifier = new JwtTokenVerifier(SECRET);
+        provider = new JwtTokenProvider(SECRET);
+        ReflectionTestUtils.setField(provider, "accessTokenExpirationMs", 3_600_000);
+        filter = new TokenFilter(provider, verifier);
+        request = new MockHttpServletRequest("GET", "/my_page/profile");
+        response = new MockHttpServletResponse();
+        chain = mock(FilterChain.class);
+    }
+
+    @AfterEach
+    void clearContext() { SecurityContextHolder.clearContext(); }
+
+    static String token(String type, String role, long seconds) {
+        return Jwts.builder().setSubject("rf005@example.test").claim("role", role).claim("type", type)
+                .setExpiration(new Date(System.currentTimeMillis() + seconds * 1000)).signWith(KEY).compact();
+    }
+
+    @Test void validAccessKeepsPrincipalAndIgnoresBadRefresh() throws Exception {
+        request.addHeader("Authorization", "Bearer " + token("access", "USER", 3600));
+        request.setCookies(new Cookie("refreshToken", "broken"));
+        filter.doFilter(request, response, chain);
+        verify(chain).doFilter(request, response);
+        assertThat(SecurityContextHolder.getContext().getAuthentication().getName()).isEqualTo("rf005@example.test");
+        assertThat(SecurityContextHolder.getContext().getAuthentication().getAuthorities()).extracting("authority").containsExactly("ROLE_USER");
+        assertThat(response.getHeader("Authorization")).isNull();
+    }
+
+    @Test void expiredAccessRefreshesInSameRequest() throws Exception {
+        request.addHeader("Authorization", "Bearer " + token("access", "USER", -3600));
+        request.setCookies(new Cookie("refreshToken", token("refresh", "ADMIN", 3600)));
+        filter.doFilter(request, response, chain);
+        verify(chain).doFilter(request, response);
+        String issued = response.getHeader("Authorization");
+        assertThat(issued).startsWith("Bearer ");
+        assertThat(verifier.getType(issued)).isEqualTo("access");
+        assertThat(verifier.getRole(issued)).isEqualTo("ADMIN");
+        assertThat(verifier.getEmail(issued)).isEqualTo("rf005@example.test");
+        assertThat(response.getHeader("Set-Cookie")).isNull();
+    }
+
+    @Test void baselineMissingAuthorizationThrowsBeforeRefresh() {
+        request.setCookies(new Cookie("refreshToken", token("refresh", "USER", 3600)));
+        assertThatThrownBy(() -> filter.doFilter(request, response, chain)).isInstanceOf(NullPointerException.class);
+        verifyNoInteractions(chain);
+    }
+
+    @Test void baselineMissingRefreshCookieNameThrows() {
+        request.addHeader("Authorization", "");
+        request.setCookies(new Cookie("other", "value"));
+        assertThatThrownBy(() -> filter.doFilter(request, response, chain)).isInstanceOf(java.util.NoSuchElementException.class);
+    }
+
+    @Test void baselineRawAndCrossTypeAccessAreAccepted() throws Exception {
+        request.addHeader("Authorization", token("refresh", "USER", 3600));
+        filter.doFilter(request, response, chain);
+        verify(chain).doFilter(request, response);
+    }
+
+    @Test void baselineAccessCookieIsAcceptedAsRefresh() throws Exception {
+        request.addHeader("Authorization", "");
+        request.setCookies(new Cookie("refreshToken", token("access", "USER", 3600)));
+        filter.doFilter(request, response, chain);
+        verify(chain).doFilter(request, response);
+        assertThat(response.getHeader("Authorization")).startsWith("Bearer ");
+    }
+
+    @Test void baselineMalformedAccessThrowsDespiteRefresh() {
+        request.addHeader("Authorization", "Bearer broken");
+        request.setCookies(new Cookie("refreshToken", token("refresh", "USER", 3600)));
+        assertThatThrownBy(() -> filter.doFilter(request, response, chain)).isInstanceOf(io.jsonwebtoken.JwtException.class);
+    }
+
+    @Test void baselineNoExpirationThrows() {
+        request.addHeader("Authorization", "Bearer " + Jwts.builder().setSubject("rf005@example.test").claim("role", "USER")
+                .claim("type", "access").signWith(KEY).compact());
+        assertThatThrownBy(() -> filter.doFilter(request, response, chain)).isInstanceOf(NullPointerException.class);
+    }
+}

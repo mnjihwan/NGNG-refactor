@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.global.security.SecurityChainTest" tests="46" skipped="0" failures="1" errors="0" timestamp="2026-11-05T04:28:07" hostname="[redacted]" time="0.72">
+  <properties/>
+  <testcase name="[1] method=GET, path=/products/probe" classname="com.ngng.api.global.security.SecurityChainTest" time="0.227"/>
+  <testcase name="[2] method=GET, path=/products-other" classname="com.ngng.api.global.security.SecurityChainTest" time="0.005"/>
+  <testcase name="[3] method=GET, path=/main/child" classname="com.ngng.api.global.security.SecurityChainTest" time="0.003"/>
+  <testcase name="[4] method=POST, path=/join/child" classname="com.ngng.api.global.security.SecurityChainTest" time="0.003"/>
+  <testcase name="[5] method=GET, path=/search/probe" classname="com.ngng.api.global.security.SecurityChainTest" time="0.003"/>
+  <testcase name="[6] method=GET, path=/find/probe" classname="com.ngng.api.global.security.SecurityChainTest" time="0.003"/>
+  <testcase name="[7] method=GET, path=/category/probe" classname="com.ngng.api.global.security.SecurityChainTest" time="0.002"/>
+  <testcase name="[8] method=GET, path=/login" classname="com.ngng.api.global.security.SecurityChainTest" time="0.003"/>
+  <testcase name="[9] method=GET, path=/main" classname="com.ngng.api.global.security.SecurityChainTest" time="0.002"/>
+  <testcase name="missingAccessRefreshesThroughActualChain()" classname="com.ngng.api.global.security.SecurityChainTest" time="0.184"/>
+  <testcase name="consecutiveRequestsDoNotRetainAuthentication()" classname="com.ngng.api.global.security.SecurityChainTest" time="0.009"/>
+  <testcase name="refreshHeaderSurvivesDownstreamAuthorizationDenial()" classname="com.ngng.api.global.security.SecurityChainTest" time="0.015"/>
+  <testcase name="invalidAccessDoesNotReachEndpointEvenWithValidRefresh()" classname="com.ngng.api.global.security.SecurityChainTest" time="0.003"/>
+  <testcase name="[1] role=ADMIN, method=GET, path=/admin/probe, status=200" classname="com.ngng.api.global.security.SecurityChainTest" time="0.009"/>
+  <testcase name="[2] role=USER, method=GET, path=/admin/probe, status=403" classname="com.ngng.api.global.security.SecurityChainTest" time="0.004"/>
+  <testcase name="[3] role=UNCONFIRMED_USER, method=GET, path=/admin/probe, status=403" classname="com.ngng.api.global.security.SecurityChainTest" time="0.006"/>
+  <testcase name="[4] role=ADMIN, method=GET, path=/chat/probe, status=200" classname="com.ngng.api.global.security.SecurityChainTest" time="0.006"/>
+  <testcase name="[5] role=USER, method=GET, path=/chat/probe, status=200" classname="com.ngng.api.global.security.SecurityChainTest" time="0.005"/>
+  <testcase name="[6] role=UNCONFIRMED_USER, method=GET, path=/chat/probe, status=403" classname="com.ngng.api.global.security.SecurityChainTest" time="0.004"/>
+  <testcase name="[7] role=ADMIN, method=POST, path=/products/probe, status=200" classname="com.ngng.api.global.security.SecurityChainTest" time="0.005"/>
+  <testcase name="[8] role=USER, method=POST, path=/products/probe, status=200" classname="com.ngng.api.global.security.SecurityChainTest" time="0.005"/>
+  <testcase name="[9] role=UNCONFIRMED_USER, method=POST, path=/products/probe, status=403" classname="com.ngng.api.global.security.SecurityChainTest" time="0.007"/>
+  <testcase name="[10] role=ADMIN, method=PUT, path=/products/probe, status=200" classname="com.ngng.api.global.security.SecurityChainTest" time="0.005"/>
+  <testcase name="[11] role=USER, method=PUT, path=/products/probe, status=200" classname="com.ngng.api.global.security.SecurityChainTest" time="0.006"/>
+  <testcase name="[12] role=UNCONFIRMED_USER, method=PUT, path=/products/probe, status=403" classname="com.ngng.api.global.security.SecurityChainTest" time="0.006"/>
+  <testcase name="[13] role=ADMIN, method=DELETE, path=/products/probe, status=200" classname="com.ngng.api.global.security.SecurityChainTest" time="0.007"/>
+  <testcase name="[14] role=USER, method=DELETE, path=/products/probe, status=200" classname="com.ngng.api.global.security.SecurityChainTest" time="0.007"/>
+  <testcase name="[15] role=UNCONFIRMED_USER, method=DELETE, path=/products/probe, status=403" classname="com.ngng.api.global.security.SecurityChainTest" time="0.006"/>
+  <testcase name="[16] role=ADMIN, method=GET, path=/my_page/probe, status=200" classname="com.ngng.api.global.security.SecurityChainTest" time="0.006"/>
+  <testcase name="[17] role=USER, method=GET, path=/my_page/probe, status=200" classname="com.ngng.api.global.security.SecurityChainTest" time="0.006"/>
+  <testcase name="[18] role=UNCONFIRMED_USER, method=GET, path=/my_page/probe, status=200" classname="com.ngng.api.global.security.SecurityChainTest" time="0.005"/>
+  <testcase name="[19] role=ADMIN, method=POST, path=/confirm/account, status=403" classname="com.ngng.api.global.security.SecurityChainTest" time="0.006"/>
+  <testcase name="[20] role=USER, method=POST, path=/confirm/account, status=403" classname="com.ngng.api.global.security.SecurityChainTest" time="0.006"/>
+  <testcase name="[21] role=UNCONFIRMED_USER, method=POST, path=/confirm/account, status=200" classname="com.ngng.api.global.security.SecurityChainTest" time="0.006"/>
+  <testcase name="[1] method=GET, path=/" classname="com.ngng.api.global.security.SecurityChainTest" time="0.002"/>
+  <testcase name="[2] method=GET, path=/unknown" classname="com.ngng.api.global.security.SecurityChainTest" time="0.001"/>
+  <testcase name="[3] method=GET, path=/main-other" classname="com.ngng.api.global.security.SecurityChainTest" time="0.001"/>
+  <testcase name="[4] method=POST, path=/products/probe" classname="com.ngng.api.global.security.SecurityChainTest" time="0.001"/>
+  <testcase name="[5] method=OPTIONS, path=/unknown" classname="com.ngng.api.global.security.SecurityChainTest" time="0.003"/>
+  <testcase name="[6] method=GET, path=/my_page/probe" classname="com.ngng.api.global.security.SecurityChainTest" time="0.001"/>
+  <testcase name="[1] method=GET, path=/" classname="com.ngng.api.global.security.SecurityChainTest" time="0.006"/>
+  <testcase name="[2] method=GET, path=/unknown" classname="com.ngng.api.global.security.SecurityChainTest" time="0.005"/>
+  <testcase name="[3] method=GET, path=/main-other" classname="com.ngng.api.global.security.SecurityChainTest" time="0.004"/>
+  <testcase name="[4] method=OPTIONS, path=/unknown" classname="com.ngng.api.global.security.SecurityChainTest" time="0.014">
+    <failure message="org.opentest4j.AssertionFailedError: &#13;&#10;expected: 1&#13;&#10; but was: 0" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: 
+expected: 1
+ but was: 0
+	at java.base@17.0.10/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base@17.0.10/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base@17.0.10/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base@17.0.10/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at app//com.ngng.api.global.security.SecurityChainTest.unskippedPermitAllPathsStillAcceptValidCredentials(SecurityChainTest.java:118)
+	at java.base@17.0.10/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@17.0.10/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base@17.0.10/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@17.0.10/java.lang.reflect.Method.invoke(Method.java:568)
+	at app//org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at app//org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at app//org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at app//org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at app//org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestTemplateMethod(TimeoutExtension.java:94)
+	at app//org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at app//org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at app//org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at app//org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask$DefaultDynamicTestExecutor.execute(NodeTestTask.java:226)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask$DefaultDynamicTestExecutor.execute(NodeTestTask.java:204)
+	at app//org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor.execute(TestTemplateTestDescriptor.java:142)
+	at app//org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor.lambda$execute$2(TestTemplateTestDescriptor.java:110)
+	at java.base@17.0.10/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base@17.0.10/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base@17.0.10/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base@17.0.10/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base@17.0.10/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base@17.0.10/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base@17.0.10/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base@17.0.10/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base@17.0.10/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+	at java.base@17.0.10/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+	at java.base@17.0.10/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base@17.0.10/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base@17.0.10/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base@17.0.10/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base@17.0.10/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+	at java.base@17.0.10/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base@17.0.10/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base@17.0.10/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base@17.0.10/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base@17.0.10/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base@17.0.10/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base@17.0.10/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base@17.0.10/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+	at java.base@17.0.10/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base@17.0.10/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base@17.0.10/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base@17.0.10/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base@17.0.10/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base@17.0.10/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at app//org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor.execute(TestTemplateTestDescriptor.java:110)
+	at app//org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor.execute(TestTemplateTestDescriptor.java:44)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base@17.0.10/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base@17.0.10/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at app//org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at app//org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
+	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at app//org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at app//org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at app//org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:119)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:94)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:89)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62)
+	at java.base@17.0.10/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@17.0.10/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base@17.0.10/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@17.0.10/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
+	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+</failure>
+  </testcase>
+  <testcase name="existingCorsPreflightBypassesAuthentication()" classname="com.ngng.api.global.security.SecurityChainTest" time="0.005"/>
+  <testcase name="existingLogoutStatusAndCookieArePreserved()" classname="com.ngng.api.global.security.SecurityChainTest" time="0.033"/>
+  <system-out><![CDATA[13:28:05.477 [Test worker] INFO org.hibernate.validator.internal.util.Version -- HV000001: Hibernate Validator 8.0.1.Final
+13:28:07.050 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3dbb3fb7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@68a426c3, org.springframework.security.web.context.SecurityContextHolderFilter@2036f83, org.springframework.security.web.header.HeaderWriterFilter@1a84a8b2, org.springframework.web.filter.CorsFilter@182cc69e, org.springframework.security.web.authentication.logout.LogoutFilter@21280cbb, com.ngng.api.global.security.filter.TokenFilter@12f51a65, com.ngng.api.global.security.filter.LoginFilter@7657d90b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5e158f33, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@20fcea37, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3f0c6b3c, org.springframework.security.web.session.SessionManagementFilter@485451d8, org.springframework.security.web.access.ExceptionTranslationFilter@6ce2e079, org.springframework.security.web.access.intercept.AuthorizationFilter@6aa6c17]
+13:28:07.173 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+13:28:07.173 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+13:28:07.181 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

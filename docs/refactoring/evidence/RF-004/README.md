@@ -1,6 +1,6 @@
 # RF-004 분석·검증 증빙
 
-**현재 상태(2026-11-05): 사용자 지시로 보류, 전체 미완료·현재 변경은 배포 부적합.** backend 오프라인41건·frontend31건 통과. 최초 실DB20건은17통과/3실패로 다른 상품 잠금 충돌을 발견했고, 승인된 별도 reader/정확 PK 갱신 수정 뒤 실DB29건은27통과/2실패로 관리 Product/Request의 stale 값이 후속 flush에서 복원되는 결함을 재현했다. 두 실패 실행을 성공 증빙으로 대체하지 않는다. 사용자는 Hibernate 내부 API를 사용하는 추가 구현·검증을 진행하지 않고 현재 결과를 기록해 보류하도록 결정했다. 이후 운영코드/테스트 수정·테스트 재실행·DB 접속/쓰기는 중단했다.
+**현재 상태(2026-11-05): 서비스 경계 대안 검토 후 사용자 지시로 현재 결과를 보류, 전체 미완료·배포 부적합.** 운영 구현은 추가하지 않았다. 최신 backend 오프라인41건 통과, 격리 MySQL37건29통과/8실패. 아래 초기20건17통과/3실패와 reader29건27통과/2실패 및 사용자 보류는 당시 이력으로 보존한다. 이후 재개 승인·추가 회귀·새 실패와 원시 증빙은 마지막 절과 [public-session-review](public-session-review/README.md)에서 구분한다.
 
 ## 최초 분석 단계 이력
 
@@ -83,3 +83,24 @@ fixture는 user/category/product status/product/thumbnail/request/details 및 �
 검토한 유지보수 대안은 실행하지 않았다. 실제 native UPDATE1행 뒤 caller pending flush를 마치고 그 객체만 무락refresh하는 방식은 own-write 가시성으로 일부 경로를 다룰 수 있으나 affected0/반복 무쓰기·오래된 RR snapshot까지 일반화할 수 없다. 단순 setter는 불필요 dirty write, clear/detach는 caller의 후속 변경 유실, 잠금refresh는 eager/gap 잠금 재도입 위험이 있다. `@DynamicUpdate`는 엔티티의 모든 writer SQL에 영향을 주고 관리 getter의 stale 값은 남는다. Hibernate EntityEntry.loadedState와 보호필드를 함께 맞추는 국소 helper는 불필요 UPDATE 없이 동기화할 가능성이 있으나 내부 SPI/버전 의존·auto-flush 순서·유지보수 부담이 있어 사용자 결정대로 **미구현·미검증**이다. 별도 reader의 추가 연결 위험도 이 대안으로 해소되지 않는다.
 
 공유 전 before/after-initial/after XML 5개의 hostname도 redacted로 치환했다. 정제 전 원본은 Git 제외 경로 local/rf004-results/share-original-xml/에 보존했으며 결과 값은 변경하지 않았다.
+
+## 2026-11-05 명시 재개 — 공개 Session API 검토 및 회귀 확대
+
+- 기준 HEAD `aa25aaedf783870be1641a90f6c7db7ad08bd021`, 시작 clean. 사용자가 Hibernate 6.4 공개 Session API 기반 동기화 접근 검토·적용과 격리 DB 회귀를 승인했다. 내부 SPI 직접 사용은 승인 범위가 아니며, 안전성이 불확실하면 구현을 멈추도록 했다. 기존 전용 fixture/소유행 정리 승인은 유효하다. 성능·스키마·신규 의존성·인가 변경은 없다.
+- 설계 차단: `Session.setReadOnly` 공개 문서는 unmodified persistent object를 대상으로 하며 read-only 상태에서 snapshot을 유지하지 않는다고 명시한다. 기존 로컬 6.4.4.Final sources.jar의 `AbstractEntityEntry.setReadOnly`를 읽어 true에서 loadedState=null, false에서 현재 전체 속성값 deepCopy임을 확인했다. true→false만 적용하면 caller의 비보호 pending 값까지 새 기준선에 포함돼 쓰기가 유실될 수 있다. 선행 flush는 stale 보호필드가 full-row UPDATE에 섞이고, 단순 setter→flush는 무수정 반복/affected0에도 추가 쓰기를 만들 수 있다. 이 검토로 안전성을 입증하지 못해 **운영 코드는 수정하지 않았다**. 다른 공개 API 설계가 불가능하다고 단정하지 않으며 후속 설계 결정이 필요하다.
+- 변경: 기존 MySQL29건에 pending 비보호 필드/후속 dirty flush, Product affected0, 기존 false Request의 무쓰기, read-only 보존, proxy, 예외 복구, stale RR 재호출/선행 auto-flush의8건을 더해37건으로 확대했다. 비보호 필드는 purchaseAt/createdAt만 사용하고 marker/FK/price 등 cleanup identity는 유지한다. 테스트 전용 native affected-count 관찰과 Hibernate 공개 Statistics의 ORM entityUpdateCount로 추가 쓰기를 구분한다. 성능 측정이 아니다.
+- 검증: 전체 compileTestJava 성공, 기존 Policy26/Creation15 오프라인41건 통과. opt-in-disabled37건은 skip으로 연결 전 차단했으며 기능 통과가 아니다. 독립 리뷰로 pending/후속 필드의 실제 DB 값 assertion을 보강한 뒤 다시 같은 결과를 얻었다.
+- 안전 확인: 독립 테스트·runner 리뷰 후 실행. 첫 읽기 전용 CLI preflight는 batch JSON의 datadir escape로 identity mismatch가 나서 쓰기 전 중단했다. `--raw`로 고치고 `--no-defaults`를 첫 인자로 사용해 옵션 파일 상속을 막은 뒤 재확인했다. 동일 PID/loopback13306/executable/private datadir, MySQL8.0.35/RR, 관련·참조 모든 테이블0 통과. JPA fixture의 InnoDB/unique/FK/소유권 가드도 통과했다.
+- 실제 DB: **37건29통과/8실패/error0/skip0**. 기존2실패 외 새6실패: affected0 Product getter true, 이미 false인 Request getter null, 원래 read-only 관리3필드 stale, stale RR 반복의3필드 stale, pending-first는 pending·후속 필드값 보존 검사를 통과한 뒤 forSale=true로 실패(변경 유실 실증 아님), stale+pending 반복은409로 outer tx rollback(커밋된 stale overwrite 미증명). 마지막 사례에서 어떤 SQL이 먼저 실행됐는지 직접 SQL trace는 수집하지 않았으므로 테스트 설정·409 경계로 한정한다. 기존 최신 soft assertion으로 선택·sibling 요청 모두 null 복원을 이번에 실제 확인했다. proxy/예외 read-only 복구2건은 통과했다.
+- 정리: 모든 worker 종료 후 정확 소유행 details33/request80/thumbnail38/product40/user117/category1/status1/transaction_status1을 삭제·commit했다. 새 별도 CLI 연결에서 관련·참조 테이블0을 확인했다. 이번에도 기존 transaction_status1이 없어 테스트 소유1행 생성/정리했으며 기존행 재사용 분기는 미검증이다.
+- 보존/한계: [증빙 상세](public-session-review/README.md)의 XML/로그/summary/preflight/postflight/소스·해시를 따른다. raw는 gitignored `local/rf004-results/public-session-review/`, 공유본은 hostname/account/사용자경로를 정제했다. 검증 전후 운영5파일은 동결29건 소스와 같으며 실패를 해결했다고 기록하지 않는다. 먼저 실패한 assertion 뒤의 후속 필드 검사는 미실행이다. 새 실행은 과거 실패 XML을 대체하지 않는다.
+- 후속: pending 변경 보존·보호필드 stale flush 방지·무쓰기·read-only/proxy/예외 복구를 함께 만족하는 설계의 합의·독립 리뷰 후 동일 회귀와 cleanup을 다시 검증해야 한다. 현재 구현 안전성 미입증으로 작업을 완료하지 않는다. 운영 pool/HTTP/브라우저/다른 writer/성능 등 기존 잔여 범위는 그대로 미검증이며 추가 작업은 사용자 확인을 거친다. commit/push하지 않았다.
+## 2026-11-05 서비스 경계 대안 검토 및 사용자 보류 결정
+
+사용자는 서비스 경계 변경의 **검토**를 선택했으며, 아래는 읽기 전용 분석 결과다. 구현 대안의 선택·승인을 뜻하지 않는다. 이후 사용자는 최상위 작업 제한을 포함한 추가 상세 설계·검증을 진행하지 않고 **현재 결과로 보류**하도록 결정했다. 현재 운영 코드·테스트와 최신37건29통과/8실패 결과를 유지하며 추가 설계·테스트·DB 실행을 중단한다. 전체 미완료·배포 부적합이다.
+
+- 확인된 main 호출 관계: `TransactionRequestService.update`는 저장소 main 소스에서 `TransactionController` 한 곳이 호출한다. `TransactionDetailsService.create`는 직접 생성 controller와 요청 수락 service가 호출한다. 이는 저장소 검색 결과이며 외부 소비자 부재를 증명하지 않는다. 외부 저장소 소비자와 실제 OSIV/사전 bound EntityManager의 존재·동작은 미확인이다.
+- 추천 검토안: 기존 active transaction을 거절하는 최상위 서비스 경계와 transaction worker를 분리하고, 수락과 내부 거래 생성을 worker의 같은 트랜잭션에 두는 접근이다. 기존 상위 transaction 참여·rollback 계약을 바꾸므로 별도 정책/호출자 영향 합의가 필요하다. active transaction 검사만으로는 사전에 bound된 EntityManager/OSIV의 stale 상태 문제를 해결하지 못하므로 이 문제 해결도 필수 선행 조건이다. 해결 방식이나 오류 계약은 아직 정하지 않았다.
+- 대안: 작업 자체가 EntityManager를 소유하면 persistence context 경계를 명확히 할 수 있으나 구현 변경량과 lifecycle/트랜잭션·close·예외 처리 위험이 늘어난다. 단순 REQUIRES_NEW는 outer rollback의 원자성을 깨고 자기 잠금 대기·stale overwrite·추가 연결 수 위험이 있어 비권고로 검토했다. 현재 별도 RC reader의 운영 pool 한계도 여전히 미검증이다.
+- 근거·한계: 위 호출 관계/트랜잭션 구조의 정적 읽기와 기존37건 실패에 근거한 설계 검토다. 경계 대안은 구현·실행하지 않았으며 새로운 DB·테스트·HTTP/OSIV·pool 검증 증빙은 없다. 현재 실패가 이 대안으로 해소된다고 주장하지 않는다. 원시 호출관계 검색 로그는 별도 파일로 보존하지 않았고 경로·메서드·읽기 전용 범위를 이 기록에 남긴다.
+- 재개 조건: 사용자 명시 재개와 서비스 경계·호출자 계약/원자성·사전 bound EntityManager/OSIV 처리에 대한 설계 결정이 선행해야 한다. 이후 독립 리뷰와 기존 격리·소유행 안전 확인 아래 실제 회귀·정리 검증이 필요하다. 추가 작업·pool 설정·스키마/의존성/인가·성능 변경은 자동 승인되지 않는다. 현 보류는 완료 판정이 아니다.
