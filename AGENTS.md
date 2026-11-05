@@ -32,3 +32,5 @@
 ## Refactoring documents
 - 리팩토링 작업 전 `docs/refactoring/README.md`와 해당 작업 명세를 확인한다.
 - 분석, 기준선, 백로그와 작업 결과는 `docs/refactoring/`에 기록한다.
+- 각 작업의 결과를 기록하거나 완료할 때 해당 명세와 `docs/refactoring/evidence/RF-NNN/README.md`에 수행한 검증의 범위·근거, 한계, 미실행 항목과 이유, 추가 검증 방법·재개 조건을 함께 남긴다. 완료한 작업도 누락을 발견하면 소급 보완한다.
+- 원시 증빙 보존 여부와 후일 재실행을 구분하고, 미검증을 통과로 기록하지 않는다. 잔여 검증·범위 밖 후보는 `docs/refactoring/BACKLOG.md`에서 상태와 근거를 추적하며 자동 착수하지 않는다.
