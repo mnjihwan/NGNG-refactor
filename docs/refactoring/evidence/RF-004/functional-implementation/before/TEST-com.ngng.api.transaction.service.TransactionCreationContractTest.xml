@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.transaction.service.TransactionCreationContractTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2026-11-06T00:23:37" hostname="redacted" time="0.478">
+  <properties/>
+  <testcase name="currentDetailsMergeOwnAndCommittedIdsThenLockExistingPrimaryKeysOnce()" classname="com.ngng.api.transaction.service.TransactionCreationContractTest" time="0.099"/>
+  <testcase name="directCreateMappingFailureTriggersRollbackAdvice()" classname="com.ngng.api.transaction.service.TransactionCreationContractTest" time="0.1"/>
+  <testcase name="directCreateIndependentReaderFailurePropagatesWithoutSaving()" classname="com.ngng.api.transaction.service.TransactionCreationContractTest" time="0.001"/>
+  <testcase name="malformedRequestBodyRemains400()" classname="com.ngng.api.transaction.service.TransactionCreationContractTest" time="0.034"/>
+  <testcase name="saveFailurePropagates()" classname="com.ngng.api.transaction.service.TransactionCreationContractTest" time="0.001"/>
+  <testcase name="requestConflictAndDirectConflictAre409()" classname="com.ngng.api.transaction.service.TransactionCreationContractTest" time="0.02"/>
+  <testcase name="directCreateProxyHasTransactionBeforeLockAndCommits()" classname="com.ngng.api.transaction.service.TransactionCreationContractTest" time="0.108"/>
+  <testcase name="directCreateCommitFailureEscapesProxy()" classname="com.ngng.api.transaction.service.TransactionCreationContractTest" time="0.002"/>
+  <testcase name="firstCreationPreservesSellerBuyerPriceStatusAndDto()" classname="com.ngng.api.transaction.service.TransactionCreationContractTest" time="0.001"/>
+  <testcase name="missingProductRetainsExistingAssertionBoundaryWithTestAssertionsEnabled()" classname="com.ngng.api.transaction.service.TransactionCreationContractTest" time="0.0"/>
+  <testcase name="directCreateSaveFailureTriggersRollbackAdvice()" classname="com.ngng.api.transaction.service.TransactionCreationContractTest" time="0.001"/>
+  <testcase name="existingTransactionIs409WithoutSavingOrLoadingProductGraph()" classname="com.ngng.api.transaction.service.TransactionCreationContractTest" time="0.001"/>
+  <testcase name="firstPostRetains201LocationAndDtoFields()" classname="com.ngng.api.transaction.service.TransactionCreationContractTest" time="0.071"/>
+  <testcase name="requestUpdateRetains200NumericIdAndMissing404()" classname="com.ngng.api.transaction.service.TransactionCreationContractTest" time="0.024"/>
+  <testcase name="mappingFailurePropagatesAfterSaving()" classname="com.ngng.api.transaction.service.TransactionCreationContractTest" time="0.002"/>
+  <system-out><![CDATA[09:23:37.972 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 12  Consumer : 11 
+09:23:38.056 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:23:38.056 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:23:38.056 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:23:38.072 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected end-of-input: expected close marker for Object (start marker at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 1])]
+09:23:38.095 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:23:38.095 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:23:38.095 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:23:38.104 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 12  Consumer : 11 
+09:23:38.213 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 12  Consumer : 11 
+09:23:38.215 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 12  Consumer : 11 
+09:23:38.225 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:23:38.225 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:23:38.225 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:23:38.225 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 12  Consumer : 11 
+09:23:38.288 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:23:38.288 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:23:38.288 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:23:38.288 [Test worker] INFO transaction-log -- Success Accept TransactionRequest id: 1
+09:23:38.316 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 12  Consumer : 11 
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

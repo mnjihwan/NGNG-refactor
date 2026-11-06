@@ -73,40 +73,28 @@ class TransactionCreationContractTest {
         assertTrue(product.getForSale(), "direct creation retains its existing product/request state behavior");
         var order = inOrder(products, details);
         order.verify(products).lockTransactionProduct(7L);
-        order.verify(details).flush();
-        order.verify(details).findVisibleIdsByProductId(7L);
-        order.verify(details).findCommittedIdsByProductId(7L);
+        order.verify(details).findAllByProductProductId(7L);
         order.verify(products).findById(7L);
         order.verify(details).save(any());
     }
 
-    @Test void currentDetailsMergeOwnAndCommittedIdsThenLockExistingPrimaryKeysOnce() {
-        var own = mock(TransactionDetailsRepository.AcceptanceDetails.class);
-        var committed = mock(TransactionDetailsRepository.AcceptanceDetails.class);
-        when(details.findVisibleIdsByProductId(7L)).thenReturn(List.of(88L));
-        when(details.findCommittedIdsByProductId(7L)).thenReturn(List.of(88L, 99L));
-        when(details.lockAcceptanceDetailsById(88L)).thenReturn(Optional.of(own));
-        when(details.lockAcceptanceDetailsById(99L)).thenReturn(Optional.of(committed));
-        assertEquals(List.of(own, committed), service.findCurrentDetails(7L));
-        var order = inOrder(details);
-        order.verify(details).flush();
-        order.verify(details).findVisibleIdsByProductId(7L);
-        order.verify(details).findCommittedIdsByProductId(7L);
-        order.verify(details).lockAcceptanceDetailsById(88L);
-        order.verify(details).lockAcceptanceDetailsById(99L);
-        order.verifyNoMoreInteractions();
+    @Test void currentDetailsReadUsesTheProductGuardedTransaction() {
+        var existing = TransactionDetails.builder().id(88L).build();
+        when(details.findAllByProductProductId(7L)).thenReturn(List.of(existing));
+        assertEquals(List.of(existing), service.findCurrentDetails(7L));
+        verify(details).findAllByProductProductId(7L);
+        verifyNoMoreInteractions(details);
     }
 
-    @Test void directCreateIndependentReaderFailurePropagatesWithoutSaving() {
-        RuntimeException failure = new RuntimeException("reader unavailable");
-        when(details.findCommittedIdsByProductId(7L)).thenThrow(failure);
+    @Test void directCreateDetailsReadFailurePropagatesWithoutSaving() {
+        RuntimeException failure = new RuntimeException("details read unavailable");
+        when(details.findAllByProductProductId(7L)).thenThrow(failure);
         assertSame(failure, assertThrows(RuntimeException.class, () -> service.create(input)));
         verify(details, never()).save(any());
     }
 
     @Test void existingTransactionIs409WithoutSavingOrLoadingProductGraph() {
-        when(details.findCommittedIdsByProductId(7L)).thenReturn(List.of(88L));
-        when(details.lockAcceptanceDetailsById(88L)).thenReturn(Optional.of(mock(TransactionDetailsRepository.AcceptanceDetails.class)));
+        when(details.findAllByProductProductId(7L)).thenReturn(List.of(TransactionDetails.builder().id(88L).build()));
         assertEquals(409, assertThrows(ResponseStatusException.class, () -> service.create(input)).getStatusCode().value());
         verify(details, never()).save(any());
         verify(products, never()).findById(anyLong());
@@ -140,6 +128,8 @@ class TransactionCreationContractTest {
         assertEquals(88L, proxy(manager).create(input).getId());
         assertEquals(1, manager.commits);
         assertEquals(0, manager.rollbacks);
+        assertEquals(TransactionDefinition.ISOLATION_READ_COMMITTED, manager.isolation);
+        assertFalse(manager.readOnly);
     }
 
     @Test void directCreateSaveFailureTriggersRollbackAdvice() {
@@ -187,8 +177,7 @@ class TransactionCreationContractTest {
 
     @Test void requestConflictAndDirectConflictAre409() throws Exception {
         when(requests.update(1L, true)).thenThrow(new ResponseStatusException(HttpStatus.CONFLICT));
-        when(details.findCommittedIdsByProductId(7L)).thenReturn(List.of(88L));
-        when(details.lockAcceptanceDetailsById(88L)).thenReturn(Optional.of(mock(TransactionDetailsRepository.AcceptanceDetails.class)));
+        when(details.findAllByProductProductId(7L)).thenReturn(List.of(TransactionDetails.builder().id(88L).build()));
         MockMvc mvc = mvc(service);
         mvc.perform(put("/transaction/request").contentType("application/json")
                         .content("{\"transactionRequestId\":1,\"isAccepted\":true}"))
@@ -220,9 +209,10 @@ class TransactionCreationContractTest {
 
     private static class RecordingTransactions extends AbstractPlatformTransactionManager {
         int commits, rollbacks;
-        boolean failCommit;
+        boolean failCommit, readOnly;
+        int isolation;
         @Override protected Object doGetTransaction() { return new Object(); }
-        @Override protected void doBegin(Object tx, TransactionDefinition definition) { }
+        @Override protected void doBegin(Object tx, TransactionDefinition definition) { isolation = definition.getIsolationLevel(); readOnly = definition.isReadOnly(); }
         @Override protected void doCommit(DefaultTransactionStatus status) {
             if (failCommit) throw new UnexpectedRollbackException("test commit failed");
             commits++;

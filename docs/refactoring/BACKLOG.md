@@ -1,5 +1,8 @@
 # 백엔드 리팩토링 백로그
 
+최신 상태(2026-11-06): 합의한 기능 중심 최소 구현·선택 검증·최종 독립 리뷰를 완료했다. 최신 기능 범위에서 수정이 필요한 결함은 발견되지 않았다. 변경 전 오프라인41건, 최종 오프라인43건(Policy28/Creation15), 격리 MySQL 기능24건 통과. 과거37건29통과/8실패는 이전 범용 내부 호출 설계의 실행 이력이며 보존한다. 임의 사전 관리 객체/active outer RR 트랜잭션은 최신 지원 범위 밖이다. 운영 배포·전체 HTTP/브라우저·성능 검증 완료를 뜻하지 않는다. [명세](tasks/RF-004.md)·[기능 증빙](evidence/RF-004/functional-implementation/README.md). 아래2026-11-05 설명과 종전 R4 표의 보류 상태는 당시 이력이며 최하단 최신 표가 우선한다.
+
+
 2026-11-05 기준. RF-001은 검증 기반 작업 완료, RF-002는 최소 구현·오프라인 검증 후 전체 미완료, RF-003은 합의된 기능 검증·독립 리뷰 완료다. RF-004는 공개 Session API 재개·격리 회귀 후 서비스 경계 대안까지 검토했으나, 사용자가 추가 상세 설계·검증을 현재 결과로 보류했다. 운영 추가 구현 없이 전체 미완료·배포 부적합이다. 최신 실DB37건29통과/8실패이며 이전 보류·실패 이력은 보존한다. 나머지는 별도 제안이며 완료 작업의 한계도 아래 잔여 목록에서 추적한다. 근거 F01~F09의 상세 경로·행·호출 관계는 [ARCHITECTURE.md](ARCHITECTURE.md)에 있다. 우선순위는 장애의 실측 빈도나 확정된 성능 효과를 뜻하지 않는다.
 
 ## 선정 원칙
@@ -18,7 +21,7 @@
 | RF-001 / P0 | 테스트 컴파일 복구 + 사용자 목록 특성·계약 테스트 확보. 검증 기반, F01/F05 | 낮음. mock 통과를 실제 DB/보안 검증으로 오인할 위험 | Wrapper/기존 의존성 확보. 전체 테스트 소스 컴파일 및 신규 무외부연결 테스트만 통과. [명세](tasks/RF-001.md) | **완료: 선택 테스트 8건 통과** |
 | RF-002 / P1 | 관리자 사용자 페이지 최신 포인트 일괄 조회. 성능 가설, F05 UserService.findAll(Integer) | 중간. 최신 기준(max ID), 순서, 빈 이력 처리, role fetch/실행계획 | RF-001 + 격리 DB·fixture. 단건 최신 조회와 batch 결과 동등, JSON/Page 계약 동일, SQL·실행계획·지연 실측. [명세](tasks/RF-002.md) | **진행: 오프라인15건·RF-003 작은 DB fixture 단건/batch 교차 확인. 관리자 페이지 통합·동시 읽기 미검증, 성능은 사용자 지시로 유예. 전체 미완료** |
 | RF-003 / P0 | 포인트 updateCost/payment의 읽기-계산-저장 경쟁 방지 및 사용자 승인 금액 정책. 정합성 결함 후보, F02 | 높음. 잠금 범위·교착·RR snapshot·잔액 및 API 실패 경계. 트랜잭션 추가만으로 해결 불가 | RF-001 + 안전한 격리 DB. 양수 충전/결제, 같은 잔액 결제 허용, 부족 시 무쓰기 및 프런트 실패 처리 최소 수정 승인. 사용자별 동시 결과·rollback·check 및 오류 계약 검증. 멱등성은 별도. [명세](tasks/RF-003.md) | **완료: 오프라인 backend 74건/frontend 10건·공통 role 포함 격리 MySQL 13건·정리 및 독립 리뷰 확인. 운영·성능 한계는 명세 참고** |
-| RF-004 / P0 | 한 상품의 거래 요청 수락 반복·동시 처리 및 직접 거래 생성 최소 보호. 정합성 후보, F02 | 높음. 상품/요청/거래 원자성, RR/current read·관리객체 stale flush·추가 reader 연결 | [명세](tasks/RF-004.md). 같은 요청 일치 재수락 무쓰기200·충돌409, 직접 생성/frontend 실패 처리. 승인된 reader 수정 후에도 관리객체 후속flush 정합성 실패 | **사용자 지시 보류·설계 안전성 미입증·전체 미완료/배포 부적합: offline41 재통과, 최신 실DB29/37통과(8실패), 추가 운영 구현 없음. 이전 reader27/29와 구분** |
+| RF-004 / P0 (이전 설계 이력) | 한 상품의 거래 요청 수락 반복·동시 처리 및 직접 거래 생성 최소 보호. 정합성 후보, F02 | 높음. 상품/요청/거래 원자성, RR/current read·관리객체 stale flush·추가 reader 연결 | [명세](tasks/RF-004.md). 같은 요청 일치 재수락 무쓰기200·충돌409, 직접 생성/frontend 실패 처리. 승인된 reader 수정 후에도 관리객체 후속flush 정합성 실패 | **사용자 지시 보류·설계 안전성 미입증·전체 미완료/배포 부적합: offline41 재통과, 최신 실DB29/37통과(8실패), 추가 운영 구현 없음. 이전 reader27/29와 구분** |
 | RF-005 / P0 | TokenFilter 누락·쿠키 부재·토큰 타입 처리 경계. 인증 결함 수정, F03 | 높음. 승인된 실패 응답·refresh·type/claim 정책 | [명세](tasks/RF-005.md)·[증빙](evidence/RF-005/README.md). 변경 전 직접8/실제chain32 통과, 최소 구현 후118건/assemble 성공 | **완료: 승인 정책 구현·격리 검증 및 독립 리뷰 완료. 운영Boot/브라우저·실DB·성능 미검증** |
 | RF-006 / P0 | 거래 상태 변경의 Long 소유자 ID 비교 한정 수정. 결함 경로, F03 | 중간. 같은 값·다른 참조 소유자 거부 수정, 역할/소유권 주체 유지 | [명세](tasks/RF-006.md)·[증빙](evidence/RF-006/README.md). Oracle Java17 값 동등성 근거와 사용자 위임에 따라 두 비교만 Objects.equals 권고. 서로 별도 Long 객체·역할 3종×소유권·필터 포함/미포함 회귀 | **최소 구현·before37/after196 선택 회귀 완료, 독립 리뷰 완료** |
 | RF-007 / P0 | 상품 수정/삭제의 역할·소유권 표 작성 및 누락 검사. 인가 정책 후보, F03 | 높음. 현재 타인 수정 허용 여부가 계약상 미확정 | 필터 포함 역할×소유권 재현, 프런트 관리자 흐름 확인. 정책 승인 뒤 대상 endpoint만 변경. Confirm/DropOut은 후속 별도 명세 | 조사 제안 |
@@ -66,7 +69,7 @@
 | R3-거래원자성 / 별도 정책·기능 후보 | RF-003 프런트는 결제 실패 뒤 상태 변경을 차단. 결제 성공 뒤 거래 상태 변경 실패의 원자성은 미해결 | 후보, 미착수 | 결제/거래 호출 경계·복구/보상·재시도 정책 합의 및 별도 명세 후 실패·응답 유실 주입, 잔액/상태 검증 |
 | R4-정책 / 합의·보류 결정 | [RF-004 명세](tasks/RF-004.md)·[증빙](evidence/RF-004/README.md). 같은 요청 일치 시 무쓰기200·직접 생성/frontend 최소실패처리·격리fixture·별도 reader 추가연결 승인, 충돌409 위임. 이후 Hibernate 내부API 추가 설계·구현·검증은 진행하지 말고 결과 기록 후 보류 지시 | 이후 공개 Session API 접근·격리 회귀 재개 승인, 서비스 경계 검토 후 추가 상세 설계·검증은 사용자 지시로 현재 결과 보류 | 재개 후 공개 API만으로 pending 보존과 보호필드 stale flush 방지의 안전성 미입증. 사용자 명시 재개·추가 설계 합의·독립 리뷰 후 운영 수정·동일 회귀 재검증. 인가·스키마·의존성·pool 설정·성능은 별도 승인 |
 | R4-기능 / 완료 차단 결함 | offline41/frontend31 통과. 실DB 최초17/20(다른 상품1205/1213), reader수정27/29(관리Product.forSale=true/선택Request.isAccepted=null 후속flush복원) 통과. fixture정리·새연결0. 당시 sibling실제값은 미증빙이었으나 최신37건에서 두 요청 null 복원을 확인. 기존status1재사용·불일치/반대경합 실DB 일부 미실행 | **사용자 지시 보류·전체 미완료·배포 부적합**. 최신37건29통과/8실패, selected/sibling 모두 null 복원 확인. 신규 Product affected0는 상품 UPDATE affected=0·ORM update=0 확인 후 getter 실패(요청 UPDATE·거래 INSERT는 발생). 이미거절/반복은 native writer0·ORM update0 확인 후 stale getter 실패; pending-first는 필드 보존 후 sale 실패, stale+pending409 rollback이며 committed overwrite 미증명. [새 증빙](evidence/RF-004/public-session-review/README.md) | 안전한 설계 합의 후 affected1/0·반복 무쓰기·관리객체 후속flush·상위tx own rows/rollback·gap/reader·fixture정리·독립리뷰. 실행당시 소스/실패XML은 증빙에 보존 |
-| R4-경계 / 검토·미승인 대안 | main request.update 호출자는 TransactionController 하나, details.create는 직접 controller·수락 service. 외부 소비자/실제 OSIV·사전 bound EntityManager 미확인. active tx 거절+transaction worker 내 수락/내부 create 원자성 보존을 추천 검토했으나 사전 bound EM 해결도 필수. 자체 EM 소유는 변경량/lifecycle 위험 증가, 단순 REQUIRES_NEW는 outer rollback·자기 잠금·stale overwrite·추가 연결 위험으로 비권고 | 검토일 뿐 구현 선택·승인 아님. 사용자 지시로 현재 결과 보류, 새 구현/DB/테스트 증빙 없음 | 사용자 명시 재개 후 경계·호출자 계약/원자성·OSIV/사전 EM 정책을 결정하고 독립 리뷰·안전한 격리 회귀 필요. 기존 운영 pool·실DB 한계 유지. 추가 작업 자동 착수 금지 |
+| R4-경계 / 검토·미승인 대안 | main request.update 호출자는 TransactionController 하나, details.create는 직접 controller·수락 service. 외부 소비자/실제 OSIV·사전 bound EntityManager 미확인. active tx 거절+transaction worker 내 수락/내부 create 원자성 보존을 추천 검토했으나 사전 bound EM 해결도 필수. 자체 EM 소유는 변경량/lifecycle 위험 증가, 단순 REQUIRES_NEW는 outer rollback·자기 잠금·stale overwrite·추가 연결 위험으로 비권고 | 2026-11-06 읽기 전용 재검토. 미완료 구현은 main에 병합돼 있으며 실제 배포 여부는 미확인. 대안 구현·선택 및 새 DB/테스트 증빙 없음 | 경계·호출자 계약/원자성·OSIV/사전 EM 정책을 결정하고 독립 리뷰·안전한 격리 회귀 필요. 기존 운영 pool·실DB 한계 유지. 추가 작업 자동 착수 금지 |
 | R4-연결 / 잔여 위험 | 기존 write tx/상품잠금을 보유한 채 짧은 REQUIRES_NEW RC readOnly reader가 두 번째 연결 사용. 실제 별도connection/RC/readOnly 기능은 통과하나 pool starvation 미검증 | 위험 설명 후 reader 설계 승인, pool 설정 변경 없음 | 운영 pool과 최대 동시 writer·timeout·실패 복구의 별도 검증은 후속 지시 후. 새로운 pool 설정은 별도 합의. 관리상태 동기화 대안도 이 위험을 해소하지 않음 |
 | R4-연동 / 잔여 검증 | frontend31건·lint0·tsc 통과 및 TAP/로그 보존. HTTP 필터/Boot 오류 body·브라우저/live chat/production build 미실행 | 대역 검증 완료·실제 연동 미검증 | 안전 서버·인증·외부 차단·데이터 확보와 별도 사용자 지시. offline 대역을 실제 연동으로 해석하지 않음 |
 | R4-운영 / 별도 후보·한계 | 직접 생성은 RF-004 포함. 신규 request.create 경합·상품 수정/제재/삭제·취소 후 재판매·운영 외부 writer 및 과거 데이터 복구는 최소 범위 밖 | 후보, 미착수 | 실제 writer·정책·스키마 자료 확보 후 별도 명세/범위 합의. RF-021 인가나 RF-009 캐시까지 자동 확장하지 않음 |
@@ -80,3 +83,24 @@
 | R6-정책 / 별도 후보 | null/null ID 참조 동등성 특성, 상품 소유자와 기록 seller 기준 차이, 역할/상태 전이 정책은 기존 유지 | 정책 변경 미착수, Java 공식 자료는 역할 정책을 정당화하지 않음 | 정책 변경 필요 시 사용자 결정·별도 명세. RF-004 보류·RF-007/021 범위를 자동 재개/확대하지 않음 |
 
 RF-003 프런트10건·ESLint·tsc·backend assemble 성공의 원시 로그 미보존은 명세/증빙에 별도 명시했다. 당시 자료를 확보하면 출처를 밝혀 보완하며, 새 검증은 별도 실행으로 기록한다. 과거 잔액 복구는 RF-003 범위 밖이며 필요 여부·정책은 확인되지 않았다. 위 기록을 근거로 자동으로 테스트·DB 접속·성능 측정·별도 구현을 시작하지 않는다.
+
+### 2026-11-06 R4 재설계 재개 추적
+
+R4-정책/기능/경계의 최신 분석 상태는 사용자 요청에 따른 재개다. 이전 보류 이력은 보존하며 전체 미완료·배포 부적합 판정과 과거37건8실패 증빙은 유지한다. [명세의 재설계 계획](tasks/RF-004.md)에 기존 REQUIRED/own rows/outer rollback·관리객체 계약 보존 우선, SPI/경계 제한의 미해결 선택과 공식 근거를 기록했다. 구체적 선택 뒤 기존 회귀를 삭제하지 않고 auto-flush SQL 순서·affected0 무쓰기·direct create·pending/후속flush·OSIV/예외·gap/reader와 cleanup을 검증한다. 이번 분석은 테스트/DB 미실행이며 새 성공 근거가 없다. R4-연결의 운영 pool 한계와 R4-연동/운영/성능 잔여 범위는 유지한다.
+
+- 2026-11-06 R4-정책/기능/경계 추가 분석: 사용자 지시대로 적절성 검토 후 구현하는 조건을 유지한다. 공개 Interceptor 후보를 확인했으나 기존 Session 사후 적용 불가, factory 전체 Session 범위·기존 interceptor 미합성, 타입별 dirty 검사와 OSIV/reader/후속flush 수명 문제가 있어 최소 안전안은 미확정이다. [명세](tasks/RF-004.md)의 추가 분석·검증 조건 참조. 코드/테스트/DB실행·병합 없음, 과거37건8실패 유지. SPI/상위tx 축소를 유일한 대안으로 단정하거나 자동 승인하지 않는다.
+
+### 2026-11-06 RF004 기능 중심 재설계 — 최신 R4 상태
+
+사용자는 기존 RF004 내부 구조와 과도한 상위tx/관리객체 유지 조건을 새 설계의 요구에서 제외했다. 앞선 보류·미확정 기록은 이력이며 최신 제안은 [명세](tasks/RF-004.md)의 단일 RC tx+상품 PK scalar lock+JPA 관리 변경이다. 실제 TokenFilter/controller에는 대상 사전 로딩이 없어 OSIV를 유지하고 임의 내부 상위tx/stale context 지원을 완료 요건에서 제외한다. 신규 스키마/의존성/인가·전역 OSIV/pool 변경은 없다.
+
+| 추적 | 최신 상태·근거 | 남은 검증/재개 조건 |
+|---|---|---|
+| R4-정책 | 사용자 기능 중심 재설계 지시 반영; HTTP 및 승인 반복/409/직접 생성/프런트 최소 실패 정책 유지 | 기존 내부 지원 기대 변경을 공개하고 기능 기준 구현·독립 리뷰 |
+| R4-기능 | 최소 구현·최종offline43/격리기능MySQL24 통과, 소유행 cleanup·독립 CLI0. 최종 독립 리뷰 완료·범위 내 수정 필요 결함 없음. 과거37건8실패 원본 보존, 메서드 삭제/skip없음·새 범위 판정용 미실행 | 정상/반복SQL0/충돌/직접생성/순서경합/rollback/독립상품/빈OSIV holder 검증. nullable오염데이터는 단위2건만 검증·실DBfixture미검증. 기존status1 재사용·오염데이터 실DB·실제HTTP/운영은 잔여; 별도 조건에서 재개 |
+| R4-경계 | 현 HTTP 경로는 선행target 로딩 없음(정적), 일반 서비스RC tx. 실제proxy/JDBC RC·scalar상품락 뒤 entity SQL·빈OSIV holder 기능확인. 수동holder/SPI/Interceptor 제외 | Servlet OSIV/실제HTTP 전체는 미검증. 임의outer RR/사전stale target 관리상태 비지원; 새 호출자/호출방식 변경 전에 경계 재검토 |
+| R4-연결 | REQUIRES_NEW reader 제거 구현, 수락 두 상품락의 connection ID 샘플 동일·RC/write 관측. 운영pool 변경없음 | lock시점 샘플이 모든 미관측 연결 획득을 증명하지 않음. OSIV 선행연결·운영pool 용량/성능 미검증, 후속지시 후 별도 검증 |
+
+R4-연동/운영/성능의 기존 미실행·별도 범위는 유지한다. 공식 자료와 검증 방법·한계는 명세/증빙에 기록했고 후속 실행은 새 증빙으로 구분한다.
+
+최신 기능 범위에서 request.create/일반 상품수정·삭제·외부 SQL writer, 새 요청 삽입/재판매·취소, 실제 HTTP/브라우저/전체 보안·운영pool/성능 및 기존 status1 재사용은 별도 잔여다. 기존 R4-연동/운영/성능 추적을 유지하며 자동 착수하지 않는다. ordered latch는 대기 직접 관측이 아니고 connection ID는 잠금 시점 샘플이다.

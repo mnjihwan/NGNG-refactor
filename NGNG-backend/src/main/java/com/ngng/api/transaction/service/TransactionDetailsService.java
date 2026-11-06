@@ -17,11 +17,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 @Service
@@ -86,7 +86,7 @@ public class TransactionDetailsService extends Exception {
                 .collect(Collectors.toList());
     }
 
-    @Transactional
+    @Transactional(isolation = Isolation.READ_COMMITTED)
     public ReadTransactionDetailsDTO create(CreateTransactionDetailsRequestDTO request){
         productRepository.lockTransactionProduct(request.getProductId());
         if (!findCurrentDetails(request.getProductId()).isEmpty()) {
@@ -112,14 +112,8 @@ public class TransactionDetailsService extends Exception {
 
     /** Caller must hold this product's lock in its write transaction. */
     @Transactional(propagation = Propagation.MANDATORY)
-    public List<TransactionDetailsRepository.AcceptanceDetails> findCurrentDetails(Long productId) {
-        transactionDetailsRepository.flush();
-        var ids = new TreeSet<>(transactionDetailsRepository.findVisibleIdsByProductId(productId));
-        ids.addAll(transactionDetailsRepository.findCommittedIdsByProductId(productId));
-        return ids.stream()
-                .map(transactionDetailsRepository::lockAcceptanceDetailsById)
-                .flatMap(java.util.Optional::stream)
-                .toList();
+    public List<TransactionDetails> findCurrentDetails(Long productId) {
+        return transactionDetailsRepository.findAllByProductProductId(productId);
     }
 
     @Transactional()

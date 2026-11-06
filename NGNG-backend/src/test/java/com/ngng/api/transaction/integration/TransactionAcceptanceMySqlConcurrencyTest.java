@@ -584,7 +584,9 @@ class TransactionAcceptanceMySqlConcurrencyTest {
             ReadTransactionDetailsDTO own = details.create(direct(item));
             assertThat(own.getId()).isPositive();
             READER_TRANSACTIONS.get().clear();
-            assertThat(context.getBean(TransactionDetailsRepository.class).findCommittedIdsByProductId(item.product())).isEmpty();
+            // Historical reader/outer-transaction expectation retained; the current
+            // implementation deliberately has no independent committed-ID reader.
+            assertThat(context.getBean(TransactionDetailsRepository.class).findAllByProductProductId(item.product())).isEmpty();
             assertThat(READER_TRANSACTIONS.get()).singleElement().satisfies(reader -> {
                 assertThat(reader.error()).isNull();
                 assertThat(reader.connectionId()).isNotEqualTo(callerConnection);

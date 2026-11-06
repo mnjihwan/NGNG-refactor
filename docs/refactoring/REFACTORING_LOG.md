@@ -1,5 +1,8 @@
 # 리팩토링 작업 기록
 
+최신 상태(2026-11-06): 합의한 기능 중심 최소 구현·선택 검증·최종 독립 리뷰를 완료했다. 최신 기능 범위에서 수정이 필요한 결함은 발견되지 않았다. 변경 전 오프라인41건, 최종 오프라인43건(Policy28/Creation15), 격리 MySQL 기능24건 통과. 과거37건29통과/8실패는 이전 범용 내부 호출 설계의 실행 이력이며 보존한다. 임의 사전 관리 객체/active outer RR 트랜잭션은 최신 지원 범위 밖이다. 운영 배포·전체 HTTP/브라우저·성능 검증 완료를 뜻하지 않는다. 아래 날짜별 상태는 당시 이력으로 보존한다.
+
+
 2026-11-05 최신 상태: RF-001 완료, RF-002 최소 구현·오프라인 검증 후 전체 미완료, RF-003 합의된 기능 검증·독립 리뷰 완료, RF-004는 실제 DB 관리 상태 정합성 실패로 사용자 지시 보류·전체 미완료/배포 부적합. 각 날짜의 계획·미완료·유예 기록은 당시 이력이며 최신 한계와 후속 조건은 해당 명세·증빙 및 BACKLOG 잔여 목록을 따른다.
 
 ## 2026-11-04 — 백엔드 사전 분석
@@ -208,3 +211,42 @@
 - 구현·합의 선택 검증 및 독립 리뷰 완료. R6-격리/연동/정책에 반영했다. 실제 DB dirty checking/commit/rollback·OSIV/Boot HTTP·브라우저·프록시·외부연동/전체suite·성능은 미실행이며 대역/MockMvc/assemble 성공을 운영 보장으로 해석하지 않는다. 별도 지시와 안전 격리환경/fixture/외부연결 차단 후 추가 검증, 정책 변경은 별도 결정. RF004 보류·실DB 실패 상태를 해소/재개하지 않았고 다른 RF 자동 착수 없음. rollback은 해당 비교/import·신규 테스트/문서 변경만 검토하며 전체 reset 금지. 구현 담당자 commit/merge/push 없음.
 
 - RF-006 최종 독립 리뷰: 부모 담당자가 운영 코드·테스트 및 before37/after196 XML·초기 harness 실패와 보정을 확인해 수정 필요 결함이 없다고 보고했다. null/역할/단락평가 유지 및 실제 DB/Boot HTTP·브라우저·성능 미검증 구분 확인. 합의된 최소 변경·선택 검증·독립 리뷰 범위 완료이며 R6 잔여 항목은 유지한다.
+
+## 2026-11-06 — RF-004 보류 작업 재검토
+
+- 기준: `main` HEAD `73e89b9afe1bee7112b45fb48ceba3bc179e9d0f`, 시작 작업 트리 clean. 분석·독립 리뷰는 GPT-6 Astra / Medium이 읽기 전용으로 수행했다.
+- 확인: RF-004 미완료 구현은 PR #5로 main에 이미 포함됐다. 이전 37건 중 8건 실패는 당시 실행 결과이며 현재 HEAD 재실행이나 실제 배포·운영 HTTP 발생의 증거는 아니다. 이후 RF-006의 소유자 ID 비교 외 RF-004 수락·생성 경로 변경은 발견하지 못했다.
+- 대안/판정: 상위 트랜잭션 참여 제한과 작업 전용 영속성 컨텍스트는 우선 조사 후보이나 기존 합동 rollback 계약 및 OSIV/사전 EntityManager 처리 결정을 필요로 한다. 공개 read-only 토글·단순 refresh로 caller pending과 무쓰기 의미가 보존된다고 입증하지 못했다. 별도 reader의 추가 연결과 운영 pool 위험도 남는다. [명세](tasks/RF-004.md)·[증빙](evidence/RF-004/README.md)에 공식 근거와 재개 조건을 기록했다.
+- 한계: 이번 재검토는 코드·보존 증빙·공식 문서의 읽기만 수행했다. 운영 코드·설정 변경, DB 접속, 테스트·성능 측정과 배포 확인은 하지 않았다. RF-004는 전체 미완료·배포 부적합이며 다른 RF는 자동 시작하지 않는다.
+
+## 2026-11-06 — RF-004 재설계 분석 재개
+
+- HEAD `73e89b9afe1bee7112b45fb48ceba3bc179e9d0f`, 직전4문서 미커밋 기록 보존. 최근 재설계·구현·테스트 요청에 따라 대안·공식 근거·검증 계획을 명세/증빙/R4에 추가했다.
+- 기존 상위tx 참여·own rows·rollback·pending/후속수정 및 무쓰기 유지가 우선이다. 공식 refresh/readonly 문서와 EntityEntry SPI 문서는 각각의 동작을 설명하지만 임의 pending/오래된 RR 상태에서 안전한 동기화를 입증하거나 SPI 사용을 권장하지 않는다. fresh EM/최상위 작업은 계약 축소·OSIV 사전 holder 처리가 필요하다. 아직 대안을 선택하거나 구현하지 않았다.
+- 분석 담당 수행은 소스/기존 증빙/공식 문서 읽기뿐이다. 소스·테스트 변경, 실행·DB 접속·성능 측정·commit/merge/push 없음. 원시 읽기 결과는 tool 대화에만 있으며 새 XML/실행 로그 없음. 상세 선택 뒤 독립 리뷰와 기존41/37 회귀·SQL 순서/affected0/pending/직접생성/예외/OSIV/gap/reader/정리를 실제 검증해야 한다. 전체 미완료·배포 부적합이며 과거8실패를 통과로 바꾸지 않는다.
+
+## 2026-11-06 — RF-004 공개 Interceptor·flush 제어 대안 분석
+
+- 사용자 후속 지시인 대안 적절성 확인 후 구현 조건에 따라 공개 Interceptor/flush 제어·DynamicUpdate/refresh 복원 후보를 검토했다. 공식 문서와 로컬6.4.4.Final 소스에서 기존 Session의 final interceptor, 생성 시 적용, factory/명시/session-scoped 선택 우선순위와 미합성, dirty 판정 뒤 onFlushDirty 호출을 확인했다.
+- 안전한 최소안 미확정: 타입별 dirty 의미·pending/무쓰기, 전역 등록과 기존 interceptor 보존, OSIV/후속tx·reader 분리 lifecycle 검증이 필요하다. 명세·증빙·R4에 구체 제약과 추가 회귀를 기록했다. 내부 SPI/상위tx 계약 축소가 필수라고 단정하지 않았고 자동 추진하지 않았다.
+- 소스/공식 문서 읽기와 기록만 수행. 코드·테스트 수정/실행·DB접속·Git 병합 없음. 새 XML/SQL trace/DB 로그 없이 원시 조회는 대화 tool 결과에만 있다. 기존 변경/실패 증빙 보존, 전체 미완료·배포 부적합 상태 유지. 후속 설계 적절성 판단과 실제 회귀·cleanup이 필요하다.
+
+## 2026-11-06 — RF004 기능 중심 재설계
+
+- 최신 사용자 지시로 기존 RF004 구조/과도한 상위tx·관리객체 지원 기대를 새 요구에서 제외했다. 기존4개 문서 미커밋 변경·과거 실패를 보존하고 명세·증빙·R4를 갱신했다. 기준 HEAD `73e89b9afe1bee7112b45fb48ceba3bc179e9d0f`.
+- 추천: update/create 단일 READ_COMMITTED tx, request→product scalar ID 확인 및 상품 PK scalar lock 뒤 엔티티 조회, JPA setters/save로 상태 변경. 별도 reader/native bulk 상태 갱신/수동 OSIV holder 처리·SPI 제거 방향. TokenFilter는 claims 기반 새 User/Role만 구성하고 controller는 service 직행이므로 OSIV 전역 변경 없이 현 HTTP 경로를 지원한다. 임의 outer RR/사전 target managed 객체는 비지원 한계로 명시했다.
+- 공식 Spring 트랜잭션/JpaTransactionManager 및 MySQL RC/locking 문서를 근거로 정책·잠금/롤백/DB FK·독립성·연결 위험과 새 검증 기준을 명세에 기록했다. 메커니즘 문서가 구현 안전성 증명을 대신하지 않는다.
+- 이번 수행은 읽기/기록뿐이며 운영 코드·테스트 변경/실행·DB접속·commit/merge/push 없음. 원시 조회는 대화 tool 출력이고 새 XML/SQL 로그 없음. 과거37건8실패 유지, 새 구현/선택 검증·독립 리뷰·소유 fixture 정리 전 전체 미완료·배포 부적합.
+
+
+## 2026-11-06 — RF004 기능 중심 최소 구현·선택 검증
+
+최신 상태(2026-11-06): 합의한 기능 중심 최소 구현·선택 검증·최종 독립 리뷰를 완료했다. 최신 기능 범위에서 수정이 필요한 결함은 발견되지 않았다. 변경 전 오프라인41건, 최종 오프라인43건(Policy28/Creation15), 격리 MySQL 기능24건 통과. 과거37건29통과/8실패는 이전 범용 내부 호출 설계의 실행 이력이며 보존한다. 임의 사전 관리 객체/active outer RR 트랜잭션은 최신 지원 범위 밖이다. 운영 배포·전체 HTTP/브라우저·성능 검증 완료를 뜻하지 않는다.
+
+- 범위: READ_COMMITTED/service tx·상품PK scalar lock·관리entity setter/save, nativebulk/별도reader 제거. HTTP/승인 반복·충돌·직접생성 정책 유지. 기존 nullable 거래buyer/seller는409 불일치 검사에 포함. 인증인가/스키마/의존성/전역OSIV/pool 변경없음.
+- 근거: [기능 증빙](evidence/RF-004/functional-implementation/README.md)에 before41·초기after41·최종43 XML, opt-in24skip·실DB24pass XML/로그·pre/postflight·소스해시 보존. 과거37 메서드 유지·삭제/skip없고 제거API 참조1개만 컴파일호환 변경; 임의outer/stale관리객체 기대를 새 범위 통과로 기록하지 않음.
+- 안전/정리: 독립 fixture/runner 리뷰와 PID/datadir/account/schema/FK/UNIQUE/trigger/event/외부schema inboundFK/빈테이블 확인 후 실행. 정확 소유행만 worker종료뒤 삭제·commit, 새CLI 관련/공통테이블0. existingstatus1 없어 소유행생성/정리, 기존행재사용은 미실행.
+- 한계/재개: 정상 기능은 무강제flush, fault/barrier는 명시flush. ordered latch는 직접DB대기관측이 아니고 connectionID는락시점샘플. 실제ServletOSIV/HTTP/브라우저/전체보안·운영writer/새요청삽입·재판매/취소·운영pool/성능은 미검증·별도범위. 새호출자/outer/stale상태 도입 전 경계검토, BACKLOG잔여추적. 최종독립리뷰완료·범위내수정필요결함없음이며 commit/push·배포·자동다음작업없음.
+
+
+2026-11-06 최종 독립 리뷰: nullable 거래 buyer/seller null 가드를 포함한 운영 변경, 최종 오프라인43/격리MySQL24 XML, 테스트 실행 소스 해시 일치와 정확 소유행 cleanup·독립CLI 잔여0을 확인했고 최신 기능 범위에서 수정이 필요한 결함을 발견하지 않았다. 합의한 최소 기능 범위의 구현·선택 검증·독립 리뷰를 완료한다. nullable 오염 데이터의409는 단위 테스트2건만 검증했으며 실제 MySQL 오염 fixture는 실행하지 않았다. 실제 HTTP/Servlet OSIV·브라우저/전체 보안·운영 writer/신규요청·운영 pool/성능, connection ID 잠금시점 샘플·latch/주입flush 한계 및 임의 outer/stale 관리객체 비지원은 그대로 유지한다. 이 잔여 검증은 BACKLOG의 재개 조건을 따르며 자동 착수하지 않는다.
