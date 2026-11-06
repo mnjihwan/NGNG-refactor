@@ -1,0 +1,38 @@
+[
+  {
+    "path": "NGNG-backend/src/main/java/com/ngng/api/transaction/service/TransactionRequestService.java",
+    "sha256": "2A33A71E4A7D01B6C006EAE020141179296D253F4CA133B82BD91663ED207766"
+  },
+  {
+    "path": "NGNG-backend/src/main/java/com/ngng/api/transaction/service/TransactionDetailsService.java",
+    "sha256": "E7B2C5FD544BAF5E9E00109B1538DE3B9BD16F078415D4903E6BB803AC629D45"
+  },
+  {
+    "path": "NGNG-backend/src/main/java/com/ngng/api/transaction/repository/TransactionRequestRepository.java",
+    "sha256": "390E14D389EA3D3C218124021320DE9942E3D4E51C5D2826FF70A66805B2F2B4"
+  },
+  {
+    "path": "NGNG-backend/src/main/java/com/ngng/api/transaction/repository/TransactionDetailsRepository.java",
+    "sha256": "BFE790DC6D78E2B3B7623DAA21DAE3293CDC004516BE16D9501C1EE1467D4CE0"
+  },
+  {
+    "path": "NGNG-backend/src/main/java/com/ngng/api/product/product/repository/ProductRepository.java",
+    "sha256": "91DA4DB36399EA1025CA13309122E4061C9DF00AA1E4AF75C78FB30DA052B10E"
+  },
+  {
+    "path": "NGNG-backend/src/test/java/com/ngng/api/transaction/integration/TransactionAcceptanceFunctionalMySqlTest.java",
+    "sha256": "C297B7C2C1859661F0BCA2F31572FDEE719250183B11E594AE0B0C9E51380D54"
+  },
+  {
+    "path": "NGNG-backend/src/test/java/com/ngng/api/transaction/integration/Rf004MySqlFixture.java",
+    "sha256": "C1553847F21B87DC02ADE20630553A3CEF89A7970C2F749B933C420E669B6C29"
+  },
+  {
+    "path": "NGNG-backend/src/test/java/com/ngng/api/transaction/service/TransactionAcceptancePolicyTest.java",
+    "sha256": "0042CC8EC4F6BD06BF21A89A8B694ED7B7F904B1B25D447631F6D662EE5AB709"
+  },
+  {
+    "path": "NGNG-backend/src/test/java/com/ngng/api/transaction/service/TransactionCreationContractTest.java",
+    "sha256": "BE26780708D514C2E7055124F69AB41536FF0133275B6DCFDE9BC829248F83DE"
+  }
+]

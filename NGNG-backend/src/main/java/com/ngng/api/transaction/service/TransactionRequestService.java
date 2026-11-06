@@ -11,16 +11,13 @@ import com.ngng.api.user.user.entity.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.util.Assert;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.TreeSet;
-import java.sql.Timestamp;
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
 
 @Service
 @RequiredArgsConstructor
@@ -48,48 +45,52 @@ public class TransactionRequestService {
 
     }
 
-    @Transactional
+    @Transactional(isolation = Isolation.READ_COMMITTED)
     public Long update( Long requestId, Boolean isAccepted){
         Assert.notNull(requestId, "The given id must not be null");
         Long productId = transactionRequestRepository.findProductIdForUpdate(requestId).orElse(null);
         if (productId == null) {
             return -1L;
         }
-        // All approved writers take the product lock first. These scalar locking
-        // reads do not reuse an earlier RR snapshot or managed entity state.
-        ProductRepository.TransactionProduct product = productRepository.lockTransactionProduct(productId).orElse(null);
-        if (product == null) return -1L;
-        transactionRequestRepository.flush();
-        TransactionRequestRepository.AcceptanceState target = transactionRequestRepository.lockAcceptanceState(requestId).orElse(null);
+        // Lock only the product row before loading its eager associations. The
+        // REST entry point starts this transaction without preloaded entities.
+        if (productRepository.lockTransactionProduct(productId).isEmpty()) return -1L;
+        TransactionRequest target = transactionRequestRepository.findById(requestId).orElse(null);
         if (target == null) return -1L;
-        if (!Objects.equals(productId, target.getProductId())) throw conflict();
+        Product product = target.getProduct();
+        if (!Objects.equals(productId, product.getProductId())) throw conflict();
 
         if (isAccepted) {
             var existing = transactionDetailsService.findCurrentDetails(productId);
-            if (Boolean.TRUE.equals(target.getAccepted())) {
+            if (Boolean.TRUE.equals(target.getIsAccepted())) {
                 if (existing.size() == 1
-                        && Objects.equals(existing.get(0).getBuyerId(), target.getBuyerId())
-                        && Objects.equals(existing.get(0).getSellerId(), product.getSellerId())
+                        && existing.get(0).getConsumer() != null
+                        && existing.get(0).getSeller() != null
+                        && Objects.equals(existing.get(0).getConsumer().getUserId(), target.getBuyer().getUserId())
+                        && Objects.equals(existing.get(0).getSeller().getUserId(), product.getUser().getUserId())
                         && Objects.equals(existing.get(0).getPrice(), target.getPrice())) {
                     return requestId;
                 }
                 throw conflict();
             }
             if (!existing.isEmpty()) throw conflict();
-            productRepository.markTransactionSold(productId, updateTimestamp());
-            transactionDetailsService.create(new CreateTransactionDetailsRequestDTO(productId, target.getBuyerId(), target.getPrice()));
-            transactionRequestRepository.updateAcceptance(requestId, true, updateTimestamp());
-            var otherIds = new TreeSet<>(transactionRequestRepository.findVisibleIdsByProductId(productId));
-            otherIds.addAll(transactionRequestRepository.findCommittedIdsByProductId(productId));
-            for (Long otherId : otherIds) {
-                if (!Objects.equals(otherId, requestId)) {
-                    transactionRequestRepository.updateAcceptance(otherId, false, updateTimestamp());
+            product.setForSale(false);
+            productRepository.save(product);
+            transactionDetailsService.create(new CreateTransactionDetailsRequestDTO(productId, target.getBuyer().getUserId(), target.getPrice()));
+            target.setIsAccepted(true);
+            transactionRequestRepository.save(target);
+            for (TransactionRequest other : transactionRequestRepository.findAllByProductProductId(productId)) {
+                if (!Objects.equals(other.getTransactionRequestId(), requestId)
+                        && !Boolean.FALSE.equals(other.getIsAccepted())) {
+                    other.setIsAccepted(false);
+                    transactionRequestRepository.save(other);
                 }
             }
         } else {
-            if (Boolean.TRUE.equals(target.getAccepted())) throw conflict();
-            if (!Boolean.FALSE.equals(target.getAccepted())) {
-                transactionRequestRepository.updateAcceptance(requestId, false, updateTimestamp());
+            if (Boolean.TRUE.equals(target.getIsAccepted())) throw conflict();
+            if (!Boolean.FALSE.equals(target.getIsAccepted())) {
+                target.setIsAccepted(false);
+                transactionRequestRepository.save(target);
             }
         }
         return requestId;
@@ -97,11 +98,6 @@ public class TransactionRequestService {
 
     private ResponseStatusException conflict() {
         return new ResponseStatusException(HttpStatus.CONFLICT, "이미 확정된 거래 요청과 충돌합니다.");
-    }
-
-    private Timestamp updateTimestamp() {
-        // Match @UpdateTimestamp's VM clock and MySQL timestamp precision.
-        return Timestamp.from(Instant.now().truncatedTo(ChronoUnit.MICROS));
     }
 
     public List<TransactionRequestDTO> readAll(Long productId){
