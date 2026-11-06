@@ -1,5 +1,6 @@
 package com.ngng.api.product.product.service;
 
+import com.ngng.api.global.security.custom.CustomUserDetails;
 import com.ngng.api.product.product.dto.UserDTO;
 import com.ngng.api.product.product.dto.request.CreateProductRequestDTO;
 import com.ngng.api.product.product.dto.request.TagRequestDTO;
@@ -8,6 +9,8 @@ import com.ngng.api.product.product.dto.response.*;
 import com.ngng.api.product.product.entity.Product;
 import com.ngng.api.product.product.entity.Tag;
 import com.ngng.api.product.product.repository.ProductRepository;
+import com.ngng.api.user.user.entity.User;
+import com.ngng.api.user.user.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.CachePut;
@@ -16,8 +19,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -33,6 +41,7 @@ public class ProductService {
 
     private final ProductRepository productRepository;
     private final TagService tagService;
+    private final AuthService authService;
 
     public Long create(CreateProductRequestDTO request){
         System.out.println("request = " + request.getUserId());
@@ -131,6 +140,7 @@ public class ProductService {
     @CachePut(cacheNames = "getProduct", key = "#productId", cacheManager = "contentCacheManager")
     public ReadProductResponseDTO update(Long productId, UpdateProductRequestDTO request) {
         Product found = productRepository.findById(productId).orElseThrow();
+        requireProductManager(found);
 
         List<String> originalTags = found.getTags().stream().map(Tag::getTagName).toList();  // 기존의 태그dhk
         List<String> newTags = request.getTags().stream().map(TagRequestDTO::getTagName).toList();  // 새로운 태그
@@ -168,6 +178,7 @@ public class ProductService {
     public Long delete(Long productId){
 
         Product product = productRepository.findById(productId).orElseThrow();
+        requireProductManager(product);
         // 신고 안 받았고 거래 진행 안 했거나 거래취소된 경우에만 삭제 가능
         if (product.getReports() == null || product.getTransactionDetails() == null || product.getTransactionDetails().getStatus().getId().equals(6L)) {
             product.setVisible(false);
@@ -178,6 +189,28 @@ public class ProductService {
             return -1L;
         }
 
+    }
+
+    private void requireProductManager(Product product) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || !authentication.isAuthenticated() || authentication instanceof AnonymousAuthenticationToken
+                || !(authentication.getPrincipal() instanceof CustomUserDetails details)
+                || details.getUser() == null || details.getUser().getEmail() == null
+                || details.getUser().getEmail().isBlank()) {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN);
+        }
+        if (authentication.getAuthorities().stream().anyMatch(authority -> "ROLE_ADMIN".equals(authority.getAuthority()))) {
+            return;
+        }
+        if (authentication.getAuthorities().stream().anyMatch(authority -> "ROLE_USER".equals(authority.getAuthority()))) {
+            User caller = authService.readAuthUser();
+            User owner = product.getUser();
+            if (caller != null && caller.getUserId() != null && owner != null && owner.getUserId() != null
+                    && caller.getUserId().equals(owner.getUserId())) {
+                return;
+            }
+        }
+        throw new ResponseStatusException(HttpStatus.FORBIDDEN);
     }
 
     // 업데이트 할때 status, category 네임값이 null로 들어감 (UpdateProductRequestDTO에서 Long 타입이여서)

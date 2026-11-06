@@ -174,21 +174,25 @@ const useMypageSWR = () => {
   };
 
   const deleteProduct = async (deleteProductId: number) => {
-    // 삭제 처리
-    await deleteProductById(deleteProductId);
-    //  true일시
-    mutate(
-      async (prev: any) => ({
-        ...prev,
-        sellList: prev.sellList.filter(
-          (product: Product) => product.id !== deleteProductId
-        ),
-      }),
-      {
-        // 검증 안함
-        revalidate: false,
-      }
-    );
+    try {
+      // 삭제 처리
+      await deleteProductById(deleteProductId);
+      //  true일시
+      await mutate(
+        async (prev: any) => ({
+          ...prev,
+          sellList: prev.sellList.filter(
+            (product: Product) => product.id !== deleteProductId
+          ),
+        }),
+        {
+          // 검증 안함
+          revalidate: false,
+        }
+      );
+    } catch {
+      alert("상품을 삭제하지 못했어요. 다시 시도해 주세요.");
+    }
   };
 
   return {

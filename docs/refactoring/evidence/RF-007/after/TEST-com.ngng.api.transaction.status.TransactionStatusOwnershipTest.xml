@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" tests="24" skipped="0" failures="0" errors="0" timestamp="2026-11-06T00:58:40" hostname="MOON" time="0.172">
+  <properties/>
+  <testcase name="unrelatedUserIsDenied()" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="standaloneMvcPreservesOwnership401()" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.019"/>
+  <testcase name="[1] owner=true, id=7" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.001"/>
+  <testcase name="[2] owner=false, id=7" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.001"/>
+  <testcase name="[3] owner=true, id=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.001"/>
+  <testcase name="[4] owner=false, id=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.002"/>
+  <testcase name="[1] body={" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.016"/>
+  <testcase name="[2] body={&quot;statusId&quot;:&quot;invalid&quot;}" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.017"/>
+  <testcase name="missingTransactionRetainsNoSuchElementBoundary()" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.0"/>
+  <testcase name="standaloneMvcPreservesSuccessJson()" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.019"/>
+  <testcase name="ownerBranchShortCircuitsConsumerIdRead()" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.042"/>
+  <testcase name="recordedSellerAloneIsDenied()" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.001"/>
+  <testcase name="nullCallerAgainstNonNullOwnersIsDenied()" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.001"/>
+  <testcase name="[1] owner=true, id=7" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.002"/>
+  <testcase name="[2] owner=false, id=7" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.002"/>
+  <testcase name="[3] owner=true, id=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.001"/>
+  <testcase name="[4] owner=false, id=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.001"/>
+  <testcase name="cachedSmallIdStillWorks()" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.001"/>
+  <testcase name="[1] ownerNull=true" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.001"/>
+  <testcase name="[2] ownerNull=false" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.002"/>
+  <testcase name="buyerIdIsReadOnlyAfterOwnerMismatch()" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.001"/>
+  <testcase name="missingStatusDoesNotMutate()" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.001"/>
+  <testcase name="malformedPathRetains400BeforeService()" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.01"/>
+  <testcase name="nonNullCallerAgainstNullIdsIsDenied()" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.001"/>
+  <system-out><![CDATA[org.springframework.web.server.ResponseStatusException: 401 UNAUTHORIZED "소유권이 없는 유저 입니다."
+09:58:40.292 [Test worker] ERROR transaction-log -- Faild Create TransactionDetails id: 88 
+09:58:40.307 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:58:40.307 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:58:40.307 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+org.springframework.web.server.ResponseStatusException: 401 UNAUTHORIZED "소유권이 없는 유저 입니다."
+09:58:40.307 [Test worker] ERROR transaction-log -- Faild Create TransactionDetails id: 88 
+09:58:40.307 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :4 
+09:58:40.323 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :4 
+09:58:40.325 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :4 
+09:58:40.325 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :4 
+09:58:40.339 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:58:40.339 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:58:40.339 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:58:40.339 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected end-of-input: expected close marker for Object (start marker at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 1])]
+09:58:40.355 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:58:40.355 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:58:40.355 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:58:40.355 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.lang.Long` from String "invalid": not a valid `java.lang.Long` value]
+09:58:40.371 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:58:40.371 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:58:40.371 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:58:40.371 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :4 
+09:58:40.418 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :4 
+org.springframework.web.server.ResponseStatusException: 401 UNAUTHORIZED "소유권이 없는 유저 입니다."
+09:58:40.418 [Test worker] ERROR transaction-log -- Faild Create TransactionDetails id: 88 
+org.springframework.web.server.ResponseStatusException: 401 UNAUTHORIZED "소유권이 없는 유저 입니다."
+09:58:40.418 [Test worker] ERROR transaction-log -- Faild Create TransactionDetails id: 88 
+09:58:40.434 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :4 
+09:58:40.438 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :4 
+09:58:40.438 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :4 
+09:58:40.438 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :4 
+09:58:40.438 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :4 
+09:58:40.438 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :4 
+09:58:40.438 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :4 
+09:58:40.452 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :4 
+09:58:40.452 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:58:40.452 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:58:40.452 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:58:40.452 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "invalid"]
+org.springframework.web.server.ResponseStatusException: 401 UNAUTHORIZED "소유권이 없는 유저 입니다."
+09:58:40.466 [Test worker] ERROR transaction-log -- Faild Create TransactionDetails id: 88 
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

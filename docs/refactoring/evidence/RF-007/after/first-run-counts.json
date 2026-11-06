@@ -1,0 +1,79 @@
+[
+  {
+    "suite": "com.ngng.api.global.security.SecurityChainTest",
+    "tests": "46",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  },
+  {
+    "suite": "com.ngng.api.global.security.TokenFilterTest",
+    "tests": "72",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  },
+  {
+    "suite": "com.ngng.api.product.authorization.ProductAuthorizationCacheTest",
+    "tests": "4",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  },
+  {
+    "suite": "com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest",
+    "tests": "32",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  },
+  {
+    "suite": "com.ngng.api.product.authorization.ProductAuthorizationServiceTest",
+    "tests": "48",
+    "failures": "48",
+    "errors": "0",
+    "skipped": "0"
+  },
+  {
+    "suite": "com.ngng.api.transaction.service.TransactionAcceptancePolicyTest",
+    "tests": "28",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  },
+  {
+    "suite": "com.ngng.api.transaction.service.TransactionCreationContractTest",
+    "tests": "15",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  },
+  {
+    "suite": "com.ngng.api.transaction.service.TransactionDetailsServiceTest",
+    "tests": "8",
+    "failures": "8",
+    "errors": "0",
+    "skipped": "0"
+  },
+  {
+    "suite": "com.ngng.api.transaction.service.TransactionRequestServiceTest",
+    "tests": "3",
+    "failures": "3",
+    "errors": "0",
+    "skipped": "0"
+  },
+  {
+    "suite": "com.ngng.api.transaction.status.TransactionStatusOwnershipTest",
+    "tests": "24",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  },
+  {
+    "suite": "com.ngng.api.transaction.status.TransactionStatusSecurityChainTest",
+    "tests": "13",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  }
+]

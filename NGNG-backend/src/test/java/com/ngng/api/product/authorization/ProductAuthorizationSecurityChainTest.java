@@ -1,0 +1,183 @@
+package com.ngng.api.product.authorization;
+
+import com.ngng.api.global.security.config.SecurityConfig;
+import com.ngng.api.global.security.handler.*;
+import com.ngng.api.global.security.jwt.util.*;
+import com.ngng.api.product.product.controller.ProductController;
+import com.ngng.api.product.product.entity.Product;
+import com.ngng.api.product.product.repository.ProductRepository;
+import com.ngng.api.product.product.service.*;
+import com.ngng.api.product.thumbnail.service.ThumbnailService;
+import com.ngng.api.transaction.entity.TransactionDetails;
+import com.ngng.api.transaction.entity.TransactionStatus;
+import com.ngng.api.user.user.repository.UserRepository;
+import com.ngng.api.user.user.service.AuthService;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.io.*;
+import io.jsonwebtoken.security.Keys;
+import jakarta.servlet.http.Cookie;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.*;
+import org.springframework.context.annotation.*;
+import org.springframework.mock.web.MockServletContext;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.test.util.ReflectionTestUtils;
+import org.springframework.test.web.servlet.*;
+import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
+import static com.ngng.api.product.authorization.ProductAuthorizationFixture.*;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+/** Real JWT/filter/security/controller/service/AuthService. Explicit beans prevent Boot/DB/network startup.
+ * Original characterization source/results are archived separately under RF-007/before. */
+class ProductAuthorizationSecurityChainTest {
+    static final String SECRET = Encoders.BASE64URL.encode(
+            "rf007-synthetic-key-only-64-bytes-abcdefghijklmnopqrstuvwxyz-123456".getBytes(StandardCharsets.UTF_8));
+    static AnnotationConfigWebApplicationContext context;
+    static MockMvc mvc;
+    ProductRepository products;
+    UserRepository users;
+    TagService tags;
+    Product target;
+    @BeforeAll static void start() {
+        context = new AnnotationConfigWebApplicationContext();
+        context.getEnvironment().getPropertySources().addFirst(new org.springframework.core.env.MapPropertySource(
+                "rf007-test-only", Map.of("jwt.expiration.access", "3600000", "jwt.expiration.refresh", "7200000")));
+        context.setServletContext(new MockServletContext());
+        context.register(IsolatedConfiguration.class);
+        context.refresh();
+        mvc = MockMvcBuilders.webAppContextSetup(context).apply(springSecurity()).build();
+    }
+    @AfterAll static void stop() { context.close(); }
+    @BeforeEach void setup() {
+        SecurityContextHolder.clearContext();
+        products = context.getBean(ProductRepository.class);
+        users = context.getBean(UserRepository.class);
+        tags = context.getBean(TagService.class);
+        reset(products, users, tags);
+        target = product(distinctId(1000));
+        when(products.findById(77L)).thenReturn(Optional.of(target));
+        when(products.save(any())).thenAnswer(inv -> inv.getArgument(0));
+    }
+    @AfterEach void cleared() { assertNull(SecurityContextHolder.getContext().getAuthentication()); }
+    static String token(String type, String role, long seconds) {
+        return Jwts.builder().setSubject(EMAIL).claim("role", role).claim("type", type)
+                .setExpiration(new Date(System.currentTimeMillis() + seconds * 1000))
+                .signWith(Keys.hmacShaKeyFor(Decoders.BASE64URL.decode(SECRET))).compact();
+    }
+    MockHttpServletRequestBuilder operation(String method) {
+        return method.equals("PUT") ? put("/products/77").contentType("application/json").content(BODY) : delete("/products/77");
+    }
+    void caller(long id) {
+        var caller = user(distinctId(id));
+        if (id == 1000) { assertEquals(target.getUser().getUserId(), caller.getUserId()); assertNotSame(target.getUser().getUserId(), caller.getUserId()); }
+        when(users.findUserByEmail(EMAIL)).thenAnswer(inv -> {
+            var details = (com.ngng.api.global.security.custom.CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            assertNull(details.getUser().getUserId(), "JWT principal has no DB ID");
+            return Optional.of(caller);
+        });
+    }
+    @ParameterizedTest @CsvSource({"PUT,USER,1000", "PUT,USER,2000", "PUT,ADMIN,1000", "PUT,ADMIN,2000",
+            "PUT,UNCONFIRMED_USER,1000", "PUT,UNCONFIRMED_USER,2000", "DELETE,USER,1000", "DELETE,USER,2000",
+            "DELETE,ADMIN,1000", "DELETE,ADMIN,2000", "DELETE,UNCONFIRMED_USER,1000", "DELETE,UNCONFIRMED_USER,2000"})
+    void roleOwnershipMatrix(String method, String role, long id) throws Exception {
+        caller(id);
+        boolean roleDenied = role.equals("UNCONFIRMED_USER");
+        boolean objectDenied = role.equals("USER") && id != 1000;
+        var result = mvc.perform(operation(method).header("Authorization", "Bearer " + token("access", role, 3600)));
+        if (roleDenied || objectDenied) {
+            result.andExpect(status().isForbidden()).andExpect(content().string(""));
+            assertEquals("original", target.getTitle()); assertTrue(target.getVisible()); assertTrue(target.getForSale());
+            assertEquals("old", target.getTags().get(0).getTagName());
+            verifyNoInteractions(tags); verify(products, never()).save(any());
+            if (roleDenied) verifyNoInteractions(products, users);
+        } else if (method.equals("PUT")) {
+            result.andExpect(status().isOk()).andExpect(jsonPath("$.id").value(77))
+                    .andExpect(jsonPath("$.title").value("changed")).andExpect(jsonPath("$.price").value(400))
+                    .andExpect(jsonPath("$.status.id").value(2)).andExpect(jsonPath("$.category.id").value(3))
+                    .andExpect(jsonPath("$.tags[0].tagName").value("new")).andExpect(jsonPath("$.user.id").value(1000));
+            verify(tags).deleteAllByProductIdAndTagName(77L, List.of("old"));
+            verify(products, never()).save(any());
+        } else {
+            result.andExpect(status().isOk()).andExpect(content().string("77"));
+            assertFalse(target.getVisible()); assertFalse(target.getForSale()); verify(products).save(target);
+        }
+        if (!roleDenied && role.equals("USER")) verify(users).findUserByEmail(EMAIL);
+        if (!roleDenied) verify(products).findById(77L);
+    }
+    @ParameterizedTest @CsvSource({"PUT,missing", "PUT,malformed", "PUT,refresh-type", "DELETE,missing", "DELETE,malformed", "DELETE,refresh-type"})
+    void failedAuthenticationNeverReachesRepository(String method, String kind) throws Exception {
+        var request = operation(method);
+        if (kind.equals("malformed")) request.header("Authorization", "Bearer broken");
+        if (kind.equals("refresh-type")) request.header("Authorization", "Bearer " + token("refresh", "USER", 3600));
+        mvc.perform(request).andExpect(status().isUnauthorized()).andExpect(content().string(""))
+                .andExpect(header().doesNotExist("Authorization"));
+        verifyNoInteractions(products, users, tags);
+    }
+    @ParameterizedTest @CsvSource({"PUT,malformed", "PUT,expired", "PUT,access-type", "DELETE,malformed", "DELETE,expired", "DELETE,access-type"})
+    void failedRefreshNeverReachesRepository(String method, String kind) throws Exception {
+        String refresh = kind.equals("malformed") ? "broken" : token(kind.equals("access-type") ? "access" : "refresh", "USER", kind.equals("expired") ? -3600 : 3600);
+        mvc.perform(operation(method).cookie(new Cookie("refreshToken", refresh)))
+                .andExpect(status().isUnauthorized()).andExpect(content().string(""))
+                .andExpect(header().doesNotExist("Authorization"));
+        verifyNoInteractions(products, users, tags);
+    }
+    @ParameterizedTest @CsvSource({"PUT,missing", "PUT,expired", "DELETE,missing", "DELETE,expired"})
+    void refreshFallbackPreservesReissuedHeaderAndEmailResolution(String method, String kind) throws Exception {
+        caller(1000);
+        var request = operation(method).cookie(new Cookie("refreshToken", token("refresh", "USER", 3600)));
+        if (kind.equals("expired")) request.header("Authorization", "Bearer " + token("access", "USER", -3600));
+        var response = mvc.perform(request).andExpect(status().isOk()).andReturn().getResponse();
+        String issued = response.getHeader("Authorization"); assertNotNull(issued);
+        assertEquals(EMAIL, context.getBean(JwtTokenVerifier.class).getEmail(issued));
+        assertEquals("access", context.getBean(JwtTokenVerifier.class).getType(issued));
+        verify(users).findUserByEmail(EMAIL);
+    }
+    @Test void deleteBusinessRefusalRemains204WithoutWrites() throws Exception {
+        caller(1000); target.setTransactionDetails(TransactionDetails.builder().status(new TransactionStatus(1L, "active")).build());
+        mvc.perform(operation("DELETE").header("Authorization", "Bearer " + token("access", "USER", 3600)))
+                .andExpect(status().isNoContent()).andExpect(content().string(""));
+        assertTrue(target.getVisible()); assertTrue(target.getForSale()); verify(products, never()).save(any());
+    }
+    @ParameterizedTest @ValueSource(strings = {"PUT", "DELETE"})
+    void badPathRemains400(String method) throws Exception {
+        var request = method.equals("PUT") ? put("/products/bad").contentType("application/json").content(BODY) : delete("/products/bad");
+        mvc.perform(request.header("Authorization", "Bearer " + token("access", "USER", 3600))).andExpect(status().isBadRequest());
+        verifyNoInteractions(products, users, tags);
+    }
+    @Test void badBodyRemains400() throws Exception {
+        mvc.perform(put("/products/77").contentType("application/json").content("{")
+                .header("Authorization", "Bearer " + token("access", "USER", 3600))).andExpect(status().isBadRequest());
+        verifyNoInteractions(products, users, tags);
+    }
+    @Configuration @EnableWebMvc @EnableWebSecurity @Import({SecurityConfig.class, ProductService.class, AuthService.class})
+    static class IsolatedConfiguration {
+        @Bean @Primary AuthenticationConfiguration authenticationConfiguration() throws Exception {
+            var config = mock(AuthenticationConfiguration.class);
+            when(config.getAuthenticationManager()).thenReturn(mock(AuthenticationManager.class)); return config;
+        }
+        @Bean JwtTokenVerifier verifier() { return new JwtTokenVerifier(SECRET); }
+        @Bean JwtTokenProvider provider() { var provider = new JwtTokenProvider(SECRET); ReflectionTestUtils.setField(provider, "accessTokenExpirationMs", 3_600_000); return provider; }
+        @Bean CustomLogoutHandler logoutHandler() { return new CustomLogoutHandler(); }
+        @Bean CustomLogoutSuccessHandler logoutSuccessHandler() { return new CustomLogoutSuccessHandler(); }
+        @Bean ProductRepository products() { return mock(ProductRepository.class); }
+        @Bean UserRepository users() { return mock(UserRepository.class); }
+        @Bean TagService tags() { return mock(TagService.class); }
+        @Bean ProductController controller(ProductService service, AuthService auth) {
+            return new ProductController(service, mock(CompressService.class), mock(AwsS3Service.class), mock(UploadService.class),
+                    mock(ProductImageService.class), mock(ThumbnailService.class), auth);
+        }
+    }
+}

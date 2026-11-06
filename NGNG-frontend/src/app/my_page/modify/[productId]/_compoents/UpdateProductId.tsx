@@ -130,32 +130,36 @@ export default function UpdateProductId({ productId }: { productId: number }) {
     //   freeShipping: productFreeShipping.current?.checked,
     // });
 
-    await updateProdctByUpdateProductRequest({
-      deleteOldImages: deleteOriginImages,
-      newImages,
-      newProduct: {
-        // ...data,
-        categoryId: +productCategory.current!.value,
-        content: productContent.current!.value,
-        discountable: productDiscountable.current!.checked,
-        forSale: true, // 판매여부
-        freeShipping: productFreeShipping.current!.checked,
-        isEscrow: productIsEscrow ? true : false,
-        price: +productPrice.current!.value,
-        purchaseAt: productPurchaseAt.current!.value,
-        statusId: productStatus!,
-        tags: productTags!.split(",").map((tag) => {
-          return { tagName: tag.trim() };
-        }),
-        // tags: data.tags,
-        title: productTitle.current!.value,
-        userId: data.user.id,
-        visible: data.visible,
-      },
-      origin: data,
-    });
+    try {
+      await updateProdctByUpdateProductRequest({
+        deleteOldImages: deleteOriginImages,
+        newImages,
+        newProduct: {
+          // ...data,
+          categoryId: +productCategory.current!.value,
+          content: productContent.current!.value,
+          discountable: productDiscountable.current!.checked,
+          forSale: true, // 판매여부
+          freeShipping: productFreeShipping.current!.checked,
+          isEscrow: productIsEscrow ? true : false,
+          price: +productPrice.current!.value,
+          purchaseAt: productPurchaseAt.current!.value,
+          statusId: productStatus!,
+          tags: productTags!.split(",").map((tag) => {
+            return { tagName: tag.trim() };
+          }),
+          // tags: data.tags,
+          title: productTitle.current!.value,
+          userId: data.user.id,
+          visible: data.visible,
+        },
+        origin: data,
+      });
 
-    router.replace("/my_page");
+      router.replace("/my_page");
+    } catch {
+      alert("상품을 수정하지 못했어요. 다시 시도해 주세요.");
+    }
   };
 
   return (

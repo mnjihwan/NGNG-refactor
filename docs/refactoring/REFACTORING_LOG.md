@@ -250,3 +250,14 @@
 
 
 2026-11-06 최종 독립 리뷰: nullable 거래 buyer/seller null 가드를 포함한 운영 변경, 최종 오프라인43/격리MySQL24 XML, 테스트 실행 소스 해시 일치와 정확 소유행 cleanup·독립CLI 잔여0을 확인했고 최신 기능 범위에서 수정이 필요한 결함을 발견하지 않았다. 합의한 최소 기능 범위의 구현·선택 검증·독립 리뷰를 완료한다. nullable 오염 데이터의409는 단위 테스트2건만 검증했으며 실제 MySQL 오염 fixture는 실행하지 않았다. 실제 HTTP/Servlet OSIV·브라우저/전체 보안·운영 writer/신규요청·운영 pool/성능, connection ID 잠금시점 샘플·latch/주입flush 한계 및 임의 outer/stale 관리객체 비지원은 그대로 유지한다. 이 잔여 검증은 BACKLOG의 재개 조건을 따르며 자동 착수하지 않는다.
+
+## 2026-11-06 — RF007 상품 수정·삭제 객체 인가 최소 구현·선택 검증
+
+HEAD `56d3ec21a72918dd5e6c42c018d12911f13a3345`에서 기존 RF007 문서 변경을 보존했다. ProductService의 상품 조회 직후 작은 공통 guard로 인증/principal·익명 토큰을 확인하고 USER non-null 소유자 ID 값 비교·ADMIN 기존 타인 관리 허용을 구현했다. 새 거부403은 태그/사업조건·상태/save/캐시보다 앞이다. 전역 security/설정·DTO·엔티티/repository·의존성·스키마는 변경하지 않았다.
+
+프런트 네 파일에서 PUT 실패 이동 방지·알림과 DELETE200만 성공·204/401/403/500/network 실패 목록 보존·hook catch를 구현했다. 기존 DELETE204 목록 제거 부수 결함도 승인 범위대로 보정했고 모달 닫힘/관리자 UI/기존 경로는 유지했다.
+
+- before 실제 chain26/26·프런트 특성11/11, 최종 backend284/284(RF00786/RF005118/RF00637/RF00443)·frontend45/45(RF00714/RF00431), fail/error/skip0. lint0(기존 img 경고3)·tsc0·backend assemble0. XML/console/source/hash·TAP·환경 버전은 [증빙](evidence/RF-007/README.md)에 보존했다. assemble compile/process UP-TO-DATE·bootJar/jar 실행을 전체 build/test 성공으로 확대하지 않는다.
+- 초기 sandbox cache lock 실패, 테스트 static import compile 실패와 인증 fixture setter 오류를 보존·보정했다. 기존 Boot2클래스/11건을 단위로 오인 선택하여 datasource UnknownHost/context 초기화 실패가 발생했다. 연결 성공·fixture 쓰기는 없었고 두 클래스는 기존 소스/skip 그대로 유지하며 offline 선택에서 제외했다. 해당 원본은 gitignored 로컬에 보존하고 공개 증빙은 RF007 실패 XML·집계로 제한했다. 최초 실패당시 전체 source snapshot은 없음을 명세/증빙에 기록했다.
+- 실제 service/filter chain·cache proxy·SWR cache 대역 검증이며 DB dirty checking/rollback·실Redis·Boot HTTP/error dispatch/Servlet OSIV·브라우저·프록시/운영 writer·경합은 미검증이다. frontend production build는 기존 SSG의 BACKEND_URL/고정 상품·사용자 fetch로 미실행이다. 안전 격리 서버/fixture·외부 차단·승인 범위 확보 후 별도 검증한다. 성능은 사용자 유예·미측정, 범위 밖 인가·DELETE OR/일반 캐시·관리자 DELETE 실패 UI는 후보로 유지한다.
+- 최소 구현·선택 검증·최종 독립 리뷰를 완료했다. 별도 담당자가 backend284/frontend45·manifest·운영 변경·실패 이력/한계를 확인했고 합의 범위의 수정 필요 기능 결함은 없었다. 최초 Boot11건(Details8/Request3)·fixture48건·compile 실패를 분리 기록하고 tsc exit 근거·후속 확인 실행, 증빙 README 상대 링크0을 보완했다. BACKLOG R7-격리/연동/범위/성능에 상태·재개 조건을 반영했다. commit/push·배포·자동 후속 작업 없음.

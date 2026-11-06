@@ -1,0 +1,42 @@
+[
+  {
+    "path": "NGNG-backend/src/main/java/com/ngng/api/product/product/service/ProductService.java",
+    "sha256": "72B8F7841FE2CFC01546575A67D743FEE2D0B2ED1B954A42D2394D0494EDBFA3"
+  },
+  {
+    "path": "NGNG-backend/src/test/java/com/ngng/api/product/authorization/ProductAuthorizationSecurityChainTest.java",
+    "sha256": "96EB5B15B7BC108DDDF38D4380FB782E50D9FC51ED8C466876A7D7CDD9182C19"
+  },
+  {
+    "path": "NGNG-backend/src/test/java/com/ngng/api/product/authorization/ProductAuthorizationFixture.java",
+    "sha256": "979F486AE7B262B5569FEC73A026FB8A32D5D87F4DB7DE161005BEAC4EF804A4"
+  },
+  {
+    "path": "NGNG-backend/src/test/java/com/ngng/api/product/authorization/ProductAuthorizationServiceTest.java",
+    "sha256": "F67EC6C37E1071E019EE1F0F2B5661CDE26BC082A78A6B7733000639C8E8FADD"
+  },
+  {
+    "path": "NGNG-backend/src/test/java/com/ngng/api/product/authorization/ProductAuthorizationCacheTest.java",
+    "sha256": "FFE7B06390B0F3FDE14C548F153BBDDC784F2B14D250C356E10D2EC91C0CB577"
+  },
+  {
+    "path": "NGNG-frontend/src/app/my_page/modify/_api/api.ts",
+    "sha256": "E831E51EB38029006F236D0209CAF3AE28C25EE1D52CF63BB8D1A2EE4AACD1C6"
+  },
+  {
+    "path": "NGNG-frontend/src/app/my_page/modify/[productId]/_compoents/UpdateProductId.tsx",
+    "sha256": "5DD7A5E42FCF9E582A156A8FA6DA6B4C68F47B6F17CEBEB77EDC301239F67B57"
+  },
+  {
+    "path": "NGNG-frontend/src/app/my_page/_api/api.ts",
+    "sha256": "FA8BCA51EC6355E520DBCEA955B7FC2E001EBBB1B4CF22DE826F41526803B030"
+  },
+  {
+    "path": "NGNG-frontend/src/app/my_page/_hooks/useMypageSWR.ts",
+    "sha256": "6A0FFAB0B2998AAD49B94C9C331795B808CFEB37030FAA001E8289831F3C83E8"
+  },
+  {
+    "path": "NGNG-frontend/tests/rf007-product-authorization.test.cjs",
+    "sha256": "A18933FE9559D0E9E5302DD657C4C02086004472B9C39EB6FEC5DD30E50DC881"
+  }
+]
