@@ -54,7 +54,7 @@ export const updateProdctByUpdateProductRequest = async ({
   // console.log(deleteOldImages);
   // console.log(newImages);
 
-  await fetch(`/api/products/${origin.id}`, {
+  const response = await fetch(`/api/products/${origin.id}`, {
     method: "PUT",
     cache: "no-cache",
     redirect: "follow",
@@ -64,6 +64,7 @@ export const updateProdctByUpdateProductRequest = async ({
     },
     body: JSON.stringify(newProduct),
   });
+  if (!response.ok) throw new Error("상품을 수정하지 못했어요.");
 
   // const promiseDeleteImage = [] as Promise<any>[];
 

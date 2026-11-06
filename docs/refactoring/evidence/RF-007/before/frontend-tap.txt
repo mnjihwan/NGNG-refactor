@@ -1,0 +1,65 @@
+TAP version 13
+# Subtest: PUT 200 component navigates
+ok 1 - PUT 200 component navigates
+  ---
+  duration_ms: 198.986
+  ...
+# Subtest: PUT 401 component navigates
+ok 2 - PUT 401 component navigates
+  ---
+  duration_ms: 68.7383
+  ...
+# Subtest: PUT 403 component navigates
+ok 3 - PUT 403 component navigates
+  ---
+  duration_ms: 72.5552
+  ...
+# Subtest: PUT 500 component navigates
+ok 4 - PUT 500 component navigates
+  ---
+  duration_ms: 62.7571
+  ...
+# Subtest: PUT network failure is consumed by component after implementation
+ok 5 - PUT network failure is consumed by component after implementation
+  ---
+  duration_ms: 42.9552
+  ...
+# Subtest: DELETE 200 removes sale list
+ok 6 - DELETE 200 removes sale list
+  ---
+  duration_ms: 48.1617
+  ...
+# Subtest: DELETE 204 removes sale list
+ok 7 - DELETE 204 removes sale list
+  ---
+  duration_ms: 38.0405
+  ...
+# Subtest: DELETE 401 removes sale list
+ok 8 - DELETE 401 removes sale list
+  ---
+  duration_ms: 39.0425
+  ...
+# Subtest: DELETE 403 removes sale list
+ok 9 - DELETE 403 removes sale list
+  ---
+  duration_ms: 34.2149
+  ...
+# Subtest: DELETE 500 removes sale list
+ok 10 - DELETE 500 removes sale list
+  ---
+  duration_ms: 35.1086
+  ...
+# Subtest: DELETE network failure is consumed inside the hook
+ok 11 - DELETE network failure is consumed inside the hook
+  ---
+  duration_ms: 34.6456
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 978.0927

@@ -170,6 +170,7 @@ export const deleteProductById = async (productId: number) => {
     },
   }).then((res) => {
     setAccessToken(res);
+    if (res.status !== 200) throw new Error("상품을 삭제하지 못했어요.");
     return res.text();
   });
 };
