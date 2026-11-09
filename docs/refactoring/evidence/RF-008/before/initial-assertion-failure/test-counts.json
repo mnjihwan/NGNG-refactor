@@ -1,0 +1,30 @@
+[
+  {
+    "suite": "com.ngng.api.global.security.SecurityChainTest",
+    "tests": 46,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "suite": "com.ngng.api.global.security.TokenFilterTest",
+    "tests": 72,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "suite": "com.ngng.api.user.point.controller.PointControllerContractTest",
+    "tests": 28,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "suite": "com.ngng.api.user.point.controller.PointResponseSecurityChainTest",
+    "tests": 23,
+    "failures": 13,
+    "errors": 0,
+    "skipped": 0
+  }
+]

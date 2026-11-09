@@ -56,7 +56,7 @@ class PointControllerContractTest {
     }
 
     @Test
-    void chargeReturnsCreatedWithExistingEntityJsonFields() throws Exception {
+    void chargeReturnsCreatedWithPointFieldsWithoutUser() throws Exception {
         balance(1000L);
         mvc.perform(post("/points").contentType(MediaType.APPLICATION_JSON)
                         .content("{\"addCost\":200,\"type\":\"충전\"}"))
@@ -68,8 +68,7 @@ class PointControllerContractTest {
                 .andExpect(jsonPath("$.cost").value(1200))
                 .andExpect(jsonPath("$.type").value("충전"))
                 .andExpect(jsonPath("$.typeDetail").value("Alice 유저가 200 금액 만큼 충전 하셨습니다."))
-                .andExpect(jsonPath("$.user.userId").value(7))
-                .andExpect(jsonPath("$.user.name").value("Alice"))
+                .andExpect(jsonPath("$.user").doesNotExist())
                 .andExpect(jsonPath("$.createdAt").value((Object) null))
                 .andExpect(jsonPath("$.updatedAt").value((Object) null));
     }
@@ -87,7 +86,7 @@ class PointControllerContractTest {
                 .andExpect(jsonPath("$.cost").value(0))
                 .andExpect(jsonPath("$.type").value("결제"))
                 .andExpect(jsonPath("$.typeDetail").value("Alice 유저가 200 금액 만큼 42상품을 구매 하셨습니다."))
-                .andExpect(jsonPath("$.user.userId").value(7));
+                .andExpect(jsonPath("$.user").doesNotExist());
     }
 
     static Stream<org.junit.jupiter.params.provider.Arguments> invalidWrites() {
@@ -165,7 +164,7 @@ class PointControllerContractTest {
     }
 
     @Test
-    void readEndpointsKeepExistingLookupAndEntityResponse() throws Exception {
+    void readEndpointsKeepExistingLookupAndPointFields() throws Exception {
         when(auth.readAuthUser()).thenReturn(user);
         PointHistory latest = PointHistory.builder().id(101L).cost(200L).user(user).build();
         when(histories.findLastByUserId(7L)).thenReturn(Optional.of(latest));

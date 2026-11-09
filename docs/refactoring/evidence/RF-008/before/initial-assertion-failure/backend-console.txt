@@ -1,0 +1,76 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.7/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :compileJava
+> Task :processResources
+> Task :classes
+
+> Task :compileTestJava
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :processTestResources
+> Task :testClasses
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+
+> Task :test
+
+PointResponseSecurityChainTest > nullFieldsRetainKeysAndJsonNull() FAILED
+    org.opentest4j.AssertionFailedError at PointResponseSecurityChainTest.java:144
+
+PointResponseSecurityChainTest > roleResponseMatrixPreservesValuesAndDatabaseIdentity(String, String) > [1] role=USER, operation=latest FAILED
+    org.opentest4j.AssertionFailedError at PointResponseSecurityChainTest.java:144
+
+PointResponseSecurityChainTest > roleResponseMatrixPreservesValuesAndDatabaseIdentity(String, String) > [2] role=USER, operation=all FAILED
+    org.opentest4j.AssertionFailedError at PointResponseSecurityChainTest.java:144
+
+PointResponseSecurityChainTest > roleResponseMatrixPreservesValuesAndDatabaseIdentity(String, String) > [3] role=USER, operation=charge FAILED
+    org.opentest4j.AssertionFailedError at PointResponseSecurityChainTest.java:144
+
+PointResponseSecurityChainTest > roleResponseMatrixPreservesValuesAndDatabaseIdentity(String, String) > [4] role=USER, operation=payment FAILED
+    org.opentest4j.AssertionFailedError at PointResponseSecurityChainTest.java:144
+
+PointResponseSecurityChainTest > roleResponseMatrixPreservesValuesAndDatabaseIdentity(String, String) > [5] role=ADMIN, operation=latest FAILED
+    org.opentest4j.AssertionFailedError at PointResponseSecurityChainTest.java:144
+
+PointResponseSecurityChainTest > roleResponseMatrixPreservesValuesAndDatabaseIdentity(String, String) > [6] role=ADMIN, operation=all FAILED
+    org.opentest4j.AssertionFailedError at PointResponseSecurityChainTest.java:144
+
+PointResponseSecurityChainTest > roleResponseMatrixPreservesValuesAndDatabaseIdentity(String, String) > [7] role=ADMIN, operation=charge FAILED
+    org.opentest4j.AssertionFailedError at PointResponseSecurityChainTest.java:144
+
+PointResponseSecurityChainTest > roleResponseMatrixPreservesValuesAndDatabaseIdentity(String, String) > [8] role=ADMIN, operation=payment FAILED
+    org.opentest4j.AssertionFailedError at PointResponseSecurityChainTest.java:144
+
+PointResponseSecurityChainTest > roleResponseMatrixPreservesValuesAndDatabaseIdentity(String, String) > [9] role=UNCONFIRMED_USER, operation=latest FAILED
+    org.opentest4j.AssertionFailedError at PointResponseSecurityChainTest.java:144
+
+PointResponseSecurityChainTest > roleResponseMatrixPreservesValuesAndDatabaseIdentity(String, String) > [10] role=UNCONFIRMED_USER, operation=all FAILED
+    org.opentest4j.AssertionFailedError at PointResponseSecurityChainTest.java:144
+
+PointResponseSecurityChainTest > roleResponseMatrixPreservesValuesAndDatabaseIdentity(String, String) > [11] role=UNCONFIRMED_USER, operation=charge FAILED
+    org.opentest4j.AssertionFailedError at PointResponseSecurityChainTest.java:144
+
+PointResponseSecurityChainTest > roleResponseMatrixPreservesValuesAndDatabaseIdentity(String, String) > [12] role=UNCONFIRMED_USER, operation=payment FAILED
+    org.opentest4j.AssertionFailedError at PointResponseSecurityChainTest.java:144
+
+169 tests completed, 13 failed
+
+> Task :test FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':test'.
+> There were failing tests. See the report at: file:///C:/Users/mnjh2/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/PJT/NGNG/NGNG-backend/build/reports/tests/test/index.html
+
+* Try:
+> Run with --scan to get full insights.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.7/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 23s
+5 actionable tasks: 5 executed
