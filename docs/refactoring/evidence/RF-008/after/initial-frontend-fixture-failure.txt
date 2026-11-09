@@ -1,0 +1,271 @@
+TAP version 13
+# Subtest: successful accept preserves request/token and closes/refreshes
+ok 1 - successful accept preserves request/token and closes/refreshes
+  ---
+  duration_ms: 263.4859
+  ...
+# Subtest: successful dismiss preserves request/token and closes/refreshes
+ok 2 - successful dismiss preserves request/token and closes/refreshes
+  ---
+  duration_ms: 69.1951
+  ...
+# Subtest: 409 JSON rejects hook promise without successful cache update
+ok 3 - 409 JSON rejects hook promise without successful cache update
+  ---
+  duration_ms: 61.0866
+  ...
+# Subtest: 409 JSON accept keeps modal open and reports failure
+ok 4 - 409 JSON accept keeps modal open and reports failure
+  ---
+  duration_ms: 43.1899
+  ...
+# Subtest: 409 JSON dismiss keeps modal open and reports failure
+ok 5 - 409 JSON dismiss keeps modal open and reports failure
+  ---
+  duration_ms: 40.6319
+  ...
+# Subtest: 404 empty rejects hook promise without successful cache update
+ok 6 - 404 empty rejects hook promise without successful cache update
+  ---
+  duration_ms: 35.7198
+  ...
+# Subtest: 404 empty accept keeps modal open and reports failure
+ok 7 - 404 empty accept keeps modal open and reports failure
+  ---
+  duration_ms: 37.4855
+  ...
+# Subtest: 404 empty dismiss keeps modal open and reports failure
+ok 8 - 404 empty dismiss keeps modal open and reports failure
+  ---
+  duration_ms: 33.7775
+  ...
+# Subtest: 500 JSON rejects hook promise without successful cache update
+ok 9 - 500 JSON rejects hook promise without successful cache update
+  ---
+  duration_ms: 30.3658
+  ...
+# Subtest: 500 JSON accept keeps modal open and reports failure
+ok 10 - 500 JSON accept keeps modal open and reports failure
+  ---
+  duration_ms: 31.1965
+  ...
+# Subtest: 500 JSON dismiss keeps modal open and reports failure
+ok 11 - 500 JSON dismiss keeps modal open and reports failure
+  ---
+  duration_ms: 32.9233
+  ...
+# Subtest: network rejects hook promise without successful cache update
+ok 12 - network rejects hook promise without successful cache update
+  ---
+  duration_ms: 23.7537
+  ...
+# Subtest: network accept keeps modal open and reports failure
+ok 13 - network accept keeps modal open and reports failure
+  ---
+  duration_ms: 34.3076
+  ...
+# Subtest: network dismiss keeps modal open and reports failure
+ok 14 - network dismiss keeps modal open and reports failure
+  ---
+  duration_ms: 28.5063
+  ...
+# Subtest: invalid JSON rejects hook promise without successful cache update
+ok 15 - invalid JSON rejects hook promise without successful cache update
+  ---
+  duration_ms: 34.7271
+  ...
+# Subtest: invalid JSON accept keeps modal open and reports failure
+ok 16 - invalid JSON accept keeps modal open and reports failure
+  ---
+  duration_ms: 30.5116
+  ...
+# Subtest: invalid JSON dismiss keeps modal open and reports failure
+ok 17 - invalid JSON dismiss keeps modal open and reports failure
+  ---
+  duration_ms: 29.8508
+  ...
+# Subtest: nonnumeric JSON rejects hook promise without successful cache update
+ok 18 - nonnumeric JSON rejects hook promise without successful cache update
+  ---
+  duration_ms: 28.4241
+  ...
+# Subtest: nonnumeric JSON accept keeps modal open and reports failure
+ok 19 - nonnumeric JSON accept keeps modal open and reports failure
+  ---
+  duration_ms: 31.2959
+  ...
+# Subtest: nonnumeric JSON dismiss keeps modal open and reports failure
+ok 20 - nonnumeric JSON dismiss keeps modal open and reports failure
+  ---
+  duration_ms: 29.2185
+  ...
+# Subtest: numeric string rejects hook promise without successful cache update
+ok 21 - numeric string rejects hook promise without successful cache update
+  ---
+  duration_ms: 22.4565
+  ...
+# Subtest: numeric string accept keeps modal open and reports failure
+ok 22 - numeric string accept keeps modal open and reports failure
+  ---
+  duration_ms: 25.3813
+  ...
+# Subtest: numeric string dismiss keeps modal open and reports failure
+ok 23 - numeric string dismiss keeps modal open and reports failure
+  ---
+  duration_ms: 22.55
+  ...
+# Subtest: null JSON rejects hook promise without successful cache update
+ok 24 - null JSON rejects hook promise without successful cache update
+  ---
+  duration_ms: 25.0198
+  ...
+# Subtest: null JSON accept keeps modal open and reports failure
+ok 25 - null JSON accept keeps modal open and reports failure
+  ---
+  duration_ms: 27.387
+  ...
+# Subtest: null JSON dismiss keeps modal open and reports failure
+ok 26 - null JSON dismiss keeps modal open and reports failure
+  ---
+  duration_ms: 26.7403
+  ...
+# Subtest: negative number rejects hook promise without successful cache update
+ok 27 - negative number rejects hook promise without successful cache update
+  ---
+  duration_ms: 31.0361
+  ...
+# Subtest: negative number accept keeps modal open and reports failure
+ok 28 - negative number accept keeps modal open and reports failure
+  ---
+  duration_ms: 22.1918
+  ...
+# Subtest: negative number dismiss keeps modal open and reports failure
+ok 29 - negative number dismiss keeps modal open and reports failure
+  ---
+  duration_ms: 25.0963
+  ...
+# Subtest: hook mutation remains pending until response completes
+ok 30 - hook mutation remains pending until response completes
+  ---
+  duration_ms: 22.3131
+  ...
+# Subtest: screen waits for successful response before closing or refreshing
+ok 31 - screen waits for successful response before closing or refreshing
+  ---
+  duration_ms: 27.5151
+  ...
+# Subtest: PUT 200 component navigates
+ok 32 - PUT 200 component navigates
+  ---
+  duration_ms: 237.2302
+  ...
+# Subtest: PUT 401 component alerts and stays
+ok 33 - PUT 401 component alerts and stays
+  ---
+  duration_ms: 72.4926
+  ...
+# Subtest: PUT 403 component alerts and stays
+ok 34 - PUT 403 component alerts and stays
+  ---
+  duration_ms: 73.4026
+  ...
+# Subtest: PUT 500 component alerts and stays
+ok 35 - PUT 500 component alerts and stays
+  ---
+  duration_ms: 58.8067
+  ...
+# Subtest: PUT network failure is consumed by component after implementation
+ok 36 - PUT network failure is consumed by component after implementation
+  ---
+  duration_ms: 52.0789
+  ...
+# Subtest: DELETE 200 removes sale list
+ok 37 - DELETE 200 removes sale list
+  ---
+  duration_ms: 66.3418
+  ...
+# Subtest: DELETE 204 preserves sale list
+ok 38 - DELETE 204 preserves sale list
+  ---
+  duration_ms: 51.2313
+  ...
+# Subtest: DELETE 401 preserves sale list
+ok 39 - DELETE 401 preserves sale list
+  ---
+  duration_ms: 44.6992
+  ...
+# Subtest: DELETE 403 preserves sale list
+ok 40 - DELETE 403 preserves sale list
+  ---
+  duration_ms: 44.6882
+  ...
+# Subtest: DELETE 500 preserves sale list
+ok 41 - DELETE 500 preserves sale list
+  ---
+  duration_ms: 54.046
+  ...
+# Subtest: DELETE network failure is consumed inside the hook
+ok 42 - DELETE network failure is consumed inside the hook
+  ---
+  duration_ms: 40.4351
+  ...
+# Subtest: unawaited DELETE 204 cannot produce an unhandled rejection
+ok 43 - unawaited DELETE 204 cannot produce an unhandled rejection
+  ---
+  duration_ms: 59.2048
+  ...
+# Subtest: unawaited DELETE 403 cannot produce an unhandled rejection
+ok 44 - unawaited DELETE 403 cannot produce an unhandled rejection
+  ---
+  duration_ms: 40.2159
+  ...
+# Subtest: unawaited DELETE network cannot produce an unhandled rejection
+ok 45 - unawaited DELETE network cannot produce an unhandled rejection
+  ---
+  duration_ms: 50.3227
+  ...
+# Subtest: list API preserves point values and order without nested user
+ok 46 - list API preserves point values and order without nested user
+  ---
+  duration_ms: 108.4996
+  ...
+# Subtest: charge API invokes completion and parses the user-free 201 response
+ok 47 - charge API invokes completion and parses the user-free 201 response
+  ---
+  duration_ms: 24.1097
+  ...
+# Subtest: payment API parses the user-free response and preserves request fields
+ok 48 - payment API parses the user-free response and preserves request fields
+  ---
+  duration_ms: 21.8851
+  ...
+# Subtest: actual history view renders dates, amounts and details from point-only data
+not ok 49 - actual history view renders dates, amounts and details from point-only data
+  ---
+  duration_ms: 42.9231
+  location: 'C:\\Users\\mnjh2\\OneDrive\\바탕 화면\\PJT\\NGNG\\NGNG-frontend\\tests\\rf008-point-response.test.cjs:58:1'
+  failureType: 'testCodeFailure'
+  error: '(0 , usePointeHistory_1.default) is not a function'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    PointHistory (C:\Users\mnjh2\OneDrive\바탕 화면\PJT\NGNG\NGNG-frontend\src\app\my_page\_compoenets\PointHistory.tsx:13:61)
+    renderWithHooks (C:\Users\mnjh2\OneDrive\바탕 화면\PJT\NGNG\NGNG-frontend\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:5662:16)
+    renderIndeterminateComponent (C:\Users\mnjh2\OneDrive\바탕 화면\PJT\NGNG\NGNG-frontend\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:5736:15)
+    renderElement (C:\Users\mnjh2\OneDrive\바탕 화면\PJT\NGNG\NGNG-frontend\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:5961:7)
+    renderNodeDestructiveImpl (C:\Users\mnjh2\OneDrive\바탕 화면\PJT\NGNG\NGNG-frontend\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6119:11)
+    renderNodeDestructive (C:\Users\mnjh2\OneDrive\바탕 화면\PJT\NGNG\NGNG-frontend\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6091:14)
+    retryTask (C:\Users\mnjh2\OneDrive\바탕 화면\PJT\NGNG\NGNG-frontend\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6543:5)
+    performWork (C:\Users\mnjh2\OneDrive\바탕 화면\PJT\NGNG\NGNG-frontend\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6591:7)
+    C:\Users\mnjh2\OneDrive\바탕 화면\PJT\NGNG\NGNG-frontend\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6915:12
+    scheduleWork (C:\Users\mnjh2\OneDrive\바탕 화면\PJT\NGNG\NGNG-frontend\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:78:3)
+  ...
+1..49
+# tests 49
+# suites 0
+# pass 48
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1546.7869

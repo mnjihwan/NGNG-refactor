@@ -1,0 +1,22 @@
+[
+  {
+    "file": "NGNG-backend/src/main/java/com/ngng/api/user/point/controller/PointController.java",
+    "sha256": "8C99C09CC594407EAFC27B916DC362F608DEA424753152D277A0CB69A2288A98"
+  },
+  {
+    "file": "NGNG-backend/src/main/java/com/ngng/api/user/point/dto/PointHistoryResponseDTO.java",
+    "sha256": "A5D3DD3156F2CC47FD30F6C10360F9AE130C163B7AB7693974BD3994E034002E"
+  },
+  {
+    "file": "NGNG-backend/src/test/java/com/ngng/api/user/point/controller/PointControllerContractTest.java",
+    "sha256": "B3CDBC547D39950CCAF150D5FAB4CE5B78FC8175553240C06D03F4EB2DB4314D"
+  },
+  {
+    "file": "NGNG-backend/src/test/java/com/ngng/api/user/point/controller/PointResponseSecurityChainTest.java",
+    "sha256": "F8C4965D17E8CA9BCED174865DA032A69DC11EF0D8A6571E8FE6C73B216D3092"
+  },
+  {
+    "file": "NGNG-frontend/tests/rf008-point-response.test.cjs",
+    "sha256": "86A31DC01C3290A0D5D600BF4C7B8ECD9900F217CC8D2E045A2A96B1B635C83E"
+  }
+]

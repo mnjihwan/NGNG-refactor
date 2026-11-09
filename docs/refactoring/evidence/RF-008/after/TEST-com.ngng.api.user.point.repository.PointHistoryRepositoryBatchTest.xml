@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.user.point.repository.PointHistoryRepositoryBatchTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-11-09T05:13:42" hostname="MOON" time="1.07">
+  <properties/>
+  <testcase name="emptyUserIdsDoNotReachRepository()" classname="com.ngng.api.user.point.repository.PointHistoryRepositoryBatchTest" time="0.002"/>
+  <testcase name="batchQueryResolvesEntityPathsWithExistingHibernateWithoutConnectingToDatabase()" classname="com.ngng.api.user.point.repository.PointHistoryRepositoryBatchTest" time="1.067"/>
+  <testcase name="batchLookupPassesOnlyRequestedIdsAndLeavesSingleUserLookupUnchanged()" classname="com.ngng.api.user.point.repository.PointHistoryRepositoryBatchTest" time="0.001"/>
+  <system-out><![CDATA[14:13:42.551 [Test worker] INFO org.hibernate.Version -- HHH000412: Hibernate ORM core version 6.4.4.Final
+14:13:42.605 [Test worker] INFO org.hibernate.cache.internal.RegionFactoryInitiator -- HHH000026: Second-level cache disabled
+14:13:42.705 [Test worker] WARN org.hibernate.orm.deprecation -- HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+14:13:43.049 [Test worker] INFO org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator -- HHH000130: Instantiating explicit connection provider: org.hibernate.engine.jdbc.connections.internal.UserSuppliedConnectionProviderImpl
+14:13:43.297 [Test worker] INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

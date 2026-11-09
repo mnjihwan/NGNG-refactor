@@ -3,7 +3,7 @@ package com.ngng.api.user.point.controller;
 import com.ngng.api.user.point.dto.CheckPointRequestDTO;
 import com.ngng.api.user.point.dto.CreateAddPointRequestDTO;
 import com.ngng.api.user.point.dto.PaymentPointRequestDto;
-import com.ngng.api.user.point.entity.PointHistory;
+import com.ngng.api.user.point.dto.PointHistoryResponseDTO;
 import com.ngng.api.user.point.service.PointHistoryService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -21,27 +21,28 @@ public class PointController {
 
 
     @GetMapping("")
-    public ResponseEntity<PointHistory> readPoint(){
-        return ResponseEntity.ok().body(pointHistoryService.readCost());
+    public ResponseEntity<PointHistoryResponseDTO> readPoint(){
+        return ResponseEntity.ok().body(PointHistoryResponseDTO.from(pointHistoryService.readCost()));
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<PointHistory>> readAllPointHistory(){
-        return ResponseEntity.ok().body(pointHistoryService.readPointHistories());
+    public ResponseEntity<List<PointHistoryResponseDTO>> readAllPointHistory(){
+        return ResponseEntity.ok().body(pointHistoryService.readPointHistories().stream()
+                .map(PointHistoryResponseDTO::from).toList());
     }
 
 
     @PostMapping("")
-    public ResponseEntity<PointHistory> addPoint(@RequestBody @Valid final CreateAddPointRequestDTO dto){
+    public ResponseEntity<PointHistoryResponseDTO> addPoint(@RequestBody @Valid final CreateAddPointRequestDTO dto){
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(pointHistoryService.updateCost(dto));
+                .body(PointHistoryResponseDTO.from(pointHistoryService.updateCost(dto)));
     }
 
 
     @PostMapping("/payment")
-    public ResponseEntity<PointHistory> payProduct(@RequestBody @Valid PaymentPointRequestDto paymentPointRequestDto){
+    public ResponseEntity<PointHistoryResponseDTO> payProduct(@RequestBody @Valid PaymentPointRequestDto paymentPointRequestDto){
 
-        return ResponseEntity.ok().body(pointHistoryService.payment(paymentPointRequestDto));
+        return ResponseEntity.ok().body(PointHistoryResponseDTO.from(pointHistoryService.payment(paymentPointRequestDto)));
     }
 
 
