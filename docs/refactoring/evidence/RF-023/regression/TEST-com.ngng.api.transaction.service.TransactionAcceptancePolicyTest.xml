@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.transaction.service.TransactionAcceptancePolicyTest" tests="28" skipped="0" failures="0" errors="0" timestamp="2026-11-10T06:51:10" hostname="redacted" time="2.483">
+  <properties/>
+  <testcase name="rejectionAfterAcceptanceConflicts()" classname="com.ngng.api.transaction.service.TransactionAcceptancePolicyTest" time="0.306"/>
+  <testcase name="acceptanceProxyHasTransactionBeforeFirstLockAndCommits()" classname="com.ngng.api.transaction.service.TransactionAcceptancePolicyTest" time="0.59"/>
+  <testcase name="acceptedRequestWithDifferentPriceConflicts()" classname="com.ngng.api.transaction.service.TransactionAcceptancePolicyTest" time="0.006"/>
+  <testcase name="creationFailureIsPropagatedAndLaterRequestWritesDoNotRun()" classname="com.ngng.api.transaction.service.TransactionAcceptancePolicyTest" time="0.012"/>
+  <testcase name="firstRejectionOnlyChangesSelectedRequest()" classname="com.ngng.api.transaction.service.TransactionAcceptancePolicyTest" time="0.008"/>
+  <testcase name="mvcMissingRequestIdRetainsUnresolvedIllegalArgumentFailure()" classname="com.ngng.api.transaction.service.TransactionAcceptancePolicyTest" time="1.398"/>
+  <testcase name="changedProductDoesNotWriteUnderWrongLock()" classname="com.ngng.api.transaction.service.TransactionAcceptancePolicyTest" time="0.003"/>
+  <testcase name="lockFailureIsNotConvertedToConflictOrSuccess()" classname="com.ngng.api.transaction.service.TransactionAcceptancePolicyTest" time="0.004"/>
+  <testcase name="sameAcceptedRequestWithMatchingDetailsIsReadOnlySuccess()" classname="com.ngng.api.transaction.service.TransactionAcceptancePolicyTest" time="0.005"/>
+  <testcase name="acceptedRequestWithoutDetailsConflicts()" classname="com.ngng.api.transaction.service.TransactionAcceptancePolicyTest" time="0.005"/>
+  <testcase name="nullAcceptanceRetainsUnboxingFailureWithoutWriting()" classname="com.ngng.api.transaction.service.TransactionAcceptancePolicyTest" time="0.005"/>
+  <testcase name="requestRemovedAfterLookupReturnsNegativeOne()" classname="com.ngng.api.transaction.service.TransactionAcceptancePolicyTest" time="0.003"/>
+  <testcase name="acceptedRequestWithDifferentSellerConflicts()" classname="com.ngng.api.transaction.service.TransactionAcceptancePolicyTest" time="0.005"/>
+  <testcase name="failureAfterRejectingOthersInvokesRollbackAdvice()" classname="com.ngng.api.transaction.service.TransactionAcceptancePolicyTest" time="0.008"/>
+  <testcase name="acceptedRequestWithMissingSellerConflicts()" classname="com.ngng.api.transaction.service.TransactionAcceptancePolicyTest" time="0.005"/>
+  <testcase name="acceptedRequestWithDifferentBuyerConflicts()" classname="com.ngng.api.transaction.service.TransactionAcceptancePolicyTest" time="0.004"/>
+  <testcase name="nullRequestIdRetainsExistingIllegalArgumentBoundaryBeforeRepositoryAccess()" classname="com.ngng.api.transaction.service.TransactionAcceptancePolicyTest" time="0.003"/>
+  <testcase name="acceptanceCommitFailureIsNotReturnedAsSuccess()" classname="com.ngng.api.transaction.service.TransactionAcceptancePolicyTest" time="0.005"/>
+  <testcase name="acceptanceStartsReadCommittedWriteTransaction()" classname="com.ngng.api.transaction.service.TransactionAcceptancePolicyTest" time="0.005"/>
+  <testcase name="firstAcceptancePreservesFieldsAndOrder()" classname="com.ngng.api.transaction.service.TransactionAcceptancePolicyTest" time="0.015"/>
+  <testcase name="detailsReadFailureIsNotConvertedToConflictOrSuccess()" classname="com.ngng.api.transaction.service.TransactionAcceptancePolicyTest" time="0.005"/>
+  <testcase name="missingRequestReturnsNegativeOneBeforeLock()" classname="com.ngng.api.transaction.service.TransactionAcceptancePolicyTest" time="0.003"/>
+  <testcase name="repeatedRejectionDoesNotWriteEvenIfAnotherRequestHasTransaction()" classname="com.ngng.api.transaction.service.TransactionAcceptancePolicyTest" time="0.003"/>
+  <testcase name="missingProductReturnsNegativeOne()" classname="com.ngng.api.transaction.service.TransactionAcceptancePolicyTest" time="0.002"/>
+  <testcase name="acceptedRequestWithMissingBuyerConflicts()" classname="com.ngng.api.transaction.service.TransactionAcceptancePolicyTest" time="0.004"/>
+  <testcase name="anotherRequestOrDirectTransactionPreventsAcceptance()" classname="com.ngng.api.transaction.service.TransactionAcceptancePolicyTest" time="0.003"/>
+  <testcase name="multipleExistingDetailsConflictInsteadOfRepair()" classname="com.ngng.api.transaction.service.TransactionAcceptancePolicyTest" time="0.003"/>
+  <testcase name="rejectedRequestCanStillBeAcceptedWithoutTransaction()" classname="com.ngng.api.transaction.service.TransactionAcceptancePolicyTest" time="0.002"/>
+  <system-out><![CDATA[15:51:11.761 [Test worker] INFO org.hibernate.validator.internal.util.Version -- HV000001: Hibernate Validator 8.0.1.Final
+15:51:12.572 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+15:51:12.572 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+15:51:12.578 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 2 ms
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,226 @@
+[
+  {
+    "file": "after/console.txt",
+    "sha256": "9A587CE7DC5AE2FB9DC12648E6D022FFCB797589948024F7BBE7B1129689A419"
+  },
+  {
+    "file": "after/exit-code.txt",
+    "sha256": "13BF7B3039C63BF5A50491FA3CFD8EB4E699D1BA1436315AEF9CBE5711530354"
+  },
+  {
+    "file": "after/source-hashes.json",
+    "sha256": "1008FD1713E3C46090E6F77D4DA8B430445C859BB760F63E8EA69B53792242DD"
+  },
+  {
+    "file": "after/source/ReadChainHarness.java",
+    "sha256": "DC06BD41145290C6BFE5C0D1FF0D9BE499D9A91817357B5A680BBFED36037110"
+  },
+  {
+    "file": "after/source/ReadFixture.java",
+    "sha256": "D6836969AA8DEAC11527D55AA31C6124C40226CF3FD4112771F499BB5CC18662"
+  },
+  {
+    "file": "after/source/TransactionDetailsService.java",
+    "sha256": "D01065CFC9B67F8F0B44528386251A45BE618EAE924E3A17221AD0D819E57ED1"
+  },
+  {
+    "file": "after/source/TransactionReadOwnershipTest.java",
+    "sha256": "5C785B98E30470F7B91F9CE39A42DD1A9A2A09700CD827A85BFDF25F5FD9428A"
+  },
+  {
+    "file": "after/source/TransactionReadSecurityChainTest.java",
+    "sha256": "59CC94020BB69EAB10C97E2E2EF62A323BE782C0972CA4B78545A1F6F5BDDF2B"
+  },
+  {
+    "file": "after/TEST-com.ngng.api.transaction.read.TransactionReadOwnershipTest.xml",
+    "sha256": "4A8C9410B4723DD8995C92B730F246634ED046E6DB4838921D178205381141DF"
+  },
+  {
+    "file": "after/TEST-com.ngng.api.transaction.read.TransactionReadSecurityChainTest.xml",
+    "sha256": "EF210191A2166C3C3BDA643A6ADBBAF3EB942D0903D05CAA4DC2B92F7643FF99"
+  },
+  {
+    "file": "before-compile-failure/console.txt",
+    "sha256": "526E25226828B9D0F2ABFAA4B29BCC0E0F547DE0CA6A1F22485DF80CF75C9097"
+  },
+  {
+    "file": "before-compile-failure/exit-code.txt",
+    "sha256": "F1B2F662800122BED0FF255693DF89C4487FBDCF453D3524A42D4EC20C3D9C04"
+  },
+  {
+    "file": "before/console.txt",
+    "sha256": "421EF58BF18E036CA6714873075A9E1147D41BCDE137D03F109F03B3C7E73D1C"
+  },
+  {
+    "file": "before/exit-code.txt",
+    "sha256": "13BF7B3039C63BF5A50491FA3CFD8EB4E699D1BA1436315AEF9CBE5711530354"
+  },
+  {
+    "file": "before/git-status.txt",
+    "sha256": "A27204F3369DABE520E84C9B07FFF7C91DDFAF295663D75EF949479FE847181B"
+  },
+  {
+    "file": "before/head.txt",
+    "sha256": "C49B5BA04B76E5E95D8B497DCEF06EA58E92CBCCF5EACCFD34B1F9C304480027"
+  },
+  {
+    "file": "before/java-version.txt",
+    "sha256": "7DB07790C91CB1F390378D09063D903C573FA4E10F1E90518371414D6AEC5DFA"
+  },
+  {
+    "file": "before/source-hashes.json",
+    "sha256": "BB694FFC6458EE7D80737C50D55976132128EC87434EBB031852A9AAA323077F"
+  },
+  {
+    "file": "before/source/ReadChainHarness.java",
+    "sha256": "8E05976D462ABE93BCF28493D6319406A3C3EF0892984A5BF7A7C49835E98701"
+  },
+  {
+    "file": "before/source/ReadFixture.java",
+    "sha256": "D6836969AA8DEAC11527D55AA31C6124C40226CF3FD4112771F499BB5CC18662"
+  },
+  {
+    "file": "before/source/TransactionDetailsService.java",
+    "sha256": "E7B2C5FD544BAF5E9E00109B1538DE3B9BD16F078415D4903E6BB803AC629D45"
+  },
+  {
+    "file": "before/source/TransactionReadBeforeSecurityChainTest.java",
+    "sha256": "BD3856BE033BB9E6A1F54487F3B629A4D174299411BADAF7E0C43F63BA83347F"
+  },
+  {
+    "file": "before/source/TransactionReadOwnershipTest.java",
+    "sha256": "D3A029C394FC0BF9E57E8C98E53AB39CD222866CDA1F3A60F636026D86A12367"
+  },
+  {
+    "file": "before/TEST-com.ngng.api.transaction.read.TransactionReadBeforeSecurityChainTest.xml",
+    "sha256": "24565E1965C22CCF17E60C37FB8839380AABF17420319043B18C7DF3300BA176"
+  },
+  {
+    "file": "before/TransactionReadBeforeSecurityChainTest.java",
+    "sha256": "BD3856BE033BB9E6A1F54487F3B629A4D174299411BADAF7E0C43F63BA83347F"
+  },
+  {
+    "file": "context-source-hashes.json",
+    "sha256": "75E697EE23B2736E59DDD7D62CFE40F8503EA26B6C1035C3A3B6F99B5BFB86A4"
+  },
+  {
+    "file": "context-source/AuthService.java",
+    "sha256": "1B181078FB2DA695D3C54F7678DF2393E0EB0B7FEFDFA94B2AD5CC0A82C82DFB"
+  },
+  {
+    "file": "context-source/CustomUserDetails.java",
+    "sha256": "2038063451A5FAD3C4C76B47056CA289A36042F9E180193EE17E930001F003F8"
+  },
+  {
+    "file": "context-source/JwtTokenProvider.java",
+    "sha256": "6F827A21C544ACF43BDE39E560D334E9678F2ADD8088BF2FAF1D64A0A10998AD"
+  },
+  {
+    "file": "context-source/JwtTokenVerifier.java",
+    "sha256": "AE9D5F3E09757D39A4F00636EE2E88B8EEA93035DCD742513FF010DC0881D763"
+  },
+  {
+    "file": "context-source/ReadTransactionDetailsDTO.java",
+    "sha256": "484D0746E4A800789EC50F688568AD2923A7EB0A54778957DA58EC9AA2069042"
+  },
+  {
+    "file": "context-source/SecurityConfig.java",
+    "sha256": "835B6D136FBDE21EB1E6308842228ABD20BD7AFEC81FD2895EA7BD3B7306F932"
+  },
+  {
+    "file": "context-source/TokenFilter.java",
+    "sha256": "9E6642A3A4C68274AA7D22453C4B073527368AE108729EBF2C8237E9B24D920A"
+  },
+  {
+    "file": "context-source/TransactionController.java",
+    "sha256": "82A13D7C677D9C0B8B46E845A9DA5E491CACEB505C9057C4821CE90C904B3D8A"
+  },
+  {
+    "file": "context-source/TransactionDetails.java",
+    "sha256": "9EEA36690E16486E2311EA06B29D37B38DA80AE249DBC00C2E844E005B5ADE45"
+  },
+  {
+    "file": "context-source/TransactionDetailsRepository.java",
+    "sha256": "BFE790DC6D78E2B3B7623DAA21DAE3293CDC004516BE16D9501C1EE1467D4CE0"
+  },
+  {
+    "file": "context-source/TransactionStatus.java",
+    "sha256": "B7BED7A3271AD6197478187EC953AE5FFD928BBE567CC49F85F07048FB72B5A2"
+  },
+  {
+    "file": "diff-check-exit-code.txt",
+    "sha256": "13BF7B3039C63BF5A50491FA3CFD8EB4E699D1BA1436315AEF9CBE5711530354"
+  },
+  {
+    "file": "diff-check.txt",
+    "sha256": "0F5C8D1E941382D4A046B935DB004182B2A63C0280B0D680A0BF09C41C951D8E"
+  },
+  {
+    "file": "regression-command-failure/console.txt",
+    "sha256": "ACBB8CE4C98DF11EB6D1BEAB53606FFAE5D47C0EAA3C142E7833548B646C74E7"
+  },
+  {
+    "file": "regression-command-failure/exit-code.txt",
+    "sha256": "F1B2F662800122BED0FF255693DF89C4487FBDCF453D3524A42D4EC20C3D9C04"
+  },
+  {
+    "file": "regression/assembly-hashes.json",
+    "sha256": "0B8D5143ACC2B31722908BAB4116CEA3773B9A320559EE0126C562AC57994161"
+  },
+  {
+    "file": "regression/console.txt",
+    "sha256": "E89E71EAEBC9DEF3DAE4B9CA19160CD77B4F01A8EB74F43403ED131E0B296AEE"
+  },
+  {
+    "file": "regression/exit-code.txt",
+    "sha256": "13BF7B3039C63BF5A50491FA3CFD8EB4E699D1BA1436315AEF9CBE5711530354"
+  },
+  {
+    "file": "regression/source-hashes.json",
+    "sha256": "48D82C04F9A855C7FBA80B9476F1C3414AECE7F4B8E3A20346F25E9DBEC0AB3F"
+  },
+  {
+    "file": "regression/source/StatusFixture.java",
+    "sha256": "F818D876B36DA187DC9373A8103B8419A16380290E0653F5CD5C475F2C0E5678"
+  },
+  {
+    "file": "regression/source/TransactionAcceptancePolicyTest.java",
+    "sha256": "95CA4DC754D0F52C2A4414ECFEDBC7CC8A2DD5B72924139A37C4D49CCD0B0B56"
+  },
+  {
+    "file": "regression/source/TransactionCreationContractTest.java",
+    "sha256": "E4B890C11CDA7F2052849047979D2EF841BA3CBA4EF3CF1AB528B985BFB2EF2A"
+  },
+  {
+    "file": "regression/source/TransactionDetailsService.java",
+    "sha256": "D01065CFC9B67F8F0B44528386251A45BE618EAE924E3A17221AD0D819E57ED1"
+  },
+  {
+    "file": "regression/source/TransactionRequestService.java",
+    "sha256": "06F3E2AD8FF7881090BBCAD66CE4879D7E2E608F69C997E846E211E1F4F64AC3"
+  },
+  {
+    "file": "regression/source/TransactionStatusOwnershipTest.java",
+    "sha256": "F815912697727580CF05E266DB1C7CC7ABB53D5259FFEFE8AE088F4F5B5BAEC3"
+  },
+  {
+    "file": "regression/source/TransactionStatusSecurityChainTest.java",
+    "sha256": "47EE0C623B1ABE47EFB272F714858ED5E9D638C8BC9B47E912EF305BB9265CB3"
+  },
+  {
+    "file": "regression/TEST-com.ngng.api.transaction.service.TransactionAcceptancePolicyTest.xml",
+    "sha256": "8995585F957DD733D57926729CBC1A3FF6E9547664F40A90DA17A2A310C4066B"
+  },
+  {
+    "file": "regression/TEST-com.ngng.api.transaction.service.TransactionCreationContractTest.xml",
+    "sha256": "AFED0F80668B3A39E95238042BBF4BADD910C15E8D9D2A21A29D601382F94A3F"
+  },
+  {
+    "file": "regression/TEST-com.ngng.api.transaction.status.TransactionStatusOwnershipTest.xml",
+    "sha256": "1273C4DA562F88E57474BF0CEF0DD1288FBD8D68C6EB76C45A6486DFA6A86570"
+  },
+  {
+    "file": "regression/TEST-com.ngng.api.transaction.status.TransactionStatusSecurityChainTest.xml",
+    "sha256": "37D027BD77FF634A6DD9EDAE4FFD20AA9D45C176F85C8D7324E377889F724632"
+  }
+]

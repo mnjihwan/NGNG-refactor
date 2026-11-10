@@ -252,3 +252,12 @@ R4-연동/운영/성능의 기존 미실행·별도 범위는 유지한다. 공�
 | R21-정책 | 직접 POST 거래 생성 인가는 사용자 보류. 제3자가 먼저 생성하면 정당한 판매자의 수락이 409로 충돌할 수 있음 | 사용자 재개 지시와 업무 정책 확정 후 별도 수행 |
 | R21-연동 | 실제 DB/SQL·commit/rollback·동시성, HTTP/OSIV·브라우저 미검증. 기존 MySQL 테스트는 생성자만 맞췄으며 worker 인증 fixture 미구현 | 안전 격리 환경과 별도 지시 후 worker별 인증 및 정리 fixture를 마련해 검증 |
 | R21-범위·성능 | 다른 writer·가격·상태 정책은 별도 후보. 성능 미측정, 전체 backend test/build 및 frontend production build 미실행 | 독립 명세·정책 합의 또는 안전 환경 및 대표 비교 계획 확보 후 검토 |
+
+## RF-023 완료 후 잔여 검증/별도 후보
+
+[명세](tasks/RF-023.md)·[증빙](evidence/RF-023/README.md). 기록 seller/consumer만 상세 조회를 허용하며 양쪽 ID가 완전해야 한다. product owner·ADMIN 추가 예외는 없고 없는 거래의 200 빈 DTO는 유지한다. before 6건, after 73건, 별도 RF004/006 회귀 80건 및 assemble, 독립 리뷰를 완료했다.
+
+| 항목 | 상태·근거 | 재개 조건 |
+|---|---|---|
+| R23-통합 | 실DB·실제 HTTP/OSIV·브라우저·프록시 및 외부 소비자 미검증. 기존 DB 단건 read 테스트는 무인증이며 status 테스트의 후속 read는 기록 seller/consumer와 양쪽 ID가 완전한 fixture가 필요하나 실제 일치 여부 미확인 | 안전한 격리 DB와 별도 범위 합의 후 합성 당사자 인증·fixture 및 실제 응답을 검증 |
+| R23-범위·성능 | 목록/마이페이지·채팅 등 다른 개인정보 경로는 별도 후보. 성능 미측정, 전체 backend test/build 미실행 | 독립 범위 합의 또는 대표 환경·비교 계획 확보 후 검토; 자동 착수하지 않음 |

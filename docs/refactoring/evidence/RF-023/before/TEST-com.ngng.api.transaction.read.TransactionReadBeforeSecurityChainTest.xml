@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.transaction.read.TransactionReadBeforeSecurityChainTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-11-10T06:44:30" hostname="redacted" time="0.582">
+  <properties/>
+  <testcase name="[1] role=USER, id=1000" classname="com.ngng.api.transaction.read.TransactionReadBeforeSecurityChainTest" time="0.517"/>
+  <testcase name="[2] role=USER, id=2000" classname="com.ngng.api.transaction.read.TransactionReadBeforeSecurityChainTest" time="0.011"/>
+  <testcase name="[3] role=USER, id=4000" classname="com.ngng.api.transaction.read.TransactionReadBeforeSecurityChainTest" time="0.011"/>
+  <testcase name="[4] role=ADMIN, id=4000" classname="com.ngng.api.transaction.read.TransactionReadBeforeSecurityChainTest" time="0.009"/>
+  <testcase name="missingTransactionRemainsEmptyDto200()" classname="com.ngng.api.transaction.read.TransactionReadBeforeSecurityChainTest" time="0.023"/>
+  <testcase name="noCredentialsStopsBeforeRepository()" classname="com.ngng.api.transaction.read.TransactionReadBeforeSecurityChainTest" time="0.003"/>
+  <system-out><![CDATA[15:44:27.802 [Test worker] INFO org.hibernate.validator.internal.util.Version -- HV000001: Hibernate Validator 8.0.1.Final
+15:44:29.593 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7740b0ab, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3eb9c575, org.springframework.security.web.context.SecurityContextHolderFilter@5423a17, org.springframework.security.web.header.HeaderWriterFilter@79308a2, org.springframework.web.filter.CorsFilter@3f322610, org.springframework.security.web.authentication.logout.LogoutFilter@30358dc7, com.ngng.api.global.security.filter.TokenFilter@1e477944, com.ngng.api.global.security.filter.LoginFilter@6cf047cf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2987d0fa, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@13234ac9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1c92a549, org.springframework.security.web.session.SessionManagementFilter@352e5a82, org.springframework.security.web.access.ExceptionTranslationFilter@4afcae7, org.springframework.security.web.access.intercept.AuthorizationFilter@30af23fd]
+15:44:29.994 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+15:44:29.994 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+15:44:29.994 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

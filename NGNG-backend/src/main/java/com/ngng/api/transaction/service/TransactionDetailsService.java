@@ -1,5 +1,6 @@
 package com.ngng.api.transaction.service;
 
+import com.ngng.api.global.security.custom.CustomUserDetails;
 import com.ngng.api.product.product.entity.Product;
 import com.ngng.api.product.product.repository.ProductRepository;
 import com.ngng.api.transaction.dto.CreateTransactionDetailsRequestDTO;
@@ -14,6 +15,8 @@ import com.ngng.api.user.user.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.annotation.Propagation;
@@ -37,10 +40,28 @@ public class TransactionDetailsService extends Exception {
 
 //    @Transactional(readOnly = true)
     public ReadTransactionDetailsDTO readTransactionDetailsById(Long TransactionId) {
-       TransactionDetails transactionDetails = transactionDetailsRepository.findById(TransactionId).orElse(null);
-
-       return new ReadTransactionDetailsDTO().from(transactionDetails);
-
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || !authentication.isAuthenticated()
+                || !(authentication.getPrincipal() instanceof CustomUserDetails principal)
+                || principal.getUser() == null || principal.getUser().getEmail() == null
+                || principal.getUser().getEmail().isBlank()) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "인증이 필요합니다.");
+        }
+        User requester = authService.readAuthUser();
+        if (requester == null || requester.getUserId() == null) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "인증이 필요합니다.");
+        }
+        TransactionDetails transactionDetails = transactionDetailsRepository.findById(TransactionId).orElse(null);
+        if (transactionDetails != null) {
+            User seller = transactionDetails.getSeller();
+            User consumer = transactionDetails.getConsumer();
+            if (seller == null || seller.getUserId() == null || consumer == null || consumer.getUserId() == null
+                    || (!requester.getUserId().equals(seller.getUserId())
+                    && !requester.getUserId().equals(consumer.getUserId()))) {
+                throw new ResponseStatusException(HttpStatus.FORBIDDEN, "거래를 조회할 권한이 없습니다.");
+            }
+        }
+        return new ReadTransactionDetailsDTO().from(transactionDetails);
     }
 
     public List<ReadTransactionDetailsDTO> readAllByConsumerId(Long id){

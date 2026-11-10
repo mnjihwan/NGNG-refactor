@@ -1,0 +1,34 @@
+ M NGNG-backend/src/main/java/com/ngng/api/transaction/service/TransactionRequestService.java
+ M NGNG-backend/src/test/java/com/ngng/api/product/cache/ProductCacheTestSupport.java
+ M NGNG-backend/src/test/java/com/ngng/api/transaction/integration/TransactionAcceptanceFunctionalMySqlTest.java
+ M NGNG-backend/src/test/java/com/ngng/api/transaction/integration/TransactionAcceptanceMySqlConcurrencyTest.java
+ M NGNG-backend/src/test/java/com/ngng/api/transaction/service/TransactionAcceptancePolicyTest.java
+ M NGNG-chat-server/.gitignore
+ M NGNG-chat-server/build.gradle
+ M NGNG-chat-server/src/main/java/com/ngng/chat/WebSocketConfig.java
+ M NGNG-chat-server/src/main/java/com/ngng/chat/publicChat/controller/PublicChatController.java
+ M NGNG-chat-server/src/main/java/com/ngng/chat/user/repository/UserRepository.java
+ M NGNG-frontend/src/app/chat/[roomId]/PrivateChat.tsx
+ M NGNG-frontend/src/app/chat/[roomId]/_components/PrivateChatting.tsx
+ M NGNG-frontend/src/app/chat/_api.ts
+ M NGNG-frontend/src/app/chat/_components/ChatRoomList.tsx
+ M NGNG-frontend/src/app/my_page/_utils/auth-header.ts
+ M NGNG-frontend/src/app/product/[id]/_components/Chatting.tsx
+ M NGNG-frontend/src/app/product/[id]/_components/ProductInfo.tsx
+ M NGNG-frontend/src/app/product/_api/api.ts
+ M NGNG-frontend/src/providers/UserContext.tsx
+ M NGNG-frontend/src/providers/stompAlarmSubscribe.tsx
+?? .tmp/
+?? NGNG-backend/src/test/java/com/ngng/api/transaction/authorization/
+?? NGNG-backend/src/test/java/com/ngng/api/transaction/read/
+?? NGNG-chat-server/src/main/java/com/ngng/chat/security/
+?? NGNG-chat-server/src/test/
+?? NGNG-frontend/src/providers/chatAuth.ts
+?? NGNG-frontend/src/providers/chatConnection.ts
+?? NGNG-frontend/tests/rf022-chat-auth.test.cjs
+?? docs/refactoring/evidence/RF-021/
+?? docs/refactoring/evidence/RF-022/
+?? docs/refactoring/evidence/RF-023/
+?? docs/refactoring/tasks/RF-021.md
+?? docs/refactoring/tasks/RF-022.md
+?? docs/refactoring/tasks/RF-023.md
