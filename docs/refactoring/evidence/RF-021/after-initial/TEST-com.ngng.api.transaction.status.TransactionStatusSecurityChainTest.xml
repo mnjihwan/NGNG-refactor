@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2026-11-10T06:45:52" hostname="local-host-redacted" time="0.096">
+  <properties/>
+  <testcase name="[1] role=USER, id=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.011"/>
+  <testcase name="[2] role=USER, id=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="[3] role=USER, id=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.007"/>
+  <testcase name="[4] role=ADMIN, id=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.01"/>
+  <testcase name="[5] role=ADMIN, id=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.008"/>
+  <testcase name="[6] role=ADMIN, id=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="[7] role=UNCONFIRMED_USER, id=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.007"/>
+  <testcase name="[8] role=UNCONFIRMED_USER, id=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="[9] role=UNCONFIRMED_USER, id=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.006"/>
+  <testcase name="[1] credentials=missing" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.001"/>
+  <testcase name="[2] credentials=malformed" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.002"/>
+  <testcase name="[1] access=missing" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.009"/>
+  <testcase name="[2] access=expired" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.01"/>
+  <system-out><![CDATA[15:45:52.917 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7590ce28, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3a95fd1c, org.springframework.security.web.context.SecurityContextHolderFilter@6f4249cb, org.springframework.security.web.header.HeaderWriterFilter@66dd3ed1, org.springframework.web.filter.CorsFilter@278d2891, org.springframework.security.web.authentication.logout.LogoutFilter@64356fe1, com.ngng.api.global.security.filter.TokenFilter@5f065ddc, com.ngng.api.global.security.filter.LoginFilter@2c94299a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@37d05d32, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@38f4c6af, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@39fc5c09, org.springframework.security.web.session.SessionManagementFilter@68d93913, org.springframework.security.web.access.ExceptionTranslationFilter@5ed0d352, org.springframework.security.web.access.intercept.AuthorizationFilter@4fe6f2be]
+15:45:52.926 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+15:45:52.926 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+15:45:52.926 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+15:45:52.934 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :4
+15:45:52.934 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :4
+org.springframework.web.server.ResponseStatusException: 401 UNAUTHORIZED "소유권이 없는 유저 입니다."
+15:45:52.957 [Test worker] ERROR transaction-log -- Faild Create TransactionDetails id: 88
+15:45:52.965 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :4
+15:45:52.973 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :4
+org.springframework.web.server.ResponseStatusException: 401 UNAUTHORIZED "소유권이 없는 유저 입니다."
+15:45:52.973 [Test worker] ERROR transaction-log -- Faild Create TransactionDetails id: 88
+15:45:52.984 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :4
+15:45:52.984 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :4
+org.springframework.web.server.ResponseStatusException: 401 UNAUTHORIZED "소유권이 없는 유저 입니다."
+15:45:53.002 [Test worker] ERROR transaction-log -- Faild Create TransactionDetails id: 88
+15:45:53.013 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :4
+15:45:53.017 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :4
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

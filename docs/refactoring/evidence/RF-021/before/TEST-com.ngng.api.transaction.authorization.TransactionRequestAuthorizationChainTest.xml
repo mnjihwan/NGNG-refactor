@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-11-10T06:39:24" hostname="local-host-redacted" time="0.522">
+  <properties/>
+  <testcase name="[1] role=USER, accept=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.42"/>
+  <testcase name="[2] role=USER, accept=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.011"/>
+  <testcase name="[3] role=ADMIN, accept=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.01"/>
+  <testcase name="[4] role=UNCONFIRMED_USER, accept=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.01"/>
+  <testcase name="[1] role=USER, id=2000" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.025"/>
+  <testcase name="[2] role=USER, id=4000" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.008"/>
+  <testcase name="[3] role=ADMIN, id=4000" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.008"/>
+  <testcase name="[4] role=UNCONFIRMED_USER, id=4000" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.008"/>
+  <testcase name="[1] credentials=missing" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.004"/>
+  <testcase name="[2] credentials=malformed" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.003"/>
+  <system-out><![CDATA[15:39:22.356 [Test worker] INFO org.hibernate.validator.internal.util.Version -- HV000001: Hibernate Validator 8.0.1.Final
+15:39:23.776 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@36238b12, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@33187485, org.springframework.security.web.context.SecurityContextHolderFilter@6029f2a4, org.springframework.security.web.header.HeaderWriterFilter@5df2023c, org.springframework.web.filter.CorsFilter@41938e1e, org.springframework.security.web.authentication.logout.LogoutFilter@1c92a549, com.ngng.api.global.security.filter.TokenFilter@5d2e6f62, com.ngng.api.global.security.filter.LoginFilter@77ff14ce, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@30358dc7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7fac18dc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@733fae8, org.springframework.security.web.session.SessionManagementFilter@3562e7c7, org.springframework.security.web.access.ExceptionTranslationFilter@39374689, org.springframework.security.web.access.intercept.AuthorizationFilter@1282f784]
+15:39:24.189 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+15:39:24.189 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+15:39:24.189 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+15:39:24.622 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 1000  Consumer : 2000
+15:39:24.622 [Test worker] INFO transaction-log -- Success Accept TransactionRequest id: 9000
+15:39:24.689 [Test worker] INFO transaction-log -- Success Decline TransactionRequest id: 9000
+15:39:24.695 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 1000  Consumer : 2000
+15:39:24.695 [Test worker] INFO transaction-log -- Success Accept TransactionRequest id: 9000
+15:39:24.711 [Test worker] INFO transaction-log -- Success Decline TransactionRequest id: 9000
+15:39:24.735 [Test worker] INFO transaction-log -- Success Create TransactionRequest id: 9000
+15:39:24.739 [Test worker] INFO transaction-log -- Success Create TransactionRequest id: 9000
+15:39:24.755 [Test worker] INFO transaction-log -- Success Create TransactionRequest id: 9000
+15:39:24.769 [Test worker] INFO transaction-log -- Success Create TransactionRequest id: 9000
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,86 @@
+[
+  {
+    "source": "NGNG-backend/src/main/java/com/ngng/api/transaction/service/TransactionRequestService.java",
+    "sha256": "06f3e2ad8ff7881090bbcad66ce4879d7e2e608f69c997e846e211e1f4f64ac3"
+  },
+  {
+    "source": "NGNG-backend/src/main/java/com/ngng/api/transaction/service/TransactionDetailsService.java",
+    "sha256": "d01065cfc9b67f8f0b44528386251a45be618eae924e3a17221ad0d819e57ed1"
+  },
+  {
+    "source": "NGNG-backend/src/main/java/com/ngng/api/transaction/controller/TransactionController.java",
+    "sha256": "82a13d7c677d9c0b8b46e845a9da5e491caceb505c9057c4821ce90c904b3d8a"
+  },
+  {
+    "source": "NGNG-backend/src/main/java/com/ngng/api/user/user/service/AuthService.java",
+    "sha256": "1b181078fb2da695d3c54f7678df2393e0eb0b7fefdfa94b2ad5cc0a82c82dfb"
+  },
+  {
+    "source": "NGNG-backend/src/test/java/com/ngng/api/transaction/authorization/TransactionRequestAuthorizationChainTest.java",
+    "sha256": "209d14d1c97d23b0049b411bff1170b3904cd91ad38c69cb30fbacab48083b31"
+  },
+  {
+    "source": "NGNG-backend/src/test/java/com/ngng/api/transaction/authorization/TransactionRequestAuthorizationServiceTest.java",
+    "sha256": "34c1efa6df3f285e873eac25ffd0e7e896e7158e08060a0e47e73bebaba8d776"
+  },
+  {
+    "source": "NGNG-backend/src/test/java/com/ngng/api/transaction/service/TransactionAcceptancePolicyTest.java",
+    "sha256": "95ca4dc754d0f52c2a4414ecfedbc7cc8a2dd5b72924139a37c4d49ccd0b0b56"
+  },
+  {
+    "source": "NGNG-backend/src/test/java/com/ngng/api/transaction/service/TransactionCreationContractTest.java",
+    "sha256": "e4b890c11cda7f2052849047979d2ef841ba3cba4ef3cf1ab528b985bfb2ef2a"
+  },
+  {
+    "source": "NGNG-backend/src/test/java/com/ngng/api/transaction/status/TransactionStatusOwnershipTest.java",
+    "sha256": "f815912697727580cf05e266db1c7cc7abb53d5259ffefe8ae088f4f5b5baec3"
+  },
+  {
+    "source": "NGNG-backend/src/test/java/com/ngng/api/transaction/status/TransactionStatusSecurityChainTest.java",
+    "sha256": "47ee0c623b1abe47efb272f714858ed5e9d638c8bc9b47e912ef305bb9265cb3"
+  },
+  {
+    "source": "NGNG-backend/src/test/java/com/ngng/api/product/cache/ProductCacheTestSupport.java",
+    "sha256": "3e018334d0bb1c7ba3a5e75bb00bcef44d712ef11096ef03271c8b39eac308dc"
+  },
+  {
+    "source": "NGNG-backend/src/test/java/com/ngng/api/product/cache/ProductCacheInvalidationTest.java",
+    "sha256": "a4ca65570c93e9dd130aad15319aefb0ff3f93766c9825bb7aebd1573fe82e0d"
+  },
+  {
+    "source": "NGNG-backend/src/test/java/com/ngng/api/product/cache/ProductCacheInvalidatorTest.java",
+    "sha256": "b4f745e27c77787e984ef641675ca1a744ac47a62587f5adffa6f99bae0e5b05"
+  },
+  {
+    "source": "NGNG-backend/src/test/java/com/ngng/api/product/cache/ProductCacheConcurrencyBoundaryTest.java",
+    "sha256": "3da460ba47f80f122e0fa4a6cde21093e52e8f3c251f39b520bcb147367d16e4"
+  },
+  {
+    "source": "NGNG-backend/src/test/java/com/ngng/api/transaction/integration/TransactionAcceptanceFunctionalMySqlTest.java",
+    "sha256": "f0c0fa1d530aacfff39194c9aa56f381399900352cbc58bc607dbf1afcabbd97"
+  },
+  {
+    "source": "NGNG-backend/src/test/java/com/ngng/api/transaction/integration/TransactionAcceptanceMySqlConcurrencyTest.java",
+    "sha256": "c524b0c8a8030c1c2d269c16149a50f27b1d3fd88480cb49f2c755bf5d516b43"
+  },
+  {
+    "source": "NGNG-frontend/src/app/chat/_api.ts",
+    "sha256": "c94c81da82a48c216b874ff107550cd99c77f95d072297f3bcd2882abbc35cff"
+  },
+  {
+    "source": "NGNG-frontend/src/app/chat/_hooks/usePrivateChatMessgae.ts",
+    "sha256": "cb6cbf8b403c0573755f6d3a74216173aec66a41987ee197d681052068cbe08d"
+  },
+  {
+    "source": "NGNG-frontend/src/app/chat/[roomId]/PrivateChat.tsx",
+    "sha256": "df1688b2247124eaaeaa11f75f6e00fa1d4b472a8c212c50ebfc755b5769bcce"
+  },
+  {
+    "source": "NGNG-frontend/tests/rf004-transaction-request.test.cjs",
+    "sha256": "e7ec602f6abae759726d6252a2e9e7dd11b10fd7d849eff367cf62de639276b9"
+  },
+  {
+    "source": "NGNG-frontend/tests/rf021-transaction-request-create.test.cjs",
+    "sha256": "3b02a2ca468ac96ce7b706b91d6d8432242868aceed9ae0a972cac994f710e1e"
+  }
+]

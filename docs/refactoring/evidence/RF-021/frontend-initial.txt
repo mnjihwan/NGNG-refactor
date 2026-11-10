@@ -1,0 +1,684 @@
+TAP version 13
+# Subtest: successful accept preserves request/token and closes/refreshes
+ok 1 - successful accept preserves request/token and closes/refreshes
+  ---
+  duration_ms: 169.4269
+  ...
+# Subtest: successful dismiss preserves request/token and closes/refreshes
+ok 2 - successful dismiss preserves request/token and closes/refreshes
+  ---
+  duration_ms: 68.5871
+  ...
+# Subtest: 409 JSON rejects hook promise without successful cache update
+ok 3 - 409 JSON rejects hook promise without successful cache update
+  ---
+  duration_ms: 48.343
+  ...
+# Subtest: 409 JSON accept keeps modal open and reports failure
+ok 4 - 409 JSON accept keeps modal open and reports failure
+  ---
+  duration_ms: 40.7487
+  ...
+# Subtest: 409 JSON dismiss keeps modal open and reports failure
+ok 5 - 409 JSON dismiss keeps modal open and reports failure
+  ---
+  duration_ms: 34.3814
+  ...
+# Subtest: 404 empty rejects hook promise without successful cache update
+ok 6 - 404 empty rejects hook promise without successful cache update
+  ---
+  duration_ms: 33.9755
+  ...
+# Subtest: 404 empty accept keeps modal open and reports failure
+ok 7 - 404 empty accept keeps modal open and reports failure
+  ---
+  duration_ms: 29.2816
+  ...
+# Subtest: 404 empty dismiss keeps modal open and reports failure
+ok 8 - 404 empty dismiss keeps modal open and reports failure
+  ---
+  duration_ms: 28.2753
+  ...
+# Subtest: 500 JSON rejects hook promise without successful cache update
+ok 9 - 500 JSON rejects hook promise without successful cache update
+  ---
+  duration_ms: 29.7755
+  ...
+# Subtest: 500 JSON accept keeps modal open and reports failure
+ok 10 - 500 JSON accept keeps modal open and reports failure
+  ---
+  duration_ms: 24.7023
+  ...
+# Subtest: 500 JSON dismiss keeps modal open and reports failure
+ok 11 - 500 JSON dismiss keeps modal open and reports failure
+  ---
+  duration_ms: 28.528
+  ...
+# Subtest: network rejects hook promise without successful cache update
+ok 12 - network rejects hook promise without successful cache update
+  ---
+  duration_ms: 22.0768
+  ...
+# Subtest: network accept keeps modal open and reports failure
+ok 13 - network accept keeps modal open and reports failure
+  ---
+  duration_ms: 26.0145
+  ...
+# Subtest: network dismiss keeps modal open and reports failure
+ok 14 - network dismiss keeps modal open and reports failure
+  ---
+  duration_ms: 20.7967
+  ...
+# Subtest: invalid JSON rejects hook promise without successful cache update
+ok 15 - invalid JSON rejects hook promise without successful cache update
+  ---
+  duration_ms: 33.276
+  ...
+# Subtest: invalid JSON accept keeps modal open and reports failure
+ok 16 - invalid JSON accept keeps modal open and reports failure
+  ---
+  duration_ms: 27.4104
+  ...
+# Subtest: invalid JSON dismiss keeps modal open and reports failure
+ok 17 - invalid JSON dismiss keeps modal open and reports failure
+  ---
+  duration_ms: 25.4532
+  ...
+# Subtest: nonnumeric JSON rejects hook promise without successful cache update
+ok 18 - nonnumeric JSON rejects hook promise without successful cache update
+  ---
+  duration_ms: 31.7988
+  ...
+# Subtest: nonnumeric JSON accept keeps modal open and reports failure
+ok 19 - nonnumeric JSON accept keeps modal open and reports failure
+  ---
+  duration_ms: 26.4572
+  ...
+# Subtest: nonnumeric JSON dismiss keeps modal open and reports failure
+ok 20 - nonnumeric JSON dismiss keeps modal open and reports failure
+  ---
+  duration_ms: 21.711
+  ...
+# Subtest: numeric string rejects hook promise without successful cache update
+ok 21 - numeric string rejects hook promise without successful cache update
+  ---
+  duration_ms: 26.9376
+  ...
+# Subtest: numeric string accept keeps modal open and reports failure
+ok 22 - numeric string accept keeps modal open and reports failure
+  ---
+  duration_ms: 22.5495
+  ...
+# Subtest: numeric string dismiss keeps modal open and reports failure
+ok 23 - numeric string dismiss keeps modal open and reports failure
+  ---
+  duration_ms: 25.6605
+  ...
+# Subtest: null JSON rejects hook promise without successful cache update
+ok 24 - null JSON rejects hook promise without successful cache update
+  ---
+  duration_ms: 20.6301
+  ...
+# Subtest: null JSON accept keeps modal open and reports failure
+ok 25 - null JSON accept keeps modal open and reports failure
+  ---
+  duration_ms: 25.7596
+  ...
+# Subtest: null JSON dismiss keeps modal open and reports failure
+ok 26 - null JSON dismiss keeps modal open and reports failure
+  ---
+  duration_ms: 20.8437
+  ...
+# Subtest: negative number rejects hook promise without successful cache update
+ok 27 - negative number rejects hook promise without successful cache update
+  ---
+  duration_ms: 26.0896
+  ...
+# Subtest: negative number accept keeps modal open and reports failure
+ok 28 - negative number accept keeps modal open and reports failure
+  ---
+  duration_ms: 22.3161
+  ...
+# Subtest: negative number dismiss keeps modal open and reports failure
+ok 29 - negative number dismiss keeps modal open and reports failure
+  ---
+  duration_ms: 21.1787
+  ...
+# Subtest: hook mutation remains pending until response completes
+ok 30 - hook mutation remains pending until response completes
+  ---
+  duration_ms: 22.3127
+  ...
+# Subtest: screen waits for successful response before closing or refreshing
+ok 31 - screen waits for successful response before closing or refreshing
+  ---
+  duration_ms: 19.6264
+  ...
+# Subtest: successful create ID 9 preserves body/token then refreshes and closes
+ok 32 - successful create ID 9 preserves body/token then refreshes and closes
+  ---
+  duration_ms: 162.0399
+  ...
+# Subtest: successful create ID -1 preserves body/token then refreshes and closes
+ok 33 - successful create ID -1 preserves body/token then refreshes and closes
+  ---
+  duration_ms: 50.4554
+  ...
+# Subtest: 403 JSON create rejects hook without successful mutate/revalidation
+not ok 34 - 403 JSON create rejects hook without successful mutate/revalidation
+  ---
+  duration_ms: 49.597
+  location: 'C:\\Users\\mnjh2\\OneDrive\\바탕 화면\\PJT\\NGNG\\NGNG-frontend\\tests\\rf021-transaction-request-create.test.cjs:156:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+
+    1 !== 0
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (<workspace>\NGNG-frontend\tests\rf021-transaction-request-create.test.cjs:160:12)
+    async Test.run (node:internal/test_runner/test:632:9)
+    async Test.processPendingSubtests (node:internal/test_runner/test:374:7)
+  ...
+# Subtest: 403 JSON create leaves dialog open and reports failure
+not ok 35 - 403 JSON create leaves dialog open and reports failure
+  ---
+  duration_ms: 38.7034
+  location: 'C:\\Users\\mnjh2\\OneDrive\\바탕 화면\\PJT\\NGNG\\NGNG-frontend\\tests\\rf021-transaction-request-create.test.cjs:163:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+
+    1 !== 0
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (<workspace>\NGNG-frontend\tests\rf021-transaction-request-create.test.cjs:167:12)
+    async Test.run (node:internal/test_runner/test:632:9)
+    async Test.processPendingSubtests (node:internal/test_runner/test:374:7)
+  ...
+# Subtest: 401 empty create rejects hook without successful mutate/revalidation
+not ok 36 - 401 empty create rejects hook without successful mutate/revalidation
+  ---
+  duration_ms: 40.3856
+  location: 'C:\\Users\\mnjh2\\OneDrive\\바탕 화면\\PJT\\NGNG\\NGNG-frontend\\tests\\rf021-transaction-request-create.test.cjs:156:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+
+    1 !== 0
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (<workspace>\NGNG-frontend\tests\rf021-transaction-request-create.test.cjs:160:12)
+    async Test.run (node:internal/test_runner/test:632:9)
+    async Test.processPendingSubtests (node:internal/test_runner/test:374:7)
+  ...
+# Subtest: 401 empty create leaves dialog open and reports failure
+not ok 37 - 401 empty create leaves dialog open and reports failure
+  ---
+  duration_ms: 35.7423
+  location: 'C:\\Users\\mnjh2\\OneDrive\\바탕 화면\\PJT\\NGNG\\NGNG-frontend\\tests\\rf021-transaction-request-create.test.cjs:163:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+
+    1 !== 0
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (<workspace>\NGNG-frontend\tests\rf021-transaction-request-create.test.cjs:167:12)
+    async Test.run (node:internal/test_runner/test:632:9)
+    async Test.processPendingSubtests (node:internal/test_runner/test:374:7)
+  ...
+# Subtest: 404 empty create rejects hook without successful mutate/revalidation
+not ok 38 - 404 empty create rejects hook without successful mutate/revalidation
+  ---
+  duration_ms: 30.3764
+  location: 'C:\\Users\\mnjh2\\OneDrive\\바탕 화면\\PJT\\NGNG\\NGNG-frontend\\tests\\rf021-transaction-request-create.test.cjs:156:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+
+    1 !== 0
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (<workspace>\NGNG-frontend\tests\rf021-transaction-request-create.test.cjs:160:12)
+    async Test.run (node:internal/test_runner/test:632:9)
+    async Test.processPendingSubtests (node:internal/test_runner/test:374:7)
+  ...
+# Subtest: 404 empty create leaves dialog open and reports failure
+not ok 39 - 404 empty create leaves dialog open and reports failure
+  ---
+  duration_ms: 31.6391
+  location: 'C:\\Users\\mnjh2\\OneDrive\\바탕 화면\\PJT\\NGNG\\NGNG-frontend\\tests\\rf021-transaction-request-create.test.cjs:163:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+
+    1 !== 0
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (<workspace>\NGNG-frontend\tests\rf021-transaction-request-create.test.cjs:167:12)
+    async Test.run (node:internal/test_runner/test:632:9)
+    async Test.processPendingSubtests (node:internal/test_runner/test:374:7)
+  ...
+# Subtest: 500 JSON create rejects hook without successful mutate/revalidation
+not ok 40 - 500 JSON create rejects hook without successful mutate/revalidation
+  ---
+  duration_ms: 26.5718
+  location: 'C:\\Users\\mnjh2\\OneDrive\\바탕 화면\\PJT\\NGNG\\NGNG-frontend\\tests\\rf021-transaction-request-create.test.cjs:156:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+
+    1 !== 0
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (<workspace>\NGNG-frontend\tests\rf021-transaction-request-create.test.cjs:160:12)
+    async Test.run (node:internal/test_runner/test:632:9)
+    async Test.processPendingSubtests (node:internal/test_runner/test:374:7)
+  ...
+# Subtest: 500 JSON create leaves dialog open and reports failure
+not ok 41 - 500 JSON create leaves dialog open and reports failure
+  ---
+  duration_ms: 28.2186
+  location: 'C:\\Users\\mnjh2\\OneDrive\\바탕 화면\\PJT\\NGNG\\NGNG-frontend\\tests\\rf021-transaction-request-create.test.cjs:163:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+
+    1 !== 0
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (<workspace>\NGNG-frontend\tests\rf021-transaction-request-create.test.cjs:167:12)
+    async Test.run (node:internal/test_runner/test:632:9)
+    async Test.processPendingSubtests (node:internal/test_runner/test:374:7)
+  ...
+# Subtest: network create rejects hook without successful mutate/revalidation
+not ok 42 - network create rejects hook without successful mutate/revalidation
+  ---
+  duration_ms: 24.035
+  location: 'C:\\Users\\mnjh2\\OneDrive\\바탕 화면\\PJT\\NGNG\\NGNG-frontend\\tests\\rf021-transaction-request-create.test.cjs:156:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+
+    1 !== 0
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (<workspace>\NGNG-frontend\tests\rf021-transaction-request-create.test.cjs:160:12)
+    async Test.run (node:internal/test_runner/test:632:9)
+    async Test.processPendingSubtests (node:internal/test_runner/test:374:7)
+  ...
+# Subtest: network create leaves dialog open and reports failure
+not ok 43 - network create leaves dialog open and reports failure
+  ---
+  duration_ms: 24.7465
+  location: 'C:\\Users\\mnjh2\\OneDrive\\바탕 화면\\PJT\\NGNG\\NGNG-frontend\\tests\\rf021-transaction-request-create.test.cjs:163:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+
+    1 !== 0
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (<workspace>\NGNG-frontend\tests\rf021-transaction-request-create.test.cjs:167:12)
+    async Test.run (node:internal/test_runner/test:632:9)
+    async Test.processPendingSubtests (node:internal/test_runner/test:374:7)
+  ...
+# Subtest: invalid JSON create rejects hook without successful mutate/revalidation
+not ok 44 - invalid JSON create rejects hook without successful mutate/revalidation
+  ---
+  duration_ms: 26.1643
+  location: 'C:\\Users\\mnjh2\\OneDrive\\바탕 화면\\PJT\\NGNG\\NGNG-frontend\\tests\\rf021-transaction-request-create.test.cjs:156:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+
+    1 !== 0
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (<workspace>\NGNG-frontend\tests\rf021-transaction-request-create.test.cjs:160:12)
+    async Test.run (node:internal/test_runner/test:632:9)
+    async Test.processPendingSubtests (node:internal/test_runner/test:374:7)
+  ...
+# Subtest: invalid JSON create leaves dialog open and reports failure
+not ok 45 - invalid JSON create leaves dialog open and reports failure
+  ---
+  duration_ms: 25.7569
+  location: 'C:\\Users\\mnjh2\\OneDrive\\바탕 화면\\PJT\\NGNG\\NGNG-frontend\\tests\\rf021-transaction-request-create.test.cjs:163:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+
+    1 !== 0
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (<workspace>\NGNG-frontend\tests\rf021-transaction-request-create.test.cjs:167:12)
+    async Test.run (node:internal/test_runner/test:632:9)
+    async Test.processPendingSubtests (node:internal/test_runner/test:374:7)
+  ...
+# Subtest: object create rejects hook without successful mutate/revalidation
+not ok 46 - object create rejects hook without successful mutate/revalidation
+  ---
+  duration_ms: 29.382
+  location: 'C:\\Users\\mnjh2\\OneDrive\\바탕 화면\\PJT\\NGNG\\NGNG-frontend\\tests\\rf021-transaction-request-create.test.cjs:156:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+
+    1 !== 0
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (<workspace>\NGNG-frontend\tests\rf021-transaction-request-create.test.cjs:160:12)
+    async Test.run (node:internal/test_runner/test:632:9)
+    async Test.processPendingSubtests (node:internal/test_runner/test:374:7)
+  ...
+# Subtest: object create leaves dialog open and reports failure
+not ok 47 - object create leaves dialog open and reports failure
+  ---
+  duration_ms: 22.5261
+  location: 'C:\\Users\\mnjh2\\OneDrive\\바탕 화면\\PJT\\NGNG\\NGNG-frontend\\tests\\rf021-transaction-request-create.test.cjs:163:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+
+    1 !== 0
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (<workspace>\NGNG-frontend\tests\rf021-transaction-request-create.test.cjs:167:12)
+    async Test.run (node:internal/test_runner/test:632:9)
+    async Test.processPendingSubtests (node:internal/test_runner/test:374:7)
+  ...
+# Subtest: numeric string create rejects hook without successful mutate/revalidation
+not ok 48 - numeric string create rejects hook without successful mutate/revalidation
+  ---
+  duration_ms: 25.5422
+  location: 'C:\\Users\\mnjh2\\OneDrive\\바탕 화면\\PJT\\NGNG\\NGNG-frontend\\tests\\rf021-transaction-request-create.test.cjs:156:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+
+    1 !== 0
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (<workspace>\NGNG-frontend\tests\rf021-transaction-request-create.test.cjs:160:12)
+    async Test.run (node:internal/test_runner/test:632:9)
+    async Test.processPendingSubtests (node:internal/test_runner/test:374:7)
+  ...
+# Subtest: numeric string create leaves dialog open and reports failure
+not ok 49 - numeric string create leaves dialog open and reports failure
+  ---
+  duration_ms: 21.6919
+  location: 'C:\\Users\\mnjh2\\OneDrive\\바탕 화면\\PJT\\NGNG\\NGNG-frontend\\tests\\rf021-transaction-request-create.test.cjs:163:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+
+    1 !== 0
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (<workspace>\NGNG-frontend\tests\rf021-transaction-request-create.test.cjs:167:12)
+    async Test.run (node:internal/test_runner/test:632:9)
+    async Test.processPendingSubtests (node:internal/test_runner/test:374:7)
+  ...
+# Subtest: null create rejects hook without successful mutate/revalidation
+not ok 50 - null create rejects hook without successful mutate/revalidation
+  ---
+  duration_ms: 23.4999
+  location: 'C:\\Users\\mnjh2\\OneDrive\\바탕 화면\\PJT\\NGNG\\NGNG-frontend\\tests\\rf021-transaction-request-create.test.cjs:156:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+
+    1 !== 0
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (<workspace>\NGNG-frontend\tests\rf021-transaction-request-create.test.cjs:160:12)
+    async Test.run (node:internal/test_runner/test:632:9)
+    async Test.processPendingSubtests (node:internal/test_runner/test:374:7)
+  ...
+# Subtest: null create leaves dialog open and reports failure
+not ok 51 - null create leaves dialog open and reports failure
+  ---
+  duration_ms: 19.2079
+  location: 'C:\\Users\\mnjh2\\OneDrive\\바탕 화면\\PJT\\NGNG\\NGNG-frontend\\tests\\rf021-transaction-request-create.test.cjs:163:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+
+    1 !== 0
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (<workspace>\NGNG-frontend\tests\rf021-transaction-request-create.test.cjs:167:12)
+    async Test.run (node:internal/test_runner/test:632:9)
+    async Test.processPendingSubtests (node:internal/test_runner/test:374:7)
+  ...
+# Subtest: zero create rejects hook without successful mutate/revalidation
+not ok 52 - zero create rejects hook without successful mutate/revalidation
+  ---
+  duration_ms: 26.8758
+  location: 'C:\\Users\\mnjh2\\OneDrive\\바탕 화면\\PJT\\NGNG\\NGNG-frontend\\tests\\rf021-transaction-request-create.test.cjs:156:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+
+    1 !== 0
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (<workspace>\NGNG-frontend\tests\rf021-transaction-request-create.test.cjs:160:12)
+    async Test.run (node:internal/test_runner/test:632:9)
+    async Test.processPendingSubtests (node:internal/test_runner/test:374:7)
+  ...
+# Subtest: zero create leaves dialog open and reports failure
+not ok 53 - zero create leaves dialog open and reports failure
+  ---
+  duration_ms: 26.0288
+  location: 'C:\\Users\\mnjh2\\OneDrive\\바탕 화면\\PJT\\NGNG\\NGNG-frontend\\tests\\rf021-transaction-request-create.test.cjs:163:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+
+    1 !== 0
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (<workspace>\NGNG-frontend\tests\rf021-transaction-request-create.test.cjs:167:12)
+    async Test.run (node:internal/test_runner/test:632:9)
+    async Test.processPendingSubtests (node:internal/test_runner/test:374:7)
+  ...
+# Subtest: negative except -1 create rejects hook without successful mutate/revalidation
+not ok 54 - negative except -1 create rejects hook without successful mutate/revalidation
+  ---
+  duration_ms: 22.7856
+  location: 'C:\\Users\\mnjh2\\OneDrive\\바탕 화면\\PJT\\NGNG\\NGNG-frontend\\tests\\rf021-transaction-request-create.test.cjs:156:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+
+    1 !== 0
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (<workspace>\NGNG-frontend\tests\rf021-transaction-request-create.test.cjs:160:12)
+    async Test.run (node:internal/test_runner/test:632:9)
+    async Test.processPendingSubtests (node:internal/test_runner/test:374:7)
+  ...
+# Subtest: negative except -1 create leaves dialog open and reports failure
+not ok 55 - negative except -1 create leaves dialog open and reports failure
+  ---
+  duration_ms: 26.212
+  location: 'C:\\Users\\mnjh2\\OneDrive\\바탕 화면\\PJT\\NGNG\\NGNG-frontend\\tests\\rf021-transaction-request-create.test.cjs:163:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+
+    1 !== 0
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (<workspace>\NGNG-frontend\tests\rf021-transaction-request-create.test.cjs:167:12)
+    async Test.run (node:internal/test_runner/test:632:9)
+    async Test.processPendingSubtests (node:internal/test_runner/test:374:7)
+  ...
+# Subtest: fraction create rejects hook without successful mutate/revalidation
+not ok 56 - fraction create rejects hook without successful mutate/revalidation
+  ---
+  duration_ms: 22.4183
+  location: 'C:\\Users\\mnjh2\\OneDrive\\바탕 화면\\PJT\\NGNG\\NGNG-frontend\\tests\\rf021-transaction-request-create.test.cjs:156:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+
+    1 !== 0
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (<workspace>\NGNG-frontend\tests\rf021-transaction-request-create.test.cjs:160:12)
+    async Test.run (node:internal/test_runner/test:632:9)
+    async Test.processPendingSubtests (node:internal/test_runner/test:374:7)
+  ...
+# Subtest: fraction create leaves dialog open and reports failure
+not ok 57 - fraction create leaves dialog open and reports failure
+  ---
+  duration_ms: 25.5792
+  location: 'C:\\Users\\mnjh2\\OneDrive\\바탕 화면\\PJT\\NGNG\\NGNG-frontend\\tests\\rf021-transaction-request-create.test.cjs:163:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+
+    1 !== 0
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (<workspace>\NGNG-frontend\tests\rf021-transaction-request-create.test.cjs:167:12)
+    async Test.run (node:internal/test_runner/test:632:9)
+    async Test.processPendingSubtests (node:internal/test_runner/test:374:7)
+  ...
+# Subtest: create keeps dialog open until actual response completes
+ok 58 - create keeps dialog open until actual response completes
+  ---
+  duration_ms: 37.2607
+  ...
+1..58
+# tests 58
+# suites 0
+# pass 34
+# fail 24
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1251.2579

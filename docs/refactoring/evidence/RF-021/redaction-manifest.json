@@ -1,0 +1,182 @@
+[
+  {
+    "file": "after/console.txt",
+    "rawSha256": "c6fa9104272953b309c3a0a78b583299b5d680971c432b8059df940dcf7584da",
+    "sharedSha256": "e612fba4f490483dd0328848a4a177dae3d9f33d4e48da119a6e68992797f7c0",
+    "redactedSyntheticJwtCount": 0
+  },
+  {
+    "file": "after/TEST-com.ngng.api.product.cache.ProductCacheConcurrencyBoundaryTest.xml",
+    "rawSha256": "95df9df56899c2f6bbc6e4bb5683cc08d1796305f3ed2cf1d079e36f88e5ff38",
+    "sharedSha256": "230cc2c4c4bce8f5e0cc7c708c72db6d401a99d19ad752356fcbcf2b2f92b26b",
+    "redactedSyntheticJwtCount": 0
+  },
+  {
+    "file": "after/TEST-com.ngng.api.product.cache.ProductCacheInvalidationTest.xml",
+    "rawSha256": "e7fa850f04c7154f8f3737670aeca139d6bbe23f9a09291d42120d9536b5d287",
+    "sharedSha256": "24d2496a1b2f1fb8423958d8b8564f5fb9b68a0409368bda08ae441118220c37",
+    "redactedSyntheticJwtCount": 0
+  },
+  {
+    "file": "after/TEST-com.ngng.api.product.cache.ProductCacheInvalidatorTest.xml",
+    "rawSha256": "a444dd26b5432ac5061569c7a2bbba532c7aad4c3010062d35dc0a3ceab5ead3",
+    "sharedSha256": "bad7a5c92ee3eaf7af0b5cb4db9c12bd95aa4721039a69729b4ce536537ebdf7",
+    "redactedSyntheticJwtCount": 0
+  },
+  {
+    "file": "after/TEST-com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest.xml",
+    "rawSha256": "f8880bbb4be7e5018d8bedc443cdec114b8d84b4b612dd1a67f1199e715ffbdf",
+    "sharedSha256": "e15020cc071806d08f425ac3343a04f43d3b7f294ea5a67beae85e5f6029a323",
+    "redactedSyntheticJwtCount": 0
+  },
+  {
+    "file": "after/TEST-com.ngng.api.transaction.authorization.TransactionRequestAuthorizationServiceTest.xml",
+    "rawSha256": "d8a90e156d28bd7e856cb5beee775e4f009c0fc46db2d88820fb15ec760abc98",
+    "sharedSha256": "f3a7c2784f39166204a4c4fa63929b146d9ca3e2cfe6904ad6cf4c647a13e703",
+    "redactedSyntheticJwtCount": 0
+  },
+  {
+    "file": "after/TEST-com.ngng.api.transaction.service.TransactionAcceptancePolicyTest.xml",
+    "rawSha256": "11d3124d8d9c27e357a5c01bda3eea3409b179ada015a9ffc820d46ddb13e1a6",
+    "sharedSha256": "02d4e02c5663dce040f46c90160ce2791ec1cca991d922b8ae53ebaaa70dc24c",
+    "redactedSyntheticJwtCount": 0
+  },
+  {
+    "file": "after/TEST-com.ngng.api.transaction.service.TransactionCreationContractTest.xml",
+    "rawSha256": "d98e5670cc84645b61de076dc57284ee52d14eb9bb72e752e33a107adcf99850",
+    "sharedSha256": "3534f45544fb7b03929f35cb3e77c552f81bf95edc764d7cd463ff43da7e9928",
+    "redactedSyntheticJwtCount": 0
+  },
+  {
+    "file": "after/TEST-com.ngng.api.transaction.status.TransactionStatusOwnershipTest.xml",
+    "rawSha256": "d63ffe3b55442995c62299da2da841023e6f433b8b7cd3e65af5ab33925333df",
+    "sharedSha256": "522e23d034ea317685275d3413b52cf3ceb7135c0c54787302b4ae2bcd7e29d2",
+    "redactedSyntheticJwtCount": 0
+  },
+  {
+    "file": "after/TEST-com.ngng.api.transaction.status.TransactionStatusSecurityChainTest.xml",
+    "rawSha256": "d4d58ed441f79970d3c9087fc588ed1a00debd021ce14c1b98b1f3d2545190fd",
+    "sharedSha256": "03d524e1808fb25a2ca25327558736618b2b93294e847cd21cffd08310a30c7e",
+    "redactedSyntheticJwtCount": 0
+  },
+  {
+    "file": "after-initial/console.txt",
+    "rawSha256": "f7e692d7aeb9a2ad070fcaa6dca1c1d948f448186cc4801b592b1736cb64e5dd",
+    "sharedSha256": "30bb82491ddc95a74bb116cc2cbec1443fb60caeac871e1fff2f6f99b0237fe5",
+    "redactedSyntheticJwtCount": 0
+  },
+  {
+    "file": "after-initial/TEST-com.ngng.api.product.cache.ProductCacheConcurrencyBoundaryTest.xml",
+    "rawSha256": "ca07864947bee8ebda612528cf36047be4f8c0f161a31e13c59dbae7a1dfc3a1",
+    "sharedSha256": "9df599bde2298a8a6fd6a3951588dd1e2353e775b24ea245c46fa14498d3c15e",
+    "redactedSyntheticJwtCount": 0
+  },
+  {
+    "file": "after-initial/TEST-com.ngng.api.product.cache.ProductCacheInvalidationTest.xml",
+    "rawSha256": "fe7d923e90432079e979d12423966ab83e9fe75d20849e24dcd521834c67255e",
+    "sharedSha256": "28ae9888b3ed8d037033c15aa9b9e336ad20c93876b9ae15e0b5b30c7726de12",
+    "redactedSyntheticJwtCount": 0
+  },
+  {
+    "file": "after-initial/TEST-com.ngng.api.product.cache.ProductCacheInvalidatorTest.xml",
+    "rawSha256": "5f5c4a4b04de1dcdd603f88cdd3679d6c86b61161be7111b2c853904703e06b7",
+    "sharedSha256": "484419f4c90be6ab77172a04600d6ae27a1310a1f8135c98e644bef065c3a188",
+    "redactedSyntheticJwtCount": 0
+  },
+  {
+    "file": "after-initial/TEST-com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest.xml",
+    "rawSha256": "2a76b81bf4dd97429804ee92dbfa10bb099b02ebe47c2a593ad57c8928a8efcb",
+    "sharedSha256": "d435d9f570f6059d3099fadf1fc225ca2bf335afde4a4a126cd702c352357669",
+    "redactedSyntheticJwtCount": 0
+  },
+  {
+    "file": "after-initial/TEST-com.ngng.api.transaction.authorization.TransactionRequestAuthorizationServiceTest.xml",
+    "rawSha256": "1ad60d5fa06eeb240abf139c7b68cfdc6ffc19cf438fefa95eab1e992e78827b",
+    "sharedSha256": "12c7643b1c967fe5b7f50555515ba6282d4513e74f8df60c478ab825a6dbad2e",
+    "redactedSyntheticJwtCount": 0
+  },
+  {
+    "file": "after-initial/TEST-com.ngng.api.transaction.service.TransactionAcceptancePolicyTest.xml",
+    "rawSha256": "5a9bb512752f63779bedac0fd9985546d9e368f68cd1cf93c3919b5a9bdc8c4d",
+    "sharedSha256": "23c45f89cc27261c93f7785b81ed5023091c55809003dc381a571b9826de7c50",
+    "redactedSyntheticJwtCount": 0
+  },
+  {
+    "file": "after-initial/TEST-com.ngng.api.transaction.service.TransactionCreationContractTest.xml",
+    "rawSha256": "c509097833379f352a26df46bb55009a8b68e9d1559e54c43d29f797900adc2a",
+    "sharedSha256": "76ddb80239a724c2489ba1272ca25d64663e0e69a4c00b804d058b4ceb44c09a",
+    "redactedSyntheticJwtCount": 0
+  },
+  {
+    "file": "after-initial/TEST-com.ngng.api.transaction.status.TransactionStatusOwnershipTest.xml",
+    "rawSha256": "bd36f0d8d6c9c205707c509b48dc2781a52bc5e22a9378ac7a2472fedcb91a7f",
+    "sharedSha256": "3ae8829dece761081fab7c975709bce1b606e617f054040ad6d885565594880c",
+    "redactedSyntheticJwtCount": 0
+  },
+  {
+    "file": "after-initial/TEST-com.ngng.api.transaction.status.TransactionStatusSecurityChainTest.xml",
+    "rawSha256": "bd6f2d29d844c4b71975aa8d6934321b7691338b0a800485745c2772047f2be3",
+    "sharedSha256": "1e160f396c2e2f71f0b12a2fca7185f3025069c1070890d6dd04ed0e3db912be",
+    "redactedSyntheticJwtCount": 0
+  },
+  {
+    "file": "assemble.txt",
+    "rawSha256": "7ade1f9606a71192733437967a797eced5d7bc0062e2f24bfa52044f386f44b4",
+    "sharedSha256": "5188ded4a54ffdec1e4da6103961ac044887616087d31bf4a11f353c12b385dc",
+    "redactedSyntheticJwtCount": 0
+  },
+  {
+    "file": "before/console.txt",
+    "rawSha256": "f29daaa68352fcc7a46f91d7016e069cbee591c427f774ffbc3f78f0e7ebee71",
+    "sharedSha256": "3c7dad58b45983a714501eb181ccda304e56b900c70258e51acbf9eda4f37790",
+    "redactedSyntheticJwtCount": 0
+  },
+  {
+    "file": "before/TEST-com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest.xml",
+    "rawSha256": "572f03bdc63dd97606e2740e2de70e319600a62944f50eb7570186363e35375d",
+    "sharedSha256": "2c2990c88795fbe3337942836d0d54838edcbf0e27e4dad97386c486423f720f",
+    "redactedSyntheticJwtCount": 0
+  },
+  {
+    "file": "compile-failure/console.txt",
+    "rawSha256": "bcb4d2ed8fe0f6969329fccf4914fc96e290b2582313feda6b3f69054939d7d0",
+    "sharedSha256": "4f80e48e6266454e0ba06a56b00b5b44c8739e500d0234adf186a9d938565730",
+    "redactedSyntheticJwtCount": 0
+  },
+  {
+    "file": "frontend-initial.txt",
+    "rawSha256": "fc1adebbc67c5d9bbb62b50445511ed0fea34e797bb432a0e82609569d4681e7",
+    "sharedSha256": "1d29a1cb0be7c8464cdbefebe0d3343806030c6911334b665178da1929e6aff3",
+    "redactedSyntheticJwtCount": 0
+  },
+  {
+    "file": "frontend.txt",
+    "rawSha256": "55a494717c9d4626a0b3c5362e1f3af92c1d460162a732dcb73acbb345b0464a",
+    "sharedSha256": "55a494717c9d4626a0b3c5362e1f3af92c1d460162a732dcb73acbb345b0464a",
+    "redactedSyntheticJwtCount": 0
+  },
+  {
+    "file": "java-version.txt",
+    "rawSha256": "7db07790c91cb1f390378d09063d903c573fa4e10f1e90518371414d6aec5dfa",
+    "sharedSha256": "7db07790c91cb1f390378d09063d903c573fa4e10f1e90518371414d6aec5dfa",
+    "redactedSyntheticJwtCount": 0
+  },
+  {
+    "file": "lint.txt",
+    "rawSha256": "0badf6dadf27fd04bdd29be87f4020d1e9cc046cd5463445e32706ba98437548",
+    "sharedSha256": "0badf6dadf27fd04bdd29be87f4020d1e9cc046cd5463445e32706ba98437548",
+    "redactedSyntheticJwtCount": 0
+  },
+  {
+    "file": "node-version.txt",
+    "rawSha256": "598286b5b74656095d08dda1774a8e9e7524a3d71dc08911184c6b7307432de9",
+    "sharedSha256": "598286b5b74656095d08dda1774a8e9e7524a3d71dc08911184c6b7307432de9",
+    "redactedSyntheticJwtCount": 0
+  },
+  {
+    "file": "tsc.txt",
+    "rawSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sharedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "redactedSyntheticJwtCount": 0
+  }
+]

@@ -1,0 +1,127 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.7/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+> Task :compileJava
+> Task :processResources
+> Task :classes
+
+> Task :compileTestJava
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :processTestResources
+> Task :testClasses
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+
+> Task :test
+
+TransactionRequestAuthorizationChainTest > existingDirectDetailsRetains409ForOwnerBut403ForThirdParty() FAILED
+    java.lang.NullPointerException at TransactionRequestAuthorizationChainTest.java:103
+
+TransactionRequestAuthorizationServiceTest > creationSaveFailurePropagatesAndTriggersRollbackAdvice() FAILED
+    java.lang.NullPointerException at TransactionRequestAuthorizationServiceTest.java:50
+
+TransactionAcceptancePolicyTest > rejectionAfterAcceptanceConflicts() FAILED
+    org.mockito.exceptions.misusing.UnfinishedStubbingException at TransactionAcceptancePolicyTest.java:52
+
+TransactionAcceptancePolicyTest > acceptanceProxyHasTransactionBeforeFirstLockAndCommits() FAILED
+    org.mockito.exceptions.misusing.UnfinishedStubbingException at TransactionAcceptancePolicyTest.java:52
+
+TransactionAcceptancePolicyTest > acceptedRequestWithDifferentPriceConflicts() FAILED
+    org.mockito.exceptions.misusing.UnfinishedStubbingException at TransactionAcceptancePolicyTest.java:52
+
+TransactionAcceptancePolicyTest > creationFailureIsPropagatedAndLaterRequestWritesDoNotRun() FAILED
+    org.mockito.exceptions.misusing.UnfinishedStubbingException at TransactionAcceptancePolicyTest.java:52
+
+TransactionAcceptancePolicyTest > firstRejectionOnlyChangesSelectedRequest() FAILED
+    org.mockito.exceptions.misusing.UnfinishedStubbingException at TransactionAcceptancePolicyTest.java:52
+
+TransactionAcceptancePolicyTest > mvcMissingRequestIdRetainsUnresolvedIllegalArgumentFailure() FAILED
+    org.mockito.exceptions.misusing.UnfinishedStubbingException at TransactionAcceptancePolicyTest.java:52
+
+TransactionAcceptancePolicyTest > changedProductDoesNotWriteUnderWrongLock() FAILED
+    org.mockito.exceptions.misusing.UnfinishedStubbingException at TransactionAcceptancePolicyTest.java:52
+
+TransactionAcceptancePolicyTest > lockFailureIsNotConvertedToConflictOrSuccess() FAILED
+    org.mockito.exceptions.misusing.UnfinishedStubbingException at TransactionAcceptancePolicyTest.java:52
+
+TransactionAcceptancePolicyTest > sameAcceptedRequestWithMatchingDetailsIsReadOnlySuccess() FAILED
+    org.mockito.exceptions.misusing.UnfinishedStubbingException at TransactionAcceptancePolicyTest.java:52
+
+TransactionAcceptancePolicyTest > acceptedRequestWithoutDetailsConflicts() FAILED
+    org.mockito.exceptions.misusing.UnfinishedStubbingException at TransactionAcceptancePolicyTest.java:52
+
+TransactionAcceptancePolicyTest > nullAcceptanceRetainsUnboxingFailureWithoutWriting() FAILED
+    org.mockito.exceptions.misusing.UnfinishedStubbingException at TransactionAcceptancePolicyTest.java:52
+
+TransactionAcceptancePolicyTest > requestRemovedAfterLookupReturnsNegativeOne() FAILED
+    org.mockito.exceptions.misusing.UnfinishedStubbingException at TransactionAcceptancePolicyTest.java:52
+
+TransactionAcceptancePolicyTest > acceptedRequestWithDifferentSellerConflicts() FAILED
+    org.mockito.exceptions.misusing.UnfinishedStubbingException at TransactionAcceptancePolicyTest.java:52
+
+TransactionAcceptancePolicyTest > failureAfterRejectingOthersInvokesRollbackAdvice() FAILED
+    org.mockito.exceptions.misusing.UnfinishedStubbingException at TransactionAcceptancePolicyTest.java:52
+
+TransactionAcceptancePolicyTest > acceptedRequestWithMissingSellerConflicts() FAILED
+    org.mockito.exceptions.misusing.UnfinishedStubbingException at TransactionAcceptancePolicyTest.java:52
+
+TransactionAcceptancePolicyTest > acceptedRequestWithDifferentBuyerConflicts() FAILED
+    org.mockito.exceptions.misusing.UnfinishedStubbingException at TransactionAcceptancePolicyTest.java:52
+
+TransactionAcceptancePolicyTest > nullRequestIdRetainsExistingIllegalArgumentBoundaryBeforeRepositoryAccess() FAILED
+    org.mockito.exceptions.misusing.UnfinishedStubbingException at TransactionAcceptancePolicyTest.java:52
+
+TransactionAcceptancePolicyTest > acceptanceCommitFailureIsNotReturnedAsSuccess() FAILED
+    org.mockito.exceptions.misusing.UnfinishedStubbingException at TransactionAcceptancePolicyTest.java:52
+
+TransactionAcceptancePolicyTest > acceptanceStartsReadCommittedWriteTransaction() FAILED
+    org.mockito.exceptions.misusing.UnfinishedStubbingException at TransactionAcceptancePolicyTest.java:52
+
+TransactionAcceptancePolicyTest > firstAcceptancePreservesFieldsAndOrder() FAILED
+    org.mockito.exceptions.misusing.UnfinishedStubbingException at TransactionAcceptancePolicyTest.java:52
+
+TransactionAcceptancePolicyTest > detailsReadFailureIsNotConvertedToConflictOrSuccess() FAILED
+    org.mockito.exceptions.misusing.UnfinishedStubbingException at TransactionAcceptancePolicyTest.java:52
+
+TransactionAcceptancePolicyTest > missingRequestReturnsNegativeOneBeforeLock() FAILED
+    org.mockito.exceptions.misusing.UnfinishedStubbingException at TransactionAcceptancePolicyTest.java:52
+
+TransactionAcceptancePolicyTest > repeatedRejectionDoesNotWriteEvenIfAnotherRequestHasTransaction() FAILED
+    org.mockito.exceptions.misusing.UnfinishedStubbingException at TransactionAcceptancePolicyTest.java:52
+
+TransactionAcceptancePolicyTest > missingProductReturnsNegativeOne() FAILED
+    org.mockito.exceptions.misusing.UnfinishedStubbingException at TransactionAcceptancePolicyTest.java:52
+
+TransactionAcceptancePolicyTest > acceptedRequestWithMissingBuyerConflicts() FAILED
+    org.mockito.exceptions.misusing.UnfinishedStubbingException at TransactionAcceptancePolicyTest.java:52
+
+TransactionAcceptancePolicyTest > anotherRequestOrDirectTransactionPreventsAcceptance() FAILED
+    org.mockito.exceptions.misusing.UnfinishedStubbingException at TransactionAcceptancePolicyTest.java:52
+
+TransactionAcceptancePolicyTest > multipleExistingDetailsConflictInsteadOfRepair() FAILED
+    org.mockito.exceptions.misusing.UnfinishedStubbingException at TransactionAcceptancePolicyTest.java:52
+
+TransactionAcceptancePolicyTest > rejectedRequestCanStillBeAcceptedWithoutTransaction() FAILED
+    org.mockito.exceptions.misusing.UnfinishedStubbingException at TransactionAcceptancePolicyTest.java:52
+
+217 tests completed, 30 failed
+
+> Task :test FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':test'.
+> There were failing tests. See the report at: file:///<user-home>/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/PJT/NGNG/NGNG-backend/build/reports/tests/test/index.html
+
+* Try:
+> Run with --scan to get full insights.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.7/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+5 actionable tasks: 5 executed
+BUILD FAILED in 27s
