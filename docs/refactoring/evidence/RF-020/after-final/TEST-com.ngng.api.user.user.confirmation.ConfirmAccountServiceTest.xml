@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.user.user.confirmation.ConfirmAccountServiceTest" tests="22" skipped="0" failures="0" errors="0" timestamp="2026-11-10T06:03:39" hostname="MOON" time="0.044">
+  <properties/>
+  <testcase name="repositoryFailureIsNotMisreportedAs403()" classname="com.ngng.api.user.user.confirmation.ConfirmAccountServiceTest" time="0.003"/>
+  <testcase name="matchingIdMissingTargetKeepsExistingException()" classname="com.ngng.api.user.user.confirmation.ConfirmAccountServiceTest" time="0.002"/>
+  <testcase name="[1] kind=missing" classname="com.ngng.api.user.user.confirmation.ConfirmAccountServiceTest" time="0.002"/>
+  <testcase name="[2] kind=unauthenticated" classname="com.ngng.api.user.user.confirmation.ConfirmAccountServiceTest" time="0.001"/>
+  <testcase name="[3] kind=anonymous" classname="com.ngng.api.user.user.confirmation.ConfirmAccountServiceTest" time="0.001"/>
+  <testcase name="[4] kind=anonymous-custom" classname="com.ngng.api.user.user.confirmation.ConfirmAccountServiceTest" time="0.001"/>
+  <testcase name="[5] kind=null-principal" classname="com.ngng.api.user.user.confirmation.ConfirmAccountServiceTest" time="0.002"/>
+  <testcase name="[6] kind=string" classname="com.ngng.api.user.user.confirmation.ConfirmAccountServiceTest" time="0.002"/>
+  <testcase name="[7] kind=null-user" classname="com.ngng.api.user.user.confirmation.ConfirmAccountServiceTest" time="0.001"/>
+  <testcase name="[8] kind=null-email" classname="com.ngng.api.user.user.confirmation.ConfirmAccountServiceTest" time="0.001"/>
+  <testcase name="[9] kind=blank-email" classname="com.ngng.api.user.user.confirmation.ConfirmAccountServiceTest" time="0.001"/>
+  <testcase name="[10] kind=USER" classname="com.ngng.api.user.user.confirmation.ConfirmAccountServiceTest" time="0.001"/>
+  <testcase name="[11] kind=ADMIN" classname="com.ngng.api.user.user.confirmation.ConfirmAccountServiceTest" time="0.002"/>
+  <testcase name="[12] kind=role-mismatch" classname="com.ngng.api.user.user.confirmation.ConfirmAccountServiceTest" time="0.001"/>
+  <testcase name="principalRoleFieldIsNotDereferencedBeforeAuthenticationAuthorities()" classname="com.ngng.api.user.user.confirmation.ConfirmAccountServiceTest" time="0.001"/>
+  <testcase name="equalIdsOutsideLongCacheUseValueEqualityAndOriginalMutationOrder()" classname="com.ngng.api.user.user.confirmation.ConfirmAccountServiceTest" time="0.003"/>
+  <testcase name="[1] kind=other" classname="com.ngng.api.user.user.confirmation.ConfirmAccountServiceTest" time="0.002"/>
+  <testcase name="[2] kind=missing-target" classname="com.ngng.api.user.user.confirmation.ConfirmAccountServiceTest" time="0.001"/>
+  <testcase name="[3] kind=null-request" classname="com.ngng.api.user.user.confirmation.ConfirmAccountServiceTest" time="0.001"/>
+  <testcase name="[4] kind=missing-caller" classname="com.ngng.api.user.user.confirmation.ConfirmAccountServiceTest" time="0.001"/>
+  <testcase name="[5] kind=null-caller-id" classname="com.ngng.api.user.user.confirmation.ConfirmAccountServiceTest" time="0.001"/>
+  <testcase name="[6] kind=both-null" classname="com.ngng.api.user.user.confirmation.ConfirmAccountServiceTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

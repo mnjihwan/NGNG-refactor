@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2026-11-10T05:59:56" hostname="MOON" time="0.784">
+  <properties/>
+  <testcase name="mandatoryCookieRemainsRequiredWithValidAccess()" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.492"/>
+  <testcase name="[1] kind=registered" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.091"/>
+  <testcase name="[2] kind=duplicate" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.012"/>
+  <testcase name="[1] kind=missing" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.004"/>
+  <testcase name="[2] kind=malformed" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.003"/>
+  <testcase name="[3] kind=access-type" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.007"/>
+  <testcase name="[4] kind=refresh-type" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.008"/>
+  <testcase name="[5] kind=bad-refresh" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.002"/>
+  <testcase name="[1] role=USER, id=7001" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.009"/>
+  <testcase name="[2] role=USER, id=8001" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.008"/>
+  <testcase name="[3] role=ADMIN, id=7001" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.009"/>
+  <testcase name="[4] role=ADMIN, id=8001" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.007"/>
+  <testcase name="[1] id=7001" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.021"/>
+  <testcase name="[2] id=8001" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.018"/>
+  <system-out><![CDATA[14:59:54.996 [Test worker] INFO org.hibernate.validator.internal.util.Version -- HV000001: Hibernate Validator 8.0.1.Final
+14:59:56.424 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@47be41c6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@608b35fa, org.springframework.security.web.context.SecurityContextHolderFilter@41938e1e, org.springframework.security.web.header.HeaderWriterFilter@1282f784, org.springframework.web.filter.CorsFilter@13a268cd, org.springframework.security.web.authentication.logout.LogoutFilter@5efe5b25, com.ngng.api.global.security.filter.TokenFilter@7b3a6e95, com.ngng.api.global.security.filter.LoginFilter@4ebfb045, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@77ff14ce, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@733fae8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@77a2688d, org.springframework.security.web.session.SessionManagementFilter@13e1e816, org.springframework.security.web.access.ExceptionTranslationFilter@1716c037, org.springframework.security.web.access.intercept.AuthorizationFilter@3d235635]
+14:59:56.741 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+14:59:56.741 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+14:59:56.741 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+14:59:57.220 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MissingRequestCookieException: Required cookie 'refreshToken' for method parameter type Cookie is not present]
+14:59:57.327 [Test worker] ERROR user-log -- Failed Confirm account , userId : 7001  bank : fixture-bank  number : fixture-account
+14:59:57.403 [Test worker] ERROR user-log -- Failed Confirm account , userId : 7001  bank : fixture-bank  number : fixture-account
+14:59:57.514 [Test worker] INFO user-log -- Success  Confirm account , userId : 7001  bank : fixture-bank  number : fixture-account
+14:59:57.530 [Test worker] INFO user-log -- Success  Confirm account , userId : 8001  bank : fixture-bank  number : fixture-account
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

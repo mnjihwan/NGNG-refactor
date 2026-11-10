@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" tests="30" skipped="0" failures="1" errors="0" timestamp="2026-11-10T06:02:11" hostname="MOON" time="0.486">
+  <properties/>
+  <testcase name="[1] kind=registered" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.13"/>
+  <testcase name="[2] kind=duplicate" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.009"/>
+  <testcase name="[1] accessKind=missing, own=true" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.028"/>
+  <testcase name="[2] accessKind=expired, own=true" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.028"/>
+  <testcase name="[3] accessKind=missing, own=false" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.021"/>
+  <testcase name="[4] accessKind=expired, own=false" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.013"/>
+  <testcase name="mandatoryCookieRemainsRequiredWithValidAccess()" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.009"/>
+  <testcase name="[1] kind=registered" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.006"/>
+  <testcase name="[2] kind=duplicate" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.007"/>
+  <testcase name="ownAccountRetains204HeadersAndState()" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.014"/>
+  <testcase name="[1] kind=missing" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.003"/>
+  <testcase name="[2] kind=malformed" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.004"/>
+  <testcase name="[3] kind=access-type" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.008"/>
+  <testcase name="[4] kind=refresh-type" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.005"/>
+  <testcase name="[5] kind=bad-refresh" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.004"/>
+  <testcase name="[1] cookieKind=other, own=true" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.014"/>
+  <testcase name="[2] cookieKind=malformed, own=true" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.014"/>
+  <testcase name="[3] cookieKind=other, own=false" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.008"/>
+  <testcase name="[4] cookieKind=malformed, own=false" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.006"/>
+  <testcase name="[1] role=USER, id=7001" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.015"/>
+  <testcase name="[2] role=USER, id=8001" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.018"/>
+  <testcase name="[3] role=ADMIN, id=7001" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.007"/>
+  <testcase name="[4] role=ADMIN, id=8001" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.004"/>
+  <testcase name="[1] kind=other" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.01"/>
+  <testcase name="[2] kind=registered-other" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.009"/>
+  <testcase name="[3] kind=duplicate-other" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.013"/>
+  <testcase name="[4] kind=missing-target" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.01"/>
+  <testcase name="[5] kind=null-id" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.011"/>
+  <testcase name="[6] kind=missing-caller" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.016">
+    <failure message="java.lang.NullPointerException: Cannot invoke &quot;org.springframework.security.core.Authentication.getPrincipal()&quot; because the return value of &quot;org.springframework.security.core.context.SecurityContext.getAuthentication()&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;org.springframework.security.core.Authentication.getPrincipal()&quot; because the return value of &quot;org.springframework.security.core.context.SecurityContext.getAuthentication()&quot; is null
+	at com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest.lambda$setup$0(ConfirmAccountSecurityChainTest.java:63)
+	at org.mockito.internal.stubbing.StubbedInvocationMatcher.answer(StubbedInvocationMatcher.java:42)
+	at org.mockito.internal.handler.MockHandlerImpl.handle(MockHandlerImpl.java:103)
+	at org.mockito.internal.handler.NullResultGuardian.handle(NullResultGuardian.java:29)
+	at org.mockito.internal.handler.InvocationNotifierHandler.handle(InvocationNotifierHandler.java:34)
+	at org.mockito.internal.creation.bytebuddy.MockMethodInterceptor.doIntercept(MockMethodInterceptor.java:82)
+	at org.mockito.internal.creation.bytebuddy.MockMethodInterceptor.doIntercept(MockMethodInterceptor.java:56)
+	at org.mockito.internal.creation.bytebuddy.MockMethodInterceptor$DispatcherDefaultingToRealMethod.interceptAbstract(MockMethodInterceptor.java:161)
+	at com.ngng.api.user.user.repository.UserRepository$MockitoMock$PddVgA29.findUserByEmail(Unknown Source)
+	at com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest.objectDenialPrecedesAllTargetAndTokenAccess(ConfirmAccountSecurityChainTest.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestTemplateMethod(TimeoutExtension.java:94)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask$DefaultDynamicTestExecutor.execute(NodeTestTask.java:226)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask$DefaultDynamicTestExecutor.execute(NodeTestTask.java:204)
+	at org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor.execute(TestTemplateTestDescriptor.java:142)
+	at org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor.lambda$execute$2(TestTemplateTestDescriptor.java:110)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor.execute(TestTemplateTestDescriptor.java:110)
+	at org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor.execute(TestTemplateTestDescriptor.java:44)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:119)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:94)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:89)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+</failure>
+  </testcase>
+  <testcase name="[7] kind=null-caller-id" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.006"/>
+  <system-out><![CDATA[15:02:10.679 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@52bc6fcf, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1942a36e, org.springframework.security.web.context.SecurityContextHolderFilter@53a16dd6, org.springframework.security.web.header.HeaderWriterFilter@c96c497, org.springframework.web.filter.CorsFilter@24668b5b, org.springframework.security.web.authentication.logout.LogoutFilter@5e9cb95, com.ngng.api.global.security.filter.TokenFilter@1f8d42d1, com.ngng.api.global.security.filter.LoginFilter@2e7e84f8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@126d8659, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@28654aff, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@22ab1b8a, org.springframework.security.web.session.SessionManagementFilter@6e337ba1, org.springframework.security.web.access.ExceptionTranslationFilter@2f2dc407, org.springframework.security.web.access.intercept.AuthorizationFilter@7978550b]
+15:02:11.010 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+15:02:11.010 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+15:02:11.010 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+15:02:11.121 [Test worker] ERROR user-log -- Failed Confirm account , userId : 7001  bank : fixture-bank  number : fixture-account
+15:02:11.153 [Test worker] ERROR user-log -- Failed Confirm account , userId : 7001  bank : fixture-bank  number : fixture-account
+15:02:11.169 [Test worker] INFO user-log -- Success  Confirm account , userId : 7001  bank : fixture-bank  number : fixture-account
+15:02:11.216 [Test worker] INFO user-log -- Success  Confirm account , userId : 7001  bank : fixture-bank  number : fixture-account
+15:02:11.264 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MissingRequestCookieException: Required cookie 'refreshToken' for method parameter type Cookie is not present]
+15:02:11.264 [Test worker] ERROR user-log -- Failed Confirm account , userId : 7001  bank : fixture-bank  number : fixture-account
+15:02:11.280 [Test worker] ERROR user-log -- Failed Confirm account , userId : 7001  bank : fixture-bank  number : fixture-account
+15:02:11.280 [Test worker] INFO user-log -- Success  Confirm account , userId : 7001  bank : fixture-bank  number : fixture-account
+15:02:11.327 [Test worker] INFO user-log -- Success  Confirm account , userId : 7001  bank : fixture-bank  number : fixture-account
+15:02:11.354 [Test worker] INFO user-log -- Success  Confirm account , userId : 7001  bank : fixture-bank  number : fixture-account
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
