@@ -216,3 +216,13 @@ R4-연동/운영/성능의 기존 미실행·별도 범위는 유지한다. 공�
 | R20-연동 | 실제 HTTP/error dispatch·OSIV, Next rewrite·브라우저 쿠키·SWR 403 UI 및 전체 Boot 검증 미실행. fallback 거부 응답은 기존 caller access를 포함할 수 있음 | 안전 격리 서버·인증·외부 차단과 별도 지시 후 헤더 및 브라우저 동작 검증 |
 | R20-범위 | 토큰 폐기/role 최신화 RF040, 계좌 로그 PII RF033, 주소 RF041, 탈퇴 RF042, 은행 실소유 인증·계좌 중복 경합·쿠키/CORS 정책은 별도 | 독립 명세·정책 합의와 필요한 승인 후 검토; 자동 착수하지 않음 |
 | R20-성능 | 미측정, 개선 주장 없음 | 별도 지시 및 대표 데이터·동시성·동일 조건의 비교 계획 후 측정 |
+
+## RF-042 완료 후 잔여 검증/별도 후보
+
+[명세](tasks/RF-042.md)·[증빙](evidence/RF-042/README.md). 합의 객체 인가 범위 구현·선택 검증·독립 리뷰 완료. before 5/5, final 214/214 및 assemble 성공. 초기 lock/compile/fixture/옵션 실패는 증빙에 구분 보존한다.
+
+| 항목 | 상태·근거 | 재개 조건 |
+|---|---|---|
+| R42-통합 | 실DB commit/rollback·SQL·동시성 및 Boot HTTP·브라우저·외부 소비자 미검증; repository 대역과 MockMvc만 실행 | RF016 격리 fixture·외부 차단 및 별도 지시 후 검증 |
+| R42-정책 | 반복 탈퇴 시 visible 재활성화 유지; 탈퇴 후 JWT 폐기/상태 최신화는 RF040 미해결. nullable visible·거래/잔액 정책도 별도 후보 | 사업·토큰 수명 정책 합의 및 독립 명세 후 검토 |
+| R42-성능 | 미측정·개선 주장 없음; 전체 backend test/build 미실행 | 별도 지시 및 대표 비교 계획·안전 환경 확보 후 실행 |

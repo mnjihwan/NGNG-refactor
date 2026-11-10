@@ -1,0 +1,31 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.7/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+
+> Task :compileTestJava
+[LOCAL_PATH_REDACTED]:54: error: reference to Role is ambiguous
+        caller = spy(User.builder().userId(7001L).email(EMAIL).visible(true).role(Role.builder().roleType("USER").build()).build());
+                                                                                  ^
+  both class org.springframework.context.annotation.Role in org.springframework.context.annotation and class com.ngng.api.user.user.entity.Role in com.ngng.api.user.user.entity match
+[LOCAL_PATH_REDACTED]:56: error: reference to Role is ambiguous
+                .role(Role.builder().roleType("USER").build()).build());
+                      ^
+  both class org.springframework.context.annotation.Role in org.springframework.context.annotation and class com.ngng.api.user.user.entity.Role in com.ngng.api.user.user.entity match
+2 errors
+
+
+> Task :compileTestJava FAILED
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileTestJava'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+> Run with --info option to get more log output.
+> Run with --scan to get full insights.
+
+BUILD FAILED in 11s
+3 actionable tasks: 1 executed, 2 up-to-date

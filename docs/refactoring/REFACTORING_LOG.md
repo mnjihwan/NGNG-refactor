@@ -288,3 +288,7 @@ RF009 독립 문서 최종 리뷰 완료: 보존된 실패 XML stack의 Transact
 기준 HEAD `e417eaf7d476a639413414ff8f4423b89cc88e66`에서 계좌 확인 전에 인증된 미확인 사용자와 요청 ID의 값 일치를 확인한다. 본인 정상 처리와 기존 계좌 중복·역할·쿠키 경계를 유지하며 타인 요청은 대상 조회 및 계좌용 토큰 발급 전에 403으로 거부한다. 유효 access의 거부 응답에 새 Authorization은 없고, refresh fallback의 거부 응답에는 필터가 발급한 기존 caller/UNCONFIRMED_USER access만 허용하며 새 refresh와 대상 토큰은 없다.
 
 변경 전 14건과 최종 317건 통과, assemble 성공. 최종 317건에는 별도로 실행한 170건이 포함되므로 합산하지 않는다. 실제 security chain·JWT와 repository 대역을 포함한 격리 검증이며 원시 결과·실패 이력·명령과 한계는 [증빙](evidence/RF-020/README.md)에 기록했다. 독립 최종 리뷰에서 합의 범위의 차단 결함이 없었다. 실제 DB/HTTP/브라우저·동시성·성능은 미검증이며 후속 조건과 범위 밖 후보는 BACKLOG의 R20 항목에서 추적한다. 전체 backend test/build는 실행하지 않았고 assemble은 이를 대체하지 않는다.
+
+## 2026-11-10 — RF042 탈퇴 본인 객체 인가
+
+인증된 주체를 이메일로 DB에서 해석해 요청 ID와 비교하고 타인·null·주체 해석 실패를 대상 조회 전에 403으로 거부한다. 기존 본인 visible 토글과 역할·refresh fallback을 유지한다. before 5/5, 최종 선택 214/214 및 assemble 성공, 독립 리뷰에서 합의 범위의 차단 결함 없음. 초기 실패와 원시 자료·공유 치환·명령은 [증빙](evidence/RF-042/README.md)에 기록했다. 실제 DB/HTTP/브라우저·동시성·성능 및 전체 backend test/build는 미검증이며 반복 탈퇴 재활성화와 JWT 폐기 부재(RF040)는 미해결이다. 후속 조건은 BACKLOG R42에서 추적한다.
