@@ -236,3 +236,8 @@ R4-연동/운영/성능의 기존 미실행·별도 범위는 유지한다. 공�
 | R41-통합 | 실DB commit/rollback·동시성, 실제 HTTP·브라우저·SWR 실패 표시는 미검증. repository 대역과 MockMvc로 실DB 무쓰기를 입증하지 않음 | RF016 안전 fixture·외부 발송 차단 및 별도 지시 후 DB 전후 상태와 HTTP/브라우저 응답·실패 표시 확인 |
 | R41-범위 | 프런트 실패 표시, RF033 주소 로그, RF040 토큰 폐기 및 관리자 path/body ID 정책은 별도 후보 | 독립 정책·범위 합의 후 검토; 자동 착수하지 않음 |
 | R41-성능 | 미측정, 개선 주장 없음; 전체 backend test/build 미실행 | 별도 지시 및 대표 데이터·동일 조건 비교 계획 후 측정 |
+
+### RF022 완료 후 잔여 검증
+- 승인된 최소 구현·격리 검증과 독립 리뷰 완료. 서버 28건/assemble, 프런트 전용 42건(관련 묶음 91건에 포함)/lint/tsc 통과. 상세와 원시 자료의 한계는 [명세](tasks/RF-022.md), [증빙](evidence/RF-022/README.md) 참고.
+- 미검증: 실DB·HTTP/WebSocket wire·브라우저·운영 WSS/게이트웨이/origin allowlist·키 공급/회전·성능 및 장기 안정성. 안전 fixture와 별도 실행 지시 및 운영 구성 자료 확보 후 검증한다. 단발 STOMP ERROR timeout은 원인 미확정이다.
+- HMAC 키 공유는 chat 서버에 토큰 발급 능력도 부여한다. 기본 origin은 `*`이며 BroadcastChannel 미지원 팝업의 즉시 로그아웃 전파는 보장되지 않는다. 운영 정책과 브라우저 환경을 확보한 뒤 별도로 확인한다.

@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.chat.security.ChatStompSecurityTest" tests="11" skipped="0" failures="2" errors="0" timestamp="2026-11-10T06:30:06" hostname="REDACTED_HOST" time="8.148">
+  <properties/>
+  <testcase name="subscriptionDeliveryRechecksCurrentParticipantAndFrameTokenCannotSwitchIdentity()" classname="com.ngng.chat.security.ChatStompSecurityTest" time="0.352"/>
+  <testcase name="suppliedInvalidOrDuplicateTokenFailsConnectRatherThanBecomingAnonymous()" classname="com.ngng.chat.security.ChatStompSecurityTest" time="0.196"/>
+  <testcase name="principalSurvivesRealHandlerAndOnlyParticipantsReceivePrivateAndOwnAlarm()" classname="com.ngng.chat.security.ChatStompSecurityTest" time="0.27"/>
+  <testcase name="rejectsWrongAuthorRoomPathRecipientBrokerSendAndOtherAlarmWithoutSideEffects()" classname="com.ngng.chat.security.ChatStompSecurityTest" time="3.203">
+    <failure message="org.opentest4j.AssertionFailedError: expected ERROR ==&gt; expected: not &lt;null&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected ERROR ==&gt; expected: not &lt;null&gt;
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at app//org.junit.jupiter.api.AssertNotNull.failNull(AssertNotNull.java:49)
+	at app//org.junit.jupiter.api.AssertNotNull.assertNotNull(AssertNotNull.java:35)
+	at app//org.junit.jupiter.api.Assertions.assertNotNull(Assertions.java:312)
+	at app//com.ngng.chat.security.ChatStompSecurityTest$Wire.await(ChatStompSecurityTest.java:199)
+	at app//com.ngng.chat.security.ChatStompSecurityTest$Wire.errorAndClosed(ChatStompSecurityTest.java:200)
+	at app//com.ngng.chat.security.ChatStompSecurityTest.rejectsWrongAuthorRoomPathRecipientBrokerSendAndOtherAlarmWithoutSideEffects(ChatStompSecurityTest.java:72)
+	at java.base@17.0.10/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@17.0.10/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base@17.0.10/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@17.0.10/java.lang.reflect.Method.invoke(Method.java:568)
+	at app//org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at app//org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at app//org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at app//org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at app//org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at app//org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at app//org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at app//org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at app//org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base@17.0.10/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base@17.0.10/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at app//org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at app//org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
+	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at app//org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at app//org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at app//org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:119)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:94)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:89)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62)
+	at java.base@17.0.10/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@17.0.10/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base@17.0.10/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@17.0.10/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
+	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+</failure>
+  </testcase>
+  <testcase name="serviceFailureProducesGenericErrorClosesAndDoesNotPublishBusinessData()" classname="com.ngng.chat.security.ChatStompSecurityTest" time="0.215"/>
+  <testcase name="expiryBetweenOutboundEnqueueAndFinalTransportWriteDropsQueuedBusinessMessage()" classname="com.ngng.chat.security.ChatStompSecurityTest" time="0.238"/>
+  <testcase name="anonymousPublicSubscriptionWorksButAnonymousPrivateAndWritesFail()" classname="com.ngng.chat.security.ChatStompSecurityTest" time="0.072"/>
+  <testcase name="separateExpirationsCloseOnlyExpiredSessionAndRemoveSubscriptionsBeforeLaterDelivery()" classname="com.ngng.chat.security.ChatStompSecurityTest" time="0.225"/>
+  <testcase name="cleanupFramesWorkAndDuplicateConnectCannotReplacePrincipal()" classname="com.ngng.chat.security.ChatStompSecurityTest" time="3.157">
+    <failure message="org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at app//org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at app//org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at app//org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at app//org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at app//com.ngng.chat.security.ChatStompSecurityTest.awaitCondition(ChatStompSecurityTest.java:186)
+	at app//com.ngng.chat.security.ChatStompSecurityTest.cleanupFramesWorkAndDuplicateConnectCannotReplacePrincipal(ChatStompSecurityTest.java:129)
+	at java.base@17.0.10/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@17.0.10/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base@17.0.10/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@17.0.10/java.lang.reflect.Method.invoke(Method.java:568)
+	at app//org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at app//org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at app//org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at app//org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at app//org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at app//org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at app//org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at app//org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at app//org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base@17.0.10/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base@17.0.10/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at app//org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at app//org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
+	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at app//org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at app//org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at app//org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:119)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:94)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:89)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62)
+	at java.base@17.0.10/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@17.0.10/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base@17.0.10/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@17.0.10/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
+	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+</failure>
+  </testcase>
+  <testcase name="publicWritePreservesEnvelopeAndSpoofedAuthorNeverSaves()" classname="com.ngng.chat.security.ChatStompSecurityTest" time="0.171"/>
+  <testcase name="validConnectDoesNotTrustHandshakePrincipalAndMalformedOrPreconnectFramesFail()" classname="com.ngng.chat.security.ChatStompSecurityTest" time="0.039"/>
+  <system-out><![CDATA[15:30:06.426 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@21f479cd, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@102fd71d, org.springframework.security.web.context.SecurityContextHolderFilter@77d3c3d7, org.springframework.security.web.header.HeaderWriterFilter@68543a35, org.springframework.web.filter.CorsFilter@8e00c02, com.ngng.chat.security.ChatHttpSecurity$BearerFilter@464d60fb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4cefa0be, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@447543ee, org.springframework.security.web.session.SessionManagementFilter@1cca2e9d, org.springframework.security.web.access.ExceptionTranslationFilter@1e14b269, org.springframework.security.web.access.intercept.AuthorizationFilter@4850d66b]
+15:30:06.442 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Starting...
+15:30:06.443 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@ebff59d]]
+15:30:06.443 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Started.
+15:30:06.663 [Test worker] ERROR org.springframework.web.socket.messaging.StompSubProtocolHandler -- Failed to send message to MessageChannel in session remaining-participant:Failed to send message to ExecutorSubscribableChannel[clientInboundChannel]
+15:30:06.666 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Stopping...
+15:30:06.666 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@ebff59d]]
+15:30:06.666 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Stopped.
+15:30:06.742 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3ee200ae, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@25ee3caa, org.springframework.security.web.context.SecurityContextHolderFilter@30811f91, org.springframework.security.web.header.HeaderWriterFilter@2d5e051e, org.springframework.web.filter.CorsFilter@3fecb076, com.ngng.chat.security.ChatHttpSecurity$BearerFilter@62159fd, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3bf40c74, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@28e8dee7, org.springframework.security.web.session.SessionManagementFilter@2f29e630, org.springframework.security.web.access.ExceptionTranslationFilter@1fa29b9e, org.springframework.security.web.access.intercept.AuthorizationFilter@6a7ea7c]
+15:30:06.831 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Starting...
+15:30:06.831 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@6fdd3382]]
+15:30:06.831 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Started.
+15:30:06.862 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Stopping...
+15:30:06.863 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@6fdd3382]]
+15:30:06.863 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Stopped.
+15:30:06.927 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1ec4fdcf, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@515d615, org.springframework.security.web.context.SecurityContextHolderFilter@5b7b0ada, org.springframework.security.web.header.HeaderWriterFilter@219db855, org.springframework.web.filter.CorsFilter@488b46da, com.ngng.chat.security.ChatHttpSecurity$BearerFilter@5e777b0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@705d72f0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3c74d846, org.springframework.security.web.session.SessionManagementFilter@3702d0ed, org.springframework.security.web.access.ExceptionTranslationFilter@6ab826bb, org.springframework.security.web.access.intercept.AuthorizationFilter@1d6a0962]
+15:30:06.941 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Starting...
+15:30:06.941 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@15a8bbe5]]
+15:30:06.942 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Started.
+15:30:07.123 [Test worker] ERROR org.springframework.web.socket.messaging.StompSubProtocolHandler -- Failed to send message to MessageChannel in session other:Failed to send message to ExecutorSubscribableChannel[clientInboundChannel]
+15:30:07.125 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Stopping...
+15:30:07.126 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@15a8bbe5]]
+15:30:07.126 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Stopped.
+15:30:07.209 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5d9d8ecf, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@43cc7951, org.springframework.security.web.context.SecurityContextHolderFilter@4a0c04ab, org.springframework.security.web.header.HeaderWriterFilter@c14bbab, org.springframework.web.filter.CorsFilter@758311ed, com.ngng.chat.security.ChatHttpSecurity$BearerFilter@7533923b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@453439e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@446981a4, org.springframework.security.web.session.SessionManagementFilter@72c5064f, org.springframework.security.web.access.ExceptionTranslationFilter@2aac87ab, org.springframework.security.web.access.intercept.AuthorizationFilter@779ef5cb]
+15:30:07.237 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Starting...
+15:30:07.237 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@40416321]]
+15:30:07.237 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Started.
+15:30:07.303 [Test worker] ERROR org.springframework.web.socket.messaging.StompSubProtocolHandler -- Failed to send message to MessageChannel in session attack0:Failed to send message to ExecutorSubscribableChannel[clientInboundChannel]
+15:30:07.312 [Test worker] ERROR org.springframework.web.socket.messaging.StompSubProtocolHandler -- Failed to send message to MessageChannel in session attack1:Failed to send message to ExecutorSubscribableChannel[clientInboundChannel]
+15:30:07.323 [Test worker] ERROR org.springframework.web.socket.messaging.StompSubProtocolHandler -- Failed to send message to MessageChannel in session attack2:Failed to send message to ExecutorSubscribableChannel[clientInboundChannel]
+15:30:10.336 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Stopping...
+15:30:10.336 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@40416321]]
+15:30:10.336 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Stopped.
+15:30:10.372 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@29b0c169, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4d1b4fa1, org.springframework.security.web.context.SecurityContextHolderFilter@236f3885, org.springframework.security.web.header.HeaderWriterFilter@7df23848, org.springframework.web.filter.CorsFilter@27b7e663, com.ngng.chat.security.ChatHttpSecurity$BearerFilter@5f2ad3d5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@14ee143a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@703eead0, org.springframework.security.web.session.SessionManagementFilter@1b120d48, org.springframework.security.web.access.ExceptionTranslationFilter@34c07ecc, org.springframework.security.web.access.intercept.AuthorizationFilter@73417494]
+15:30:10.380 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Starting...
+15:30:10.380 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@e47637c]]
+15:30:10.381 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Started.
+15:30:10.552 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Stopping...
+15:30:10.552 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@e47637c]]
+15:30:10.553 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Stopped.
+15:30:10.617 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@820b78a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6a9ac8b, org.springframework.security.web.context.SecurityContextHolderFilter@28dd8786, org.springframework.security.web.header.HeaderWriterFilter@7c751692, org.springframework.web.filter.CorsFilter@7683ea43, com.ngng.chat.security.ChatHttpSecurity$BearerFilter@15a41088, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@70efdd18, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@18356951, org.springframework.security.web.session.SessionManagementFilter@2569afda, org.springframework.security.web.access.ExceptionTranslationFilter@41433530, org.springframework.security.web.access.intercept.AuthorizationFilter@4c05f83b]
+15:30:10.632 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Starting...
+15:30:10.634 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@69a3944]]
+15:30:10.634 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Started.
+15:30:10.794 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Stopping...
+15:30:10.794 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@69a3944]]
+15:30:10.794 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Stopped.
+15:30:10.844 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@15405ba1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@f6e3b67, org.springframework.security.web.context.SecurityContextHolderFilter@2eafb4e7, org.springframework.security.web.header.HeaderWriterFilter@35e3f3b8, org.springframework.web.filter.CorsFilter@1dc2c13c, com.ngng.chat.security.ChatHttpSecurity$BearerFilter@579ee82, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@32050628, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@127320df, org.springframework.security.web.session.SessionManagementFilter@13bf5fd, org.springframework.security.web.access.ExceptionTranslationFilter@4a7ac98b, org.springframework.security.web.access.intercept.AuthorizationFilter@469bd719]
+15:30:10.851 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Starting...
+15:30:10.852 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@56ed2baf]]
+15:30:10.852 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Started.
+15:30:10.861 [Test worker] ERROR org.springframework.web.socket.messaging.StompSubProtocolHandler -- Failed to send message to MessageChannel in session private:Failed to send message to ExecutorSubscribableChannel[clientInboundChannel]
+15:30:10.864 [Test worker] ERROR org.springframework.web.socket.messaging.StompSubProtocolHandler -- Failed to send message to MessageChannel in session write:Failed to send message to ExecutorSubscribableChannel[clientInboundChannel]
+15:30:10.866 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Stopping...
+15:30:10.867 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@56ed2baf]]
+15:30:10.867 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Stopped.
+15:30:10.912 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2b5a04b0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@41a3c6f5, org.springframework.security.web.context.SecurityContextHolderFilter@22f7bf36, org.springframework.security.web.header.HeaderWriterFilter@4d071e4b, org.springframework.web.filter.CorsFilter@5b78a946, com.ngng.chat.security.ChatHttpSecurity$BearerFilter@37c762aa, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4a3404fa, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4c438f66, org.springframework.security.web.session.SessionManagementFilter@2b441609, org.springframework.security.web.access.ExceptionTranslationFilter@118f2486, org.springframework.security.web.access.intercept.AuthorizationFilter@34cb1310]
+15:30:10.929 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Starting...
+15:30:10.930 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@2262bc86]]
+15:30:10.931 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Started.
+15:30:11.089 [Test worker] ERROR org.springframework.web.socket.messaging.StompSubProtocolHandler -- Failed to send message to MessageChannel in session short:Failed to send message to ExecutorSubscribableChannel[clientInboundChannel]
+15:30:11.093 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Stopping...
+15:30:11.093 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@2262bc86]]
+15:30:11.093 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Stopped.
+15:30:11.176 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4ef10d3b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@749ffdc7, org.springframework.security.web.context.SecurityContextHolderFilter@2686a801, org.springframework.security.web.header.HeaderWriterFilter@643a73fa, org.springframework.web.filter.CorsFilter@690e7b89, com.ngng.chat.security.ChatHttpSecurity$BearerFilter@17554316, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7878459f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@518b0c12, org.springframework.security.web.session.SessionManagementFilter@dd3e1e3, org.springframework.security.web.access.ExceptionTranslationFilter@39acf187, org.springframework.security.web.access.intercept.AuthorizationFilter@5d24703e]
+15:30:11.201 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Starting...
+15:30:11.201 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@1690929]]
+15:30:11.201 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Started.
+15:30:11.229 [Test worker] ERROR org.springframework.web.socket.messaging.StompSubProtocolHandler -- Failed to parse TextMessage payload=[DISCONNECT..], byteCount=13, last=true] in session cleanup. Sending STOMP ERROR to client.
+java.lang.IllegalArgumentException: No enum constant org.springframework.messaging.simp.stomp.StompCommand.?DISCONNECT
+	at java.base/java.lang.Enum.valueOf(Enum.java:273)
+	at org.springframework.messaging.simp.stomp.StompCommand.valueOf(StompCommand.java:28)
+	at org.springframework.messaging.simp.stomp.StompDecoder.decodeMessage(StompDecoder.java:143)
+	at org.springframework.messaging.simp.stomp.StompDecoder.decode(StompDecoder.java:114)
+	at org.springframework.messaging.simp.stomp.BufferingStompDecoder.decode(BufferingStompDecoder.java:114)
+	at org.springframework.web.socket.messaging.StompSubProtocolHandler.handleMessageFromClient(StompSubProtocolHandler.java:279)
+	at org.springframework.web.socket.messaging.SubProtocolWebSocketHandler.handleMessage(SubProtocolWebSocketHandler.java:356)
+	at org.springframework.web.socket.handler.WebSocketHandlerDecorator.handleMessage(WebSocketHandlerDecorator.java:75)
+	at com.ngng.chat.security.ChatSessions$1.handleMessage(ChatSessions.java:130)
+	at org.springframework.web.socket.handler.WebSocketHandlerDecorator.handleMessage(WebSocketHandlerDecorator.java:75)
+	at org.springframework.web.socket.handler.LoggingWebSocketHandlerDecorator.handleMessage(LoggingWebSocketHandlerDecorator.java:56)
+	at org.springframework.web.socket.handler.ExceptionWebSocketHandlerDecorator.handleMessage(ExceptionWebSocketHandlerDecorator.java:58)
+	at com.ngng.chat.security.ChatStompSecurityTest$Wire.send(ChatStompSecurityTest.java:198)
+	at com.ngng.chat.security.ChatStompSecurityTest.cleanupFramesWorkAndDuplicateConnectCannotReplacePrincipal(ChatStompSecurityTest.java:129)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:119)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:94)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:89)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+15:30:14.250 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Stopping...
+15:30:14.250 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@1690929]]
+15:30:14.250 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Stopped.
+15:30:14.294 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6e475994, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@55a2f08b, org.springframework.security.web.context.SecurityContextHolderFilter@1da61a29, org.springframework.security.web.header.HeaderWriterFilter@457d3f54, org.springframework.web.filter.CorsFilter@1a99744a, com.ngng.chat.security.ChatHttpSecurity$BearerFilter@32084a01, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@47cf922d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@66d73e2d, org.springframework.security.web.session.SessionManagementFilter@144792d5, org.springframework.security.web.access.ExceptionTranslationFilter@41736818, org.springframework.security.web.access.intercept.AuthorizationFilter@439d649c]
+15:30:14.301 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Starting...
+15:30:14.301 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@267e0ca0]]
+15:30:14.301 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Started.
+15:30:14.318 [Test worker] ERROR org.springframework.web.socket.messaging.StompSubProtocolHandler -- Failed to send message to MessageChannel in session forged:Failed to send message to ExecutorSubscribableChannel[clientInboundChannel]
+15:30:14.423 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Stopping...
+15:30:14.423 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@267e0ca0]]
+15:30:14.423 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Stopped.
+15:30:14.448 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5c648e38, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6bc8d8bd, org.springframework.security.web.context.SecurityContextHolderFilter@106ac5f4, org.springframework.security.web.header.HeaderWriterFilter@42fb2be9, org.springframework.web.filter.CorsFilter@395c21ee, com.ngng.chat.security.ChatHttpSecurity$BearerFilter@1e733bb5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5eed2edf, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@669e730d, org.springframework.security.web.session.SessionManagementFilter@54816d7a, org.springframework.security.web.access.ExceptionTranslationFilter@6491006, org.springframework.security.web.access.intercept.AuthorizationFilter@1a67bde5]
+15:30:14.454 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Starting...
+15:30:14.454 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@108fd5d5]]
+15:30:14.454 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Started.
+15:30:14.454 [Test worker] ERROR org.springframework.web.socket.messaging.StompSubProtocolHandler -- Failed to send message to MessageChannel in session handshake:Failed to send message to ExecutorSubscribableChannel[clientInboundChannel]
+15:30:14.454 [Test worker] ERROR org.springframework.web.socket.messaging.StompSubProtocolHandler -- Failed to send message to MessageChannel in session preconnect:Failed to send message to ExecutorSubscribableChannel[clientInboundChannel]
+15:30:14.458 [Test worker] ERROR org.springframework.web.socket.messaging.StompSubProtocolHandler -- Failed to send message to MessageChannel in session malformed:Failed to send message to ExecutorSubscribableChannel[clientInboundChannel]
+15:30:14.458 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Stopping...
+15:30:14.458 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@108fd5d5]]
+15:30:14.458 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Stopped.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

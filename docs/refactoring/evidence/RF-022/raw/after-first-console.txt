@@ -1,0 +1,40 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.7/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+
+> Task :compileTestJava FAILED
+<USER_HOME>\OneDrive\���� ȭ��\PJT\NGNG\NGNG-chat-server\src\test\java\com\ngng\chat\security\ChatSecurityFixture.java:88: error: reference to Clock is ambiguous
+    static class FixtureClock extends Clock {
+                                      ^
+  both class java.time.Clock in java.time and interface io.jsonwebtoken.Clock in io.jsonwebtoken match
+<USER_HOME>\OneDrive\���� ȭ��\PJT\NGNG\NGNG-chat-server\src\test\java\com\ngng\chat\security\ChatSecurityFixture.java:91: error: reference to Clock is ambiguous
+        @Override public Clock withZone(ZoneId zone) { return this; }
+                         ^
+  both class java.time.Clock in java.time and interface io.jsonwebtoken.Clock in io.jsonwebtoken match
+<USER_HOME>\OneDrive\���� ȭ��\PJT\NGNG\NGNG-chat-server\src\test\java\com\ngng\chat\security\ChatSecurityFixture.java:90: error: method does not override or implement a method from a supertype
+        @Override public ZoneId getZone() { return ZoneOffset.UTC; }
+        ^
+<USER_HOME>\OneDrive\���� ȭ��\PJT\NGNG\NGNG-chat-server\src\test\java\com\ngng\chat\security\ChatSecurityFixture.java:91: error: method does not override or implement a method from a supertype
+        @Override public Clock withZone(ZoneId zone) { return this; }
+        ^
+<USER_HOME>\OneDrive\���� ȭ��\PJT\NGNG\NGNG-chat-server\src\test\java\com\ngng\chat\security\ChatSecurityFixture.java:92: error: method does not override or implement a method from a supertype
+        @Override public synchronized Instant instant() { return now; }
+        ^
+Note: <USER_HOME>\OneDrive\���� ȭ��\PJT\NGNG\NGNG-chat-server\src\test\java\com\ngng\chat\security\ChatSecurityFixture.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+5 errors
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileTestJava'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+> Run with --info option to get more log output.
+> Run with --scan to get full insights.
+
+BUILD FAILED in 8s
+3 actionable tasks: 1 executed, 2 up-to-date

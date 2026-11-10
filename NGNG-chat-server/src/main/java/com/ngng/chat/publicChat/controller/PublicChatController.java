@@ -20,6 +20,11 @@ import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.security.Principal;
+import com.ngng.chat.security.ChatAccess;
+import com.ngng.chat.security.ChatSessions;
+import org.springframework.messaging.handler.annotation.MessageExceptionHandler;
+import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -30,10 +35,18 @@ public class PublicChatController {
     private final PublicChatService publicChatService;
     private final PrivateChatMessageService privateChatMessageService;
     private final PrivateChatRoomService privateChatRoomService;
+    private final ChatAccess access;
+    private final ChatSessions sessions;
+
+    @MessageExceptionHandler(Exception.class)
+    public void rejected(SimpMessageHeaderAccessor headers) {
+        sessions.reject(headers.getSessionId());
+    }
 
     @MessageMapping("/{productId}")
     @SendTo("/public-chats/{productId}")
-    public ResponseEntity<ReadPublicChatResponseDTO> create(@DestinationVariable Long productId, CreatePublicChatRequestDTO request){
+    public ResponseEntity<ReadPublicChatResponseDTO> create(@DestinationVariable Long productId, CreatePublicChatRequestDTO request, Principal principal){
+        access.publicSend(principal, productId, request.getUserId());
         return ResponseEntity.ok(publicChatService.create(productId, request));
     }
 
@@ -43,27 +56,32 @@ public class PublicChatController {
     }
 
     @PutMapping(path = "/public-chats/{productId}")
-    public ResponseEntity<Long> update(@PathVariable Long productId, @RequestBody UpdatePublicChatRequestDTO request){
+    public ResponseEntity<Long> update(@PathVariable Long productId, @RequestBody UpdatePublicChatRequestDTO request, Principal principal){
+        access.publicOwner(principal, productId);
         return ResponseEntity.ok(publicChatService.update(productId, request));
     }
 
     @DeleteMapping(path = "/public-chats/{productId}")
-    public ResponseEntity delete(@PathVariable Long productId){
+    public ResponseEntity delete(@PathVariable Long productId, Principal principal){
+        access.publicOwner(principal, productId);
         return ResponseEntity.ok(publicChatService.delete(productId));
     }
 
     @PostMapping("/private-chats")
-    ResponseEntity<Long> createChatRoom(@RequestBody CreatePrivateChatRoomRequestDTO request){
+    ResponseEntity<Long> createChatRoom(@RequestBody CreatePrivateChatRoomRequestDTO request, Principal principal){
+        access.createRoom(principal, request);
         return ResponseEntity.ok(privateChatRoomService.create(request));
     }
 
     @GetMapping(path = "/private-chats/{userId}")
-    ResponseEntity<List<ReadPrivateChatRoomResponseDTO>> readAllChatRoom(@PathVariable Long userId){
+    ResponseEntity<List<ReadPrivateChatRoomResponseDTO>> readAllChatRoom(@PathVariable Long userId, Principal principal){
+        access.self(principal, userId);
         return ResponseEntity.ok(privateChatRoomService.readAllChatRoom(userId));
     }
 
     @GetMapping(path= "/private-chats/find/{productId}/{buyerId}")
-    ResponseEntity<Long> findPrivateChatRoomId(@PathVariable Long productId, @PathVariable Long buyerId){
+    ResponseEntity<Long> findPrivateChatRoomId(@PathVariable Long productId, @PathVariable Long buyerId, Principal principal){
+        access.findRoom(principal, productId, buyerId);
         Long result = privateChatRoomService.findByProductIdAndBuyerId(productId, buyerId);
         if(result > 0) {
             return ResponseEntity.ok(result);
@@ -74,7 +92,9 @@ public class PublicChatController {
     }
 
     @GetMapping("/private-chats/{chatRoomId}/{userId}")
-    ResponseEntity<ReadAllPrivateMessageDTO> readAllChatMessages(@PathVariable Long chatRoomId, @PathVariable Long userId){
+    ResponseEntity<ReadAllPrivateMessageDTO> readAllChatMessages(@PathVariable Long chatRoomId, @PathVariable Long userId, Principal principal){
+        access.self(principal, userId);
+        access.room(principal, chatRoomId);
         return ResponseEntity.ok(privateChatMessageService.readAllByPrivateChatRoomId(chatRoomId, userId));
     }
 
@@ -83,8 +103,8 @@ public class PublicChatController {
     ResponseEntity<PrivateChatMessageDTO> createMessage(@DestinationVariable Long productId,
                                                         @DestinationVariable Long buyerId,
                                                         @DestinationVariable Long sendToId,
-                                                        @RequestBody CreatePrivateChatMessageRequestDTO request){
-    log.info("프라이빗 메시지 알림 보낼 곳: "+String.valueOf(sendToId));
+                                                        @RequestBody CreatePrivateChatMessageRequestDTO request, Principal principal){
+        access.privateSend(principal, productId, buyerId, sendToId, request);
         return ResponseEntity.ok(privateChatMessageService.create(request));
     }
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.chat.security.ChatBoundaryBaselineTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-11-10T06:16:30" hostname="REDACTED_HOST" time="1.114">
+  <properties/>
+  <testcase name="anonymousCanSubscribeAndSendDirectlyToPrivateBrokerBeforeFix()" classname="com.ngng.chat.security.ChatBoundaryBaselineTest" time="1.114"/>
+  <system-out><![CDATA[15:16:31.209 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Starting...
+15:16:31.213 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@3bec2275]]
+15:16:31.214 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Started.
+15:16:31.337 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Stopping...
+15:16:31.337 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@3bec2275]]
+15:16:31.337 [Test worker] INFO org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler -- Stopped.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

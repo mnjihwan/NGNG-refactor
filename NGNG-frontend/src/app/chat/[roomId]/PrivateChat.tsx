@@ -25,6 +25,7 @@ export default function PrivateChat({ userId }: Props) {
     updateTransactionRequest,
     createTransactionRequest,
     isLoading,
+    error,
   } = usePrivateChatMessage({
     chatRoomId: Number(params.roomId),
     userId: userId,
@@ -49,16 +50,19 @@ export default function PrivateChat({ userId }: Props) {
     setPrice(price);
   };
 
-  const onChangeTransactionStatus = () => {
-    data &&
-      createTransactionRequest({
+  const onChangeTransactionStatus = async () => {
+    if (!data) return;
+    try {
+      await createTransactionRequest({
         buyerId: userId,
         productId: data?.product.productId,
         sellerId: data.product.seller.id,
         price,
-      }).then(() => {
-        setOpen(false);
       });
+      setOpen(false);
+    } catch {
+      alert("거래 요청 생성에 실패했습니다. 다시 시도해 주세요.");
+    }
   };
 
   const onAccept = async () => {
@@ -95,6 +99,9 @@ export default function PrivateChat({ userId }: Props) {
         });
   };
   console.log("data", data);
+  if (error) {
+    return <p role="alert">채팅을 불러오지 못했습니다. 로그인 상태와 접근 권한을 확인해 주세요.</p>;
+  }
   if (isLoading || data === undefined) {
     return (
       <div role="status" className="flex justify-center h-[calc(100vh-128px)]">

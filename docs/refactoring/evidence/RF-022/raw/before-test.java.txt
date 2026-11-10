@@ -1,0 +1,41 @@
+package com.ngng.chat.security;
+
+import com.ngng.chat.WebSocketConfig;
+import org.junit.jupiter.api.Test;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.messaging.*;
+import org.springframework.messaging.simp.stomp.*;
+import org.springframework.messaging.support.MessageBuilder;
+import java.util.concurrent.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ChatBoundaryBaselineTest {
+    @Test void anonymousCanSubscribeAndSendDirectlyToPrivateBrokerBeforeFix() throws Exception {
+        try (var context = new AnnotationConfigApplicationContext(WebSocketConfig.class)) {
+            var inbound = context.getBean("clientInboundChannel", MessageChannel.class);
+            var outbound = context.getBean("clientOutboundChannel", SubscribableChannel.class);
+            var received = new LinkedBlockingQueue<Message<?>>();
+            outbound.subscribe(received::add);
+            inbound.send(frame(StompCommand.CONNECT, "victim", null, null));
+            inbound.send(frame(StompCommand.SUBSCRIBE, "victim", "/private-chats/10/2", "s1"));
+            Thread.sleep(100);
+            inbound.send(frame(StompCommand.SEND, "attacker", "/private-chats/10/2", null));
+            Message<?> message;
+            boolean leaked = false;
+            long deadline = System.nanoTime() + TimeUnit.SECONDS.toNanos(3);
+            while (System.nanoTime() < deadline) {
+                message = received.poll(100, TimeUnit.MILLISECONDS);
+                if (message != null && "/private-chats/10/2".equals(message.getHeaders().get("simpDestination"))) { leaked = true; break; }
+            }
+            assertTrue(leaked, "baseline: anonymous private subscription receives direct broker SEND");
+        }
+    }
+    private Message<byte[]> frame(StompCommand command, String session, String destination, String subscription) {
+        var h = StompHeaderAccessor.create(command);
+        h.setSessionId(session);
+        h.setSessionAttributes(new ConcurrentHashMap<>());
+        if (destination != null) h.setDestination(destination);
+        if (subscription != null) h.setSubscriptionId(subscription);
+        return MessageBuilder.createMessage("fixture".getBytes(), h.getMessageHeaders());
+    }
+}

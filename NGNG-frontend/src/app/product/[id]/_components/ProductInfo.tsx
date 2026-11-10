@@ -294,6 +294,8 @@ export default function ProudctInfo({ data }: ProductInfoProps) {
                         );
                         if (chat) chat.location.href = `/chat/${roomId}`;
                       });
+                    }).catch(() => {
+                      alert("채팅방에 연결하지 못했습니다. 로그인 상태와 접근 권한을 확인해 주세요.");
                     });
                   } else {
                     // 계좌인증 먼저 하도록

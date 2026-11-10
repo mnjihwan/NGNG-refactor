@@ -2,7 +2,7 @@
 import CloseIcon from "@/assets/SVG/Close.svg";
 import ImagePlusIcon from "@/assets/SVG/Plus.svg";
 import MessageSendIcon from "@/assets/SVG/CaretLeft.svg";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Message from "@/components/common/chat/Message";
 import * as StompJs from "@stomp/stompjs";
 import Image from "next/image";
@@ -12,15 +12,15 @@ import {
   PrivateChat,
   PrivateChatMessage,
 } from "../../_hooks/usePrivateChatMessgae";
-import { UserContext } from "@/providers/UserContext";
+import { useChatUser } from "@/providers/UserContext";
+import { createChatConnection } from "@/providers/chatConnection";
 import { redirect } from "next/navigation";
 
 type ChattingProps = {
   data: PrivateChat;
 };
 export default function PrivateChatting({ data }: ChattingProps) {
-  const { getUser } = useContext(UserContext);
-  const user = getUser();
+  const user = useChatUser();
   const recentChatRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const [stompClient, setStompClient] = useState<StompJs.Client | null>(null);
@@ -29,6 +29,7 @@ export default function PrivateChatting({ data }: ChattingProps) {
   );
   const [message, setMessage] = useState<string>("");
   const [image, setImage] = useState<File | undefined>(undefined);
+  const [connectionError, setConnectionError] = useState(false);
 
   if (user === undefined) {
     redirect("/login");
@@ -52,6 +53,7 @@ export default function PrivateChatting({ data }: ChattingProps) {
   };
 
   const sendImage = (image: File) => {
+    if (!stompClient?.active || !stompClient.connected || connectionError) return;
     data &&
       stompClient &&
       sendPrivateChatMessage({
@@ -77,6 +79,7 @@ export default function PrivateChatting({ data }: ChattingProps) {
   };
 
   const sendMessage = (message: string) => {
+    if (!stompClient?.active || !stompClient.connected || connectionError) return;
     data &&
       stompClient &&
       sendPrivateChatMessage({
@@ -134,37 +137,35 @@ export default function PrivateChatting({ data }: ChattingProps) {
   };
 
   useEffect(() => {
-    if (stompClient) {
-      stompClient.activate();
-    }
-  }, [stompClient]);
-
-  useEffect(() => {
-    const client = new StompJs.Client({
-      brokerURL: `${process.env.NEXT_PUBLIC_CHAT_SOCKET}/chat-server`, // WebSocket 서버 URL
-
-      reconnectDelay: 5000,
-    });
-    client.onConnect = () => {
-      if (client.connected) {
-        // 연결 상태 확인
+    const connection = createChatConnection({
+      userId: user.id,
+      requiresAuth: true,
+      onUnavailable: () => setConnectionError(true),
+      onConnect: (client) => {
+        setConnectionError(false);
         client.subscribe(
           `/private-chats/${data.product.productId}/${data.product.buyer.id}`,
           (message) => {
-            const data = JSON.parse(message.body).body;
-
-            getMessage(data);
+            if (!connection.isCurrent()) return;
+            try {
+              const body = JSON.parse(message.body).body;
+              if (typeof body?.chatId !== "number" ||
+                typeof body?.message !== "string" || typeof body?.user?.id !== "number") {
+                setConnectionError(true);
+                return;
+              }
+              getMessage(body);
+            } catch {
+              setConnectionError(true);
+            }
           }
         );
-      }
-    };
-
-    setStompClient(client);
-
-    return () => {
-      if (stompClient) stompClient.deactivate();
-    };
-  }, []);
+      },
+    });
+    setStompClient(connection.client);
+    connection.client.activate();
+    return connection.dispose;
+  }, [user.id, data.chatRoomId, data.product.productId, data.product.buyer.id]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -182,6 +183,7 @@ export default function PrivateChatting({ data }: ChattingProps) {
 
   return (
     <div className="relative w-full p-3 overflow-y-hidden ">
+      {connectionError && <p role="status">채팅 연결을 확인해 주세요. 인증이 만료된 경우 다시 로그인해 주세요.</p>}
       <div
         className="h-[calc(100vh-18rem)]  flex flex-col items-start overflow-y-scroll scrollbar-hide"
         ref={recentChatRef}
