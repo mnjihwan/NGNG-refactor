@@ -305,3 +305,7 @@ RF009 독립 문서 최종 리뷰 완료: 보존된 실패 XML stack의 Transact
 ## 2026-11-10 RF021 거래 요청 객체 인가
 
 인증 구매자와 요청 buyer, 실제 상품 소유자와 seller를 확인하고 수락·거절은 잠긴 상품의 현재 소유자만 허용한다. 변경 전 10건, 최종 선택 backend 232건 및 frontend 58건, lint·tsc·assemble 통과와 독립 리뷰를 완료했다. 프런트 관련 변경은 RF022 PR #16에 선행 반영됐다. 직접 생성 인가는 사용자 보류이며 제3자 선행 생성 시 정당한 수락이 409로 충돌할 위험이 남는다. 실DB/HTTP/OSIV/브라우저·기존 MySQL worker 인증 fixture·성능은 미검증이다. 원시 자료 보존과 검증 범위·재개 조건은 [명세](tasks/RF-021.md), [증빙](evidence/RF-021/README.md), [백로그](BACKLOG.md)를 따른다.
+
+## 2026-11-10 RF023 거래 단건 상세 인가
+
+인증된 기록 seller 또는 consumer만 조회하도록 하고 양쪽 당사자 ID가 불완전하면 403으로 거부한다. 현재 product owner 및 ADMIN의 추가 예외는 없으며 없는 거래의 기존 200 빈 DTO는 유지한다. 변경 전 6건, 신규 73건, 별도 RF004/006 회귀 80건과 assemble 성공 및 독립 리뷰를 완료했다. 실DB·실제 HTTP·브라우저·성능과 전체 backend test/build는 미검증이다. 기존 DB read 테스트의 무인증 및 status 테스트의 후속 read 당사자 fixture는 별도 보완이 필요하다. 검증 근거와 원시 자료 보존·한계 및 재개 조건은 [명세](tasks/RF-023.md), [증빙](evidence/RF-023/README.md), [백로그](BACKLOG.md)를 따른다.

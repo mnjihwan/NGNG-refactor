@@ -1,0 +1,3 @@
+warning: in the working copy of 'NGNG-backend/src/test/java/com/ngng/api/product/cache/ProductCacheTestSupport.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'NGNG-backend/src/test/java/com/ngng/api/transaction/service/TransactionAcceptancePolicyTest.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'NGNG-frontend/src/providers/stompAlarmSubscribe.tsx', LF will be replaced by CRLF the next time Git touches it

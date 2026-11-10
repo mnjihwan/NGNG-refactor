@@ -1,0 +1,30 @@
+[
+  {
+    "file": "StatusFixture.java",
+    "Hash": "F818D876B36DA187DC9373A8103B8419A16380290E0653F5CD5C475F2C0E5678"
+  },
+  {
+    "file": "TransactionAcceptancePolicyTest.java",
+    "Hash": "95CA4DC754D0F52C2A4414ECFEDBC7CC8A2DD5B72924139A37C4D49CCD0B0B56"
+  },
+  {
+    "file": "TransactionCreationContractTest.java",
+    "Hash": "E4B890C11CDA7F2052849047979D2EF841BA3CBA4EF3CF1AB528B985BFB2EF2A"
+  },
+  {
+    "file": "TransactionDetailsService.java",
+    "Hash": "D01065CFC9B67F8F0B44528386251A45BE618EAE924E3A17221AD0D819E57ED1"
+  },
+  {
+    "file": "TransactionRequestService.java",
+    "Hash": "06F3E2AD8FF7881090BBCAD66CE4879D7E2E608F69C997E846E211E1F4F64AC3"
+  },
+  {
+    "file": "TransactionStatusOwnershipTest.java",
+    "Hash": "F815912697727580CF05E266DB1C7CC7ABB53D5259FFEFE8AE088F4F5B5BAEC3"
+  },
+  {
+    "file": "TransactionStatusSecurityChainTest.java",
+    "Hash": "47EE0C623B1ABE47EFB272F714858ED5E9D638C8BC9B47E912EF305BB9265CB3"
+  }
+]

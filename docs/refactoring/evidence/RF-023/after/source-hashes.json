@@ -1,0 +1,22 @@
+[
+  {
+    "file": "ReadChainHarness.java",
+    "Hash": "DC06BD41145290C6BFE5C0D1FF0D9BE499D9A91817357B5A680BBFED36037110"
+  },
+  {
+    "file": "ReadFixture.java",
+    "Hash": "D6836969AA8DEAC11527D55AA31C6124C40226CF3FD4112771F499BB5CC18662"
+  },
+  {
+    "file": "TransactionDetailsService.java",
+    "Hash": "D01065CFC9B67F8F0B44528386251A45BE618EAE924E3A17221AD0D819E57ED1"
+  },
+  {
+    "file": "TransactionReadOwnershipTest.java",
+    "Hash": "5C785B98E30470F7B91F9CE39A42DD1A9A2A09700CD827A85BFDF25F5FD9428A"
+  },
+  {
+    "file": "TransactionReadSecurityChainTest.java",
+    "Hash": "59CC94020BB69EAB10C97E2E2EF62A323BE782C0972CA4B78545A1F6F5BDDF2B"
+  }
+]
