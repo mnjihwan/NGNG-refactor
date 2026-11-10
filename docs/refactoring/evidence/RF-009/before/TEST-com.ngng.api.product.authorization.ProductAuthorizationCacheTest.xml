@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.product.authorization.ProductAuthorizationCacheTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-11-10T05:10:52" hostname="MOON" time="2.116">
+  <properties/>
+  <testcase name="[1] method=PUT" classname="com.ngng.api.product.authorization.ProductAuthorizationCacheTest" time="1.971"/>
+  <testcase name="[2] method=DELETE" classname="com.ngng.api.product.authorization.ProductAuthorizationCacheTest" time="0.04"/>
+  <testcase name="allowedDeleteRetainsExistingCacheBehavior()" classname="com.ngng.api.product.authorization.ProductAuthorizationCacheTest" time="0.035"/>
+  <testcase name="allowedPutReplacesCachedValueWithReturnedDto()" classname="com.ngng.api.product.authorization.ProductAuthorizationCacheTest" time="0.061"/>
+  <system-out><![CDATA[14:10:54.785 [Test worker] INFO product-log -- Success Delete Product id: 77 
+14:10:54.817 [Test worker] INFO product-log -- Success Update Product id: 77 
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

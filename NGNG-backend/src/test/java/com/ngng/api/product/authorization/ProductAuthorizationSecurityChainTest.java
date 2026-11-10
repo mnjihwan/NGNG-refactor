@@ -174,6 +174,7 @@ class ProductAuthorizationSecurityChainTest {
         @Bean CustomLogoutSuccessHandler logoutSuccessHandler() { return new CustomLogoutSuccessHandler(); }
         @Bean ProductRepository products() { return mock(ProductRepository.class); }
         @Bean UserRepository users() { return mock(UserRepository.class); }
+        @Bean ProductCacheInvalidator invalidator() { return mock(ProductCacheInvalidator.class); }
         @Bean TagService tags() { return mock(TagService.class); }
         @Bean ProductController controller(ProductService service, AuthService auth) {
             return new ProductController(service, mock(CompressService.class), mock(AwsS3Service.class), mock(UploadService.class),

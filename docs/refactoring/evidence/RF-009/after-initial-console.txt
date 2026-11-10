@@ -1,0 +1,39 @@
+> Task :compileJava
+> Task :processResources
+> Task :classes
+
+> Task :compileTestJava FAILED
+C:\Users\mnjh2\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\product\authorization\ProductAuthorizationSecurityChainTest.java:177: error: return outside method
+        @Bean ProductCacheInvalidator invalidator() { return mock(ProductCacheInvalidator.class); } { return mock(TagService.class); }
+                                                                                                      ^
+C:\Users\mnjh2\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\product\cache\ProductCacheInvalidationTest.java:139: error: no suitable method found for assertThrows(writer.equ[...]class,()->write(writer))
+        assertThrows(writer.equals("PUT") || writer.equals("DELETE") ? NoSuchElementException.class : NullPointerException.class,
+        ^
+    method Assertions.<T#1>assertThrows(Class<T#1>,Executable,Supplier<String>) is not applicable
+      (cannot infer type-variable(s) T#1
+        (actual and formal argument lists differ in length))
+    method Assertions.<T#2>assertThrows(Class<T#2>,Executable,String) is not applicable
+      (cannot infer type-variable(s) T#2
+        (actual and formal argument lists differ in length))
+    method Assertions.<T#3>assertThrows(Class<T#3>,Executable) is not applicable
+      (inference variable T#3 has incompatible equality constraints NullPointerException,NoSuchElementException)
+  where T#1,T#2,T#3 are type-variables:
+    T#1 extends Throwable declared in method <T#1>assertThrows(Class<T#1>,Executable,Supplier<String>)
+    T#2 extends Throwable declared in method <T#2>assertThrows(Class<T#2>,Executable,String)
+    T#3 extends Throwable declared in method <T#3>assertThrows(Class<T#3>,Executable)
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+2 errors
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileTestJava'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+> Run with --info option to get more log output.
+> Run with --scan to get full insights.
+
+BUILD FAILED in 5s
+3 actionable tasks: 3 executed

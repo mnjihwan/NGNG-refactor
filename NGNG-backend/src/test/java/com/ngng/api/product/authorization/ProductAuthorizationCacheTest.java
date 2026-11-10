@@ -45,9 +45,9 @@ class ProductAuthorizationCacheTest {
         original = ReadProductResponseDTO.builder().id(77L).title("cached-original").build(); cache.put(77L, original);
     }
     @AfterEach void close() { SecurityContextHolder.clearContext(); context.close(); }
-    @Test void allowedPutReplacesCachedValueWithReturnedDto() {
+    @Test void allowedPutInvalidatesCachedValue() {
         var result = service.update(77L, request());
-        assertSame(result, cache.get(77L).get()); assertNotSame(original, result); assertEquals("changed", result.getTitle());
+        assertNull(cache.get(77L)); assertNotSame(original, result); assertEquals("changed", result.getTitle());
         verify(tags).deleteAllByProductIdAndTagName(77L, List.of("old"));
     }
     @ParameterizedTest @ValueSource(strings = {"PUT", "DELETE"})
@@ -57,11 +57,11 @@ class ProductAuthorizationCacheTest {
         assertSame(original, cache.get(77L).get()); assertEquals("original", target.getTitle()); assertTrue(target.getVisible());
         verifyNoInteractions(tags); verify(products, never()).save(any());
     }
-    @Test void allowedDeleteRetainsExistingCacheBehavior() {
-        assertEquals(77L, service.delete(77L)); assertSame(original, cache.get(77L).get());
+    @Test void allowedDeleteInvalidatesCachedValue() {
+        assertEquals(77L, service.delete(77L)); assertNull(cache.get(77L));
         verify(products).save(target); assertFalse(target.getVisible());
     }
-    @Configuration @EnableCaching @Import(ProductService.class)
+    @Configuration @EnableCaching @Import({ProductService.class, ProductCacheInvalidator.class})
     static class CacheConfiguration {
         @Bean(name = "contentCacheManager") CacheManager cacheManager() { return new ConcurrentMapCacheManager("getProduct"); }
         @Bean ProductRepository products() { return mock(ProductRepository.class); }

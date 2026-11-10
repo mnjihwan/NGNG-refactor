@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.product.cache.ProductCacheInvalidationTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-11-10T05:10:54" hostname="MOON" time="0.901">
+  <properties/>
+  <testcase name="recordAdvisorOrder()" classname="com.ngng.api.product.cache.ProductCacheInvalidationTest" time="0.514"/>
+  <testcase name="beforePutStoresReturnedDto()" classname="com.ngng.api.product.cache.ProductCacheInvalidationTest" time="0.095"/>
+  <testcase name="[1] writer=SALE" classname="com.ngng.api.product.cache.ProductCacheInvalidationTest" time="0.053"/>
+  <testcase name="[2] writer=REFRESH" classname="com.ngng.api.product.cache.ProductCacheInvalidationTest" time="0.055"/>
+  <testcase name="[3] writer=DELETE" classname="com.ngng.api.product.cache.ProductCacheInvalidationTest" time="0.069"/>
+  <testcase name="[4] writer=PENALTY" classname="com.ngng.api.product.cache.ProductCacheInvalidationTest" time="0.062"/>
+  <testcase name="[5] writer=ACCEPT" classname="com.ngng.api.product.cache.ProductCacheInvalidationTest" time="0.041"/>
+  <system-out><![CDATA[RF009 advisor[0]=org.springframework.cache.interceptor.CacheInterceptor
+RF009 advisor[1]=org.springframework.transaction.interceptor.TransactionInterceptor
+14:10:55.463 [Test worker] INFO product-log -- Success Update Product id: 77 
+14:10:55.527 [Test worker] INFO product-log -- Success Update Product ForSale id: 77 
+14:10:55.583 [Test worker] INFO product-log -- Success Update Product Refresh id: 77 
+14:10:55.654 [Test worker] INFO product-log -- Success Delete Product id: 77 
+14:10:55.698 [Test worker] INFO penalty-log -- Success Create Penalty id: null User id : 1000 level : PenaltyLevel(penaltyLevelId=1, penaltyLevelName=null, penaltyLevelDays=1) 
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

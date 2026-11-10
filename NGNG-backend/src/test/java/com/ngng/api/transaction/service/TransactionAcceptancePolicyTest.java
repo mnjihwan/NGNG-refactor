@@ -34,7 +34,7 @@ class TransactionAcceptancePolicyTest {
     TransactionRequestRepository requests = mock(TransactionRequestRepository.class);
     ProductRepository products = mock(ProductRepository.class);
     TransactionDetailsService creation = mock(TransactionDetailsService.class);
-    TransactionRequestService service = new TransactionRequestService(requests, products, creation);
+    TransactionRequestService service = new TransactionRequestService(requests, products, creation, mock(com.ngng.api.product.product.service.ProductCacheInvalidator.class));
     Product product = Product.builder().productId(7L).forSale(true).user(User.builder().userId(12L).build()).build();
     TransactionRequest state = TransactionRequest.builder().transactionRequestId(1L).product(product)
             .buyer(User.builder().userId(11L).build()).price(300L).build();
