@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-11-10T06:19:36" hostname="MOON" time="0.533">
+  <properties/>
+  <testcase name="[1] role=USER, id=7001" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.447"/>
+  <testcase name="[2] role=USER, id=8001" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.011"/>
+  <testcase name="[3] role=UNCONFIRMED_USER, id=7001" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.01"/>
+  <testcase name="[4] role=UNCONFIRMED_USER, id=8001" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.008"/>
+  <testcase name="[5] role=ADMIN, id=7001" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.008"/>
+  <testcase name="[6] role=ADMIN, id=8001" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.008"/>
+  <testcase name="[7] role=OTHER, id=7001" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.01"/>
+  <testcase name="[8] role=OTHER, id=8001" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.011"/>
+  <testcase name="beforeUnauthenticatedIs401()" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.004"/>
+  <system-out><![CDATA[15:19:34.488 [Test worker] INFO org.hibernate.validator.internal.util.Version -- HV000001: Hibernate Validator 8.0.1.Final
+15:19:36.372 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@74fc3fc7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@491893f8, org.springframework.security.web.context.SecurityContextHolderFilter@3f322610, org.springframework.security.web.header.HeaderWriterFilter@30af23fd, org.springframework.web.filter.CorsFilter@1f408ab6, org.springframework.security.web.authentication.logout.LogoutFilter@77ff14ce, com.ngng.api.global.security.filter.TokenFilter@46e388ec, com.ngng.api.global.security.filter.LoginFilter@53f495f0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6cf047cf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1c92a549, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5efe5b25, org.springframework.security.web.session.SessionManagementFilter@a357c3e, org.springframework.security.web.access.ExceptionTranslationFilter@50bf795f, org.springframework.security.web.access.intercept.AuthorizationFilter@20c3b34b]
+15:19:36.613 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+15:19:36.614 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+15:19:36.616 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 2 ms
+15:19:37.076 [Test worker] INFO user-log -- Success Confirm address , userId : 7001  address : new-address
+15:19:37.156 [Test worker] INFO user-log -- Success Confirm address , userId : 8001  address : new-address
+15:19:37.168 [Test worker] INFO user-log -- Success Confirm address , userId : 7001  address : new-address
+15:19:37.177 [Test worker] INFO user-log -- Success Confirm address , userId : 8001  address : new-address
+15:19:37.178 [Test worker] INFO user-log -- Success Confirm address , userId : 7001  address : new-address
+15:19:37.197 [Test worker] INFO user-log -- Success Confirm address , userId : 8001  address : new-address
+15:19:37.206 [Test worker] INFO user-log -- Success Confirm address , userId : 7001  address : new-address
+15:19:37.219 [Test worker] INFO user-log -- Success Confirm address , userId : 8001  address : new-address
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

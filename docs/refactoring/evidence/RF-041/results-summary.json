@@ -1,0 +1,66 @@
+[
+  {
+    "stage": "before",
+    "suite": "com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest",
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "stage": "before",
+    "suite": "com.ngng.api.user.user.address.ConfirmAddressServiceTest",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "stage": "after",
+    "suite": "com.ngng.api.global.security.SecurityChainTest",
+    "tests": 46,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "stage": "after",
+    "suite": "com.ngng.api.global.security.TokenFilterTest",
+    "tests": 72,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "stage": "after",
+    "suite": "com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest",
+    "tests": 50,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "stage": "after",
+    "suite": "com.ngng.api.user.user.address.ConfirmAddressServiceTest",
+    "tests": 27,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "stage": "after",
+    "suite": "com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest",
+    "tests": 30,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "stage": "after",
+    "suite": "com.ngng.api.user.user.confirmation.ConfirmAccountServiceTest",
+    "tests": 22,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+]
