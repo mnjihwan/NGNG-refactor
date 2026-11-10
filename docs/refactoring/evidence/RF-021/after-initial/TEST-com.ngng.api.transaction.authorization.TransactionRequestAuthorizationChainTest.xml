@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" tests="45" skipped="0" failures="1" errors="0" timestamp="2026-11-10T06:45:51" hostname="local-host-redacted" time="0.577">
+  <properties/>
+  <testcase name="existingDirectDetailsRetains409ForOwnerBut403ForThirdParty()" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.23">
+    <failure message="java.lang.NullPointerException: Cannot invoke &quot;org.springframework.security.core.Authentication.getPrincipal()&quot; because the return value of &quot;org.springframework.security.core.context.SecurityContext.getAuthentication()&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;org.springframework.security.core.Authentication.getPrincipal()&quot; because the return value of &quot;org.springframework.security.core.context.SecurityContext.getAuthentication()&quot; is null
+	at com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest.lambda$caller$2(TransactionRequestAuthorizationChainTest.java:103)
+	at org.mockito.internal.stubbing.StubbedInvocationMatcher.answer(StubbedInvocationMatcher.java:42)
+	at org.mockito.internal.handler.MockHandlerImpl.handle(MockHandlerImpl.java:103)
+	at org.mockito.internal.handler.NullResultGuardian.handle(NullResultGuardian.java:29)
+	at org.mockito.internal.handler.InvocationNotifierHandler.handle(InvocationNotifierHandler.java:34)
+	at org.mockito.internal.creation.bytebuddy.MockMethodInterceptor.doIntercept(MockMethodInterceptor.java:82)
+	at org.mockito.internal.creation.bytebuddy.MockMethodInterceptor.doIntercept(MockMethodInterceptor.java:56)
+	at org.mockito.internal.creation.bytebuddy.MockMethodInterceptor$DispatcherDefaultingToRealMethod.interceptAbstract(MockMethodInterceptor.java:161)
+	at com.ngng.api.user.user.repository.UserRepository$MockitoMock$uBOJBDqj.findUserByEmail(Unknown Source)
+	at com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest.caller(TransactionRequestAuthorizationChainTest.java:101)
+	at com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest.existingDirectDetailsRetains409ForOwnerBut403ForThirdParty(TransactionRequestAuthorizationChainTest.java:238)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:119)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:94)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:89)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+</failure>
+  </testcase>
+  <testcase name="[1] accept=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.008"/>
+  <testcase name="[2] accept=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.008"/>
+  <testcase name="missingRequestRetains404()" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.014"/>
+  <testcase name="[1] role=USER, id=2000" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.018"/>
+  <testcase name="[2] role=USER, id=1000" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.005"/>
+  <testcase name="[3] role=USER, id=4000" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.008"/>
+  <testcase name="[4] role=ADMIN, id=2000" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.005"/>
+  <testcase name="[5] role=ADMIN, id=1000" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.005"/>
+  <testcase name="[6] role=ADMIN, id=4000" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.005"/>
+  <testcase name="[7] role=UNCONFIRMED_USER, id=2000" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.005"/>
+  <testcase name="[8] role=UNCONFIRMED_USER, id=1000" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.004"/>
+  <testcase name="[9] role=UNCONFIRMED_USER, id=4000" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.004"/>
+  <testcase name="[1] role=USER" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.056"/>
+  <testcase name="[2] role=ADMIN" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.005"/>
+  <testcase name="[3] role=UNCONFIRMED_USER" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.006"/>
+  <testcase name="[1] create=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.005"/>
+  <testcase name="[2] create=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.005"/>
+  <testcase name="authorizedDuplicatePreservesNegativeOneContract()" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.004"/>
+  <testcase name="missingProductCreateIs404WithoutDuplicateRead()" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.004"/>
+  <testcase name="[1] seller=3000" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.005"/>
+  <testcase name="[2] seller=4000" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.005"/>
+  <testcase name="[1] credentials=missing" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.001"/>
+  <testcase name="[2] credentials=malformed" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.002"/>
+  <testcase name="[3] credentials=expired" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.005"/>
+  <testcase name="[1] role=USER, id=1000, accept=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.007"/>
+  <testcase name="[2] role=USER, id=2000, accept=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.005"/>
+  <testcase name="[3] role=USER, id=3000, accept=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.005"/>
+  <testcase name="[4] role=USER, id=4000, accept=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.005"/>
+  <testcase name="[5] role=ADMIN, id=1000, accept=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.006"/>
+  <testcase name="[6] role=ADMIN, id=4000, accept=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.004"/>
+  <testcase name="[7] role=UNCONFIRMED_USER, id=1000, accept=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.004"/>
+  <testcase name="[8] role=UNCONFIRMED_USER, id=4000, accept=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.004"/>
+  <testcase name="[9] role=USER, id=1000, accept=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.004"/>
+  <testcase name="[10] role=USER, id=2000, accept=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.004"/>
+  <testcase name="[11] role=USER, id=3000, accept=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.004"/>
+  <testcase name="[12] role=USER, id=4000, accept=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.004"/>
+  <testcase name="[13] role=ADMIN, id=1000, accept=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.004"/>
+  <testcase name="[14] role=ADMIN, id=4000, accept=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.004"/>
+  <testcase name="[15] role=UNCONFIRMED_USER, id=1000, accept=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.003"/>
+  <testcase name="[16] role=UNCONFIRMED_USER, id=4000, accept=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.004"/>
+  <testcase name="[1] access=missing, allowed=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.012"/>
+  <testcase name="[2] access=expired, allowed=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.009"/>
+  <testcase name="[3] access=missing, allowed=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.008"/>
+  <testcase name="[4] access=expired, allowed=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.01"/>
+  <system-out><![CDATA[15:45:51.203 [Test worker] INFO org.hibernate.validator.internal.util.Version -- HV000001: Hibernate Validator 8.0.1.Final
+15:45:51.614 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@323a47fe, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@eb9b76c, org.springframework.security.web.context.SecurityContextHolderFilter@4d542218, org.springframework.security.web.header.HeaderWriterFilter@26ae9861, org.springframework.web.filter.CorsFilter@776eedad, org.springframework.security.web.authentication.logout.LogoutFilter@33742179, com.ngng.api.global.security.filter.TokenFilter@6752d7fc, com.ngng.api.global.security.filter.LoginFilter@7b7695f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@463a0302, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@150a201b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4476ac12, org.springframework.security.web.session.SessionManagementFilter@66e74d3, org.springframework.security.web.access.ExceptionTranslationFilter@79a7f553, org.springframework.security.web.access.intercept.AuthorizationFilter@21f3a99c]
+15:45:51.818 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+15:45:51.818 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+15:45:51.818 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+15:45:52.102 [Test worker] INFO transaction-log -- Success Create TransactionRequest id: 9000
+15:45:52.134 [Test worker] INFO transaction-log -- Success Create TransactionRequest id: 9000
+15:45:52.151 [Test worker] INFO transaction-log -- Success Create TransactionRequest id: 9000
+15:45:52.170 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 1000  Consumer : 2000
+15:45:52.218 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 1000  Consumer : 2000
+15:45:52.218 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 1000  Consumer : 2000
+이미 요청 했었음
+15:45:52.234 [Test worker] INFO transaction-log -- Success Create TransactionRequest id: -1
+15:45:52.268 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 1000  Consumer : 2000
+15:45:52.268 [Test worker] INFO transaction-log -- Success Accept TransactionRequest id: 9000
+15:45:52.301 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 1000  Consumer : 2000
+15:45:52.301 [Test worker] INFO transaction-log -- Success Accept TransactionRequest id: 9000
+15:45:52.301 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 1000  Consumer : 2000
+15:45:52.301 [Test worker] INFO transaction-log -- Success Accept TransactionRequest id: 9000
+15:45:52.318 [Test worker] INFO transaction-log -- Success Decline TransactionRequest id: 9000
+15:45:52.341 [Test worker] INFO transaction-log -- Success Decline TransactionRequest id: 9000
+15:45:52.349 [Test worker] INFO transaction-log -- Success Decline TransactionRequest id: 9000
+15:45:52.351 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 1000  Consumer : 2000
+15:45:52.364 [Test worker] INFO transaction-log -- Success Accept TransactionRequest id: 9000
+15:45:52.367 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 1000  Consumer : 2000
+15:45:52.367 [Test worker] INFO transaction-log -- Success Accept TransactionRequest id: 9000
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

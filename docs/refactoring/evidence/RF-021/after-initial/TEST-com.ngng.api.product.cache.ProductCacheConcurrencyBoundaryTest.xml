@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.product.cache.ProductCacheConcurrencyBoundaryTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-11-10T06:45:44" hostname="local-host-redacted" time="4.248">
+  <properties/>
+  <testcase name="[1] readerCount=1" classname="com.ngng.api.product.cache.ProductCacheConcurrencyBoundaryTest" time="3.769"/>
+  <testcase name="[2] readerCount=2" classname="com.ngng.api.product.cache.ProductCacheConcurrencyBoundaryTest" time="0.214"/>
+  <testcase name="reverseWriterCommitOrderEvictsIntermediateCachedReadInsteadOfPuttingReturnedDto()" classname="com.ngng.api.product.cache.ProductCacheConcurrencyBoundaryTest" time="0.25"/>
+  <system-out><![CDATA[15:45:48.405 [Test worker] INFO product-log -- Success Update Product ForSale id: 77
+RF009 residual reproduced: readers=1 old snapshot -> other context commit/evict -> late stale put
+15:45:48.691 [Test worker] INFO product-log -- Success Update Product ForSale id: 77
+RF009 residual reproduced: readers=2 old snapshot -> other context commit/evict -> late stale put
+15:45:48.926 [rf009-writer-first] INFO product-log -- Success Update Product id: 77
+15:45:48.932 [Test worker] INFO product-log -- Success Update Product ForSale id: 77
+RF009 reverse commit fixture: writer A starts -> B commit/evict -> reader caches B -> A commit/evict -> read A
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

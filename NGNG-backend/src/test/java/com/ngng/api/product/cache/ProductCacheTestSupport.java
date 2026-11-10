@@ -74,7 +74,9 @@ final class ProductCacheTestSupport {
             when(products.findById(77L)).thenReturn(Optional.of(product));
             when(products.save(any())).thenAnswer(call -> call.getArgument(0));
             when(requests.findProductIdForUpdate(501L)).thenReturn(Optional.of(77L));
-            when(products.lockTransactionProduct(77L)).thenReturn(Optional.of(mock(ProductRepository.TransactionProduct.class)));
+            var locked = mock(ProductRepository.TransactionProduct.class);
+            when(locked.getSellerId()).thenReturn(1000L);
+            when(products.lockTransactionProduct(77L)).thenReturn(Optional.of(locked));
             when(requests.findById(501L)).thenReturn(Optional.of(request));
             when(requests.findAllByProductProductId(77L)).thenReturn(List.of(request));
             when(details.findCurrentDetails(77L)).thenReturn(List.of());
@@ -92,7 +94,11 @@ final class ProductCacheTestSupport {
         @Bean RecordingTransactions transactionManager() { return new RecordingTransactions(); }
         @Bean ProductRepository products(State s) { return s.products; }
         @Bean TagService tags() { return mock(TagService.class); }
-        @Bean AuthService auth() { return mock(AuthService.class); }
+        @Bean AuthService auth() {
+            var auth = mock(AuthService.class);
+            when(auth.readAuthUser()).thenReturn(user(1000));
+            return auth;
+        }
         @Bean TransactionRequestRepository requests(State s) { return s.requests; }
         @Bean TransactionDetailsService details(State s) { return s.details; }
         @Bean PenaltyRepository penalties(State s) { return s.penalties; }

@@ -34,7 +34,8 @@ class TransactionAcceptancePolicyTest {
     TransactionRequestRepository requests = mock(TransactionRequestRepository.class);
     ProductRepository products = mock(ProductRepository.class);
     TransactionDetailsService creation = mock(TransactionDetailsService.class);
-    TransactionRequestService service = new TransactionRequestService(requests, products, creation, mock(com.ngng.api.product.product.service.ProductCacheInvalidator.class));
+    com.ngng.api.user.user.service.AuthService auth = mock(com.ngng.api.user.user.service.AuthService.class);
+    TransactionRequestService service = new TransactionRequestService(requests, products, creation, mock(com.ngng.api.product.product.service.ProductCacheInvalidator.class), auth);
     Product product = Product.builder().productId(7L).forSale(true).user(User.builder().userId(12L).build()).build();
     TransactionRequest state = TransactionRequest.builder().transactionRequestId(1L).product(product)
             .buyer(User.builder().userId(11L).build()).price(300L).build();
@@ -43,9 +44,23 @@ class TransactionAcceptancePolicyTest {
     TransactionDetails existing = TransactionDetails.builder().consumer(User.builder().userId(11L).build())
             .seller(product.getUser()).price(300L).build();
 
+    @org.junit.jupiter.api.AfterEach void clearAuthentication() {
+        org.springframework.security.core.context.SecurityContextHolder.clearContext();
+    }
+    ProductRepository.TransactionProduct locked() {
+        var locked = mock(ProductRepository.TransactionProduct.class);
+        when(locked.getSellerId()).thenReturn(12L);
+        return locked;
+    }
     @BeforeEach void setup() {
+        var caller = User.builder().userId(12L).email("rf021-owner@example.test").build();
+        org.springframework.security.core.context.SecurityContextHolder.getContext().setAuthentication(
+                new org.springframework.security.authentication.UsernamePasswordAuthenticationToken(
+                        new com.ngng.api.global.security.custom.CustomUserDetails(caller), "unused", java.util.List.of()));
+        when(auth.readAuthUser()).thenReturn(caller);
         when(requests.findProductIdForUpdate(1L)).thenReturn(Optional.of(7L));
-        when(products.lockTransactionProduct(7L)).thenReturn(Optional.of(mock(ProductRepository.TransactionProduct.class)));
+        var locked = locked();
+        when(products.lockTransactionProduct(7L)).thenReturn(Optional.of(locked));
         when(requests.findById(1L)).thenReturn(Optional.of(state));
         when(creation.findCurrentDetails(7L)).thenReturn(List.of());
         when(requests.findAllByProductProductId(7L)).thenReturn(List.of(state, sibling, rejectedSibling));
@@ -161,7 +176,7 @@ class TransactionAcceptancePolicyTest {
         assertEquals(-1L, service.update(1L, true));
         noWrites();
     }
-    @Test void changedProductDoesNotWriteUnderWrongLock() { state.setProduct(Product.builder().productId(9L).build()); conflict(true); }
+    @Test void changedProductDoesNotWriteUnderWrongLock() { state.setProduct(Product.builder().productId(9L).user(product.getUser()).build()); conflict(true); }
     @Test void creationFailureIsPropagatedAndLaterRequestWritesDoNotRun() {
         RuntimeException failure = new RuntimeException("insert failed");
         when(creation.create(any())).thenThrow(failure);
@@ -202,7 +217,7 @@ class TransactionAcceptancePolicyTest {
         RecordingTransactions manager = new RecordingTransactions();
         when(products.lockTransactionProduct(7L)).thenAnswer(call -> {
             assertTrue(TransactionSynchronizationManager.isActualTransactionActive());
-            return Optional.of(mock(ProductRepository.TransactionProduct.class));
+            return Optional.of(locked());
         });
         assertEquals(1L, proxy(manager).update(1L, true));
         assertEquals(1, manager.commits);
