@@ -1,0 +1,24 @@
+> Task :compileJava
+> Task :processResources
+> Task :classes
+
+> Task :compileTestJava FAILED
+<WORKSPACE>\NGNG-backend\src\test\java\com\ngng\api\user\user\confirmation\ConfirmAccountSecurityChainTest.java:90: error: unreported exception UnsupportedEncodingException; must be caught or declared to be thrown
+        assertEquals("", result.getResponse().getContentAsString());
+                                                                ^
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+1 error
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileTestJava'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+> Run with --info option to get more log output.
+> Run with --scan to get full insights.
+
+BUILD FAILED in 4s
+3 actionable tasks: 3 executed

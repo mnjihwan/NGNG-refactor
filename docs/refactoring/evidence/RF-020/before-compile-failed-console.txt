@@ -1,0 +1,29 @@
+> Task :compileJava
+> Task :processResources
+> Task :classes
+
+> Task :compileTestJava FAILED
+<WORKSPACE>\NGNG-backend\src\test\java\com\ngng\api\user\user\confirmation\ConfirmAccountSecurityChainTest.java:67: error: reference to Role is ambiguous
+        when(roles.findByRoleType("USER")).thenReturn(Role.builder().roleType("USER").build());
+                                                      ^
+  both class org.springframework.context.annotation.Role in org.springframework.context.annotation and class com.ngng.api.user.user.entity.Role in com.ngng.api.user.user.entity match
+<WORKSPACE>\NGNG-backend\src\test\java\com\ngng\api\user\user\confirmation\ConfirmAccountSecurityChainTest.java:70: error: reference to Role is ambiguous
+    static User user(Long id, String email) { return User.builder().userId(id).email(email).role(Role.builder().roleType("UNCONFIRMED_USER").build()).build(); }
+                                                                                                 ^
+  both class org.springframework.context.annotation.Role in org.springframework.context.annotation and class com.ngng.api.user.user.entity.Role in com.ngng.api.user.user.entity match
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+2 errors
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileTestJava'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+> Run with --info option to get more log output.
+> Run with --scan to get full insights.
+
+BUILD FAILED in 4s
+3 actionable tasks: 3 executed

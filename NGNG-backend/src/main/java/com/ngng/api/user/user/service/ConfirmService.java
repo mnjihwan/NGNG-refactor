@@ -16,10 +16,15 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpServletResponseWrapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseCookie;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
 
 @RequiredArgsConstructor
 @Service
@@ -28,9 +33,12 @@ public class ConfirmService {
     private final UserRepository userRepository;
     private final UserRoleRepository roleRepository;
     private final JwtTokenProvider jwtTokenProvider;
+    private final AuthService authService;
 
     @Transactional
     public AccountConfirmResponse accountConfirm(AccountConfirmRequest request, Cookie cookie, HttpServletResponse response) {
+
+        requireOwnUnconfirmedAccount(request.userId());
 
         User user = userRepository.findById(request.userId()).orElseThrow(() -> new UsernameNotFoundException("존재하지 않는 유저"));
 
@@ -65,6 +73,24 @@ public class ConfirmService {
         wrapper.setHeader(HttpHeaders.SET_COOKIE, responseCookie.toString());
 
         return AccountConfirmResponse.success(accessToken);
+    }
+
+    private void requireOwnUnconfirmedAccount(Long requestedUserId) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || !authentication.isAuthenticated()
+                || authentication instanceof AnonymousAuthenticationToken
+                || !(authentication.getPrincipal() instanceof CustomUserDetails details)
+                || details.getUser() == null || details.getUser().getEmail() == null
+                || details.getUser().getEmail().isBlank()
+                || authentication.getAuthorities().stream()
+                    .noneMatch(authority -> "ROLE_UNCONFIRMED_USER".equals(authority.getAuthority()))) {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN);
+        }
+        User caller = authService.readAuthUser();
+        if (caller == null || caller.getUserId() == null || requestedUserId == null
+                || !caller.getUserId().equals(requestedUserId)) {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN);
+        }
     }
 
     @Transactional

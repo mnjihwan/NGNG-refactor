@@ -282,3 +282,9 @@ HEAD `56d3ec21a72918dd5e6c42c018d12911f13a3345`에서 기존 RF007 문서 변경
 - 독립 담당자가 코드/테스트·before11/final405·assemble·실패 이력·비식별/hash·23 snapshot을 검토했고 합의 기능의 차단 결함은 없었다. 독립 문서 정합 최종 검토도 완료했고 합의 기능 한정 차단 결함은 없었다. 실DB/JPA flush/rollback·Redis serialization/key/TTL/네트워크·운영Boot/HTTP/OSIV·브라우저/프런트·성능은 미검증/범위밖/사용자 유예다. 전용 환경 사용 승인·identity/namespace·소유 fixture·외부 차단·정확 cleanup/독립 잔여 확인 후 별도 opt-in으로 재개하며 BACKLOG R9에서 추적한다. commit/push·배포·후속 자동 착수는 하지 않았다.
 
 RF009 독립 문서 최종 리뷰 완료: 보존된 실패 XML stack의 TransactionDetailsService.findCurrentDetails → TransactionRequestService.update:66과 실제 findCurrentDetails의 @Transactional(MANDATORY)를 대조해, 초기 direct no-tx 실패 원인을 details.create라고 적었던 설명을 정정했다. create의 READ_COMMITTED 호출 전에 조회 경계에서 실패했다. 나머지 수치·범위·근거는 정합하며 합의 기능 한정 차단 결함이 없었다. 네 문서의 최신 상태를 검토 완료로 맞췄고 과거 분석/실패 이력·원시 XML/소스/해시는 유지했다. 문서만 보완했으므로 테스트를 재실행하지 않았다.
+
+## 2026-11-10 — RF020 계좌 확인 요청자 인가
+
+기준 HEAD `e417eaf7d476a639413414ff8f4423b89cc88e66`에서 계좌 확인 전에 인증된 미확인 사용자와 요청 ID의 값 일치를 확인한다. 본인 정상 처리와 기존 계좌 중복·역할·쿠키 경계를 유지하며 타인 요청은 대상 조회 및 계좌용 토큰 발급 전에 403으로 거부한다. 유효 access의 거부 응답에 새 Authorization은 없고, refresh fallback의 거부 응답에는 필터가 발급한 기존 caller/UNCONFIRMED_USER access만 허용하며 새 refresh와 대상 토큰은 없다.
+
+변경 전 14건과 최종 317건 통과, assemble 성공. 최종 317건에는 별도로 실행한 170건이 포함되므로 합산하지 않는다. 실제 security chain·JWT와 repository 대역을 포함한 격리 검증이며 원시 결과·실패 이력·명령과 한계는 [증빙](evidence/RF-020/README.md)에 기록했다. 독립 최종 리뷰에서 합의 범위의 차단 결함이 없었다. 실제 DB/HTTP/브라우저·동시성·성능은 미검증이며 후속 조건과 범위 밖 후보는 BACKLOG의 R20 항목에서 추적한다. 전체 backend test/build는 실행하지 않았고 assemble은 이를 대체하지 않는다.
