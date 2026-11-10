@@ -1,0 +1,18 @@
+[
+  {
+    "Hash": "42E31DDFD6C1EB30B52902A32E68DAF75C7CE70C6545AD10E2B94DD328E5D36A",
+    "Path": "[WORKSPACE]\\NGNG-backend\\src\\test\\java\\com\\ngng\\api\\isolation\\Rf016EnvironmentIsolationTest.java"
+  },
+  {
+    "Hash": "0B3138786E163ECDDDA0C1587096959FB3E2F4A0761D5AAD31954CA0DB5381CE",
+    "Path": "[WORKSPACE]\\NGNG-backend\\src\\test\\java\\com\\ngng\\api\\isolation\\Rf016IsolatedBootSmokeTest.java"
+  },
+  {
+    "Hash": "5ABDDEADFE53AB2A88AEC7BCE3C252F92AC9C7856F36C25A412710985E5810E9",
+    "Path": "[WORKSPACE]\\NGNG-backend\\src\\test\\java\\com\\ngng\\api\\isolation\\Rf016IsolationConfiguration.java"
+  },
+  {
+    "Hash": "547E1ABED1EBECF8020869A4BE56F92AD8D8510037CC244F5B0E312764B36D83",
+    "Path": "[WORKSPACE]\\NGNG-backend\\src\\test\\java\\com\\ngng\\api\\isolation\\Rf016SafeContextLoader.java"
+  }
+]

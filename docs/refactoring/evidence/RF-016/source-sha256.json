@@ -1,0 +1,42 @@
+[
+  {
+    "Path": "NGNG-backend\\src\\test\\java\\com\\ngng\\api\\isolation\\Rf016EnvironmentIsolationTest.java",
+    "Sha256": "42E31DDFD6C1EB30B52902A32E68DAF75C7CE70C6545AD10E2B94DD328E5D36A"
+  },
+  {
+    "Path": "NGNG-backend\\src\\test\\java\\com\\ngng\\api\\isolation\\Rf016IsolatedBootSmokeTest.java",
+    "Sha256": "EC8A173F1890B255C878F75D7CC08565F70C6D115043DE1AC34CAEBFBDC611A0"
+  },
+  {
+    "Path": "NGNG-backend\\src\\test\\java\\com\\ngng\\api\\isolation\\Rf016IsolationConfiguration.java",
+    "Sha256": "5ABDDEADFE53AB2A88AEC7BCE3C252F92AC9C7856F36C25A412710985E5810E9"
+  },
+  {
+    "Path": "NGNG-backend\\src\\test\\java\\com\\ngng\\api\\isolation\\Rf016SafeContextLoader.java",
+    "Sha256": "C6555C46B02E1B4DF61EC29BAEDE309E475E9CD7A569AD7F1D59977DB48CEFBF"
+  },
+  {
+    "Path": "NGNG-backend\\src\\test\\java\\com\\ngng\\api\\isolation\\mysql\\Rf016MySqlCommitRollbackTest.java",
+    "Sha256": "16F1048989AD66AB95AD76EBCD5D487ADFCACEA2FEC1DCBA8207C23FB5C25DB9"
+  },
+  {
+    "Path": "NGNG-backend\\src\\test\\java\\com\\ngng\\api\\isolation\\mysql\\Rf016MySqlFixture.java",
+    "Sha256": "2CBC59AEC34E6D488B070BBC4E43F8F7F13D1E168CECE6B962A2C5A99C34767D"
+  },
+  {
+    "Path": "NGNG-backend\\src\\test\\java\\com\\ngng\\api\\isolation\\mysql\\Rf016MySqlReadOnlyPreflightTest.java",
+    "Sha256": "33F5A4D941E0623A94356F1D52EEF325D419AFE794FBF9A870ED38F79297141D"
+  },
+  {
+    "Path": "NGNG-backend\\src\\test\\java\\com\\ngng\\api\\isolation\\mysql\\Rf016MySqlSafetyGate.java",
+    "Sha256": "9A85412A2D655B974341342D917A287B001B745713C6500F367C99D5C3FF8E31"
+  },
+  {
+    "Path": "NGNG-backend\\src\\test\\java\\com\\ngng\\api\\isolation\\mysql\\Rf016MySqlSafetyGateTest.java",
+    "Sha256": "2092EB6D5C8FCB8ED5C717B2A68B69F91FE51452190FBD201909680167830D0A"
+  },
+  {
+    "Path": "NGNG-backend\\src\\test\\resources\\rf016-isolation.properties",
+    "Sha256": "6876E3DD95E35CADB239789B32DCB69D757A1B9EB2A7913B59691000C4EC6213"
+  }
+]

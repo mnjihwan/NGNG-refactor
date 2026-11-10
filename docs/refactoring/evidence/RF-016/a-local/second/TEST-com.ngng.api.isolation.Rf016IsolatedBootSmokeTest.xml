@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.isolation.Rf016IsolatedBootSmokeTest" tests="12" skipped="0" failures="1" errors="0" timestamp="2026-11-10T07:54:34" hostname="MOON" time="0.787">
+  <properties/>
+  <testcase name="newEmailRunsRealServiceButOnlyMemorySenderReceivesIt()" classname="com.ngng.api.isolation.Rf016IsolatedBootSmokeTest" time="0.394"/>
+  <testcase name="duplicateEmailHas409AndNoMessageCreationOrSend()" classname="com.ngng.api.isolation.Rf016IsolatedBootSmokeTest" time="0.015"/>
+  <testcase name="[1] kind=missing" classname="com.ngng.api.isolation.Rf016IsolatedBootSmokeTest" time="0.032"/>
+  <testcase name="[2] kind=malformed" classname="com.ngng.api.isolation.Rf016IsolatedBootSmokeTest" time="0.005"/>
+  <testcase name="[3] kind=expired" classname="com.ngng.api.isolation.Rf016IsolatedBootSmokeTest" time="0.065"/>
+  <testcase name="configurationWasSanitizedBeforeConfigDataAndOnlyExplicitBeansExist()" classname="com.ngng.api.isolation.Rf016IsolatedBootSmokeTest" time="0.023"/>
+  <testcase name="authenticatedUserReadUsesDatabaseIdentityAndPointDouble()" classname="com.ngng.api.isolation.Rf016IsolatedBootSmokeTest" time="0.056"/>
+  <testcase name="[1] path=/points" classname="com.ngng.api.isolation.Rf016IsolatedBootSmokeTest" time="0.014"/>
+  <testcase name="[2] path=/points/all" classname="com.ngng.api.isolation.Rf016IsolatedBootSmokeTest" time="0.012"/>
+  <testcase name="smsControllerUsesServiceBoundaryDoubleWithoutSdkConstruction()" classname="com.ngng.api.isolation.Rf016IsolatedBootSmokeTest" time="0.013"/>
+  <testcase name="authenticatedChargeUsesRealServiceAndOrderedRepositoryDoubles()" classname="com.ngng.api.isolation.Rf016IsolatedBootSmokeTest" time="0.092"/>
+  <testcase name="executionError" classname="com.ngng.api.isolation.Rf016IsolatedBootSmokeTest" time="0.001">
+    <failure message="java.lang.IllegalStateException: The ApplicationContext loaded for [WebMergedContextConfiguration@5b0e5d5f testClass = com.ngng.api.isolation.Rf016IsolatedBootSmokeTest, locations = [], classes = [com.ngng.api.isolation.Rf016IsolationConfiguration], contextInitializerClasses = [], activeProfiles = [], propertySourceDescriptors = [], propertySourceProperties = [&quot;spring.config.location=file:rf016-must-never-load.properties&quot;, &quot;spring.config.import=file:rf016-import-must-never-load.properties&quot;, &quot;spring.config.additional-location=file:rf016-additional-must-never-load.properties&quot;, &quot;spring.profiles.active=rf016-poison&quot;, &quot;rf016.poison=must-be-removed&quot;, &quot;org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true&quot;], contextCustomizers = [org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomizerFactory$DisableObservabilityContextCustomizer@1f, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizer@1af146, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@fb9c7aa, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@60a2630a, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@1698fc68, org.springframework.boot.test.context.SpringBootTestAnnotation@bee9c782], resourceBasePath = &quot;src/main/webapp&quot;, contextLoader = com.ngng.api.isolation.Rf016SafeContextLoader, parent = null] is not active. This may be due to one of the following reasons: 1) the context was closed programmatically by user code; 2) the context was closed during parallel test execution either according to @DirtiesContext semantics or due to automatic eviction from the ContextCache due to a maximum cache size policy." type="java.lang.IllegalStateException">java.lang.IllegalStateException: The ApplicationContext loaded for [WebMergedContextConfiguration@5b0e5d5f testClass = com.ngng.api.isolation.Rf016IsolatedBootSmokeTest, locations = [], classes = [com.ngng.api.isolation.Rf016IsolationConfiguration], contextInitializerClasses = [], activeProfiles = [], propertySourceDescriptors = [], propertySourceProperties = [&quot;spring.config.location=file:rf016-must-never-load.properties&quot;, &quot;spring.config.import=file:rf016-import-must-never-load.properties&quot;, &quot;spring.config.additional-location=file:rf016-additional-must-never-load.properties&quot;, &quot;spring.profiles.active=rf016-poison&quot;, &quot;rf016.poison=must-be-removed&quot;, &quot;org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true&quot;], contextCustomizers = [org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomizerFactory$DisableObservabilityContextCustomizer@1f, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizer@1af146, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@fb9c7aa, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@60a2630a, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@1698fc68, org.springframework.boot.test.context.SpringBootTestAnnotation@bee9c782], resourceBasePath = &quot;src/main/webapp&quot;, contextLoader = com.ngng.api.isolation.Rf016SafeContextLoader, parent = null] is not active. This may be due to one of the following reasons: 1) the context was closed programmatically by user code; 2) the context was closed during parallel test execution either according to @DirtiesContext semantics or due to automatic eviction from the ContextCache due to a maximum cache size policy.
+	at org.springframework.util.Assert.state(Assert.java:97)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:132)
+	at org.springframework.test.context.TestContext.publishEvent(TestContext.java:95)
+	at org.springframework.test.context.event.EventPublishingTestExecutionListener.afterTestClass(EventPublishingTestExecutionListener.java:168)
+	at org.springframework.test.context.TestContextManager.afterTestClass(TestContextManager.java:538)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.afterAll(SpringExtension.java:144)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeAfterAllCallbacks$18(ClassBasedTestDescriptor.java:462)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeAfterAllCallbacks$19(ClassBasedTestDescriptor.java:462)
+	at org.junit.platform.commons.util.CollectionUtils.forEachInReverseOrder(CollectionUtils.java:217)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeAfterAllCallbacks(ClassBasedTestDescriptor.java:461)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.after(ClassBasedTestDescriptor.java:236)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.after(ClassBasedTestDescriptor.java:85)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:161)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:161)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:119)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:94)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:89)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+</failure>
+  </testcase>
+  <system-out><![CDATA[16:54:31,056 |-INFO in ch.qos.logback.classic.LoggerContext[default] - This is logback-classic version 1.4.14
+16:54:31,060 |-INFO in ch.qos.logback.classic.util.ContextInitializer@42b21d99 - Here is a list of configurators discovered as a service, by rank: 
+16:54:31,060 |-INFO in ch.qos.logback.classic.util.ContextInitializer@42b21d99 -   org.springframework.boot.logging.logback.RootLogLevelConfigurator
+16:54:31,060 |-INFO in ch.qos.logback.classic.util.ContextInitializer@42b21d99 - They will be invoked in order until ExecutionStatus.DO_NOT_INVOKE_NEXT_IF_ANY is returned.
+16:54:31,060 |-INFO in ch.qos.logback.classic.util.ContextInitializer@42b21d99 - Constructed configurator of type class org.springframework.boot.logging.logback.RootLogLevelConfigurator
+16:54:31,065 |-INFO in ch.qos.logback.classic.util.ContextInitializer@42b21d99 - org.springframework.boot.logging.logback.RootLogLevelConfigurator.configure() call lasted 0 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
+16:54:31,065 |-INFO in ch.qos.logback.classic.util.ContextInitializer@42b21d99 - Trying to configure with ch.qos.logback.classic.joran.SerializedModelConfigurator
+16:54:31,065 |-INFO in ch.qos.logback.classic.util.ContextInitializer@42b21d99 - Constructed configurator of type class ch.qos.logback.classic.joran.SerializedModelConfigurator
+16:54:31,071 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.scmo]
+16:54:31,071 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.scmo]
+16:54:31,071 |-INFO in ch.qos.logback.classic.util.ContextInitializer@42b21d99 - ch.qos.logback.classic.joran.SerializedModelConfigurator.configure() call lasted 6 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
+16:54:31,071 |-INFO in ch.qos.logback.classic.util.ContextInitializer@42b21d99 - Trying to configure with ch.qos.logback.classic.util.DefaultJoranConfigurator
+16:54:31,071 |-INFO in ch.qos.logback.classic.util.ContextInitializer@42b21d99 - Constructed configurator of type class ch.qos.logback.classic.util.DefaultJoranConfigurator
+16:54:31,075 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
+16:54:31,075 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.xml]
+16:54:31,075 |-INFO in ch.qos.logback.classic.util.ContextInitializer@42b21d99 - ch.qos.logback.classic.util.DefaultJoranConfigurator.configure() call lasted 4 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
+16:54:31,075 |-INFO in ch.qos.logback.classic.util.ContextInitializer@42b21d99 - Trying to configure with ch.qos.logback.classic.BasicConfigurator
+16:54:31,076 |-INFO in ch.qos.logback.classic.util.ContextInitializer@42b21d99 - Constructed configurator of type class ch.qos.logback.classic.BasicConfigurator
+16:54:31,076 |-INFO in ch.qos.logback.classic.BasicConfigurator@68dcfd52 - Setting up default configuration.
+16:54:31,092 |-INFO in ch.qos.logback.classic.util.ContextInitializer@42b21d99 - ch.qos.logback.classic.BasicConfigurator.configure() call lasted 16 milliseconds. ExecutionStatus=NEUTRAL
+16:54:31,775 |-WARN in ch.qos.logback.core.model.processor.AppenderModelHandler - Appender named [LOGFILE] not referenced. Skipping further processing.
+16:54:31,775 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [USERLOG]
+16:54:31,775 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.FileAppender]
+16:54:31,778 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+16:54:31,803 |-INFO in ch.qos.logback.core.FileAppender[USERLOG] - File property is set to [./logs/user-log.txt]
+16:54:31,805 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [PRODUCT]
+16:54:31,805 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.FileAppender]
+16:54:31,805 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+16:54:31,805 |-INFO in ch.qos.logback.core.FileAppender[PRODUCT] - File property is set to [./logs/product-log.txt]
+16:54:31,807 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [TRANSACTION]
+16:54:31,807 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.FileAppender]
+16:54:31,807 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+16:54:31,807 |-INFO in ch.qos.logback.core.FileAppender[TRANSACTION] - File property is set to [./logs/transaction-log.txt]
+16:54:31,807 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [PENALTY]
+16:54:31,807 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.FileAppender]
+16:54:31,807 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+16:54:31,807 |-INFO in ch.qos.logback.core.FileAppender[PENALTY] - File property is set to [./logs/penalty-log.txt]
+16:54:31,807 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [POINT]
+16:54:31,807 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.FileAppender]
+16:54:31,807 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+16:54:31,807 |-INFO in ch.qos.logback.core.FileAppender[POINT] - File property is set to [./logs/point-log.txt]
+16:54:31,807 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [REPORT]
+16:54:31,807 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.FileAppender]
+16:54:31,807 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+16:54:31,807 |-INFO in ch.qos.logback.core.FileAppender[REPORT] - File property is set to [./logs/report-log.txt]
+16:54:31,809 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [CONSOLE]
+16:54:31,809 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+16:54:31,809 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+16:54:31,809 |-INFO in ch.qos.logback.classic.model.processor.RootLoggerModelHandler - Setting level of ROOT logger to INFO
+16:54:31,809 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@25b5c5e3 - Propagating INFO level on Logger[ROOT] onto the JUL framework
+16:54:31,809 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [CONSOLE] to Logger[ROOT]
+16:54:31,809 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [user-log] to INFO
+16:54:31,809 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@25b5c5e3 - Propagating INFO level on Logger[user-log] onto the JUL framework
+16:54:31,811 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [user-log] to false
+16:54:31,811 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [USERLOG] to Logger[user-log]
+16:54:31,811 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [product-log] to INFO
+16:54:31,811 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@25b5c5e3 - Propagating INFO level on Logger[product-log] onto the JUL framework
+16:54:31,811 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [product-log] to false
+16:54:31,811 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [PRODUCT] to Logger[product-log]
+16:54:31,811 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [transaction-log] to INFO
+16:54:31,811 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@25b5c5e3 - Propagating INFO level on Logger[transaction-log] onto the JUL framework
+16:54:31,811 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [transaction-log] to false
+16:54:31,813 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [TRANSACTION] to Logger[transaction-log]
+16:54:31,813 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [point-log] to INFO
+16:54:31,813 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@25b5c5e3 - Propagating INFO level on Logger[point-log] onto the JUL framework
+16:54:31,813 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [point-log] to false
+16:54:31,813 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [POINT] to Logger[point-log]
+16:54:31,813 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [report-log] to INFO
+16:54:31,813 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@25b5c5e3 - Propagating INFO level on Logger[report-log] onto the JUL framework
+16:54:31,813 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [report-log] to false
+16:54:31,813 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [REPORT] to Logger[report-log]
+16:54:31,813 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [penalty-log] to INFO
+16:54:31,813 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@25b5c5e3 - Propagating INFO level on Logger[penalty-log] onto the JUL framework
+16:54:31,813 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [penalty-log] to false
+16:54:31,813 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [PENALTY] to Logger[penalty-log]
+16:54:31,813 |-INFO in ch.qos.logback.core.model.processor.DefaultProcessor@5177e388 - End of configuration.
+16:54:31,813 |-INFO in org.springframework.boot.logging.logback.SpringBootJoranConfigurator@37b72ea - Registering current configuration as safe fallback point
+
+2026-11-10 16:54:31.840 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-11-10 16:54:31.877 [Test worker] INFO  c.n.a.i.Rf016IsolatedBootSmokeTest - Starting Rf016IsolatedBootSmokeTest using Java 17.0.10 with PID 9800 (started by [LOCAL_USER] in [WORKSPACE]\NGNG-backend)
+2026-11-10 16:54:31.877 [Test worker] INFO  c.n.a.i.Rf016IsolatedBootSmokeTest - No active profile set, falling back to 1 default profile: "default"
+2026-11-10 16:54:33.844 [Test worker] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7c5c20ed, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6113a26f, org.springframework.security.web.context.SecurityContextHolderFilter@49122853, org.springframework.security.web.header.HeaderWriterFilter@3d88ce0e, org.springframework.web.filter.CorsFilter@2aac8ad7, org.springframework.security.web.authentication.logout.LogoutFilter@31693a86, com.ngng.api.global.security.filter.TokenFilter@6a4a2090, com.ngng.api.global.security.filter.LoginFilter@778c2e7c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5d6b42cf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6f8ac8d5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@b70fa38, org.springframework.security.web.session.SessionManagementFilter@4ad1a276, org.springframework.security.web.access.ExceptionTranslationFilter@54defd69, org.springframework.security.web.access.intercept.AuthorizationFilter@7e2c6fd6]
+2026-11-10 16:54:34.247 [Test worker] INFO  c.n.a.i.Rf016IsolatedBootSmokeTest - Started Rf016IsolatedBootSmokeTest in 2.839 seconds (process running for 4.088)
+2026-11-10 16:54:34.421 [Test worker] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-10 16:54:34.421 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-10 16:54:34.421 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2026-11-10 16:54:34.759 [Test worker] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-10 16:54:34.759 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-10 16:54:34.760 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+2026-11-10 16:54:34.804 [Test worker] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-10 16:54:34.804 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-10 16:54:34.807 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 3 ms
+2026-11-10 16:54:34.838 [Test worker] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-10 16:54:34.838 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-10 16:54:34.838 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2026-11-10 16:54:34.838 [Test worker] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-10 16:54:34.838 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-10 16:54:34.838 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2026-11-10 16:54:34.914 [Test worker] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-10 16:54:34.914 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-10 16:54:34.914 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2026-11-10 16:54:34.933 [Test worker] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-10 16:54:34.933 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-10 16:54:34.933 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2026-11-10 16:54:34.996 [Test worker] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-10 16:54:34.996 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-10 16:54:34.996 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2026-11-10 16:54:35.012 [Test worker] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-10 16:54:35.012 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-10 16:54:35.012 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2026-11-10 16:54:35.018 [Test worker] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-10 16:54:35.018 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-10 16:54:35.018 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2026-11-10 16:54:35.028 [Test worker] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-10 16:54:35.028 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-10 16:54:35.028 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2026-11-10 16:54:35.138 [Test worker] WARN  o.s.test.context.TestContextManager - Caught exception while invoking 'afterTestClass' callback on TestExecutionListener [org.springframework.test.context.event.EventPublishingTestExecutionListener] for test class [com.ngng.api.isolation.Rf016IsolatedBootSmokeTest]
+java.lang.IllegalStateException: The ApplicationContext loaded for [WebMergedContextConfiguration@5b0e5d5f testClass = com.ngng.api.isolation.Rf016IsolatedBootSmokeTest, locations = [], classes = [com.ngng.api.isolation.Rf016IsolationConfiguration], contextInitializerClasses = [], activeProfiles = [], propertySourceDescriptors = [], propertySourceProperties = ["spring.config.location=file:rf016-must-never-load.properties", "spring.config.import=file:rf016-import-must-never-load.properties", "spring.config.additional-location=file:rf016-additional-must-never-load.properties", "spring.profiles.active=rf016-poison", "rf016.poison=must-be-removed", "org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true"], contextCustomizers = [org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomizerFactory$DisableObservabilityContextCustomizer@1f, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizer@1af146, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@fb9c7aa, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@60a2630a, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@1698fc68, org.springframework.boot.test.context.SpringBootTestAnnotation@bee9c782], resourceBasePath = "src/main/webapp", contextLoader = com.ngng.api.isolation.Rf016SafeContextLoader, parent = null] is not active. This may be due to one of the following reasons: 1) the context was closed programmatically by user code; 2) the context was closed during parallel test execution either according to @DirtiesContext semantics or due to automatic eviction from the ContextCache due to a maximum cache size policy.
+	at org.springframework.util.Assert.state(Assert.java:97)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:132)
+	at org.springframework.test.context.TestContext.publishEvent(TestContext.java:95)
+	at org.springframework.test.context.event.EventPublishingTestExecutionListener.afterTestClass(EventPublishingTestExecutionListener.java:168)
+	at org.springframework.test.context.TestContextManager.afterTestClass(TestContextManager.java:538)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.afterAll(SpringExtension.java:144)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeAfterAllCallbacks$18(ClassBasedTestDescriptor.java:462)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeAfterAllCallbacks$19(ClassBasedTestDescriptor.java:462)
+	at org.junit.platform.commons.util.CollectionUtils.forEachInReverseOrder(CollectionUtils.java:217)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeAfterAllCallbacks(ClassBasedTestDescriptor.java:461)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.after(ClassBasedTestDescriptor.java:236)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.after(ClassBasedTestDescriptor.java:85)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:161)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:161)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:119)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:94)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:89)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

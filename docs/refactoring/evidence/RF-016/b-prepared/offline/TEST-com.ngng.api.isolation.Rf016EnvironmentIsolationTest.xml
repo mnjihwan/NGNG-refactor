@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.isolation.Rf016EnvironmentIsolationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-11-10T08:21:04" hostname="MOON" time="0.171">
+  <properties/>
+  <testcase name="discardsAllIncomingConfigImportProfileAndHostPropertiesWithoutResolvingThem()" classname="com.ngng.api.isolation.Rf016EnvironmentIsolationTest" time="0.171"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

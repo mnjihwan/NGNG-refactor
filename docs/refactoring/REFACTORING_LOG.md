@@ -309,3 +309,13 @@ RF009 독립 문서 최종 리뷰 완료: 보존된 실패 XML stack의 Transact
 ## 2026-11-10 RF023 거래 단건 상세 인가
 
 인증된 기록 seller 또는 consumer만 조회하도록 하고 양쪽 당사자 ID가 불완전하면 403으로 거부한다. 현재 product owner 및 ADMIN의 추가 예외는 없으며 없는 거래의 기존 200 빈 DTO는 유지한다. 변경 전 6건, 신규 73건, 별도 RF004/006 회귀 80건과 assemble 성공 및 독립 리뷰를 완료했다. 실DB·실제 HTTP·브라우저·성능과 전체 backend test/build는 미검증이다. 기존 DB read 테스트의 무인증 및 status 테스트의 후속 read 당사자 fixture는 별도 보완이 필요하다. 검증 근거와 원시 자료 보존·한계 및 재개 조건은 [명세](tasks/RF-023.md), [증빙](evidence/RF-023/README.md), [백로그](BACKLOG.md)를 따른다.
+
+## 2026-11-10 RF016 사용자·포인트·인증 최소 격리 기반
+
+HEAD `82aa7279886385bc0974ae78679ab492447f4135`. test-only 명시 제한 Boot/MVC/Security/JWT/Auth/User/Point/Email 실제 서비스와 repository/메모리 sender/SMS 경계 대역의 A12, B 순수 safety gate18을 선택 실행해 최종30건 fail/error/skip0 및 fresh assemble5 task 실실행·exit0을 확인했다. 운영 소스/기본 설정/의존성/schema/인가 정책을 변경하지 않았다. 독립 최종 리뷰는 **A 제한 완료와 B 준비 코드/현재 보류 판정 범위에서 차단 결함 없음**을 확인했다. 전체 B 물리·전체 backend test/build 통과가 아니다.
+
+B는 명시 JPA/실제 tx 프록시·소유 PK journal·독립 연결 commit/INSERT-flush 뒤 rollback·정확 cleanup/범위 잠금 경쟁 probe를 작성·컴파일했으나 실행하지 않았다. 첫 외부 datadir Start는 자동심사에서 사용자 재승인 없음으로 거부됐다. 이후 사용자가 정확 target의 기존 서버 시작/read-only만 승인했지만, 새 요청은 기존 mysqld4716/5544 발견으로 Start 전에 guard 중단했다. 상승 읽기에서 MySQL80 서비스/3306·33060 listener와 서비스 설정 datadir가 승인 target과 다름은 확인했으나 실제 commandline/executable 비가시로 runtime 분리는 미확인이다. 새 서버 시작·DB연결·read-only preflight·fixture INSERT/DELETE·경합 probe0을 유지했고 guard 완화/기존 프로세스 종료/권한 확대는 하지 않았다. **fixture 쓰기는 사용자 승인 제외**다.
+
+초기 실패·중간25/26/28/29 및 최종30 XML/console/source와 해시, source 보존 공백을 [증빙](evidence/RF-016/README.md)에 구분했다. 마감 독립 검토에서 로컬 사용자/절대경로가 있던 XML·console11개 및 초기 hash metadata1개를 공유본에서 placeholder로 치환했다. 치환 전 증빙94파일 전체를 Git 제외 `.local-runtime/rf016-raw/20261110-final-review`에 보존했고 원본/공유 SHA·범위·위치는 sharing manifest에 기록했다. 테스트 결과·실패 stack·timestamp를 새 실행 결과로 대체하지 않았다. 기존 `.tmp`16파일은 변경/누락0이다.
+
+재개 조건은 기존 process runtime identity와 private target 분리의 안전한 읽기 확인→승인된 read-only identity/grants/metadata/replica·event/빈대상·role원본 확인이다. 물리 fixture·cleanup·경합 probe는 별도 허용 범위와 소유 ledger/불확실 commit·참조 거부·정확 사후 조회 조건 뒤 수행한다. 전체 Boot/상품·거래·Redis·ES·채팅·실HTTP/브라우저는 R16-확장의 별도 묶음이며 자동 착수하지 않는다. 성능은 사용자 유예·미측정이다. [명세](tasks/RF-016.md)·[독립 리뷰](evidence/RF-016/independent-review.md)·BACKLOG R16 항목에서 최신 상태를 추적한다. 이번 마감은 문서·증빙만 변경했고 테스트/서비스/DB를 재실행하지 않았다.

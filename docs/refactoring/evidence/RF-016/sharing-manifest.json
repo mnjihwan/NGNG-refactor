@@ -1,0 +1,111 @@
+{
+  "OriginalSnapshotLocation": ".local-runtime/rf016-raw/20261110-final-review/original-evidence",
+  "OriginalSnapshotFileCount": 94,
+  "OriginalSnapshotManifestLocation": ".local-runtime/rf016-raw/20261110-final-review/original-sha256.json",
+  "ChangedXmlConsoleCount": 11,
+  "ChangedMetadataCount": 1,
+  "Placeholders": [
+    "[WORKSPACE]",
+    "[USER_HOME]",
+    "[LOCAL_USER]"
+  ],
+  "Pairs": [
+    {
+      "Path": "a-local\\final\\TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+      "Kind": "xml-or-console",
+      "OriginalSha256": "A5398C0769EC65639C11BCBA023C44817C1BF61BE25A3F391B558391BB3166E2",
+      "SharedSha256": "893777BA921C5AECCA4E2534E1052C99DEDDECC249329C8B3EE16753D4B59175",
+      "OriginalBytes": 31663,
+      "SharedBytes": 31635
+    },
+    {
+      "Path": "a-local\\first-success\\TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+      "Kind": "xml-or-console",
+      "OriginalSha256": "030759F03B6359EF59175484818AD042D4B17337EA4CBAA6B276CB4F2C785C4B",
+      "SharedSha256": "3950B01A9F65FCD68737E454AE19B636F23714B5D97A2BDF3CFF8504A66D9B26",
+      "OriginalBytes": 31665,
+      "SharedBytes": 31637
+    },
+    {
+      "Path": "a-local\\initial\\source-sha256.json",
+      "Kind": "metadata",
+      "OriginalSha256": "B02D90AB93525A0E9A67A11D252EC33C2661A860946FB9809CFDD2424E2873BE",
+      "SharedSha256": "3B258815F4264233E37BEEE4EEFBB008F07F7CAA0BE957C93D47DB44B417951B",
+      "OriginalBytes": 1009,
+      "SharedBytes": 845
+    },
+    {
+      "Path": "a-local\\initial\\test-console.txt",
+      "Kind": "xml-or-console",
+      "OriginalSha256": "E4F63F48898E2DC948E70DC5B3D310D2C5CD244C9EC8ADFA25E4A13B1B4EA9BB",
+      "SharedSha256": "1B4F777C24B6CF055CAAD77DC938FCB1DE089094F1381C9B866A3A654DA7E7AC",
+      "OriginalBytes": 553,
+      "SharedBytes": 550
+    },
+    {
+      "Path": "a-local\\initial\\test-escalated-console.txt",
+      "Kind": "xml-or-console",
+      "OriginalSha256": "8E26C8B445AB2391848623B6B456D74BEE1DCA2966CD1DBA31C7509B5BF11EBD",
+      "SharedSha256": "5CCB2E73B7A0F1DA4A54AAA0B769E8DB0C4FB997F68018E12EC51C53B73F93CA",
+      "OriginalBytes": 1799,
+      "SharedBytes": 1730
+    },
+    {
+      "Path": "a-local\\second\\TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+      "Kind": "xml-or-console",
+      "OriginalSha256": "DFF88D7E5048E1B91EEA38FE2861AB26D7A69CEE2DAA83F9CA5766A46B441347",
+      "SharedSha256": "71752447C19A5FDD56B875634B4ECBAF2DACAD51CF7525E050961247ABAB2E1F",
+      "OriginalBytes": 39175,
+      "SharedBytes": 39147
+    },
+    {
+      "Path": "a-local\\second\\test-console.txt",
+      "Kind": "xml-or-console",
+      "OriginalSha256": "F370C78AA9B7293DA3D7DD55F66FDC064457A6DA0903D83EA6D0A352E9C23512",
+      "SharedSha256": "B7B3316CA4449FF702D37F220B72D25ABDC6B3AC1E6A79DB71C811A7787D52B6",
+      "OriginalBytes": 1637,
+      "SharedBytes": 1568
+    },
+    {
+      "Path": "b-prepared\\offline\\TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+      "Kind": "xml-or-console",
+      "OriginalSha256": "A5398C0769EC65639C11BCBA023C44817C1BF61BE25A3F391B558391BB3166E2",
+      "SharedSha256": "893777BA921C5AECCA4E2534E1052C99DEDDECC249329C8B3EE16753D4B59175",
+      "OriginalBytes": 31663,
+      "SharedBytes": 31635
+    },
+    {
+      "Path": "b-prepared\\offline-before-readonly\\TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+      "Kind": "xml-or-console",
+      "OriginalSha256": "1FB4FB100034D5BB2084A1A746D976A1AD17ADE21BACD2B2DBF507843C927B4A",
+      "SharedSha256": "EB524A228071546618C3E7F8578A42F1FBDF9AAC4E711D1D10CB5557F1C239E6",
+      "OriginalBytes": 31655,
+      "SharedBytes": 31627
+    },
+    {
+      "Path": "b-prepared\\offline-first\\TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+      "Kind": "xml-or-console",
+      "OriginalSha256": "2B5442309A058C1F397215030481EB0F324DBB8417AE44E2F7D5A740AD5CE4C1",
+      "SharedSha256": "E2BC43350CDDB0196B45213C64F0419CDE71A13A03B41D0E67F41B8CF8084A5E",
+      "OriginalBytes": 31661,
+      "SharedBytes": 31633
+    },
+    {
+      "Path": "b-prepared\\offline-journal\\TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+      "Kind": "xml-or-console",
+      "OriginalSha256": "DD9B32D319FA6AE746A64BA9703FE0945A72A8333BD97E3AA3FE04950F334007",
+      "SharedSha256": "AC544A0B06CF2C1AEAFCF2AF72ADEEBAFB4333289FD7138EA6098F182287A8E9",
+      "OriginalBytes": 31655,
+      "SharedBytes": 31627
+    },
+    {
+      "Path": "b-prepared\\offline-review\\TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+      "Kind": "xml-or-console",
+      "OriginalSha256": "466F10FBC079F6E39FE7626A943B2FC6DF57711328A565CE095BEAC57BE882C9",
+      "SharedSha256": "ED8C6648B2D0CEB125F4E62EBA8E360D57EEE6C8BFFE8820AF7C7CB3FB6365B1",
+      "OriginalBytes": 31648,
+      "SharedBytes": 31620
+    }
+  ],
+  "OriginalSnapshotManifestSha256": "1C7B606BAD6D63D6EB1474B32F1FBE6F9E74269FE85A0A460B7A27D178BF83A2"
+}

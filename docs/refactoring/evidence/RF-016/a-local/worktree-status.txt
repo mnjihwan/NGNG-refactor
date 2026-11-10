@@ -1,0 +1,5 @@
+?? .tmp/
+?? NGNG-backend/src/test/java/com/ngng/api/isolation/
+?? NGNG-backend/src/test/resources/
+?? docs/refactoring/evidence/RF-016/
+?? docs/refactoring/tasks/RF-016.md

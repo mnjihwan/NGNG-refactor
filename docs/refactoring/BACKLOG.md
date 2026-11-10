@@ -80,7 +80,7 @@ R3 원시로그/과거 잔액복구, R4 실제HTTP·status1/nullable fixture·�
 | RF-013 / P2 | 6개 로그 서비스의 파싱·페이지 조립 공통화. 코드 품질, F07/F08 | 낮음~중간. 잘못된 줄의 content/totalCount 차이 | 임시 파일 기반 정상/잘못된 줄/빈 파일/부재/페이지 경계 테스트. 경로별 출력 동등성, I/O 최적화와 분리 | 제안 |
 | RF-014 / P2 | 로그 페이지의 전체 파일 count 비용 측정 및 읽기 개선. 성능 가설, F08 | 중간. 동시 append·회전·건수 최신성 | RF-013 + 대표 파일 크기별 측정. 개선안의 최신성 계약 확정 후 전후 지연/할당량 비교 | 측정 대기 |
 | RF-015 / P1 | 상품 이미지 1건 업로드의 S3/DB 실패 경계 정리. 설계·정합성, F08 | 높음. 보상 삭제·부분 성공·응답 의미 | S3 대역과 DB 오류 주입으로 단계별 기존 결과 기록. 보상 정책 합의 후 작은 유스케이스로 이동. 비동기화·스키마·신규 저장소 제외 | 제안 |
-| RF-016 / P1 | 기존 SpringBootTest의 격리 설정·fixture 및 외부 발송 대역 확보. 검증 환경, F01/F09 | 중간. 고정 ID/상태값·DDL·실발송 | RF-001. 사용자/포인트 묶음부터, 이후 거래/신고/검색별로 별도 수행. 자격값 환경 주입, 미사용 실서비스 값 제거 검토. 각 묶음은 전체 실행 전 독립 통과 필요 | 단계별 명세 필요 |
+| RF-016 / P1 | 사용자/포인트/인증의 명시 제한 Boot와 발송 대역 A 완료, B 물리 환경은 준비 코드만 | A12+순수 gate18=30·fresh assemble·독립 리뷰. 실제 DB/HTTP·물리 commit/rollback/cleanup 미검증 | [명세](tasks/RF-016.md)·[증빙](evidence/RF-016/README.md) 및 아래 R16 추적. 기존 mysqld runtime identity 확인 후 read-only 재개; fixture 쓰기/경합 probe는 사용자 승인 제외 | 부분 완료 — A 한정, B 보류 |
 | RF-017 / P1 | 검색 색인 동기화·visible/forSale 정책 조사. 환경/정합성 가설, F09 | 중상. 운영 Logstash와 검색 결과 변경 | 운영 파이프라인 자료, 인덱스 설정 확보. 생성/수정/숨김→검색 반영 지연 측정. 쿼리 필터 변경은 정책 합의 후 별도 작업 | 조사 제안 |
 | RF-018 / P1 | Docker 이미지의 워터마크 실행 자원 검증·패키징. 실행 결함 후보, F08 | 중간. 외부 volume 의존 여부와 경로 변경 | 현재 배포 mount 확인, 격리 이미지에서 샘플 처리. 자원 로딩 결과 동일, 배포/push는 별도 | 제안 |
 | RF-019 / P2 | TransactionDetailsService의 Exception 상속 제거. 객체 설계, F07 | 낮음. 타입/throws 참조·프록시 영향 | RF-001 + 호출 참조 검색. 기존 서비스 테스트·컴파일 통과, 응답/트랜잭션 동일 | 제안 |
@@ -261,3 +261,16 @@ R4-연동/운영/성능의 기존 미실행·별도 범위는 유지한다. 공�
 |---|---|---|
 | R23-통합 | 실DB·실제 HTTP/OSIV·브라우저·프록시 및 외부 소비자 미검증. 기존 DB 단건 read 테스트는 무인증이며 status 테스트의 후속 read는 기록 seller/consumer와 양쪽 ID가 완전한 fixture가 필요하나 실제 일치 여부 미확인 | 안전한 격리 DB와 별도 범위 합의 후 합성 당사자 인증·fixture 및 실제 응답을 검증 |
 | R23-범위·성능 | 목록/마이페이지·채팅 등 다른 개인정보 경로는 별도 후보. 성능 미측정, 전체 backend test/build 미실행 | 독립 범위 합의 또는 대표 환경·비교 계획 확보 후 검토; 자동 착수하지 않음 |
+
+## RF-016 최소 격리 기반 — 2026-11-10 최신 상태
+
+기존 표의 "단계별 명세 필요"와 계획 단계 기록은 당시 이력이다. [명세](tasks/RF-016.md)·[증빙](evidence/RF-016/README.md)·[독립 리뷰](evidence/RF-016/independent-review.md)를 기준으로 아래 상태를 적용한다. 전체 RF016/R1-통합 또는 기존 RF001~009 잔여를 완료로 바꾸지 않는다.
+
+이전 RF016 행의 계획도 이력으로 보존한다: 기존 SpringBootTest 격리 설정/fixture·외부 발송 대역(F01/F09), 중간 위험(고정 ID/상태·DDL·실발송), RF001 선행 후 사용자/포인트부터 거래/신고/검색 묶음별 독립 실행, 자격값 환경 주입/미사용 실서비스 값 제거 검토, 당시 상태 "단계별 명세 필요"였다.
+
+| 추적 / 분류 | 현재 상태·근거 | 추가 검증 / 재개 조건 |
+|---|---|---|
+| R16-로컬 / 합의 제한 A | 실제 제한 Boot/MVC/Security/JWT/사용자·포인트·메일 서비스+repository/sender/SMS 대역 A12, 외부 없는 순수 guard18 포함 최종30 fail/error/skip0·fresh assemble. 독립 최종 리뷰 완료, 이 제한 범위의 차단 결함 없음. 원시/공유 경로 치환·각 SHA 보존 | A 한정 완료. 실제 로그인 provider·DB transaction/HTTP 서버·SMTP/SMS SDK/OS 네트워크 방화벽 검증이 아님. 새 bean/config 경계 변경 시 해당 선택 검증 재실행 |
+| R16-DB / 물리 기반 | opt-in JPA·소유행 ledger/journal·독립 commit/INSERT-flush rollback·정확 cleanup/range-lock probe는 **준비 코드와 컴파일만**. 최초 Start 자동심사 거부 후 정확 target 시작/read-only만 사용자 승인. 새 요청은 기존 MySQL80 PID4716→5544 발견으로 Start 이전 guard 중단. runtime commandline/executable 미가시, **새 서버 시작/DB연결/read-only preflight/fixture INSERT·DELETE/경합 probe0** | 기존 process와 승인 private datadir의 runtime 분리를 안전한 읽기로 확인하고 독립 검토한 뒤 승인된 read-only만 재개. 직접 global metadata 권한·REVOKE 부재/identity/replica·event/빈 user·point/role원본 확인. **fixture 쓰기·cleanup·경합 probe는 현재 사용자 승인 제외**이며 별도 범위 허용 뒤 exact 소유행/불확실 commit·참조 거부 조건을 충족해야 함. guard 완화/기존 프로세스 종료/권한·role·schema 생성 자동 수행 금지 |
+| R16-확장 / 별도 묶음 | 기존 전체 Boot suite, 관리자 Page 물리 기능, 상품·거래·신고·검색·Redis·ES·클라우드·채팅·실제 HTTP/브라우저는 미검증. A JWT+repo 대역과 B 합성 인증+JPA를 전체 통합으로 합산하지 않음 | 묶음별 명세·격리 identity·외부 차단·소유 fixture/key ledger·정확 cleanup·독립 사후 조회와 허용 범위 확보. 후속 자동 착수 안 함 |
+| R16-성능 / 사용자 유예 | 미측정, 테스트 경과시간·패키징으로 개선 주장 없음 | 사용자 별도 재개 지시 및 대표 비교 환경/기준선 확보. 기존 RF002/R3~R9 성능 유예 유지 |

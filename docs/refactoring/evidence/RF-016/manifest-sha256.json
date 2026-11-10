@@ -1,0 +1,382 @@
+[
+  {
+    "Path": "final-summary.json",
+    "Sha256": "6952AD40A23F65D8856CCCF9A01E73F628E2E72061EF5F2C307F8B873375E9B5"
+  },
+  {
+    "Path": "independent-review.md",
+    "Sha256": "8E025F1871AD2EAEAF4EBA68334419B5F9801CB933ACF110AB7C14E63CFE0CBA"
+  },
+  {
+    "Path": "README.md",
+    "Sha256": "B2200218636487F9ED522ADD0CB2A2480A467D5DE4F80B1E5891B8440990162C"
+  },
+  {
+    "Path": "sharing-manifest.json",
+    "Sha256": "5C5CDA629F5B999BBA6E790520D8F933CC6E10F1A7501EB3665CABAA8B73D18E"
+  },
+  {
+    "Path": "source-sha256.json",
+    "Sha256": "820639F28C0730C1756A1F7B02D942663111F33638D08B2D35123718CFA84C52"
+  },
+  {
+    "Path": "a-local\\existing-tmp-sha256.json",
+    "Sha256": "B47D84E26EE93B2377DD6198E3BF2D9D46B113057536036A9B2F79308DF7663D"
+  },
+  {
+    "Path": "a-local\\existing-tmp-verification.json",
+    "Sha256": "A370DB735B0D6506D80F70739F8A47B5E64B98E3E47E2B067A8B0459FA10E8AA"
+  },
+  {
+    "Path": "a-local\\host-readonly-probe.json",
+    "Sha256": "6ECA57C098A4A9DF1C8196014658374A67CBFE18047308097991D7027ABD0297"
+  },
+  {
+    "Path": "a-local\\java-version.txt",
+    "Sha256": "7DB07790C91CB1F390378D09063D903C573FA4E10F1E90518371414D6AEC5DFA"
+  },
+  {
+    "Path": "a-local\\worktree-status.txt",
+    "Sha256": "A3F5015D6DD952C1071EDC585CC523752B9F6087C8194B6BF7D3754B834175C2"
+  },
+  {
+    "Path": "a-local\\final\\rf016-isolation.properties.txt",
+    "Sha256": "6876E3DD95E35CADB239789B32DCB69D757A1B9EB2A7913B59691000C4EC6213"
+  },
+  {
+    "Path": "a-local\\final\\Rf016EnvironmentIsolationTest.java.txt",
+    "Sha256": "42E31DDFD6C1EB30B52902A32E68DAF75C7CE70C6545AD10E2B94DD328E5D36A"
+  },
+  {
+    "Path": "a-local\\final\\Rf016IsolatedBootSmokeTest.java.txt",
+    "Sha256": "EC8A173F1890B255C878F75D7CC08565F70C6D115043DE1AC34CAEBFBDC611A0"
+  },
+  {
+    "Path": "a-local\\final\\Rf016IsolationConfiguration.java.txt",
+    "Sha256": "5ABDDEADFE53AB2A88AEC7BCE3C252F92AC9C7856F36C25A412710985E5810E9"
+  },
+  {
+    "Path": "a-local\\final\\Rf016SafeContextLoader.java.txt",
+    "Sha256": "C6555C46B02E1B4DF61EC29BAEDE309E475E9CD7A569AD7F1D59977DB48CEFBF"
+  },
+  {
+    "Path": "a-local\\final\\sha256.json",
+    "Sha256": "FBA7B9771925E656C8BA9F522C29DF7191C22D267712D55B6D7B40DBBA3BC488"
+  },
+  {
+    "Path": "a-local\\final\\TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+    "Sha256": "2F4619663B769419AF19D6314BAC6E0D8628E92C0B53CD387ACB6C8036C1C915"
+  },
+  {
+    "Path": "a-local\\final\\TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+    "Sha256": "893777BA921C5AECCA4E2534E1052C99DEDDECC249329C8B3EE16753D4B59175"
+  },
+  {
+    "Path": "a-local\\final\\test-console.txt",
+    "Sha256": "9A587CE7DC5AE2FB9DC12648E6D022FFCB797589948024F7BBE7B1129689A419"
+  },
+  {
+    "Path": "a-local\\first-success\\rf016-isolation.properties.txt",
+    "Sha256": "6876E3DD95E35CADB239789B32DCB69D757A1B9EB2A7913B59691000C4EC6213"
+  },
+  {
+    "Path": "a-local\\first-success\\Rf016EnvironmentIsolationTest.java.txt",
+    "Sha256": "42E31DDFD6C1EB30B52902A32E68DAF75C7CE70C6545AD10E2B94DD328E5D36A"
+  },
+  {
+    "Path": "a-local\\first-success\\Rf016IsolatedBootSmokeTest.java.txt",
+    "Sha256": "C481823A1F19C74A65899809887DFA875C5F0D40E358D5F707F62E77D6AF3FC5"
+  },
+  {
+    "Path": "a-local\\first-success\\Rf016IsolationConfiguration.java.txt",
+    "Sha256": "5ABDDEADFE53AB2A88AEC7BCE3C252F92AC9C7856F36C25A412710985E5810E9"
+  },
+  {
+    "Path": "a-local\\first-success\\Rf016SafeContextLoader.java.txt",
+    "Sha256": "C6555C46B02E1B4DF61EC29BAEDE309E475E9CD7A569AD7F1D59977DB48CEFBF"
+  },
+  {
+    "Path": "a-local\\first-success\\sha256.json",
+    "Sha256": "46EF5615516179EAB5223873A401A850079B5C3B7C6F59E7866F8D0098950E19"
+  },
+  {
+    "Path": "a-local\\first-success\\TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+    "Sha256": "D46439E453AAEBBB873C4A356C9D44A268DB6A21A532DF3A424095052B2DD80F"
+  },
+  {
+    "Path": "a-local\\first-success\\TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+    "Sha256": "3950B01A9F65FCD68737E454AE19B636F23714B5D97A2BDF3CFF8504A66D9B26"
+  },
+  {
+    "Path": "a-local\\first-success\\test-console.txt",
+    "Sha256": "421EF58BF18E036CA6714873075A9E1147D41BCDE137D03F109F03B3C7E73D1C"
+  },
+  {
+    "Path": "a-local\\initial\\rf016-isolation.properties.txt",
+    "Sha256": "6876E3DD95E35CADB239789B32DCB69D757A1B9EB2A7913B59691000C4EC6213"
+  },
+  {
+    "Path": "a-local\\initial\\Rf016EnvironmentIsolationTest.java.txt",
+    "Sha256": "42E31DDFD6C1EB30B52902A32E68DAF75C7CE70C6545AD10E2B94DD328E5D36A"
+  },
+  {
+    "Path": "a-local\\initial\\Rf016IsolatedBootSmokeTest.java.txt",
+    "Sha256": "0B3138786E163ECDDDA0C1587096959FB3E2F4A0761D5AAD31954CA0DB5381CE"
+  },
+  {
+    "Path": "a-local\\initial\\Rf016IsolationConfiguration.java.txt",
+    "Sha256": "5ABDDEADFE53AB2A88AEC7BCE3C252F92AC9C7856F36C25A412710985E5810E9"
+  },
+  {
+    "Path": "a-local\\initial\\Rf016SafeContextLoader.java.txt",
+    "Sha256": "547E1ABED1EBECF8020869A4BE56F92AD8D8510037CC244F5B0E312764B36D83"
+  },
+  {
+    "Path": "a-local\\initial\\source-sha256.json",
+    "Sha256": "3B258815F4264233E37BEEE4EEFBB008F07F7CAA0BE957C93D47DB44B417951B"
+  },
+  {
+    "Path": "a-local\\initial\\TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+    "Sha256": "7E4575902EAD61C821CCAAD12521D0DE74CB9569F7434F40AD2C615DF43AC024"
+  },
+  {
+    "Path": "a-local\\initial\\TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+    "Sha256": "74B0776769B1A1617083DE97121D41A10DF152B5AED237DD52EEDD440F578C45"
+  },
+  {
+    "Path": "a-local\\initial\\test-console.txt",
+    "Sha256": "1B4F777C24B6CF055CAAD77DC938FCB1DE089094F1381C9B866A3A654DA7E7AC"
+  },
+  {
+    "Path": "a-local\\initial\\test-escalated-console.txt",
+    "Sha256": "5CCB2E73B7A0F1DA4A54AAA0B769E8DB0C4FB997F68018E12EC51C53B73F93CA"
+  },
+  {
+    "Path": "a-local\\second\\Rf016EnvironmentIsolationTest.java.txt",
+    "Sha256": "42E31DDFD6C1EB30B52902A32E68DAF75C7CE70C6545AD10E2B94DD328E5D36A"
+  },
+  {
+    "Path": "a-local\\second\\Rf016IsolatedBootSmokeTest.java.txt",
+    "Sha256": "0B3138786E163ECDDDA0C1587096959FB3E2F4A0761D5AAD31954CA0DB5381CE"
+  },
+  {
+    "Path": "a-local\\second\\Rf016IsolationConfiguration.java.txt",
+    "Sha256": "5ABDDEADFE53AB2A88AEC7BCE3C252F92AC9C7856F36C25A412710985E5810E9"
+  },
+  {
+    "Path": "a-local\\second\\Rf016SafeContextLoader.java.txt",
+    "Sha256": "C6555C46B02E1B4DF61EC29BAEDE309E475E9CD7A569AD7F1D59977DB48CEFBF"
+  },
+  {
+    "Path": "a-local\\second\\TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+    "Sha256": "4538FB1D2B6ABDECFFAB42DCF47C787DB62B651F33B9DB181FDB6A2625224F41"
+  },
+  {
+    "Path": "a-local\\second\\TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+    "Sha256": "71752447C19A5FDD56B875634B4ECBAF2DACAD51CF7525E050961247ABAB2E1F"
+  },
+  {
+    "Path": "a-local\\second\\test-console.txt",
+    "Sha256": "B7B3316CA4449FF702D37F220B72D25ABDC6B3AC1E6A79DB71C811A7787D52B6"
+  },
+  {
+    "Path": "b-prepared\\host-service-readonly.json",
+    "Sha256": "6AFA49B05553E6D04344B7E7CFC674574CDAF0F382151BEF6E1D71A4AB911757"
+  },
+  {
+    "Path": "b-prepared\\README.md",
+    "Sha256": "6B2F836A2F39E21DD66F99CFD1AEBAFC4E8C9B0FC776390E7195B4AAC4AA52E0"
+  },
+  {
+    "Path": "b-prepared\\service-defaults-readonly.json",
+    "Sha256": "FF978A255F9BD0F9BFDD409A84F343D238E3C69C827361DF256C88190922CAE4"
+  },
+  {
+    "Path": "b-prepared\\start-auto-review-rejected.json",
+    "Sha256": "8785D21576934CB2A3E73C9F02295022D49EBAEFADBC1C6F61F6857B065C954B"
+  },
+  {
+    "Path": "b-prepared\\start-host-gate-stopped.json",
+    "Sha256": "26705E88154BB96292B3AC661EB81EBBA3B6DDBF9F0939BD6725EE09ADCC792D"
+  },
+  {
+    "Path": "b-prepared\\start-readonly-before.json",
+    "Sha256": "286085FED2D76D27D318A6CF3588D6792F9F9021496933EE409C77B6581DF726"
+  },
+  {
+    "Path": "b-prepared\\verify-and-run.ps1",
+    "Sha256": "EF71165129E42FBEC846C1AD0D44EF7DEAE36A70376F1EC228C9BDD2487CA002"
+  },
+  {
+    "Path": "b-prepared\\offline\\assemble-console.txt",
+    "Sha256": "260E8C8534265F2E08C08A56C82E648E43A3699D4689454D83324ABF5538D882"
+  },
+  {
+    "Path": "b-prepared\\offline\\assemble-up-to-date-console.txt",
+    "Sha256": "A0A458F55A8C5A2698BCE6B4D40CCC5376C50673E36BD79F3F8F157E37D53F65"
+  },
+  {
+    "Path": "b-prepared\\offline\\runner-parse.json",
+    "Sha256": "452294D1B51676E07213D3B0AA7FE1EA2F1084159DF8BACE746B7AE1F007903D"
+  },
+  {
+    "Path": "b-prepared\\offline\\TEST-com.ngng.api.isolation.mysql.Rf016MySqlSafetyGateTest.xml",
+    "Sha256": "114EB7ABE64C0A183190AF8533999E5AE5314C2DEF36E9397905C6AF40DA7057"
+  },
+  {
+    "Path": "b-prepared\\offline\\TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+    "Sha256": "2F4619663B769419AF19D6314BAC6E0D8628E92C0B53CD387ACB6C8036C1C915"
+  },
+  {
+    "Path": "b-prepared\\offline\\TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+    "Sha256": "893777BA921C5AECCA4E2534E1052C99DEDDECC249329C8B3EE16753D4B59175"
+  },
+  {
+    "Path": "b-prepared\\offline\\test-console.txt",
+    "Sha256": "9A587CE7DC5AE2FB9DC12648E6D022FFCB797589948024F7BBE7B1129689A419"
+  },
+  {
+    "Path": "b-prepared\\offline-before-readonly\\assemble-console.txt",
+    "Sha256": "260E8C8534265F2E08C08A56C82E648E43A3699D4689454D83324ABF5538D882"
+  },
+  {
+    "Path": "b-prepared\\offline-before-readonly\\assemble-up-to-date-console.txt",
+    "Sha256": "A0A458F55A8C5A2698BCE6B4D40CCC5376C50673E36BD79F3F8F157E37D53F65"
+  },
+  {
+    "Path": "b-prepared\\offline-before-readonly\\runner-parse.json",
+    "Sha256": "E466F0DB6565E1EEC09FA5883955D38F7BD163C9060E868EC524DC1BFB538039"
+  },
+  {
+    "Path": "b-prepared\\offline-before-readonly\\TEST-com.ngng.api.isolation.mysql.Rf016MySqlSafetyGateTest.xml",
+    "Sha256": "C00B99A1DECA54EC06F8E11632A3B9CB8A9013D80D1E4D7773BC418746256F95"
+  },
+  {
+    "Path": "b-prepared\\offline-before-readonly\\TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+    "Sha256": "5C0B6B871808F05F6407B4880FCBF977F1040417D239A4CBC307B9FB3583AC34"
+  },
+  {
+    "Path": "b-prepared\\offline-before-readonly\\TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+    "Sha256": "EB524A228071546618C3E7F8578A42F1FBDF9AAC4E711D1D10CB5557F1C239E6"
+  },
+  {
+    "Path": "b-prepared\\offline-before-readonly\\test-console.txt",
+    "Sha256": "9A587CE7DC5AE2FB9DC12648E6D022FFCB797589948024F7BBE7B1129689A419"
+  },
+  {
+    "Path": "b-prepared\\offline-before-readonly\\source\\Rf016MySqlCommitRollbackTest.java.txt",
+    "Sha256": "16F1048989AD66AB95AD76EBCD5D487ADFCACEA2FEC1DCBA8207C23FB5C25DB9"
+  },
+  {
+    "Path": "b-prepared\\offline-before-readonly\\source\\Rf016MySqlFixture.java.txt",
+    "Sha256": "D415FE94FB33AB5C5EF180CB8738105020EC4A29FD7E9B55D1545156DECE1F87"
+  },
+  {
+    "Path": "b-prepared\\offline-before-readonly\\source\\Rf016MySqlSafetyGate.java.txt",
+    "Sha256": "17FBA7DA351A3A8A6CDC1414CBAF4EA114045768BC2E23EB892FE7D41515C313"
+  },
+  {
+    "Path": "b-prepared\\offline-before-readonly\\source\\Rf016MySqlSafetyGateTest.java.txt",
+    "Sha256": "2483C642A59EB274EF36F3D875D9BEECD4E9854E54824DE9FB0756694BFC3268"
+  },
+  {
+    "Path": "b-prepared\\offline-first\\TEST-com.ngng.api.isolation.mysql.Rf016MySqlSafetyGateTest.xml",
+    "Sha256": "13938B8B2E948A30C0144D09D2193AEA97E52C58653AAAB54075663339BF6C42"
+  },
+  {
+    "Path": "b-prepared\\offline-first\\TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+    "Sha256": "44515CABBFF37E3CB5529CBA7BAF5318124DC2550B9547D9469071D12BD3C310"
+  },
+  {
+    "Path": "b-prepared\\offline-first\\TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+    "Sha256": "E2BC43350CDDB0196B45213C64F0419CDE71A13A03B41D0E67F41B8CF8084A5E"
+  },
+  {
+    "Path": "b-prepared\\offline-first\\test-console.txt",
+    "Sha256": "F29DAAA68352FCC7A46F91D7016E069CBEE591C427F774FFBC3F78F0E7EBEE71"
+  },
+  {
+    "Path": "b-prepared\\offline-journal\\TEST-com.ngng.api.isolation.mysql.Rf016MySqlSafetyGateTest.xml",
+    "Sha256": "1101DED8CF4B910F87B380AE2CC1E400BF308E16D73F6959A90B6C89E4FC336B"
+  },
+  {
+    "Path": "b-prepared\\offline-journal\\TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+    "Sha256": "C4A8D39E29252D5084E4273246559B5E29BDADBF06D640542D7A728914481680"
+  },
+  {
+    "Path": "b-prepared\\offline-journal\\TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+    "Sha256": "AC544A0B06CF2C1AEAFCF2AF72ADEEBAFB4333289FD7138EA6098F182287A8E9"
+  },
+  {
+    "Path": "b-prepared\\offline-journal\\test-console.txt",
+    "Sha256": "F29DAAA68352FCC7A46F91D7016E069CBEE591C427F774FFBC3F78F0E7EBEE71"
+  },
+  {
+    "Path": "b-prepared\\offline-journal\\source\\Rf016MySqlCommitRollbackTest.java.txt",
+    "Sha256": "E9921728BBC8E6389727307015FE846B85202D06B0C1ECB334AAFC6FE37E73A8"
+  },
+  {
+    "Path": "b-prepared\\offline-journal\\source\\Rf016MySqlFixture.java.txt",
+    "Sha256": "9AD84E2946D158AED86F0D21C2FD354D27EB46369C4D826FA6170D00267DAA51"
+  },
+  {
+    "Path": "b-prepared\\offline-journal\\source\\Rf016MySqlSafetyGate.java.txt",
+    "Sha256": "8C9FF0C139B5F542490F7AB524AF8B4FD42F9E9772FE8F7B0EEE46691134778B"
+  },
+  {
+    "Path": "b-prepared\\offline-journal\\source\\Rf016MySqlSafetyGateTest.java.txt",
+    "Sha256": "7AB215A463B1AA8B3B141D16D4B4335EF421A91EF9A3869AF64AE465BF22299A"
+  },
+  {
+    "Path": "b-prepared\\offline-review\\TEST-com.ngng.api.isolation.mysql.Rf016MySqlSafetyGateTest.xml",
+    "Sha256": "1992F14383DD01A7D2FF22215D79E5D0D43C9764157A5A4ED7107FB4B462EAE0"
+  },
+  {
+    "Path": "b-prepared\\offline-review\\TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+    "Sha256": "3BC238120BCCAFCD4CC67C8387933A5565CBE69387DDA493B428938102660F2F"
+  },
+  {
+    "Path": "b-prepared\\offline-review\\TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+    "Sha256": "ED8C6648B2D0CEB125F4E62EBA8E360D57EEE6C8BFFE8820AF7C7CB3FB6365B1"
+  },
+  {
+    "Path": "b-prepared\\offline-review\\test-console.txt",
+    "Sha256": "421EF58BF18E036CA6714873075A9E1147D41BCDE137D03F109F03B3C7E73D1C"
+  },
+  {
+    "Path": "b-prepared\\offline-review\\source\\Rf016MySqlCommitRollbackTest.java.txt",
+    "Sha256": "16F1048989AD66AB95AD76EBCD5D487ADFCACEA2FEC1DCBA8207C23FB5C25DB9"
+  },
+  {
+    "Path": "b-prepared\\offline-review\\source\\Rf016MySqlFixture.java.txt",
+    "Sha256": "D415FE94FB33AB5C5EF180CB8738105020EC4A29FD7E9B55D1545156DECE1F87"
+  },
+  {
+    "Path": "b-prepared\\offline-review\\source\\Rf016MySqlSafetyGate.java.txt",
+    "Sha256": "647514AD0F0D06A6226B60AC47EE70348DE1746E3FABCF214E6D159E142988E3"
+  },
+  {
+    "Path": "b-prepared\\offline-review\\source\\Rf016MySqlSafetyGateTest.java.txt",
+    "Sha256": "E735E8364D75C26A43BEEA9FED776DDF076DADD66F6BA2E826A37A28F0660818"
+  },
+  {
+    "Path": "b-prepared\\source\\Rf016MySqlCommitRollbackTest.java.txt",
+    "Sha256": "16F1048989AD66AB95AD76EBCD5D487ADFCACEA2FEC1DCBA8207C23FB5C25DB9"
+  },
+  {
+    "Path": "b-prepared\\source\\Rf016MySqlFixture.java.txt",
+    "Sha256": "2CBC59AEC34E6D488B070BBC4E43F8F7F13D1E168CECE6B962A2C5A99C34767D"
+  },
+  {
+    "Path": "b-prepared\\source\\Rf016MySqlReadOnlyPreflightTest.java.txt",
+    "Sha256": "33F5A4D941E0623A94356F1D52EEF325D419AFE794FBF9A870ED38F79297141D"
+  },
+  {
+    "Path": "b-prepared\\source\\Rf016MySqlSafetyGate.java.txt",
+    "Sha256": "9A85412A2D655B974341342D917A287B001B745713C6500F367C99D5C3FF8E31"
+  },
+  {
+    "Path": "b-prepared\\source\\Rf016MySqlSafetyGateTest.java.txt",
+    "Sha256": "2092EB6D5C8FCB8ED5C717B2A68B69F91FE51452190FBD201909680167830D0A"
+  }
+]
