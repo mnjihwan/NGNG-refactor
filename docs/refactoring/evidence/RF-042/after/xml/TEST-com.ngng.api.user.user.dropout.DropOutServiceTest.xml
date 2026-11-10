@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.user.user.dropout.DropOutServiceTest" tests="39" skipped="0" failures="0" errors="0" timestamp="2026-11-10T06:11:25" hostname="MOON" time="0.115">
+  <properties/>
+  <testcase name="missingOwnTargetKeepsExistingFailure()" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.019"/>
+  <testcase name="[1] role=USER, visible=true" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.002"/>
+  <testcase name="[2] role=USER, visible=false" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.001"/>
+  <testcase name="[3] role=UNCONFIRMED_USER, visible=true" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.004"/>
+  <testcase name="[4] role=UNCONFIRMED_USER, visible=false" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.002"/>
+  <testcase name="[5] role=ADMIN, visible=true" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.003"/>
+  <testcase name="[6] role=ADMIN, visible=false" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.001"/>
+  <testcase name="[7] role=FUTURE_ROLE, visible=true" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.002"/>
+  <testcase name="[8] role=FUTURE_ROLE, visible=false" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.003"/>
+  <testcase name="equalLongValuesFromDifferentInstancesAllowSelf()" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.002"/>
+  <testcase name="[1] role=USER, id=7002, targetVisible=true" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.002"/>
+  <testcase name="[2] role=USER, id=7002, targetVisible=false" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.002"/>
+  <testcase name="[3] role=USER, id=9999, targetVisible=true" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.001"/>
+  <testcase name="[4] role=USER, id=9999, targetVisible=false" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.003"/>
+  <testcase name="[5] role=UNCONFIRMED_USER, id=7002, targetVisible=true" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.003"/>
+  <testcase name="[6] role=UNCONFIRMED_USER, id=7002, targetVisible=false" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.004"/>
+  <testcase name="[7] role=UNCONFIRMED_USER, id=9999, targetVisible=true" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.003"/>
+  <testcase name="[8] role=UNCONFIRMED_USER, id=9999, targetVisible=false" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.002"/>
+  <testcase name="[9] role=ADMIN, id=7002, targetVisible=true" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.003"/>
+  <testcase name="[10] role=ADMIN, id=7002, targetVisible=false" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.002"/>
+  <testcase name="[11] role=ADMIN, id=9999, targetVisible=true" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.002"/>
+  <testcase name="[12] role=ADMIN, id=9999, targetVisible=false" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.002"/>
+  <testcase name="nullableVisibleKeepsExistingUnboxingFailure()" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.003"/>
+  <testcase name="[1] kind=missing" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.001"/>
+  <testcase name="[2] kind=unauthenticated" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.001"/>
+  <testcase name="[3] kind=anonymous" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.004"/>
+  <testcase name="[4] kind=string" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.002"/>
+  <testcase name="[5] kind=null-principal" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.001"/>
+  <testcase name="[6] kind=null-user" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.002"/>
+  <testcase name="[7] kind=null-email" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.002"/>
+  <testcase name="[8] kind=blank-email" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.001"/>
+  <testcase name="repeatedSelfRequestsKeepExistingToggle()" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.001"/>
+  <testcase name="databaseFailureIsNotHiddenAsAuthorizationRefusal()" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.001"/>
+  <testcase name="forgedPrincipalIdDoesNotReplaceDatabaseIdentity()" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.001"/>
+  <testcase name="[1] kind=missing-caller" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.001"/>
+  <testcase name="[2] kind=null-caller-id" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.001"/>
+  <testcase name="[3] kind=null-request-id" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.001"/>
+  <testcase name="[4] kind=both-null" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.002"/>
+  <testcase name="[5] kind=null-request" classname="com.ngng.api.user.user.dropout.DropOutServiceTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-10T06:07:09" hostname="MOON" time="0.588">
+  <properties/>
+  <testcase name="beforeUnknownNonblankRoleCanToggleSelf()" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.463"/>
+  <testcase name="beforeSameTokenCanReactivateSelf()" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.024"/>
+  <testcase name="[1] role=USER" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.04"/>
+  <testcase name="[2] role=UNCONFIRMED_USER" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.006"/>
+  <testcase name="[3] role=ADMIN" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.01"/>
+  <system-out><![CDATA[15:07:07.962 [Test worker] INFO org.hibernate.validator.internal.util.Version -- HV000001: Hibernate Validator 8.0.1.Final
+15:07:09.385 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@70c205bf, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@43ab9ae9, org.springframework.security.web.context.SecurityContextHolderFilter@23321be7, org.springframework.security.web.header.HeaderWriterFilter@17d816b3, org.springframework.web.filter.CorsFilter@2520aa05, org.springframework.security.web.authentication.logout.LogoutFilter@2487e20, com.ngng.api.global.security.filter.TokenFilter@26865b57, com.ngng.api.global.security.filter.LoginFilter@46894dc5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@312f3050, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@615bad16, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@596afb2f, org.springframework.security.web.session.SessionManagementFilter@2c0dca15, org.springframework.security.web.access.ExceptionTranslationFilter@3c346c45, org.springframework.security.web.access.intercept.AuthorizationFilter@c67395]
+15:07:09.580 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+15:07:09.580 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+15:07:09.580 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+15:07:10.032 [Test worker] INFO user-log -- Success DropOut User id: 7001
+15:07:10.083 [Test worker] INFO user-log -- Success DropOut User id: 7001
+15:07:10.096 [Test worker] INFO user-log -- Success DropOut User id: 7001
+15:07:10.164 [Test worker] INFO user-log -- Success DropOut User id: 7002
+15:07:10.184 [Test worker] INFO user-log -- Success DropOut User id: 7002
+15:07:10.192 [Test worker] INFO user-log -- Success DropOut User id: 7002
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
