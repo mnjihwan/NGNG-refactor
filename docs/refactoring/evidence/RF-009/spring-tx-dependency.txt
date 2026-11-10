@@ -1,0 +1,40 @@
+
+> Task :dependencyInsight
+org.springframework:spring-tx:6.1.5 (selected by rule)
+  Variant runtimeElements:
+    | Attribute Name                     | Provided     | Requested    |
+    |------------------------------------|--------------|--------------|
+    | org.gradle.status                  | release      |              |
+    | org.jetbrains.kotlin.platform.type | jvm          |              |
+    | org.gradle.category                | library      | library      |
+    | org.gradle.dependency.bundling     | external     | external     |
+    | org.gradle.jvm.environment         | standard-jvm | standard-jvm |
+    | org.gradle.jvm.version             | 17           | 17           |
+    | org.gradle.libraryelements         | jar          | jar          |
+    | org.gradle.usage                   | java-runtime | java-runtime |
+
+org.springframework:spring-tx:6.1.5
++--- org.springframework:spring-jdbc:6.1.5
+|    +--- org.springframework.boot:spring-boot-starter-jdbc:3.2.4
+|    |    \--- org.springframework.boot:spring-boot-starter-data-jpa:3.2.4
+|    |         \--- testRuntimeClasspath (requested org.springframework.boot:spring-boot-starter-data-jpa)
+|    \--- org.springframework:spring-orm:6.1.5
+|         \--- org.springframework.data:spring-data-jpa:3.2.4
+|              \--- org.springframework.boot:spring-boot-starter-data-jpa:3.2.4 (*)
++--- org.springframework:spring-orm:6.1.5 (*)
++--- org.springframework.data:spring-data-elasticsearch:5.2.4
+|    \--- org.springframework.boot:spring-boot-starter-data-elasticsearch:3.2.4
+|         \--- testRuntimeClasspath (requested org.springframework.boot:spring-boot-starter-data-elasticsearch)
++--- org.springframework.data:spring-data-jpa:3.2.4 (*)
++--- org.springframework.data:spring-data-keyvalue:3.2.4
+|    \--- org.springframework.data:spring-data-redis:3.2.4
+|         \--- org.springframework.boot:spring-boot-starter-data-redis:3.2.4
+|              \--- testRuntimeClasspath (requested org.springframework.boot:spring-boot-starter-data-redis)
+\--- org.springframework.data:spring-data-redis:3.2.4 (*)
+
+(*) - Indicates repeated occurrences of a transitive dependency subtree. Gradle expands transitive dependency subtrees only once per project; repeat occurrences only display the root of the subtree, followed by this annotation.
+
+A web-based, searchable dependency report is available by adding the --scan option.
+
+BUILD SUCCESSFUL in 1s
+1 actionable task: 1 executed

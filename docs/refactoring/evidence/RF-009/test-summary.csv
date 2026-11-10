@@ -1,0 +1,6 @@
+"phase","classes","tests","failures","errors","skipped"
+"before","2","11","0","0","0"
+"after-functional","4","63","0","0","0"
+"after-regression-failed","14","405","1","0","0"
+"after-regression-retry","13","392","0","0","0"
+"after-final","14","405","0","0","0"

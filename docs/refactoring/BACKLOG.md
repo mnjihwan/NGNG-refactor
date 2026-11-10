@@ -26,7 +26,7 @@
 | RF-006 / P0 | 거래 상태 변경의 Long 소유자 ID 비교 한정 수정. 결함 경로, F03 | 중간. 같은 값·다른 참조 소유자 거부 수정, 역할/소유권 주체 유지 | [명세](tasks/RF-006.md)·[증빙](evidence/RF-006/README.md). Oracle Java17 값 동등성 근거와 사용자 위임에 따라 두 비교만 Objects.equals 권고. 서로 별도 Long 객체·역할 3종×소유권·필터 포함/미포함 회귀 | **최소 구현·before37/after196 선택 회귀 완료, 독립 리뷰 완료** |
 | RF-007 / P0 | 상품 수정/삭제 객체 단위 인가. F03 | 높음. USER 타인 변경 거부 및 관리자 기존 관리 보존 | [명세](tasks/RF-007.md)·[증빙](evidence/RF-007/README.md). 실제 체인 역할×소유권·무쓰기·캐시·프런트 실패 선택 검증 완료. 최종 backend284/frontend45 통과, lint·tsc·assemble 성공; 실DB/실HTTP·브라우저·성능 미검증 | 합의한 최소 구현·선택 검증·독립 리뷰 완료 |
 | RF-008 / P0 | 포인트 응답의 User 민감 필드 노출 경계. F03 | 높음. user 제거는 보안 응답 계약 축소 | [명세](tasks/RF-008.md)·[증빙](evidence/RF-008/README.md). OWASP API3와 사용자 위임에 따른 8필드 DTO. before169/after204·frontend49·assemble 통과, 실DB/운영·외부 소비자·성능 한계 추적 | 합의한 최소 구현·격리 검증·최종 독립 리뷰 완료 |
-| RF-009 / P1 | 백엔드 상품 판매상태·삭제·끌올 변경의 캐시 무효화. 정합성 후보, F04 | 중상. 커밋 전후 캐시·동시 miss·롤백·Redis 장애 | RF-001 + 격리 DB/Redis. warm→변경→read 및 rollback 시 검증. PenaltyTran/거래 수락 포함. 채팅·신고 전체 캐시 설계와 혼합하지 않음 | 제안 |
+| RF-009 / P1 | 백엔드 상품 판매상태·삭제·끌올 변경의 캐시 무효화. 정합성 후보, F04 | 중상. 커밋 전후 캐시·동시 miss·롤백·Redis 장애 | [명세](tasks/RF-009.md)·[증빙](evidence/RF-009/README.md). ProductService PUT/sale/refresh/delete·PenaltyTran/최초 수락, afterCommit 대상 key evict·RuntimeException 차단 | 합의 기능 최소 구현·before11/final405·assemble·독립 코드/증빙 리뷰 완료, 문서 최종 정합 검토 완료. 늦은 stale put 재현·강한 최신성/복구 미해결, 실DB/Redis·운영/성능 미검증 |
 | RF-010 / P1 | 상품 DTO에 포함된 채팅/신고/사용자 변경 주체와 캐시 소유 범위 확정. 조사, F04 | 높음. 저장소 간 변경·응답 분리 가능성 | 실제 공유 DB/쓰기 경로 확인 및 stale 시나리오 재현. 변경안은 별도 명세로 확정하며 이벤트 인프라를 자동 도입하지 않음 | 조사 제안 |
 | RF-011 / P1 | 상품 목록 빈 결과의 service/controller 계약 정리. 결함 경로, F06 | 낮음~중간. 기존 NPE를 204 또는 200으로 바꾸는 동작 변경 | RF-001. 무페이지·빈 페이지·마지막 페이지 재현 후 응답 정책 합의. 다른 예외를 일괄 변경하지 않음 | 정책 확인 후 계획 |
 | RF-012 / P2 | ProductService 두 목록 매핑 중복 제거. 코드 품질, F07 | 낮음. null/visible/순서 및 연관 접근 시점 | RF-001 유형의 fixture/응답 테스트. 목록 매핑만 추출하고 엔티티·fetch·트랜잭션·API는 유지 | 제안 |
@@ -136,3 +136,27 @@ R4-연동/운영/성능의 기존 미실행·별도 범위는 유지한다. 공�
 | R8-통합 / 잔여 검증 | 실제 DB commit/rollback·락/SQL, 운영Boot 전체 HTTP/error dispatch/OSIV·브라우저, 외부 소비자 user 의존·릴리스 고지 미검증. 전체 backend test/build 및 frontend production build 미실행 | 안전한 격리 서비스·fixture/인증·외부 차단·소비자 목록과 후속 지시 후 별도 실행. 외부 소비자 의존 확인 및 응답 축소 고지는 운영 잔여 |
 | R8-범위밖 / 별도 후보 | 신고 등 다른 User 직렬화, 기존 typeDetail 이름 표시 정책 유지 | 독립 조사·계약/정책 합의 후 별도 명세; 자동 착수하지 않음 |
 | R8-성능 / 잔여 검증 | 사용자 지시로 별도 유예, 미측정·개선 주장 없음 | 별도 지시·동일 조건 전후 기준선 마련 후 측정 |
+
+### 2026-11-10 RF009 분석·계획 — R9 추적
+
+[명세](tasks/RF-009.md)·[증빙](evidence/RF-009/README.md). HEAD `6438b969e3901d14bdd519c16de26c44d51ba68a`에서 읽기 분석·공식 자료 확인만 수행했다. 아래 기록은 신규 환경 사용 승인이나 잔여 작업 자동 착수를 뜻하지 않는다.
+
+| 추적 | 현재 상태·근거 | 추가 검증 / 재개 조건 |
+|---|---|---|
+| R9-격리 | 독립 계획 리뷰 반영. 작은 협력자의 tx+synchronization 커밋 후 evict/무tx fallback·RuntimeException 로그/차단 선택. PUT CachePut·Redis 오류 전파 변경 명시. 실행/최종 리뷰 전 | 대상 key·rollback·거부/no-op·private 제재/수락·RF004/007 회귀, 뒤 callback 계속 실행/중복 evict 허용을 검증. 정상 커밋 후 무효화의 합의 기능 한정 완료 가능 |
+| R9-일관성 | 늦은 old put·다중 인스턴스·Redis 실패/프로세스 종료 복구는 미해결. 직접 afterCommit 예외 차단으로 새 쓰기 HTTP 실패를 방지하는 프로젝트 선택; EventListener AFTER_COMMIT은 afterCompletion(COMMITTED)와 구별 | 두 독립 Spring context/공유 대역의 결정적 miss 경합과 오류 주입으로 잔여를 증빙. 합의 기능 완료와 강한 최신성/복구 미해결을 구분; fencing/outbox/캐시 우회 자동 도입 안 함 |
+| R9-통합 | 실DB/Redis·HTTP/OSIV/브라우저 미검증. 과거 RF004 MySQL 승인·24건은 이번 신규 Redis 사용 승인·RF009 검증이 아님 | 별도 승인 확인, 전용 identity/namespace·DB fixture 소유권·외부 차단·DDL 금지·정확 key/행 cleanup. FLUSHALL/FLUSHDB 금지, 운영 자격값 사용 금지 |
+| R9-범위 | DTO 연관 채팅/신고/사용자·이미지·검색·프런트 캐시 최신성은 별도. Penalty 동일 tx report는 해당 상품 eviction에 포함 가능 | RF010 또는 별도 명세·정책. 기존 RF004/007 인가·사업조건·거래 writer 경합 정책을 자동 확대하지 않음 |
+| R9-성능 | 사용자 지시로 유예·미측정, 개선 주장 없음 | 별도 지시·동일 조건 비교 계획 후 실행 |
+
+### 2026-11-10 RF009 최소 구현·격리 검증 — 최신 R9 상태
+
+위 분석·계획 기록은 당시 이력이며 아래가 최신 상태다. [명세](tasks/RF-009.md)·[증빙](evidence/RF-009/README.md). 정상 커밋 뒤 대상 상품 무효화의 합의 기능과 전체 캐시 최신성/복구를 구분하며, 후속 작업을 자동 승인하지 않는다.
+
+| 추적 | 현재 상태·근거 | 추가 검증 / 재개 조건 |
+|---|---|---|
+| R9-격리 | 작은 협력자+3 서비스 연결 최소 구현·before11/final405 fail/error/skip0·assemble0·독립 코드/증빙 리뷰 완료(차단 결함 없음), 문서 정합 최종 검토 완료. 신규69/관련336 선택 회귀. XML/console/source23개/hash·실패 이력 보존 | 문서 최종 리뷰 반영 완료. 새 writer/캐시 설정 도입 시 실제 proxy/동기화 suite 재실행. DB resource는 대역이며 물리 commit/rollback 증명 아님 |
+| R9-일관성 | afterCommit evict/RuntimeException 로그·응답 보존/뒤 callback 계속 실행 검증. 두 독립 context shared 대역으로1/2 reader 늦은 stale put 재현, 역순 fake writer commit 검증. 강한 최신성·Redis 실패/프로세스 종료·failover 복구/다중 인스턴스 미해결 | 강한 보장 필요 시 캐시 우회·분산 generation/fencing/복구의 별도 설계·계약/부하 검토·승인 후 착수. 단순 eviction/TTL로 해결 주장 안 함 |
+| R9-통합 | 실DB/JPA flush/락/rollback·Redis serialization/key/TTL/네트워크·운영 Boot advisor/HTTP/OSIV/브라우저 미검증. 기존 MySQL opt-in2클래스는 생성자 mock 인자만 컴파일 호환 수정, 실행하지 않음 | 별도 사용 승인·전용 identity/namespace·소유 fixture·외부 차단·DDL 금지·정확 소유행/key cleanup/독립 잔여 확인. 과거 RF00424건은 RF009 Redis 검증 아님 |
+| R9-범위 | 채팅/다른 신고/사용자·이미지·검색·프런트 캐시 최신성·신규 인가 정책 유지. 같은 penalty tx의 해당 report는 상품 eviction에 포함 | RF010 또는 별도 정책/명세. RF004 RC/lock/MANDATORY·RF007 guard/삭제 OR·기존 API 불변, 임의 outer RR/stale 관리객체 지원 확대 안 함 |
+| R9-성능 | 사용자 지시 유예·미측정, 개선 주장 없음 | 별도 지시·동일 조건 전후 비교 계획 후 측정 |

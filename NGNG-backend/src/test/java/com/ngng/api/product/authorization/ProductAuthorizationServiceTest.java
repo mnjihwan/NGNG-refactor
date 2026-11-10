@@ -35,7 +35,7 @@ class ProductAuthorizationServiceTest {
     Product target;
     @BeforeEach void setup() {
         products = mock(ProductRepository.class); tags = mock(TagService.class); auth = mock(AuthService.class);
-        service = new ProductService(products, tags, auth); target = spy(product(distinctId(1000)));
+        service = new ProductService(products, tags, auth, mock(ProductCacheInvalidator.class)); target = spy(product(distinctId(1000)));
         when(products.findById(77L)).thenReturn(Optional.of(target));
         when(products.save(any())).thenAnswer(inv -> inv.getArgument(0));
         authenticate("USER", new CustomUserDetails(user(null)), true);

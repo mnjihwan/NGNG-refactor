@@ -883,7 +883,7 @@ class TransactionAcceptanceMySqlConcurrencyTest {
         @Bean TransactionRequestService transactionRequestService(TransactionRequestRepository requests, ProductRepository products,
                                                                  TransactionDetailsService details, EntityManagerFactory emf) {
             return new TransactionRequestService(observe(TransactionRequestRepository.class, requests, emf),
-                    observe(ProductRepository.class, products, emf), details);
+                    observe(ProductRepository.class, products, emf), details, org.mockito.Mockito.mock(com.ngng.api.product.product.service.ProductCacheInvalidator.class));
         }
     }
 }

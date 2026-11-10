@@ -2,6 +2,7 @@ package com.ngng.api.transaction.service;
 
 import com.ngng.api.product.product.entity.Product;
 import com.ngng.api.product.product.repository.ProductRepository;
+import com.ngng.api.product.product.service.ProductCacheInvalidator;
 import com.ngng.api.transaction.dto.CreateTransactionDetailsRequestDTO;
 import com.ngng.api.transaction.dto.CreateTransactionRequestDTO;
 import com.ngng.api.transaction.dto.TransactionRequestDTO;
@@ -25,6 +26,7 @@ public class TransactionRequestService {
     private final TransactionRequestRepository transactionRequestRepository;
     private final ProductRepository productRepository;
     private final TransactionDetailsService transactionDetailsService;
+    private final ProductCacheInvalidator productCacheInvalidator;
 
     public Long create(CreateTransactionRequestDTO request){
 
@@ -86,6 +88,7 @@ public class TransactionRequestService {
                     transactionRequestRepository.save(other);
                 }
             }
+            productCacheInvalidator.invalidate(productId);
         } else {
             if (Boolean.TRUE.equals(target.getIsAccepted())) throw conflict();
             if (!Boolean.FALSE.equals(target.getIsAccepted())) {

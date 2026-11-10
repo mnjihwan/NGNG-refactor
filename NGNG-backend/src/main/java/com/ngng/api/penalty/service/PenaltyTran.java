@@ -8,6 +8,7 @@ import com.ngng.api.penalty.repository.PenaltyLevelRepository;
 import com.ngng.api.penalty.repository.PenaltyRepository;
 import com.ngng.api.product.product.entity.Product;
 import com.ngng.api.product.product.repository.ProductRepository;
+import com.ngng.api.product.product.service.ProductCacheInvalidator;
 import com.ngng.api.report.report.entity.Report;
 import com.ngng.api.report.report.repository.ReportRepository;
 import com.ngng.api.report.report.service.ReportService;
@@ -31,6 +32,7 @@ public class PenaltyTran {
     private final ReportRepository reportRepository;
     private final ReportService reportService;
     private final ProductRepository productRepository;
+    private final ProductCacheInvalidator productCacheInvalidator;
 
     @Transactional
     public CreatePenaltyResponseDTO penaltySaveAndReportUpdate(CreatePenaltyRequestDTO createPenaltyRequestDTO) {
@@ -117,5 +119,6 @@ public class PenaltyTran {
         product.setForSale(forSale);
 
         productRepository.save(product);
+        productCacheInvalidator.invalidate(productId);
     }
 }

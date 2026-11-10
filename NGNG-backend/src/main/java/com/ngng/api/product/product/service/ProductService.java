@@ -13,7 +13,6 @@ import com.ngng.api.user.user.entity.User;
 import com.ngng.api.user.user.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -42,6 +41,7 @@ public class ProductService {
     private final ProductRepository productRepository;
     private final TagService tagService;
     private final AuthService authService;
+    private final ProductCacheInvalidator productCacheInvalidator;
 
     public Long create(CreateProductRequestDTO request){
         System.out.println("request = " + request.getUserId());
@@ -137,7 +137,6 @@ public class ProductService {
 
 
     @Transactional
-    @CachePut(cacheNames = "getProduct", key = "#productId", cacheManager = "contentCacheManager")
     public ReadProductResponseDTO update(Long productId, UpdateProductRequestDTO request) {
         Product found = productRepository.findById(productId).orElseThrow();
         requireProductManager(found);
@@ -152,7 +151,9 @@ public class ProductService {
 
         log.info("Success Update Product id: {} ",productId);
 //        return found.getProductId();
-        return convertToReadProductResponseDTO(found);
+        ReadProductResponseDTO response = convertToReadProductResponseDTO(found);
+        productCacheInvalidator.invalidate(productId);
+        return response;
     }
 
     public Long updateForSale(Long productId, Boolean forSale) {
@@ -160,6 +161,7 @@ public class ProductService {
         if (target != null) {
             target.setForSale(forSale);
             log.info("Success Update Product ForSale id: {} ",productId);
+            productCacheInvalidator.invalidate(productId);
         }
         return target.getProductId();
 
@@ -170,6 +172,7 @@ public class ProductService {
         if(target != null){
             target.setRefreshedAt(new Timestamp(new Date().getTime()));
             log.info("Success Update Product Refresh id: {} ",productId);
+            productCacheInvalidator.invalidate(productId);
         }
         return target.getProductId();
     }
@@ -184,7 +187,9 @@ public class ProductService {
             product.setVisible(false);
             product.setForSale(false);
             log.info("Success Delete Product id: {} ",productId);
-            return productRepository.save(product).getProductId();
+            Long deletedId = productRepository.save(product).getProductId();
+            productCacheInvalidator.invalidate(productId);
+            return deletedId;
         } else {
             return -1L;
         }
