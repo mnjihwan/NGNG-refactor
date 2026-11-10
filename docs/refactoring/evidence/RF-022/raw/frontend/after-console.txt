@@ -1,0 +1,221 @@
+TAP version 13
+# Subtest: CONNECT header reads stored form undefined
+ok 1 - CONNECT header reads stored form undefined
+  ---
+  duration_ms: 81.6567
+  ...
+# Subtest: CONNECT header reads stored form Bearer abc
+ok 2 - CONNECT header reads stored form Bearer abc
+  ---
+  duration_ms: 23.3771
+  ...
+# Subtest: CONNECT header reads stored form "Bearer abc"
+ok 3 - CONNECT header reads stored form "Bearer abc"
+  ---
+  duration_ms: 20.4546
+  ...
+# Subtest: CONNECT header reads stored form abc
+ok 4 - CONNECT header reads stored form abc
+  ---
+  duration_ms: 17.2057
+  ...
+# Subtest: public: authenticates, subscribes, stops exact client and ignores late CONNECT
+ok 5 - public: authenticates, subscribes, stops exact client and ignores late CONNECT
+  ---
+  duration_ms: 60.6236
+  ...
+# Subtest: private: authenticates, subscribes, stops exact client and ignores late CONNECT
+ok 6 - private: authenticates, subscribes, stops exact client and ignores late CONNECT
+  ---
+  duration_ms: 40.406
+  ...
+# Subtest: alarm: authenticates, subscribes, stops exact client and ignores late CONNECT
+ok 7 - alarm: authenticates, subscribes, stops exact client and ignores late CONNECT
+  ---
+  duration_ms: 24.4468
+  ...
+# Subtest: anonymous public subscribes without Authorization; anonymous alarm creates no client
+ok 8 - anonymous public subscribes without Authorization; anonymous alarm creates no client
+  ---
+  duration_ms: 54.4042
+  ...
+# Subtest: network reconnect reads the latest access; token notification restarts once
+ok 9 - network reconnect reads the latest access; token notification restarts once
+  ---
+  duration_ms: 19.6219
+  ...
+# Subtest: logout/account switch blocks old identity and disposal cancels pending restart
+ok 10 - logout/account switch blocks old identity and disposal cancels pending restart
+  ---
+  duration_ms: 13.2592
+  ...
+# Subtest: missing private credentials and rejected token never retry as anonymous
+ok 11 - missing private credentials and rejected token never retry as anonymous
+  ---
+  duration_ms: 13.7016
+  ...
+# Subtest: public: successful envelope only; malformed/error/late callbacks have no successful effects
+ok 12 - public: successful envelope only; malformed/error/late callbacks have no successful effects
+  ---
+  duration_ms: 25.8731
+  ...
+# Subtest: private: successful envelope only; malformed/error/late callbacks have no successful effects
+ok 13 - private: successful envelope only; malformed/error/late callbacks have no successful effects
+  ---
+  duration_ms: 31.228
+  ...
+# Subtest: alarm: successful envelope only; malformed/error/late callbacks have no successful effects
+ok 14 - alarm: successful envelope only; malformed/error/late callbacks have no successful effects
+  ---
+  duration_ms: 16.5724
+  ...
+# Subtest: HTTP token writes and context login/logout notify; logout removes credential
+ok 15 - HTTP token writes and context login/logout notify; logout removes credential
+  ---
+  duration_ms: 35.3505
+  ...
+# Subtest: messages: HTTP 401 cannot become normal chat data
+ok 16 - messages: HTTP 401 cannot become normal chat data
+  ---
+  duration_ms: 30.5266
+  ...
+# Subtest: messages: HTTP 403 cannot become normal chat data
+ok 17 - messages: HTTP 403 cannot become normal chat data
+  ---
+  duration_ms: 19.0827
+  ...
+# Subtest: messages: HTTP 500 cannot become normal chat data
+ok 18 - messages: HTTP 500 cannot become normal chat data
+  ---
+  duration_ms: 22.5192
+  ...
+# Subtest: messages: network errors reject
+ok 19 - messages: network errors reject
+  ---
+  duration_ms: 25.3267
+  ...
+# Subtest: messages: valid HTTP body/headers preserved
+ok 20 - messages: valid HTTP body/headers preserved
+  ---
+  duration_ms: 16.7613
+  ...
+# Subtest: rooms: HTTP 401 cannot become normal chat data
+ok 21 - rooms: HTTP 401 cannot become normal chat data
+  ---
+  duration_ms: 18.2108
+  ...
+# Subtest: rooms: HTTP 403 cannot become normal chat data
+ok 22 - rooms: HTTP 403 cannot become normal chat data
+  ---
+  duration_ms: 14.9054
+  ...
+# Subtest: rooms: HTTP 500 cannot become normal chat data
+ok 23 - rooms: HTTP 500 cannot become normal chat data
+  ---
+  duration_ms: 17.3582
+  ...
+# Subtest: rooms: network errors reject
+ok 24 - rooms: network errors reject
+  ---
+  duration_ms: 18.408
+  ...
+# Subtest: rooms: valid HTTP body/headers preserved
+ok 25 - rooms: valid HTTP body/headers preserved
+  ---
+  duration_ms: 14.5403
+  ...
+# Subtest: find: HTTP 401 cannot become normal chat data
+ok 26 - find: HTTP 401 cannot become normal chat data
+  ---
+  duration_ms: 15.8659
+  ...
+# Subtest: find: HTTP 403 cannot become normal chat data
+ok 27 - find: HTTP 403 cannot become normal chat data
+  ---
+  duration_ms: 15.9312
+  ...
+# Subtest: find: HTTP 500 cannot become normal chat data
+ok 28 - find: HTTP 500 cannot become normal chat data
+  ---
+  duration_ms: 13.0319
+  ...
+# Subtest: find: network errors reject
+ok 29 - find: network errors reject
+  ---
+  duration_ms: 12.8991
+  ...
+# Subtest: find: valid HTTP body/headers preserved
+ok 30 - find: valid HTTP body/headers preserved
+  ---
+  duration_ms: 19.4091
+  ...
+# Subtest: create: HTTP 401 cannot become normal chat data
+ok 31 - create: HTTP 401 cannot become normal chat data
+  ---
+  duration_ms: 12.8533
+  ...
+# Subtest: create: HTTP 403 cannot become normal chat data
+ok 32 - create: HTTP 403 cannot become normal chat data
+  ---
+  duration_ms: 13.6567
+  ...
+# Subtest: create: HTTP 500 cannot become normal chat data
+ok 33 - create: HTTP 500 cannot become normal chat data
+  ---
+  duration_ms: 14.1887
+  ...
+# Subtest: create: network errors reject
+ok 34 - create: network errors reject
+  ---
+  duration_ms: 14.6914
+  ...
+# Subtest: create: valid HTTP body/headers preserved
+ok 35 - create: valid HTTP body/headers preserved
+  ---
+  duration_ms: 14.424
+  ...
+# Subtest: find missing room remains -1; invalid successful room IDs reject
+ok 36 - find missing room remains -1; invalid successful room IDs reject
+  ---
+  duration_ms: 125.1107
+  ...
+# Subtest: installed STOMP Client emits authenticated CONNECT and closes/reconnects using fake transport
+ok 37 - installed STOMP Client emits authenticated CONNECT and closes/reconnects using fake transport
+  ---
+  duration_ms: 26.2245
+  ...
+# Subtest: alarm re-render creates no duplicate connection and identity transition disposes old client
+ok 38 - alarm re-render creates no duplicate connection and identity transition disposes old client
+  ---
+  duration_ms: 14.5858
+  ...
+# Subtest: chat identity hook reacts to same-tab auth events and removes listener
+ok 39 - chat identity hook reacts to same-tab auth events and removes listener
+  ---
+  duration_ms: 15.1647
+  ...
+# Subtest: popup logout/account switch uses credential-free invalidation; anonymous public stays connected
+ok 40 - popup logout/account switch uses credential-free invalidation; anonymous public stays connected
+  ---
+  duration_ms: 24.6476
+  ...
+# Subtest: rooms: rejected HTTP data renders an error instead of normal/loading content
+ok 41 - rooms: rejected HTTP data renders an error instead of normal/loading content
+  ---
+  duration_ms: 11.8606
+  ...
+# Subtest: messages: rejected HTTP data renders an error instead of normal/loading content
+ok 42 - messages: rejected HTTP data renders an error instead of normal/loading content
+  ---
+  duration_ms: 11.0021
+  ...
+1..42
+# tests 42
+# suites 0
+# pass 42
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1274.8795
+Exit code: 0

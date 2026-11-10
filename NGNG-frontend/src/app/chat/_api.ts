@@ -71,6 +71,7 @@ export const getAllChatMessages = async ({
     cache: "no-cache",
   }).then((res) => {
     setAccessToken(res);
+    if (!res.ok) throw new Error("채팅 메시지를 불러오지 못했습니다.");
     return res.json();
   });
 };
@@ -98,9 +99,15 @@ export const createTransactionRequestAPI = async ({
       sellerId,
       price,
     }),
-  }).then((res) => {
+  }).then(async (res) => {
     setAccessToken(res);
-    return res.json();
+    if (!res.ok) throw new Error("거래 요청 생성에 실패했습니다.");
+    const requestId: unknown = await res.json();
+    if (typeof requestId !== "number" || !Number.isInteger(requestId) ||
+      (requestId <= 0 && requestId !== -1)) {
+      throw new Error("거래 요청 처리 결과가 올바르지 않습니다.");
+    }
+    return requestId;
   });
 };
 
@@ -133,6 +140,7 @@ export const getAllChatRoomData = async (userId: number) => {
     },
   }).then((res) => {
     setAccessToken(res);
+    if (!res.ok) throw new Error("채팅 목록을 불러오지 못했습니다.");
     return res.json();
   });
 };

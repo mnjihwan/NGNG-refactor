@@ -148,14 +148,14 @@ const usePrivateChatMessage = ({
     sellerId: number;
     price: number;
   }) => {
-    mutate(
-      async (prev: PrivateChat | undefined) => {
-        const update = await createTransactionRequestAPI({
-          buyerId,
-          productId,
-          sellerId,
-          price,
-        });
+    await createTransactionRequestAPI({
+      buyerId,
+      productId,
+      sellerId,
+      price,
+    });
+    return mutate(
+      (prev: PrivateChat | undefined) => {
         return {
           ...prev,
         } as PrivateChat;

@@ -1,12 +1,12 @@
 "use client";
 
-import { useCallback, useContext, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Message from "@/components/common/chat/Message";
 import * as StompJs from "@stomp/stompjs";
 import { sendPublicChatMessage } from "../../_api/api";
 import { Chat, Product } from "../../_types/type";
-import { UserContext } from "@/providers/UserContext";
-import { redirect } from "next/navigation";
+import { useChatUser } from "@/providers/UserContext";
+import { createChatConnection } from "@/providers/chatConnection";
 import ChattingHeader from "./ChattingHeader";
 import ChattingInputTextArea from "./ChattingInputTextArea";
 
@@ -14,8 +14,7 @@ type ChattingProps = {
   data: Product;
 };
 export default function Chatting({ data }: ChattingProps) {
-  const { getUser } = useContext(UserContext);
-  const user = getUser();
+  const user = useChatUser();
 
   const recentChatRef = useRef<HTMLDivElement>(null);
 
@@ -23,6 +22,7 @@ export default function Chatting({ data }: ChattingProps) {
   const [chatData, setChatData] = useState<Chat[]>(data.chats);
   const [message, setMessage] = useState<string>("");
   const [image, setImage] = useState<File | undefined>(undefined);
+  const [connectionError, setConnectionError] = useState(false);
   // if (user === undefined) {
   //   redirect("/login");
   // }
@@ -43,6 +43,7 @@ export default function Chatting({ data }: ChattingProps) {
     setMessage(message);
   };
   const sendImage = (image: File) => {
+    if (!user || !stompClient?.active || !stompClient.connected || connectionError) return;
     // 이미지 서버에 전송하기
     user !== undefined &&
       stompClient &&
@@ -54,18 +55,7 @@ export default function Chatting({ data }: ChattingProps) {
         userId: user.id,
       });
 
-    user !== undefined &&
-      setChatData([
-        ...chatData,
-        {
-          id: chatData?.slice(-1)[0].id + 1,
-          createdAt: new Date().toUTCString(),
-          message: URL.createObjectURL(image),
-          userId: user.id,
-          userName: user.name,
-          userNickName: user.nickname,
-        },
-      ]);
+    // Display the server's message only; a rejected SEND is not a successful echo.
     setMessage("");
     setImage(undefined);
     scrollToBottom();
@@ -78,6 +68,7 @@ export default function Chatting({ data }: ChattingProps) {
   }, []);
 
   const sendMessage = (message: string) => {
+    if (!user || !stompClient?.active || !stompClient.connected || connectionError) return;
     user !== undefined &&
       stompClient &&
       sendPublicChatMessage({
@@ -126,30 +117,32 @@ export default function Chatting({ data }: ChattingProps) {
   };
 
   useEffect(() => {
-    if (stompClient) {
-      stompClient.activate();
-    }
-  }, [stompClient]);
-
-  useEffect(() => {
-    const client = new StompJs.Client({
-      brokerURL: `${process.env.NEXT_PUBLIC_CHAT_SOCKET}/chat-server`,
-      reconnectDelay: 5000,
-    });
-    client.onConnect = () => {
-      if (client.connected) {
+    if (isReported) return;
+    const connection = createChatConnection({
+      userId: user?.id,
+      onUnavailable: () => setConnectionError(true),
+      onConnect: (client) => {
+        setConnectionError(false);
         client.subscribe(`/public-chats/${data.id}`, (message) => {
-          getMessage(JSON.parse(message.body).body);
+          if (!connection.isCurrent()) return;
+          try {
+            const body = JSON.parse(message.body).body;
+            if (typeof body?.id !== "number" || typeof body?.message !== "string" ||
+              typeof body?.userId !== "number") {
+              setConnectionError(true);
+              return;
+            }
+            getMessage(body);
+          } catch {
+            setConnectionError(true);
+          }
         });
-      }
-    };
-
-    !isReported && setStompClient(client); // 신고 안 당한 경우에만 채팅 연결
-
-    return () => {
-      if (stompClient) stompClient.deactivate();
-    };
-  }, []);
+      },
+    });
+    setStompClient(connection.client);
+    connection.client.activate();
+    return connection.dispose;
+  }, [user?.id, data.id, isReported]);
 
   useEffect(() => {
     setChatData(data.chats);
@@ -164,6 +157,7 @@ export default function Chatting({ data }: ChattingProps) {
   return (
     <div className="lg:sticky relative w-full lg:w-[30%] dark:lg:shadow-gray-950 lg:shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] p-5 h-[calc(100vh-128px)]  lg:top-[128px]  min-w-80 shadow-none dark:bg-bg-black">
       <ChattingHeader data={data} userId={user?.id} />
+      {connectionError && <p role="status">채팅 연결을 확인해 주세요. 인증이 만료된 경우 다시 로그인해 주세요.</p>}
       <div
         className="min-w-72 h-[calc(100%-15rem)] mt-3 flex flex-col items-start overflow-y-scroll scrollbar-hide"
         ref={recentChatRef}

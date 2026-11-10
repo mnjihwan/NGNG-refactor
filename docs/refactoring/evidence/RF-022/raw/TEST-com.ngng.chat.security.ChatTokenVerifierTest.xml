@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.chat.security.ChatTokenVerifierTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-11-10T06:33:37" hostname="REDACTED_HOST" time="0.349">
+  <properties/>
+  <testcase name="backendHmacAlgorithmsResolveEmailToServerId()" classname="com.ngng.chat.security.ChatTokenVerifierTest" time="0.019"/>
+  <testcase name="malformedWrongSignatureOrSchemeAndDuplicateHeadersAreRejected()" classname="com.ngng.chat.security.ChatTokenVerifierTest" time="0.008"/>
+  <testcase name="missingOrAmbiguousEmailMappingFailsClosed()" classname="com.ngng.chat.security.ChatTokenVerifierTest" time="0.009"/>
+  <testcase name="missingWrongTypeAndMalformedRequiredClaimsAreRejected()" classname="com.ngng.chat.security.ChatTokenVerifierTest" time="0.035"/>
+  <testcase name="malformedTemporalClaimsBecomeAuthenticationFailureWithoutMaskingDatabaseErrors()" classname="com.ngng.chat.security.ChatTokenVerifierTest" time="0.023"/>
+  <testcase name="asymmetricTokensAndUnknownAlgorithmsAreRejected()" classname="com.ngng.chat.security.ChatTokenVerifierTest" time="0.251"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

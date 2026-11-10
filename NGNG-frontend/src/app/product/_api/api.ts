@@ -65,12 +65,17 @@ export const findPrivateChatRoomByProductIdAndBuyerId = async (
     headers: {
       Authorization: getAccessToken(),
     },
-  }).then((res) => {
+  }).then(async (res) => {
     setAccessToken(res);
     if (res.status === 404) {
       return -1;
     }
-    return res.json();
+    if (!res.ok) throw new Error("채팅방을 찾지 못했습니다.");
+    const roomId: unknown = await res.json();
+    if (typeof roomId !== "number" || !Number.isInteger(roomId) || roomId <= 0) {
+      throw new Error("채팅방 정보가 올바르지 않습니다.");
+    }
+    return roomId;
   });
 };
 export const createPrivateChatRoom = async ({
@@ -93,9 +98,14 @@ export const createPrivateChatRoom = async ({
       buyerId,
       sellerId,
     }),
-  }).then((res) => {
+  }).then(async (res) => {
     setAccessToken(res);
-    return res.json();
+    if (!res.ok) throw new Error("채팅방을 생성하지 못했습니다.");
+    const roomId: unknown = await res.json();
+    if (typeof roomId !== "number" || !Number.isInteger(roomId) || roomId <= 0) {
+      throw new Error("채팅방 정보가 올바르지 않습니다.");
+    }
+    return roomId;
   });
 };
 

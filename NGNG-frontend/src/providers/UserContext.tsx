@@ -1,5 +1,6 @@
 "use client";
-import { createContext } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { listenChatAuthChanges, notifyChatAuthChanged } from "./chatAuth";
 export type User = {
   id: number;
   name: string;
@@ -37,11 +38,15 @@ const UserContextProvider = ({ children }: { children: React.ReactNode }) => {
   };
   const setUser = (info: User) => {
     sessionStorage.setItem("user", JSON.stringify(info));
+    notifyChatAuthChanged(true);
   };
 
   const logout = () => {
+    const hadSession = sessionStorage.getItem("user") !== null ||
+      sessionStorage.getItem("accessToken") !== null;
     sessionStorage.removeItem("user");
-    // sessionStorage.removeItem("accessToken");
+    sessionStorage.removeItem("accessToken");
+    if (hadSession) notifyChatAuthChanged(true);
   };
   return (
     <UserContext.Provider value={{ getUser, setUser, logout, getAccessToken }}>
@@ -50,3 +55,14 @@ const UserContextProvider = ({ children }: { children: React.ReactNode }) => {
   );
 };
 export default UserContextProvider;
+
+// Keep chat connections in sync even when login/logout happens without navigation.
+export const useChatUser = () => {
+  const { getUser } = useContext(UserContext);
+  const [, rerender] = useState(0);
+  useEffect(() => {
+    const onChange = () => rerender((value) => value + 1);
+    return listenChatAuthChanges(onChange);
+  }, []);
+  return getUser();
+};

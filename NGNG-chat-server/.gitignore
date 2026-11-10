@@ -3,7 +3,13 @@ HELP.md
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
-/src/test/
+/src/test/**
+!/src/test/java/
+!/src/test/java/com/
+!/src/test/java/com/ngng/
+!/src/test/java/com/ngng/chat/
+!/src/test/java/com/ngng/chat/security/
+!/src/test/java/com/ngng/chat/security/*.java
 
 
 src/main/resources/application.yml

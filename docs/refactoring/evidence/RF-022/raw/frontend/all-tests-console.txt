@@ -1,0 +1,466 @@
+TAP version 13
+# Subtest: successful accept preserves request/token and closes/refreshes
+ok 1 - successful accept preserves request/token and closes/refreshes
+  ---
+  duration_ms: 205.3183
+  ...
+# Subtest: successful dismiss preserves request/token and closes/refreshes
+ok 2 - successful dismiss preserves request/token and closes/refreshes
+  ---
+  duration_ms: 102.7233
+  ...
+# Subtest: 409 JSON rejects hook promise without successful cache update
+ok 3 - 409 JSON rejects hook promise without successful cache update
+  ---
+  duration_ms: 72.1471
+  ...
+# Subtest: 409 JSON accept keeps modal open and reports failure
+ok 4 - 409 JSON accept keeps modal open and reports failure
+  ---
+  duration_ms: 55.9433
+  ...
+# Subtest: 409 JSON dismiss keeps modal open and reports failure
+ok 5 - 409 JSON dismiss keeps modal open and reports failure
+  ---
+  duration_ms: 50.1954
+  ...
+# Subtest: 404 empty rejects hook promise without successful cache update
+ok 6 - 404 empty rejects hook promise without successful cache update
+  ---
+  duration_ms: 50.5277
+  ...
+# Subtest: 404 empty accept keeps modal open and reports failure
+ok 7 - 404 empty accept keeps modal open and reports failure
+  ---
+  duration_ms: 42.5356
+  ...
+# Subtest: 404 empty dismiss keeps modal open and reports failure
+ok 8 - 404 empty dismiss keeps modal open and reports failure
+  ---
+  duration_ms: 41.7361
+  ...
+# Subtest: 500 JSON rejects hook promise without successful cache update
+ok 9 - 500 JSON rejects hook promise without successful cache update
+  ---
+  duration_ms: 30.0702
+  ...
+# Subtest: 500 JSON accept keeps modal open and reports failure
+ok 10 - 500 JSON accept keeps modal open and reports failure
+  ---
+  duration_ms: 34.7165
+  ...
+# Subtest: 500 JSON dismiss keeps modal open and reports failure
+ok 11 - 500 JSON dismiss keeps modal open and reports failure
+  ---
+  duration_ms: 29.0424
+  ...
+# Subtest: network rejects hook promise without successful cache update
+ok 12 - network rejects hook promise without successful cache update
+  ---
+  duration_ms: 48.0332
+  ...
+# Subtest: network accept keeps modal open and reports failure
+ok 13 - network accept keeps modal open and reports failure
+  ---
+  duration_ms: 41.6622
+  ...
+# Subtest: network dismiss keeps modal open and reports failure
+ok 14 - network dismiss keeps modal open and reports failure
+  ---
+  duration_ms: 40.132
+  ...
+# Subtest: invalid JSON rejects hook promise without successful cache update
+ok 15 - invalid JSON rejects hook promise without successful cache update
+  ---
+  duration_ms: 44.8348
+  ...
+# Subtest: invalid JSON accept keeps modal open and reports failure
+ok 16 - invalid JSON accept keeps modal open and reports failure
+  ---
+  duration_ms: 36.0254
+  ...
+# Subtest: invalid JSON dismiss keeps modal open and reports failure
+ok 17 - invalid JSON dismiss keeps modal open and reports failure
+  ---
+  duration_ms: 41.9829
+  ...
+# Subtest: nonnumeric JSON rejects hook promise without successful cache update
+ok 18 - nonnumeric JSON rejects hook promise without successful cache update
+  ---
+  duration_ms: 36.3341
+  ...
+# Subtest: nonnumeric JSON accept keeps modal open and reports failure
+ok 19 - nonnumeric JSON accept keeps modal open and reports failure
+  ---
+  duration_ms: 28.3656
+  ...
+# Subtest: nonnumeric JSON dismiss keeps modal open and reports failure
+ok 20 - nonnumeric JSON dismiss keeps modal open and reports failure
+  ---
+  duration_ms: 28.5991
+  ...
+# Subtest: numeric string rejects hook promise without successful cache update
+ok 21 - numeric string rejects hook promise without successful cache update
+  ---
+  duration_ms: 28.6391
+  ...
+# Subtest: numeric string accept keeps modal open and reports failure
+ok 22 - numeric string accept keeps modal open and reports failure
+  ---
+  duration_ms: 44.1779
+  ...
+# Subtest: numeric string dismiss keeps modal open and reports failure
+ok 23 - numeric string dismiss keeps modal open and reports failure
+  ---
+  duration_ms: 29.3542
+  ...
+# Subtest: null JSON rejects hook promise without successful cache update
+ok 24 - null JSON rejects hook promise without successful cache update
+  ---
+  duration_ms: 34.3838
+  ...
+# Subtest: null JSON accept keeps modal open and reports failure
+ok 25 - null JSON accept keeps modal open and reports failure
+  ---
+  duration_ms: 38.7371
+  ...
+# Subtest: null JSON dismiss keeps modal open and reports failure
+ok 26 - null JSON dismiss keeps modal open and reports failure
+  ---
+  duration_ms: 22.8381
+  ...
+# Subtest: negative number rejects hook promise without successful cache update
+ok 27 - negative number rejects hook promise without successful cache update
+  ---
+  duration_ms: 25.4963
+  ...
+# Subtest: negative number accept keeps modal open and reports failure
+ok 28 - negative number accept keeps modal open and reports failure
+  ---
+  duration_ms: 32.8602
+  ...
+# Subtest: negative number dismiss keeps modal open and reports failure
+ok 29 - negative number dismiss keeps modal open and reports failure
+  ---
+  duration_ms: 44.9479
+  ...
+# Subtest: hook mutation remains pending until response completes
+ok 30 - hook mutation remains pending until response completes
+  ---
+  duration_ms: 32.0347
+  ...
+# Subtest: screen waits for successful response before closing or refreshing
+ok 31 - screen waits for successful response before closing or refreshing
+  ---
+  duration_ms: 41.8317
+  ...
+# Subtest: PUT 200 component navigates
+ok 32 - PUT 200 component navigates
+  ---
+  duration_ms: 234.5107
+  ...
+# Subtest: PUT 401 component alerts and stays
+ok 33 - PUT 401 component alerts and stays
+  ---
+  duration_ms: 127.6071
+  ...
+# Subtest: PUT 403 component alerts and stays
+ok 34 - PUT 403 component alerts and stays
+  ---
+  duration_ms: 90.0338
+  ...
+# Subtest: PUT 500 component alerts and stays
+ok 35 - PUT 500 component alerts and stays
+  ---
+  duration_ms: 93.3255
+  ...
+# Subtest: PUT network failure is consumed by component after implementation
+ok 36 - PUT network failure is consumed by component after implementation
+  ---
+  duration_ms: 68.4993
+  ...
+# Subtest: DELETE 200 removes sale list
+ok 37 - DELETE 200 removes sale list
+  ---
+  duration_ms: 72.0556
+  ...
+# Subtest: DELETE 204 preserves sale list
+ok 38 - DELETE 204 preserves sale list
+  ---
+  duration_ms: 61.3358
+  ...
+# Subtest: DELETE 401 preserves sale list
+ok 39 - DELETE 401 preserves sale list
+  ---
+  duration_ms: 68.2563
+  ...
+# Subtest: DELETE 403 preserves sale list
+ok 40 - DELETE 403 preserves sale list
+  ---
+  duration_ms: 59.6614
+  ...
+# Subtest: DELETE 500 preserves sale list
+ok 41 - DELETE 500 preserves sale list
+  ---
+  duration_ms: 72.74
+  ...
+# Subtest: DELETE network failure is consumed inside the hook
+ok 42 - DELETE network failure is consumed inside the hook
+  ---
+  duration_ms: 47.0686
+  ...
+# Subtest: unawaited DELETE 204 cannot produce an unhandled rejection
+ok 43 - unawaited DELETE 204 cannot produce an unhandled rejection
+  ---
+  duration_ms: 66.7756
+  ...
+# Subtest: unawaited DELETE 403 cannot produce an unhandled rejection
+ok 44 - unawaited DELETE 403 cannot produce an unhandled rejection
+  ---
+  duration_ms: 67.6157
+  ...
+# Subtest: unawaited DELETE network cannot produce an unhandled rejection
+ok 45 - unawaited DELETE network cannot produce an unhandled rejection
+  ---
+  duration_ms: 66.0862
+  ...
+# Subtest: list API preserves point values and order without nested user
+ok 46 - list API preserves point values and order without nested user
+  ---
+  duration_ms: 154.1056
+  ...
+# Subtest: charge API invokes completion and parses the user-free 201 response
+ok 47 - charge API invokes completion and parses the user-free 201 response
+  ---
+  duration_ms: 34.704
+  ...
+# Subtest: payment API parses the user-free response and preserves request fields
+ok 48 - payment API parses the user-free response and preserves request fields
+  ---
+  duration_ms: 25.3596
+  ...
+# Subtest: actual history view renders dates, amounts and details from point-only data
+ok 49 - actual history view renders dates, amounts and details from point-only data
+  ---
+  duration_ms: 61.247
+  ...
+# Subtest: CONNECT header reads stored form undefined
+ok 50 - CONNECT header reads stored form undefined
+  ---
+  duration_ms: 107.7237
+  ...
+# Subtest: CONNECT header reads stored form Bearer abc
+ok 51 - CONNECT header reads stored form Bearer abc
+  ---
+  duration_ms: 41.7502
+  ...
+# Subtest: CONNECT header reads stored form "Bearer abc"
+ok 52 - CONNECT header reads stored form "Bearer abc"
+  ---
+  duration_ms: 31.8648
+  ...
+# Subtest: CONNECT header reads stored form abc
+ok 53 - CONNECT header reads stored form abc
+  ---
+  duration_ms: 24.1193
+  ...
+# Subtest: public: authenticates, subscribes, stops exact client and ignores late CONNECT
+ok 54 - public: authenticates, subscribes, stops exact client and ignores late CONNECT
+  ---
+  duration_ms: 103.0505
+  ...
+# Subtest: private: authenticates, subscribes, stops exact client and ignores late CONNECT
+ok 55 - private: authenticates, subscribes, stops exact client and ignores late CONNECT
+  ---
+  duration_ms: 66.7737
+  ...
+# Subtest: alarm: authenticates, subscribes, stops exact client and ignores late CONNECT
+ok 56 - alarm: authenticates, subscribes, stops exact client and ignores late CONNECT
+  ---
+  duration_ms: 39.4017
+  ...
+# Subtest: anonymous public subscribes without Authorization; anonymous alarm creates no client
+ok 57 - anonymous public subscribes without Authorization; anonymous alarm creates no client
+  ---
+  duration_ms: 75.3814
+  ...
+# Subtest: network reconnect reads the latest access; token notification restarts once
+ok 58 - network reconnect reads the latest access; token notification restarts once
+  ---
+  duration_ms: 37.3319
+  ...
+# Subtest: logout/account switch blocks old identity and disposal cancels pending restart
+ok 59 - logout/account switch blocks old identity and disposal cancels pending restart
+  ---
+  duration_ms: 17.9796
+  ...
+# Subtest: missing private credentials and rejected token never retry as anonymous
+ok 60 - missing private credentials and rejected token never retry as anonymous
+  ---
+  duration_ms: 16.5955
+  ...
+# Subtest: public: successful envelope only; malformed/error/late callbacks have no successful effects
+ok 61 - public: successful envelope only; malformed/error/late callbacks have no successful effects
+  ---
+  duration_ms: 37.4174
+  ...
+# Subtest: private: successful envelope only; malformed/error/late callbacks have no successful effects
+ok 62 - private: successful envelope only; malformed/error/late callbacks have no successful effects
+  ---
+  duration_ms: 34.8859
+  ...
+# Subtest: alarm: successful envelope only; malformed/error/late callbacks have no successful effects
+ok 63 - alarm: successful envelope only; malformed/error/late callbacks have no successful effects
+  ---
+  duration_ms: 21.0392
+  ...
+# Subtest: HTTP token writes and context login/logout notify; logout removes credential
+ok 64 - HTTP token writes and context login/logout notify; logout removes credential
+  ---
+  duration_ms: 45.2598
+  ...
+# Subtest: messages: HTTP 401 cannot become normal chat data
+ok 65 - messages: HTTP 401 cannot become normal chat data
+  ---
+  duration_ms: 37.3807
+  ...
+# Subtest: messages: HTTP 403 cannot become normal chat data
+ok 66 - messages: HTTP 403 cannot become normal chat data
+  ---
+  duration_ms: 47.4375
+  ...
+# Subtest: messages: HTTP 500 cannot become normal chat data
+ok 67 - messages: HTTP 500 cannot become normal chat data
+  ---
+  duration_ms: 35.6117
+  ...
+# Subtest: messages: network errors reject
+ok 68 - messages: network errors reject
+  ---
+  duration_ms: 27.0937
+  ...
+# Subtest: messages: valid HTTP body/headers preserved
+ok 69 - messages: valid HTTP body/headers preserved
+  ---
+  duration_ms: 27.3959
+  ...
+# Subtest: rooms: HTTP 401 cannot become normal chat data
+ok 70 - rooms: HTTP 401 cannot become normal chat data
+  ---
+  duration_ms: 29.1455
+  ...
+# Subtest: rooms: HTTP 403 cannot become normal chat data
+ok 71 - rooms: HTTP 403 cannot become normal chat data
+  ---
+  duration_ms: 26.6621
+  ...
+# Subtest: rooms: HTTP 500 cannot become normal chat data
+ok 72 - rooms: HTTP 500 cannot become normal chat data
+  ---
+  duration_ms: 22.661
+  ...
+# Subtest: rooms: network errors reject
+ok 73 - rooms: network errors reject
+  ---
+  duration_ms: 17.5103
+  ...
+# Subtest: rooms: valid HTTP body/headers preserved
+ok 74 - rooms: valid HTTP body/headers preserved
+  ---
+  duration_ms: 21.3734
+  ...
+# Subtest: find: HTTP 401 cannot become normal chat data
+ok 75 - find: HTTP 401 cannot become normal chat data
+  ---
+  duration_ms: 25.9507
+  ...
+# Subtest: find: HTTP 403 cannot become normal chat data
+ok 76 - find: HTTP 403 cannot become normal chat data
+  ---
+  duration_ms: 16.4204
+  ...
+# Subtest: find: HTTP 500 cannot become normal chat data
+ok 77 - find: HTTP 500 cannot become normal chat data
+  ---
+  duration_ms: 20.2617
+  ...
+# Subtest: find: network errors reject
+ok 78 - find: network errors reject
+  ---
+  duration_ms: 26.052
+  ...
+# Subtest: find: valid HTTP body/headers preserved
+ok 79 - find: valid HTTP body/headers preserved
+  ---
+  duration_ms: 26.2244
+  ...
+# Subtest: create: HTTP 401 cannot become normal chat data
+ok 80 - create: HTTP 401 cannot become normal chat data
+  ---
+  duration_ms: 20.417
+  ...
+# Subtest: create: HTTP 403 cannot become normal chat data
+ok 81 - create: HTTP 403 cannot become normal chat data
+  ---
+  duration_ms: 21.2078
+  ...
+# Subtest: create: HTTP 500 cannot become normal chat data
+ok 82 - create: HTTP 500 cannot become normal chat data
+  ---
+  duration_ms: 19.1932
+  ...
+# Subtest: create: network errors reject
+ok 83 - create: network errors reject
+  ---
+  duration_ms: 29.1708
+  ...
+# Subtest: create: valid HTTP body/headers preserved
+ok 84 - create: valid HTTP body/headers preserved
+  ---
+  duration_ms: 18.6286
+  ...
+# Subtest: find missing room remains -1; invalid successful room IDs reject
+ok 85 - find missing room remains -1; invalid successful room IDs reject
+  ---
+  duration_ms: 200.75
+  ...
+# Subtest: installed STOMP Client emits authenticated CONNECT and closes/reconnects using fake transport
+ok 86 - installed STOMP Client emits authenticated CONNECT and closes/reconnects using fake transport
+  ---
+  duration_ms: 35.4673
+  ...
+# Subtest: alarm re-render creates no duplicate connection and identity transition disposes old client
+ok 87 - alarm re-render creates no duplicate connection and identity transition disposes old client
+  ---
+  duration_ms: 18.6241
+  ...
+# Subtest: chat identity hook reacts to same-tab auth events and removes listener
+ok 88 - chat identity hook reacts to same-tab auth events and removes listener
+  ---
+  duration_ms: 14.1745
+  ...
+# Subtest: popup logout/account switch uses credential-free invalidation; anonymous public stays connected
+ok 89 - popup logout/account switch uses credential-free invalidation; anonymous public stays connected
+  ---
+  duration_ms: 34.4647
+  ...
+# Subtest: rooms: rejected HTTP data renders an error instead of normal/loading content
+ok 90 - rooms: rejected HTTP data renders an error instead of normal/loading content
+  ---
+  duration_ms: 11.1402
+  ...
+# Subtest: messages: rejected HTTP data renders an error instead of normal/loading content
+ok 91 - messages: rejected HTTP data renders an error instead of normal/loading content
+  ---
+  duration_ms: 10.9625
+  ...
+1..91
+# tests 91
+# suites 0
+# pass 91
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1812.0906
+Exit code: 0

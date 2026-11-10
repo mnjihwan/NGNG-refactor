@@ -1,0 +1,65 @@
+TAP version 13
+# Subtest: CONNECT header reads stored form undefined
+ok 1 - CONNECT header reads stored form undefined
+  ---
+  duration_ms: 75.0994
+  ...
+# Subtest: CONNECT header reads stored form Bearer abc
+ok 2 - CONNECT header reads stored form Bearer abc
+  ---
+  duration_ms: 17.768
+  ...
+# Subtest: CONNECT header reads stored form "Bearer abc"
+ok 3 - CONNECT header reads stored form "Bearer abc"
+  ---
+  duration_ms: 14.6828
+  ...
+# Subtest: CONNECT header reads stored form abc
+ok 4 - CONNECT header reads stored form abc
+  ---
+  duration_ms: 15.5454
+  ...
+# Subtest: public: authenticates, subscribes, stops exact client and ignores late CONNECT
+ok 5 - public: authenticates, subscribes, stops exact client and ignores late CONNECT
+  ---
+  duration_ms: 61.8245
+  ...
+# Subtest: private: authenticates, subscribes, stops exact client and ignores late CONNECT
+ok 6 - private: authenticates, subscribes, stops exact client and ignores late CONNECT
+  ---
+  duration_ms: 41.3747
+  ...
+# Subtest: alarm: authenticates, subscribes, stops exact client and ignores late CONNECT
+ok 7 - alarm: authenticates, subscribes, stops exact client and ignores late CONNECT
+  ---
+  duration_ms: 21.4628
+  ...
+# Subtest: anonymous public subscribes without Authorization; anonymous alarm creates no client
+ok 8 - anonymous public subscribes without Authorization; anonymous alarm creates no client
+  ---
+  duration_ms: 47.3641
+  ...
+# Subtest: network reconnect reads the latest access; token notification restarts once
+ok 9 - network reconnect reads the latest access; token notification restarts once
+  ---
+  duration_ms: 14.96
+  ...
+# Subtest: logout/account switch blocks old identity and disposal cancels pending restart
+ok 10 - logout/account switch blocks old identity and disposal cancels pending restart
+  ---
+  duration_ms: 9.3128
+  ...
+# Subtest: missing private credentials and rejected token never retry as anonymous
+ok 11 - missing private credentials and rejected token never retry as anonymous
+  ---
+  duration_ms: 9.7061
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 543.6361

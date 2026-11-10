@@ -15,7 +15,7 @@ export default function ChatRoomList({ currentBadge }: Props) {
   if (user === undefined) {
     redirect("/login");
   }
-  const { chatData, isLoading } = usePrivateChatRoom(user.id);
+  const { chatData, isLoading, error } = usePrivateChatRoom(user.id);
 
   const filtredData =
     currentBadge === 1 // 전체
@@ -37,6 +37,9 @@ export default function ChatRoomList({ currentBadge }: Props) {
         ) ?? []
       : chatData?.filter((data) => data.buyer.id === user.id) ?? []; // 구매
 
+  if (error) {
+    return <p role="alert">채팅 목록을 불러오지 못했습니다. 로그인 상태와 접근 권한을 확인해 주세요.</p>;
+  }
   if (isLoading || chatData === undefined || filtredData === undefined) {
     return (
       <div role="status" className="flex justify-center h-[calc(100vh-128px)]">
