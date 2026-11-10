@@ -96,10 +96,28 @@ public class ConfirmService {
     @Transactional
     public AddressConfirmResponse addressConfirm(AddressConfirmRequest request) {
 
+        requireOwnAddress(request == null ? null : request.id());
+
         User user = userRepository.findById(request.id()).orElseThrow();
 
         user.addressConfirm(request.address());
 
         return AddressConfirmResponse.success();
+    }
+
+    private void requireOwnAddress(Long requestedUserId) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || !authentication.isAuthenticated()
+                || authentication instanceof AnonymousAuthenticationToken
+                || !(authentication.getPrincipal() instanceof CustomUserDetails details)
+                || details.getUser() == null || details.getUser().getEmail() == null
+                || details.getUser().getEmail().isBlank()) {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN);
+        }
+        User caller = authService.readAuthUser();
+        if (caller == null || caller.getUserId() == null || requestedUserId == null
+                || !caller.getUserId().equals(requestedUserId)) {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN);
+        }
     }
 }

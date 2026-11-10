@@ -226,3 +226,13 @@ R4-연동/운영/성능의 기존 미실행·별도 범위는 유지한다. 공�
 | R42-통합 | 실DB commit/rollback·SQL·동시성 및 Boot HTTP·브라우저·외부 소비자 미검증; repository 대역과 MockMvc만 실행 | RF016 격리 fixture·외부 차단 및 별도 지시 후 검증 |
 | R42-정책 | 반복 탈퇴 시 visible 재활성화 유지; 탈퇴 후 JWT 폐기/상태 최신화는 RF040 미해결. nullable visible·거래/잔액 정책도 별도 후보 | 사업·토큰 수명 정책 합의 및 독립 명세 후 검토 |
 | R42-성능 | 미측정·개선 주장 없음; 전체 backend test/build 미실행 | 별도 지시 및 대표 비교 계획·안전 환경 확보 후 실행 |
+
+## RF-041 완료 후 잔여 검증/별도 후보
+
+[명세](tasks/RF-041.md)·[증빙](evidence/RF-041/README.md). 본인 주소 객체 인가 구현, before 10건·최종 선택 247건 및 assemble 성공, 독립 리뷰 완료.
+
+| 항목 | 상태·근거 | 재개 조건 |
+|---|---|---|
+| R41-통합 | 실DB commit/rollback·동시성, 실제 HTTP·브라우저·SWR 실패 표시는 미검증. repository 대역과 MockMvc로 실DB 무쓰기를 입증하지 않음 | RF016 안전 fixture·외부 발송 차단 및 별도 지시 후 DB 전후 상태와 HTTP/브라우저 응답·실패 표시 확인 |
+| R41-범위 | 프런트 실패 표시, RF033 주소 로그, RF040 토큰 폐기 및 관리자 path/body ID 정책은 별도 후보 | 독립 정책·범위 합의 후 검토; 자동 착수하지 않음 |
+| R41-성능 | 미측정, 개선 주장 없음; 전체 backend test/build 미실행 | 별도 지시 및 대표 데이터·동일 조건 비교 계획 후 측정 |

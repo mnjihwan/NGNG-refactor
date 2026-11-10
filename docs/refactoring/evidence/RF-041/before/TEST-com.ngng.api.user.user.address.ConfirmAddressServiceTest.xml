@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.user.user.address.ConfirmAddressServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-11-10T06:19:37" hostname="MOON" time="0.002">
+  <properties/>
+  <testcase name="beforeDirectCallWithoutAuthenticationCanChangeTarget()" classname="com.ngng.api.user.user.address.ConfirmAddressServiceTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,4 @@
+Oracle JDK 17.0.10+11-LTS-240 (JAVA_HOME release file read; java -version sandbox probe cancelled without output)
+OS: Windows / PowerShell; Gradle 8.7 wrapper; --offline
+HEAD: 2adafc839f3e24dc61dd7a7a0be52661e0e21687
+No DB/Redis/SMTP/SMS/HTTP browser/performance execution

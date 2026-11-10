@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.global.security.SecurityChainTest" tests="46" skipped="0" failures="0" errors="0" timestamp="2026-11-10T06:22:10" hostname="MOON" time="1.495">
+  <properties/>
+  <testcase name="[1] method=GET, path=/products/probe" classname="com.ngng.api.global.security.SecurityChainTest" time="0.627"/>
+  <testcase name="[2] method=GET, path=/products-other" classname="com.ngng.api.global.security.SecurityChainTest" time="0.008"/>
+  <testcase name="[3] method=GET, path=/main/child" classname="com.ngng.api.global.security.SecurityChainTest" time="0.008"/>
+  <testcase name="[4] method=POST, path=/join/child" classname="com.ngng.api.global.security.SecurityChainTest" time="0.005"/>
+  <testcase name="[5] method=GET, path=/search/probe" classname="com.ngng.api.global.security.SecurityChainTest" time="0.006"/>
+  <testcase name="[6] method=GET, path=/find/probe" classname="com.ngng.api.global.security.SecurityChainTest" time="0.004"/>
+  <testcase name="[7] method=GET, path=/category/probe" classname="com.ngng.api.global.security.SecurityChainTest" time="0.004"/>
+  <testcase name="[8] method=GET, path=/login" classname="com.ngng.api.global.security.SecurityChainTest" time="0.003"/>
+  <testcase name="[9] method=GET, path=/main" classname="com.ngng.api.global.security.SecurityChainTest" time="0.003"/>
+  <testcase name="missingAccessRefreshesThroughActualChain()" classname="com.ngng.api.global.security.SecurityChainTest" time="0.267"/>
+  <testcase name="consecutiveRequestsDoNotRetainAuthentication()" classname="com.ngng.api.global.security.SecurityChainTest" time="0.019"/>
+  <testcase name="refreshHeaderSurvivesDownstreamAuthorizationDenial()" classname="com.ngng.api.global.security.SecurityChainTest" time="0.105"/>
+  <testcase name="invalidAccessDoesNotReachEndpointEvenWithValidRefresh()" classname="com.ngng.api.global.security.SecurityChainTest" time="0.008"/>
+  <testcase name="[1] role=ADMIN, method=GET, path=/admin/probe, status=200" classname="com.ngng.api.global.security.SecurityChainTest" time="0.025"/>
+  <testcase name="[2] role=USER, method=GET, path=/admin/probe, status=403" classname="com.ngng.api.global.security.SecurityChainTest" time="0.012"/>
+  <testcase name="[3] role=UNCONFIRMED_USER, method=GET, path=/admin/probe, status=403" classname="com.ngng.api.global.security.SecurityChainTest" time="0.009"/>
+  <testcase name="[4] role=ADMIN, method=GET, path=/chat/probe, status=200" classname="com.ngng.api.global.security.SecurityChainTest" time="0.012"/>
+  <testcase name="[5] role=USER, method=GET, path=/chat/probe, status=200" classname="com.ngng.api.global.security.SecurityChainTest" time="0.01"/>
+  <testcase name="[6] role=UNCONFIRMED_USER, method=GET, path=/chat/probe, status=403" classname="com.ngng.api.global.security.SecurityChainTest" time="0.007"/>
+  <testcase name="[7] role=ADMIN, method=POST, path=/products/probe, status=200" classname="com.ngng.api.global.security.SecurityChainTest" time="0.01"/>
+  <testcase name="[8] role=USER, method=POST, path=/products/probe, status=200" classname="com.ngng.api.global.security.SecurityChainTest" time="0.009"/>
+  <testcase name="[9] role=UNCONFIRMED_USER, method=POST, path=/products/probe, status=403" classname="com.ngng.api.global.security.SecurityChainTest" time="0.008"/>
+  <testcase name="[10] role=ADMIN, method=PUT, path=/products/probe, status=200" classname="com.ngng.api.global.security.SecurityChainTest" time="0.011"/>
+  <testcase name="[11] role=USER, method=PUT, path=/products/probe, status=200" classname="com.ngng.api.global.security.SecurityChainTest" time="0.008"/>
+  <testcase name="[12] role=UNCONFIRMED_USER, method=PUT, path=/products/probe, status=403" classname="com.ngng.api.global.security.SecurityChainTest" time="0.007"/>
+  <testcase name="[13] role=ADMIN, method=DELETE, path=/products/probe, status=200" classname="com.ngng.api.global.security.SecurityChainTest" time="0.01"/>
+  <testcase name="[14] role=USER, method=DELETE, path=/products/probe, status=200" classname="com.ngng.api.global.security.SecurityChainTest" time="0.007"/>
+  <testcase name="[15] role=UNCONFIRMED_USER, method=DELETE, path=/products/probe, status=403" classname="com.ngng.api.global.security.SecurityChainTest" time="0.006"/>
+  <testcase name="[16] role=ADMIN, method=GET, path=/my_page/probe, status=200" classname="com.ngng.api.global.security.SecurityChainTest" time="0.008"/>
+  <testcase name="[17] role=USER, method=GET, path=/my_page/probe, status=200" classname="com.ngng.api.global.security.SecurityChainTest" time="0.008"/>
+  <testcase name="[18] role=UNCONFIRMED_USER, method=GET, path=/my_page/probe, status=200" classname="com.ngng.api.global.security.SecurityChainTest" time="0.006"/>
+  <testcase name="[19] role=ADMIN, method=POST, path=/confirm/account, status=403" classname="com.ngng.api.global.security.SecurityChainTest" time="0.007"/>
+  <testcase name="[20] role=USER, method=POST, path=/confirm/account, status=403" classname="com.ngng.api.global.security.SecurityChainTest" time="0.005"/>
+  <testcase name="[21] role=UNCONFIRMED_USER, method=POST, path=/confirm/account, status=200" classname="com.ngng.api.global.security.SecurityChainTest" time="0.006"/>
+  <testcase name="[1] method=GET, path=/" classname="com.ngng.api.global.security.SecurityChainTest" time="0.002"/>
+  <testcase name="[2] method=GET, path=/unknown" classname="com.ngng.api.global.security.SecurityChainTest" time="0.002"/>
+  <testcase name="[3] method=GET, path=/main-other" classname="com.ngng.api.global.security.SecurityChainTest" time="0.001"/>
+  <testcase name="[4] method=POST, path=/products/probe" classname="com.ngng.api.global.security.SecurityChainTest" time="0.001"/>
+  <testcase name="[5] method=OPTIONS, path=/unknown" classname="com.ngng.api.global.security.SecurityChainTest" time="0.003"/>
+  <testcase name="[6] method=GET, path=/my_page/probe" classname="com.ngng.api.global.security.SecurityChainTest" time="0.001"/>
+  <testcase name="[1] method=GET, path=/" classname="com.ngng.api.global.security.SecurityChainTest" time="0.006"/>
+  <testcase name="[2] method=GET, path=/unknown" classname="com.ngng.api.global.security.SecurityChainTest" time="0.006"/>
+  <testcase name="[3] method=GET, path=/main-other" classname="com.ngng.api.global.security.SecurityChainTest" time="0.006"/>
+  <testcase name="[4] method=OPTIONS, path=/unknown" classname="com.ngng.api.global.security.SecurityChainTest" time="0.006"/>
+  <testcase name="existingCorsPreflightBypassesAuthentication()" classname="com.ngng.api.global.security.SecurityChainTest" time="0.006"/>
+  <testcase name="existingLogoutStatusAndCookieArePreserved()" classname="com.ngng.api.global.security.SecurityChainTest" time="0.041"/>
+  <system-out><![CDATA[15:22:08.417 [Test worker] INFO org.hibernate.validator.internal.util.Version -- HV000001: Hibernate Validator 8.0.1.Final
+15:22:09.813 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@79b63325, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@708769b7, org.springframework.security.web.context.SecurityContextHolderFilter@a95cb11, org.springframework.security.web.header.HeaderWriterFilter@13234ac9, org.springframework.web.filter.CorsFilter@32e830a0, org.springframework.security.web.authentication.logout.LogoutFilter@22aee519, com.ngng.api.global.security.filter.TokenFilter@135e49b2, com.ngng.api.global.security.filter.LoginFilter@5bb97fe7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2513155a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6313b441, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@10b87ff6, org.springframework.security.web.session.SessionManagementFilter@39374689, org.springframework.security.web.access.ExceptionTranslationFilter@1fd37440, org.springframework.security.web.access.intercept.AuthorizationFilter@1c92a549]
+15:22:10.051 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+15:22:10.052 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+15:22:10.055 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 3 ms
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
