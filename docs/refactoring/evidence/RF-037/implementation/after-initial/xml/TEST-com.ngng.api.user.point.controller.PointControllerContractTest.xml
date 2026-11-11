@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.user.point.controller.PointControllerContractTest" tests="28" skipped="0" failures="1" errors="0" timestamp="2026-11-11T00:54:12" hostname="[REDACTED]" time="1.751">
+  <properties/>
+  <testcase name="[1] path=/points, json={&quot;addCost&quot;:null}" classname="com.ngng.api.user.point.controller.PointControllerContractTest" time="1.231"/>
+  <testcase name="[2] path=/points, json={&quot;addCost&quot;:0}" classname="com.ngng.api.user.point.controller.PointControllerContractTest" time="0.025"/>
+  <testcase name="[3] path=/points, json={&quot;addCost&quot;:-1}" classname="com.ngng.api.user.point.controller.PointControllerContractTest" time="0.016"/>
+  <testcase name="[4] path=/points, json={&quot;addCost&quot;:-9223372036854775808}" classname="com.ngng.api.user.point.controller.PointControllerContractTest" time="0.015"/>
+  <testcase name="[5] path=/points, json={&quot;addCost&quot;:&quot;bad&quot;}" classname="com.ngng.api.user.point.controller.PointControllerContractTest" time="0.017"/>
+  <testcase name="[6] path=/points, json={&quot;addCost&quot;:9223372036854775808}" classname="com.ngng.api.user.point.controller.PointControllerContractTest" time="0.012"/>
+  <testcase name="[7] path=/points/payment, json={&quot;paymentCost&quot;:null}" classname="com.ngng.api.user.point.controller.PointControllerContractTest" time="0.016"/>
+  <testcase name="[8] path=/points/payment, json={&quot;paymentCost&quot;:0}" classname="com.ngng.api.user.point.controller.PointControllerContractTest" time="0.016"/>
+  <testcase name="[9] path=/points/payment, json={&quot;paymentCost&quot;:-1}" classname="com.ngng.api.user.point.controller.PointControllerContractTest" time="0.015"/>
+  <testcase name="[10] path=/points/payment, json={&quot;paymentCost&quot;:-9223372036854775808}" classname="com.ngng.api.user.point.controller.PointControllerContractTest" time="0.015"/>
+  <testcase name="[11] path=/points/payment, json={&quot;paymentCost&quot;:&quot;bad&quot;}" classname="com.ngng.api.user.point.controller.PointControllerContractTest" time="0.01"/>
+  <testcase name="[12] path=/points/payment, json={&quot;paymentCost&quot;:9223372036854775808}" classname="com.ngng.api.user.point.controller.PointControllerContractTest" time="0.012"/>
+  <testcase name="overflowingChargeReturnsBadRequestWithoutAppending()" classname="com.ngng.api.user.point.controller.PointControllerContractTest" time="0.034"/>
+  <testcase name="[1] value=null" classname="com.ngng.api.user.point.controller.PointControllerContractTest" time="0.011"/>
+  <testcase name="[2] value=&quot;bad&quot;" classname="com.ngng.api.user.point.controller.PointControllerContractTest" time="0.01"/>
+  <testcase name="[3] value=9223372036854775808" classname="com.ngng.api.user.point.controller.PointControllerContractTest" time="0.011"/>
+  <testcase name="chargeReturnsCreatedWithPointFieldsWithoutUser()" classname="com.ngng.api.user.point.controller.PointControllerContractTest" time="0.066"/>
+  <testcase name="readEndpointsKeepExistingLookupAndPointFields()" classname="com.ngng.api.user.point.controller.PointControllerContractTest" time="0.025"/>
+  <testcase name="[1] path=/points" classname="com.ngng.api.user.point.controller.PointControllerContractTest" time="0.017"/>
+  <testcase name="[2] path=/points/payment" classname="com.ngng.api.user.point.controller.PointControllerContractTest" time="0.016"/>
+  <testcase name="[3] path=/points/check" classname="com.ngng.api.user.point.controller.PointControllerContractTest" time="0.013"/>
+  <testcase name="[1] amount=0" classname="com.ngng.api.user.point.controller.PointControllerContractTest" time="0.012"/>
+  <testcase name="[2] amount=-1" classname="com.ngng.api.user.point.controller.PointControllerContractTest" time="0.012"/>
+  <testcase name="entireBalancePaymentReturnsOkAndKeepsPositiveAddCost()" classname="com.ngng.api.user.point.controller.PointControllerContractTest" time="0.023"/>
+  <testcase name="insufficientPaymentReturnsBadRequestWithNoStandaloneResponseBody()" classname="com.ngng.api.user.point.controller.PointControllerContractTest" time="0.015">
+    <failure message="java.lang.AssertionError: Status expected:&lt;400&gt; but was:&lt;409&gt;" type="java.lang.AssertionError">java.lang.AssertionError: Status expected:&lt;400&gt; but was:&lt;409&gt;
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:637)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.ngng.api.user.point.controller.PointControllerContractTest.insufficientPaymentReturnsBadRequestWithNoStandaloneResponseBody(PointControllerContractTest.java:162)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:119)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:94)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:89)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+</failure>
+  </testcase>
+  <testcase name="[1] amount=99" classname="com.ngng.api.user.point.controller.PointControllerContractTest" time="0.015"/>
+  <testcase name="[2] amount=100" classname="com.ngng.api.user.point.controller.PointControllerContractTest" time="0.013"/>
+  <testcase name="[3] amount=101" classname="com.ngng.api.user.point.controller.PointControllerContractTest" time="0.011"/>
+  <system-out><![CDATA[09:54:12.880 [Test worker] INFO org.hibernate.validator.internal.util.Version -- HV000001: Hibernate Validator 8.0.1.Final
+09:54:13.202 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:54:13.202 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:54:13.202 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:54:13.391 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.ngng.api.user.point.dto.PointHistoryResponseDTO> com.ngng.api.user.point.controller.PointController.addPoint(com.ngng.api.user.point.dto.CreateAddPointRequestDTO): [Field error in object 'createAddPointRequestDTO' on field 'addCost': rejected value [null]; codes [NotNull.createAddPointRequestDTO.addCost,NotNull.addCost,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [createAddPointRequestDTO.addCost,addCost]; arguments []; default message [addCost]]; default message [must not be null]] ]
+09:54:13.423 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:54:13.423 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:54:13.423 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:54:13.423 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.ngng.api.user.point.dto.PointHistoryResponseDTO> com.ngng.api.user.point.controller.PointController.addPoint(com.ngng.api.user.point.dto.CreateAddPointRequestDTO): [Field error in object 'createAddPointRequestDTO' on field 'addCost': rejected value [0]; codes [Positive.createAddPointRequestDTO.addCost,Positive.addCost,Positive.java.lang.Long,Positive]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [createAddPointRequestDTO.addCost,addCost]; arguments []; default message [addCost]]; default message [must be greater than 0]] ]
+09:54:13.438 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:54:13.438 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:54:13.438 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:54:13.438 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.ngng.api.user.point.dto.PointHistoryResponseDTO> com.ngng.api.user.point.controller.PointController.addPoint(com.ngng.api.user.point.dto.CreateAddPointRequestDTO): [Field error in object 'createAddPointRequestDTO' on field 'addCost': rejected value [-1]; codes [Positive.createAddPointRequestDTO.addCost,Positive.addCost,Positive.java.lang.Long,Positive]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [createAddPointRequestDTO.addCost,addCost]; arguments []; default message [addCost]]; default message [must be greater than 0]] ]
+09:54:13.454 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:54:13.454 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:54:13.454 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:54:13.454 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.ngng.api.user.point.dto.PointHistoryResponseDTO> com.ngng.api.user.point.controller.PointController.addPoint(com.ngng.api.user.point.dto.CreateAddPointRequestDTO): [Field error in object 'createAddPointRequestDTO' on field 'addCost': rejected value [-9223372036854775808]; codes [Positive.createAddPointRequestDTO.addCost,Positive.addCost,Positive.java.lang.Long,Positive]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [createAddPointRequestDTO.addCost,addCost]; arguments []; default message [addCost]]; default message [must be greater than 0]] ]
+09:54:13.470 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:54:13.470 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:54:13.470 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:54:13.470 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.lang.Long` from String "bad": not a valid `java.lang.Long` value]
+09:54:13.486 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:54:13.486 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:54:13.486 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:54:13.486 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Numeric value (9223372036854775808) out of range of long (-9223372036854775808 - 9223372036854775807)]
+09:54:13.501 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:54:13.501 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:54:13.501 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:54:13.511 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.ngng.api.user.point.dto.PointHistoryResponseDTO> com.ngng.api.user.point.controller.PointController.payProduct(com.ngng.api.user.point.dto.PaymentPointRequestDto) with 2 errors: [Field error in object 'paymentPointRequestDto' on field 'paymentCost': rejected value [null]; codes [NotNull.paymentPointRequestDto.paymentCost,NotNull.paymentCost,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [paymentPointRequestDto.paymentCost,paymentCost]; arguments []; default message [paymentCost]]; default message [must not be null]] [Field error in object 'paymentPointRequestDto' on field 'payProductId': rejected value [null]; codes [NotNull.paymentPointRequestDto.payProductId,NotNull.payProductId,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [paymentPointRequestDto.payProductId,payProductId]; arguments []; default message [payProductId]]; default message [must not be null]] ]
+09:54:13.517 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:54:13.517 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:54:13.517 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:54:13.517 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.ngng.api.user.point.dto.PointHistoryResponseDTO> com.ngng.api.user.point.controller.PointController.payProduct(com.ngng.api.user.point.dto.PaymentPointRequestDto) with 2 errors: [Field error in object 'paymentPointRequestDto' on field 'paymentCost': rejected value [0]; codes [Positive.paymentPointRequestDto.paymentCost,Positive.paymentCost,Positive.java.lang.Long,Positive]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [paymentPointRequestDto.paymentCost,paymentCost]; arguments []; default message [paymentCost]]; default message [must be greater than 0]] [Field error in object 'paymentPointRequestDto' on field 'payProductId': rejected value [null]; codes [NotNull.paymentPointRequestDto.payProductId,NotNull.payProductId,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [paymentPointRequestDto.payProductId,payProductId]; arguments []; default message [payProductId]]; default message [must not be null]] ]
+09:54:13.533 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:54:13.533 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:54:13.533 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:54:13.533 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.ngng.api.user.point.dto.PointHistoryResponseDTO> com.ngng.api.user.point.controller.PointController.payProduct(com.ngng.api.user.point.dto.PaymentPointRequestDto) with 2 errors: [Field error in object 'paymentPointRequestDto' on field 'payProductId': rejected value [null]; codes [NotNull.paymentPointRequestDto.payProductId,NotNull.payProductId,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [paymentPointRequestDto.payProductId,payProductId]; arguments []; default message [payProductId]]; default message [must not be null]] [Field error in object 'paymentPointRequestDto' on field 'paymentCost': rejected value [-1]; codes [Positive.paymentPointRequestDto.paymentCost,Positive.paymentCost,Positive.java.lang.Long,Positive]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [paymentPointRequestDto.paymentCost,paymentCost]; arguments []; default message [paymentCost]]; default message [must be greater than 0]] ]
+09:54:13.549 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:54:13.549 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:54:13.549 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:54:13.549 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.ngng.api.user.point.dto.PointHistoryResponseDTO> com.ngng.api.user.point.controller.PointController.payProduct(com.ngng.api.user.point.dto.PaymentPointRequestDto) with 2 errors: [Field error in object 'paymentPointRequestDto' on field 'payProductId': rejected value [null]; codes [NotNull.paymentPointRequestDto.payProductId,NotNull.payProductId,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [paymentPointRequestDto.payProductId,payProductId]; arguments []; default message [payProductId]]; default message [must not be null]] [Field error in object 'paymentPointRequestDto' on field 'paymentCost': rejected value [-9223372036854775808]; codes [Positive.paymentPointRequestDto.paymentCost,Positive.paymentCost,Positive.java.lang.Long,Positive]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [paymentPointRequestDto.paymentCost,paymentCost]; arguments []; default message [paymentCost]]; default message [must be greater than 0]] ]
+09:54:13.564 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:54:13.564 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:54:13.564 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:54:13.564 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.lang.Long` from String "bad": not a valid `java.lang.Long` value]
+09:54:13.584 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:54:13.584 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:54:13.584 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:54:13.584 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Numeric value (9223372036854775808) out of range of long (-9223372036854775808 - 9223372036854775807)]
+09:54:13.607 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:54:13.607 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:54:13.607 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:54:13.624 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:54:13.624 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:54:13.624 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:54:13.624 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<java.lang.Boolean> com.ngng.api.user.point.controller.PointController.checkPoint(com.ngng.api.user.point.dto.CheckPointRequestDTO): [Field error in object 'checkPointRequestDTO' on field 'paymentCost': rejected value [null]; codes [NotNull.checkPointRequestDTO.paymentCost,NotNull.paymentCost,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [checkPointRequestDTO.paymentCost,paymentCost]; arguments []; default message [paymentCost]]; default message [must not be null]] ]
+09:54:13.639 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:54:13.639 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:54:13.639 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:54:13.639 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.lang.Long` from String "bad": not a valid `java.lang.Long` value]
+09:54:13.655 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:54:13.655 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:54:13.655 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:54:13.655 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Numeric value (9223372036854775808) out of range of long (-9223372036854775808 - 9223372036854775807)]
+09:54:13.672 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:54:13.672 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:54:13.672 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:54:13.680 [Test worker] INFO point-log -- Success Charge Point UserId: 7 cost : 200 
+09:54:13.734 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:54:13.734 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:54:13.734 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:54:13.766 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:54:13.766 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:54:13.766 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:54:13.766 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.ngng.api.user.point.dto.PointHistoryResponseDTO> com.ngng.api.user.point.controller.PointController.addPoint(com.ngng.api.user.point.dto.CreateAddPointRequestDTO): [Field error in object 'createAddPointRequestDTO' on field 'addCost': rejected value [null]; codes [NotNull.createAddPointRequestDTO.addCost,NotNull.addCost,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [createAddPointRequestDTO.addCost,addCost]; arguments []; default message [addCost]]; default message [must not be null]] ]
+09:54:13.781 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:54:13.781 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:54:13.781 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:54:13.781 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.ngng.api.user.point.dto.PointHistoryResponseDTO> com.ngng.api.user.point.controller.PointController.payProduct(com.ngng.api.user.point.dto.PaymentPointRequestDto) with 2 errors: [Field error in object 'paymentPointRequestDto' on field 'paymentCost': rejected value [null]; codes [NotNull.paymentPointRequestDto.paymentCost,NotNull.paymentCost,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [paymentPointRequestDto.paymentCost,paymentCost]; arguments []; default message [paymentCost]]; default message [must not be null]] [Field error in object 'paymentPointRequestDto' on field 'payProductId': rejected value [null]; codes [NotNull.paymentPointRequestDto.payProductId,NotNull.payProductId,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [paymentPointRequestDto.payProductId,payProductId]; arguments []; default message [payProductId]]; default message [must not be null]] ]
+09:54:13.804 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:54:13.804 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:54:13.804 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:54:13.809 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<java.lang.Boolean> com.ngng.api.user.point.controller.PointController.checkPoint(com.ngng.api.user.point.dto.CheckPointRequestDTO): [Field error in object 'checkPointRequestDTO' on field 'paymentCost': rejected value [null]; codes [NotNull.checkPointRequestDTO.paymentCost,NotNull.paymentCost,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [checkPointRequestDTO.paymentCost,paymentCost]; arguments []; default message [paymentCost]]; default message [must not be null]] ]
+09:54:13.820 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:54:13.820 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:54:13.821 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 1 ms
+09:54:13.833 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:54:13.833 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:54:13.833 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:54:13.839 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:54:13.839 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:54:13.839 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:54:13.855 [Test worker] INFO point-log -- Success Payment Point UserId: 7 ProductId : 42 cost : 200 
+09:54:13.855 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:54:13.855 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:54:13.855 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:54:13.887 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:54:13.887 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:54:13.887 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:54:13.902 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:54:13.902 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:54:13.902 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:54:13.911 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:54:13.911 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:54:13.911 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

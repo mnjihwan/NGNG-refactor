@@ -1,0 +1,286 @@
+{
+  "rawOutputFiles": [
+    {
+      "raw": ".local-runtime/rf038-results/after/console.txt",
+      "shared": "docs/refactoring/evidence/RF-038/implementation/after/console.txt",
+      "rawSha256": "1dbaee272107fed28df1ef2a2f7294544901dd00118c26adb9c2240f91a40cce",
+      "sharedSha256": "b811f706b4ce57dd0c8dfc4482c9e594f40e8bc69ff96f23f8490d2c39138fe9"
+    },
+    {
+      "raw": ".local-runtime/rf038-results/after/exit-code.txt",
+      "shared": "docs/refactoring/evidence/RF-038/implementation/after/exit-code.txt",
+      "rawSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "sharedSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "raw": ".local-runtime/rf038-results/after/TEST-com.ngng.api.transaction.status.TransactionStatusLockQueryTest.xml",
+      "shared": "docs/refactoring/evidence/RF-038/implementation/after/TEST-com.ngng.api.transaction.status.TransactionStatusLockQueryTest.xml",
+      "rawSha256": "27a17689ff7d3d26649706b13f8a167faec375396a3c2656dcaf4c2d8845e91c",
+      "sharedSha256": "1b28c8678cdfe8ed92ddf4b075f81a8dab09fb79987aabf0793ac86fd5a6cc44"
+    },
+    {
+      "raw": ".local-runtime/rf038-results/after/TEST-com.ngng.api.transaction.status.TransactionStatusOwnershipTest.xml",
+      "shared": "docs/refactoring/evidence/RF-038/implementation/after/TEST-com.ngng.api.transaction.status.TransactionStatusOwnershipTest.xml",
+      "rawSha256": "74f80f23236711a547865046bb3ea800827cce7490e1c20d815159ef0d8d6c6e",
+      "sharedSha256": "58d85e63d32d59726ff1410dc26f7ee5707b927ed280de72c5857f62b0442032"
+    },
+    {
+      "raw": ".local-runtime/rf038-results/after/TEST-com.ngng.api.transaction.status.TransactionStatusSecurityChainTest.xml",
+      "shared": "docs/refactoring/evidence/RF-038/implementation/after/TEST-com.ngng.api.transaction.status.TransactionStatusSecurityChainTest.xml",
+      "rawSha256": "0713dd511e01135e4c471f73c7aafe0a5181857dfd92b029a2b25945aab91fb5",
+      "sharedSha256": "4de0576bce544dd2fffafc80e683e1f1487cb19564de4ae09b44f72c56453c16"
+    },
+    {
+      "raw": ".local-runtime/rf038-results/after-initial/console.txt",
+      "shared": "docs/refactoring/evidence/RF-038/implementation/after-initial/console.txt",
+      "rawSha256": "2c75e49b035923bae0a9bb9ebc0e807768c75873cf2221d53af6d4614a2b7307",
+      "sharedSha256": "3cb7c9ca53d7ed6f4114abf848239e8255249acfbaf307ae69b4d1214cad6486"
+    },
+    {
+      "raw": ".local-runtime/rf038-results/after-initial/exit-code.txt",
+      "shared": "docs/refactoring/evidence/RF-038/implementation/after-initial/exit-code.txt",
+      "rawSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "sharedSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "raw": ".local-runtime/rf038-results/after-initial/TEST-com.ngng.api.transaction.status.TransactionStatusLockQueryTest.xml",
+      "shared": "docs/refactoring/evidence/RF-038/implementation/after-initial/TEST-com.ngng.api.transaction.status.TransactionStatusLockQueryTest.xml",
+      "rawSha256": "70f46aefbca05ca16815c37ccfbd368410c65216bf99b4f8cb6b6ce1a8aa7563",
+      "sharedSha256": "3d34dbeddf87f95c7c95c97aa4637ae5a00ffcaf640a972c182c824d94f5d424"
+    },
+    {
+      "raw": ".local-runtime/rf038-results/after-initial/TEST-com.ngng.api.transaction.status.TransactionStatusOwnershipTest.xml",
+      "shared": "docs/refactoring/evidence/RF-038/implementation/after-initial/TEST-com.ngng.api.transaction.status.TransactionStatusOwnershipTest.xml",
+      "rawSha256": "4e97505bb20d75dec6905df9031831688129fbadae21dc566ad1c9fe76e6c6a8",
+      "sharedSha256": "af058771dc624cdba51ac339476623f099665fd74437c77c5e37c1ee9b67f1f7"
+    },
+    {
+      "raw": ".local-runtime/rf038-results/after-initial/TEST-com.ngng.api.transaction.status.TransactionStatusSecurityChainTest.xml",
+      "shared": "docs/refactoring/evidence/RF-038/implementation/after-initial/TEST-com.ngng.api.transaction.status.TransactionStatusSecurityChainTest.xml",
+      "rawSha256": "ae3ca659bdde63eaedb924bbf826fcfa694d7ab15cdaedff4eda69f0be2ae3cf",
+      "sharedSha256": "a2fcb47bb2a2bb6b2c9916c941f3e518d3c8661532b8534236895d85226d074e"
+    },
+    {
+      "raw": ".local-runtime/rf038-results/before/console.txt",
+      "shared": "docs/refactoring/evidence/RF-038/implementation/before/console.txt",
+      "rawSha256": "c6aa988edabb8c4325009b70b12b05ede494158bd69371e3fab20f14fdd8ddfd",
+      "sharedSha256": "c6bd1f1fd96ad077d6639f1b2bcc62272723010afde17b5954833b2aaf5896ed"
+    },
+    {
+      "raw": ".local-runtime/rf038-results/before/exit-code.txt",
+      "shared": "docs/refactoring/evidence/RF-038/implementation/before/exit-code.txt",
+      "rawSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "sharedSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "raw": ".local-runtime/rf038-results/before/TEST-com.ngng.api.transaction.status.TransactionStatusBeforeChainTest.xml",
+      "shared": "docs/refactoring/evidence/RF-038/implementation/before/TEST-com.ngng.api.transaction.status.TransactionStatusBeforeChainTest.xml",
+      "rawSha256": "334a930db74477fa955c5d0fe385d75d364c37f2866308698cf0a6ffb8b933f9",
+      "sharedSha256": "3200fd1bce0b2e0ac644f9fcba9ab79e2d4975c4e47955e3fed7c0121aa48a42"
+    },
+    {
+      "raw": ".local-runtime/rf038-results/before/TEST-com.ngng.api.transaction.status.TransactionStatusBeforeTest.xml",
+      "shared": "docs/refactoring/evidence/RF-038/implementation/before/TEST-com.ngng.api.transaction.status.TransactionStatusBeforeTest.xml",
+      "rawSha256": "28b4dc6375db4face71f7f6a66b4170fa11c272c20bb7c7d76818dcaa03cff41",
+      "sharedSha256": "42dfa9741b4485c1cc7dbc7689280efe3c259117b86c6efab2574f8add1ea064"
+    },
+    {
+      "raw": ".local-runtime/rf038-results/regression/console.txt",
+      "shared": "docs/refactoring/evidence/RF-038/implementation/regression/console.txt",
+      "rawSha256": "a04b53ace24b475a0a6caa408b8ec7c09e58c8bbdec1e1e8117b90795428e9ee",
+      "sharedSha256": "45ff38e709ef7397168fd23514e3ddf9724520d7df474685a26073066fc1121c"
+    },
+    {
+      "raw": ".local-runtime/rf038-results/regression/exit-code.txt",
+      "shared": "docs/refactoring/evidence/RF-038/implementation/regression/exit-code.txt",
+      "rawSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "sharedSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "raw": ".local-runtime/rf038-results/regression/TEST-com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest.xml",
+      "shared": "docs/refactoring/evidence/RF-038/implementation/regression/TEST-com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest.xml",
+      "rawSha256": "74da8c318c472c96fd4047a456868c837c265fabf4885af5ba708a574878dcd5",
+      "sharedSha256": "30a410622289c5c43f68932a8fa57f2ada4474f14ff79116545ec579bf648adb"
+    },
+    {
+      "raw": ".local-runtime/rf038-results/regression/TEST-com.ngng.api.transaction.authorization.TransactionRequestAuthorizationServiceTest.xml",
+      "shared": "docs/refactoring/evidence/RF-038/implementation/regression/TEST-com.ngng.api.transaction.authorization.TransactionRequestAuthorizationServiceTest.xml",
+      "rawSha256": "1bf993254d0fbcf41ff891c4c2bcb3865aa31c6aff744aaa38a54f3f8b1794db",
+      "sharedSha256": "5499bbf5421c00c3d905d46f2f900635d742f27a784c29f9ccc6969975d132ce"
+    },
+    {
+      "raw": ".local-runtime/rf038-results/regression/TEST-com.ngng.api.transaction.read.TransactionReadOwnershipTest.xml",
+      "shared": "docs/refactoring/evidence/RF-038/implementation/regression/TEST-com.ngng.api.transaction.read.TransactionReadOwnershipTest.xml",
+      "rawSha256": "83c1cf155f85b8cd6c07b0d50f84ad173905ca22f4ce327515f0a8ef257eed2e",
+      "sharedSha256": "0b255263bdd1aeb0f3f2c33953531740ff68a0745e5f367f313ae1f05c17bb63"
+    },
+    {
+      "raw": ".local-runtime/rf038-results/regression/TEST-com.ngng.api.transaction.read.TransactionReadSecurityChainTest.xml",
+      "shared": "docs/refactoring/evidence/RF-038/implementation/regression/TEST-com.ngng.api.transaction.read.TransactionReadSecurityChainTest.xml",
+      "rawSha256": "1f122bb561915ec22fb12945615fd537c6b3e9b5894b66e681c78d78379ab5c4",
+      "sharedSha256": "9aaa762b70f4233d50e3f2c183b813d974df71d6fdb5943f8ca1a1654db2ed61"
+    },
+    {
+      "raw": ".local-runtime/rf038-results/regression/TEST-com.ngng.api.transaction.service.TransactionAcceptancePolicyTest.xml",
+      "shared": "docs/refactoring/evidence/RF-038/implementation/regression/TEST-com.ngng.api.transaction.service.TransactionAcceptancePolicyTest.xml",
+      "rawSha256": "ff41ab9ddce6a0273dbde56aaa926ed5cb67eede78c9d2931842155adaeb0a0b",
+      "sharedSha256": "e82904036d5556565d3a1a73f66cd52738782309bef0e03eb4a0567f12448185"
+    },
+    {
+      "raw": ".local-runtime/rf038-results/regression/TEST-com.ngng.api.transaction.service.TransactionCreationContractTest.xml",
+      "shared": "docs/refactoring/evidence/RF-038/implementation/regression/TEST-com.ngng.api.transaction.service.TransactionCreationContractTest.xml",
+      "rawSha256": "beb3f8a5c3126cdaab52a05f540ce38fb88633b6d45bce135d97791b25157ed1",
+      "sharedSha256": "3ba761e41222d1164b03c9c40c1456dad1c208cf02f33f0928878e447ff0c0bf"
+    },
+    {
+      "raw": ".local-runtime/rf038-results/wrapper-denied/console.txt",
+      "shared": "docs/refactoring/evidence/RF-038/implementation/wrapper-denied/console.txt",
+      "rawSha256": "e4f63f48898e2dc948e70dc5b3d310d2c5cd244c9ec8adfa25e4a13b1b4ea9bb",
+      "sharedSha256": "8cc52ec3698be7aa6b4aa064e02fac747f8084cf79d2eeab15a03239ca2fb024"
+    },
+    {
+      "raw": ".local-runtime/rf038-results/wrapper-denied/exit-code.txt",
+      "shared": "docs/refactoring/evidence/RF-038/implementation/wrapper-denied/exit-code.txt",
+      "rawSha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04",
+      "sharedSha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04"
+    }
+  ],
+  "sourceSnapshots": [
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/after/source/Rf038Fixture.java",
+      "sha256": "a51d5d1d348dc7bf9d4a13dd822ca91acd036314027f7fb8ff14939a92b64c30"
+    },
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/after/source/StatusChainHarness.java",
+      "sha256": "8ec52c495bea61b8b3e8b6d1b88d1bdd0ed72231691fd85cd49fffc0146779ab"
+    },
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/after/source/StatusFixture.java",
+      "sha256": "f818d876b36da187dc9373a8103b8419a16380290e0653f5cd5c475f2c0e5678"
+    },
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/after/source/TransactionDetailsRepository.java",
+      "sha256": "30f985c5a016a3413563c2476b1dcc39e125c9ef4d61fae0d7f3375f8ce9c9a1"
+    },
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/after/source/TransactionDetailsService.java",
+      "sha256": "4308400b5e74be7bf60c5028e8ac1f3d33d78fc2ad2056ab3a91f2126261eae4"
+    },
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/after/source/TransactionStatusLockQueryTest.java",
+      "sha256": "3aeac848cd66be10df64dc19467ff8e8f839d50f4d0671462a5cbc588a320ea2"
+    },
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/after/source/TransactionStatusOwnershipTest.java",
+      "sha256": "ef70a2ed882deb0a8cbe731d0f5779774799a5a39e179d899e1f18ddf595dc2c"
+    },
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/after/source/TransactionStatusSecurityChainTest.java",
+      "sha256": "f70251c2a48eebfa13323555e27eaa7a5db35c349af6bc279f31aaa1fb6ac8c9"
+    },
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/after-initial/source/Rf038Fixture.java",
+      "sha256": "a51d5d1d348dc7bf9d4a13dd822ca91acd036314027f7fb8ff14939a92b64c30"
+    },
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/after-initial/source/StatusChainHarness.java",
+      "sha256": "8ec52c495bea61b8b3e8b6d1b88d1bdd0ed72231691fd85cd49fffc0146779ab"
+    },
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/after-initial/source/StatusFixture.java",
+      "sha256": "f818d876b36da187dc9373a8103b8419a16380290e0653f5cd5c475f2c0e5678"
+    },
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/after-initial/source/TransactionDetailsRepository.java",
+      "sha256": "30f985c5a016a3413563c2476b1dcc39e125c9ef4d61fae0d7f3375f8ce9c9a1"
+    },
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/after-initial/source/TransactionDetailsService.java",
+      "sha256": "4308400b5e74be7bf60c5028e8ac1f3d33d78fc2ad2056ab3a91f2126261eae4"
+    },
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/after-initial/source/TransactionStatusLockQueryTest.java",
+      "sha256": "3aeac848cd66be10df64dc19467ff8e8f839d50f4d0671462a5cbc588a320ea2"
+    },
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/after-initial/source/TransactionStatusOwnershipTest.java",
+      "sha256": "634f285b89764dc705718005d9ae21bf4943a4f1c346f8608a8ed2b59a6b0d20"
+    },
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/after-initial/source/TransactionStatusSecurityChainTest.java",
+      "sha256": "be097c0080a3b55be1e544814c411d4a2053b6a683677dfb6c19acf7cc1303b3"
+    },
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/before/source/Rf038Fixture.java",
+      "sha256": "a51d5d1d348dc7bf9d4a13dd822ca91acd036314027f7fb8ff14939a92b64c30"
+    },
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/before/source/StatusChainHarness.java",
+      "sha256": "8ec52c495bea61b8b3e8b6d1b88d1bdd0ed72231691fd85cd49fffc0146779ab"
+    },
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/before/source/StatusFixture.java",
+      "sha256": "f818d876b36da187dc9373a8103b8419a16380290e0653f5cd5c475f2c0e5678"
+    },
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/before/source/TransactionDetailsRepository.java",
+      "sha256": "26f6ddda5403347fb6f0a7a9f67312415f6b8fad3b4386ebe9f057b43258b6d0"
+    },
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/before/source/TransactionDetailsService.java",
+      "sha256": "d01065cfc9b67f8f0b44528386251a45be618eae924e3a17221ad0d819e57ed1"
+    },
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/before/source/TransactionStatusBeforeChainTest.java",
+      "sha256": "6f2624dce6de4293782ea843762b703321bb89f6ffb913acfc79904dc756ac9d"
+    },
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/before/source/TransactionStatusBeforeTest.java",
+      "sha256": "49581a74c691492b61edd887d6baea131467a2a1eda72c115ddee661f1053a68"
+    },
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/before/source/TransactionStatusOwnershipTest.java",
+      "sha256": "f815912697727580cf05e266db1c7cc7abb53d5259ffefe8ae088f4f5b5baec3"
+    },
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/before/source/TransactionStatusSecurityChainTest.java",
+      "sha256": "47ee0c623b1abe47efb272f714858ed5e9d638c8bc9b47e912ef305bb9265cb3"
+    },
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/integration-projection/source/TransactionDetailsRepository.java",
+      "sha256": "362ec5c49f2959550e30f65510d37ddec3275744a92c810aa73caf03f0b849cc"
+    },
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/regression/source/ReadChainHarness.java",
+      "sha256": "da4cc2ea6dd3fb574499c0a400584e45aa3cb80a057c7cc52bd2a930cdfceb3a"
+    },
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/regression/source/ReadFixture.java",
+      "sha256": "2ae421be9d09f8556a6cee67078970d56859c67896da3607b871bbe711a2be6e"
+    },
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/regression/source/TransactionAcceptancePolicyTest.java",
+      "sha256": "71989489af5e45e4a5e5bd53a0646617dd6dcfe6a7939d7f6999f0ebff48d39d"
+    },
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/regression/source/TransactionCreationContractTest.java",
+      "sha256": "e4b890c11cda7f2052849047979d2ef841ba3cba4ef3cf1ab528b985bfb2ef2a"
+    },
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/regression/source/TransactionReadOwnershipTest.java",
+      "sha256": "ba11797dbd761ccd251611ccf9c8f43f7baafff83bfc0f24e25dad7dc494bf7f"
+    },
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/regression/source/TransactionReadSecurityChainTest.java",
+      "sha256": "09f10fc6680ec567fe25351de0bd2c3e0e401d8fe444856443eeba5beb1f0192"
+    },
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/regression/source/TransactionRequestAuthorizationChainTest.java",
+      "sha256": "331395349fc9c7c279c0ea1bd09c143cbd56d3e2be109ddafc913aaccd73ddf2"
+    },
+    {
+      "file": "docs/refactoring/evidence/RF-038/implementation/regression/source/TransactionRequestAuthorizationServiceTest.java",
+      "sha256": "3d3a783950efe48313e276c926230db4c7264f73a3b70ce50c63bc999512f7f9"
+    }
+  ]
+}

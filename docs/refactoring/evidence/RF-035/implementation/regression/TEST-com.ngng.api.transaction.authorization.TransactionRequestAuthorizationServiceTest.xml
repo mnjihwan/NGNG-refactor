@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationServiceTest" tests="23" skipped="0" failures="0" errors="0" timestamp="2026-11-11T00:16:35" hostname="redacted" time="0.117">
+  <properties/>
+  <testcase name="createUsesReadCommittedWriteAdviceBeforeLock()" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationServiceTest" time="0.048"/>
+  <testcase name="[1] sellerId=null" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationServiceTest" time="0.004"/>
+  <testcase name="[2] sellerId=2000" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationServiceTest" time="0.001"/>
+  <testcase name="[3] sellerId=4000" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationServiceTest" time="0.0"/>
+  <testcase name="createRetainsOwnProductAndPricePolicies()" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationServiceTest" time="0.002"/>
+  <testcase name="creationSaveFailurePropagatesAndTriggersRollbackAdvice()" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationServiceTest" time="0.005"/>
+  <testcase name="nullLockOwnerDoesNotAuthorizeNullSeller()" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationServiceTest" time="0.002"/>
+  <testcase name="[1] absent=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationServiceTest" time="0.002"/>
+  <testcase name="[2] absent=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationServiceTest" time="0.001"/>
+  <testcase name="[1] buyerId=null" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationServiceTest" time="0.002"/>
+  <testcase name="[2] buyerId=1000" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationServiceTest" time="0.001"/>
+  <testcase name="[3] buyerId=4000" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationServiceTest" time="0.001"/>
+  <testcase name="[1] missingOwner=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationServiceTest" time="0.002"/>
+  <testcase name="[2] missingOwner=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationServiceTest" time="0.0"/>
+  <testcase name="creationLocksBeforeEntityThenChecksDuplicateAndStoresServerUsers()" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationServiceTest" time="0.008"/>
+  <testcase name="[1] scenario=absent" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationServiceTest" time="0.002"/>
+  <testcase name="[2] scenario=anonymous" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationServiceTest" time="0.001"/>
+  <testcase name="[3] scenario=unauthenticated" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationServiceTest" time="0.003"/>
+  <testcase name="[4] scenario=wrongPrincipal" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationServiceTest" time="0.001"/>
+  <testcase name="[5] scenario=nullUser" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationServiceTest" time="0.001"/>
+  <testcase name="[6] scenario=nullEmail" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationServiceTest" time="0.001"/>
+  <testcase name="[7] scenario=blankEmail" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationServiceTest" time="0.001"/>
+  <testcase name="projectionAndEntityOwnerMismatchFailsClosed()" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationServiceTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

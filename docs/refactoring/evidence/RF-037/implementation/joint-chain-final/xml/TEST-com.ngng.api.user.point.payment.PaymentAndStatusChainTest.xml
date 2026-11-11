@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.user.point.payment.PaymentAndStatusChainTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-11-11T01:04:01" hostname="[REDACTED]" time="0.737">
+  <properties/>
+  <testcase name="[1] target=6, paymentFirst=false" classname="com.ngng.api.user.point.payment.PaymentAndStatusChainTest" time="0.6"/>
+  <testcase name="[2] target=7, paymentFirst=false" classname="com.ngng.api.user.point.payment.PaymentAndStatusChainTest" time="0.024"/>
+  <testcase name="[3] target=6, paymentFirst=true" classname="com.ngng.api.user.point.payment.PaymentAndStatusChainTest" time="0.039"/>
+  <testcase name="[4] target=7, paymentFirst=true" classname="com.ngng.api.user.point.payment.PaymentAndStatusChainTest" time="0.029"/>
+  <testcase name="publicInitialPut2CannotDebitOrCreatePaidState()" classname="com.ngng.api.user.point.payment.PaymentAndStatusChainTest" time="0.015"/>
+  <testcase name="legacyExtraPut2IsNoopAfterAtomicPaymentAndPaymentRetryRemains409()" classname="com.ngng.api.user.point.payment.PaymentAndStatusChainTest" time="0.022"/>
+  <system-out><![CDATA[10:03:59.581 [Test worker] INFO org.hibernate.validator.internal.util.Version -- HV000001: Hibernate Validator 8.0.1.Final
+10:04:00.872 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@70543cae, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@350567f1, org.springframework.security.web.context.SecurityContextHolderFilter@18bb1b88, org.springframework.security.web.header.HeaderWriterFilter@4e2109fe, org.springframework.web.filter.CorsFilter@1a5b7394, org.springframework.security.web.authentication.logout.LogoutFilter@1008df1e, com.ngng.api.global.security.filter.TokenFilter@26f75d9c, com.ngng.api.global.security.filter.LoginFilter@7717b4a0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@362a6aa5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@53b7bf01, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@69b37f5c, org.springframework.security.web.session.SessionManagementFilter@36cfe107, org.springframework.security.web.access.ExceptionTranslationFilter@252c6cdb, org.springframework.security.web.access.intercept.AuthorizationFilter@269c7104]
+10:04:01.473 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+10:04:01.473 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+10:04:01.473 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+10:04:01.929 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+10:04:02.181 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+10:04:02.212 [Test worker] INFO point-log -- Success Payment Point UserId: 7001 ProductId : 42 cost : 800 
+10:04:02.212 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+10:04:02.250 [Test worker] INFO point-log -- Success Payment Point UserId: 7001 ProductId : 42 cost : 800 
+10:04:02.250 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+10:04:02.292 [Test worker] INFO point-log -- Success Payment Point UserId: 7001 ProductId : 42 cost : 800 
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

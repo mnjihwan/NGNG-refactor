@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.user.point.payment.PaymentLockQueryContractTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-11-11T00:54:15" hostname="[REDACTED]" time="0.04">
+  <properties/>
+  <testcase name="paymentQueryIsNativeCurrentReadOnMappedColumnsAndReturnsAllScalarRows()" classname="com.ngng.api.user.point.payment.PaymentLockQueryContractTest" time="0.008"/>
+  <testcase name="existingProductGuardUsesActualProductPrimaryKeyWithoutAnEntityGraph()" classname="com.ngng.api.user.point.payment.PaymentLockQueryContractTest" time="0.003"/>
+  <testcase name="scalarAliasesUseSpringProjectionConversionsAndPreserveNulls()" classname="com.ngng.api.user.point.payment.PaymentLockQueryContractTest" time="0.028"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

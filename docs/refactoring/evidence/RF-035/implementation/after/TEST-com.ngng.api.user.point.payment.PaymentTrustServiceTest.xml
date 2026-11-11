@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.user.point.payment.PaymentTrustServiceTest" tests="42" skipped="0" failures="0" errors="0" timestamp="2026-11-11T00:15:20" hostname="redacted" time="0.204">
+  <properties/>
+  <testcase name="[1] amount=1" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.002"/>
+  <testcase name="[2] amount=7999" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.002"/>
+  <testcase name="[3] amount=8001" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.002"/>
+  <testcase name="[4] amount=10000" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.002"/>
+  <testcase name="[5] amount=9223372036854775807" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.002"/>
+  <testcase name="missingTransactionIs404()" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.001"/>
+  <testcase name="matchingNegotiatedPriceIsDebitedWithProductThenTransactionThenBalanceLockOrder()" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.002"/>
+  <testcase name="equalBalanceSucceedsWithZeroAndInsufficientBalanceStill400()" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.002"/>
+  <testcase name="missingProductIs404BeforeTransactionOrPointRead()" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.001"/>
+  <testcase name="[1] kind=absent" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.001"/>
+  <testcase name="[2] kind=nullId" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.002"/>
+  <testcase name="transactionReadFailureStopsBeforePointLock()" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.002"/>
+  <testcase name="[1] missing=id" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.0"/>
+  <testcase name="[2] missing=consumer" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.001"/>
+  <testcase name="[3] missing=both" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.001"/>
+  <testcase name="allLocksAndAppendShareTheSameSpringWriteAdvice()" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.051"/>
+  <testcase name="multipleTransactionsAre409WithoutPickingFirstEvenForWrongBuyer()" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.002"/>
+  <testcase name="[1] id=null" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.001"/>
+  <testcase name="[2] id=0" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.001"/>
+  <testcase name="[3] id=-1" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.002"/>
+  <testcase name="[4] id=-9223372036854775808" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.001"/>
+  <testcase name="[1] id=7" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.004"/>
+  <testcase name="[2] id=7001" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.001"/>
+  <testcase name="[3] id=9223372036854775807" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.002"/>
+  <testcase name="[1] price=null" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.002"/>
+  <testcase name="[2] price=0" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.001"/>
+  <testcase name="[3] price=-1" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.002"/>
+  <testcase name="[4] price=-9223372036854775808" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.002"/>
+  <testcase name="[1] consumer=999" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.036"/>
+  <testcase name="[2] consumer=7002" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.001"/>
+  <testcase name="[3] consumer=9223372036854775807" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.002"/>
+  <testcase name="[1] amount=null" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.001"/>
+  <testcase name="[2] amount=0" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.001"/>
+  <testcase name="[3] amount=-1" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.001"/>
+  <testcase name="[4] amount=-9223372036854775808" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.002"/>
+  <testcase name="userRepositoryFailureIsNotConvertedToAuthenticationFailure()" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.002"/>
+  <testcase name="[1] kind=missing" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.002"/>
+  <testcase name="[2] kind=anonymous" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.002"/>
+  <testcase name="[3] kind=unauthenticated" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.001"/>
+  <testcase name="[4] kind=nullUser" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.001"/>
+  <testcase name="[5] kind=nullEmail" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.001"/>
+  <testcase name="[6] kind=blankEmail" classname="com.ngng.api.user.point.payment.PaymentTrustServiceTest" time="0.001"/>
+  <system-out><![CDATA[09:15:20.753 [Test worker] INFO point-log -- Success Payment Point UserId: 7001 ProductId : 42 cost : 8000
+09:15:20.769 [Test worker] INFO point-log -- Success Payment Point UserId: 7001 ProductId : 42 cost : 8000
+09:15:20.832 [Test worker] INFO point-log -- Success Payment Point UserId: 7001 ProductId : 42 cost : 8000
+09:15:20.848 [Test worker] INFO point-log -- Success Payment Point UserId: 7 ProductId : 42 cost : 8000
+09:15:20.848 [Test worker] INFO point-log -- Success Payment Point UserId: 7001 ProductId : 42 cost : 8000
+09:15:20.863 [Test worker] INFO point-log -- Success Payment Point UserId: 9223372036854775807 ProductId : 42 cost : 8000
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

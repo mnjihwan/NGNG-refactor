@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.user.point.payment.PaymentVerificationGateTest" tests="163" skipped="0" failures="0" errors="0" timestamp="2026-11-11T00:33:44" hostname="MOON" time="1.059">
+  <properties/>
+  <testcase name="emptyListAndUnlistedNewIdsDenyWithoutAnyAgeOrHighWaterException()" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.037"/>
+  <testcase name="maximumCountIsBoundedButUsable()" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.049"/>
+  <testcase name="elapsedClockDriftIncludesAccumulatedSmallJumpsAndCannotRecover()" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.006"/>
+  <testcase name="backwardsWallClockLatchesDenyEvenAfterTheClockRecovers()" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.006"/>
+  <testcase name="lockWaitOrWorkAfterAnEarlierApprovalCannotReuseExpiredPermission()" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.006"/>
+  <testcase name="allPositiveLongMaximumsAndFractionalUtcInstantsAreSupported()" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.007"/>
+  <testcase name="empty" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="syntax" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.006"/>
+  <testcase name="array" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="null" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="trailing object" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="trailing scalar" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="comment" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.003"/>
+  <testcase name="duplicate root key" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.003"/>
+  <testcase name="duplicate entry key" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.003"/>
+  <testcase name="missing root formatVersion" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="null root formatVersion" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.003"/>
+  <testcase name="missing root approvalVersion" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="null root approvalVersion" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.003"/>
+  <testcase name="missing root environmentId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.002"/>
+  <testcase name="null root environmentId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.003"/>
+  <testcase name="missing root databaseGeneration" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.003"/>
+  <testcase name="null root databaseGeneration" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.003"/>
+  <testcase name="missing root verifiedAt" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="null root verifiedAt" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="missing root validFrom" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="null root validFrom" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="missing root validUntil" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="null root validUntil" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="missing root entries" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="null root entries" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="unknown root" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.006"/>
+  <testcase name="unsupported format" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.006"/>
+  <testcase name="fractional format" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.006"/>
+  <testcase name="string format" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="format overflow" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="wrong environmentId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="blank environmentId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="type environmentId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="oversized environmentId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="wrong databaseGeneration" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="blank databaseGeneration" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="type databaseGeneration" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="oversized databaseGeneration" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="wrong approvalVersion" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="blank approvalVersion" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="type approvalVersion" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="oversized approvalVersion" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="missing entry transactionId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.006"/>
+  <testcase name="null entry transactionId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="zero transactionId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.006"/>
+  <testcase name="negative transactionId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.007"/>
+  <testcase name="fractional transactionId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.006"/>
+  <testcase name="string transactionId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.006"/>
+  <testcase name="overflow transactionId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="underflow transactionId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.006"/>
+  <testcase name="missing entry productId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="null entry productId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="zero productId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="negative productId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="fractional productId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.006"/>
+  <testcase name="string productId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.006"/>
+  <testcase name="overflow productId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="underflow productId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="missing entry buyerId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="null entry buyerId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="zero buyerId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="negative buyerId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="fractional buyerId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.006"/>
+  <testcase name="string buyerId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="overflow buyerId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="underflow buyerId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="missing entry sellerId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="null entry sellerId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="zero sellerId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="negative sellerId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="fractional sellerId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="string sellerId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.006"/>
+  <testcase name="overflow sellerId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="underflow sellerId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.006"/>
+  <testcase name="missing entry price" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="null entry price" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="zero price" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="negative price" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="fractional price" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="string price" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="overflow price" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="underflow price" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="missing verificationId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="null verificationId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="empty verificationId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="blank verificationId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="numeric verificationId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="missing verifiedBy" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="null verifiedBy" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="empty verifiedBy" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="blank verifiedBy" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="numeric verifiedBy" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="missing evidenceRef" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="null evidenceRef" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.006"/>
+  <testcase name="empty evidenceRef" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.006"/>
+  <testcase name="blank evidenceRef" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="numeric evidenceRef" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="long verificationId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="long verifiedBy" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="long evidenceRef" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="unknown entry" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="entries object" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="null array member" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="duplicate transaction" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="duplicate verificationId" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.008"/>
+  <testcase name="noncanonical UTC 2026-11-11T00:00:00+00:00" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="noncanonical UTC 2026-11-11T09:00:00+09:00" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.006"/>
+  <testcase name="noncanonical UTC 2026-11-11T00:00:00" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="noncanonical UTC 2026-02-30T00:00:00Z" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.006"/>
+  <testcase name="noncanonical UTC 2026-11-11T24:00:00Z" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.006"/>
+  <testcase name="noncanonical UTC 2026-11-11T00:00:60Z" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="noncanonical UTC 2026-11-11 00:00:00Z" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="verified after start" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="equal validity endpoints" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="reversed validity" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="excess count" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.012"/>
+  <testcase name="deep nesting" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="missingOrUnconfirmedIndependentExpectationsCannotApproveTheFile()" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="absentUnreadableShapeOversizedAndInvalidUtf8InputsDeny()" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.015"/>
+  <testcase name="monotonicAdvanceWithoutWallAdvanceIsAlsoAnUntrustedClock()" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="presentTupleAloneCannotDetectAbaIdReuseOrRestoredStateAndIsNotPaymentProof()" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="[1] transaction=null, product=201, buyer=301, seller=401, price=500, status=1" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="[2] transaction=0, product=201, buyer=301, seller=401, price=500, status=1" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="[3] transaction=-1, product=201, buyer=301, seller=401, price=500, status=1" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="[4] transaction=999, product=201, buyer=301, seller=401, price=500, status=1" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="[5] transaction=101, product=null, buyer=301, seller=401, price=500, status=1" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="[6] transaction=101, product=0, buyer=301, seller=401, price=500, status=1" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="[7] transaction=101, product=-1, buyer=301, seller=401, price=500, status=1" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="[8] transaction=101, product=999, buyer=301, seller=401, price=500, status=1" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="[9] transaction=101, product=201, buyer=null, seller=401, price=500, status=1" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="[10] transaction=101, product=201, buyer=0, seller=401, price=500, status=1" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="[11] transaction=101, product=201, buyer=-1, seller=401, price=500, status=1" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="[12] transaction=101, product=201, buyer=999, seller=401, price=500, status=1" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="[13] transaction=101, product=201, buyer=301, seller=null, price=500, status=1" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="[14] transaction=101, product=201, buyer=301, seller=0, price=500, status=1" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.003"/>
+  <testcase name="[15] transaction=101, product=201, buyer=301, seller=-1, price=500, status=1" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.003"/>
+  <testcase name="[16] transaction=101, product=201, buyer=301, seller=999, price=500, status=1" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.003"/>
+  <testcase name="[17] transaction=101, product=201, buyer=301, seller=401, price=null, status=1" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="[18] transaction=101, product=201, buyer=301, seller=401, price=0, status=1" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="[19] transaction=101, product=201, buyer=301, seller=401, price=-1, status=1" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="[20] transaction=101, product=201, buyer=301, seller=401, price=999, status=1" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="[21] transaction=101, product=201, buyer=301, seller=401, price=500, status=null" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="[22] transaction=101, product=201, buyer=301, seller=401, price=500, status=0" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="[23] transaction=101, product=201, buyer=301, seller=401, price=500, status=-1" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="[24] transaction=101, product=201, buyer=301, seller=401, price=500, status=999" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="[25] transaction=101, product=201, buyer=301, seller=401, price=500, status=2" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="[26] transaction=101, product=201, buyer=301, seller=401, price=500, status=3" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="[27] transaction=101, product=201, buyer=301, seller=401, price=500, status=4" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="[28] transaction=101, product=201, buyer=301, seller=401, price=500, status=5" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="[29] transaction=101, product=201, buyer=301, seller=401, price=500, status=6" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.003"/>
+  <testcase name="[30] transaction=101, product=201, buyer=301, seller=401, price=500, status=7" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.003"/>
+  <testcase name="validityStartsInclusivelyAndEndsExclusivelyAtTheActualFinalCheck()" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.004"/>
+  <testcase name="alreadyExpiredInputDenies()" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.003"/>
+  <testcase name="backwardsMonotonicAndOverflowDeny()" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="snapshotNeverReloadsOrConsumesMutableFiles()" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.007"/>
+  <testcase name="exactLockedTupleIsAllowedWithoutSynthesizingAReceiptOrConsumingApproval()" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.005"/>
+  <testcase name="failedNullAndThrowingClocksDeny()" classname="com.ngng.api.user.point.payment.PaymentVerificationGateTest" time="0.009"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

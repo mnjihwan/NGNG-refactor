@@ -1,5 +1,10 @@
 package com.ngng.api.user.point.controller;
 
+import com.ngng.api.product.product.repository.ProductRepository;
+import com.ngng.api.transaction.repository.TransactionDetailsRepository;
+import com.ngng.api.user.point.payment.PaymentFixture;
+
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -59,6 +64,8 @@ class PointResponseSecurityChainTest {
     private static AnnotationConfigWebApplicationContext context;
     private static MockMvc mvc;
     private static ObjectMapper mapper;
+    private ProductRepository products;
+    private TransactionDetailsRepository details;
     private UserRepository users;
     private PointHistoryRepository histories;
     private User user;
@@ -79,7 +86,10 @@ class PointResponseSecurityChainTest {
         SecurityContextHolder.clearContext();
         users = context.getBean(UserRepository.class);
         histories = context.getBean(PointHistoryRepository.class);
-        reset(users, histories);
+        products = context.getBean(ProductRepository.class);
+        details = context.getBean(TransactionDetailsRepository.class);
+        reset(users, histories, products, details);
+        PaymentFixture.allowPayment(products, details, 7001L, 1000L);
         user = User.builder().userId(7001L).name("Fixture").email(EMAIL).password("synthetic-password")
                 .address("synthetic-address").phoneNumber("synthetic-phone").accountBank("synthetic-bank")
                 .accountNumber("synthetic-account").role(Role.builder().roleType("USER").build()).build();
@@ -160,6 +170,7 @@ class PointResponseSecurityChainTest {
             order.verify(users).lockUserIdForPointUpdate(7001L);
             order.verify(histories).findLatestCostForUpdate(7001L);
             order.verify(histories).save(saved.capture());
+            if (operation.equals("payment")) order.verify(histories).flush();
             PointHistory value = saved.getValue();
             assertSame(user, value.getUser()); assertEquals(1000L, value.getBeforeCost());
             assertEquals(operation.equals("charge") ? 200L : 1000L, value.getAddCost());
@@ -219,6 +230,8 @@ class PointResponseSecurityChainTest {
     @Configuration @EnableWebMvc @EnableWebSecurity
     @Import({SecurityConfig.class, PointController.class, PointHistoryService.class, AuthService.class, JacksonAutoConfiguration.class})
     static class IsolatedConfiguration implements WebMvcConfigurer {
+        @Bean com.ngng.api.user.point.payment.PaymentVerificationGate gate() { return PaymentFixture.gate(88,42,7001,999,1000); }
+        @Bean com.ngng.api.user.point.repository.PaymentSettlementRepository settlements() { return PaymentFixture.settlements(); }
         private final ObjectMapper mapper;
         IsolatedConfiguration(ObjectMapper mapper) { this.mapper = mapper; }
         @Override public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
@@ -232,6 +245,8 @@ class PointResponseSecurityChainTest {
         @Bean JwtTokenProvider provider() { return new JwtTokenProvider(SECRET); }
         @Bean CustomLogoutHandler logoutHandler() { return new CustomLogoutHandler(); }
         @Bean CustomLogoutSuccessHandler logoutSuccessHandler() { return new CustomLogoutSuccessHandler(); }
+        @Bean ProductRepository products() { return mock(ProductRepository.class); }
+        @Bean TransactionDetailsRepository details() { return mock(TransactionDetailsRepository.class); }
         @Bean UserRepository users() { return mock(UserRepository.class); }
         @Bean PointHistoryRepository histories() { return mock(PointHistoryRepository.class); }
     }

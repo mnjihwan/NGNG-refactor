@@ -1,0 +1,630 @@
+{
+  "redactedTokens": 49,
+  "files": [
+    {
+      "file": "after/console.txt",
+      "rawSha256": "212e16ed4f5d3c6c484cb59a05ed9c9b1f4eab7603e8f44924875b9acfc5489f",
+      "sharedSha256": "b7edbe6939fd4ba9178f5c7ee8a5720703941aa3303055b033d339853559648b"
+    },
+    {
+      "file": "after/exit-code.txt",
+      "rawSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "sharedSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "file": "after/frontend-exit-code.txt",
+      "rawSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "sharedSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "file": "after/frontend.txt",
+      "rawSha256": "dea9a7490a18739515c81410d056d08c0473ca026d2b705cfcb1243be23f4543",
+      "sharedSha256": "dea9a7490a18739515c81410d056d08c0473ca026d2b705cfcb1243be23f4543"
+    },
+    {
+      "file": "after/source/NGNG-backend/src/main/java/com/ngng/api/product/product/entity/Product.java",
+      "rawSha256": "86289ec752b10c042fbee32de525f3bf8778439e0dfe572dda4b39a01da57daa",
+      "sharedSha256": "86289ec752b10c042fbee32de525f3bf8778439e0dfe572dda4b39a01da57daa"
+    },
+    {
+      "file": "after/source/NGNG-backend/src/main/java/com/ngng/api/product/product/repository/ProductRepository.java",
+      "rawSha256": "91da4db36399ea1025ca13309122e4061c9df00aa1e4af75c78fb30da052b10e",
+      "sharedSha256": "91da4db36399ea1025ca13309122e4061c9df00aa1e4af75c78fb30da052b10e"
+    },
+    {
+      "file": "after/source/NGNG-backend/src/main/java/com/ngng/api/transaction/entity/TransactionDetails.java",
+      "rawSha256": "9eea36690e16486e2311ea06b29d37b38da80ae249dbc00c2e844e005b5ade45",
+      "sharedSha256": "9eea36690e16486e2311ea06b29d37b38da80ae249dbc00c2e844e005b5ade45"
+    },
+    {
+      "file": "after/source/NGNG-backend/src/main/java/com/ngng/api/transaction/repository/TransactionDetailsRepository.java",
+      "rawSha256": "26f6ddda5403347fb6f0a7a9f67312415f6b8fad3b4386ebe9f057b43258b6d0",
+      "sharedSha256": "26f6ddda5403347fb6f0a7a9f67312415f6b8fad3b4386ebe9f057b43258b6d0"
+    },
+    {
+      "file": "after/source/NGNG-backend/src/main/java/com/ngng/api/transaction/service/TransactionDetailsService.java",
+      "rawSha256": "d01065cfc9b67f8f0b44528386251a45be618eae924e3a17221ad0d819e57ed1",
+      "sharedSha256": "d01065cfc9b67f8f0b44528386251a45be618eae924e3a17221ad0d819e57ed1"
+    },
+    {
+      "file": "after/source/NGNG-backend/src/main/java/com/ngng/api/user/point/controller/PointController.java",
+      "rawSha256": "8c99c09cc594407eafc27b916dc362f608dea424753152d277a0cb69a2288a98",
+      "sharedSha256": "8c99c09cc594407eafc27b916dc362f608dea424753152d277a0cb69a2288a98"
+    },
+    {
+      "file": "after/source/NGNG-backend/src/main/java/com/ngng/api/user/point/dto/PaymentPointRequestDto.java",
+      "rawSha256": "773413a8ab2bc7cad347ac7f561bbaf68a25cf3430942bb09477effadfc13e40",
+      "sharedSha256": "773413a8ab2bc7cad347ac7f561bbaf68a25cf3430942bb09477effadfc13e40"
+    },
+    {
+      "file": "after/source/NGNG-backend/src/main/java/com/ngng/api/user/point/dto/PointHistoryResponseDTO.java",
+      "rawSha256": "c994ba8f4a6ae6d3e1b2d38870bf9f201a8f94b97819296871ef85fb12c28433",
+      "sharedSha256": "c994ba8f4a6ae6d3e1b2d38870bf9f201a8f94b97819296871ef85fb12c28433"
+    },
+    {
+      "file": "after/source/NGNG-backend/src/main/java/com/ngng/api/user/point/entity/PointHistory.java",
+      "rawSha256": "4765ef1082b3a8bd46bd89aa9740bada9f1fe8d17a9a96a2898548699bd57483",
+      "sharedSha256": "4765ef1082b3a8bd46bd89aa9740bada9f1fe8d17a9a96a2898548699bd57483"
+    },
+    {
+      "file": "after/source/NGNG-backend/src/main/java/com/ngng/api/user/point/repository/PointHistoryRepository.java",
+      "rawSha256": "09687ae9a6ff35ca78d94d47a5b55e576d6002964f1bfc2bb65138fb31ad2a93",
+      "sharedSha256": "09687ae9a6ff35ca78d94d47a5b55e576d6002964f1bfc2bb65138fb31ad2a93"
+    },
+    {
+      "file": "after/source/NGNG-backend/src/main/java/com/ngng/api/user/point/service/PointHistoryService.java",
+      "rawSha256": "caed817517953691c2fff6fe9dd2de7ec38acaff9809ad03bc85e83b2977f899",
+      "sharedSha256": "caed817517953691c2fff6fe9dd2de7ec38acaff9809ad03bc85e83b2977f899"
+    },
+    {
+      "file": "after/source/NGNG-backend/src/main/java/com/ngng/api/user/user/repository/UserRepository.java",
+      "rawSha256": "e071859f8e1113b23907760d1f3528ecb07ab1bcf3015c0f059ec1a7c412b9b2",
+      "sharedSha256": "e071859f8e1113b23907760d1f3528ecb07ab1bcf3015c0f059ec1a7c412b9b2"
+    },
+    {
+      "file": "after/source/NGNG-backend/src/main/java/com/ngng/api/user/user/service/AuthService.java",
+      "rawSha256": "1b181078fb2da695d3c54f7678df2393e0eb0b7fefdfa94b2ad5cc0a82c82dfb",
+      "sharedSha256": "1b181078fb2da695d3c54f7678df2393e0eb0b7fefdfa94b2ad5cc0a82c82dfb"
+    },
+    {
+      "file": "after/source/NGNG-backend/src/test/java/com/ngng/api/user/point/controller/PointControllerContractTest.java",
+      "rawSha256": "bf67ae76b987695ec2f9cf91946ad072cfed1f9628ce1df83b708ca702e23d8f",
+      "sharedSha256": "bf67ae76b987695ec2f9cf91946ad072cfed1f9628ce1df83b708ca702e23d8f"
+    },
+    {
+      "file": "after/source/NGNG-backend/src/test/java/com/ngng/api/user/point/controller/PointResponseSecurityChainTest.java",
+      "rawSha256": "3818732f93c7f12d0dd529e266c106170f54cf2e9457fe59f1b1a572e2c958ef",
+      "sharedSha256": "3818732f93c7f12d0dd529e266c106170f54cf2e9457fe59f1b1a572e2c958ef"
+    },
+    {
+      "file": "after/source/NGNG-backend/src/test/java/com/ngng/api/user/point/integration/PointHistoryMySqlConcurrencyTest.java",
+      "rawSha256": "3346cb170e8ec771916ae735894045905cd9be57564197c6489c593246c305d8",
+      "sharedSha256": "3346cb170e8ec771916ae735894045905cd9be57564197c6489c593246c305d8"
+    },
+    {
+      "file": "after/source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentFixture.java",
+      "rawSha256": "839a37ddcd17c48784a8d98f3ad5b2963c851c5b1d94a5e9401f79319c98d542",
+      "sharedSha256": "839a37ddcd17c48784a8d98f3ad5b2963c851c5b1d94a5e9401f79319c98d542"
+    },
+    {
+      "file": "after/source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentLockQueryContractTest.java",
+      "rawSha256": "9a4dd33d1f4d73477e90a4c1d1c24ab94dcc6ce43f3acb669ade3c82988a52a3",
+      "sharedSha256": "9a4dd33d1f4d73477e90a4c1d1c24ab94dcc6ce43f3acb669ade3c82988a52a3"
+    },
+    {
+      "file": "after/source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentTrustSecurityChainTest.java",
+      "rawSha256": "a4b6b2ebaddcbc295c0141960184b0bc5493673d0e515eb52c5a81779d616146",
+      "sharedSha256": "a4b6b2ebaddcbc295c0141960184b0bc5493673d0e515eb52c5a81779d616146"
+    },
+    {
+      "file": "after/source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentTrustServiceTest.java",
+      "rawSha256": "399bd31a6a5fc3072c8ddda9bfd6c9a07d351df64a7140015863a7ad386dc6a9",
+      "sharedSha256": "399bd31a6a5fc3072c8ddda9bfd6c9a07d351df64a7140015863a7ad386dc6a9"
+    },
+    {
+      "file": "after/source/NGNG-backend/src/test/java/com/ngng/api/user/point/repository/PointHistoryRepositoryBatchTest.java",
+      "rawSha256": "333f5cc81cb1001d6ebdf6c5a4285d712d4396b6b8ac5fc8984b95adb55708ec",
+      "sharedSha256": "333f5cc81cb1001d6ebdf6c5a4285d712d4396b6b8ac5fc8984b95adb55708ec"
+    },
+    {
+      "file": "after/source/NGNG-backend/src/test/java/com/ngng/api/user/point/service/PointHistoryBehaviorTest.java",
+      "rawSha256": "212ed3ed14c25c192f5f644905d5c2cb24b5cf1436e65e8627b413d807834fc9",
+      "sharedSha256": "212ed3ed14c25c192f5f644905d5c2cb24b5cf1436e65e8627b413d807834fc9"
+    },
+    {
+      "file": "after/source/NGNG-backend/src/test/java/com/ngng/api/user/point/service/PointHistoryPolicyTest.java",
+      "rawSha256": "4b723a5a52cb01247ed15ba4264d9b051dc397fc45790e1496de07ca38a1b911",
+      "sharedSha256": "4b723a5a52cb01247ed15ba4264d9b051dc397fc45790e1496de07ca38a1b911"
+    },
+    {
+      "file": "after/source/NGNG-frontend/src/app/my_page/_api/api.ts",
+      "rawSha256": "fa8bca51ec6355e520dbcea955b7fc2e001ebbb1b4cf22de826f41526803b030",
+      "sharedSha256": "fa8bca51ec6355e520dbcea955b7fc2e001ebbb1b4cf22de826f41526803b030"
+    },
+    {
+      "file": "after/source/NGNG-frontend/src/app/my_page/_compoenets/modal/BuyProductDetails.tsx",
+      "rawSha256": "337784ebe656dda7e821b279b0d9f6badcefe850094484f74fc358b4fbcd374f",
+      "sharedSha256": "337784ebe656dda7e821b279b0d9f6badcefe850094484f74fc358b4fbcd374f"
+    },
+    {
+      "file": "after/source/NGNG-frontend/tests/rf008-point-response.test.cjs",
+      "rawSha256": "1d8f00f28aa48fe906777e8e53a812295970c957aafc967fc46ea1eb860fcfef",
+      "sharedSha256": "1d8f00f28aa48fe906777e8e53a812295970c957aafc967fc46ea1eb860fcfef"
+    },
+    {
+      "file": "after/source/NGNG-frontend/tests/rf035-payment-trust.test.cjs",
+      "rawSha256": "f11785136ef61f778a5beb1f86e6772c4a4ac06767005664fa7b3b68a8a4c302",
+      "sharedSha256": "f11785136ef61f778a5beb1f86e6772c4a4ac06767005664fa7b3b68a8a4c302"
+    },
+    {
+      "file": "after/source-hashes.json",
+      "rawSha256": "fbdbbe9a0e787181924e59dac68bb259bb1089b2c3421118fa3d5848f8c8611f",
+      "sharedSha256": "fbdbbe9a0e787181924e59dac68bb259bb1089b2c3421118fa3d5848f8c8611f"
+    },
+    {
+      "file": "after/TEST-com.ngng.api.user.point.controller.PointControllerContractTest.xml",
+      "rawSha256": "280643faff76b0d3d561b1a0e89af92e94377967d9a02fa8e2c83f042fb07c09",
+      "sharedSha256": "50c0dcc932803ab68951275065beb722942f604d27055391ff6a5090210da38e"
+    },
+    {
+      "file": "after/TEST-com.ngng.api.user.point.controller.PointResponseSecurityChainTest.xml",
+      "rawSha256": "01137e971e0d3c83339b688153981a8b05f3a8471aeaeb89cee90fbb44f9209e",
+      "sharedSha256": "5eb84d9c30e2733ded1e8ffb815b104ea892badf986c2444d16483df2b89d705"
+    },
+    {
+      "file": "after/TEST-com.ngng.api.user.point.payment.PaymentLockQueryContractTest.xml",
+      "rawSha256": "629463f6b778bf2646af3899d2a7029efaae7ec459106dbf5a57a0997549dcbb",
+      "sharedSha256": "b5095129918ae14307806671f8b1b0834d8b100b771b87f9f1340f6a06f77589"
+    },
+    {
+      "file": "after/TEST-com.ngng.api.user.point.payment.PaymentTrustSecurityChainTest.xml",
+      "rawSha256": "ea0b4b6d68f22e0480165a99005209de2660997975dd19786672fb95ad6ebe56",
+      "sharedSha256": "39cf09ee82a62be55c9ba2ba8fdf171e3d4aabf75d125e3afc67ac4d1ee991f0"
+    },
+    {
+      "file": "after/TEST-com.ngng.api.user.point.payment.PaymentTrustServiceTest.xml",
+      "rawSha256": "5d9851eef49fe65d2185bf456cf54ecf0b3a46193d74dd098a59d8bf75a8f924",
+      "sharedSha256": "01606b764c80c1e5248516421cce7fb9e845a43e170a3ca325c01a71559e1fa4"
+    },
+    {
+      "file": "after/TEST-com.ngng.api.user.point.repository.PointHistoryRepositoryBatchTest.xml",
+      "rawSha256": "064d793b2a0885b1ac54958e6c6f9f4cb29063b594aa63ebdd434c1f1df74d0f",
+      "sharedSha256": "38f45f22f9176cb856a615015b9177857912d333e99efe85640cdef37afbfb27"
+    },
+    {
+      "file": "after/TEST-com.ngng.api.user.point.service.PointHistoryBehaviorTest.xml",
+      "rawSha256": "b929a680a7ab34a26198e440c9d584d900e2943fbb4bfd0779213c3616ff8c3d",
+      "sharedSha256": "488910d2d1b74b86ac4a213b5c1be65db6fb92180be730ffb4476f841a3d5d06"
+    },
+    {
+      "file": "after/TEST-com.ngng.api.user.point.service.PointHistoryPolicyTest.xml",
+      "rawSha256": "e18a1271fb268f853ef204d0a0be30ddb96a723d6ed4cb5ae0da80f5833b46ee",
+      "sharedSha256": "fd42e5ba847ac022c542bf582a75d4172fcafab1317b10e0e8838e6bd1df9507"
+    },
+    {
+      "file": "after-initial/console.txt",
+      "rawSha256": "36cf79312f27a780daf1a4479fb7c7949806d91f0118cb2ebbf3cf23c9cb0aa6",
+      "sharedSha256": "1b37a7996dbb4dd5e69cedca5da99a3b892f63cd79a94003df3b763152b88f13"
+    },
+    {
+      "file": "after-initial/exit-code.txt",
+      "rawSha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04",
+      "sharedSha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04"
+    },
+    {
+      "file": "after-initial/frontend-exit-code.txt",
+      "rawSha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04",
+      "sharedSha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04"
+    },
+    {
+      "file": "after-initial/frontend.txt",
+      "rawSha256": "355b3e2de48eb64f618ab617e76c9bc941d1a4918040a00780a8b0e3aaa3a9f5",
+      "sharedSha256": "a3d393a15e7bc5b6d8910958cc7a511d4cc5bd36a51bec10186a867fa8a210e8"
+    },
+    {
+      "file": "after-initial/preserved-test-source-hashes.json",
+      "rawSha256": "0801da52d9bbe01c7146b870d21498b53a5ee72f13381b61a2b362d110f22eea",
+      "sharedSha256": "0801da52d9bbe01c7146b870d21498b53a5ee72f13381b61a2b362d110f22eea"
+    },
+    {
+      "file": "after-initial/source/NGNG-backend/src/test/java/com/ngng/api/user/point/controller/PointControllerContractTest.java",
+      "rawSha256": "15cac0aeba1242e9a7aad1c5435f756525ae848aac59eca5bd7101227687c14f",
+      "sharedSha256": "15cac0aeba1242e9a7aad1c5435f756525ae848aac59eca5bd7101227687c14f"
+    },
+    {
+      "file": "after-initial/source/NGNG-backend/src/test/java/com/ngng/api/user/point/controller/PointResponseSecurityChainTest.java",
+      "rawSha256": "3818732f93c7f12d0dd529e266c106170f54cf2e9457fe59f1b1a572e2c958ef",
+      "sharedSha256": "3818732f93c7f12d0dd529e266c106170f54cf2e9457fe59f1b1a572e2c958ef"
+    },
+    {
+      "file": "after-initial/source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentFixture.java",
+      "rawSha256": "839a37ddcd17c48784a8d98f3ad5b2963c851c5b1d94a5e9401f79319c98d542",
+      "sharedSha256": "839a37ddcd17c48784a8d98f3ad5b2963c851c5b1d94a5e9401f79319c98d542"
+    },
+    {
+      "file": "after-initial/source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentTrustSecurityChainTest.java",
+      "rawSha256": "79007a6bbb0bd582886bd0224403e26351dc1e0b6cada9b9a2c865d96bea0085",
+      "sharedSha256": "79007a6bbb0bd582886bd0224403e26351dc1e0b6cada9b9a2c865d96bea0085"
+    },
+    {
+      "file": "after-initial/source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentTrustServiceTest.java",
+      "rawSha256": "04014c1392ee5ba79391195c2caff1d9e561e6ca45c4b51ca02d3cb2a542eb98",
+      "sharedSha256": "04014c1392ee5ba79391195c2caff1d9e561e6ca45c4b51ca02d3cb2a542eb98"
+    },
+    {
+      "file": "after-initial/source/NGNG-frontend/tests/rf035-payment-trust.test.cjs",
+      "rawSha256": "7a877331f0b3a5dc1477e1ca818fe4eb3be89eab740eeddb74e5407c83a6b630",
+      "sharedSha256": "7a877331f0b3a5dc1477e1ca818fe4eb3be89eab740eeddb74e5407c83a6b630"
+    },
+    {
+      "file": "after-initial/TEST-com.ngng.api.user.point.controller.PointControllerContractTest.xml",
+      "rawSha256": "02e0834f27b74ebae4af3ab6cea9aca373ea551316705a6116d3d0798d34c4fe",
+      "sharedSha256": "86729964d8ac1b3b895f83716baa6a41fedc54eeadec05214afb92c9f869c4cc"
+    },
+    {
+      "file": "after-initial/TEST-com.ngng.api.user.point.controller.PointResponseSecurityChainTest.xml",
+      "rawSha256": "7c647d178f58ada95d9c3895e54753ecb92a26922fd20f22124b7351a234e229",
+      "sharedSha256": "de67e3e8252c4ea9f3892ecb6a31f8c347a89141c539365c4b23351f2ee96841"
+    },
+    {
+      "file": "after-initial/TEST-com.ngng.api.user.point.payment.PaymentTrustSecurityChainTest.xml",
+      "rawSha256": "9871b5f3fe988f72818bf574486a19b892f0d4f276220a42dc30b0b7be0773cd",
+      "sharedSha256": "5068b2ee50ddc99d1d29da53f0e141284212d105d75ea4fab6a2423ec1c754d5"
+    },
+    {
+      "file": "after-initial/TEST-com.ngng.api.user.point.payment.PaymentTrustServiceTest.xml",
+      "rawSha256": "ef0e4c34a0c0e28308d191900321f93c9904c235f617db5fbaff0dcfa2b411c0",
+      "sharedSha256": "cb5d8d7ebbe60fa0b006019bd5b33ba3de0eb5deeca57aba31a8b38a4821ed38"
+    },
+    {
+      "file": "after-initial/TEST-com.ngng.api.user.point.repository.PointHistoryRepositoryBatchTest.xml",
+      "rawSha256": "5058fefa3cc78b618e48b9dc429f9ccc416b9e560da2ae2293e15981cc623044",
+      "sharedSha256": "e5292bbf2815d4a0292f867fa583242501ec04135599b7a70eaec440398766c3"
+    },
+    {
+      "file": "after-initial/TEST-com.ngng.api.user.point.service.PointHistoryBehaviorTest.xml",
+      "rawSha256": "c8ff653ea3543f92cc9bb899b2ad045f3253a85be87cebf6e5bdf273071235ce",
+      "sharedSha256": "af807bf8a9710b89298724a025e57712e91aa11e7e2f0c21d46c0aac720ed1e1"
+    },
+    {
+      "file": "after-initial/TEST-com.ngng.api.user.point.service.PointHistoryPolicyTest.xml",
+      "rawSha256": "7688460b8333a8746465958445a5765cac7c249b4c9bd1bbd14859b7289fade6",
+      "sharedSha256": "497e77a14d461d356ac8630786c3c81b49ccea674ee53dcdb3b2cfc7a8139b0e"
+    },
+    {
+      "file": "baseline.json",
+      "rawSha256": "f83226b777bb83793a3164c05ec49b180dcaa70424d21dc65d5768d439966cbb",
+      "sharedSha256": "f83226b777bb83793a3164c05ec49b180dcaa70424d21dc65d5768d439966cbb"
+    },
+    {
+      "file": "before/console.txt",
+      "rawSha256": "f29daaa68352fcc7a46f91d7016e069cbee591c427f774ffbc3f78f0e7ebee71",
+      "sharedSha256": "a6d72a4d6968c15b62c6f450c9c8f8de1bb8510e0f5c5f132bdb3c702275156f"
+    },
+    {
+      "file": "before/exit-code.txt",
+      "rawSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "sharedSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "file": "before/source/NGNG-backend/src/main/java/com/ngng/api/product/product/repository/ProductRepository.java",
+      "rawSha256": "91da4db36399ea1025ca13309122e4061c9df00aa1e4af75c78fb30da052b10e",
+      "sharedSha256": "91da4db36399ea1025ca13309122e4061c9df00aa1e4af75c78fb30da052b10e"
+    },
+    {
+      "file": "before/source/NGNG-backend/src/main/java/com/ngng/api/transaction/repository/TransactionDetailsRepository.java",
+      "rawSha256": "bfe790dc6d78e2b3b7623daa21dae3293cdc004516be16d9501c1ee1467d4ce0",
+      "sharedSha256": "bfe790dc6d78e2b3b7623daa21dae3293cdc004516be16d9501c1ee1467d4ce0"
+    },
+    {
+      "file": "before/source/NGNG-backend/src/main/java/com/ngng/api/user/point/dto/PaymentPointRequestDto.java",
+      "rawSha256": "fa19a3bfcba2c1b3a1645a3e5fdb2d255acac1a05ee32400e918e41a2d08d9c7",
+      "sharedSha256": "fa19a3bfcba2c1b3a1645a3e5fdb2d255acac1a05ee32400e918e41a2d08d9c7"
+    },
+    {
+      "file": "before/source/NGNG-backend/src/main/java/com/ngng/api/user/point/service/PointHistoryService.java",
+      "rawSha256": "372eb316e4fe7cffcb7590f673cdd59fc61e52daffb3e3b0bb535863bef9782d",
+      "sharedSha256": "372eb316e4fe7cffcb7590f673cdd59fc61e52daffb3e3b0bb535863bef9782d"
+    },
+    {
+      "file": "before/source/NGNG-backend/src/test/java/com/ngng/api/user/point/controller/PointControllerContractTest.java",
+      "rawSha256": "b3cdbc547d39950ccaf150d5fab4ce5b78fc8175553240c06d03f4eb2db4314d",
+      "sharedSha256": "b3cdbc547d39950ccaf150d5fab4ce5b78fc8175553240c06d03f4eb2db4314d"
+    },
+    {
+      "file": "before/source/NGNG-backend/src/test/java/com/ngng/api/user/point/controller/PointResponseSecurityChainTest.java",
+      "rawSha256": "8e3a1dcef9f622f9f52879ae890025f5e7706b73d77acd1a669e7e3096ccf3b3",
+      "sharedSha256": "8e3a1dcef9f622f9f52879ae890025f5e7706b73d77acd1a669e7e3096ccf3b3"
+    },
+    {
+      "file": "before/source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentBeforeTest.java",
+      "rawSha256": "c14d7b87785525e72045281c9c873a8b6eb907d3c8b4f19f99615518118af64c",
+      "sharedSha256": "c14d7b87785525e72045281c9c873a8b6eb907d3c8b4f19f99615518118af64c"
+    },
+    {
+      "file": "before/source/NGNG-backend/src/test/java/com/ngng/api/user/point/service/PointHistoryBehaviorTest.java",
+      "rawSha256": "ee73ee51d6a98b7c714c937fa5190f5c232d7095979737be2125d8c943494aaa",
+      "sharedSha256": "ee73ee51d6a98b7c714c937fa5190f5c232d7095979737be2125d8c943494aaa"
+    },
+    {
+      "file": "before/source/NGNG-backend/src/test/java/com/ngng/api/user/point/service/PointHistoryPolicyTest.java",
+      "rawSha256": "699f5945ec1b2f2eaf6eb4f99cdb547adac158a5f16ad607adc6cb85e16d3bf3",
+      "sharedSha256": "699f5945ec1b2f2eaf6eb4f99cdb547adac158a5f16ad607adc6cb85e16d3bf3"
+    },
+    {
+      "file": "before/source-hashes.json",
+      "rawSha256": "ba4e934856c6855b9d355aa451765d7bb48e661b449bfa0419b6396668e10261",
+      "sharedSha256": "ba4e934856c6855b9d355aa451765d7bb48e661b449bfa0419b6396668e10261"
+    },
+    {
+      "file": "before/TEST-com.ngng.api.user.point.controller.PointControllerContractTest.xml",
+      "rawSha256": "5811ba4c7dcc9b8897aeeae3ab5c97f52d7dfce80e94a89781040764bf4f1de6",
+      "sharedSha256": "9c9afceafada25748975d76c1d11c83bc821eeeab76357a7ab22be8f5c252733"
+    },
+    {
+      "file": "before/TEST-com.ngng.api.user.point.controller.PointResponseSecurityChainTest.xml",
+      "rawSha256": "c15727b472f6fc6a8cfc889c37afa6821688faead233c2dcac18e666ebbfb449",
+      "sharedSha256": "f03ab6cd1ac025bb75f957e7573729c7504d71e6a18803838b6e549acb21aa7c"
+    },
+    {
+      "file": "before/TEST-com.ngng.api.user.point.payment.PaymentBeforeTest.xml",
+      "rawSha256": "7f56bc4ea691f6bf8287e9ab737156d08170396869e1e2e436aedd07e82288f8",
+      "sharedSha256": "2f1b047751c25c044bee0bda018e38d6d8952ff5713fe0b4e23d5c37cb634c56"
+    },
+    {
+      "file": "before/TEST-com.ngng.api.user.point.service.PointHistoryBehaviorTest.xml",
+      "rawSha256": "830f6ee67f3eb260cba327fb60cade05fb605c44b04fb8c41989f49282525eaa",
+      "sharedSha256": "1b5a7e98e39797fc3ceb8819f02f4f9abaf7327514136436be6892b881cfa36c"
+    },
+    {
+      "file": "before/TEST-com.ngng.api.user.point.service.PointHistoryPolicyTest.xml",
+      "rawSha256": "b6426aef471fe687189696fdbed194c2f9c23b1719318d962414f377271b88a0",
+      "sharedSha256": "88c764f80979d86d7f2e5ce0c748f0e32f6418cc58e74cac337c55af68d91c5d"
+    },
+    {
+      "file": "gradle-version.txt",
+      "rawSha256": "36db6a20cf83dbd8c7a4d3289fd072ef5012b94d1eb90a3710ffed89d9a8f120",
+      "sharedSha256": "36db6a20cf83dbd8c7a4d3289fd072ef5012b94d1eb90a3710ffed89d9a8f120"
+    },
+    {
+      "file": "java-release.txt",
+      "rawSha256": "9b759dfb867c002a36b42bfba2cbe359b11220a8c984e3c5478166e32c016407",
+      "sharedSha256": "9b759dfb867c002a36b42bfba2cbe359b11220a8c984e3c5478166e32c016407"
+    },
+    {
+      "file": "java-version.txt",
+      "rawSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sharedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "node-version.txt",
+      "rawSha256": "598286b5b74656095d08dda1774a8e9e7524a3d71dc08911184c6b7307432de9",
+      "sharedSha256": "598286b5b74656095d08dda1774a8e9e7524a3d71dc08911184c6b7307432de9"
+    },
+    {
+      "file": "query-fixture-failure/console.txt",
+      "rawSha256": "c77104593dd41689ddc47982471f7b96ad724f2f626512b266977c1d10f6b427",
+      "sharedSha256": "15857292722c9cedc9b68d642f20a6b51901d28fac7de7cf5f931f3bccb28b1d"
+    },
+    {
+      "file": "query-fixture-failure/exit-code.txt",
+      "rawSha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04",
+      "sharedSha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04"
+    },
+    {
+      "file": "query-fixture-failure/PaymentLockQueryContractTest.java",
+      "rawSha256": "6c91a1165a21bc7d19da579ca150c9b67df6f31fbbd32cbaa01fb4aeb61720ae",
+      "sharedSha256": "6c91a1165a21bc7d19da579ca150c9b67df6f31fbbd32cbaa01fb4aeb61720ae"
+    },
+    {
+      "file": "query-fixture-failure/preserved-test-source-hashes.json",
+      "rawSha256": "3b7245251cc0dfb183e20262c9305ad29359edd9ccc40e4a49c8989bc806393d",
+      "sharedSha256": "3b7245251cc0dfb183e20262c9305ad29359edd9ccc40e4a49c8989bc806393d"
+    },
+    {
+      "file": "query-fixture-failure/TEST-com.ngng.api.user.point.controller.PointControllerContractTest.xml",
+      "rawSha256": "dddfa2f84cb1b247946522e829a57da75bd81deb32318d4792350170b181d6ed",
+      "sharedSha256": "f916b818188368c2397843033a850c7550e898abd9602f4f51b8f182c4b95b7d"
+    },
+    {
+      "file": "query-fixture-failure/TEST-com.ngng.api.user.point.controller.PointResponseSecurityChainTest.xml",
+      "rawSha256": "d201b0cc39029aad13875d0c94f866a9e133a1f171536e93d7a0876db86f5e3b",
+      "sharedSha256": "0b847e29afe7fb8f994f4a86d79b45af0322218e21474dacc7205008db264a15"
+    },
+    {
+      "file": "query-fixture-failure/TEST-com.ngng.api.user.point.payment.PaymentLockQueryContractTest.xml",
+      "rawSha256": "076e819368718172769bcf0536baa48efd7f57487bf781e9f60572ef768f9cd5",
+      "sharedSha256": "8fbf8560a30f3d5934a26a7c554a5f25fae6b51d8cf0f5a715fac121ef023cbc"
+    },
+    {
+      "file": "query-fixture-failure/TEST-com.ngng.api.user.point.payment.PaymentTrustSecurityChainTest.xml",
+      "rawSha256": "3d07aeffd9fa0c41e27eafd1c838e208e25b8d2722e02d250c26d282b17e4a91",
+      "sharedSha256": "408c968100350e54e1d79ecf6e6f664dd1c923ec9e0abd5986096625393189df"
+    },
+    {
+      "file": "query-fixture-failure/TEST-com.ngng.api.user.point.payment.PaymentTrustServiceTest.xml",
+      "rawSha256": "d2aa5a272f9aa7d925f69334215589f17aeae07a30c5cf963ea9e8d00b7ab854",
+      "sharedSha256": "a9ddb42586d0a172daf3df84d635d3c9814160d5896d8e9e14764d747952c0ef"
+    },
+    {
+      "file": "query-fixture-failure/TEST-com.ngng.api.user.point.repository.PointHistoryRepositoryBatchTest.xml",
+      "rawSha256": "ef13bd8ea95fa2b2e91530e6df668a3a90a1eb4cda325011e501933a1945bc6a",
+      "sharedSha256": "3fbede1ac58d6c946bd4c50bea7af23631370c5d8c1583a7f6225a7ffc14df00"
+    },
+    {
+      "file": "query-fixture-failure/TEST-com.ngng.api.user.point.service.PointHistoryBehaviorTest.xml",
+      "rawSha256": "e7b83f1bd61df003a17171601846671c4ca9fede8579540679dc9075e16c2db1",
+      "sharedSha256": "1f9e84fefcb20ff654f22c6f58a1c562512739a4f7b4781353183047cf34c845"
+    },
+    {
+      "file": "query-fixture-failure/TEST-com.ngng.api.user.point.service.PointHistoryPolicyTest.xml",
+      "rawSha256": "73aa96688e2ef791b01aa8001be802893c365e829bac3818ce1c00c04f286952",
+      "sharedSha256": "4d5bb60520a2c779d33b792b20cfd51134c5eae354560de54d08a49d54f69dd0"
+    },
+    {
+      "file": "regression/console.txt",
+      "rawSha256": "a8512e64c28028dc585463a9cebf8606baa366623a11a4ba8bfc2b258c443135",
+      "sharedSha256": "b90f030940c6edfec9c5e20b24e5cbe92ae8d57d6bc801c8619cb4933b8f4558"
+    },
+    {
+      "file": "regression/exit-code.txt",
+      "rawSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "sharedSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "file": "regression/jar-hashes.json",
+      "rawSha256": "e3ec72f5beb8a2a303567fce03396d67bb97b0f96aae5402f15366b4ac2736ab",
+      "sharedSha256": "e3ec72f5beb8a2a303567fce03396d67bb97b0f96aae5402f15366b4ac2736ab"
+    },
+    {
+      "file": "regression/source/NGNG-backend/src/main/java/com/ngng/api/global/security/config/SecurityConfig.java",
+      "rawSha256": "835b6d136fbde21eb1e6308842228abd20bd7afec81fd2895ea7bd3b7306f932",
+      "sharedSha256": "835b6d136fbde21eb1e6308842228abd20bd7afec81fd2895ea7bd3b7306f932"
+    },
+    {
+      "file": "regression/source/NGNG-backend/src/main/java/com/ngng/api/global/security/filter/LoginFilter.java",
+      "rawSha256": "a76dad50cbbe08ac9ee00608e70031e3847c4c2a1c2561ef158f1ef57b0fda06",
+      "sharedSha256": "a76dad50cbbe08ac9ee00608e70031e3847c4c2a1c2561ef158f1ef57b0fda06"
+    },
+    {
+      "file": "regression/source/NGNG-backend/src/main/java/com/ngng/api/global/security/filter/TokenFilter.java",
+      "rawSha256": "9e6642a3a4c68274aa7d22453c4b073527368ae108729ebf2c8237e9b24d920a",
+      "sharedSha256": "9e6642a3a4c68274aa7d22453c4b073527368ae108729ebf2c8237e9b24d920a"
+    },
+    {
+      "file": "regression/source/NGNG-backend/src/main/java/com/ngng/api/global/security/jwt/util/JwtTokenProvider.java",
+      "rawSha256": "6f827a21c544acf43bde39e560d334e9678f2add8088bf2faf1d64a0a10998ad",
+      "sharedSha256": "6f827a21c544acf43bde39e560d334e9678f2add8088bf2faf1d64a0a10998ad"
+    },
+    {
+      "file": "regression/source/NGNG-backend/src/main/java/com/ngng/api/global/security/jwt/util/JwtTokenVerifier.java",
+      "rawSha256": "ae9d5f3e09757d39a4f00636ee2e88b8eea93035dcd742513ff010dc0881d763",
+      "sharedSha256": "ae9d5f3e09757d39a4f00636ee2e88b8eea93035dcd742513ff010dc0881d763"
+    },
+    {
+      "file": "regression/source/NGNG-backend/src/main/java/com/ngng/api/transaction/controller/TransactionController.java",
+      "rawSha256": "82a13d7c677d9c0b8b46e845a9da5e491caceb505c9057c4821ce90c904b3d8a",
+      "sharedSha256": "82a13d7c677d9c0b8b46e845a9da5e491caceb505c9057c4821ce90c904b3d8a"
+    },
+    {
+      "file": "regression/source/NGNG-backend/src/main/java/com/ngng/api/transaction/service/TransactionRequestService.java",
+      "rawSha256": "06f3e2ad8ff7881090bbcad66ce4879d7e2e608f69c997e846e211e1f4f64ac3",
+      "sharedSha256": "06f3e2ad8ff7881090bbcad66ce4879d7e2e608f69c997e846e211e1f4f64ac3"
+    },
+    {
+      "file": "regression/source/NGNG-backend/src/test/java/com/ngng/api/global/security/SecurityChainTest.java",
+      "rawSha256": "6c3c41b3d748fec5571c163fbbe0419a50d898ee50909c00fe57d7c74e00ad6f",
+      "sharedSha256": "6c3c41b3d748fec5571c163fbbe0419a50d898ee50909c00fe57d7c74e00ad6f"
+    },
+    {
+      "file": "regression/source/NGNG-backend/src/test/java/com/ngng/api/global/security/TokenFilterTest.java",
+      "rawSha256": "6725ce606502f16c29195f9ce7c960461a8983e96f9fcac95a0183759c18e5b7",
+      "sharedSha256": "6725ce606502f16c29195f9ce7c960461a8983e96f9fcac95a0183759c18e5b7"
+    },
+    {
+      "file": "regression/source/NGNG-backend/src/test/java/com/ngng/api/transaction/authorization/TransactionRequestAuthorizationChainTest.java",
+      "rawSha256": "331395349fc9c7c279c0ea1bd09c143cbd56d3e2be109ddafc913aaccd73ddf2",
+      "sharedSha256": "331395349fc9c7c279c0ea1bd09c143cbd56d3e2be109ddafc913aaccd73ddf2"
+    },
+    {
+      "file": "regression/source/NGNG-backend/src/test/java/com/ngng/api/transaction/authorization/TransactionRequestAuthorizationServiceTest.java",
+      "rawSha256": "3d3a783950efe48313e276c926230db4c7264f73a3b70ce50c63bc999512f7f9",
+      "sharedSha256": "3d3a783950efe48313e276c926230db4c7264f73a3b70ce50c63bc999512f7f9"
+    },
+    {
+      "file": "regression/source/NGNG-backend/src/test/java/com/ngng/api/transaction/read/ReadChainHarness.java",
+      "rawSha256": "da4cc2ea6dd3fb574499c0a400584e45aa3cb80a057c7cc52bd2a930cdfceb3a",
+      "sharedSha256": "da4cc2ea6dd3fb574499c0a400584e45aa3cb80a057c7cc52bd2a930cdfceb3a"
+    },
+    {
+      "file": "regression/source/NGNG-backend/src/test/java/com/ngng/api/transaction/read/ReadFixture.java",
+      "rawSha256": "2ae421be9d09f8556a6cee67078970d56859c67896da3607b871bbe711a2be6e",
+      "sharedSha256": "2ae421be9d09f8556a6cee67078970d56859c67896da3607b871bbe711a2be6e"
+    },
+    {
+      "file": "regression/source/NGNG-backend/src/test/java/com/ngng/api/transaction/read/TransactionReadOwnershipTest.java",
+      "rawSha256": "ba11797dbd761ccd251611ccf9c8f43f7baafff83bfc0f24e25dad7dc494bf7f",
+      "sharedSha256": "ba11797dbd761ccd251611ccf9c8f43f7baafff83bfc0f24e25dad7dc494bf7f"
+    },
+    {
+      "file": "regression/source/NGNG-backend/src/test/java/com/ngng/api/transaction/read/TransactionReadSecurityChainTest.java",
+      "rawSha256": "09f10fc6680ec567fe25351de0bd2c3e0e401d8fe444856443eeba5beb1f0192",
+      "sharedSha256": "09f10fc6680ec567fe25351de0bd2c3e0e401d8fe444856443eeba5beb1f0192"
+    },
+    {
+      "file": "regression/source/NGNG-backend/src/test/java/com/ngng/api/transaction/service/TransactionAcceptancePolicyTest.java",
+      "rawSha256": "71989489af5e45e4a5e5bd53a0646617dd6dcfe6a7939d7f6999f0ebff48d39d",
+      "sharedSha256": "71989489af5e45e4a5e5bd53a0646617dd6dcfe6a7939d7f6999f0ebff48d39d"
+    },
+    {
+      "file": "regression/source/NGNG-backend/src/test/java/com/ngng/api/transaction/service/TransactionCreationContractTest.java",
+      "rawSha256": "e4b890c11cda7f2052849047979d2ef841ba3cba4ef3cf1ab528b985bfb2ef2a",
+      "sharedSha256": "e4b890c11cda7f2052849047979d2ef841ba3cba4ef3cf1ab528b985bfb2ef2a"
+    },
+    {
+      "file": "regression/source/NGNG-backend/src/test/java/com/ngng/api/transaction/service/TransactionDetailsServiceTest.java",
+      "rawSha256": "3ee1e9978aeb84cd87fadde5ed77f23418508fc983d5b2404afee67cd8af22d6",
+      "sharedSha256": "3ee1e9978aeb84cd87fadde5ed77f23418508fc983d5b2404afee67cd8af22d6"
+    },
+    {
+      "file": "regression/source/NGNG-backend/src/test/java/com/ngng/api/transaction/service/TransactionRequestServiceTest.java",
+      "rawSha256": "d0f516c063ad4916591eaaf3dbefbe800e806212177a5f15dd3e5f202e433cae",
+      "sharedSha256": "d0f516c063ad4916591eaaf3dbefbe800e806212177a5f15dd3e5f202e433cae"
+    },
+    {
+      "file": "regression/source-hashes.json",
+      "rawSha256": "d6a985ed420fbc74fbb08c46f9d07e9f58a2c5f08a7ae43de669ade77ba59ad2",
+      "sharedSha256": "d6a985ed420fbc74fbb08c46f9d07e9f58a2c5f08a7ae43de669ade77ba59ad2"
+    },
+    {
+      "file": "regression/TEST-com.ngng.api.global.security.SecurityChainTest.xml",
+      "rawSha256": "8278de246a5f65116752a356ead05789baceb49ece675e9781a433cbe3d8a341",
+      "sharedSha256": "452baafc029b5d1440852e201248bb0afa1da6cb3a4f12ff7507286e3c0b6973"
+    },
+    {
+      "file": "regression/TEST-com.ngng.api.global.security.TokenFilterTest.xml",
+      "rawSha256": "3ff062733b60ff06f716f74fd2ce8732fff5ce46bef6e46a636292ea7bb48a3e",
+      "sharedSha256": "4e6e07f6feed023c517f5c46ea432033a74f449b82bada2b2989526189c3712d"
+    },
+    {
+      "file": "regression/TEST-com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest.xml",
+      "rawSha256": "7622aff90e0b2dd400ec7c96fc3296b2930930796f575163547df553bb8b0aa6",
+      "sharedSha256": "0d5b6a0998470712ad539306eddb0ae290a183090b97f0746145d3792ee331ed"
+    },
+    {
+      "file": "regression/TEST-com.ngng.api.transaction.authorization.TransactionRequestAuthorizationServiceTest.xml",
+      "rawSha256": "5e6639ba036707aec96bec81bed61493a5abda66d337c29eb00ccef835655ea2",
+      "sharedSha256": "670ea1afbc1e5ee909347e0f78ad344fd0e48ace49b1bcee7143f16d2eb810ef"
+    },
+    {
+      "file": "regression/TEST-com.ngng.api.transaction.read.TransactionReadOwnershipTest.xml",
+      "rawSha256": "77cc2cb89610e6dd8abe2c9e6190181089e075a7924aecfdd84634e231642d1f",
+      "sharedSha256": "e4babd10d0cc10222b7356ad736ed7a823d3f58f1f164311c18fa166dde93931"
+    },
+    {
+      "file": "regression/TEST-com.ngng.api.transaction.read.TransactionReadSecurityChainTest.xml",
+      "rawSha256": "22aaa1e0fbe2996b944fff51aa96caf7222d529819ffd912903c004f08b3dad5",
+      "sharedSha256": "573f54879a44cad78ea73057ede59c7ee50314fb6aebfa66b23a480a42be7d8e"
+    },
+    {
+      "file": "regression/TEST-com.ngng.api.transaction.service.TransactionAcceptancePolicyTest.xml",
+      "rawSha256": "7c7cc11790422b03cea983e5604bf17c75403913f0a59261bc4c5b7fc59f0c07",
+      "sharedSha256": "e31dbfb33b6118ffe8f95a4e2750df2ce7d52bf1c492f49ef412da4c9b35d744"
+    },
+    {
+      "file": "regression/TEST-com.ngng.api.transaction.service.TransactionCreationContractTest.xml",
+      "rawSha256": "a56118237eaf15dd58b80f8e15a83cf94878ebdd0c4598a3c93902dcef806cb5",
+      "sharedSha256": "47f3d7373edfad2002809ddc3a2454b0dd00a45cb10b5b9d235159deed5cd3ad"
+    },
+    {
+      "file": "wrapper-denied/console.txt",
+      "rawSha256": "e4f63f48898e2dc948e70dc5b3d310d2c5cd244c9ec8adfa25e4a13b1b4ea9bb",
+      "sharedSha256": "8cc52ec3698be7aa6b4aa064e02fac747f8084cf79d2eeab15a03239ca2fb024"
+    },
+    {
+      "file": "wrapper-denied/exit-code.txt",
+      "rawSha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04",
+      "sharedSha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04"
+    }
+  ]
+}

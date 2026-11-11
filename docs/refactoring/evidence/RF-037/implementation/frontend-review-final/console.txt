@@ -1,0 +1,195 @@
+TAP version 13
+# Subtest: successful payment preserves request fields and reloads without a status PUT
+ok 1 - successful payment preserves request fields and reloads without a status PUT
+  ---
+  duration_ms: 91.4674
+  ...
+# Subtest: check false prevents payment and status change
+ok 2 - check false prevents payment and status change
+  ---
+  duration_ms: 37.3927
+  ...
+# Subtest: cancelled confirmation prevents payment and status change
+ok 3 - cancelled confirmation prevents payment and status change
+  ---
+  duration_ms: 30.953
+  ...
+# Subtest: check HTTP error prevents payment/status change and is handled
+ok 4 - check HTTP error prevents payment/status change and is handled
+  ---
+  duration_ms: 32.6913
+  ...
+# Subtest: check network error prevents payment/status change and is handled
+ok 5 - check network error prevents payment/status change and is handled
+  ---
+  duration_ms: 27.3524
+  ...
+# Subtest: check nonboolean payload prevents payment/status change and is handled
+ok 6 - check nonboolean payload prevents payment/status change and is handled
+  ---
+  duration_ms: 25.8056
+  ...
+# Subtest: check JSON error prevents payment/status change and is handled
+ok 7 - check JSON error prevents payment/status change and is handled
+  ---
+  duration_ms: 32.0057
+  ...
+# Subtest: payment HTTP error prevents status change and is handled
+ok 8 - payment HTTP error prevents status change and is handled
+  ---
+  duration_ms: 21.8194
+  ...
+# Subtest: payment network error prevents status change and is handled
+ok 9 - payment network error prevents status change and is handled
+  ---
+  duration_ms: 21.0214
+  ...
+# Subtest: payment JSON error prevents status change and is handled
+ok 10 - payment JSON error prevents status change and is handled
+  ---
+  duration_ms: 22.5814
+  ...
+# Subtest: payment HTTP 400 keeps access-header handling and stops the separate status PUT
+ok 11 - payment HTTP 400 keeps access-header handling and stops the separate status PUT
+  ---
+  duration_ms: 21.7513
+  ...
+# Subtest: payment HTTP 401 keeps access-header handling and stops the separate status PUT
+ok 12 - payment HTTP 401 keeps access-header handling and stops the separate status PUT
+  ---
+  duration_ms: 18.804
+  ...
+# Subtest: payment HTTP 403 keeps access-header handling and stops the separate status PUT
+ok 13 - payment HTTP 403 keeps access-header handling and stops the separate status PUT
+  ---
+  duration_ms: 22.5211
+  ...
+# Subtest: payment HTTP 404 keeps access-header handling and stops the separate status PUT
+ok 14 - payment HTTP 404 keeps access-header handling and stops the separate status PUT
+  ---
+  duration_ms: 17.3071
+  ...
+# Subtest: payment HTTP 409 keeps access-header handling and stops the separate status PUT
+ok 15 - payment HTTP 409 keeps access-header handling and stops the separate status PUT
+  ---
+  duration_ms: 19.805
+  ...
+# Subtest: repeated clicks share one pending submission
+ok 16 - repeated clicks share one pending submission
+  ---
+  duration_ms: 23.2113
+  ...
+# Subtest: insufficient check reloads transaction and balance without a payment
+ok 17 - insufficient check reloads transaction and balance without a payment
+  ---
+  duration_ms: 17.8787
+  ...
+# Subtest: lost payment response remains uncertain after a successful reload
+ok 18 - lost payment response remains uncertain after a successful reload
+  ---
+  duration_ms: 19.2668
+  ...
+# Subtest: success reports requery failure separately and never retries payment
+ok 19 - success reports requery failure separately and never retries payment
+  ---
+  duration_ms: 21.9969
+  ...
+# Subtest: conflict reports requery failure separately and never retries payment
+ok 20 - conflict reports requery failure separately and never retries payment
+  ---
+  duration_ms: 16.0191
+  ...
+# Subtest: insufficient reports requery failure separately and never retries payment
+ok 21 - insufficient reports requery failure separately and never retries payment
+  ---
+  duration_ms: 16.9428
+  ...
+# Subtest: network reports requery failure separately and never retries payment
+ok 22 - network reports requery failure separately and never retries payment
+  ---
+  duration_ms: 19.8308
+  ...
+# Subtest: actual refresh hook awaits checked read and replaces point and transaction caches
+ok 23 - actual refresh hook awaits checked read and replaces point and transaction caches
+  ---
+  duration_ms: 13.0288
+  ...
+# Subtest: actual refresh hook propagates read failure without changing cache
+ok 24 - actual refresh hook propagates read failure without changing cache
+  ---
+  duration_ms: 9.3394
+  ...
+# Subtest: actual mypage read rejects HTTP errors before parsing recovery state and handles access header
+ok 25 - actual mypage read rejects HTTP errors before parsing recovery state and handles access header
+  ---
+  duration_ms: 11.1588
+  ...
+# Subtest: server error after submission keeps payment result uncertain and only reloads
+ok 26 - server error after submission keeps payment result uncertain and only reloads
+  ---
+  duration_ms: 18.837
+  ...
+# Subtest: HTTP 500 keeps postcommit outcome unknown; reload failure=false
+ok 27 - HTTP 500 keeps postcommit outcome unknown; reload failure=false
+  ---
+  duration_ms: 22.7617
+  ...
+# Subtest: HTTP 500 keeps postcommit outcome unknown; reload failure=true
+ok 28 - HTTP 500 keeps postcommit outcome unknown; reload failure=true
+  ---
+  duration_ms: 19.462
+  ...
+# Subtest: HTTP 502 keeps postcommit outcome unknown; reload failure=false
+ok 29 - HTTP 502 keeps postcommit outcome unknown; reload failure=false
+  ---
+  duration_ms: 17.5661
+  ...
+# Subtest: HTTP 502 keeps postcommit outcome unknown; reload failure=true
+ok 30 - HTTP 502 keeps postcommit outcome unknown; reload failure=true
+  ---
+  duration_ms: 18.3039
+  ...
+# Subtest: HTTP 503 keeps postcommit outcome unknown; reload failure=false
+ok 31 - HTTP 503 keeps postcommit outcome unknown; reload failure=false
+  ---
+  duration_ms: 19.6748
+  ...
+# Subtest: HTTP 503 keeps postcommit outcome unknown; reload failure=true
+ok 32 - HTTP 503 keeps postcommit outcome unknown; reload failure=true
+  ---
+  duration_ms: 16.7009
+  ...
+# Subtest: HTTP 504 keeps postcommit outcome unknown; reload failure=false
+ok 33 - HTTP 504 keeps postcommit outcome unknown; reload failure=false
+  ---
+  duration_ms: 18.4261
+  ...
+# Subtest: HTTP 504 keeps postcommit outcome unknown; reload failure=true
+ok 34 - HTTP 504 keeps postcommit outcome unknown; reload failure=true
+  ---
+  duration_ms: 15.82
+  ...
+# Subtest: buy modal tracks transaction ID when refreshed list reorders
+ok 35 - buy modal tracks transaction ID when refreshed list reorders
+  ---
+  duration_ms: 8.3486
+  ...
+# Subtest: buy modal safely closes with notice when selected transaction disappears
+ok 36 - buy modal safely closes with notice when selected transaction disappears
+  ---
+  duration_ms: 6.7709
+  ...
+# Subtest: buy modal safely closes if refreshed list becomes empty
+ok 37 - buy modal safely closes if refreshed list becomes empty
+  ---
+  duration_ms: 8.8357
+  ...
+1..37
+# tests 37
+# suites 0
+# pass 37
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1063.368

@@ -1,0 +1,8 @@
+{
+  "source/NGNG-backend/src/test/java/com/ngng/api/user/point/controller/PointControllerContractTest.java": "15cac0aeba1242e9a7aad1c5435f756525ae848aac59eca5bd7101227687c14f",
+  "source/NGNG-backend/src/test/java/com/ngng/api/user/point/controller/PointResponseSecurityChainTest.java": "3818732f93c7f12d0dd529e266c106170f54cf2e9457fe59f1b1a572e2c958ef",
+  "source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentFixture.java": "839a37ddcd17c48784a8d98f3ad5b2963c851c5b1d94a5e9401f79319c98d542",
+  "source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentTrustSecurityChainTest.java": "79007a6bbb0bd582886bd0224403e26351dc1e0b6cada9b9a2c865d96bea0085",
+  "source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentTrustServiceTest.java": "04014c1392ee5ba79391195c2caff1d9e561e6ca45c4b51ca02d3cb2a542eb98",
+  "source/NGNG-frontend/tests/rf035-payment-trust.test.cjs": "7a877331f0b3a5dc1477e1ca818fe4eb3be89eab740eeddb74e5407c83a6b630"
+}

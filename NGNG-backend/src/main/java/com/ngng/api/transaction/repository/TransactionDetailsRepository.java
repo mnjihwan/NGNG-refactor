@@ -8,9 +8,46 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface TransactionDetailsRepository extends JpaRepository<TransactionDetails,Long> {
+
+    // Current scalar read: do not reuse an entity snapshot or lock eager associations.
+    @Query(value = "SELECT transaction_details_id AS transactionId, consumer_id AS consumerId, price AS price, "
+            + "product_id AS productId, seller_id AS sellerId, status_id AS statusId "
+            + "FROM transaction_details WHERE product_id = :productId FOR UPDATE", nativeQuery = true)
+    List<PaymentTransaction> lockPaymentTransactions(@Param("productId") Long productId);
+
+    interface PaymentTransaction {
+        Long getTransactionId();
+        Long getConsumerId();
+        Long getPrice();
+        Long getProductId();
+        Long getSellerId();
+        Long getStatusId();
+    }
+
+    // Identification only. Revalidate the product relationship after both row locks.
+    @Query(value = "SELECT product_id FROM transaction_details WHERE transaction_details_id = :transactionId", nativeQuery = true)
+    Optional<Long> findStatusProductId(@Param("transactionId") Long transactionId);
+
+    // Must follow the product PK scalar lock in the same write transaction.
+    // Current scalar read avoids an old persistence-context entity and eager association locks.
+    @Query(value = "SELECT transaction_details_id AS transactionId, product_id AS productId, "
+            + "consumer_id AS consumerId, seller_id AS sellerId, status_id AS statusId, price AS price, address AS address "
+            + "FROM transaction_details WHERE transaction_details_id = :transactionId FOR UPDATE", nativeQuery = true)
+    Optional<StatusTransaction> lockStatusTransaction(@Param("transactionId") Long transactionId);
+
+    interface StatusTransaction {
+        Long getTransactionId();
+        Long getProductId();
+        Long getConsumerId();
+        Long getSellerId();
+        Long getStatusId();
+        Long getPrice();
+        String getAddress();
+    }
 
     List<TransactionDetails> findAllByProductProductId(Long productId);
     @Query("SELECT t FROM TransactionDetails t WHERE t.consumer.id = :userId")

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.transaction.status.TransactionStatusBeforeTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2026-11-11T00:35:03" hostname="[redacted]" time="0.084">
+  <properties/>
+  <testcase name="missingOrNullTargetHasNoSuchElementContractAtServiceBoundary()" classname="com.ngng.api.transaction.status.TransactionStatusBeforeTest" time="0.004"/>
+  <testcase name="nullCurrentStatusDoesNotPreventCancellation()" classname="com.ngng.api.transaction.status.TransactionStatusBeforeTest" time="0.003"/>
+  <testcase name="currentOwnerCanMarkPaidWithoutPayment()" classname="com.ngng.api.transaction.status.TransactionStatusBeforeTest" time="0.003"/>
+  <testcase name="recordedSellerWhoIsNotCurrentOwnerIsRejected()" classname="com.ngng.api.transaction.status.TransactionStatusBeforeTest" time="0.003"/>
+  <testcase name="[1] before=1, after=2" classname="com.ngng.api.transaction.status.TransactionStatusBeforeTest" time="0.005"/>
+  <testcase name="[2] before=1, after=5" classname="com.ngng.api.transaction.status.TransactionStatusBeforeTest" time="0.003"/>
+  <testcase name="[3] before=5, after=1" classname="com.ngng.api.transaction.status.TransactionStatusBeforeTest" time="0.003"/>
+  <testcase name="[4] before=6, after=5" classname="com.ngng.api.transaction.status.TransactionStatusBeforeTest" time="0.003"/>
+  <testcase name="[5] before=7, after=1" classname="com.ngng.api.transaction.status.TransactionStatusBeforeTest" time="0.003"/>
+  <testcase name="[6] before=8, after=6" classname="com.ngng.api.transaction.status.TransactionStatusBeforeTest" time="0.003"/>
+  <testcase name="[7] before=8, after=7" classname="com.ngng.api.transaction.status.TransactionStatusBeforeTest" time="0.002"/>
+  <testcase name="[8] before=2, after=2" classname="com.ngng.api.transaction.status.TransactionStatusBeforeTest" time="0.002"/>
+  <testcase name="missingTransactionThrowsWithoutStatusLookup()" classname="com.ngng.api.transaction.status.TransactionStatusBeforeTest" time="0.001"/>
+  <testcase name="nullDatabaseUserPreviouslyCausesNullPointer()" classname="com.ngng.api.transaction.status.TransactionStatusBeforeTest" time="0.001"/>
+  <system-out><![CDATA[09:35:03.717 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6
+09:35:03.717 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :2
+org.springframework.web.server.ResponseStatusException: 401 UNAUTHORIZED "소유권이 없는 유저 입니다."
+09:35:03.733 [Test worker] ERROR transaction-log -- Faild Create TransactionDetails id: 88
+09:35:03.766 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :2
+09:35:03.772 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :5
+09:35:03.778 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :1
+09:35:03.783 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :5
+09:35:03.787 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :1
+09:35:03.791 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6
+09:35:03.791 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7
+09:35:03.791 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :2
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
