@@ -1,0 +1,6 @@
+gradle.projectsEvaluated {
+    rootProject.sourceSets.test.java.setIncludes(['com/ngng/api/report/response/**'])
+    rootProject.tasks.named('test') {
+        systemProperty 'rf044.before', System.getProperty('rf044.before', 'false')
+    }
+}

@@ -1,0 +1,145 @@
+TAP version 13
+# Subtest: create 200 with JSON ID keeps normal success and request contract
+ok 1 - create 200 with JSON ID keeps normal success and request contract
+  ---
+  duration_ms: 147.5156
+  ...
+# Subtest: create 201 with JSON ID keeps normal success and request contract
+ok 2 - create 201 with JSON ID keeps normal success and request contract
+  ---
+  duration_ms: 47.0154
+  ...
+# Subtest: create 400 is rejected and modal remains with feedback
+ok 3 - create 400 is rejected and modal remains with feedback
+  ---
+  duration_ms: 51.7063
+  ...
+# Subtest: create 401 is rejected and modal remains with feedback
+ok 4 - create 401 is rejected and modal remains with feedback
+  ---
+  duration_ms: 42.2142
+  ...
+# Subtest: create 403 is rejected and modal remains with feedback
+ok 5 - create 403 is rejected and modal remains with feedback
+  ---
+  duration_ms: 52.5619
+  ...
+# Subtest: network is uncertain, never success or automatic repeat
+ok 6 - network is uncertain, never success or automatic repeat
+  ---
+  duration_ms: 58.62
+  ...
+# Subtest: server500 is uncertain, never success or automatic repeat
+ok 7 - server500 is uncertain, never success or automatic repeat
+  ---
+  duration_ms: 29.3379
+  ...
+# Subtest: invalidJson201 is uncertain, never success or automatic repeat
+ok 8 - invalidJson201 is uncertain, never success or automatic repeat
+  ---
+  duration_ms: 24.6443
+  ...
+# Subtest: false200 is uncertain, never success or automatic repeat
+ok 9 - false200 is uncertain, never success or automatic repeat
+  ---
+  duration_ms: 23.2403
+  ...
+# Subtest: null201 is uncertain, never success or automatic repeat
+ok 10 - null201 is uncertain, never success or automatic repeat
+  ---
+  duration_ms: 23.684
+  ...
+# Subtest: missingId is uncertain, never success or automatic repeat
+ok 11 - missingId is uncertain, never success or automatic repeat
+  ---
+  duration_ms: 19.7843
+  ...
+# Subtest: stringId is uncertain, never success or automatic repeat
+ok 12 - stringId is uncertain, never success or automatic repeat
+  ---
+  duration_ms: 22.8675
+  ...
+# Subtest: zeroId is uncertain, never success or automatic repeat
+ok 13 - zeroId is uncertain, never success or automatic repeat
+  ---
+  duration_ms: 19.0035
+  ...
+# Subtest: fractionId is uncertain, never success or automatic repeat
+ok 14 - fractionId is uncertain, never success or automatic repeat
+  ---
+  duration_ms: 21.3701
+  ...
+# Subtest: unsafeId is uncertain, never success or automatic repeat
+ok 15 - unsafeId is uncertain, never success or automatic repeat
+  ---
+  duration_ms: 19.4611
+  ...
+# Subtest: image200 reportImages upload uses HTTP status without JSON parsing
+ok 16 - image200 reportImages upload uses HTTP status without JSON parsing
+  ---
+  duration_ms: 19.6164
+  ...
+# Subtest: image200 "reportImages upload" uses HTTP status without JSON parsing
+ok 17 - image200 "reportImages upload" uses HTTP status without JSON parsing
+  ---
+  duration_ms: 22.542
+  ...
+# Subtest: created report with image 403 keeps ID and blocks whole-report retry
+ok 18 - created report with image 403 keeps ID and blocks whole-report retry
+  ---
+  duration_ms: 18.4965
+  ...
+# Subtest: created report with image 500 keeps ID and blocks whole-report retry
+ok 19 - created report with image 500 keeps ID and blocks whole-report retry
+  ---
+  duration_ms: 22.348
+  ...
+# Subtest: created report with image network keeps ID and blocks whole-report retry
+ok 20 - created report with image network keeps ID and blocks whole-report retry
+  ---
+  duration_ms: 18.3127
+  ...
+# Subtest: in-flight double click creates and uploads at most once
+ok 21 - in-flight double click creates and uploads at most once
+  ---
+  duration_ms: 20.2996
+  ...
+# Subtest: explicit creation denial permits deliberate corrected retry
+ok 22 - explicit creation denial permits deliberate corrected retry
+  ---
+  duration_ms: 18.357
+  ...
+# Subtest: admin list fetches Page and renders names, nicknames, dates, status and links using three-field users
+ok 23 - admin list fetches Page and renders names, nicknames, dates, status and links using three-field users
+  ---
+  duration_ms: 141.8741
+  ...
+# Subtest: admin detail fetches summary and still posts both userId values for penalties
+ok 24 - admin detail fetches summary and still posts both userId values for penalties
+  ---
+  duration_ms: 67.7037
+  ...
+# Subtest: processed detail keeps penalty fetch, selected level and hides Apply
+ok 25 - processed detail keeps penalty fetch, selected level and hides Apply
+  ---
+  duration_ms: 61.2055
+  ...
+# Subtest: null user names render while a null user association retains the pre-existing UI failure
+ok 26 - null user names render while a null user association retains the pre-existing UI failure
+  ---
+  duration_ms: 82.8754
+  ...
+# Subtest: public product reporter.id remains independent from admin reporter.userId
+ok 27 - public product reporter.id remains independent from admin reporter.userId
+  ---
+  duration_ms: 64.6662
+  ...
+1..27
+# tests 27
+# suites 0
+# pass 27
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 985.9562

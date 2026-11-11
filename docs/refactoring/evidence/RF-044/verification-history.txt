@@ -1,0 +1,6 @@
+2026-11-11 RF044 evidence verification history
+1. Python helper could not start: PATH python.exe was the inaccessible WindowsApps alias; no Python script executed and no original files were created by that failed invocation. The newly authored Python helper was removed and replaced by Node preserve-artifacts.cjs; no dependency was installed.
+2. First Node preservation pass captured44 artifacts; captured/shared hash mismatches0, current after/source mismatches0, unredacted home/JWT/hostname files0. Source synthetic fixture/key literals intentionally retained.
+3. PowerShell [xml] strict parsed all8 XML files successfully. Node attribute extraction is separately labeled and not presented as strict XML parsing.
+4. before72 cases:70passed2skipped, failures/errors0. after7 explicit classes:335passed, failures/errors/skips0; original full test sourceSet compiled; assemble exit0. frontend final28passed.
+5. RF044 operational/test source frozen after after335/assemble and final frontend28. Shared artifacts/source hashes rechecked by preservation helper; independent common review pending.

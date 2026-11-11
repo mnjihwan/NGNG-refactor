@@ -345,3 +345,7 @@ B는 명시 JPA/실제 tx 프록시·소유 PK journal·독립 연결 commit/INS
 ## 2026-11-11 RF-039 상품 writer 객체 인가
 
 상품 생성·끌올·이미지 및 썸네일 writer에 객체 인가를 적용하고 화면의 부분 실패 처리를 보강했다. 독립 코드 리뷰에서 차단 결함이 없었으며 증빙의 개인 경로·hostname 지적을 정제 후 재검토했다. 정상 sourceSet 컴파일과 선택 테스트 291건, frontend 49건, lint·tsc·assemble이 통과했다. 전체 suite나 실제 DB·S3·브라우저 통합 검증을 뜻하지 않는다. 실행 실패 이력, 원본 보존과 비식별화, ADMIN/기존 역할 범위 및 잔여 경합·보상·캐시 검증은 [명세](tasks/RF-039.md), [증빙](evidence/RF-039/README.md), [백로그](BACKLOG.md)에 기록했다.
+
+## 2026-11-11 RF-044 신고 응답 User 축소
+
+생성 응답에서 reporter/user를 제거하고 관리자 신고 응답에서는 userId/name/nickname만 제공한다. 기존 상품 신고 reporter.id 및 RF024 저장 보호를 유지한다. before 72건 중 70통과·2skip, after 335/335, 프런트 28/28, assemble 및 공통 독립 리뷰를 완료했다. 실제 DB/JPA·OSIV·HTTP·브라우저, 외부 소비자와 본문/이미지 개인정보는 검증하지 않았다. 원시 증빙과 한계·재개 조건은 [명세](tasks/RF-044.md), [증빙](evidence/RF-044/README.md), BACKLOG에 기록했다. 이는 의도된 응답 계약 축소다.

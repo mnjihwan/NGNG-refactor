@@ -1,0 +1,67 @@
+{
+  "artifact_count": 45,
+  "hash_mismatches": 0,
+  "unredacted_home_files": 0,
+  "unredacted_jwt_files": 0,
+  "unredacted_hostname_files": 0,
+  "source_snapshot_mismatches": 0,
+  "xml_strict_parse": "performed separately with PowerShell [xml]; this script only reads attributes",
+  "before_tests": {
+    "name": "com.ngng.api.report.response.ReportResponseSecurityChainTest",
+    "tests": "72",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "2"
+  },
+  "after_tests": [
+    {
+      "name": "com.ngng.api.global.security.SecurityChainTest",
+      "tests": "46",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.ngng.api.global.security.TokenFilterTest",
+      "tests": "72",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.ngng.api.product.cache.ProductCacheInvalidationTest",
+      "tests": "58",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.ngng.api.report.creation.ReportCreationSecurityChainTest",
+      "tests": "35",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.ngng.api.report.response.ReportResponseSecurityChainTest",
+      "tests": "72",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.ngng.api.user.point.controller.PointControllerContractTest",
+      "tests": "28",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.ngng.api.user.point.controller.PointResponseSecurityChainTest",
+      "tests": "24",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    }
+  ]
+}

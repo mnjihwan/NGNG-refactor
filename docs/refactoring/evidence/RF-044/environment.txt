@@ -1,0 +1,9 @@
+date=2026-11-11 Asia/Seoul
+head=b06c05e2b90bdbd7acb9c7d5314e59ada200c6ce
+shell=Windows PowerShell
+JAVA_HOME=C:\Program Files\Java\jdk-17
+JAVA_VERSION="17.0.10"
+node=v20.10.0
+npm=10.2.3
+gradle=8.7 (wrapper properties, runtime verified by later Gradle command)
+no dependency installation / no real DB or external service connection
