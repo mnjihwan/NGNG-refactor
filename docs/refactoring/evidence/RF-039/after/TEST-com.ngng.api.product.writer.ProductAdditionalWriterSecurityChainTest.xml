@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" tests="87" skipped="0" failures="0" errors="0" timestamp="2026-11-11T07:06:30" hostname="REDACTED_HOST" time="0.563">
+  <properties/>
+  <testcase name="[1] op=create, role=USER, callerId=1000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.024"/>
+  <testcase name="[2] op=create, role=USER, callerId=2000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.005"/>
+  <testcase name="[3] op=create, role=ADMIN, callerId=1000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.005"/>
+  <testcase name="[4] op=create, role=ADMIN, callerId=2000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.005"/>
+  <testcase name="[5] op=create, role=UNCONFIRMED_USER, callerId=1000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.004"/>
+  <testcase name="[6] op=create, role=UNCONFIRMED_USER, callerId=2000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.005"/>
+  <testcase name="[7] op=refresh, role=USER, callerId=1000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.006"/>
+  <testcase name="[8] op=refresh, role=USER, callerId=2000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.006"/>
+  <testcase name="[9] op=refresh, role=ADMIN, callerId=1000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.008"/>
+  <testcase name="[10] op=refresh, role=ADMIN, callerId=2000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.007"/>
+  <testcase name="[11] op=refresh, role=UNCONFIRMED_USER, callerId=1000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.005"/>
+  <testcase name="[12] op=refresh, role=UNCONFIRMED_USER, callerId=2000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.006"/>
+  <testcase name="[13] op=/products/upload, role=USER, callerId=1000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.041"/>
+  <testcase name="[14] op=/products/upload, role=USER, callerId=2000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.009"/>
+  <testcase name="[15] op=/products/upload, role=ADMIN, callerId=1000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.006"/>
+  <testcase name="[16] op=/products/upload, role=ADMIN, callerId=2000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.012"/>
+  <testcase name="[17] op=/products/upload, role=UNCONFIRMED_USER, callerId=1000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.004"/>
+  <testcase name="[18] op=/products/upload, role=UNCONFIRMED_USER, callerId=2000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.005"/>
+  <testcase name="[19] op=/upload, role=USER, callerId=1000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.011"/>
+  <testcase name="[20] op=/upload, role=USER, callerId=2000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.008"/>
+  <testcase name="[21] op=/upload, role=ADMIN, callerId=1000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.007"/>
+  <testcase name="[22] op=/upload, role=ADMIN, callerId=2000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.008"/>
+  <testcase name="[23] op=/upload, role=UNCONFIRMED_USER, callerId=1000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.008"/>
+  <testcase name="[24] op=/upload, role=UNCONFIRMED_USER, callerId=2000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.006"/>
+  <testcase name="[25] op=deleteImage, role=USER, callerId=1000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.009"/>
+  <testcase name="[26] op=deleteImage, role=USER, callerId=2000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.009"/>
+  <testcase name="[27] op=deleteImage, role=ADMIN, callerId=1000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.007"/>
+  <testcase name="[28] op=deleteImage, role=ADMIN, callerId=2000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.008"/>
+  <testcase name="[29] op=deleteImage, role=UNCONFIRMED_USER, callerId=1000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.007"/>
+  <testcase name="[30] op=deleteImage, role=UNCONFIRMED_USER, callerId=2000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.006"/>
+  <testcase name="[1] uri=/products/upload, id=bad, statusCode=400" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.009"/>
+  <testcase name="[2] uri=/products/upload, id=9223372036854775808, statusCode=400" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.007"/>
+  <testcase name="[3] uri=/products/upload, id=0, statusCode=400" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.005"/>
+  <testcase name="[4] uri=/products/upload, id=-1, statusCode=400" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.005"/>
+  <testcase name="[5] uri=/products/upload, id=999, statusCode=404" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.006"/>
+  <testcase name="[6] uri=/upload, id=bad, statusCode=400" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.006"/>
+  <testcase name="[7] uri=/upload, id=9223372036854775808, statusCode=400" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.006"/>
+  <testcase name="[8] uri=/upload, id=0, statusCode=400" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.005"/>
+  <testcase name="[9] uri=/upload, id=-1, statusCode=400" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.005"/>
+  <testcase name="[10] uri=/upload, id=999, statusCode=404" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.004"/>
+  <testcase name="[1] op=create" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.011"/>
+  <testcase name="[2] op=refresh" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.009"/>
+  <testcase name="[3] op=/products/upload" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.009"/>
+  <testcase name="[4] op=/upload" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.01"/>
+  <testcase name="[5] op=deleteImage" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.008"/>
+  <testcase name="createKeepsLocationAndOwnerAndTags()" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.008"/>
+  <testcase name="[1] op=create, kind=malformed" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.002"/>
+  <testcase name="[2] op=create, kind=expired" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.005"/>
+  <testcase name="[3] op=create, kind=access-type" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.004"/>
+  <testcase name="[4] op=refresh, kind=malformed" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.001"/>
+  <testcase name="[5] op=refresh, kind=expired" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.004"/>
+  <testcase name="[6] op=refresh, kind=access-type" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.003"/>
+  <testcase name="[7] op=/products/upload, kind=malformed" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.001"/>
+  <testcase name="[8] op=/products/upload, kind=expired" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.003"/>
+  <testcase name="[9] op=/products/upload, kind=access-type" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.003"/>
+  <testcase name="[10] op=/upload, kind=malformed" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.001"/>
+  <testcase name="[11] op=/upload, kind=expired" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.002"/>
+  <testcase name="[12] op=/upload, kind=access-type" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.002"/>
+  <testcase name="[13] op=deleteImage, kind=malformed" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.001"/>
+  <testcase name="[14] op=deleteImage, kind=expired" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.005"/>
+  <testcase name="[15] op=deleteImage, kind=access-type" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.005"/>
+  <testcase name="[1] op=create" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.007"/>
+  <testcase name="[2] op=refresh" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.003"/>
+  <testcase name="[3] op=/products/upload" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.005"/>
+  <testcase name="[4] op=/upload" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.009"/>
+  <testcase name="[5] op=deleteImage" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.006"/>
+  <testcase name="refreshFallback()" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.005"/>
+  <testcase name="[1] op=create, kind=missing" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.002"/>
+  <testcase name="[2] op=create, kind=malformed" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.001"/>
+  <testcase name="[3] op=create, kind=expired" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.005"/>
+  <testcase name="[4] op=create, kind=refresh-type" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.005"/>
+  <testcase name="[5] op=refresh, kind=missing" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.002"/>
+  <testcase name="[6] op=refresh, kind=malformed" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.001"/>
+  <testcase name="[7] op=refresh, kind=expired" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.004"/>
+  <testcase name="[8] op=refresh, kind=refresh-type" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.005"/>
+  <testcase name="[9] op=/products/upload, kind=missing" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.002"/>
+  <testcase name="[10] op=/products/upload, kind=malformed" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.001"/>
+  <testcase name="[11] op=/products/upload, kind=expired" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.003"/>
+  <testcase name="[12] op=/products/upload, kind=refresh-type" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.004"/>
+  <testcase name="[13] op=/upload, kind=missing" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.002"/>
+  <testcase name="[14] op=/upload, kind=malformed" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.001"/>
+  <testcase name="[15] op=/upload, kind=expired" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.004"/>
+  <testcase name="[16] op=/upload, kind=refresh-type" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.005"/>
+  <testcase name="[17] op=deleteImage, kind=missing" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.001"/>
+  <testcase name="[18] op=deleteImage, kind=malformed" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.001"/>
+  <testcase name="[19] op=deleteImage, kind=expired" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.005"/>
+  <testcase name="[20] op=deleteImage, kind=refresh-type" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.005"/>
+  <system-out><![CDATA[16:06:30.401 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@703e55da, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@714f3e27, org.springframework.security.web.context.SecurityContextHolderFilter@78571fe6, org.springframework.security.web.header.HeaderWriterFilter@7fe68a5, org.springframework.web.filter.CorsFilter@433dd165, org.springframework.security.web.authentication.logout.LogoutFilter@7e9ffdff, com.ngng.api.global.security.filter.TokenFilter@2d05291f, com.ngng.api.global.security.filter.LoginFilter@2f9739e0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@27e7953b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@53a86a22, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@27a18433, org.springframework.security.web.session.SessionManagementFilter@384abf00, org.springframework.security.web.access.ExceptionTranslationFilter@bfa82bd, org.springframework.security.web.access.intercept.AuthorizationFilter@75a37ebb]
+16:06:30.512 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+16:06:30.512 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+16:06:30.512 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+16:06:30.528 [Test worker] INFO product-log -- Success Create Product id: 77 Owner: 1000
+16:06:30.544 [Test worker] INFO product-log -- Success Create Product id: 77 Owner: 1000
+16:06:30.560 [Test worker] INFO product-log -- Success Update Product Refresh id: 77 
+16:06:30.576 [Test worker] INFO product-log -- Success Update Product Refresh id: 77 
+16:06:30.592 [Test worker] INFO product-log -- Success Update Product Refresh id: 77 
+이미지 처리
+이미지 처리
+이미지 처리
+이미지 처리
+이미지 처리
+이미지 처리
+이미지 처리
+16:06:30.860 [Test worker] INFO product-log -- Success Create Product id: 77 Owner: 1000
+16:06:30.876 [Test worker] INFO product-log -- Success Update Product Refresh id: 77 
+이미지 처리
+이미지 처리
+16:06:30.908 [Test worker] INFO product-log -- Success Create Product id: 77 Owner: 1000
+이미지 처리
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

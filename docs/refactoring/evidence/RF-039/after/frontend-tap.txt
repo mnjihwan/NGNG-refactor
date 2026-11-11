@@ -1,0 +1,255 @@
+TAP version 13
+# Subtest: PUT 200 component navigates
+ok 1 - PUT 200 component navigates
+  ---
+  duration_ms: 489.1626
+  ...
+# Subtest: PUT 401 component alerts and stays
+ok 2 - PUT 401 component alerts and stays
+  ---
+  duration_ms: 288.0787
+  ...
+# Subtest: PUT 403 component alerts and stays
+ok 3 - PUT 403 component alerts and stays
+  ---
+  duration_ms: 274.3567
+  ...
+# Subtest: PUT 500 component alerts and stays
+ok 4 - PUT 500 component alerts and stays
+  ---
+  duration_ms: 123.7412
+  ...
+# Subtest: PUT network failure is consumed by component after implementation
+ok 5 - PUT network failure is consumed by component after implementation
+  ---
+  duration_ms: 106.9773
+  ...
+# Subtest: DELETE 200 removes sale list
+ok 6 - DELETE 200 removes sale list
+  ---
+  duration_ms: 96.8336
+  ...
+# Subtest: DELETE 204 preserves sale list
+ok 7 - DELETE 204 preserves sale list
+  ---
+  duration_ms: 108.621
+  ...
+# Subtest: DELETE 401 preserves sale list
+ok 8 - DELETE 401 preserves sale list
+  ---
+  duration_ms: 103.6651
+  ...
+# Subtest: DELETE 403 preserves sale list
+ok 9 - DELETE 403 preserves sale list
+  ---
+  duration_ms: 90.2114
+  ...
+# Subtest: DELETE 500 preserves sale list
+ok 10 - DELETE 500 preserves sale list
+  ---
+  duration_ms: 59.5169
+  ...
+# Subtest: DELETE network failure is consumed inside the hook
+ok 11 - DELETE network failure is consumed inside the hook
+  ---
+  duration_ms: 56.1033
+  ...
+# Subtest: unawaited DELETE 204 cannot produce an unhandled rejection
+ok 12 - unawaited DELETE 204 cannot produce an unhandled rejection
+  ---
+  duration_ms: 92.4206
+  ...
+# Subtest: unawaited DELETE 403 cannot produce an unhandled rejection
+ok 13 - unawaited DELETE 403 cannot produce an unhandled rejection
+  ---
+  duration_ms: 90.8232
+  ...
+# Subtest: unawaited DELETE network cannot produce an unhandled rejection
+ok 14 - unawaited DELETE network cannot produce an unhandled rejection
+  ---
+  duration_ms: 98.3227
+  ...
+# Subtest: sell API created
+ok 15 - sell API created
+  ---
+  duration_ms: 183.5522
+  ...
+# Subtest: sell API create401
+ok 16 - sell API create401
+  ---
+  duration_ms: 37.735
+  ...
+# Subtest: sell API create403
+ok 17 - sell API create403
+  ---
+  duration_ms: 32.7408
+  ...
+# Subtest: sell API create500
+ok 18 - sell API create500
+  ---
+  duration_ms: 34.0635
+  ...
+# Subtest: sell API createLost
+ok 19 - sell API createLost
+  ---
+  duration_ms: 31.2096
+  ...
+# Subtest: sell API createMalformed
+ok 20 - sell API createMalformed
+  ---
+  duration_ms: 32.1426
+  ...
+# Subtest: sell API createStringID
+ok 21 - sell API createStringID
+  ---
+  duration_ms: 22.5163
+  ...
+# Subtest: sell API image401
+ok 22 - sell API image401
+  ---
+  duration_ms: 27.7272
+  ...
+# Subtest: sell API image403
+ok 23 - sell API image403
+  ---
+  duration_ms: 50.0779
+  ...
+# Subtest: sell API image500
+ok 24 - sell API image500
+  ---
+  duration_ms: 24.7518
+  ...
+# Subtest: sell API imageLost
+ok 25 - sell API imageLost
+  ---
+  duration_ms: 20.1837
+  ...
+# Subtest: sell API imageMalformed
+ok 26 - sell API imageMalformed
+  ---
+  duration_ms: 22.813
+  ...
+# Subtest: sell API imageWrongID
+ok 27 - sell API imageWrongID
+  ---
+  duration_ms: 27.1375
+  ...
+# Subtest: sell component image-failed blocks recreation and preserves result
+ok 28 - sell component image-failed blocks recreation and preserves result
+  ---
+  duration_ms: 233.0205
+  ...
+# Subtest: sell component image-unknown blocks recreation and preserves result
+ok 29 - sell component image-unknown blocks recreation and preserves result
+  ---
+  duration_ms: 125.6079
+  ...
+# Subtest: sell component unknown blocks recreation and preserves result
+ok 30 - sell component unknown blocks recreation and preserves result
+  ---
+  duration_ms: 71.6978
+  ...
+# Subtest: sell component created blocks recreation and preserves result
+ok 31 - sell component created blocks recreation and preserves result
+  ---
+  duration_ms: 55.3746
+  ...
+# Subtest: admin PUT dto uses numeric DTO ID for alias upload
+ok 32 - admin PUT dto uses numeric DTO ID for alias upload
+  ---
+  duration_ms: 25.5425
+  ...
+# Subtest: admin PUT badDTO uses numeric DTO ID for alias upload
+ok 33 - admin PUT badDTO uses numeric DTO ID for alias upload
+  ---
+  duration_ms: 22.5781
+  ...
+# Subtest: admin PUT stringDTO uses numeric DTO ID for alias upload
+ok 34 - admin PUT stringDTO uses numeric DTO ID for alias upload
+  ---
+  duration_ms: 27.1541
+  ...
+# Subtest: admin PUT denied uses numeric DTO ID for alias upload
+ok 35 - admin PUT denied uses numeric DTO ID for alias upload
+  ---
+  duration_ms: 22.1471
+  ...
+# Subtest: admin PUT uploadDenied uses numeric DTO ID for alias upload
+ok 36 - admin PUT uploadDenied uses numeric DTO ID for alias upload
+  ---
+  duration_ms: 28.1972
+  ...
+# Subtest: admin PUT lost uses numeric DTO ID for alias upload
+ok 37 - admin PUT lost uses numeric DTO ID for alias upload
+  ---
+  duration_ms: 16.5923
+  ...
+# Subtest: admin deletion false controls PUT/upload
+ok 38 - admin deletion false controls PUT/upload
+  ---
+  duration_ms: 32.6159
+  ...
+# Subtest: admin deletion undefined controls PUT/upload
+ok 39 - admin deletion undefined controls PUT/upload
+  ---
+  duration_ms: 20.1886
+  ...
+# Subtest: admin deletion Error: offline controls PUT/upload
+ok 40 - admin deletion Error: offline controls PUT/upload
+  ---
+  duration_ms: 21.2716
+  ...
+# Subtest: admin deletion true controls PUT/upload
+ok 41 - admin deletion true controls PUT/upload
+  ---
+  duration_ms: 17.8956
+  ...
+# Subtest: refresh API 200
+ok 42 - refresh API 200
+  ---
+  duration_ms: 51.3343
+  ...
+# Subtest: refresh API 401
+ok 43 - refresh API 401
+  ---
+  duration_ms: 25.9288
+  ...
+# Subtest: refresh API 403
+ok 44 - refresh API 403
+  ---
+  duration_ms: 31.2745
+  ...
+# Subtest: refresh API 500
+ok 45 - refresh API 500
+  ---
+  duration_ms: 40.9343
+  ...
+# Subtest: refresh API 200
+ok 46 - refresh API 200
+  ---
+  duration_ms: 34.9347
+  ...
+# Subtest: refresh API lost
+ok 47 - refresh API lost
+  ---
+  duration_ms: 29.2377
+  ...
+# Subtest: refresh component 77 avoids false success
+ok 48 - refresh component 77 avoids false success
+  ---
+  duration_ms: 37.6871
+  ...
+# Subtest: refresh component Error: offline avoids false success
+ok 49 - refresh component Error: offline avoids false success
+  ---
+  duration_ms: 26.776
+  ...
+1..49
+# tests 49
+# suites 0
+# pass 49
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2457.0371

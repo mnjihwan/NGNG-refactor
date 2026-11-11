@@ -29,37 +29,33 @@ const mapProductToAPISepc = (product: Product) => {
 };
 
 export const createProduct = async (product: Product): Promise<boolean> => {
-
-  const res = await fetch(`/products/${product.id}`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: getAccessToken(),
-    },
-    body: JSON.stringify(mapProductToAPISepc(product)),
-  });
-
-  if (res.status === 401) {
-    alert("유효하지 않은 인증 정보입니다.");
-
-    return false;
-  }
-
-  setAccessToken(res);
-
-  if (res.ok === true) {
-    const productId = await res.text();
+  try {
+    const res = await fetch(`/products/${product.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: getAccessToken(),
+      },
+      body: JSON.stringify(mapProductToAPISepc(product)),
+    });
+    setAccessToken(res);
+    if (res.status === 401) {
+      alert("유효하지 않은 인증 정보입니다.");
+      return false;
+    }
+    if (!res.ok) return false;
+    const body: unknown = await res.json();
+    if (typeof body !== "object" || body === null || !("id" in body)
+      || typeof body.id !== "number" || !Number.isSafeInteger(body.id) || body.id <= 0 || body.id !== product.id) return false;
+    const productId = String(body.id);
     if (product.images.length > 0) {
       const resImages = await createImages(productId, product.images);
       return resImages.ok;
     }
     return true;
+  } catch {
+    return false;
   }
-
-  return false;
-
-  // const resImages = await updateImages("1", product.images);
-  // return resImages.ok;
 };
 
 export const deleteImageById = async (productId: number, imageURL: string) => {
@@ -75,14 +71,12 @@ export const deleteImageById = async (productId: number, imageURL: string) => {
     },
     body: JSON.stringify(deleteData),
   });
-
+  setAccessToken(response);
   if (response.status === 401) {
     alert("유효하지 않은 인증 정보입니다.");
 
     return;
   }
-
-  setAccessToken(response);
 
   return response.ok;
 };
@@ -124,11 +118,13 @@ const createImages = async (
   // console.log(fomData);
 
   // return await fetch("/api/upload", {
-  return await fetch(`/api/upload`, {
+  const response = await fetch(`/api/upload`, {
     method: "POST",
     headers: {
       Authorization: getAccessToken(),
     },
     body: fomData,
   });
+  setAccessToken(response);
+  return response;
 };

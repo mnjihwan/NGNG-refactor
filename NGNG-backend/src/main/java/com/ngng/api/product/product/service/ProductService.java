@@ -44,7 +44,10 @@ public class ProductService {
     private final ProductCacheInvalidator productCacheInvalidator;
 
     public Long create(CreateProductRequestDTO request){
-        System.out.println("request = " + request.getUserId());
+        User caller = ProductWriterAuthorization.requireCaller(authService, true);
+        if (!caller.getUserId().equals(request.getUserId())) {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN);
+        }
         return productRepository.save(new Product(request)).getProductId();
     }
 
@@ -168,12 +171,10 @@ public class ProductService {
     }
 
     public Long updateRefresh(Long productId){
-        Product target = productRepository.findById(productId).orElse(null);
-        if(target != null){
-            target.setRefreshedAt(new Timestamp(new Date().getTime()));
-            log.info("Success Update Product Refresh id: {} ",productId);
-            productCacheInvalidator.invalidate(productId);
-        }
+        Product target = ProductWriterAuthorization.requireProduct(productId, productRepository, authService);
+        target.setRefreshedAt(new Timestamp(new Date().getTime()));
+        log.info("Success Update Product Refresh id: {} ",productId);
+        productCacheInvalidator.invalidate(productId);
         return target.getProductId();
     }
 

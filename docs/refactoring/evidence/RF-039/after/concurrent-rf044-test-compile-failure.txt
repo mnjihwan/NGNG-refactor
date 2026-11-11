@@ -1,0 +1,47 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.7/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :compileJava
+> Task :processResources
+> Task :classes
+
+> Task :compileTestJava
+[USER_HOME]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\report\response\ReportResponseSecurityChainTest.java:8: error: package com.ngngng.api.report.report.dto does not exist
+import com.ngngng.api.report.report.dto.*;
+^
+[USER_HOME]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\report\response\ReportResponseSecurityChainTest.java:100: error: reference to Role is ambiguous
+                .visible(true).createdAt(stamp()).updatedAt(stamp()).role(Role.builder().roleId(1L).roleType("USER").build()).build();
+                                                                          ^
+  both class org.springframework.context.annotation.Role in org.springframework.context.annotation and class com.ngng.api.user.user.entity.Role in com.ngng.api.user.user.entity match
+[USER_HOME]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\report\response\ReportResponseSecurityChainTest.java:258: error: cannot find symbol
+        JsonNode direct = mapper.valueToTree(ReadReportListResponseDTO.from(report));
+                                             ^
+  symbol:   variable ReadReportListResponseDTO
+  location: class ReportResponseSecurityChainTest
+[USER_HOME]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\report\response\ReportResponseSecurityChainTest.java:291: error: cannot find symbol
+        JsonNode direct = mapper.valueToTree(ReadReportListResponseDTO.from(report)); assertEquals(USER, keys(direct.get("user")));
+                                             ^
+  symbol:   variable ReadReportListResponseDTO
+  location: class ReportResponseSecurityChainTest
+[USER_HOME]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\report\response\ReportResponseSecurityChainTest.java:295: error: cannot find symbol
+                .reporter(com.ngng.api.product.product.dto.UserDTO.builder().id(1000L).name("fixture").nickname("fixture").build()).build();
+                                                                  ^
+  symbol:   method builder()
+  location: class UserDTO
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+5 errors
+
+
+> Task :compileTestJava FAILED
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileTestJava'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+> Run with --info option to get more log output.
+> Run with --scan to get full insights.
+
+BUILD FAILED in 18s
+3 actionable tasks: 3 executed

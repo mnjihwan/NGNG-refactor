@@ -1,0 +1,1 @@
+gradle.projectsEvaluated { rootProject.sourceSets.test.java.setIncludes(['com/ngng/api/product/writer/**','com/ngng/api/product/authorization/**','com/ngng/api/product/cache/**']) }

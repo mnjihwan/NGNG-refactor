@@ -1,0 +1,91 @@
+{
+  "capturedAtUtc": "2026-11-11T07:14:26.2143727Z",
+  "initialImplementationHead": "3a101a0f5eee7bf2b2582fcaadba7e97b41982cf",
+  "currentHead": "b06c05e2b90bdbd7acb9c7d5314e59ada200c6ce",
+  "sourceCount": 16,
+  "sourceChanges": [
+    " M NGNG-backend/src/main/java/com/ngng/api/product/product/controller/ProductController.java",
+    " M NGNG-backend/src/main/java/com/ngng/api/product/product/service/ProductImageService.java",
+    " M NGNG-backend/src/main/java/com/ngng/api/product/product/service/ProductService.java",
+    " M NGNG-backend/src/main/java/com/ngng/api/product/productImage/controller/ProductImageController.java",
+    " M NGNG-backend/src/main/java/com/ngng/api/product/thumbnail/service/ThumbnailService.java",
+    " M NGNG-backend/src/test/java/com/ngng/api/product/cache/ProductCacheInvalidationTest.java",
+    " M NGNG-frontend/src/app/admin/products/[id]/page.tsx",
+    " M NGNG-frontend/src/app/admin/products/_api/api.ts",
+    " M NGNG-frontend/src/app/my_page/_api/api.ts",
+    " M NGNG-frontend/src/app/my_page/_compoenets/SellHistory.tsx",
+    " M NGNG-frontend/src/app/sell/_api/api.ts",
+    " M NGNG-frontend/src/app/sell/page.tsx",
+    "?? NGNG-backend/src/main/java/com/ngng/api/product/product/service/ProductWriterAuthorization.java",
+    "?? NGNG-backend/src/test/java/com/ngng/api/product/writer/ProductAdditionalWriterSecurityChainTest.java",
+    "?? NGNG-backend/src/test/java/com/ngng/api/product/writer/ProductAdditionalWriterServiceTest.java",
+    "?? NGNG-frontend/tests/rf039-product-writers.test.cjs"
+  ],
+  "scope": "RF039 source16 only; read-only git snapshot; no commit/push/index mutation",
+  "sourceSHA256": [
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/product/product/service/ProductWriterAuthorization.java",
+      "SHA256": "7660CAB0D3848B509E53CCEEB24AC9EF199E06AB58C458AB470A4D853F0AC270"
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/product/product/service/ProductService.java",
+      "SHA256": "9C6FC6AE5869E0BF2F4781676F3CF8F77A4B9A1D64CDD2085847F7800C2A9554"
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/product/product/service/ProductImageService.java",
+      "SHA256": "5D324594553A08333F4A6675F09608E703A19332BF88A4AC1C79A14C8864C658"
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/product/thumbnail/service/ThumbnailService.java",
+      "SHA256": "A4DEF59BA33978BE66D748BC5FD9B4792161EB398A3B520087548535ACB2F64C"
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/product/product/controller/ProductController.java",
+      "SHA256": "83F7CBFF5422342956AA49ACAEF965CBAB8C26D7C8DAAE2A1F55D865F88701F0"
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/product/productImage/controller/ProductImageController.java",
+      "SHA256": "91D28FAE914FF667602A5E4F015812A308F821D2138DAB92AFE950C9A68781C7"
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/product/writer/ProductAdditionalWriterSecurityChainTest.java",
+      "SHA256": "A43E79BD5E780694E5BA59EB7B5F7AE03B4D329486B350F4DAFDB0C86391D9A2"
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/product/writer/ProductAdditionalWriterServiceTest.java",
+      "SHA256": "86A466AA343A8DB35194A6F95BAAAF71E08B5FDA4C23692202C4912F0BC97ABE"
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/product/cache/ProductCacheInvalidationTest.java",
+      "SHA256": "B09B54BF034340D4777014DA2C4C3A9691E49AC07A7EDCBE8D4E7CB674AFE29D"
+    },
+    {
+      "path": "NGNG-frontend/src/app/sell/_api/api.ts",
+      "SHA256": "C4B1DD1E155B014EBCC78EF88FC5185ECD47035C97AB45A3FD9E928A50431322"
+    },
+    {
+      "path": "NGNG-frontend/src/app/sell/page.tsx",
+      "SHA256": "55DBECCADD263681F7140C2AC605BEFF6C438AFEB206F62E03863E001BA34093"
+    },
+    {
+      "path": "NGNG-frontend/src/app/admin/products/_api/api.ts",
+      "SHA256": "6D67D4CE038A90158965248E2C9A5BE6D346BA9188F15DC9A2A7A02F6389CECA"
+    },
+    {
+      "path": "NGNG-frontend/src/app/admin/products/[id]/page.tsx",
+      "SHA256": "700B1496DF16AEFC0D15BDEDF23E33BE8C8F2DCB159EAAEE9C62DCD1EB0F1AB0"
+    },
+    {
+      "path": "NGNG-frontend/src/app/my_page/_api/api.ts",
+      "SHA256": "BC6A8E9BD0AC3E8BD7681AC1CBDDCFA744B03B981788451FF7C674E7EBC6D467"
+    },
+    {
+      "path": "NGNG-frontend/src/app/my_page/_compoenets/SellHistory.tsx",
+      "SHA256": "1ED833063ED48DCA76847E9E1B37DB9EEED8489B8EB0951CCEA1691ADB568642"
+    },
+    {
+      "path": "NGNG-frontend/tests/rf039-product-writers.test.cjs",
+      "SHA256": "8A45CE214CA3E27E9BC63E5584EBC95A3C0FDFC7092E60E6418AB005EEEAAB70"
+    }
+  ]
+}

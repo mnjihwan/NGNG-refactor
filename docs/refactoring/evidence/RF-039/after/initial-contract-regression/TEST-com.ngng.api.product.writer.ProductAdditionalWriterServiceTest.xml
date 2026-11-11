@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" tests="44" skipped="0" failures="0" errors="0" timestamp="2026-11-11T06:54:01" hostname="REDACTED_HOST" time="0.214">
+  <properties/>
+  <testcase name="[1] shape=null" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.003"/>
+  <testcase name="[2] shape=anonymous" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.001"/>
+  <testcase name="[3] shape=unauthenticated" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.003"/>
+  <testcase name="[4] shape=string" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.003"/>
+  <testcase name="[5] shape=null-user" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.001"/>
+  <testcase name="[6] shape=null-email" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.001"/>
+  <testcase name="[7] shape=blank-email" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.001"/>
+  <testcase name="[8] shape=unknown-role" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.001"/>
+  <testcase name="authorizedUploadFailureCanLeaveEarlierSideEffect()" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.029"/>
+  <testcase name="unsupportedOwnerInputKeepsSuccessWithoutUpload()" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.002"/>
+  <testcase name="missingImageAndThumbnailReturn404WithoutWrites()" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.003"/>
+  <testcase name="[1] role=USER" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.006"/>
+  <testcase name="[2] role=ADMIN" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.001"/>
+  <testcase name="[3] role=UNCONFIRMED_USER" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.002"/>
+  <testcase name="[1] useAlias=false, kind=empty" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.003"/>
+  <testcase name="[2] useAlias=false, kind=unsupported" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.002"/>
+  <testcase name="[3] useAlias=true, kind=empty" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.002"/>
+  <testcase name="[4] useAlias=true, kind=unsupported" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.002"/>
+  <testcase name="[1] writer=create" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.004"/>
+  <testcase name="[2] writer=refresh" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.001"/>
+  <testcase name="[3] writer=image-create" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.002"/>
+  <testcase name="[4] writer=image-delete" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.002"/>
+  <testcase name="[5] writer=images-delete" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.001"/>
+  <testcase name="[6] writer=thumbnail-create" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.001"/>
+  <testcase name="[7] writer=thumbnail-update" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.001"/>
+  <testcase name="firstVideoDoesNotGenerateThumbnailAndAliasContractRemains()" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.002"/>
+  <testcase name="imageActualRelationshipMustMatchPath()" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.038"/>
+  <testcase name="adminManagesAnotherOwnersImagesAndThumbnail()" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.008"/>
+  <testcase name="[1] shape=caller" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.002"/>
+  <testcase name="[2] shape=caller-id" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.001"/>
+  <testcase name="[3] shape=owner" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.001"/>
+  <testcase name="[4] shape=owner-id" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.001"/>
+  <testcase name="[5] shape=product-id" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.001"/>
+  <testcase name="thumbnailUpdateAuthorizesStoredProduct()" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.031"/>
+  <testcase name="[1] useAlias=false, id=bad" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.005"/>
+  <testcase name="[2] useAlias=true, id=bad" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.002"/>
+  <testcase name="[3] useAlias=false, id=0" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.002"/>
+  <testcase name="[4] useAlias=true, id=0" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.002"/>
+  <testcase name="[5] useAlias=false, id=-1" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.001"/>
+  <testcase name="[6] useAlias=true, id=-1" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.001"/>
+  <testcase name="[7] useAlias=false, id=9223372036854775808" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.002"/>
+  <testcase name="[8] useAlias=true, id=9223372036854775808" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.003"/>
+  <testcase name="[9] useAlias=false, id=999" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.003"/>
+  <testcase name="[10] useAlias=true, id=999" classname="com.ngng.api.product.writer.ProductAdditionalWriterServiceTest" time="0.002"/>
+  <system-out><![CDATA[이미지 처리
+지원 하지 않는 파일 확장 타입 입니다.
+15:54:01.866 [Test worker] INFO product-log -- Success Update Product Refresh id: 77 
+15:54:01.866 [Test worker] INFO product-log -- Success Update Product Refresh id: 77 
+15:54:01.866 [Test worker] INFO product-log -- Success Update Product Refresh id: 77 
+영상 처리
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

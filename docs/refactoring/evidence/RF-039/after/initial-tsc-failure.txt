@@ -1,0 +1,2 @@
+src/app/sell/page.tsx(102,25): error TS2339: Property 'productId' does not exist on type '{ status: "rejected" | "unknown"; } | { status: "image-failed" | "image-unknown"; productId: number; }'.
+  Property 'productId' does not exist on type '{ status: "rejected" | "unknown"; }'.

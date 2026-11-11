@@ -1,0 +1,119 @@
+package com.ngng.api.product.product.service;
+
+import com.ngng.api.product.product.dto.response.ReadProductImageResponseDTO;
+import com.ngng.api.product.product.entity.Product;
+import com.ngng.api.product.product.entity.ProductImage;
+import com.ngng.api.product.product.repository.ProductImageRepository;
+import com.ngng.api.product.product.repository.ProductRepository;
+import com.ngng.api.user.user.service.AuthService;
+import com.ngng.api.product.thumbnail.entity.Thumbnail;
+import com.ngng.api.product.thumbnail.repository.ThumbnailRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.sql.Timestamp;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+@Service
+@RequiredArgsConstructor
+public class ProductImageService {
+    private final ProductImageRepository productImageRepository;
+    private final ThumbnailRepository thumbnailRepository;
+    private final ProductRepository productRepository;
+    private final AuthService authService;
+
+    // Both controllers invoke this before inspecting any file, including empty/unsupported input.
+    public Long authorizeUpload(String productId) {
+        Long id = ProductWriterAuthorization.parseProductId(productId);
+        ProductWriterAuthorization.requireProduct(id, productRepository, authService);
+        return id;
+    }
+
+    public void create(Long productId, String imageURL) {
+        Product product = ProductWriterAuthorization.requireProduct(productId, productRepository, authService);
+        // TODO : S3에 업로드하고 주소 받아오는 로직
+
+        String extension = imageURL.substring(imageURL.lastIndexOf('.') + 1);
+
+        // 확장자에 따라 contentType 결정
+        String contentType = "IMAGE";
+        if (extension.equals("mp4")) {
+            contentType = "VIDEO";
+        }
+
+        productImageRepository.save(
+                ProductImage.builder()
+                        .imageUrl(imageURL)
+                        .contentType(contentType)
+                        .product(product)
+                        .build());
+    }
+
+    public List<ReadProductImageResponseDTO> readAllByProductId(Long productId) {
+        return productImageRepository.findAllByProductProductId(productId).stream().
+                map(image -> ReadProductImageResponseDTO
+                        .builder()
+                        .id(image.getProductImageId())
+                        .imageURL(image.getImageUrl())
+                        .build()
+                )
+                .collect(Collectors.toList());
+    }
+
+    public ProductImage readByProductIdAndImageUrl(Long productId, String imageUrl) {
+        return productImageRepository.findByProductProductIdAndImageUrl(productId, imageUrl);
+    }
+
+    @Transactional
+    public Long delete(Long productId, String imageUrl) {
+        ProductWriterAuthorization.requireProduct(productId, productRepository, authService);
+        ProductImage found = productImageRepository.findByProductProductIdAndImageUrl(productId, imageUrl);
+        if (found == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        if (found.getProduct() == null || !productId.equals(found.getProduct().getProductId())) {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN);
+        }
+        ProductWriterAuthorization.requireManager(found.getProduct(), authService);
+        found.setVisible(false);
+        found.setUpdatedAt(new Timestamp(System.currentTimeMillis()));
+        return productImageRepository.save(found).getProductImageId();
+    }
+
+    @Transactional
+    public Long deleteImages(Long productId) {
+        Product product = ProductWriterAuthorization.requireProduct(productId, productRepository, authService);
+        Optional<Thumbnail> thumbnail = thumbnailRepository.findByProduct(product);
+        List<ProductImage> images = productImageRepository.findByProduct(product);
+        thumbnail.ifPresent(found -> {
+            if (found.getProduct() == null || !productId.equals(found.getProduct().getProductId())) {
+                throw new ResponseStatusException(HttpStatus.FORBIDDEN);
+            }
+            ProductWriterAuthorization.requireManager(found.getProduct(), authService);
+        });
+        for (ProductImage image : images) {
+            if (image.getProduct() == null || !productId.equals(image.getProduct().getProductId())) {
+                throw new ResponseStatusException(HttpStatus.FORBIDDEN);
+            }
+            ProductWriterAuthorization.requireManager(image.getProduct(), authService);
+        }
+
+        // 기존 썸네일이 존재하는 경우 삭제
+        if (thumbnail.isPresent()) {
+            thumbnailRepository.deleteByProduct(thumbnail.get().getProduct());
+        }
+
+        // 이미지 URL만을 담는 리스트를 생성
+        List<String> imageUrls = images.stream()
+                .map(ProductImage::getImageUrl) // ProductImage 객체에서 imageUrl 속성만 추출
+                .toList();
+
+        productImageRepository.deleteAllByProductIdAndImages(productId, imageUrls);
+
+        return productId;
+
+    }
+}

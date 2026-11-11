@@ -1,0 +1,29 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.7/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :compileJava
+> Task :processResources
+> Task :classes
+
+> Task :compileTestJava
+[USER_HOME]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\user\signup\SignupSecurityChainTest.java:56: error: reference to Role is ambiguous
+        when(roles.findByRoleType("UNCONFIRMED_USER")).thenReturn(Role.builder().roleType("UNCONFIRMED_USER").build());when(users.save(any())).thenAnswer(c->{User u=c.getArgument(0);u.setUserId(43001L);return u;});when(points.save(any())).thenAnswer(c->{PointHistory p=c.getArgument(0);p.setId(43002L);return p;});
+                                                                  ^
+  both class org.springframework.context.annotation.Role in org.springframework.context.annotation and class com.ngng.api.user.user.entity.Role in com.ngng.api.user.user.entity match
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+1 error
+
+> Task :compileTestJava FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileTestJava'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+> Run with --info option to get more log output.
+> Run with --scan to get full insights.
+
+BUILD FAILED in 22s
+3 actionable tasks: 3 executed

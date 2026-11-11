@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" tests="29" skipped="0" failures="0" errors="0" timestamp="2026-11-11T06:46:07" hostname="REDACTED_HOST" time="0.722">
+  <properties/>
+  <testcase name="[1] op=create, role=USER, callerId=1000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.483"/>
+  <testcase name="[2] op=create, role=USER, callerId=2000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.014"/>
+  <testcase name="[3] op=create, role=ADMIN, callerId=1000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.009"/>
+  <testcase name="[4] op=create, role=ADMIN, callerId=2000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.007"/>
+  <testcase name="[5] op=create, role=UNCONFIRMED_USER, callerId=1000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.016"/>
+  <testcase name="[6] op=refresh, role=USER, callerId=1000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.013"/>
+  <testcase name="[7] op=refresh, role=USER, callerId=2000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.008"/>
+  <testcase name="[8] op=refresh, role=ADMIN, callerId=2000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.009"/>
+  <testcase name="[9] op=refresh, role=UNCONFIRMED_USER, callerId=1000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.007"/>
+  <testcase name="[10] op=/products/upload, role=USER, callerId=1000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.02"/>
+  <testcase name="[11] op=/products/upload, role=USER, callerId=2000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.006"/>
+  <testcase name="[12] op=/products/upload, role=ADMIN, callerId=2000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.007"/>
+  <testcase name="[13] op=/products/upload, role=UNCONFIRMED_USER, callerId=1000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.005"/>
+  <testcase name="[14] op=/upload, role=USER, callerId=1000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.009"/>
+  <testcase name="[15] op=/upload, role=USER, callerId=2000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.008"/>
+  <testcase name="[16] op=/upload, role=ADMIN, callerId=2000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.008"/>
+  <testcase name="[17] op=/upload, role=UNCONFIRMED_USER, callerId=1000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.007"/>
+  <testcase name="[18] op=/upload, role=UNCONFIRMED_USER, callerId=2000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.006"/>
+  <testcase name="[19] op=deleteImage, role=USER, callerId=1000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.007"/>
+  <testcase name="[20] op=deleteImage, role=USER, callerId=2000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.005"/>
+  <testcase name="[21] op=deleteImage, role=ADMIN, callerId=2000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.005"/>
+  <testcase name="[22] op=deleteImage, role=UNCONFIRMED_USER, callerId=1000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.005"/>
+  <testcase name="[23] op=deleteImage, role=UNCONFIRMED_USER, callerId=2000" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.005"/>
+  <testcase name="refreshFallback()" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.009"/>
+  <testcase name="[1] op=create, kind=missing" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.002"/>
+  <testcase name="[2] op=refresh, kind=malformed" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.002"/>
+  <testcase name="[3] op=/products/upload, kind=expired" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.005"/>
+  <testcase name="[4] op=/upload, kind=missing" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.002"/>
+  <testcase name="[5] op=deleteImage, kind=refresh-type" classname="com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest" time="0.005"/>
+  <system-out><![CDATA[15:46:05.443 [Test worker] INFO org.hibernate.validator.internal.util.Version -- HV000001: Hibernate Validator 8.0.1.Final
+15:46:07.054 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1d1cfe4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@ba562e0, org.springframework.security.web.context.SecurityContextHolderFilter@13c90c06, org.springframework.security.web.header.HeaderWriterFilter@3355168, org.springframework.web.filter.CorsFilter@5a51336a, org.springframework.security.web.authentication.logout.LogoutFilter@4537880f, com.ngng.api.global.security.filter.TokenFilter@4d8056bf, com.ngng.api.global.security.filter.LoginFilter@42211e04, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@15f861ee, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3f1158ee, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6233c6c2, org.springframework.security.web.session.SessionManagementFilter@580c17a0, org.springframework.security.web.access.ExceptionTranslationFilter@8af1c49, org.springframework.security.web.access.intercept.AuthorizationFilter@3212bfd]
+15:46:07.528 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+15:46:07.528 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+15:46:07.528 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+request = 1000
+15:46:08.049 [Test worker] INFO product-log -- Success Create Product id: 77 Owner: 1000
+request = 1000
+15:46:08.112 [Test worker] INFO product-log -- Success Create Product id: 77 Owner: 1000
+request = 1000
+15:46:08.128 [Test worker] INFO product-log -- Success Create Product id: 77 Owner: 1000
+request = 1000
+15:46:08.144 [Test worker] INFO product-log -- Success Create Product id: 77 Owner: 1000
+15:46:08.175 [Test worker] INFO product-log -- Success Update Product Refresh id: 77 
+15:46:08.180 [Test worker] INFO product-log -- Success Update Product Refresh id: 77 
+15:46:08.196 [Test worker] INFO product-log -- Success Update Product Refresh id: 77 
+이미지 처리
+이미지 처리
+이미지 처리
+이미지 처리
+이미지 처리
+이미지 처리
+이미지 처리
+이미지 처리
+이미지 처리
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

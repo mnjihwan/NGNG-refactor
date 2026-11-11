@@ -1,0 +1,225 @@
+TAP version 13
+# Subtest: sell API created
+ok 1 - sell API created
+  ---
+  duration_ms: 79.4266
+  ...
+# Subtest: sell API create401
+ok 2 - sell API create401
+  ---
+  duration_ms: 18.0866
+  ...
+# Subtest: sell API create403
+ok 3 - sell API create403
+  ---
+  duration_ms: 14.4437
+  ...
+# Subtest: sell API create500
+ok 4 - sell API create500
+  ---
+  duration_ms: 11.9929
+  ...
+# Subtest: sell API createLost
+ok 5 - sell API createLost
+  ---
+  duration_ms: 12.4715
+  ...
+# Subtest: sell API createMalformed
+ok 6 - sell API createMalformed
+  ---
+  duration_ms: 12.9325
+  ...
+# Subtest: sell API createStringID
+ok 7 - sell API createStringID
+  ---
+  duration_ms: 11.7346
+  ...
+# Subtest: sell API image401
+ok 8 - sell API image401
+  ---
+  duration_ms: 13.5678
+  ...
+# Subtest: sell API image403
+ok 9 - sell API image403
+  ---
+  duration_ms: 12.5027
+  ...
+# Subtest: sell API image500
+ok 10 - sell API image500
+  ---
+  duration_ms: 10.0433
+  ...
+# Subtest: sell API imageLost
+ok 11 - sell API imageLost
+  ---
+  duration_ms: 9.7404
+  ...
+# Subtest: sell API imageMalformed
+ok 12 - sell API imageMalformed
+  ---
+  duration_ms: 9.6974
+  ...
+# Subtest: sell API imageWrongID
+ok 13 - sell API imageWrongID
+  ---
+  duration_ms: 8.5051
+  ...
+# Subtest: sell component image-failed blocks recreation and preserves result
+ok 14 - sell component image-failed blocks recreation and preserves result
+  ---
+  duration_ms: 49.5439
+  ...
+# Subtest: sell component image-unknown blocks recreation and preserves result
+ok 15 - sell component image-unknown blocks recreation and preserves result
+  ---
+  duration_ms: 22.6324
+  ...
+# Subtest: sell component unknown blocks recreation and preserves result
+ok 16 - sell component unknown blocks recreation and preserves result
+  ---
+  duration_ms: 16.5332
+  ...
+# Subtest: sell component created blocks recreation and preserves result
+ok 17 - sell component created blocks recreation and preserves result
+  ---
+  duration_ms: 17.0002
+  ...
+# Subtest: admin PUT dto uses numeric DTO ID for alias upload
+ok 18 - admin PUT dto uses numeric DTO ID for alias upload
+  ---
+  duration_ms: 11.4061
+  ...
+# Subtest: admin PUT badDTO uses numeric DTO ID for alias upload
+ok 19 - admin PUT badDTO uses numeric DTO ID for alias upload
+  ---
+  duration_ms: 8.7821
+  ...
+# Subtest: admin PUT stringDTO uses numeric DTO ID for alias upload
+ok 20 - admin PUT stringDTO uses numeric DTO ID for alias upload
+  ---
+  duration_ms: 10.9636
+  ...
+# Subtest: admin PUT denied uses numeric DTO ID for alias upload
+ok 21 - admin PUT denied uses numeric DTO ID for alias upload
+  ---
+  duration_ms: 8.4578
+  ...
+# Subtest: admin PUT uploadDenied uses numeric DTO ID for alias upload
+ok 22 - admin PUT uploadDenied uses numeric DTO ID for alias upload
+  ---
+  duration_ms: 8.9512
+  ...
+# Subtest: admin PUT lost uses numeric DTO ID for alias upload
+ok 23 - admin PUT lost uses numeric DTO ID for alias upload
+  ---
+  duration_ms: 9.6335
+  ...
+# Subtest: admin deletion false controls PUT/upload
+ok 24 - admin deletion false controls PUT/upload
+  ---
+  duration_ms: 12.2603
+  ...
+# Subtest: admin deletion undefined controls PUT/upload
+ok 25 - admin deletion undefined controls PUT/upload
+  ---
+  duration_ms: 10.0114
+  ...
+# Subtest: admin deletion Error: offline controls PUT/upload
+ok 26 - admin deletion Error: offline controls PUT/upload
+  ---
+  duration_ms: 11.7893
+  ...
+# Subtest: admin deletion true controls PUT/upload
+ok 27 - admin deletion true controls PUT/upload
+  ---
+  duration_ms: 9.2204
+  ...
+# Subtest: refresh API 200
+ok 28 - refresh API 200
+  ---
+  duration_ms: 30.5321
+  ...
+# Subtest: refresh API 401
+ok 29 - refresh API 401
+  ---
+  duration_ms: 16.3989
+  ...
+# Subtest: refresh API 403
+ok 30 - refresh API 403
+  ---
+  duration_ms: 15.8777
+  ...
+# Subtest: refresh API 500
+ok 31 - refresh API 500
+  ---
+  duration_ms: 16.8147
+  ...
+# Subtest: refresh API 200
+ok 32 - refresh API 200
+  ---
+  duration_ms: 11.8032
+  ...
+# Subtest: refresh API lost
+ok 33 - refresh API lost
+  ---
+  duration_ms: 11.1811
+  ...
+# Subtest: refresh component 77 avoids false success
+not ok 34 - refresh component 77 avoids false success
+  ---
+  duration_ms: 17.4346
+  location: '[USER_HOME]\\OneDrive\\바탕 화면\\PJT\\NGNG\\NGNG-frontend\\tests\\rf039-product-writers.test.cjs:113:53'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(button)
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> ([USER_HOME]\OneDrive\바탕 화면\PJT\NGNG\NGNG-frontend\tests\rf039-product-writers.test.cjs:124:10)
+    Test.runInAsyncScope (node:async_hooks:206:9)
+    Test.run (node:internal/test_runner/test:631:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:374:18)
+    Test.postRun (node:internal/test_runner/test:715:19)
+    Test.run (node:internal/test_runner/test:673:12)
+    process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    async Test.processPendingSubtests (node:internal/test_runner/test:374:7)
+  ...
+# Subtest: refresh component Error: offline avoids false success
+not ok 35 - refresh component Error: offline avoids false success
+  ---
+  duration_ms: 11.5527
+  location: '[USER_HOME]\\OneDrive\\바탕 화면\\PJT\\NGNG\\NGNG-frontend\\tests\\rf039-product-writers.test.cjs:113:53'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(button)
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> ([USER_HOME]\OneDrive\바탕 화면\PJT\NGNG\NGNG-frontend\tests\rf039-product-writers.test.cjs:124:10)
+    Test.runInAsyncScope (node:async_hooks:206:9)
+    Test.run (node:internal/test_runner/test:631:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:374:18)
+    Test.postRun (node:internal/test_runner/test:715:19)
+    Test.run (node:internal/test_runner/test:673:12)
+    process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    async Test.processPendingSubtests (node:internal/test_runner/test:374:7)
+  ...
+1..35
+# tests 35
+# suites 0
+# pass 33
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 863.5992

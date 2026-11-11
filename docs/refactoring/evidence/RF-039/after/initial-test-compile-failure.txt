@@ -1,0 +1,31 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.7/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :compileJava
+> Task :processResources
+> Task :classes
+
+> Task :compileTestJava
+[USER_HOME]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\product\writer\ProductAdditionalWriterServiceTest.java:123: error: unreported exception IOException; must be caught or declared to be thrown
+        assertEquals("hihi",alias.fileUpload(new MultipartFile[]{video},"77"));verify(uploads).uploadFile(video);verify(uploads,never()).uploadImageThumbnails(any());
+                                                                                                         ^
+[USER_HOME]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\product\writer\ProductAdditionalWriterServiceTest.java:123: error: unreported exception IOException; must be caught or declared to be thrown
+        assertEquals("hihi",alias.fileUpload(new MultipartFile[]{video},"77"));verify(uploads).uploadFile(video);verify(uploads,never()).uploadImageThumbnails(any());
+                                                                                                                                                              ^
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+2 errors
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileTestJava'.
+> Task :compileTestJava FAILED
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+> Run with --info option to get more log output.
+> Run with --scan to get full insights.
+
+BUILD FAILED in 17s
+3 actionable tasks: 3 executed

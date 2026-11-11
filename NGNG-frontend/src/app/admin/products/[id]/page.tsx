@@ -86,11 +86,18 @@ export default function ProductDetail() {
         const deletedImages: Image[] = product.images.filter(
           (img) => !newImageIds.includes(img.id)
         );
-        const deletionResponses = await Promise.all(
-          deletedImages.map((img) =>
-            deleteImageById(product.id, img.imageURL.toString())
-          )
-        );
+        try {
+          const deletionResponses = await Promise.all(
+            deletedImages.map((img) => deleteImageById(product.id, img.imageURL.toString()))
+          );
+          if (deletionResponses.some((success) => success !== true)) {
+            alert("이미지 삭제에 실패해 수정을 중단했습니다. 일부 이미지는 이미 삭제되었을 수 있으니 새로고침해 확인해 주세요.");
+            return;
+          }
+        } catch {
+          alert("이미지 삭제 결과를 확인하지 못해 수정을 중단했습니다. 일부 이미지는 이미 삭제되었을 수 있으니 새로고침해 확인해 주세요.");
+          return;
+        }
         const addedImages: Image[] = newProduct.images.filter(
           (img) => img.id < 0
         );

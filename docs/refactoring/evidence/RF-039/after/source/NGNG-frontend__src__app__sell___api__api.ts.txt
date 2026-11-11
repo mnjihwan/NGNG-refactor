@@ -1,0 +1,104 @@
+import {
+  getAccessToken,
+  setAccessToken,
+} from "@/app/my_page/_utils/auth-header";
+import { Product } from "../page";
+
+const mapProductToAPISepc = ({
+  product,
+  userId,
+}: {
+  product: Product;
+  userId: number;
+}) => {
+  return {
+    userId,
+    title: product.title,
+    content: product.content,
+    price: product.price,
+    isEscrow: product.isEscrow,
+    discountable: product.discountable,
+    purchaseAt: product.purchaseAt,
+    freeShipping: product.freeShipping,
+    statusId: product.statusId,
+    categoryId: product.categoryId,
+    tags: product.tags.map((tag) => {
+      return { tagName: tag.name };
+    }),
+  };
+};
+
+export type ProductCreationResult =
+  | { status: "created"; productId: number }
+  | { status: "rejected" }
+  | { status: "unknown" }
+  | { status: "image-failed" | "image-unknown"; productId: number };
+
+export const createProduct = async ({
+  product,
+  userId,
+}: {
+  product: Product;
+  userId: number;
+}): Promise<ProductCreationResult> => {
+  let res: Response;
+  try {
+    res = await fetch(`/products`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: getAccessToken(),
+      },
+      body: JSON.stringify(mapProductToAPISepc({ product, userId })),
+    });
+    setAccessToken(res);
+  } catch {
+    return { status: "unknown" };
+  }
+  if (!res.ok) return { status: res.status >= 400 && res.status < 500 ? "rejected" : "unknown" };
+  let productId: number;
+  try {
+    const id: unknown = await res.json();
+    if (typeof id !== "number" || !Number.isSafeInteger(id) || id <= 0) return { status: "unknown" };
+    productId = id;
+  } catch {
+    return { status: "unknown" };
+  }
+  if (product.images.length > 0) {
+    try {
+      const images = await createImages(String(productId), product.images);
+      if (!images.ok) return { status: images.status >= 400 && images.status < 500 ? "image-failed" : "image-unknown", productId };
+      const uploadedId: unknown = await images.json();
+      if (uploadedId !== productId) return { status: "image-unknown", productId };
+    } catch {
+      return { status: "image-unknown", productId };
+    }
+  }
+  return { status: "created", productId };
+};
+
+const createImages = async (
+  productId: string,
+  images: {
+    id: number;
+    image: File;
+  }[]
+) => {
+  const fomData = new FormData();
+
+  images.forEach((image) => {
+    fomData.append("files", image.image);
+  });
+  fomData.append("productId", productId);
+
+  return await fetch("/products/upload", {
+    method: "POST",
+    headers: {
+      Authorization: getAccessToken(),
+    },
+    body: fomData,
+  }).then((res) => {
+    setAccessToken(res);
+    return res;
+  });
+};

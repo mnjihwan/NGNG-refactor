@@ -27,6 +27,7 @@ public class ProductImageController {
 
     @PostMapping("/upload")
     public String fileUpload(@RequestParam("files") MultipartFile[] files , @RequestParam("productId") String productId ){
+        Long authorizedProductId = productImageService.authorizeUpload(productId);
 
         for (int i=0; i < files.length; i++ ){
 
@@ -48,12 +49,12 @@ public class ProductImageController {
 
     //                  1. MultipartFile to buffierIamge
                             String imageUrl = uploadService.uploadImageFile(file);
-                            productImageService.create(Long.parseLong(productId),imageUrl);
+                            productImageService.create(authorizedProductId,imageUrl);
 
 //                      썸네일 작업
                         if(i == 0){
                             String thumbnails3Url=uploadService.uploadImageThumbnails(file);
-                            thumbnailService.create(Long.parseLong(productId),thumbnails3Url);
+                            thumbnailService.create(authorizedProductId,thumbnails3Url);
                         }
                         break;
                     case "mp4": // 영상 처리
@@ -65,7 +66,7 @@ public class ProductImageController {
                         System.out.println("영상 처리");
     //                  1. MultipartFile to buffierIamge
                             String imageUrl3 = uploadService.uploadFile(file);
-                            productImageService.create(Long.parseLong(productId),imageUrl3);
+                            productImageService.create(authorizedProductId,imageUrl3);
                         break;
                     default:
                         System.out.println("지원 하지 않는 파일 확장 타입 입니다.");
