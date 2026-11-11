@@ -1,5 +1,6 @@
 package com.ngng.api.report.report.service;
 
+import com.ngng.api.global.security.custom.CustomUserDetails;
 import com.ngng.api.report.report.dto.*;
 import com.ngng.api.report.report.entity.Report;
 import com.ngng.api.report.report.entity.ReportImage;
@@ -7,6 +8,8 @@ import com.ngng.api.report.report.entity.ReportType;
 import com.ngng.api.report.report.repository.ReportImageRepository;
 import com.ngng.api.report.report.repository.ReportRepository;
 import com.ngng.api.report.report.repository.ReportTypeRepository;
+import com.ngng.api.user.user.entity.User;
+import com.ngng.api.user.user.service.AuthService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -14,7 +17,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +36,7 @@ public class ReportServiceImpl implements ReportService {
     private final ReportRepository reportRepository;
     private final ReportTypeRepository reportTypeRepository;
     private final ReportImageRepository reportImageRepository;
+    private final AuthService authService;
 
 
     @Override
@@ -85,6 +93,14 @@ public class ReportServiceImpl implements ReportService {
 
     @Override
     public CreateReportResponseDTO save(CreateReportRequestDTO createReportRequestDTO) {
+        User caller = readCreationCaller();
+        if (createReportRequestDTO.getReporterId() != null
+                && !caller.getUserId().equals(createReportRequestDTO.getReporterId())) {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "다른 사용자의 이름으로 신고할 수 없습니다.");
+        }
+        if (createReportRequestDTO.getIsReport() != null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "신고 처리 상태를 지정할 수 없습니다.");
+        }
         Optional<ReportType> reportType = reportTypeRepository.findById(createReportRequestDTO.getReportTypeId());
         ReportType responseReportType = reportType.orElseThrow(); // TODO 여기 예외처리하기
 
@@ -94,9 +110,9 @@ public class ReportServiceImpl implements ReportService {
                         .reportTypeId(createReportRequestDTO.getReportTypeId())
                         .reportType(responseReportType.getReportType())
                         .build())
-                .reporterId(createReportRequestDTO.getReporterId())
+                .reporterId(caller.getUserId())
                 .userId(createReportRequestDTO.getUserId())
-                .isReport(createReportRequestDTO.getIsReport())
+                .isReport(null)
                 .productId(createReportRequestDTO.getProductId())
                 .privateChatId(createReportRequestDTO.getPrivateChatId())
                 .build();
@@ -116,6 +132,21 @@ public class ReportServiceImpl implements ReportService {
                 .productId(responseReport.getProductId())
                 .privateChatId(responseReport.getPrivateChatId())
                 .build();
+    }
+
+    private User readCreationCaller() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || !authentication.isAuthenticated()
+                || !(authentication.getPrincipal() instanceof CustomUserDetails principal)
+                || principal.getUser() == null || principal.getUser().getEmail() == null
+                || principal.getUser().getEmail().isBlank()) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "인증이 필요합니다.");
+        }
+        User caller = authService.readAuthUser();
+        if (caller == null || caller.getUserId() == null) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "인증이 필요합니다.");
+        }
+        return caller;
     }
 
 

@@ -337,3 +337,7 @@ B는 명시 JPA/실제 tx 프록시·소유 PK journal·독립 연결 commit/INS
 ## 2026-11-11 RF016 머지 후 테스트 호환 복구
 
 통합 기준 `2091fae`에서 PointHistoryService 생성자 확장과 RF016 테스트 구성이 충돌해 전체 테스트 소스 컴파일이 실패했다. 테스트 전용 fail-fast 대역과 호환 검증으로 복구했으며 정상 sourceSet 선택 281건, 실패·오류·skip 0, 독립 리뷰 완료다. 실제 DB/preflight·fixture·전체 suite/assemble 및 운영·성능은 미실행이다. 원시 자료와 치환본, 검증 한계 및 재개 조건은 [증빙](evidence/RF-016/merge-compat-20261111/README.md)과 [명세](tasks/RF-016.md)에 기록했다.
+
+## 2026-11-11 RF024 신고 생성 최소 보호
+
+신고자를 인증된 DB 사용자에서 결정하고 다른 reporterId는 403, isReport true/false는 400으로 거부한다. 프런트는 생성 거부·결과 불명·접수 후 이미지 실패/불명을 구분하며 같은 모달의 불확실한 재제출을 막는다. 오프라인 backend before 2/2·after 210/210 및 assemble, frontend before 3/3·after 22/22 및 lint/tsc 성공과 공통 독립 리뷰 차단 결함 없음은 [명세](tasks/RF-024.md)·[증빙](evidence/RF-024/README.md)에 기록했다. 대역 검증이며 실제 DB NULL/default, HTTP/브라우저, 유형별 대상 관계 인가, 이미지 직접 인가·개별 저장, 재오픈 멱등성, RF044 직렬화 및 물리 S3는 검증하지 않았다. 전체 suite/production build·성능도 미실행이다. 잔여의 이유와 재개 조건은 BACKLOG와 두 문서에 기록했다.

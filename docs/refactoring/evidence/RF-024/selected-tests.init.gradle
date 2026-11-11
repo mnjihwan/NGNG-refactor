@@ -1,0 +1,3 @@
+gradle.projectsEvaluated {
+    rootProject.sourceSets.test.java.setIncludes(['com/ngng/api/report/creation/**'])
+}

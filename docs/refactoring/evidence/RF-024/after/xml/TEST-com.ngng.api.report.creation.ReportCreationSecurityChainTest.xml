@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.report.creation.ReportCreationSecurityChainTest" tests="35" skipped="0" failures="0" errors="0" timestamp="2026-11-11T06:29:14" hostname="REDACTED_HOST" time="0.492">
+  <properties/>
+  <testcase name="missingTypeStillUsesExistingExceptionAfterIdentityChecks()" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.077"/>
+  <testcase name="[1] role=USER" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.115"/>
+  <testcase name="[2] role=ADMIN" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.029"/>
+  <testcase name="[3] role=UNCONFIRMED_USER" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.031"/>
+  <testcase name="[1] credentials=missing" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.002"/>
+  <testcase name="[2] credentials=malformed" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.002"/>
+  <testcase name="[3] credentials=tampered" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.005"/>
+  <testcase name="[4] credentials=expired" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.006"/>
+  <testcase name="[5] credentials=wrongType" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.005"/>
+  <testcase name="[1] role=USER" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.005"/>
+  <testcase name="[2] role=ADMIN" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.017"/>
+  <testcase name="[3] role=UNCONFIRMED_USER" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.004"/>
+  <testcase name="[1] role=USER" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.006"/>
+  <testcase name="[2] role=ADMIN" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.019"/>
+  <testcase name="[3] role=UNCONFIRMED_USER" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.004"/>
+  <testcase name="[1] condition=missing" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.002"/>
+  <testcase name="[2] condition=string" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.001"/>
+  <testcase name="[3] condition=anonymous" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.003"/>
+  <testcase name="[4] condition=unauthenticated" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.001"/>
+  <testcase name="[5] condition=nullUser" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.001"/>
+  <testcase name="[6] condition=nullEmail" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.001"/>
+  <testcase name="[7] condition=blankEmail" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.001"/>
+  <testcase name="[1] access=missing" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.01"/>
+  <testcase name="[2] access=expired" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.014"/>
+  <testcase name="[1] role=USER" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.022"/>
+  <testcase name="[2] role=ADMIN" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.021"/>
+  <testcase name="[3] role=UNCONFIRMED_USER" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.017"/>
+  <testcase name="[1] condition=absent" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.004"/>
+  <testcase name="[2] condition=nullId" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.003"/>
+  <testcase name="serviceNeverTrustsPrincipalIdOverDatabaseIdentity()" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.001"/>
+  <testcase name="malformedJsonKeepsBinding400AndDoesNotLookupCaller()" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.004"/>
+  <testcase name="databaseFailuresAreNotDisguisedAsAuthenticationErrors()" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.005"/>
+  <testcase name="[1] role=USER" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.012"/>
+  <testcase name="[2] role=ADMIN" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.012"/>
+  <testcase name="[3] role=UNCONFIRMED_USER" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.011"/>
+  <system-out><![CDATA[15:29:14.019 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@39a7fff, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@798ca706, org.springframework.security.web.context.SecurityContextHolderFilter@5e8b5e7d, org.springframework.security.web.header.HeaderWriterFilter@a4f14c9, org.springframework.web.filter.CorsFilter@3a5c472, org.springframework.security.web.authentication.logout.LogoutFilter@34c9c4be, com.ngng.api.global.security.filter.TokenFilter@3dbcdd4a, com.ngng.api.global.security.filter.LoginFilter@6d093885, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5c5812c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@77de3401, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@712106b5, org.springframework.security.web.session.SessionManagementFilter@7b81283, org.springframework.security.web.access.ExceptionTranslationFilter@55bd9d1, org.springframework.security.web.access.intercept.AuthorizationFilter@1b54ae72]
+15:29:14.189 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+15:29:14.189 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+15:29:14.189 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+15:29:14.272 [Test worker] INFO report-log -- Success Create report id: 1000 reporter : 1000  user : 2000 product : 7
+15:29:14.356 [Test worker] INFO report-log -- Success Create report id: 1000 reporter : 1000  user : 2000 product : 7
+15:29:14.362 [Test worker] INFO report-log -- Success Create report id: 1000 reporter : 1000  user : 2000 product : 7
+15:29:14.368 [Test worker] INFO report-log -- Success Create report id: 1000 reporter : 1000  user : 2000 product : 7
+15:29:14.373 [Test worker] INFO report-log -- Success Create report id: 1000 reporter : 1000  user : 2000 product : 7
+15:29:14.373 [Test worker] INFO report-log -- Success Create report id: 1000 reporter : 1000  user : 2000 product : 7
+15:29:14.387 [Test worker] INFO report-log -- Success Create report id: 1000 reporter : 1000  user : 2000 product : 7
+15:29:14.387 [Test worker] INFO report-log -- Success Create report id: 1000 reporter : 1000  user : 2000 product : 7
+15:29:14.387 [Test worker] INFO report-log -- Success Create report id: 1000 reporter : 1000  user : 2000 product : 7
+15:29:14.387 [Test worker] INFO report-log -- Success Create report id: 1000 reporter : 1000  user : 2000 product : 7
+15:29:14.403 [Test worker] INFO report-log -- Success Create report id: 1000 reporter : 1000  user : 2000 product : 7
+15:29:14.411 [Test worker] INFO report-log -- Success Create report id: 1000 reporter : 1000  user : 2000 product : 7
+15:29:14.419 [Test worker] INFO report-log -- Success Create report id: 1000 reporter : 1000  user : 2000 product : 7
+15:29:14.419 [Test worker] INFO report-log -- Success Create report id: 1000 reporter : 1000  user : 2000 product : 7
+15:29:14.426 [Test worker] INFO report-log -- Success Create report id: 1000 reporter : 1000  user : 2000 product : 7
+15:29:14.432 [Test worker] INFO report-log -- Success Create report id: 1000 reporter : 1000  user : 2000 product : 7
+15:29:14.440 [Test worker] INFO report-log -- Success Create report id: 1000 reporter : 1000  user : 2000 product : 7
+15:29:14.443 [Test worker] INFO report-log -- Success Create report id: 1000 reporter : 1000  user : 2000 product : 7
+15:29:14.486 [Test worker] INFO report-log -- Success update report id: 2000 isReport : true 
+15:29:14.503 [Test worker] INFO penalty-log -- Success Create Penalty id: null User id : 3000 level : PenaltyLevel(penaltyLevelId=1, penaltyLevelName=synthetic-level, penaltyLevelDays=1) 
+15:29:14.538 [Test worker] INFO report-log -- Success Create report id: 1000 reporter : 1000  user : 2000 product : 7
+15:29:14.558 [Test worker] INFO report-log -- Success Create report id: 1000 reporter : 1000  user : 2000 product : 7
+15:29:14.635 [Test worker] INFO report-log -- Success Create report id: 1000 reporter : 1000  user : null product : null
+15:29:14.637 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected end-of-input: expected close marker for Object (start marker at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 1])]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
