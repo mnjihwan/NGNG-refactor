@@ -1,0 +1,16 @@
+{
+  "checkedAt": "2026-11-10T17:20:40.8485717+09:00",
+  "action": "Start existing private MySQL using reviewed runner",
+  "automaticReview": "rejected",
+  "reason": "Existing user instructions require reporting the concrete plan and waiting; no explicit user reapproval for server start and writes to the external datadir",
+  "serverCommandExecuted": false,
+  "serverStarted": false,
+  "databaseConnections": 0,
+  "fixtureInserts": 0,
+  "fixtureDeletes": 0,
+  "retryAttempted": false,
+  "workaroundAttempted": false,
+  "inspectModeExecuted": true,
+  "inspectListenerCount": 0,
+  "inspectMysqldProcessCount": 0
+}

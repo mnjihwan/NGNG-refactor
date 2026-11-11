@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.isolation.mysql.Rf016MySqlSafetyGateTest" tests="16" skipped="0" failures="0" errors="0" timestamp="2026-11-10T08:12:12" hostname="MOON" time="0.047">
+  <properties/>
+  <testcase name="generatedPkLossAndUnsafeIdentifiersAreRefused()" classname="com.ngng.api.isolation.mysql.Rf016MySqlSafetyGateTest" time="0.004"/>
+  <testcase name="[1] key=db" classname="com.ngng.api.isolation.mysql.Rf016MySqlSafetyGateTest" time="0.001"/>
+  <testcase name="[2] key=account" classname="com.ngng.api.isolation.mysql.Rf016MySqlSafetyGateTest" time="0.001"/>
+  <testcase name="[3] key=port" classname="com.ngng.api.isolation.mysql.Rf016MySqlSafetyGateTest" time="0.0"/>
+  <testcase name="[4] key=datadir" classname="com.ngng.api.isolation.mysql.Rf016MySqlSafetyGateTest" time="0.001"/>
+  <testcase name="[5] key=version" classname="com.ngng.api.isolation.mysql.Rf016MySqlSafetyGateTest" time="0.001"/>
+  <testcase name="[6] key=isolation_level" classname="com.ngng.api.isolation.mysql.Rf016MySqlSafetyGateTest" time="0.0"/>
+  <testcase name="[1] url=jdbc:mysql://example.invalid:13306/ngng_local" classname="com.ngng.api.isolation.mysql.Rf016MySqlSafetyGateTest" time="0.0"/>
+  <testcase name="[2] url=jdbc:mysql://127.0.0.1:3306/ngng_local" classname="com.ngng.api.isolation.mysql.Rf016MySqlSafetyGateTest" time="0.001"/>
+  <testcase name="[3] url=jdbc:mysql://127.0.0.1:13306/other" classname="com.ngng.api.isolation.mysql.Rf016MySqlSafetyGateTest" time="0.001"/>
+  <testcase name="schemaOnlyOrRoleBasedGrantsDoNotEstablishMetadataVisibility()" classname="com.ngng.api.isolation.mysql.Rf016MySqlSafetyGateTest" time="0.003"/>
+  <testcase name="unknownReferenceOrModifiedIdentityOrUncertainCommitNeverAllowsCleanup()" classname="com.ngng.api.isolation.mysql.Rf016MySqlSafetyGateTest" time="0.006"/>
+  <testcase name="missingOptInRefusesBeforeAnyConnectionCanBeRequested()" classname="com.ngng.api.isolation.mysql.Rf016MySqlSafetyGateTest" time="0.009"/>
+  <testcase name="journalFailurePreservesKnownPkButForbidsAnyCleanup()" classname="com.ngng.api.isolation.mysql.Rf016MySqlSafetyGateTest" time="0.001"/>
+  <testcase name="existingServerWithoutSafetyFlagsOrWithRuntimeReplicationIsRefused()" classname="com.ngng.api.isolation.mysql.Rf016MySqlSafetyGateTest" time="0.002"/>
+  <testcase name="hostIdentityRequiresExactPidExecutableDatadirAndOnlyLoopbackListener()" classname="com.ngng.api.isolation.mysql.Rf016MySqlSafetyGateTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

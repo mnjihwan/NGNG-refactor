@@ -1,0 +1,41 @@
+package com.ngng.api.isolation.mysql;
+
+import org.junit.jupiter.api.Test;
+import java.util.Objects;
+import static org.junit.jupiter.api.Assertions.*;
+
+/** Never selected by offline commands. Missing opt-in fails; no skip is reported as a pass.
+ * B actual JPA + synthetic SecurityContext is separate from A JWT + repository doubles. */
+class Rf016MySqlCommitRollbackTest {
+    @Test void serviceCommitAndInsertFlushRollbackAreObservedOnNewConnectionsThenOwnedRowsAreRemoved() throws Exception {
+        Rf016MySqlFixture fixture = null;
+        try {
+            fixture = new Rf016MySqlFixture(System.getenv());
+            fixture.startJpa();
+            var user = fixture.setupUser();
+            var committed = fixture.charge(user, false); // No enclosing test transaction.
+            Rf016MySqlFixture current = fixture;
+            current.independent(observer -> {
+                var rows = current.pointState(observer, user.getUserId());
+                assertEquals(2, rows.size());
+                assertTrue(((Number) rows.get(1).get("point_id")).longValue() == committed.getId());
+                assertTrue(((Number) rows.get(1).get("cost")).longValue() == 1200L);
+                return null;
+            });
+            var before = current.independent(observer -> current.pointState(observer, user.getUserId()));
+            assertThrows(Rf016MySqlFixture.DeliberateRollback.class, () -> current.charge(user, true));
+            Long rolledBackId = Objects.requireNonNull(current.lastSavedPointId, "INSERT/flush and generated PK must precede intentional failure");
+            current.independent(observer -> {
+                assertTrue(before.equals(current.pointState(observer, user.getUserId())), "rollback must preserve preexisting point values/history");
+                assertEquals(0L, observer.queryForObject("SELECT COUNT(*) FROM point_history WHERE point_id=?", Long.class, rolledBackId));
+                return null;
+            });
+        } finally {
+            if (fixture != null) {
+                try { fixture.cleanup(); }
+                catch (RuntimeException failure) { fixture.recoverySummary(); throw failure; }
+                finally { fixture.close(); }
+            }
+        }
+    }
+}

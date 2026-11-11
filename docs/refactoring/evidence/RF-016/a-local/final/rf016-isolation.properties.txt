@@ -1,0 +1,1 @@
+rf016.fixture.config=isolated-only

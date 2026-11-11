@@ -1,0 +1,83 @@
+package com.ngng.api.isolation.mysql;
+
+import java.util.*;
+import java.util.function.Consumer;
+
+/** Pure, fail-closed checks. No connection or server process is created by this class. */
+final class Rf016MySqlSafetyGate {
+    static final String OPT_IN = "approved-rf016-owned-user-point-only";
+    static final String URL = "jdbc:mysql://127.0.0.1:13306/ngng_local?serverTimezone=Asia/Seoul"
+            + "&characterEncoding=UTF-8&connectTimeout=3000&socketTimeout=15000";
+    static final Map<String, String> KEYS = Map.of("user", "user_id", "point_history", "point_id");
+    static void require(boolean condition, String reason) { if (!condition) throw new IllegalStateException(reason); }
+    static String normalize(String value) { return value.replace('\\', '/').replaceAll("/+$", "").toLowerCase(Locale.ROOT); }
+    static void endpoint(String optIn, String url) {
+        require(OPT_IN.equals(optIn), "RF016 explicit database opt-in required");
+        require(URL.equals(url), "RF016 endpoint outside fixed allowlist");
+    }
+    static void host(long expectedPid, String expectedExe, String expectedDir, long actualPid,
+                     String actualExe, List<String> args, List<String> listeners) {
+        require(expectedPid > 0 && expectedPid == actualPid, "RF016 process identity mismatch");
+        require(normalize(expectedExe).equals(normalize(actualExe)), "RF016 executable mismatch");
+        require(normalize(actualExe).endsWith("/mysqld.exe"), "RF016 wrong server executable");
+        Set<String> normalized = new HashSet<>(); args.forEach(arg -> normalized.add(normalize(arg)));
+        require(normalized.contains("--no-defaults") && normalized.contains("--port=13306")
+                && normalized.contains("--bind-address=127.0.0.1")
+                && normalized.contains("--datadir=" + normalize(expectedDir)), "RF016 server options mismatch");
+        require(listeners.equals(List.of("127.0.0.1:13306:" + expectedPid)), "RF016 listener identity mismatch");
+        require(args.stream().noneMatch(a -> a.startsWith("--defaults-file") || a.startsWith("--init-file")
+                || a.startsWith("--init-command")), "RF016 unsafe server initialization option");
+    }
+    static void database(Map<String, Object> actual, String expectedDir) {
+        require("ngng_local".equals(actual.get("db")) && "ngng@127.0.0.1".equals(actual.get("account")), "RF016 DB identity mismatch");
+        require(((Number) actual.get("port")).intValue() == 13306, "RF016 DB port mismatch");
+        require(normalize(expectedDir).equals(normalize(actual.get("datadir").toString())), "RF016 DB datadir mismatch");
+        require(actual.get("version").toString().startsWith("8.0."), "RF016 expected MySQL 8.0");
+        require("REPEATABLE-READ".equals(actual.get("isolation_level")), "RF016 expected RR");
+    }
+    static String quote(String value) {
+        require(value.matches("[a-z][a-z0-9_]*"), "RF016 unsafe metadata identifier"); return "`" + value + "`";
+    }
+    record Owned(String table, long id, Map<String, Object> identity) {
+        Owned {
+            require(KEYS.containsKey(table) && id > 0, "RF016 generated PK not tracked");
+            Set<String> mandatory = table.equals("user") ? Set.of("name", "email", "role_id")
+                    : Set.of("user_id", "before_cost", "add_cost", "cost", "type", "type_detail");
+            require(identity.keySet().containsAll(mandatory), "RF016 incomplete owned row identity");
+            if (table.equals("user")) {
+                require(identity.get("name").toString().startsWith("rf016_")
+                        && (identity.get("name") + "@example.invalid").equals(identity.get("email")), "RF016 user fixture marker missing");
+            } else require(identity.get("type_detail").toString().startsWith("rf016_"), "RF016 point fixture marker missing");
+            identity = Collections.unmodifiableMap(new LinkedHashMap<>(identity));
+        }
+    }
+    static final class Ledger {
+        private final Map<String, Owned> rows = new LinkedHashMap<>();
+        private final Consumer<Owned> journal;
+        private boolean uncertain;
+        Ledger() { this(row -> { }); }
+        Ledger(Consumer<Owned> journal) { this.journal = journal; }
+        void uncertain() { uncertain = true; }
+        void assertSafe() { require(!uncertain, "RF016 uncertain write/commit/PK; cleanup refused"); }
+        void add(Owned row) {
+            String key = row.table() + ":" + row.id();
+            require(rows.putIfAbsent(key, row) == null, "RF016 duplicate PK ledger entry");
+            try { journal.accept(row); } catch (RuntimeException failure) { uncertain(); throw failure; }
+        }
+        boolean owns(String table, long id) { return rows.containsKey(table + ":" + id); }
+        Collection<Owned> rows() { return List.copyOf(rows.values()); }
+        void referenced(String table, Collection<Long> ids) {
+            assertSafe();
+            require(ids.stream().allMatch(id -> owns(table, id)), "RF016 unknown inbound reference; cleanup refused");
+        }
+        void identity(Owned owned, Map<String, Object> actual) {
+            assertSafe();
+            owned.identity().forEach((name, expected) -> {
+                Object found = actual.get(name);
+                boolean same = expected instanceof Number a && found instanceof Number b
+                        ? a.longValue() == b.longValue() : Objects.equals(expected, found);
+                require(same, "RF016 owned identity changed; cleanup refused");
+            });
+        }
+    }
+}

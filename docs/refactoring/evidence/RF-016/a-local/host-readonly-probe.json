@@ -1,0 +1,14 @@
+{
+  "checkedAt": "2026-11-10T16:54:47.1577917+09:00",
+  "dbConnections": 0,
+  "serverStarts": 0,
+  "writes": 0,
+  "netTcpConnectionQuery": "failed:MethodInvocationException",
+  "mysqlCimQuery": "failed:CimException",
+  "mysqlGetProcessFound": 0,
+  "existingServerExecutableExists": true,
+  "existingServerExecutableInsideWorkspace": false,
+  "existingPrivateDatadirExists": true,
+  "existingPrivateDatadirInsideWorkspace": false,
+  "identityVerified": false
+}

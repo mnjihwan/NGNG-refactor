@@ -1,0 +1,30 @@
+{
+  "checkedAt": "2026-11-10T17:22:39.0191410+09:00",
+  "elevatedReadOnly": true,
+  "processes": [
+    {
+      "Pid": 4716,
+      "Name": "mysqld",
+      "PathVisible": false,
+      "StartTimeVisible": false
+    },
+    {
+      "Pid": 5544,
+      "Name": "mysqld",
+      "PathVisible": false,
+      "StartTimeVisible": false
+    }
+  ],
+  "listeners": [
+    {
+      "Endpoint": "0.0.0.0:3306",
+      "Pid": 5544
+    },
+    {
+      "Endpoint": "0.0.0.0:33060",
+      "Pid": 5544
+    }
+  ],
+  "serverStartExecuted": false,
+  "databaseConnections": 0
+}

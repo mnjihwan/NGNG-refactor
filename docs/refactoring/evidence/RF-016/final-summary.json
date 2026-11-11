@@ -1,0 +1,48 @@
+{
+  "Head": "82aa7279886385bc0974ae78679ab492447f4135",
+  "Date": "2026-11-10T17:24:58.9329958+09:00",
+  "Java": "17.0.10",
+  "TestExit": 0,
+  "TotalTests": 30.0,
+  "Suites": [
+    {
+      "Class": "com.ngng.api.isolation.mysql.Rf016MySqlSafetyGateTest",
+      "Tests": 18,
+      "Failures": 0,
+      "Errors": 0,
+      "Skipped": 0
+    },
+    {
+      "Class": "com.ngng.api.isolation.Rf016EnvironmentIsolationTest",
+      "Tests": 1,
+      "Failures": 0,
+      "Errors": 0,
+      "Skipped": 0
+    },
+    {
+      "Class": "com.ngng.api.isolation.Rf016IsolatedBootSmokeTest",
+      "Tests": 11,
+      "Failures": 0,
+      "Errors": 0,
+      "Skipped": 0
+    }
+  ],
+  "AssembleExit": 0,
+  "AssembleFreshTasks": 5,
+  "AssemblePriorUpToDateTasks": 5,
+  "PhysicalDatabaseTestSelected": false,
+  "ReadOnlyPreflightSelected": false,
+  "FixtureInserts": 0,
+  "FixtureDeletes": 0,
+  "DatabaseConnections": 0,
+  "NewServerStarted": false,
+  "RunnerInspectExecuted": true,
+  "FirstStartAutoReviewRejected": true,
+  "SecondStartAfterExplicitUserApproval": "host guard stopped: existing mysqld4716/5544, runtime identity inaccessible",
+  "TestCommand": "./gradlew.bat test --offline --no-daemon --rerun-tasks --tests com.ngng.api.isolation.Rf016EnvironmentIsolationTest --tests com.ngng.api.isolation.Rf016IsolatedBootSmokeTest --tests com.ngng.api.isolation.mysql.Rf016MySqlSafetyGateTest",
+  "AssembleCommand": "./gradlew.bat assemble --offline --no-daemon --rerun-tasks",
+  "IndependentReviewScope": "A limited completion and B preparation/current hold; no blocking issue in this scope",
+  "SharedArtifactFileCount": 96,
+  "ArtifactManifestEntryCount": 95,
+  "SourceFileCount": 10
+}

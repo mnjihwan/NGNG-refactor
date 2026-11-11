@@ -1,0 +1,34 @@
+[
+  {
+    "Hash": "6876E3DD95E35CADB239789B32DCB69D757A1B9EB2A7913B59691000C4EC6213",
+    "File": "rf016-isolation.properties.txt"
+  },
+  {
+    "Hash": "42E31DDFD6C1EB30B52902A32E68DAF75C7CE70C6545AD10E2B94DD328E5D36A",
+    "File": "Rf016EnvironmentIsolationTest.java.txt"
+  },
+  {
+    "Hash": "EC8A173F1890B255C878F75D7CC08565F70C6D115043DE1AC34CAEBFBDC611A0",
+    "File": "Rf016IsolatedBootSmokeTest.java.txt"
+  },
+  {
+    "Hash": "5ABDDEADFE53AB2A88AEC7BCE3C252F92AC9C7856F36C25A412710985E5810E9",
+    "File": "Rf016IsolationConfiguration.java.txt"
+  },
+  {
+    "Hash": "C6555C46B02E1B4DF61EC29BAEDE309E475E9CD7A569AD7F1D59977DB48CEFBF",
+    "File": "Rf016SafeContextLoader.java.txt"
+  },
+  {
+    "Hash": "2F4619663B769419AF19D6314BAC6E0D8628E92C0B53CD387ACB6C8036C1C915",
+    "File": "TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml"
+  },
+  {
+    "Hash": "893777BA921C5AECCA4E2534E1052C99DEDDECC249329C8B3EE16753D4B59175",
+    "File": "TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml"
+  },
+  {
+    "Hash": "9A587CE7DC5AE2FB9DC12648E6D022FFCB797589948024F7BBE7B1129689A419",
+    "File": "test-console.txt"
+  }
+]
