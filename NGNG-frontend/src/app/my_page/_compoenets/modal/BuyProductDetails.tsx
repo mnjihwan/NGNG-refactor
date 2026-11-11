@@ -1,15 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { PRODUCT_STATUS, PRODUCT_STATUS_BUYER } from "../../_constans/enum";
 import ProductDetail from "../../_design/ProductDetail";
 import useMypageSWR from "../../_hooks/useMypageSWR";
-import { isPayment, paymentProduct } from "../../_api/api";
+import { isPayment, paymentProduct, PaymentRequestError } from "../../_api/api";
 
 type Props = {
   transactionDetails: TransactionDetails;
 };
 
 export default function BuyProductDetails({ transactionDetails }: Props) {
-  const { UpdateTransactionDetailStatus } = useMypageSWR();
+  const { UpdateTransactionDetailStatus, refreshPaymentState } = useMypageSWR();
+  const paymentPending = useRef(false);
+  const [isPaying, setIsPaying] = useState(false);
 
   const chnageStatus = (status: number) => {
     UpdateTransactionDetailStatus({
@@ -21,26 +23,50 @@ export default function BuyProductDetails({ transactionDetails }: Props) {
   };
 
   const onPayment = async () => {
+    if (paymentPending.current) return;
+    paymentPending.current = true;
+    setIsPaying(true);
     const cost = transactionDetails.price;
+    let submitted = false;
+
+    const reload = async () => {
+      try {
+        await refreshPaymentState();
+      } catch {
+        alert("거래와 포인트 재조회에 실패했습니다. 상태를 확인하기 전 다시 결제하지 마세요.");
+      }
+    };
 
     try {
       const isPay = await isPayment(cost);
 
       if (!isPay) {
         alert("포인트가 부족 합니다.");
+        await reload();
         return;
       }
 
       if (confirm("결제 하는 과정은 스킵 합니다.")) {
+        submitted = true;
         await paymentProduct({
           cost,
           productId: transactionDetails.product.id,
         });
 
-        chnageStatus(PRODUCT_STATUS["입금 완료"]);
+        await reload();
       }
-    } catch {
-      alert("결제를 완료하지 못했습니다. 포인트와 거래 상태를 확인해 주세요.");
+    } catch (error) {
+      if (error instanceof PaymentRequestError && error.status === 409) {
+        alert("결제 요청이 거부되었습니다. 거래와 포인트를 확인해 주세요. 현재 상태만으로 결제 성공을 판단할 수 없습니다.");
+      } else if (submitted && (!(error instanceof PaymentRequestError) || error.status >= 500)) {
+        alert("결제 응답을 확인하지 못했습니다. 결제 여부가 불명확하므로 상태를 확인하기 전 다시 결제하지 마세요.");
+      } else {
+        alert(submitted ? "결제 요청이 거부되었습니다. 거래와 포인트를 확인해 주세요." : "포인트 확인에 실패했습니다. 거래와 포인트를 확인해 주세요.");
+      }
+      await reload();
+    } finally {
+      paymentPending.current = false;
+      setIsPaying(false);
     }
   };
 
@@ -72,6 +98,7 @@ export default function BuyProductDetails({ transactionDetails }: Props) {
         <button
           className="border border-green-600 text-green-600 font-bold py-2 px-4 rounded hover:bg-green-600 hover:text-white"
           onClick={onPayment}
+          disabled={isPaying}
         >
           결제 하기
         </button>

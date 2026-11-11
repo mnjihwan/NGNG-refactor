@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" tests="192" skipped="0" failures="0" errors="0" timestamp="2026-11-11T00:39:58" hostname="[redacted]" time="2.376">
+  <properties/>
+  <testcase name="removedTransactionAfterProductLockRetainsNoSuchElementBoundary()" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.26"/>
+  <testcase name="[1] field=seller" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.116"/>
+  <testcase name="[2] field=consumer" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.016"/>
+  <testcase name="[3] field=status" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.006"/>
+  <testcase name="[4] field=transactionId" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.006"/>
+  <testcase name="[5] field=productId" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.008"/>
+  <testcase name="changedProductBetweenIdentificationAndCurrentLockIsRejected()" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.006"/>
+  <testcase name="[1] from=1, to=1, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.041"/>
+  <testcase name="[2] from=1, to=1, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.013"/>
+  <testcase name="[3] from=1, to=2, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.008"/>
+  <testcase name="[4] from=1, to=2, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.021"/>
+  <testcase name="[5] from=1, to=3, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.008"/>
+  <testcase name="[6] from=1, to=3, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.008"/>
+  <testcase name="[7] from=1, to=4, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.005"/>
+  <testcase name="[8] from=1, to=4, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.007"/>
+  <testcase name="[9] from=1, to=5, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.007"/>
+  <testcase name="[10] from=1, to=5, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.007"/>
+  <testcase name="[11] from=1, to=6, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.021"/>
+  <testcase name="[12] from=1, to=6, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.009"/>
+  <testcase name="[13] from=1, to=7, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.026"/>
+  <testcase name="[14] from=1, to=7, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.008"/>
+  <testcase name="[15] from=1, to=8, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.007"/>
+  <testcase name="[16] from=1, to=8, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.007"/>
+  <testcase name="[17] from=2, to=1, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.005"/>
+  <testcase name="[18] from=2, to=1, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.006"/>
+  <testcase name="[19] from=2, to=2, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.008"/>
+  <testcase name="[20] from=2, to=2, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.017"/>
+  <testcase name="[21] from=2, to=3, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.009"/>
+  <testcase name="[22] from=2, to=3, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.005"/>
+  <testcase name="[23] from=2, to=4, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.007"/>
+  <testcase name="[24] from=2, to=4, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.005"/>
+  <testcase name="[25] from=2, to=5, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.005"/>
+  <testcase name="[26] from=2, to=5, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[27] from=2, to=6, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.008"/>
+  <testcase name="[28] from=2, to=6, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.008"/>
+  <testcase name="[29] from=2, to=7, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.014"/>
+  <testcase name="[30] from=2, to=7, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.006"/>
+  <testcase name="[31] from=2, to=8, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.006"/>
+  <testcase name="[32] from=2, to=8, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[33] from=3, to=1, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.007"/>
+  <testcase name="[34] from=3, to=1, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.006"/>
+  <testcase name="[35] from=3, to=2, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.006"/>
+  <testcase name="[36] from=3, to=2, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.005"/>
+  <testcase name="[37] from=3, to=3, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.005"/>
+  <testcase name="[38] from=3, to=3, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.005"/>
+  <testcase name="[39] from=3, to=4, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.006"/>
+  <testcase name="[40] from=3, to=4, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.008"/>
+  <testcase name="[41] from=3, to=5, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[42] from=3, to=5, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.005"/>
+  <testcase name="[43] from=3, to=6, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.006"/>
+  <testcase name="[44] from=3, to=6, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.005"/>
+  <testcase name="[45] from=3, to=7, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.009"/>
+  <testcase name="[46] from=3, to=7, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.007"/>
+  <testcase name="[47] from=3, to=8, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[48] from=3, to=8, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[49] from=4, to=1, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[50] from=4, to=1, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.007"/>
+  <testcase name="[51] from=4, to=2, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.007"/>
+  <testcase name="[52] from=4, to=2, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[53] from=4, to=3, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[54] from=4, to=3, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[55] from=4, to=4, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.01"/>
+  <testcase name="[56] from=4, to=4, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.005"/>
+  <testcase name="[57] from=4, to=5, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="[58] from=4, to=5, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[59] from=4, to=6, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[60] from=4, to=6, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[61] from=4, to=7, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="[62] from=4, to=7, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.005"/>
+  <testcase name="[63] from=4, to=8, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[64] from=4, to=8, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[65] from=5, to=1, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[66] from=5, to=1, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[67] from=5, to=2, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[68] from=5, to=2, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.005"/>
+  <testcase name="[69] from=5, to=3, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.005"/>
+  <testcase name="[70] from=5, to=3, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[71] from=5, to=4, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="[72] from=5, to=4, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[73] from=5, to=5, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.013"/>
+  <testcase name="[74] from=5, to=5, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.005"/>
+  <testcase name="[75] from=5, to=6, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.008"/>
+  <testcase name="[76] from=5, to=6, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[77] from=5, to=7, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.006"/>
+  <testcase name="[78] from=5, to=7, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.022"/>
+  <testcase name="[79] from=5, to=8, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="[80] from=5, to=8, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.006"/>
+  <testcase name="[81] from=6, to=1, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.01"/>
+  <testcase name="[82] from=6, to=1, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.005"/>
+  <testcase name="[83] from=6, to=2, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.005"/>
+  <testcase name="[84] from=6, to=2, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[85] from=6, to=3, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="[86] from=6, to=3, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="[87] from=6, to=4, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="[88] from=6, to=4, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="[89] from=6, to=5, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[90] from=6, to=5, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.002"/>
+  <testcase name="[91] from=6, to=6, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[92] from=6, to=6, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.007"/>
+  <testcase name="[93] from=6, to=7, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[94] from=6, to=7, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.005"/>
+  <testcase name="[95] from=6, to=8, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="[96] from=6, to=8, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="[97] from=7, to=1, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[98] from=7, to=1, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="[99] from=7, to=2, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="[100] from=7, to=2, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.002"/>
+  <testcase name="[101] from=7, to=3, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.002"/>
+  <testcase name="[102] from=7, to=3, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="[103] from=7, to=4, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.002"/>
+  <testcase name="[104] from=7, to=4, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.002"/>
+  <testcase name="[105] from=7, to=5, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.001"/>
+  <testcase name="[106] from=7, to=5, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.001"/>
+  <testcase name="[107] from=7, to=6, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.001"/>
+  <testcase name="[108] from=7, to=6, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="[109] from=7, to=7, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="[110] from=7, to=7, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.001"/>
+  <testcase name="[111] from=7, to=8, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.001"/>
+  <testcase name="[112] from=7, to=8, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.001"/>
+  <testcase name="[113] from=8, to=1, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.002"/>
+  <testcase name="[114] from=8, to=1, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.001"/>
+  <testcase name="[115] from=8, to=2, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.002"/>
+  <testcase name="[116] from=8, to=2, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.001"/>
+  <testcase name="[117] from=8, to=3, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.002"/>
+  <testcase name="[118] from=8, to=3, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.001"/>
+  <testcase name="[119] from=8, to=4, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.001"/>
+  <testcase name="[120] from=8, to=4, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.002"/>
+  <testcase name="[121] from=8, to=5, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="[122] from=8, to=5, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[123] from=8, to=6, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[124] from=8, to=6, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.005"/>
+  <testcase name="[125] from=8, to=7, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[126] from=8, to=7, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[127] from=8, to=8, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="[128] from=8, to=8, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="[129] from=100, to=1, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="[130] from=100, to=1, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.002"/>
+  <testcase name="[131] from=100, to=2, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.002"/>
+  <testcase name="[132] from=100, to=2, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="[133] from=100, to=3, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.002"/>
+  <testcase name="[134] from=100, to=3, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="[135] from=100, to=4, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="[136] from=100, to=4, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[137] from=100, to=5, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[138] from=100, to=5, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[139] from=100, to=6, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[140] from=100, to=6, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="[141] from=100, to=7, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[142] from=100, to=7, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[143] from=100, to=8, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.006"/>
+  <testcase name="[144] from=100, to=8, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="productLockDoesNotMatchRequestedProductIsRejected()" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.002"/>
+  <testcase name="[1] field=status" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[2] field=seller" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="[3] field=consumer" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="[4] field=product" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.002"/>
+  <testcase name="[5] field=id" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.002"/>
+  <testcase name="[6] field=price" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="[7] field=address" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.002"/>
+  <testcase name="[8] field=nullSeller" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.002"/>
+  <testcase name="[9] field=nullConsumer" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.001"/>
+  <testcase name="[10] field=nullProduct" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.002"/>
+  <testcase name="[11] field=nullStatus" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.001"/>
+  <testcase name="missingTransactionRetainsNoSuchElementBoundary()" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.001"/>
+  <testcase name="proxyStartsReadCommittedWriteTransactionBeforeFirstLockAndCommits()" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.593"/>
+  <testcase name="[1] isolation=2, stale=false" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.009"/>
+  <testcase name="[2] isolation=4, stale=false" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="[3] isolation=2, stale=true" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="[4] isolation=4, stale=true" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="[1] seller=true, id=7" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.002"/>
+  <testcase name="[2] seller=false, id=7" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.002"/>
+  <testcase name="[3] seller=true, id=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.002"/>
+  <testcase name="[4] seller=false, id=1000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.002"/>
+  <testcase name="[5] seller=true, id=9223372036854775807" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="[6] seller=false, id=9223372036854775807" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.002"/>
+  <testcase name="setterFailureInvokesRollbackAdviceAndNeverReturnsSuccess()" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.005"/>
+  <testcase name="commitFailureIsPropagatedInsteadOfReturningDto()" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.004"/>
+  <testcase name="lockFailureIsPropagatedAndNoEntityIsLoaded()" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="cachedSmallPartyIdRetainsValueComparisonAndNoOwnerDependency()" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="[1] id=null" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.005"/>
+  <testcase name="[2] id=99" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.001"/>
+  <testcase name="[1] absent=true" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="[2] absent=false" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.002"/>
+  <testcase name="[1] actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.001"/>
+  <testcase name="[2] actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.001"/>
+  <testcase name="locksAndCurrentValidationPrecedeFirstEntityReadAndSetter()" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.02"/>
+  <testcase name="[1] scenario=absent" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.002"/>
+  <testcase name="[2] scenario=unauthenticated" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.003"/>
+  <testcase name="[3] scenario=wrongPrincipal" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.002"/>
+  <testcase name="[4] scenario=nullUser" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.002"/>
+  <testcase name="[5] scenario=nullEmail" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.001"/>
+  <testcase name="[6] scenario=blankEmail" classname="com.ngng.api.transaction.status.TransactionStatusOwnershipTest" time="0.001"/>
+  <system-out><![CDATA[09:39:59.205 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6
+09:39:59.224 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6
+09:39:59.256 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7
+09:39:59.268 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7
+09:39:59.346 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :3
+09:39:59.393 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6
+09:39:59.405 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6
+09:39:59.419 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7
+09:39:59.434 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7
+09:39:59.506 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :4
+09:39:59.534 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6
+09:39:59.540 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6
+09:39:59.550 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7
+09:39:59.558 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7
+09:39:59.639 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :5
+09:39:59.645 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6
+09:39:59.652 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6
+09:39:59.652 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7
+09:39:59.662 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7
+09:39:59.750 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6
+09:39:59.756 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6
+09:39:59.762 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7
+09:39:59.783 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7
+09:39:59.877 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7
+09:39:59.881 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7
+09:39:59.927 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6
+09:39:59.931 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6
+09:39:59.974 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6
+09:39:59.980 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6
+09:39:59.984 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7
+09:39:59.990 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7
+09:40:00.047 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6
+09:40:00.051 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6
+09:40:00.056 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7
+09:40:00.063 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7
+09:40:00.710 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :3
+09:40:00.751 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :3
+09:40:00.751 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :3
+09:40:00.761 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :3
+09:40:00.761 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :5
+09:40:00.777 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :3
+09:40:00.777 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :5
+09:40:00.777 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :3
+09:40:00.777 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :5
+09:40:00.795 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :3
+09:40:00.802 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :3
+09:40:00.836 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :3
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

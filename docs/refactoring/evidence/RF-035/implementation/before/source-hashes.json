@@ -1,0 +1,11 @@
+{
+  "NGNG-backend/src/main/java/com/ngng/api/user/point/service/PointHistoryService.java": "372eb316e4fe7cffcb7590f673cdd59fc61e52daffb3e3b0bb535863bef9782d",
+  "NGNG-backend/src/main/java/com/ngng/api/user/point/dto/PaymentPointRequestDto.java": "fa19a3bfcba2c1b3a1645a3e5fdb2d255acac1a05ee32400e918e41a2d08d9c7",
+  "NGNG-backend/src/main/java/com/ngng/api/transaction/repository/TransactionDetailsRepository.java": "bfe790dc6d78e2b3b7623daa21dae3293cdc004516be16d9501c1ee1467d4ce0",
+  "NGNG-backend/src/main/java/com/ngng/api/product/product/repository/ProductRepository.java": "91da4db36399ea1025ca13309122e4061c9df00aa1e4af75c78fb30da052b10e",
+  "NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentBeforeTest.java": "c14d7b87785525e72045281c9c873a8b6eb907d3c8b4f19f99615518118af64c",
+  "NGNG-backend/src/test/java/com/ngng/api/user/point/service/PointHistoryBehaviorTest.java": "ee73ee51d6a98b7c714c937fa5190f5c232d7095979737be2125d8c943494aaa",
+  "NGNG-backend/src/test/java/com/ngng/api/user/point/service/PointHistoryPolicyTest.java": "699f5945ec1b2f2eaf6eb4f99cdb547adac158a5f16ad607adc6cb85e16d3bf3",
+  "NGNG-backend/src/test/java/com/ngng/api/user/point/controller/PointControllerContractTest.java": "b3cdbc547d39950ccaf150d5fab4ce5b78fc8175553240c06d03f4eb2db4314d",
+  "NGNG-backend/src/test/java/com/ngng/api/user/point/controller/PointResponseSecurityChainTest.java": "8e3a1dcef9f622f9f52879ae890025f5e7706b73d77acd1a669e7e3096ccf3b3"
+}

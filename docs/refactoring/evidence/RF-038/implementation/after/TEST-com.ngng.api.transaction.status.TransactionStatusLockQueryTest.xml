@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.transaction.status.TransactionStatusLockQueryTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-11-11T00:39:56" hostname="[redacted]" time="0.501">
+  <properties/>
+  <testcase name="identificationQueryIsScalarWithoutClaimingAStateLock()" classname="com.ngng.api.transaction.status.TransactionStatusLockQueryTest" time="0.025"/>
+  <testcase name="currentLockReadsOnlyTransactionScalarsByPrimaryKey()" classname="com.ngng.api.transaction.status.TransactionStatusLockQueryTest" time="0.002"/>
+  <testcase name="projectionAliasesConvertNumericScalarsAndPreserveNullableData()" classname="com.ngng.api.transaction.status.TransactionStatusLockQueryTest" time="0.472"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

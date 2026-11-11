@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.transaction.read.TransactionReadOwnershipTest" tests="40" skipped="0" failures="0" errors="0" timestamp="2026-11-11T00:16:35" hostname="redacted" time="0.221">
+  <properties/>
+  <testcase name="sameRecordedPartyOnBothSidesCanReadWithCompleteIds()" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.1"/>
+  <testcase name="[1] scenario=absent" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.002"/>
+  <testcase name="[2] scenario=nullId" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.002"/>
+  <testcase name="[1] broken=product" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.004"/>
+  <testcase name="[2] broken=category" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.003"/>
+  <testcase name="[3] broken=thumbnail" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.003"/>
+  <testcase name="[4] broken=images" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.002"/>
+  <testcase name="[5] broken=tags" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.003"/>
+  <testcase name="[6] broken=productStatus" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.003"/>
+  <testcase name="[1] scenario=missing" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.003"/>
+  <testcase name="[2] scenario=anonymous" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.002"/>
+  <testcase name="[3] scenario=unauthenticated" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.002"/>
+  <testcase name="[4] scenario=nullUser" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.002"/>
+  <testcase name="[5] scenario=nullEmail" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.002"/>
+  <testcase name="[6] scenario=blankEmail" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.002"/>
+  <testcase name="[1] id=1, seller=true" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.004"/>
+  <testcase name="[2] id=2, seller=false" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.003"/>
+  <testcase name="[3] id=1000, seller=true" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.003"/>
+  <testcase name="[4] id=2000, seller=false" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.002"/>
+  <testcase name="[5] id=9223372036854775806, seller=true" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.003"/>
+  <testcase name="[1] repository=user" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.004"/>
+  <testcase name="[2] repository=transaction" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.001"/>
+  <testcase name="[1] list=consumer" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.003"/>
+  <testcase name="[2] list=seller" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.003"/>
+  <testcase name="authorizedBrokenMapperIsNotRepairedOrConvertedTo403()" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.002"/>
+  <testcase name="authenticatedMissingTransactionKeepsEmptyDto()" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.002"/>
+  <testcase name="nullAddressAndNullTransactionStatusKeepExistingDtoValues()" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.002"/>
+  <testcase name="[1] missing=seller" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.002"/>
+  <testcase name="[2] missing=consumer" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.002"/>
+  <testcase name="[3] missing=sellerId" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.003"/>
+  <testcase name="[4] missing=consumerId" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.002"/>
+  <testcase name="[5] missing=both" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.002"/>
+  <testcase name="[6] missing=bothIds" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.003"/>
+  <testcase name="[1] id=3000" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.001"/>
+  <testcase name="[2] id=4000" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.003"/>
+  <testcase name="[1] status=1" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.003"/>
+  <testcase name="[2] status=2" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.003"/>
+  <testcase name="[3] status=3" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.002"/>
+  <testcase name="[4] status=4" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.001"/>
+  <testcase name="[5] status=5" classname="com.ngng.api.transaction.read.TransactionReadOwnershipTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

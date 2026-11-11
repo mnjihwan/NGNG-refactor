@@ -1,5 +1,10 @@
 package com.ngng.api.user.point.controller;
 
+import com.ngng.api.product.product.repository.ProductRepository;
+import com.ngng.api.transaction.repository.TransactionDetailsRepository;
+import com.ngng.api.user.point.payment.PaymentFixture;
+
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ngng.api.user.point.entity.PointHistory;
 import com.ngng.api.user.point.repository.PointHistoryRepository;
@@ -29,15 +34,18 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 /** Standalone MVC: real controller/service/validation; no security filter, Boot error dispatch, or DB. */
 class PointControllerContractTest {
+    @org.junit.jupiter.api.AfterEach void clearAuthentication() { org.springframework.security.core.context.SecurityContextHolder.clearContext(); }
     private final PointHistoryRepository histories = mock(PointHistoryRepository.class);
     private final AuthService auth = mock(AuthService.class);
     private final UserRepository users = mock(UserRepository.class);
+    private final ProductRepository products = mock(ProductRepository.class);
+    private final TransactionDetailsRepository details = mock(TransactionDetailsRepository.class);
     private final User user = User.builder().userId(7L).name("Alice").build();
     private MockMvc mvc;
 
     @BeforeEach
     void setUp() {
-        PointHistoryService service = new PointHistoryService(histories, auth, users);
+        PointHistoryService service = new PointHistoryService(histories, auth, users, products, details, PaymentFixture.gateBindings(new long[]{88,42,7,999,200}, new long[]{89,42,7,999,101}), PaymentFixture.settlements());
         mvc = MockMvcBuilders.standaloneSetup(new PointController(service))
                 .setMessageConverters(new MappingJackson2HttpMessageConverter(
                         new ObjectMapper().findAndRegisterModules()))
@@ -45,6 +53,8 @@ class PointControllerContractTest {
     }
 
     private void balance(long cost) {
+        PaymentFixture.authenticate();
+        PaymentFixture.allowPayment(products, details, 7L, 200L);
         when(auth.readAuthUser()).thenReturn(user);
         when(users.lockUserIdForPointUpdate(7L)).thenReturn(Optional.of(7L));
         when(histories.findLatestCostForUpdate(7L)).thenReturn(Optional.of(cost));
@@ -146,6 +156,7 @@ class PointControllerContractTest {
     @Test
     void insufficientPaymentReturnsBadRequestWithNoStandaloneResponseBody() throws Exception {
         balance(100L);
+        when(details.lockPaymentTransactions(42L)).thenReturn(List.of(new PaymentFixture.TransactionRow(89L,7L,101L)));
         var result = mvc.perform(post("/points/payment").contentType(MediaType.APPLICATION_JSON)
                         .content("{\"paymentCost\":101,\"payProductId\":42}"))
                 .andExpect(status().isBadRequest()).andExpect(content().string("")).andReturn();

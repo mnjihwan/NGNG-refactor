@@ -1,5 +1,11 @@
 package com.ngng.api.user.point.repository;
 
+import com.ngng.api.product.product.repository.ProductRepository;
+import com.ngng.api.transaction.repository.TransactionDetailsRepository;
+import com.ngng.api.user.point.payment.PaymentFixture;
+import com.ngng.api.user.point.payment.PaymentFixture;
+
+
 import com.ngng.api.user.point.entity.PointHistory;
 import com.ngng.api.user.point.service.PointHistoryService;
 import com.ngng.api.user.user.entity.Role;
@@ -52,7 +58,7 @@ class PointHistoryRepositoryBatchTest {
     void emptyUserIdsDoNotReachRepository() {
         PointHistoryRepository repository = mock(PointHistoryRepository.class);
         AuthService auth = mock(AuthService.class);
-        PointHistoryService service = new PointHistoryService(repository, auth, mock(UserRepository.class));
+        PointHistoryService service = new PointHistoryService(repository, auth, mock(UserRepository.class), mock(ProductRepository.class), mock(TransactionDetailsRepository.class), com.ngng.api.user.point.payment.PaymentVerificationGate.denyAll(), PaymentFixture.settlements());
 
         assertThat(service.readCostsByUserIds(List.of())).isEmpty();
 
@@ -63,7 +69,7 @@ class PointHistoryRepositoryBatchTest {
     void batchLookupPassesOnlyRequestedIdsAndLeavesSingleUserLookupUnchanged() {
         PointHistoryRepository repository = mock(PointHistoryRepository.class);
         AuthService auth = mock(AuthService.class);
-        PointHistoryService service = new PointHistoryService(repository, auth, mock(UserRepository.class));
+        PointHistoryService service = new PointHistoryService(repository, auth, mock(UserRepository.class), mock(ProductRepository.class), mock(TransactionDetailsRepository.class), com.ngng.api.user.point.payment.PaymentVerificationGate.denyAll(), PaymentFixture.settlements());
         User user = new User(7L);
         PointHistory latest = PointHistory.builder().id(109L).user(user).cost(15L).build();
         List<Long> ids = List.of(42L, 7L);

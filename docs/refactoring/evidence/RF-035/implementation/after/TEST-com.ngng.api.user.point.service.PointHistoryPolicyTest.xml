@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.user.point.service.PointHistoryPolicyTest" tests="27" skipped="0" failures="0" errors="0" timestamp="2026-11-11T00:15:22" hostname="redacted" time="0.069">
+  <properties/>
+  <testcase name="[1] amount=null" classname="com.ngng.api.user.point.service.PointHistoryPolicyTest" time="0.003"/>
+  <testcase name="[2] amount=0" classname="com.ngng.api.user.point.service.PointHistoryPolicyTest" time="0.0"/>
+  <testcase name="[3] amount=-1" classname="com.ngng.api.user.point.service.PointHistoryPolicyTest" time="0.001"/>
+  <testcase name="[4] amount=-9223372036854775808" classname="com.ngng.api.user.point.service.PointHistoryPolicyTest" time="0.0"/>
+  <testcase name="[1] amount=99" classname="com.ngng.api.user.point.service.PointHistoryPolicyTest" time="0.001"/>
+  <testcase name="[2] amount=100" classname="com.ngng.api.user.point.service.PointHistoryPolicyTest" time="0.001"/>
+  <testcase name="[3] amount=101" classname="com.ngng.api.user.point.service.PointHistoryPolicyTest" time="0.002"/>
+  <testcase name="paymentOfEntireBalanceSucceedsWithZeroRemaining()" classname="com.ngng.api.user.point.service.PointHistoryPolicyTest" time="0.002"/>
+  <testcase name="checkRejectsNullAmount()" classname="com.ngng.api.user.point.service.PointHistoryPolicyTest" time="0.0"/>
+  <testcase name="[1] amount=null" classname="com.ngng.api.user.point.service.PointHistoryPolicyTest" time="0.001"/>
+  <testcase name="[2] amount=0" classname="com.ngng.api.user.point.service.PointHistoryPolicyTest" time="0.001"/>
+  <testcase name="[3] amount=-1" classname="com.ngng.api.user.point.service.PointHistoryPolicyTest" time="0.001"/>
+  <testcase name="[4] amount=-9223372036854775808" classname="com.ngng.api.user.point.service.PointHistoryPolicyTest" time="0.001"/>
+  <testcase name="insufficientBalanceIsRejectedWithoutAppendingEvenAfterSuccessfulCheck()" classname="com.ngng.api.user.point.service.PointHistoryPolicyTest" time="0.002"/>
+  <testcase name="springAdviceKeepsBothWriteMethodsInsideATransaction()" classname="com.ngng.api.user.point.service.PointHistoryPolicyTest" time="0.004"/>
+  <testcase name="missingUserLockPreventsHistoryAccess()" classname="com.ngng.api.user.point.service.PointHistoryPolicyTest" time="0.001"/>
+  <testcase name="chargeLocksUserThenReadsCurrentBalanceThenAppends()" classname="com.ngng.api.user.point.service.PointHistoryPolicyTest" time="0.002"/>
+  <testcase name="[1] amount=0" classname="com.ngng.api.user.point.service.PointHistoryPolicyTest" time="0.0"/>
+  <testcase name="[2] amount=-1" classname="com.ngng.api.user.point.service.PointHistoryPolicyTest" time="0.001"/>
+  <testcase name="[3] amount=-9223372036854775808" classname="com.ngng.api.user.point.service.PointHistoryPolicyTest" time="0.001"/>
+  <testcase name="chargeCanReachMaximumSupportedBalanceExactly()" classname="com.ngng.api.user.point.service.PointHistoryPolicyTest" time="0.001"/>
+  <testcase name="missingHistoryIsNotReplacedWithAnInitialBalance()" classname="com.ngng.api.user.point.service.PointHistoryPolicyTest" time="0.002"/>
+  <testcase name="overflowingChargeIsRejectedWithoutAppending()" classname="com.ngng.api.user.point.service.PointHistoryPolicyTest" time="0.002"/>
+  <testcase name="saveFailureEscapesProxyAndInvokesRollbackAdvice()" classname="com.ngng.api.user.point.service.PointHistoryPolicyTest" time="0.003"/>
+  <testcase name="repeatedPaymentsRemainSeparateRequests()" classname="com.ngng.api.user.point.service.PointHistoryPolicyTest" time="0.001"/>
+  <testcase name="commitFailureIsNotReturnedAsSuccessfulPayment()" classname="com.ngng.api.user.point.service.PointHistoryPolicyTest" time="0.003"/>
+  <testcase name="paymentLocksUserThenReadsCurrentBalanceThenAppends()" classname="com.ngng.api.user.point.service.PointHistoryPolicyTest" time="0.002"/>
+  <system-out><![CDATA[09:15:22.791 [Test worker] INFO point-log -- Success Payment Point UserId: 7 ProductId : 42 cost : 9223372036854775807
+09:15:22.806 [Test worker] INFO point-log -- Success Charge Point UserId: 7 cost : 1
+09:15:22.806 [Test worker] INFO point-log -- Success Payment Point UserId: 7 ProductId : 42 cost : 1
+09:15:22.806 [Test worker] INFO point-log -- Success Charge Point UserId: 7 cost : 200
+09:15:22.806 [Test worker] INFO point-log -- Success Charge Point UserId: 7 cost : 1
+09:15:22.822 [Test worker] INFO point-log -- Success Payment Point UserId: 7 ProductId : 42 cost : 200
+09:15:22.822 [Test worker] INFO point-log -- Success Payment Point UserId: 7 ProductId : 42 cost : 200
+09:15:22.822 [Test worker] INFO point-log -- Success Payment Point UserId: 7 ProductId : 42 cost : 1
+09:15:22.822 [Test worker] INFO point-log -- Success Payment Point UserId: 7 ProductId : 42 cost : 200
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

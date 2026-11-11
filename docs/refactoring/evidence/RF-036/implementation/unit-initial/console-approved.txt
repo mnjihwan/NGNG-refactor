@@ -1,0 +1,219 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.7/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :compileJava
+> Task :processResources UP-TO-DATE
+> Task :classes
+
+> Task :compileTestJava FAILED
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:39: error: method graph in class StatusFixture cannot be applied to given types;
+        transaction = graph(owner, buyer);
+                      ^
+  required: Long
+  found:    Long,Long
+  reason: actual and formal argument lists differ in length
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:68: error: cannot find symbol
+        Long shared = distinctId(id);
+                      ^
+  symbol:   method distinctId(long)
+  location: class TransactionStatusOwnershipTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:69: error: cannot find symbol
+        fixture(owner ? shared : distinctId(2000), owner ? distinctId(2000) : shared, shared);
+                                 ^
+  symbol:   method distinctId(int)
+  location: class TransactionStatusOwnershipTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:69: error: cannot find symbol
+        fixture(owner ? shared : distinctId(2000), owner ? distinctId(2000) : shared, shared);
+                                                           ^
+  symbol:   method distinctId(int)
+  location: class TransactionStatusOwnershipTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:75: error: cannot find symbol
+        Long stored = distinctId(id), caller = distinctId(id);
+                      ^
+  symbol:   method distinctId(long)
+  location: class TransactionStatusOwnershipTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:75: error: cannot find symbol
+        Long stored = distinctId(id), caller = distinctId(id);
+                                               ^
+  symbol:   method distinctId(long)
+  location: class TransactionStatusOwnershipTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:76: error: cannot find symbol
+        separateEqual(stored, caller);
+        ^
+  symbol:   method separateEqual(Long,Long)
+  location: class TransactionStatusOwnershipTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:77: error: cannot find symbol
+        fixture(owner ? stored : distinctId(2000), owner ? distinctId(2000) : stored, caller);
+                                 ^
+  symbol:   method distinctId(int)
+  location: class TransactionStatusOwnershipTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:77: error: cannot find symbol
+        fixture(owner ? stored : distinctId(2000), owner ? distinctId(2000) : stored, caller);
+                                                           ^
+  symbol:   method distinctId(int)
+  location: class TransactionStatusOwnershipTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:84: error: cannot find symbol
+        fixture(stored, distinctId(2000), caller);
+                        ^
+  symbol:   method distinctId(int)
+  location: class TransactionStatusOwnershipTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:87: error: cannot find symbol
+    @Test void unrelatedUserIsDenied() { fixture(distinctId(1000), distinctId(2000), distinctId(4000)); denied(); }
+                                                 ^
+  symbol:   method distinctId(int)
+  location: class TransactionStatusOwnershipTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:87: error: cannot find symbol
+    @Test void unrelatedUserIsDenied() { fixture(distinctId(1000), distinctId(2000), distinctId(4000)); denied(); }
+                                                                   ^
+  symbol:   method distinctId(int)
+  location: class TransactionStatusOwnershipTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:87: error: cannot find symbol
+    @Test void unrelatedUserIsDenied() { fixture(distinctId(1000), distinctId(2000), distinctId(4000)); denied(); }
+                                                                                     ^
+  symbol:   method distinctId(int)
+  location: class TransactionStatusOwnershipTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:88: error: cannot find symbol
+    @Test void recordedSellerAloneIsDenied() { fixture(distinctId(1000), distinctId(2000), distinctId(3000)); denied(); }
+                                                       ^
+  symbol:   method distinctId(int)
+  location: class TransactionStatusOwnershipTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:88: error: cannot find symbol
+    @Test void recordedSellerAloneIsDenied() { fixture(distinctId(1000), distinctId(2000), distinctId(3000)); denied(); }
+                                                                         ^
+  symbol:   method distinctId(int)
+  location: class TransactionStatusOwnershipTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:88: error: cannot find symbol
+    @Test void recordedSellerAloneIsDenied() { fixture(distinctId(1000), distinctId(2000), distinctId(3000)); denied(); }
+                                                                                           ^
+  symbol:   method distinctId(int)
+  location: class TransactionStatusOwnershipTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:90: error: cannot find symbol
+        Long id = distinctId(1000);
+                  ^
+  symbol:   method distinctId(int)
+  location: class TransactionStatusOwnershipTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:91: error: cannot find symbol
+        Long caller = distinctId(1000);
+                      ^
+  symbol:   method distinctId(int)
+  location: class TransactionStatusOwnershipTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:92: error: cannot find symbol
+        separateEqual(id, caller);
+        ^
+  symbol:   method separateEqual(Long,Long)
+  location: class TransactionStatusOwnershipTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:93: error: cannot find symbol
+        fixture(id, distinctId(2000), caller);
+                    ^
+  symbol:   method distinctId(int)
+  location: class TransactionStatusOwnershipTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:100: error: cannot find symbol
+        Long id = distinctId(2000);
+                  ^
+  symbol:   method distinctId(int)
+  location: class TransactionStatusOwnershipTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:101: error: cannot find symbol
+        fixture(distinctId(1000), id, id);
+                ^
+  symbol:   method distinctId(int)
+  location: class TransactionStatusOwnershipTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:111: error: cannot find symbol
+        fixture(ownerNull ? null : distinctId(1000), ownerNull ? distinctId(2000) : null, null);
+                                   ^
+  symbol:   method distinctId(int)
+  location: class TransactionStatusOwnershipTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:111: error: cannot find symbol
+        fixture(ownerNull ? null : distinctId(1000), ownerNull ? distinctId(2000) : null, null);
+                                                                 ^
+  symbol:   method distinctId(int)
+  location: class TransactionStatusOwnershipTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:114: error: cannot find symbol
+    @Test void nullCallerAgainstNonNullOwnersIsDenied() { fixture(distinctId(1000), distinctId(2000), null); denied(); }
+                                                                  ^
+  symbol:   method distinctId(int)
+  location: class TransactionStatusOwnershipTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:114: error: cannot find symbol
+    @Test void nullCallerAgainstNonNullOwnersIsDenied() { fixture(distinctId(1000), distinctId(2000), null); denied(); }
+                                                                                    ^
+  symbol:   method distinctId(int)
+  location: class TransactionStatusOwnershipTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:115: error: cannot find symbol
+    @Test void nonNullCallerAgainstNullIdsIsDenied() { fixture(null, null, distinctId(1000)); denied(); }
+                                                                           ^
+  symbol:   method distinctId(int)
+  location: class TransactionStatusOwnershipTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:121: error: cannot find symbol
+        Long id = distinctId(1000); fixture(id, distinctId(2000), id);
+                  ^
+  symbol:   method distinctId(int)
+  location: class TransactionStatusOwnershipTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:121: error: cannot find symbol
+        Long id = distinctId(1000); fixture(id, distinctId(2000), id);
+                                                ^
+  symbol:   method distinctId(int)
+  location: class TransactionStatusOwnershipTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:128: error: cannot find symbol
+        Long id = distinctId(1000); fixture(id, distinctId(2000), id);
+                  ^
+  symbol:   method distinctId(int)
+  location: class TransactionStatusOwnershipTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:128: error: cannot find symbol
+        Long id = distinctId(1000); fixture(id, distinctId(2000), id);
+                                                ^
+  symbol:   method distinctId(int)
+  location: class TransactionStatusOwnershipTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:139: error: cannot find symbol
+        fixture(distinctId(1000), distinctId(2000), distinctId(4000));
+                ^
+  symbol:   method distinctId(int)
+  location: class TransactionStatusOwnershipTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:139: error: cannot find symbol
+        fixture(distinctId(1000), distinctId(2000), distinctId(4000));
+                                  ^
+  symbol:   method distinctId(int)
+  location: class TransactionStatusOwnershipTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusOwnershipTest.java:139: error: cannot find symbol
+        fixture(distinctId(1000), distinctId(2000), distinctId(4000));
+                                                    ^
+  symbol:   method distinctId(int)
+  location: class TransactionStatusOwnershipTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusSecurityChainTest.java:78: error: cannot find symbol
+        transaction = graph(distinctId(1000), distinctId(2000));
+                                              ^
+  symbol:   method distinctId(int)
+  location: class TransactionStatusSecurityChainTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusSecurityChainTest.java:78: error: cannot find symbol
+        transaction = graph(distinctId(1000), distinctId(2000));
+                            ^
+  symbol:   method distinctId(int)
+  location: class TransactionStatusSecurityChainTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusSecurityChainTest.java:85: error: cannot find symbol
+        User caller = user(distinctId(id));
+                           ^
+  symbol:   method distinctId(long)
+  location: class TransactionStatusSecurityChainTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusSecurityChainTest.java:93: error: cannot find symbol
+        if (id == 1000) separateEqual(transaction.getProduct().getUser().getUserId(), caller.getUserId());
+                        ^
+  symbol:   method separateEqual(Long,Long)
+  location: class TransactionStatusSecurityChainTest
+C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusSecurityChainTest.java:94: error: cannot find symbol
+        if (id == 2000) separateEqual(transaction.getConsumer().getUserId(), caller.getUserId());
+                        ^
+  symbol:   method separateEqual(Long,Long)
+  location: class TransactionStatusSecurityChainTest
+Note: C:\Users\[USER]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\transaction\status\TransactionStatusSecurityChainTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+39 errors
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileTestJava'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+> Run with --info option to get more log output.
+> Run with --scan to get full insights.
+
+BUILD FAILED in 9s
+3 actionable tasks: 2 executed, 1 up-to-date

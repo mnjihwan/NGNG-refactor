@@ -1,0 +1,105 @@
+TAP version 13
+# Subtest: list API preserves point values and order without nested user
+ok 1 - list API preserves point values and order without nested user
+  ---
+  duration_ms: 119.707
+  ...
+# Subtest: charge API invokes completion and parses the user-free 201 response
+ok 2 - charge API invokes completion and parses the user-free 201 response
+  ---
+  duration_ms: 28.8369
+  ...
+# Subtest: payment API parses the user-free response and preserves request fields
+ok 3 - payment API parses the user-free response and preserves request fields
+  ---
+  duration_ms: 29.2904
+  ...
+# Subtest: actual history view renders dates, amounts and details from point-only data
+ok 4 - actual history view renders dates, amounts and details from point-only data
+  ---
+  duration_ms: 52.7395
+  ...
+# Subtest: successful check/payment preserves request fields and changes status only after payment
+ok 5 - successful check/payment preserves request fields and changes status only after payment
+  ---
+  duration_ms: 105.6451
+  ...
+# Subtest: check false prevents payment and status change
+ok 6 - check false prevents payment and status change
+  ---
+  duration_ms: 53.7778
+  ...
+# Subtest: cancelled confirmation prevents payment and status change
+ok 7 - cancelled confirmation prevents payment and status change
+  ---
+  duration_ms: 32.4513
+  ...
+# Subtest: check HTTP error prevents payment/status change and is handled
+ok 8 - check HTTP error prevents payment/status change and is handled
+  ---
+  duration_ms: 38.3561
+  ...
+# Subtest: check network error prevents payment/status change and is handled
+ok 9 - check network error prevents payment/status change and is handled
+  ---
+  duration_ms: 25.7323
+  ...
+# Subtest: check nonboolean payload prevents payment/status change and is handled
+ok 10 - check nonboolean payload prevents payment/status change and is handled
+  ---
+  duration_ms: 22.7203
+  ...
+# Subtest: check JSON error prevents payment/status change and is handled
+ok 11 - check JSON error prevents payment/status change and is handled
+  ---
+  duration_ms: 27.5467
+  ...
+# Subtest: payment HTTP error prevents status change and is handled
+ok 12 - payment HTTP error prevents status change and is handled
+  ---
+  duration_ms: 29.3316
+  ...
+# Subtest: payment network error prevents status change and is handled
+ok 13 - payment network error prevents status change and is handled
+  ---
+  duration_ms: 24.1764
+  ...
+# Subtest: payment JSON error prevents status change and is handled
+ok 14 - payment JSON error prevents status change and is handled
+  ---
+  duration_ms: 17.455
+  ...
+# Subtest: payment HTTP 400 keeps access-header handling and stops the separate status PUT
+ok 15 - payment HTTP 400 keeps access-header handling and stops the separate status PUT
+  ---
+  duration_ms: 18.7706
+  ...
+# Subtest: payment HTTP 401 keeps access-header handling and stops the separate status PUT
+ok 16 - payment HTTP 401 keeps access-header handling and stops the separate status PUT
+  ---
+  duration_ms: 19.1572
+  ...
+# Subtest: payment HTTP 403 keeps access-header handling and stops the separate status PUT
+ok 17 - payment HTTP 403 keeps access-header handling and stops the separate status PUT
+  ---
+  duration_ms: 19.1047
+  ...
+# Subtest: payment HTTP 404 keeps access-header handling and stops the separate status PUT
+ok 18 - payment HTTP 404 keeps access-header handling and stops the separate status PUT
+  ---
+  duration_ms: 16.6319
+  ...
+# Subtest: payment HTTP 409 keeps access-header handling and stops the separate status PUT
+ok 19 - payment HTTP 409 keeps access-header handling and stops the separate status PUT
+  ---
+  duration_ms: 20.7363
+  ...
+1..19
+# tests 19
+# suites 0
+# pass 19
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 756.5281

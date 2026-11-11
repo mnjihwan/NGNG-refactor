@@ -1,5 +1,10 @@
 package com.ngng.api.user.point.integration;
 
+import com.ngng.api.product.product.repository.ProductRepository;
+import com.ngng.api.transaction.repository.TransactionDetailsRepository;
+import com.ngng.api.user.point.payment.PaymentFixture;
+
+
 import com.ngng.api.global.security.custom.CustomUserDetails;
 import com.ngng.api.user.point.dto.CreateAddPointRequestDTO;
 import com.ngng.api.user.point.dto.PaymentPointRequestDto;
@@ -566,7 +571,10 @@ class PointHistoryMySqlConcurrencyTest {
                         try { return method.invoke(users, arguments); }
                         catch (InvocationTargetException failure) { throw failure.getCause(); }
                     });
-            return new PointHistoryService(observedHistories, auth, observedUsers);
+            // RF035: compile compatibility only. This opt-in fixture has no product/transaction rows.
+            // Before re-running, provision approved owned fixtures and use real locking repositories.
+            return new PointHistoryService(observedHistories, auth, observedUsers,
+                    org.mockito.Mockito.mock(ProductRepository.class), org.mockito.Mockito.mock(TransactionDetailsRepository.class), com.ngng.api.user.point.payment.PaymentVerificationGate.denyAll(), com.ngng.api.user.point.payment.PaymentFixture.settlements());
         }
     }
 }

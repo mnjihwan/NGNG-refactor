@@ -12,7 +12,7 @@
 
 ### 신규 후보와 기존 잔여의 독립 작업 승격
 
-모두 **조사/계획 후보·미착수**다. 번호는 등록 순서이며 우선순위가 아니다. 코드 파일/행·확인 사실과 가설·검증 계획·승인 경계는 [신규 상세표](BACKLOG_REASSESSMENT_2026-11-10.md#신규-및-기존-잔여에서-승격한-후보)에 있다. 기존 Rn 항목은 근거 이력으로 보존하고 아래 ID를 후속 소유자로 연결하여 같은 일을 중복 집계하지 않는다.
+최초 등록 당시에는 **조사/계획 후보·미착수**였다. RF035~038의 현재 상태는 아래2026-11-11 공동 통합 절과 해당 명세를 따르며 다른 후보의 자동 착수를 뜻하지 않는다. 번호는 등록 순서이며 우선순위가 아니다. 코드 파일/행·확인 사실과 가설·검증 계획·승인 경계는 [신규 상세표](BACKLOG_REASSESSMENT_2026-11-10.md#신규-및-기존-잔여에서-승격한-후보)에 있다. 기존 Rn 항목은 근거 이력으로 보존하고 아래 ID를 후속 소유자로 연결하여 같은 일을 중복 집계하지 않는다.
 
 | ID / 위험 | 독립 범위 | 기존 항목과의 관계 / 재개 조건 |
 |---|---|---|
@@ -29,10 +29,10 @@
 | RF032 / P1 | 가입 중복 검사 경쟁·실제 유일 제약 | 실제 스키마 미확인, 동시 이메일/전화 가입 및 rollback 검증 |
 | RF033 / P1 | 계좌번호·주소 로그 원문 | RF020/041 인가와 별개, 마스킹/보관 정책 및 합성 PII 로그 검증 |
 | RF034 / P1 | 업로드 자원 수명·형식·크기 경계 | RF015 보상/RF018 실행자원과 별개, 손상·과대·불일치 입력 검증 |
-| RF035 / P0 | 포인트 요청 금액·상품/거래 신뢰 | RF003 양수/잔액·잠금 범위 밖. 가격 권위·구매자/거래 상태 정책 확인 |
-| RF036 / P0 | 결제 멱등성 | R3-멱등성 승격, 중복 식별/키수명·응답 유실 재현 |
-| RF037 / P0 | 결제 성공 뒤 거래 상태 변경 원자성 | R3-거래원자성 승격, 실패/보상·복구 정책 합의 |
-| RF038 / P0 | 거래 상태전이와 결제 전제 | R6-정책 상태전이 승격, RF004 수락/RF021 요청 인가와 분리 |
+| RF035 / P0 | 포인트 요청 금액·상품/거래 신뢰 | 기록 buyer/price 권위·양수충전 유지 최소 구현 및 공동 선택 검증·독립 리뷰 범위 완료. RF036/037/038과 동일 PR 의존, 실DB/운영 개방·RF021 가격오염 잔여로 배포 차단. [최신 명세](tasks/RF-035.md) |
+| RF036 / P0 | 거래당1회/재요청409·미검증 default deny | 독립gate178 및 RF037 서비스/공동 선택 검증·독립 리뷰 범위 완료. 키/200재현 추가 없음. 원장·복원세대·ABA/writer통제 미확인으로 운영 개방 차단. [최신 명세](tasks/RF-036.md) |
+| RF037 / P0 | 차감+1→2 단일transaction·재조회 UI | 공동 backend942/별도6·frontend37·assemble/tsc/lint·독립 리뷰 로컬 범위 완료. 실제 DB/OSIV·commit/rollback·운영 배포는 차단/미완료. [최신 명세](tasks/RF-037.md) |
+| RF038 / P0 | 기록당사자 전이·최초publicPUT2차단 | 독립355 및 RF037 공동942 내 재검증·별도6 직렬순서·독립 리뷰 로컬 범위 완료. 동일2의200은 결제증거 아님. 공동릴리스·물리검증/운영사전 미확인으로 배포차단. [최신 명세](tasks/RF-038.md) |
 | RF039 / P0 | 상품 생성·이미지/썸네일/업로드·끌올 등 추가 writer 인가 | R7-범위 승격, RF007 PUT/DELETE 완료를 확장 해석하지 않음 |
 | RF040 / P0 | 서버 토큰 폐기·회전·역할/탈퇴 최신화 | R5-범위 일부 승격, RF005 파싱 및 RF030 UI 수명과 분리 |
 | RF041 / P0 | 주소 변경 객체 인가 | RF020 계좌와 독립, 유효 인증 후 body ID/주체 일치 검증 |
@@ -261,3 +261,24 @@ R4-연동/운영/성능의 기존 미실행·별도 범위는 유지한다. 공�
 |---|---|---|
 | R23-통합 | 실DB·실제 HTTP/OSIV·브라우저·프록시 및 외부 소비자 미검증. 기존 DB 단건 read 테스트는 무인증이며 status 테스트의 후속 read는 기록 seller/consumer와 양쪽 ID가 완전한 fixture가 필요하나 실제 일치 여부 미확인 | 안전한 격리 DB와 별도 범위 합의 후 합성 당사자 인증·fixture 및 실제 응답을 검증 |
 | R23-범위·성능 | 목록/마이페이지·채팅 등 다른 개인정보 경로는 별도 후보. 성능 미측정, 전체 backend test/build 미실행 | 독립 범위 합의 또는 대표 환경·비교 계획 확보 후 검토; 자동 착수하지 않음 |
+
+
+## 2026-11-11 RF035·036·037·038 공동 통합 및 잔여
+
+현재 브랜치 `refactor/payment-integrity-stage2`의 사용자 승인 최소 기능 구현·오프라인 선택 검증·공통 독립 리뷰 범위를 완료했다. **운영 결제 개방/배포는 미완료 및 차단 유지**다. 네 작업과 프런트는 동일 PR/릴리스 경계에 의존하며 단독 부분 배포·구버전 writer 혼재를 허용한다는 뜻이 아니다. 기존 원시 결과/실행 당시 source/hash·실패 이력을 보존하고 RF037 [명세](tasks/RF-037.md)·[후속 증빙](evidence/RF-037/README.md)·[manifest](evidence/RF-037/verification.json)에 최신 근거를 별도 연결한다.
+
+기록buyer/price/seller와 status1·검증gate를 현재scalar 잠금 뒤 확인하고 user/latestpoint 잠금 후 gate를 재검사한다. 차감 save/flush와 전체tuple/status1 조건부UPDATE(affected1)를 같은 transaction에 두었다. 재요청409, 신규포함 미확인거래 차단, public최초PUT2거부 및 정상/예외 전이를 함께 적용했다. 프런트 별도PUT2 제거·409/check부족/응답유실·5xx의 거래/포인트 재조회·조회실패분리, 중복클릭 방어를 반영했다. 재조회가 선택목록을 바꾸는 직접 영향 때문에 BuyHistory를 index→거래ID 선택으로 국소 보완했고 누락거래는 모달을 닫아 안내한다. 판매자 UI·환불/재판매 정책은 추가하지 않았다.
+
+최신 통합 backend20클래스942/942·failures/errors/skips0 및 compile/assemble 성공이다(point388에 RF036178 포함, RF038355/RF00443/RF02183/RF02373). 이942를 과거 RF035/036/038 수치와 중복 합산하지 않는다. 별도 후속 공동MVC 체인6/6은 payment↔취소6/신고7의 두 직렬 순서와 publicPUT2/동일PUT2 구분이며942와 클래스가 겹치지 않는다. frontend37/37·tsc/lint exit0, 기존 img warning3이다. 이는 대역/MockMvc/실제parser·Spring advice·TS handler/hook/component 검증이며 실DB/실HTTP/브라우저·성능을 검증한 것이 아니다. 초기 wrapper/compile/fixture 실패와 stale XML을 통과로 섞지 않고 raw/shared/source hash를 구분했다.
+
+| 추적 ID·상태 | 현재 근거/미실행 이유 | 추가 방법·재개 조건 |
+|---|---|---|
+| RF035·RF036·RF037·RF038-로컬 | 합의 최소 기능·선택 검증 및 공동 독립 리뷰 완료. 새로운 로컬 차단P0/P1/P2 없음. 추가 joint6의 source/manifest 최종 독립 대조 완료 | 변경 도입 시 동일 계약/회귀를 재검토. 완료가 다음 후보의 착수 승인은 아님 |
+| RF037-물리/R3·R4·R6-연동 | DB locking/current-read·조건부UPDATE affected/FK/updated_at·두쓰기 commit/rollback·동시성 미검증. 실제 DB 실행범위/물리격리fixture 미승인 | RF016 안전identity·소유fixture/외부차단/cleanup 승인 뒤 debitflush→상태실패/commit실패·새연결 전후조회·동일거래/동일buyer다른거래/충전/취소/신고 barrier 검증 |
+| RF037·RF038-OSIV/outer/dirty | native 조회/명시flush가 caller dirtystate를 flush할 수 있고 nativeUPDATE는 managedentity를 동기화하지 않음. REQUIRED RC가 outer RC/RR을 변경하지 않음 | 실제 Servlet/OSIV·사전 managed/dirty entity·outer/RR/current-read/SQL 검증으로 안전 지원경계 확정 전 확대/운영 안전 판정 금지; 임의 clear/refresh/REQUIRES_NEW 도입 없음 |
+| RF036·RF037-원장/승인/복원 | 과거 미분류 차감·운영status사전/관계·독립restore epoch·시계/manifest 진위·ABA/복원/ID재사용 미검증. 현재tuple/flag만으로 검출 불가 | 실제 독립 원장/승인/복원세대와 시계/경로 통제 증거 및 별도 조사·등록 승인 전 신규포함 미확인 거래 default deny. 운영allowlist 생성/자동보정 금지 |
+| RF035~038-릴리스 | 전체writer 목록·진행중 구요청drain·mixedversion/rollback·실제HTTP/브라우저/구클라이언트 미검증 | 동일PR/릴리스·구writer배제/완료drain·되돌림시 금전쓰기재개 조건과 실제 소비자검증 후 개방 판단. 개별merge는 배포승인 아님 |
+| R21-직접생성/가격오염 | RF021 직접 POST 인가 보류·임의price 선행생성 위험 미해결. 검증gate는 생성인가/가격합의 증명을 대체하지 않음 | 별도 사용자 재개·정책/구현 승인과 실제 증거 확보 전 심각한 운영 차단으로 추적 |
+| RF035~038-범위/성능 | 충전 외부증명·전체backendtest/build·frontend productionbuild·실브라우저·성능은 미실행/별도범위/사용자유예 | 독립 범위/환경 승인 전 자동착수하지 않음. 성능개선 주장 없음 |
+
+승인manifest가 없는 현재 기본설정은 모든 결제를 거부한다. 이번에는 운영자료/DB/schema·새의존성·배포·commit/push를 실행하지 않았고 기존 .tmp 자료를 보존했다.

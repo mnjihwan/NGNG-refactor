@@ -1,0 +1,21 @@
+{
+  "NGNG-backend/src/test/java/com/ngng/api/transaction/service/TransactionAcceptancePolicyTest.java": "71989489af5e45e4a5e5bd53a0646617dd6dcfe6a7939d7f6999f0ebff48d39d",
+  "NGNG-backend/src/test/java/com/ngng/api/transaction/service/TransactionCreationContractTest.java": "e4b890c11cda7f2052849047979d2ef841ba3cba4ef3cf1ab528b985bfb2ef2a",
+  "NGNG-backend/src/test/java/com/ngng/api/transaction/service/TransactionDetailsServiceTest.java": "3ee1e9978aeb84cd87fadde5ed77f23418508fc983d5b2404afee67cd8af22d6",
+  "NGNG-backend/src/test/java/com/ngng/api/transaction/service/TransactionRequestServiceTest.java": "d0f516c063ad4916591eaaf3dbefbe800e806212177a5f15dd3e5f202e433cae",
+  "NGNG-backend/src/test/java/com/ngng/api/transaction/authorization/TransactionRequestAuthorizationChainTest.java": "331395349fc9c7c279c0ea1bd09c143cbd56d3e2be109ddafc913aaccd73ddf2",
+  "NGNG-backend/src/test/java/com/ngng/api/transaction/authorization/TransactionRequestAuthorizationServiceTest.java": "3d3a783950efe48313e276c926230db4c7264f73a3b70ce50c63bc999512f7f9",
+  "NGNG-backend/src/test/java/com/ngng/api/transaction/read/ReadChainHarness.java": "da4cc2ea6dd3fb574499c0a400584e45aa3cb80a057c7cc52bd2a930cdfceb3a",
+  "NGNG-backend/src/test/java/com/ngng/api/transaction/read/ReadFixture.java": "2ae421be9d09f8556a6cee67078970d56859c67896da3607b871bbe711a2be6e",
+  "NGNG-backend/src/test/java/com/ngng/api/transaction/read/TransactionReadOwnershipTest.java": "ba11797dbd761ccd251611ccf9c8f43f7baafff83bfc0f24e25dad7dc494bf7f",
+  "NGNG-backend/src/test/java/com/ngng/api/transaction/read/TransactionReadSecurityChainTest.java": "09f10fc6680ec567fe25351de0bd2c3e0e401d8fe444856443eeba5beb1f0192",
+  "NGNG-backend/src/test/java/com/ngng/api/global/security/SecurityChainTest.java": "6c3c41b3d748fec5571c163fbbe0419a50d898ee50909c00fe57d7c74e00ad6f",
+  "NGNG-backend/src/test/java/com/ngng/api/global/security/TokenFilterTest.java": "6725ce606502f16c29195f9ce7c960461a8983e96f9fcac95a0183759c18e5b7",
+  "NGNG-backend/src/main/java/com/ngng/api/global/security/config/SecurityConfig.java": "835b6d136fbde21eb1e6308842228abd20bd7afec81fd2895ea7bd3b7306f932",
+  "NGNG-backend/src/main/java/com/ngng/api/global/security/filter/LoginFilter.java": "a76dad50cbbe08ac9ee00608e70031e3847c4c2a1c2561ef158f1ef57b0fda06",
+  "NGNG-backend/src/main/java/com/ngng/api/global/security/filter/TokenFilter.java": "9e6642a3a4c68274aa7d22453c4b073527368ae108729ebf2c8237e9b24d920a",
+  "NGNG-backend/src/main/java/com/ngng/api/global/security/jwt/util/JwtTokenProvider.java": "6f827a21c544acf43bde39e560d334e9678f2add8088bf2faf1d64a0a10998ad",
+  "NGNG-backend/src/main/java/com/ngng/api/global/security/jwt/util/JwtTokenVerifier.java": "ae9d5f3e09757d39a4f00636ee2e88b8eea93035dcd742513ff010dc0881d763",
+  "NGNG-backend/src/main/java/com/ngng/api/transaction/service/TransactionRequestService.java": "06f3e2ad8ff7881090bbcad66ce4879d7e2e608f69c997e846e211e1f4f64ac3",
+  "NGNG-backend/src/main/java/com/ngng/api/transaction/controller/TransactionController.java": "82a13d7c677d9c0b8b46e845a9da5e491caceb505c9057c4821ce90c904b3d8a"
+}

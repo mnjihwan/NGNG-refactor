@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.user.point.payment.PaymentVerificationConfigurationTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2026-11-11T00:54:15" hostname="[REDACTED]" time="0.088">
+  <properties/>
+  <testcase name="malformedPathAndUnresolvedConfigurationDenyWithoutExposingInput()" classname="com.ngng.api.user.point.payment.PaymentVerificationConfigurationTest" time="0.057"/>
+  <testcase name="noProductionSettingsMeansDenyWithoutStartingAnyExternalService()" classname="com.ngng.api.user.point.payment.PaymentVerificationConfigurationTest" time="0.002"/>
+  <testcase name="[1] field=manifest-path" classname="com.ngng.api.user.point.payment.PaymentVerificationConfigurationTest" time="0.002"/>
+  <testcase name="[2] field=expected-environment-id" classname="com.ngng.api.user.point.payment.PaymentVerificationConfigurationTest" time="0.001"/>
+  <testcase name="[3] field=expected-database-generation" classname="com.ngng.api.user.point.payment.PaymentVerificationConfigurationTest" time="0.002"/>
+  <testcase name="[4] field=expected-approval-version" classname="com.ngng.api.user.point.payment.PaymentVerificationConfigurationTest" time="0.002"/>
+  <testcase name="[5] field=independent-controls-confirmed" classname="com.ngng.api.user.point.payment.PaymentVerificationConfigurationTest" time="0.001"/>
+  <testcase name="[6] field=clock-trusted" classname="com.ngng.api.user.point.payment.PaymentVerificationConfigurationTest" time="0.002"/>
+  <testcase name="[1] value=false" classname="com.ngng.api.user.point.payment.PaymentVerificationConfigurationTest" time="0.002"/>
+  <testcase name="[2] value=TRUE" classname="com.ngng.api.user.point.payment.PaymentVerificationConfigurationTest" time="0.002"/>
+  <testcase name="[3] value=yes" classname="com.ngng.api.user.point.payment.PaymentVerificationConfigurationTest" time="0.001"/>
+  <testcase name="[4] value=1" classname="com.ngng.api.user.point.payment.PaymentVerificationConfigurationTest" time="0.002"/>
+  <testcase name="[5] value=" classname="com.ngng.api.user.point.payment.PaymentVerificationConfigurationTest" time="0.001"/>
+  <testcase name="[6] value= true " classname="com.ngng.api.user.point.payment.PaymentVerificationConfigurationTest" time="0.001"/>
+  <testcase name="explicitSyntheticInputsAllowButLaterPropertyMutationCannotHotReloadTheSnapshot()" classname="com.ngng.api.user.point.payment.PaymentVerificationConfigurationTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.global.security.TokenFilterTest" tests="72" skipped="0" failures="0" errors="0" timestamp="2026-11-11T00:16:33" hostname="redacted" time="0.433">
+  <properties/>
+  <testcase name="[1] refresh=false" classname="com.ngng.api.global.security.TokenFilterTest" time="0.052"/>
+  <testcase name="[2] refresh=true" classname="com.ngng.api.global.security.TokenFilterTest" time="0.009"/>
+  <testcase name="[1] refresh=" classname="com.ngng.api.global.security.TokenFilterTest" time="0.006"/>
+  <testcase name="[2] refresh= " classname="com.ngng.api.global.security.TokenFilterTest" time="0.001"/>
+  <testcase name="[3] refresh=undefined" classname="com.ngng.api.global.security.TokenFilterTest" time="0.001"/>
+  <testcase name="[4] refresh=broken" classname="com.ngng.api.global.security.TokenFilterTest" time="0.001"/>
+  <testcase name="[5] refresh=Bearer [synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.0"/>
+  <testcase name="[6] refresh=[synthetic-jwt-redacted] " classname="com.ngng.api.global.security.TokenFilterTest" time="0.001"/>
+  <testcase name="[7] refresh=[synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[8] refresh=[synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[9] refresh=[synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.002"/>
+  <testcase name="[10] refresh=[synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[11] refresh=[synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[12] refresh=[synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[13] refresh=[synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[14] refresh=[synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.007"/>
+  <testcase name="[15] refresh=[synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[16] refresh=[synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[17] refresh=[synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[18] refresh=[synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[19] refresh=[synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[20] refresh=[synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[21] refresh=[synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.004"/>
+  <testcase name="[22] refresh=[synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[23] refresh=[synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[24] refresh=[synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.002"/>
+  <testcase name="[25] refresh=[synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.004"/>
+  <testcase name="[26] refresh=[synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="existingRoleValuesAreNotWhitelisted()" classname="com.ngng.api.global.security.TokenFilterTest" time="0.02"/>
+  <testcase name="expiredAccessRefreshesInSameRequest()" classname="com.ngng.api.global.security.TokenFilterTest" time="0.012"/>
+  <testcase name="firstRefreshCookieStillWins()" classname="com.ngng.api.global.security.TokenFilterTest" time="0.002"/>
+  <testcase name="[1] refresh=missing" classname="com.ngng.api.global.security.TokenFilterTest" time="0.004"/>
+  <testcase name="[2] refresh=valid" classname="com.ngng.api.global.security.TokenFilterTest" time="0.005"/>
+  <testcase name="[3] refresh=invalid" classname="com.ngng.api.global.security.TokenFilterTest" time="0.004"/>
+  <testcase name="[1] access=null" classname="com.ngng.api.global.security.TokenFilterTest" time="0.006"/>
+  <testcase name="[2] access=" classname="com.ngng.api.global.security.TokenFilterTest" time="0.006"/>
+  <testcase name="[1] cookies=missing" classname="com.ngng.api.global.security.TokenFilterTest" time="0.004"/>
+  <testcase name="[2] cookies=empty" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[3] cookies=other" classname="com.ngng.api.global.security.TokenFilterTest" time="0.005"/>
+  <testcase name="[1] access= " classname="com.ngng.api.global.security.TokenFilterTest" time="0.002"/>
+  <testcase name="[2] access=undefined" classname="com.ngng.api.global.security.TokenFilterTest" time="0.002"/>
+  <testcase name="[3] access=Basic [synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[4] access=bearer [synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.002"/>
+  <testcase name="[5] access=[synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.001"/>
+  <testcase name="[6] access=Bearer " classname="com.ngng.api.global.security.TokenFilterTest" time="0.001"/>
+  <testcase name="[7] access=Bearer  [synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.002"/>
+  <testcase name="[8] access=Bearer [synthetic-jwt-redacted] " classname="com.ngng.api.global.security.TokenFilterTest" time="0.002"/>
+  <testcase name="[9] access=Bearer broken" classname="com.ngng.api.global.security.TokenFilterTest" time="0.002"/>
+  <testcase name="[10] access=Bearer null" classname="com.ngng.api.global.security.TokenFilterTest" time="0.002"/>
+  <testcase name="[11] access=Bearer [synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.004"/>
+  <testcase name="[12] access=Bearer [synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[13] access=Bearer [synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[14] access=Bearer [synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.004"/>
+  <testcase name="[15] access=Bearer [synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[16] access=Bearer [synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.004"/>
+  <testcase name="[17] access=Bearer [synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.004"/>
+  <testcase name="[18] access=Bearer [synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[19] access=Bearer [synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[20] access=Bearer [synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.004"/>
+  <testcase name="[21] access=Bearer [synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.004"/>
+  <testcase name="[22] access=Bearer [synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.004"/>
+  <testcase name="[23] access=Bearer [synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.004"/>
+  <testcase name="[24] access=Bearer [synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.005"/>
+  <testcase name="[25] access=Bearer [synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.004"/>
+  <testcase name="[26] access=Bearer [synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[27] access=Bearer [synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.005"/>
+  <testcase name="[28] access=Bearer [synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="[29] access=Bearer [synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.004"/>
+  <testcase name="[30] access=Bearer [synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.005"/>
+  <testcase name="[31] access=Bearer [synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.004"/>
+  <testcase name="[32] access=Bearer [synthetic-jwt-redacted]" classname="com.ngng.api.global.security.TokenFilterTest" time="0.003"/>
+  <testcase name="firstValidRefreshCookieIgnoresLaterInvalidDuplicate()" classname="com.ngng.api.global.security.TokenFilterTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

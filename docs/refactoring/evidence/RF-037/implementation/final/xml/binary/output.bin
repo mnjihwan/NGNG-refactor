@@ -1,0 +1,323 @@
+|09:55:31.245 [Test worker] INFO org.hibernate.validator.internal.util.Version -- HV000001: Hibernate Validator 8.0.1.Final
+�09:55:31.600 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+w09:55:31.600 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+�09:55:31.605 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 2 ms
+�09:55:31.775 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.ngng.api.user.point.dto.PointHistoryResponseDTO> com.ngng.api.user.point.controller.PointController.addPoint(com.ngng.api.user.point.dto.CreateAddPointRequestDTO): [Field error in object 'createAddPointRequestDTO' on field 'addCost': rejected value [null]; codes [NotNull.createAddPointRequestDTO.addCost,NotNull.addCost,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [createAddPointRequestDTO.addCost,addCost]; arguments []; default message [addCost]]; default message [must not be null]] ]
+�09:55:31.817 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+w09:55:31.817 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+�09:55:31.817 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+�09:55:31.824 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.ngng.api.user.point.dto.PointHistoryResponseDTO> com.ngng.api.user.point.controller.PointController.addPoint(com.ngng.api.user.point.dto.CreateAddPointRequestDTO): [Field error in object 'createAddPointRequestDTO' on field 'addCost': rejected value [0]; codes [Positive.createAddPointRequestDTO.addCost,Positive.addCost,Positive.java.lang.Long,Positive]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [createAddPointRequestDTO.addCost,addCost]; arguments []; default message [addCost]]; default message [must be greater than 0]] ]
+�09:55:31.840 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+w09:55:31.840 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+�09:55:31.840 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+�09:55:31.844 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.ngng.api.user.point.dto.PointHistoryResponseDTO> com.ngng.api.user.point.controller.PointController.addPoint(com.ngng.api.user.point.dto.CreateAddPointRequestDTO): [Field error in object 'createAddPointRequestDTO' on field 'addCost': rejected value [-1]; codes [Positive.createAddPointRequestDTO.addCost,Positive.addCost,Positive.java.lang.Long,Positive]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [createAddPointRequestDTO.addCost,addCost]; arguments []; default message [addCost]]; default message [must be greater than 0]] ]
+�09:55:31.855 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+w09:55:31.855 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+�09:55:31.855 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+�09:55:31.855 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.ngng.api.user.point.dto.PointHistoryResponseDTO> com.ngng.api.user.point.controller.PointController.addPoint(com.ngng.api.user.point.dto.CreateAddPointRequestDTO): [Field error in object 'createAddPointRequestDTO' on field 'addCost': rejected value [-9223372036854775808]; codes [Positive.createAddPointRequestDTO.addCost,Positive.addCost,Positive.java.lang.Long,Positive]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [createAddPointRequestDTO.addCost,addCost]; arguments []; default message [addCost]]; default message [must be greater than 0]] ]
+�09:55:31.871 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+w09:55:31.871 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+�09:55:31.871 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+�09:55:31.871 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.lang.Long` from String "bad": not a valid `java.lang.Long` value]
+�09:55:31.896 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+w09:55:31.896 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+�09:55:31.896 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+�09:55:31.901 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Numeric value (9223372036854775808) out of range of long (-9223372036854775808 - 9223372036854775807)]
+�09:55:31.916 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+w09:55:31.916 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+�09:55:31.916 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+�
+09:55:31.922 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.ngng.api.user.point.dto.PointHistoryResponseDTO> com.ngng.api.user.point.controller.PointController.payProduct(com.ngng.api.user.point.dto.PaymentPointRequestDto) with 2 errors: [Field error in object 'paymentPointRequestDto' on field 'payProductId': rejected value [null]; codes [NotNull.paymentPointRequestDto.payProductId,NotNull.payProductId,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [paymentPointRequestDto.payProductId,payProductId]; arguments []; default message [payProductId]]; default message [must not be null]] [Field error in object 'paymentPointRequestDto' on field 'paymentCost': rejected value [null]; codes [NotNull.paymentPointRequestDto.paymentCost,NotNull.paymentCost,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [paymentPointRequestDto.paymentCost,paymentCost]; arguments []; default message [paymentCost]]; default message [must not be null]] ]
+	�09:55:31.943 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+	w09:55:31.943 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+	�09:55:31.943 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+	�
+09:55:31.950 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.ngng.api.user.point.dto.PointHistoryResponseDTO> com.ngng.api.user.point.controller.PointController.payProduct(com.ngng.api.user.point.dto.PaymentPointRequestDto) with 2 errors: [Field error in object 'paymentPointRequestDto' on field 'paymentCost': rejected value [0]; codes [Positive.paymentPointRequestDto.paymentCost,Positive.paymentCost,Positive.java.lang.Long,Positive]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [paymentPointRequestDto.paymentCost,paymentCost]; arguments []; default message [paymentCost]]; default message [must be greater than 0]] [Field error in object 'paymentPointRequestDto' on field 'payProductId': rejected value [null]; codes [NotNull.paymentPointRequestDto.payProductId,NotNull.payProductId,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [paymentPointRequestDto.payProductId,payProductId]; arguments []; default message [payProductId]]; default message [must not be null]] ]
+
+�09:55:31.965 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+
+w09:55:31.965 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+
+�09:55:31.966 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+
+�
+09:55:31.972 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.ngng.api.user.point.dto.PointHistoryResponseDTO> com.ngng.api.user.point.controller.PointController.payProduct(com.ngng.api.user.point.dto.PaymentPointRequestDto) with 2 errors: [Field error in object 'paymentPointRequestDto' on field 'payProductId': rejected value [null]; codes [NotNull.paymentPointRequestDto.payProductId,NotNull.payProductId,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [paymentPointRequestDto.payProductId,payProductId]; arguments []; default message [payProductId]]; default message [must not be null]] [Field error in object 'paymentPointRequestDto' on field 'paymentCost': rejected value [-1]; codes [Positive.paymentPointRequestDto.paymentCost,Positive.paymentCost,Positive.java.lang.Long,Positive]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [paymentPointRequestDto.paymentCost,paymentCost]; arguments []; default message [paymentCost]]; default message [must be greater than 0]] ]
+�09:55:31.982 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+w09:55:31.982 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+�09:55:31.982 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+�
+09:55:31.990 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.ngng.api.user.point.dto.PointHistoryResponseDTO> com.ngng.api.user.point.controller.PointController.payProduct(com.ngng.api.user.point.dto.PaymentPointRequestDto) with 2 errors: [Field error in object 'paymentPointRequestDto' on field 'paymentCost': rejected value [-9223372036854775808]; codes [Positive.paymentPointRequestDto.paymentCost,Positive.paymentCost,Positive.java.lang.Long,Positive]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [paymentPointRequestDto.paymentCost,paymentCost]; arguments []; default message [paymentCost]]; default message [must be greater than 0]] [Field error in object 'paymentPointRequestDto' on field 'payProductId': rejected value [null]; codes [NotNull.paymentPointRequestDto.payProductId,NotNull.payProductId,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [paymentPointRequestDto.payProductId,payProductId]; arguments []; default message [payProductId]]; default message [must not be null]] ]
+�09:55:31.998 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+w09:55:31.998 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+�09:55:31.998 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+�09:55:31.998 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.lang.Long` from String "bad": not a valid `java.lang.Long` value]
+�09:55:32.014 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+w09:55:32.014 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+�09:55:32.014 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+�09:55:32.014 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Numeric value (9223372036854775808) out of range of long (-9223372036854775808 - 9223372036854775807)]
+�09:55:32.014 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+w09:55:32.014 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+�09:55:32.014 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+�09:55:32.057 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+w09:55:32.057 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+�09:55:32.057 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+�09:55:32.061 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<java.lang.Boolean> com.ngng.api.user.point.controller.PointController.checkPoint(com.ngng.api.user.point.dto.CheckPointRequestDTO): [Field error in object 'checkPointRequestDTO' on field 'paymentCost': rejected value [null]; codes [NotNull.checkPointRequestDTO.paymentCost,NotNull.paymentCost,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [checkPointRequestDTO.paymentCost,paymentCost]; arguments []; default message [paymentCost]]; default message [must not be null]] ]
+�09:55:32.061 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+w09:55:32.061 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+�09:55:32.061 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+�09:55:32.061 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.lang.Long` from String "bad": not a valid `java.lang.Long` value]
+�09:55:32.086 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+w09:55:32.086 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+�09:55:32.086 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+�09:55:32.093 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Numeric value (9223372036854775808) out of range of long (-9223372036854775808 - 9223372036854775807)]
+�09:55:32.096 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+w09:55:32.096 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+�09:55:32.096 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+Y09:55:32.108 [Test worker] INFO point-log -- Success Charge Point UserId: 7 cost : 200 
+�09:55:32.164 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+w09:55:32.164 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+�09:55:32.164 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+�09:55:32.186 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+w09:55:32.186 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+�09:55:32.186 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+�09:55:32.187 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.ngng.api.user.point.dto.PointHistoryResponseDTO> com.ngng.api.user.point.controller.PointController.addPoint(com.ngng.api.user.point.dto.CreateAddPointRequestDTO): [Field error in object 'createAddPointRequestDTO' on field 'addCost': rejected value [null]; codes [NotNull.createAddPointRequestDTO.addCost,NotNull.addCost,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [createAddPointRequestDTO.addCost,addCost]; arguments []; default message [addCost]]; default message [must not be null]] ]
+�09:55:32.195 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+w09:55:32.195 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+�09:55:32.195 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+�
+09:55:32.203 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.ngng.api.user.point.dto.PointHistoryResponseDTO> com.ngng.api.user.point.controller.PointController.payProduct(com.ngng.api.user.point.dto.PaymentPointRequestDto) with 2 errors: [Field error in object 'paymentPointRequestDto' on field 'payProductId': rejected value [null]; codes [NotNull.paymentPointRequestDto.payProductId,NotNull.payProductId,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [paymentPointRequestDto.payProductId,payProductId]; arguments []; default message [payProductId]]; default message [must not be null]] [Field error in object 'paymentPointRequestDto' on field 'paymentCost': rejected value [null]; codes [NotNull.paymentPointRequestDto.paymentCost,NotNull.paymentCost,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [paymentPointRequestDto.paymentCost,paymentCost]; arguments []; default message [paymentCost]]; default message [must not be null]] ]
+�09:55:32.206 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+w09:55:32.206 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+�09:55:32.206 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+�09:55:32.217 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<java.lang.Boolean> com.ngng.api.user.point.controller.PointController.checkPoint(com.ngng.api.user.point.dto.CheckPointRequestDTO): [Field error in object 'checkPointRequestDTO' on field 'paymentCost': rejected value [null]; codes [NotNull.checkPointRequestDTO.paymentCost,NotNull.paymentCost,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [checkPointRequestDTO.paymentCost,paymentCost]; arguments []; default message [paymentCost]]; default message [must not be null]] ]
+�09:55:32.224 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+w09:55:32.224 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+�09:55:32.224 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+�09:55:32.238 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+w09:55:32.238 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+�09:55:32.238 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+�09:55:32.254 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+w09:55:32.254 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+�09:55:32.254 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+i09:55:32.266 [Test worker] INFO point-log -- Success Payment Point UserId: 7 ProductId : 42 cost : 200 
+�09:55:32.277 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+w09:55:32.277 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+�09:55:32.277 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+�09:55:32.329 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+w09:55:32.329 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+�09:55:32.329 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+�09:55:32.333 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+w09:55:32.333 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+�09:55:32.333 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+�09:55:32.350 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+w09:55:32.350 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+�09:55:32.350 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+ �	09:55:32.902 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7aad7df5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7fd7085d, org.springframework.security.web.context.SecurityContextHolderFilter@eb66b47, org.springframework.security.web.header.HeaderWriterFilter@4accc3de, org.springframework.web.filter.CorsFilter@69cc3370, org.springframework.security.web.authentication.logout.LogoutFilter@64710a6, com.ngng.api.global.security.filter.TokenFilter@9120cb5, com.ngng.api.global.security.filter.LoginFilter@18419ab7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@23c61c1b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4a6d6308, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5f93ec02, org.springframework.security.web.session.SessionManagementFilter@23a78d2e, org.springframework.security.web.access.ExceptionTranslationFilter@738ae785, org.springframework.security.web.access.intercept.AuthorizationFilter@27d44578]
+ �09:55:32.967 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+ w09:55:32.967 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+ �09:55:32.967 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+$\09:55:33.174 [Test worker] INFO point-log -- Success Charge Point UserId: 7001 cost : 200 
+%m09:55:33.191 [Test worker] INFO point-log -- Success Payment Point UserId: 7001 ProductId : 42 cost : 1000 
+(\09:55:33.218 [Test worker] INFO point-log -- Success Charge Point UserId: 7001 cost : 200 
+)m09:55:33.218 [Test worker] INFO point-log -- Success Payment Point UserId: 7001 ProductId : 42 cost : 1000 
+,\09:55:33.234 [Test worker] INFO point-log -- Success Charge Point UserId: 7001 cost : 200 
+-m09:55:33.250 [Test worker] INFO point-log -- Success Payment Point UserId: 7001 ProductId : 42 cost : 1000 
+7 �	09:55:33.407 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@17af9f67, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6b6d8671, org.springframework.security.web.context.SecurityContextHolderFilter@2db0dd19, org.springframework.security.web.header.HeaderWriterFilter@b91e024, org.springframework.web.filter.CorsFilter@484b187c, org.springframework.security.web.authentication.logout.LogoutFilter@7c9015c6, com.ngng.api.global.security.filter.TokenFilter@1226ba98, com.ngng.api.global.security.filter.LoginFilter@79194b1c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@354ff4f6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@315bb2bb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7ec01440, org.springframework.security.web.session.SessionManagementFilter@309ac89e, org.springframework.security.web.access.ExceptionTranslationFilter@46bbcb82, org.springframework.security.web.access.intercept.AuthorizationFilter@5a9004e1]
+7 �09:55:33.534 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+7 w09:55:33.534 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+7 �09:55:33.534 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+7<_09:55:33.691 [Test worker] INFO transaction-log -- Success Create TransactionRequest id: 9000
+7?_09:55:33.704 [Test worker] INFO transaction-log -- Success Create TransactionRequest id: 9000
+7B_09:55:33.732 [Test worker] INFO transaction-log -- Success Create TransactionRequest id: 9000
+7H}09:55:33.765 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 1000  Consumer : 2000 
+7I}09:55:33.790 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 1000  Consumer : 2000 
+7J}09:55:33.794 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 1000  Consumer : 2000 
+7M이미 요청 했었음
+7M]09:55:33.811 [Test worker] INFO transaction-log -- Success Create TransactionRequest id: -1
+7Q_09:55:33.831 [Test worker] INFO transaction-log -- Success Create TransactionRequest id: 9000
+7R_09:55:33.832 [Test worker] INFO transaction-log -- Success Create TransactionRequest id: 9000
+7X}09:55:33.864 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 1000  Consumer : 2000 
+7X_09:55:33.867 [Test worker] INFO transaction-log -- Success Accept TransactionRequest id: 9000
+7\}09:55:33.880 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 1000  Consumer : 2000 
+7\_09:55:33.880 [Test worker] INFO transaction-log -- Success Accept TransactionRequest id: 9000
+7`}09:55:33.896 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 1000  Consumer : 2000 
+7`_09:55:33.896 [Test worker] INFO transaction-log -- Success Accept TransactionRequest id: 9000
+7d`09:55:33.928 [Test worker] INFO transaction-log -- Success Decline TransactionRequest id: 9000
+7h`09:55:33.933 [Test worker] INFO transaction-log -- Success Decline TransactionRequest id: 9000
+7l`09:55:33.959 [Test worker] INFO transaction-log -- Success Decline TransactionRequest id: 9000
+7p}09:55:33.978 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 1000  Consumer : 2000 
+7p_09:55:33.978 [Test worker] INFO transaction-log -- Success Accept TransactionRequest id: 9000
+7q}09:55:33.985 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 1000  Consumer : 2000 
+7q_09:55:33.987 [Test worker] INFO transaction-log -- Success Accept TransactionRequest id: 9000
+� �	09:55:34.333 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@10387d6d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7fb539df, org.springframework.security.web.context.SecurityContextHolderFilter@745d399a, org.springframework.security.web.header.HeaderWriterFilter@199d1fb7, org.springframework.web.filter.CorsFilter@2c3d46d6, org.springframework.security.web.authentication.logout.LogoutFilter@7e822c11, com.ngng.api.global.security.filter.TokenFilter@127c5f20, com.ngng.api.global.security.filter.LoginFilter@417c9b17, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3392d69b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@420307f9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@17d13926, org.springframework.security.web.session.SessionManagementFilter@32b273c1, org.springframework.security.web.access.ExceptionTranslationFilter@7887e1f3, org.springframework.security.web.access.intercept.AuthorizationFilter@1e7f312]
+� �09:55:34.370 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+� w09:55:34.370 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+� �09:55:34.370 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+���09:55:34.516 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "not-a-number"]
+���09:55:34.582 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+��w09:55:34.582 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+���09:55:34.582 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+��y09:55:34.637 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 12  Consumer : 11 
+���09:55:34.643 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+��w09:55:34.643 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+���09:55:34.643 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+���09:55:34.643 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected end-of-input: expected close marker for Object (start marker at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 1])]
+���09:55:34.659 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+��w09:55:34.659 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+���09:55:34.659 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+��y09:55:34.667 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 12  Consumer : 11 
+��y09:55:34.668 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 12  Consumer : 11 
+��y09:55:34.671 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 12  Consumer : 11 
+���09:55:34.689 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+��w09:55:34.689 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+���09:55:34.689 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+��y09:55:34.690 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 12  Consumer : 11 
+���09:55:34.701 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+��w09:55:34.701 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+���09:55:34.701 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+��\09:55:34.701 [Test worker] INFO transaction-log -- Success Accept TransactionRequest id: 1
+��y09:55:34.701 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 12  Consumer : 11 
+��h09:55:34.845 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+��h09:55:34.850 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+��h09:55:34.853 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+��h09:55:34.857 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+��h09:55:34.871 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :3 
+��h09:55:34.889 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+��h09:55:34.889 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+��h09:55:34.889 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+��h09:55:34.889 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+��h09:55:34.912 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :4 
+��h09:55:34.919 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+��h09:55:34.921 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+��h09:55:34.924 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+��h09:55:34.926 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+��h09:55:34.958 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :5 
+��h09:55:34.960 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+��h09:55:34.960 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+��h09:55:34.965 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+��h09:55:34.967 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+��h09:55:35.004 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+��h09:55:35.004 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+��h09:55:35.004 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+��h09:55:35.014 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+��h09:55:35.038 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+��h09:55:35.046 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+��h09:55:35.077 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+��h09:55:35.084 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+��h09:55:35.134 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+��h09:55:35.136 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+��h09:55:35.136 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+��h09:55:35.136 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+��h09:55:35.172 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+��h09:55:35.174 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+��h09:55:35.176 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+��h09:55:35.176 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+��h09:55:35.210 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :3 
+��h09:55:35.222 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :3 
+��h09:55:35.234 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :3 
+��h09:55:35.247 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :3 
+��h09:55:35.250 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :5 
+��h09:55:35.250 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :3 
+��h09:55:35.254 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :5 
+��h09:55:35.261 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :3 
+��h09:55:35.266 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :5 
+��h09:55:35.272 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :3 
+��h09:55:35.275 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :3 
+��h09:55:35.283 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :3 
+� �	09:55:35.367 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3d640f70, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5dae85f7, org.springframework.security.web.context.SecurityContextHolderFilter@38280b42, org.springframework.security.web.header.HeaderWriterFilter@cd041f9, org.springframework.web.filter.CorsFilter@4a52c13c, org.springframework.security.web.authentication.logout.LogoutFilter@7292470c, com.ngng.api.global.security.filter.TokenFilter@47651c28, com.ngng.api.global.security.filter.LoginFilter@5a67843b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3bb6bcf8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3567edfe, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@73cf33bd, org.springframework.security.web.session.SessionManagementFilter@be694c0, org.springframework.security.web.access.ExceptionTranslationFilter@e71bd92, org.springframework.security.web.access.intercept.AuthorizationFilter@764f6eb0]
+� �09:55:35.367 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+� w09:55:35.367 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+� �09:55:35.367 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+��h09:55:35.426 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :3 
+��h09:55:35.438 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :3 
+���09:55:35.445 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected end-of-input: expected close marker for Object (start marker at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 1])]
+���09:55:35.450 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.lang.Long` from String "invalid": not a valid `java.lang.Long` value]
+��h09:55:35.483 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :3 
+��h09:55:35.517 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :4 
+��h09:55:35.550 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :5 
+��h09:55:35.641 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+��h09:55:35.647 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+��h09:55:35.657 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+��h09:55:35.670 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+��h09:55:35.695 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+��h09:55:35.704 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+��h09:55:35.725 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+��h09:55:35.733 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+��h09:55:35.785 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :3 
+��h09:55:35.811 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :4 
+��h09:55:35.835 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :5 
+��h09:55:35.895 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+��h09:55:35.901 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+��h09:55:35.916 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+��h09:55:35.919 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+��h09:55:35.935 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+��h09:55:35.943 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+��h09:55:35.958 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+��h09:55:35.958 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+��h09:55:36.003 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :3 
+��h09:55:36.018 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :4 
+��h09:55:36.037 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :5 
+��h09:55:36.100 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+��h09:55:36.104 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+��h09:55:36.118 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+��h09:55:36.122 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+��h09:55:36.134 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+��h09:55:36.137 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+��h09:55:36.148 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+��h09:55:36.155 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+���09:55:36.200 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "invalid"]
+��i09:55:36.261 [Test worker] INFO point-log -- Success Payment Point UserId: 7 ProductId : 42 cost : 200 
+��i09:55:36.311 [Test worker] INFO point-log -- Success Payment Point UserId: 7 ProductId : 42 cost : 200 
+��i09:55:36.313 [Test worker] INFO point-log -- Success Payment Point UserId: 7 ProductId : 42 cost : 200 
+� �	09:55:36.405 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2ffa8ce5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5f17140d, org.springframework.security.web.context.SecurityContextHolderFilter@340c211e, org.springframework.security.web.header.HeaderWriterFilter@7c53d3c, org.springframework.web.filter.CorsFilter@30749de8, org.springframework.security.web.authentication.logout.LogoutFilter@3d59a887, com.ngng.api.global.security.filter.TokenFilter@6902e2bf, com.ngng.api.global.security.filter.LoginFilter@12e4c6de, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@36545439, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1856a312, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@75b41ff3, org.springframework.security.web.session.SessionManagementFilter@2c9b96af, org.springframework.security.web.access.ExceptionTranslationFilter@10d2411f, org.springframework.security.web.access.intercept.AuthorizationFilter@4dbae8f]
+� �09:55:36.418 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+� w09:55:36.422 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+� �09:55:36.422 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+���09:55:36.435 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.ngng.api.user.point.dto.PointHistoryResponseDTO> com.ngng.api.user.point.controller.PointController.payProduct(com.ngng.api.user.point.dto.PaymentPointRequestDto): [Field error in object 'paymentPointRequestDto' on field 'payProductId': rejected value [null]; codes [NotNull.paymentPointRequestDto.payProductId,NotNull.payProductId,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [paymentPointRequestDto.payProductId,payProductId]; arguments []; default message [payProductId]]; default message [must not be null]] ]
+���09:55:36.446 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.ngng.api.user.point.dto.PointHistoryResponseDTO> com.ngng.api.user.point.controller.PointController.payProduct(com.ngng.api.user.point.dto.PaymentPointRequestDto): [Field error in object 'paymentPointRequestDto' on field 'payProductId': rejected value [0]; codes [Positive.paymentPointRequestDto.payProductId,Positive.payProductId,Positive.java.lang.Long,Positive]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [paymentPointRequestDto.payProductId,payProductId]; arguments []; default message [payProductId]]; default message [must be greater than 0]] ]
+���09:55:36.448 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.ngng.api.user.point.dto.PointHistoryResponseDTO> com.ngng.api.user.point.controller.PointController.payProduct(com.ngng.api.user.point.dto.PaymentPointRequestDto): [Field error in object 'paymentPointRequestDto' on field 'payProductId': rejected value [-1]; codes [Positive.paymentPointRequestDto.payProductId,Positive.payProductId,Positive.java.lang.Long,Positive]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [paymentPointRequestDto.payProductId,payProductId]; arguments []; default message [payProductId]]; default message [must be greater than 0]] ]
+���09:55:36.458 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.ngng.api.user.point.dto.PointHistoryResponseDTO> com.ngng.api.user.point.controller.PointController.payProduct(com.ngng.api.user.point.dto.PaymentPointRequestDto): [Field error in object 'paymentPointRequestDto' on field 'payProductId': rejected value [-9223372036854775808]; codes [Positive.paymentPointRequestDto.payProductId,Positive.payProductId,Positive.java.lang.Long,Positive]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [paymentPointRequestDto.payProductId,payProductId]; arguments []; default message [payProductId]]; default message [must be greater than 0]] ]
+���09:55:36.464 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.lang.Long` from String "bad": not a valid `java.lang.Long` value]
+���09:55:36.466 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Numeric value (9223372036854775808) out of range of long (-9223372036854775808 - 9223372036854775807)]
+��l09:55:36.490 [Test worker] INFO point-log -- Success Payment Point UserId: 7001 ProductId : 42 cost : 800 
+��l09:55:36.503 [Test worker] INFO point-log -- Success Payment Point UserId: 7001 ProductId : 42 cost : 800 
+��l09:55:36.513 [Test worker] INFO point-log -- Success Payment Point UserId: 7001 ProductId : 42 cost : 800 
+��m09:55:36.531 [Test worker] INFO point-log -- Success Payment Point UserId: 7001 ProductId : 42 cost : 1000 
+���09:55:36.537 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.ngng.api.user.point.dto.PointHistoryResponseDTO> com.ngng.api.user.point.controller.PointController.payProduct(com.ngng.api.user.point.dto.PaymentPointRequestDto): [Field error in object 'paymentPointRequestDto' on field 'paymentCost': rejected value [null]; codes [NotNull.paymentPointRequestDto.paymentCost,NotNull.paymentCost,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [paymentPointRequestDto.paymentCost,paymentCost]; arguments []; default message [paymentCost]]; default message [must not be null]] ]
+���09:55:36.543 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.ngng.api.user.point.dto.PointHistoryResponseDTO> com.ngng.api.user.point.controller.PointController.payProduct(com.ngng.api.user.point.dto.PaymentPointRequestDto): [Field error in object 'paymentPointRequestDto' on field 'paymentCost': rejected value [0]; codes [Positive.paymentPointRequestDto.paymentCost,Positive.paymentCost,Positive.java.lang.Long,Positive]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [paymentPointRequestDto.paymentCost,paymentCost]; arguments []; default message [paymentCost]]; default message [must be greater than 0]] ]
+���09:55:36.543 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.ngng.api.user.point.dto.PointHistoryResponseDTO> com.ngng.api.user.point.controller.PointController.payProduct(com.ngng.api.user.point.dto.PaymentPointRequestDto): [Field error in object 'paymentPointRequestDto' on field 'paymentCost': rejected value [-1]; codes [Positive.paymentPointRequestDto.paymentCost,Positive.paymentCost,Positive.java.lang.Long,Positive]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [paymentPointRequestDto.paymentCost,paymentCost]; arguments []; default message [paymentCost]]; default message [must be greater than 0]] ]
+���09:55:36.543 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.ngng.api.user.point.dto.PointHistoryResponseDTO> com.ngng.api.user.point.controller.PointController.payProduct(com.ngng.api.user.point.dto.PaymentPointRequestDto): [Field error in object 'paymentPointRequestDto' on field 'paymentCost': rejected value [-9223372036854775808]; codes [Positive.paymentPointRequestDto.paymentCost,Positive.paymentCost,Positive.java.lang.Long,Positive]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [paymentPointRequestDto.paymentCost,paymentCost]; arguments []; default message [paymentCost]]; default message [must be greater than 0]] ]
+���09:55:36.559 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.lang.Long` from String "bad": not a valid `java.lang.Long` value]
+���09:55:36.561 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Numeric value (9223372036854775808) out of range of long (-9223372036854775808 - 9223372036854775807)]
+��l09:55:36.575 [Test worker] INFO point-log -- Success Payment Point UserId: 7001 ProductId : 42 cost : 800 
+��l09:55:36.592 [Test worker] INFO point-log -- Success Payment Point UserId: 7001 ProductId : 42 cost : 800 
+���09:55:36.629 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.ngng.api.user.point.dto.PointHistoryResponseDTO> com.ngng.api.user.point.controller.PointController.payProduct(com.ngng.api.user.point.dto.PaymentPointRequestDto): [Field error in object 'paymentPointRequestDto' on field 'payProductId': rejected value [null]; codes [NotNull.paymentPointRequestDto.payProductId,NotNull.payProductId,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [paymentPointRequestDto.payProductId,payProductId]; arguments []; default message [payProductId]]; default message [must not be null]] ]
+��|09:55:36.635 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 999  Consumer : 7001 
+��j09:55:36.641 [Test worker] INFO point-log -- Success Payment Point UserId: 7001 ProductId : 42 cost : 1 
+��|09:55:36.645 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 999  Consumer : 7001 
+��|09:55:36.651 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 999  Consumer : 7001 
+��|09:55:36.655 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 999  Consumer : 7001 
+��|09:55:36.659 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 999  Consumer : 7001 
+��|09:55:36.659 [Test worker] INFO transaction-log -- Success Create TransactionDetails id: 88 Seller : 999  Consumer : 7001 
+��m09:55:36.722 [Test worker] INFO point-log -- Success Payment Point UserId: 7001 ProductId : 42 cost : 8000 
+��m09:55:36.735 [Test worker] INFO point-log -- Success Payment Point UserId: 7001 ProductId : 42 cost : 8000 
+��m09:55:36.769 [Test worker] INFO point-log -- Success Payment Point UserId: 7001 ProductId : 42 cost : 8000 
+��j09:55:36.805 [Test worker] INFO point-log -- Success Payment Point UserId: 7 ProductId : 42 cost : 8000 
+��m09:55:36.812 [Test worker] INFO point-log -- Success Payment Point UserId: 7001 ProductId : 42 cost : 8000 
+��|09:55:36.818 [Test worker] INFO point-log -- Success Payment Point UserId: 9223372036854775807 ProductId : 42 cost : 8000 
+��l09:55:37.483 [Test worker] INFO org.hibernate.Version -- HHH000412: Hibernate ORM core version 6.4.4.Final
+��09:55:37.531 [Test worker] INFO org.hibernate.cache.internal.RegionFactoryInitiator -- HHH000026: Second-level cache disabled
+���09:55:37.621 [Test worker] WARN org.hibernate.orm.deprecation -- HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+���09:55:37.963 [Test worker] INFO org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator -- HHH000130: Instantiating explicit connection provider: org.hibernate.engine.jdbc.connections.internal.UserSuppliedConnectionProviderImpl
+���09:55:38.193 [Test worker] INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+��]09:55:38.479 [Test worker] INFO point-log -- Success Create PointHistory id: null User : 7 
+��Y09:55:38.484 [Test worker] INFO point-log -- Success Charge Point UserId: 7 cost : 200 
+��i09:55:38.484 [Test worker] INFO point-log -- Success Payment Point UserId: 7 ProductId : 42 cost : 200 
+��y09:55:38.516 [Test worker] INFO point-log -- Success Payment Point UserId: 7 ProductId : 42 cost : 9223372036854775807 
+��W09:55:38.553 [Test worker] INFO point-log -- Success Charge Point UserId: 7 cost : 1 
+��g09:55:38.553 [Test worker] INFO point-log -- Success Payment Point UserId: 7 ProductId : 42 cost : 1 
+��Y09:55:38.559 [Test worker] INFO point-log -- Success Charge Point UserId: 7 cost : 200 
+��W09:55:38.572 [Test worker] INFO point-log -- Success Charge Point UserId: 7 cost : 1 
+��i09:55:38.590 [Test worker] INFO point-log -- Success Payment Point UserId: 7 ProductId : 42 cost : 200 
+��g09:55:38.597 [Test worker] INFO point-log -- Success Payment Point UserId: 7 ProductId : 42 cost : 1 
+��i09:55:38.603 [Test worker] INFO point-log -- Success Payment Point UserId: 7 ProductId : 42 cost : 200 
