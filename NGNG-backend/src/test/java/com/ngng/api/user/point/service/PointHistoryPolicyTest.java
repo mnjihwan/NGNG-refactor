@@ -1,5 +1,10 @@
 package com.ngng.api.user.point.service;
 
+import com.ngng.api.product.product.repository.ProductRepository;
+import com.ngng.api.transaction.repository.TransactionDetailsRepository;
+import com.ngng.api.user.point.payment.PaymentFixture;
+
+
 import com.ngng.api.user.point.dto.CreateAddPointRequestDTO;
 import com.ngng.api.user.point.dto.PaymentPointRequestDto;
 import com.ngng.api.user.point.entity.PointHistory;
@@ -32,13 +37,18 @@ import static org.mockito.Mockito.*;
 
 /** Mocks verify arithmetic/call order and Spring transaction advice, not DB locks or rollback. */
 class PointHistoryPolicyTest {
+    @org.junit.jupiter.api.AfterEach void clearAuthentication() { org.springframework.security.core.context.SecurityContextHolder.clearContext(); }
     private final PointHistoryRepository histories = mock(PointHistoryRepository.class);
     private final AuthService auth = mock(AuthService.class);
     private final UserRepository users = mock(UserRepository.class);
+    private final ProductRepository products = mock(ProductRepository.class);
+    private final TransactionDetailsRepository details = mock(TransactionDetailsRepository.class);
     private final User user = User.builder().userId(7L).name("Alice").build();
-    private final PointHistoryService service = new PointHistoryService(histories, auth, users);
+    private PointHistoryService service = new PointHistoryService(histories, auth, users, products, details, PaymentFixture.gate(), PaymentFixture.settlements());
 
     private void balance(long cost) {
+        PaymentFixture.authenticate();
+        PaymentFixture.allowPayment(products, details, 7L, 200L);
         when(auth.readAuthUser()).thenReturn(user);
         when(users.lockUserIdForPointUpdate(7L)).thenReturn(Optional.of(7L));
         when(histories.findLatestCostForUpdate(7L)).thenReturn(Optional.of(cost));
@@ -57,7 +67,7 @@ class PointHistoryPolicyTest {
     @NullSource
     @ValueSource(longs = {0, -1, Long.MIN_VALUE})
     void invalidPaymentIsRejectedBeforeReadingOrWriting(Long amount) {
-        assertBadRequest(() -> service.payment(new PaymentPointRequestDto(amount, 42L)));
+        assertBadRequest(() -> new PointHistoryService(histories, auth, users, products, details, PaymentFixture.gate(), PaymentFixture.settlements()).payment(new PaymentPointRequestDto(amount, 42L)));
         verifyNoInteractions(auth, users, histories);
     }
 
@@ -65,20 +75,21 @@ class PointHistoryPolicyTest {
     void chargeLocksUserThenReadsCurrentBalanceThenAppends() {
         balance(1000L);
         service.updateCost(new CreateAddPointRequestDTO(200L, "충전"));
-        assertWriteOrder();
+        assertWriteOrder(false);
     }
 
     @Test
     void paymentLocksUserThenReadsCurrentBalanceThenAppends() {
         balance(1000L);
-        service.payment(new PaymentPointRequestDto(200L, 42L));
-        assertWriteOrder();
+        new PointHistoryService(histories, auth, users, products, details, PaymentFixture.gate(), PaymentFixture.settlements()).payment(new PaymentPointRequestDto(200L, 42L));
+        assertWriteOrder(true);
     }
 
     @Test
     void paymentOfEntireBalanceSucceedsWithZeroRemaining() {
         balance(Long.MAX_VALUE);
-        PointHistory result = service.payment(new PaymentPointRequestDto(Long.MAX_VALUE, 42L));
+        PaymentFixture.allowPayment(products, details, 7L, Long.MAX_VALUE);
+        PointHistory result = new PointHistoryService(histories, auth, users, products, details, PaymentFixture.gate(), PaymentFixture.settlements()).payment(new PaymentPointRequestDto(Long.MAX_VALUE, 42L));
         assertThat(result.getBeforeCost()).isEqualTo(Long.MAX_VALUE);
         assertThat(result.getAddCost()).isEqualTo(Long.MAX_VALUE);
         assertThat(result.getCost()).isZero();
@@ -87,10 +98,11 @@ class PointHistoryPolicyTest {
     @Test
     void insufficientBalanceIsRejectedWithoutAppendingEvenAfterSuccessfulCheck() {
         balance(20L);
+        PaymentFixture.allowPayment(products, details, 7L, 80L);
         when(histories.findLastByUserId(7L)).thenReturn(Optional.of(
                 PointHistory.builder().user(user).cost(100L).build()));
         assertThat(service.isPaymnet(80L)).isTrue();
-        assertBadRequest(() -> service.payment(new PaymentPointRequestDto(80L, 42L)));
+        assertBadRequest(() -> new PointHistoryService(histories, auth, users, products, details, PaymentFixture.gate(), PaymentFixture.settlements()).payment(new PaymentPointRequestDto(80L, 42L)));
         verify(users).lockUserIdForPointUpdate(7L);
         verify(histories).findLatestCostForUpdate(7L);
         verify(histories, never()).save(any());
@@ -136,20 +148,22 @@ class PointHistoryPolicyTest {
     }
 
     @Test
-    void repeatedPaymentsRemainSeparateRequests() {
+    void successfulPaymentCannotBeDebitedAgainAfterStatusChanges() {
         balance(1000L);
-        when(histories.findLatestCostForUpdate(7L)).thenReturn(Optional.of(1000L)).thenReturn(Optional.of(800L));
-        PaymentPointRequestDto request = new PaymentPointRequestDto(200L, 42L);
-        assertThat(service.payment(request).getCost()).isEqualTo(800L);
-        assertThat(service.payment(request).getCost()).isEqualTo(600L);
-        verify(histories, times(2)).save(any());
+        service = new PointHistoryService(histories, auth, users, products, details, PaymentFixture.gate(), PaymentFixture.settlements());
+        assertThat(service.payment(new PaymentPointRequestDto(200L, 42L)).getCost()).isEqualTo(800L);
+        when(details.lockPaymentTransactions(42L)).thenReturn(java.util.List.of(new PaymentFixture.TransactionRow(88L, 7L, 200L, 42L, 999L, 2L)));
+        assertThatThrownBy(() -> service.payment(new PaymentPointRequestDto(200L, 42L)))
+                .isInstanceOfSatisfying(ResponseStatusException.class, error -> assertThat(error.getStatusCode().value()).isEqualTo(409));
+        verify(histories).save(any());
     }
 
     @Test
     void missingHistoryIsNotReplacedWithAnInitialBalance() {
         balance(100L);
+        PaymentFixture.allowPayment(products, details, 7L, 1L);
         when(histories.findLatestCostForUpdate(7L)).thenReturn(Optional.empty());
-        assertThatThrownBy(() -> service.payment(new PaymentPointRequestDto(1L, 42L)))
+        assertThatThrownBy(() -> new PointHistoryService(histories, auth, users, products, details, PaymentFixture.gate(), PaymentFixture.settlements()).payment(new PaymentPointRequestDto(1L, 42L)))
                 .isInstanceOf(NoSuchElementException.class);
         verify(histories, never()).save(any());
     }
@@ -166,6 +180,7 @@ class PointHistoryPolicyTest {
     @Test
     void springAdviceKeepsBothWriteMethodsInsideATransaction() {
         balance(1000L);
+        PaymentFixture.allowPayment(products, details, 7L, 1L);
         RecordingTransactions transactions = new RecordingTransactions();
         PointHistoryService proxy = proxy(transactions);
         doAnswer(invocation -> {
@@ -191,6 +206,7 @@ class PointHistoryPolicyTest {
     @Test
     void saveFailureEscapesProxyAndInvokesRollbackAdvice() {
         balance(1000L);
+        PaymentFixture.allowPayment(products, details, 7L, 1L);
         RuntimeException failure = new RuntimeException("save failed");
         when(histories.save(any())).thenThrow(failure);
         RecordingTransactions transactions = new RecordingTransactions();
@@ -203,18 +219,20 @@ class PointHistoryPolicyTest {
     @Test
     void commitFailureIsNotReturnedAsSuccessfulPayment() {
         balance(1000L);
+        PaymentFixture.allowPayment(products, details, 7L, 1L);
         RecordingTransactions transactions = new RecordingTransactions();
         transactions.failCommit = true;
         assertThatThrownBy(() -> proxy(transactions).payment(new PaymentPointRequestDto(1L, 42L)))
                 .isInstanceOf(UnexpectedRollbackException.class);
     }
 
-    private void assertWriteOrder() {
+    private void assertWriteOrder(boolean payment) {
         InOrder order = inOrder(auth, users, histories);
         order.verify(auth).readAuthUser();
         order.verify(users).lockUserIdForPointUpdate(7L);
         order.verify(histories).findLatestCostForUpdate(7L);
         order.verify(histories).save(any());
+        if (payment) order.verify(histories).flush();
         order.verifyNoMoreInteractions();
     }
 
@@ -224,7 +242,7 @@ class PointHistoryPolicyTest {
     }
 
     private PointHistoryService proxy(RecordingTransactions transactions) {
-        ProxyFactory factory = new ProxyFactory(service);
+        ProxyFactory factory = new ProxyFactory(new PointHistoryService(histories, auth, users, products, details, PaymentFixture.gate(), PaymentFixture.settlements()));
         factory.setProxyTargetClass(true);
         TransactionInterceptor interceptor = new TransactionInterceptor();
         interceptor.setTransactionManager(transactions);

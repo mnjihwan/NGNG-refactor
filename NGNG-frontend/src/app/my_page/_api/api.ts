@@ -7,8 +7,10 @@ export const getFetchMyPage = async () => {
     headers: {
       Authorization: getAccessToken(),
     },
-    // cache: "no-store",
+    cache: "no-store",
   });
+  setAccessToken(res);
+  if (!res.ok) throw new Error("거래와 포인트 상태를 조회하지 못했습니다.");
   // console.log("mypage data", res);
 
   const data = (await res.json()) as MypageReponse;
@@ -213,7 +215,14 @@ export const paymentProduct = async ({
     }),
   }).then((res) => {
     setAccessToken(res);
-    if (!res.ok) throw new Error("포인트 결제에 실패했습니다.");
+    if (!res.ok) throw new PaymentRequestError(res.status);
     return res.json();
   });
 };
+
+export class PaymentRequestError extends Error {
+  constructor(public readonly status: number) {
+    super("포인트 결제에 실패했습니다.");
+    this.name = "PaymentRequestError";
+  }
+}

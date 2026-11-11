@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.user.point.payment.PaymentBeforeTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-11-11T00:07:11" hostname="redacted" time="0.057">
+  <properties/>
+  <testcase name="positiveChargeStillNeedsNoExternalPaymentEvidenceAndPreservesBodyType()" classname="com.ngng.api.user.point.payment.PaymentBeforeTest" time="0.016"/>
+  <testcase name="[1] productId=null" classname="com.ngng.api.user.point.payment.PaymentBeforeTest" time="0.011"/>
+  <testcase name="[2] productId=0" classname="com.ngng.api.user.point.payment.PaymentBeforeTest" time="0.007"/>
+  <testcase name="[3] productId=-1" classname="com.ngng.api.user.point.payment.PaymentBeforeTest" time="0.007"/>
+  <testcase name="[4] productId=42" classname="com.ngng.api.user.point.payment.PaymentBeforeTest" time="0.008"/>
+  <testcase name="[5] productId=999999" classname="com.ngng.api.user.point.payment.PaymentBeforeTest" time="0.005"/>
+  <system-out><![CDATA[09:07:11.247 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6980fa39, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1a000fff, org.springframework.security.web.context.SecurityContextHolderFilter@7e9d171c, org.springframework.security.web.header.HeaderWriterFilter@19f9287a, org.springframework.web.filter.CorsFilter@7c855ef0, org.springframework.security.web.authentication.logout.LogoutFilter@106c73ed, com.ngng.api.global.security.filter.TokenFilter@3dedc8b8, com.ngng.api.global.security.filter.LoginFilter@5352bc0e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3a1540be, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6aff157e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@49b73e6c, org.springframework.security.web.session.SessionManagementFilter@4924ad09, org.springframework.security.web.access.ExceptionTranslationFilter@1dab2cf5, org.springframework.security.web.access.intercept.AuthorizationFilter@122a6078]
+09:07:11.263 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:07:11.263 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:07:11.263 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:07:11.274 [Test worker] INFO point-log -- Success Charge Point UserId: 7001 cost : 1
+09:07:11.289 [Test worker] INFO point-log -- Success Payment Point UserId: 7001 ProductId : null cost : 1
+09:07:11.296 [Test worker] INFO point-log -- Success Payment Point UserId: 7001 ProductId : 0 cost : 1
+09:07:11.305 [Test worker] INFO point-log -- Success Payment Point UserId: 7001 ProductId : -1 cost : 1
+09:07:11.311 [Test worker] INFO point-log -- Success Payment Point UserId: 7001 ProductId : 42 cost : 1
+09:07:11.311 [Test worker] INFO point-log -- Success Payment Point UserId: 7001 ProductId : 999999 cost : 1
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

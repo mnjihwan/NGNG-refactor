@@ -1,0 +1,982 @@
+{
+  "jointChain": {
+    "phase": "joint-chain-final",
+    "totals": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "sourcePhase": "joint-chain-source",
+    "overlapsOriginal942": false
+  },
+  "recordedAt": "2026-11-11T01:04:42.404Z",
+  "sourceHashes": [
+    {
+      "file": "NGNG-backend/src/main/java/com/ngng/api/user/point/service/PointHistoryService.java",
+      "snapshot": ".local-runtime/rf037-results/final-source/NGNG-backend/src/main/java/com/ngng/api/user/point/service/PointHistoryService.java",
+      "sha256": "024bd4ad6a4c8cf394ba515fbaad7e0f3c023c12e576790274274454c2f446ce"
+    },
+    {
+      "file": "NGNG-backend/src/main/java/com/ngng/api/user/point/repository/PaymentSettlementRepository.java",
+      "snapshot": ".local-runtime/rf037-results/final-source/NGNG-backend/src/main/java/com/ngng/api/user/point/repository/PaymentSettlementRepository.java",
+      "sha256": "49f58623af3c34dd4ff6451f2d1529682daa64e29d81f58bd4c3461a2f00ad62"
+    },
+    {
+      "file": "NGNG-backend/src/main/java/com/ngng/api/user/point/payment/PaymentVerificationGate.java",
+      "snapshot": ".local-runtime/rf037-results/final-source/NGNG-backend/src/main/java/com/ngng/api/user/point/payment/PaymentVerificationGate.java",
+      "sha256": "a3df2ba5b3983331ef2b4859e84d64ccceeadf12d5f432bc12796df1c9b34ab4"
+    },
+    {
+      "file": "NGNG-backend/src/main/java/com/ngng/api/user/point/payment/PaymentVerificationConfiguration.java",
+      "snapshot": ".local-runtime/rf037-results/final-source/NGNG-backend/src/main/java/com/ngng/api/user/point/payment/PaymentVerificationConfiguration.java",
+      "sha256": "d45a2f841c62a6f96231b8e93f7363a68971359ce6a0f6a300aa398367b485c2"
+    },
+    {
+      "file": "NGNG-backend/src/main/java/com/ngng/api/transaction/repository/TransactionDetailsRepository.java",
+      "snapshot": ".local-runtime/rf037-results/final-source/NGNG-backend/src/main/java/com/ngng/api/transaction/repository/TransactionDetailsRepository.java",
+      "sha256": "362ec5c49f2959550e30f65510d37ddec3275744a92c810aa73caf03f0b849cc"
+    },
+    {
+      "file": "NGNG-backend/src/main/java/com/ngng/api/transaction/service/TransactionDetailsService.java",
+      "snapshot": ".local-runtime/rf037-results/final-source/NGNG-backend/src/main/java/com/ngng/api/transaction/service/TransactionDetailsService.java",
+      "sha256": "4308400b5e74be7bf60c5028e8ac1f3d33d78fc2ad2056ab3a91f2126261eae4"
+    },
+    {
+      "file": "NGNG-backend/src/main/java/com/ngng/api/user/point/dto/PaymentPointRequestDto.java",
+      "snapshot": ".local-runtime/rf037-results/final-source/NGNG-backend/src/main/java/com/ngng/api/user/point/dto/PaymentPointRequestDto.java",
+      "sha256": "773413a8ab2bc7cad347ac7f561bbaf68a25cf3430942bb09477effadfc13e40"
+    },
+    {
+      "file": "NGNG-frontend/src/app/my_page/_api/api.ts",
+      "snapshot": ".local-runtime/rf037-results/final-source/NGNG-frontend/src/app/my_page/_api/api.ts",
+      "sha256": "d862050124a09de6ae29702bb6ace67d76fb6e757b8489ee95d74815930a84d2"
+    },
+    {
+      "file": "NGNG-frontend/src/app/my_page/_hooks/useMypageSWR.ts",
+      "snapshot": ".local-runtime/rf037-results/final-source/NGNG-frontend/src/app/my_page/_hooks/useMypageSWR.ts",
+      "sha256": "7435915836f4b1565a89c35ab32606ac2d2691303d68d84564f8ba5d1a4498bd"
+    },
+    {
+      "file": "NGNG-frontend/src/app/my_page/_compoenets/modal/BuyProductDetails.tsx",
+      "snapshot": ".local-runtime/rf037-results/final-source/NGNG-frontend/src/app/my_page/_compoenets/modal/BuyProductDetails.tsx",
+      "sha256": "975991e1260877a900e0d8870508a298bdbeb154431585a0b9ddceb2b2c3e72e"
+    },
+    {
+      "file": "NGNG-frontend/src/app/my_page/_compoenets/BuyHistory.tsx",
+      "snapshot": ".local-runtime/rf037-results/final-source/NGNG-frontend/src/app/my_page/_compoenets/BuyHistory.tsx",
+      "sha256": "cad8c521f7d0d7a20b083ec7bf5ab4c2be1675f3f3c7a38d2f64cd38bad761e6"
+    },
+    {
+      "file": "NGNG-frontend/tests/rf035-payment-trust.test.cjs",
+      "snapshot": ".local-runtime/rf037-results/final-source/NGNG-frontend/tests/rf035-payment-trust.test.cjs",
+      "sha256": "4d1db13c24ea167dd7677aee54f05df98bd6f4398292141b648e93cf89a572a5"
+    },
+    {
+      "file": "NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentAndStatusChainTest.java",
+      "snapshot": ".local-runtime/rf037-results/joint-chain-source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentAndStatusChainTest.java",
+      "sha256": "1c2fb3a78346ea4dbabc3e12648d644f64a309f97a39de169a3c99f5684b699f"
+    },
+    {
+      "file": "NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentAtomicityTest.java",
+      "snapshot": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentAtomicityTest.java",
+      "sha256": "ffdad64dc9639a24e09d9fe739e4b51149fe7b7d5b2954caa450a43f7988fbf6"
+    },
+    {
+      "file": "NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentFixture.java",
+      "snapshot": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentFixture.java",
+      "sha256": "e10b4952c8ea4cc0c2528ecb4f87053c6f5f977147a8d86f50655db59e894a56"
+    },
+    {
+      "file": "NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentTrustServiceTest.java",
+      "snapshot": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentTrustServiceTest.java",
+      "sha256": "1b230174ce89f4ffcf8a8109be8aa972fe78339e1db4e554668ff6aab1338d4c"
+    },
+    {
+      "file": "NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentTrustSecurityChainTest.java",
+      "snapshot": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentTrustSecurityChainTest.java",
+      "sha256": "8d3597f9517c6964578c5a5e3d11475e4cc5905e07c3617878894fecb9f66989"
+    },
+    {
+      "file": "NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentLockQueryContractTest.java",
+      "snapshot": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentLockQueryContractTest.java",
+      "sha256": "6dad6c45cf2c329e1152e02feb414064746b7a880ccaa64606eb5b75d064b9cb"
+    },
+    {
+      "file": "NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentVerificationGateTest.java",
+      "snapshot": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentVerificationGateTest.java",
+      "sha256": "6c4e3695d9015dfd4feda62df02969f37419089a1a18e084f5a04cd80304a85e"
+    },
+    {
+      "file": "NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentVerificationConfigurationTest.java",
+      "snapshot": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentVerificationConfigurationTest.java",
+      "sha256": "1a32bd7c3dd840a920a204dadfec9aa33c97ec374c78e7d1a78564f6c9d3f9ab"
+    },
+    {
+      "file": "NGNG-backend/src/test/java/com/ngng/api/user/point/service/PointHistoryBehaviorTest.java",
+      "snapshot": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/service/PointHistoryBehaviorTest.java",
+      "sha256": "0736e04f0021255739977bf132ef1daaf8b16b7a499b4c00446612b1029e1594"
+    },
+    {
+      "file": "NGNG-backend/src/test/java/com/ngng/api/user/point/service/PointHistoryPolicyTest.java",
+      "snapshot": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/service/PointHistoryPolicyTest.java",
+      "sha256": "fa0feb19693d5b82dd3cf2043fd3c9dc335624a37b6cf540576eaf14c09a1231"
+    },
+    {
+      "file": "NGNG-backend/src/test/java/com/ngng/api/user/point/controller/PointControllerContractTest.java",
+      "snapshot": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/controller/PointControllerContractTest.java",
+      "sha256": "c5f127b4206629687201258184691eeaf43d79e3f770c3ed7a3a724743712c9d"
+    },
+    {
+      "file": "NGNG-backend/src/test/java/com/ngng/api/user/point/controller/PointResponseSecurityChainTest.java",
+      "snapshot": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/controller/PointResponseSecurityChainTest.java",
+      "sha256": "23ddb20992d447abe57562c81ee7bbcf4a87cc4c7865bf48b454bea1a2498923"
+    },
+    {
+      "file": "NGNG-backend/src/test/java/com/ngng/api/user/point/repository/PointHistoryRepositoryBatchTest.java",
+      "snapshot": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/repository/PointHistoryRepositoryBatchTest.java",
+      "sha256": "7750f93e285dadd853ab7600e018427b54c2d6b3057c1a64d94737ca72a06ca9"
+    },
+    {
+      "file": "NGNG-backend/src/test/java/com/ngng/api/user/point/integration/PointHistoryMySqlConcurrencyTest.java",
+      "snapshot": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/integration/PointHistoryMySqlConcurrencyTest.java",
+      "sha256": "2b949e4cd376491141c4ccb0b957f52ef4b59c43a1a5424381c7d588dfbb0515"
+    },
+    {
+      "file": "NGNG-backend/src/test/java/com/ngng/api/transaction/status/TransactionStatusOwnershipTest.java",
+      "snapshot": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/transaction/status/TransactionStatusOwnershipTest.java",
+      "sha256": "ef70a2ed882deb0a8cbe731d0f5779774799a5a39e179d899e1f18ddf595dc2c"
+    },
+    {
+      "file": "NGNG-backend/src/test/java/com/ngng/api/transaction/status/TransactionStatusSecurityChainTest.java",
+      "snapshot": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/transaction/status/TransactionStatusSecurityChainTest.java",
+      "sha256": "f70251c2a48eebfa13323555e27eaa7a5db35c349af6bc279f31aaa1fb6ac8c9"
+    },
+    {
+      "file": "NGNG-backend/src/test/java/com/ngng/api/transaction/status/TransactionStatusLockQueryTest.java",
+      "snapshot": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/transaction/status/TransactionStatusLockQueryTest.java",
+      "sha256": "3aeac848cd66be10df64dc19467ff8e8f839d50f4d0671462a5cbc588a320ea2"
+    },
+    {
+      "file": "NGNG-backend/src/test/java/com/ngng/api/transaction/status/Rf038Fixture.java",
+      "snapshot": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/transaction/status/Rf038Fixture.java",
+      "sha256": "a51d5d1d348dc7bf9d4a13dd822ca91acd036314027f7fb8ff14939a92b64c30"
+    },
+    {
+      "file": "NGNG-backend/src/test/java/com/ngng/api/transaction/status/StatusChainHarness.java",
+      "snapshot": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/transaction/status/StatusChainHarness.java",
+      "sha256": "8ec52c495bea61b8b3e8b6d1b88d1bdd0ed72231691fd85cd49fffc0146779ab"
+    }
+  ],
+  "preserved": [
+    {
+      "raw": ".local-runtime/rf037-results/after-initial/console.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/after-initial/console.txt",
+      "rawSha256": "6deb65fee8fe38f0a69e659828485fb6222bf761e21fa9340fc669a2c7b5650e",
+      "sharedSha256": "40f207c3f28ed08ee4b568da81e05cebd6b1c2aab5c1ea5706470ac46cef188f"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/after-initial/exit-code.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/after-initial/exit-code.txt",
+      "rawSha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04",
+      "sharedSha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/after-initial/xml/binary/output.bin",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/after-initial/xml/binary/output.bin",
+      "rawSha256": "ee9aa0275b079efdb36055919a24de423b13e66a118316512186cf8f554f07f0",
+      "sharedSha256": "94e414d379da8a31167e72533b80d27c227ed90a6b8a264f59169f756e90a9f0"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/after-initial/xml/binary/output.bin.idx",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/after-initial/xml/binary/output.bin.idx",
+      "rawSha256": "d68f93bb9cb53e0549446b6f4fc61a3c25eff929b253cdea56aaec3a18bd151f",
+      "sharedSha256": "e3219fbbe397032c2430c0851649eaa37bb7af78b14df77cbd5306ff47fddcde"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/after-initial/xml/binary/results.bin",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/after-initial/xml/binary/results.bin",
+      "rawSha256": "b0f25a5015894fc90894a92531e86c086c1d3b3b3467a3019463f70877f51291",
+      "sharedSha256": "66927ca56b9f790b8d8e79a78385dd6892f7db26c55b18d6db462c34a4eb10ba"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/after-initial/xml/TEST-com.ngng.api.user.point.controller.PointControllerContractTest.xml",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/after-initial/xml/TEST-com.ngng.api.user.point.controller.PointControllerContractTest.xml",
+      "rawSha256": "48dd4c3186e52d07d5d66426b1d1a11f27eaad6c2a146fa62111a8dcb607a8f9",
+      "sharedSha256": "06d8df379e353abb93282f761239ab0426511a62c7444b5c243411d0df3f5694"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/after-initial/xml/TEST-com.ngng.api.user.point.controller.PointResponseSecurityChainTest.xml",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/after-initial/xml/TEST-com.ngng.api.user.point.controller.PointResponseSecurityChainTest.xml",
+      "rawSha256": "dc7a0cb02ea11259a7608a7e6dba51628c4bb6d5521e73b680b3a7bad5a8025e",
+      "sharedSha256": "d7c6dc4edc781eff9b2045c74d52fa7a0f77e63eda6fcbc2eb4c16b771f18ae2"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/after-initial/xml/TEST-com.ngng.api.user.point.payment.PaymentAtomicityTest.xml",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/after-initial/xml/TEST-com.ngng.api.user.point.payment.PaymentAtomicityTest.xml",
+      "rawSha256": "be6bde1a16e81bc4d7f989ab02563a1e03912f6c0ed2ab6c7f03a87a13814430",
+      "sharedSha256": "78d832c9e933d07f0c5fa02d0db0aa92b4219851dbb85e441bc4358f9c58e5c1"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/after-initial/xml/TEST-com.ngng.api.user.point.payment.PaymentLockQueryContractTest.xml",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/after-initial/xml/TEST-com.ngng.api.user.point.payment.PaymentLockQueryContractTest.xml",
+      "rawSha256": "e30c038f56eb9d4564e00f61211f6cf2b45e97492a3e0a4e3f76c4683e573076",
+      "sharedSha256": "16894f48d68e633eef19bfcb54f706d22df755ac490d0845023f3b2209929985"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/after-initial/xml/TEST-com.ngng.api.user.point.payment.PaymentTrustSecurityChainTest.xml",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/after-initial/xml/TEST-com.ngng.api.user.point.payment.PaymentTrustSecurityChainTest.xml",
+      "rawSha256": "88d509f296b085654ce179caa871233e1cc6c57dfc9f0ab5e8036e79bbcdfec7",
+      "sharedSha256": "84183c201a4cec48a955079ccf54e833f3b3f664831393b5e1eb0c8bdb22f645"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/after-initial/xml/TEST-com.ngng.api.user.point.payment.PaymentTrustServiceTest.xml",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/after-initial/xml/TEST-com.ngng.api.user.point.payment.PaymentTrustServiceTest.xml",
+      "rawSha256": "cf0202fe3c782e04525d069ed22352d2fc64e7c6dd81aa67dbcd3aa4a75a2be0",
+      "sharedSha256": "880e8ae1386c31331513b5d8d6d6c2e5f788a9f31387ba30c21e8b26aa4ce97c"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/after-initial/xml/TEST-com.ngng.api.user.point.payment.PaymentVerificationConfigurationTest.xml",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/after-initial/xml/TEST-com.ngng.api.user.point.payment.PaymentVerificationConfigurationTest.xml",
+      "rawSha256": "a3176368564f7165319afbeaae7e5b9c52749ddc4c7c2013944353d9168fad1e",
+      "sharedSha256": "c84b9f971358a6a8842eb57378f622484712053fc897da8c88f0b546841b4342"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/after-initial/xml/TEST-com.ngng.api.user.point.payment.PaymentVerificationGateTest.xml",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/after-initial/xml/TEST-com.ngng.api.user.point.payment.PaymentVerificationGateTest.xml",
+      "rawSha256": "350c79097d9b510d1fe9ccea02571ff0b082d6a3483fb1395df5d66f2595c619",
+      "sharedSha256": "d673b33ddc866266f352d4384b5a47169f845999f8c057d8f8764a6fbf52322f"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/after-initial/xml/TEST-com.ngng.api.user.point.repository.PointHistoryRepositoryBatchTest.xml",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/after-initial/xml/TEST-com.ngng.api.user.point.repository.PointHistoryRepositoryBatchTest.xml",
+      "rawSha256": "039c5f5a9de98ec96d12ae58ec47087b82c2971fa288b1218aacbe985f99f955",
+      "sharedSha256": "28bfc38adf6be5fa091ea8943ddc83c298d7e6b1c0c5e55161a6c9e661b2d201"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/after-initial/xml/TEST-com.ngng.api.user.point.service.PointHistoryBehaviorTest.xml",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/after-initial/xml/TEST-com.ngng.api.user.point.service.PointHistoryBehaviorTest.xml",
+      "rawSha256": "c91064c987c969a7585f828cab147369cd4cd945dbcbf2a0e0768d89c7ba8630",
+      "sharedSha256": "0e2c0dc71c2592de66e048a103a7fdb9c728af9fc348503cbe46f0d868429949"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/after-initial/xml/TEST-com.ngng.api.user.point.service.PointHistoryPolicyTest.xml",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/after-initial/xml/TEST-com.ngng.api.user.point.service.PointHistoryPolicyTest.xml",
+      "rawSha256": "9e6ff9df5951f689bfced39713217697853037778468d628bf51688f3fa2a759",
+      "sharedSha256": "02e66efe54e715f1fefe555c06bae0190df6b050785722f1bd14d1a85f65a67e"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final/console.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final/console.txt",
+      "rawSha256": "704ef7d618ec55fe606595fe5ca377368ec94e88af22e2b543e0905266baa8ac",
+      "sharedSha256": "704ef7d618ec55fe606595fe5ca377368ec94e88af22e2b543e0905266baa8ac"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final/exit-code.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final/exit-code.txt",
+      "rawSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "sharedSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final/xml/binary/output.bin",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final/xml/binary/output.bin",
+      "rawSha256": "b6caa71ed3a73288e143d818b793a862af8b69575c3cd8cee9fa2c0aedf68690",
+      "sharedSha256": "25f196e7e8edfa4831e2def66fdfe1fe494bab1ee737fe196cef9f38fe8993cf"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final/xml/binary/output.bin.idx",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final/xml/binary/output.bin.idx",
+      "rawSha256": "9d81dbd97fc040eb60d5c909ec37913d0d7be7a23badbe96428a0f6e9bf168a5",
+      "sharedSha256": "171c28a323f66119bdbfaac09824e1f031c90189146bbaf76debb94c6c86df6f"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final/xml/binary/results.bin",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final/xml/binary/results.bin",
+      "rawSha256": "f8f358ce77ef47dcfc2e196b04eed0ef8ed8f446d84092df4fdaae8e1c8f2230",
+      "sharedSha256": "b95e4795675e7b8b06c16927143b5111699c948ed702adc4eee8be32a089a7d9"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final/xml/TEST-com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest.xml",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final/xml/TEST-com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest.xml",
+      "rawSha256": "b127397b7abce0bb2f01f833a8f056f2efab8a31331b8bb76aaf4a0bf6178c5c",
+      "sharedSha256": "8b167bb531818a3db5e243993e7d1963dbca9ef75b2cfa271eba5dcd6280f23f"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final/xml/TEST-com.ngng.api.transaction.authorization.TransactionRequestAuthorizationServiceTest.xml",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final/xml/TEST-com.ngng.api.transaction.authorization.TransactionRequestAuthorizationServiceTest.xml",
+      "rawSha256": "cbe6a147470111f9d717334d5e914886a07beb6ea42aa8c8f5749eb3f0a27f1a",
+      "sharedSha256": "445bd7a3fa525f7454b58c27ad515c3f220c3b659428562f2dc037fb12d5cbe3"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final/xml/TEST-com.ngng.api.transaction.read.TransactionReadOwnershipTest.xml",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final/xml/TEST-com.ngng.api.transaction.read.TransactionReadOwnershipTest.xml",
+      "rawSha256": "6910bdd5ac684ceaa67bd3aaca6b0de8b1c20ce88a349caa75e926bc09b68270",
+      "sharedSha256": "6dcd966efca5248e7a30a6572d351903a4a720e61fc11f8be6b0942828e4c4cd"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final/xml/TEST-com.ngng.api.transaction.read.TransactionReadSecurityChainTest.xml",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final/xml/TEST-com.ngng.api.transaction.read.TransactionReadSecurityChainTest.xml",
+      "rawSha256": "0c1f4f3f2eff3bcb964509b764aba5eaa03bb18758915cac6bf64b73a3cdac15",
+      "sharedSha256": "99b8cecde6cfa2b55ece3574e0cdcef49997a5d9afa9b6bf7d2678634e4a5efb"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final/xml/TEST-com.ngng.api.transaction.service.TransactionAcceptancePolicyTest.xml",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final/xml/TEST-com.ngng.api.transaction.service.TransactionAcceptancePolicyTest.xml",
+      "rawSha256": "6e29bd18de3c14f11b1f82b7d0ee6f40e525269dd522f304deac2475f42d62d8",
+      "sharedSha256": "1115056731fcf8b779e6d5fb698e5d940e4b324c19757c9f4a73d0af22c024da"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final/xml/TEST-com.ngng.api.transaction.service.TransactionCreationContractTest.xml",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final/xml/TEST-com.ngng.api.transaction.service.TransactionCreationContractTest.xml",
+      "rawSha256": "0a16b8c67fdfba72aec1f75bfe6ed33f968597cf2a49cfd84b239e70807e83f7",
+      "sharedSha256": "5be18c2a48e259fb760d26492b4513236c7a7f253bd967a103359c198355f5bb"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final/xml/TEST-com.ngng.api.transaction.status.TransactionStatusLockQueryTest.xml",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final/xml/TEST-com.ngng.api.transaction.status.TransactionStatusLockQueryTest.xml",
+      "rawSha256": "5f7e60b5426f6be7ee3650ce0f679a6d71f50c2d7073429e8815238315c8499b",
+      "sharedSha256": "76b4380e7ee2b03a170a0348ab51af7a637b53a29d867c334251dba32b071044"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final/xml/TEST-com.ngng.api.transaction.status.TransactionStatusOwnershipTest.xml",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final/xml/TEST-com.ngng.api.transaction.status.TransactionStatusOwnershipTest.xml",
+      "rawSha256": "7a95d6912934c13c6b77a9139245ed9fafeaf23457b95791d702ebf6b12c1fc6",
+      "sharedSha256": "899648c1701f224ffccf3e322b0fdacff7b30861a73f516ce22effc1404e1d2f"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final/xml/TEST-com.ngng.api.transaction.status.TransactionStatusSecurityChainTest.xml",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final/xml/TEST-com.ngng.api.transaction.status.TransactionStatusSecurityChainTest.xml",
+      "rawSha256": "88c3ddbefbbfa8ff3d3c8f2499041ea9845fdbc80cbcc54c260ff9268b1b17a9",
+      "sharedSha256": "b54ed4faed1b9c68a0a699362e05f222950c56f9b44f368e867ac4bcf2bb1f88"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final/xml/TEST-com.ngng.api.user.point.controller.PointControllerContractTest.xml",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final/xml/TEST-com.ngng.api.user.point.controller.PointControllerContractTest.xml",
+      "rawSha256": "78a0e3a684af2481a6318af6f52dc231136ab5ba3c88a8ddfbaa45a2747168ac",
+      "sharedSha256": "4d66c5f05daddc089da915f45d172aec3b02cdd06ea360cc4f63ee0b2b710dfe"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final/xml/TEST-com.ngng.api.user.point.controller.PointResponseSecurityChainTest.xml",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final/xml/TEST-com.ngng.api.user.point.controller.PointResponseSecurityChainTest.xml",
+      "rawSha256": "eb994db68dbc1824a26b2a9391b9f419c5b401548b47eb70f082f0638ad2cfb4",
+      "sharedSha256": "8639d2422d054f075b2882c6223e364bfaf234007e0bf2e13c70c7598217d1e2"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final/xml/TEST-com.ngng.api.user.point.payment.PaymentAtomicityTest.xml",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final/xml/TEST-com.ngng.api.user.point.payment.PaymentAtomicityTest.xml",
+      "rawSha256": "9016b8e0ab78e5a7f9b6e1b7de818d9963c6d7da684d539173425c04d80f4edb",
+      "sharedSha256": "2ef9b7dcbb367cdaaf81a21ac2225bb5b29acacc58d055ef19b29e14f5c5884a"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final/xml/TEST-com.ngng.api.user.point.payment.PaymentLockQueryContractTest.xml",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final/xml/TEST-com.ngng.api.user.point.payment.PaymentLockQueryContractTest.xml",
+      "rawSha256": "2b87937ad0bd68bfa757a44cdf08fd836560cbd5fcc1a8cb558d3d5e8d49f6d2",
+      "sharedSha256": "6c5f19810993ca0cfadb5fca17cb06142331ace0d1bcecf207c0358ee081d7b4"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final/xml/TEST-com.ngng.api.user.point.payment.PaymentTrustSecurityChainTest.xml",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final/xml/TEST-com.ngng.api.user.point.payment.PaymentTrustSecurityChainTest.xml",
+      "rawSha256": "b4e73575b13314c5c1f87cfe60bc653f06ed484108d0f16255362027c289ae50",
+      "sharedSha256": "8bf28c6bc06ca57c112236f13c9d3de04c15314c800cd786e09c9f41de0e8e9b"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final/xml/TEST-com.ngng.api.user.point.payment.PaymentTrustServiceTest.xml",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final/xml/TEST-com.ngng.api.user.point.payment.PaymentTrustServiceTest.xml",
+      "rawSha256": "50e4f6f33ace7d7866bcb97310f20a0fb1ea2f9c278ea3bae92fc1a4ea4ced23",
+      "sharedSha256": "d2dda7a8bdcfb379a9ae2dfaa1d5096ec0c27fd5b38d53c35dd1c224196cbf5f"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final/xml/TEST-com.ngng.api.user.point.payment.PaymentVerificationConfigurationTest.xml",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final/xml/TEST-com.ngng.api.user.point.payment.PaymentVerificationConfigurationTest.xml",
+      "rawSha256": "28ca7a27dbb5277be2825cc56950af277946d1de8a3de74b64fc35f91ca47cd6",
+      "sharedSha256": "15cc444eb03b278991d7fa01d40883efcd283073a07f77e838463cb45ef92b9e"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final/xml/TEST-com.ngng.api.user.point.payment.PaymentVerificationGateTest.xml",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final/xml/TEST-com.ngng.api.user.point.payment.PaymentVerificationGateTest.xml",
+      "rawSha256": "147ec8d1e1762027a55dc109262f44c9bed62e20aec372a20502a0d533e45a83",
+      "sharedSha256": "7f30f5c0e64d8d9fd1472cc413055b99a9beb1e1577cd9e93cd7846817ad854c"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final/xml/TEST-com.ngng.api.user.point.repository.PointHistoryRepositoryBatchTest.xml",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final/xml/TEST-com.ngng.api.user.point.repository.PointHistoryRepositoryBatchTest.xml",
+      "rawSha256": "1d0202f4c6ccc0e52b547776a0e07c02201b68c1fc9dae73dece22e0bd46d017",
+      "sharedSha256": "758d2db27e758eccff45fbdb066bab9fac878eb54cf0339d9743023b9c0dfbe8"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final/xml/TEST-com.ngng.api.user.point.service.PointHistoryBehaviorTest.xml",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final/xml/TEST-com.ngng.api.user.point.service.PointHistoryBehaviorTest.xml",
+      "rawSha256": "a4112d6ad835a7a844d9529b6379847c8741586b397aee0625f1587bfdfb7473",
+      "sharedSha256": "1d1b7324070ea461f7c9e2684893d729a268fd20c95acf688bb089de26e48197"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final/xml/TEST-com.ngng.api.user.point.service.PointHistoryPolicyTest.xml",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final/xml/TEST-com.ngng.api.user.point.service.PointHistoryPolicyTest.xml",
+      "rawSha256": "65f6e5c4b9cfab552329e852d6c3c169ce53a9c7e3357676bdc4e0924a66ea17",
+      "sharedSha256": "1142421a63bbd48e1429c62a97aa2eb8ce0d2a73b6a5ef022f4f6a1beea6f129"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final-source/NGNG-backend/src/main/java/com/ngng/api/transaction/repository/TransactionDetailsRepository.java",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final-source/NGNG-backend/src/main/java/com/ngng/api/transaction/repository/TransactionDetailsRepository.java",
+      "rawSha256": "362ec5c49f2959550e30f65510d37ddec3275744a92c810aa73caf03f0b849cc",
+      "sharedSha256": "362ec5c49f2959550e30f65510d37ddec3275744a92c810aa73caf03f0b849cc"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final-source/NGNG-backend/src/main/java/com/ngng/api/transaction/service/TransactionDetailsService.java",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final-source/NGNG-backend/src/main/java/com/ngng/api/transaction/service/TransactionDetailsService.java",
+      "rawSha256": "4308400b5e74be7bf60c5028e8ac1f3d33d78fc2ad2056ab3a91f2126261eae4",
+      "sharedSha256": "4308400b5e74be7bf60c5028e8ac1f3d33d78fc2ad2056ab3a91f2126261eae4"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final-source/NGNG-backend/src/main/java/com/ngng/api/user/point/dto/PaymentPointRequestDto.java",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final-source/NGNG-backend/src/main/java/com/ngng/api/user/point/dto/PaymentPointRequestDto.java",
+      "rawSha256": "773413a8ab2bc7cad347ac7f561bbaf68a25cf3430942bb09477effadfc13e40",
+      "sharedSha256": "773413a8ab2bc7cad347ac7f561bbaf68a25cf3430942bb09477effadfc13e40"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final-source/NGNG-backend/src/main/java/com/ngng/api/user/point/payment/PaymentVerificationConfiguration.java",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final-source/NGNG-backend/src/main/java/com/ngng/api/user/point/payment/PaymentVerificationConfiguration.java",
+      "rawSha256": "d45a2f841c62a6f96231b8e93f7363a68971359ce6a0f6a300aa398367b485c2",
+      "sharedSha256": "d45a2f841c62a6f96231b8e93f7363a68971359ce6a0f6a300aa398367b485c2"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final-source/NGNG-backend/src/main/java/com/ngng/api/user/point/payment/PaymentVerificationGate.java",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final-source/NGNG-backend/src/main/java/com/ngng/api/user/point/payment/PaymentVerificationGate.java",
+      "rawSha256": "a3df2ba5b3983331ef2b4859e84d64ccceeadf12d5f432bc12796df1c9b34ab4",
+      "sharedSha256": "a3df2ba5b3983331ef2b4859e84d64ccceeadf12d5f432bc12796df1c9b34ab4"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final-source/NGNG-backend/src/main/java/com/ngng/api/user/point/repository/PaymentSettlementRepository.java",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final-source/NGNG-backend/src/main/java/com/ngng/api/user/point/repository/PaymentSettlementRepository.java",
+      "rawSha256": "49f58623af3c34dd4ff6451f2d1529682daa64e29d81f58bd4c3461a2f00ad62",
+      "sharedSha256": "49f58623af3c34dd4ff6451f2d1529682daa64e29d81f58bd4c3461a2f00ad62"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final-source/NGNG-backend/src/main/java/com/ngng/api/user/point/service/PointHistoryService.java",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final-source/NGNG-backend/src/main/java/com/ngng/api/user/point/service/PointHistoryService.java",
+      "rawSha256": "024bd4ad6a4c8cf394ba515fbaad7e0f3c023c12e576790274274454c2f446ce",
+      "sharedSha256": "024bd4ad6a4c8cf394ba515fbaad7e0f3c023c12e576790274274454c2f446ce"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/transaction/status/Rf038Fixture.java",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final-source/NGNG-backend/src/test/java/com/ngng/api/transaction/status/Rf038Fixture.java",
+      "rawSha256": "a51d5d1d348dc7bf9d4a13dd822ca91acd036314027f7fb8ff14939a92b64c30",
+      "sharedSha256": "a51d5d1d348dc7bf9d4a13dd822ca91acd036314027f7fb8ff14939a92b64c30"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/transaction/status/StatusChainHarness.java",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final-source/NGNG-backend/src/test/java/com/ngng/api/transaction/status/StatusChainHarness.java",
+      "rawSha256": "8ec52c495bea61b8b3e8b6d1b88d1bdd0ed72231691fd85cd49fffc0146779ab",
+      "sharedSha256": "8ec52c495bea61b8b3e8b6d1b88d1bdd0ed72231691fd85cd49fffc0146779ab"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/transaction/status/TransactionStatusLockQueryTest.java",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final-source/NGNG-backend/src/test/java/com/ngng/api/transaction/status/TransactionStatusLockQueryTest.java",
+      "rawSha256": "3aeac848cd66be10df64dc19467ff8e8f839d50f4d0671462a5cbc588a320ea2",
+      "sharedSha256": "3aeac848cd66be10df64dc19467ff8e8f839d50f4d0671462a5cbc588a320ea2"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/transaction/status/TransactionStatusOwnershipTest.java",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final-source/NGNG-backend/src/test/java/com/ngng/api/transaction/status/TransactionStatusOwnershipTest.java",
+      "rawSha256": "ef70a2ed882deb0a8cbe731d0f5779774799a5a39e179d899e1f18ddf595dc2c",
+      "sharedSha256": "ef70a2ed882deb0a8cbe731d0f5779774799a5a39e179d899e1f18ddf595dc2c"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/transaction/status/TransactionStatusSecurityChainTest.java",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final-source/NGNG-backend/src/test/java/com/ngng/api/transaction/status/TransactionStatusSecurityChainTest.java",
+      "rawSha256": "f70251c2a48eebfa13323555e27eaa7a5db35c349af6bc279f31aaa1fb6ac8c9",
+      "sharedSha256": "f70251c2a48eebfa13323555e27eaa7a5db35c349af6bc279f31aaa1fb6ac8c9"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/controller/PointControllerContractTest.java",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/controller/PointControllerContractTest.java",
+      "rawSha256": "c5f127b4206629687201258184691eeaf43d79e3f770c3ed7a3a724743712c9d",
+      "sharedSha256": "c5f127b4206629687201258184691eeaf43d79e3f770c3ed7a3a724743712c9d"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/controller/PointResponseSecurityChainTest.java",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/controller/PointResponseSecurityChainTest.java",
+      "rawSha256": "23ddb20992d447abe57562c81ee7bbcf4a87cc4c7865bf48b454bea1a2498923",
+      "sharedSha256": "23ddb20992d447abe57562c81ee7bbcf4a87cc4c7865bf48b454bea1a2498923"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/integration/PointHistoryMySqlConcurrencyTest.java",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/integration/PointHistoryMySqlConcurrencyTest.java",
+      "rawSha256": "2b949e4cd376491141c4ccb0b957f52ef4b59c43a1a5424381c7d588dfbb0515",
+      "sharedSha256": "2b949e4cd376491141c4ccb0b957f52ef4b59c43a1a5424381c7d588dfbb0515"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentAtomicityTest.java",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentAtomicityTest.java",
+      "rawSha256": "ffdad64dc9639a24e09d9fe739e4b51149fe7b7d5b2954caa450a43f7988fbf6",
+      "sharedSha256": "ffdad64dc9639a24e09d9fe739e4b51149fe7b7d5b2954caa450a43f7988fbf6"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentFixture.java",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentFixture.java",
+      "rawSha256": "e10b4952c8ea4cc0c2528ecb4f87053c6f5f977147a8d86f50655db59e894a56",
+      "sharedSha256": "e10b4952c8ea4cc0c2528ecb4f87053c6f5f977147a8d86f50655db59e894a56"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentLockQueryContractTest.java",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentLockQueryContractTest.java",
+      "rawSha256": "6dad6c45cf2c329e1152e02feb414064746b7a880ccaa64606eb5b75d064b9cb",
+      "sharedSha256": "6dad6c45cf2c329e1152e02feb414064746b7a880ccaa64606eb5b75d064b9cb"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentTrustSecurityChainTest.java",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentTrustSecurityChainTest.java",
+      "rawSha256": "8d3597f9517c6964578c5a5e3d11475e4cc5905e07c3617878894fecb9f66989",
+      "sharedSha256": "8d3597f9517c6964578c5a5e3d11475e4cc5905e07c3617878894fecb9f66989"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentTrustServiceTest.java",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentTrustServiceTest.java",
+      "rawSha256": "1b230174ce89f4ffcf8a8109be8aa972fe78339e1db4e554668ff6aab1338d4c",
+      "sharedSha256": "1b230174ce89f4ffcf8a8109be8aa972fe78339e1db4e554668ff6aab1338d4c"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentVerificationConfigurationTest.java",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentVerificationConfigurationTest.java",
+      "rawSha256": "1a32bd7c3dd840a920a204dadfec9aa33c97ec374c78e7d1a78564f6c9d3f9ab",
+      "sharedSha256": "1a32bd7c3dd840a920a204dadfec9aa33c97ec374c78e7d1a78564f6c9d3f9ab"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentVerificationGateTest.java",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentVerificationGateTest.java",
+      "rawSha256": "6c4e3695d9015dfd4feda62df02969f37419089a1a18e084f5a04cd80304a85e",
+      "sharedSha256": "6c4e3695d9015dfd4feda62df02969f37419089a1a18e084f5a04cd80304a85e"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/repository/PointHistoryRepositoryBatchTest.java",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/repository/PointHistoryRepositoryBatchTest.java",
+      "rawSha256": "7750f93e285dadd853ab7600e018427b54c2d6b3057c1a64d94737ca72a06ca9",
+      "sharedSha256": "7750f93e285dadd853ab7600e018427b54c2d6b3057c1a64d94737ca72a06ca9"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/service/PointHistoryBehaviorTest.java",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/service/PointHistoryBehaviorTest.java",
+      "rawSha256": "0736e04f0021255739977bf132ef1daaf8b16b7a499b4c00446612b1029e1594",
+      "sharedSha256": "0736e04f0021255739977bf132ef1daaf8b16b7a499b4c00446612b1029e1594"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/service/PointHistoryPolicyTest.java",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final-source/NGNG-backend/src/test/java/com/ngng/api/user/point/service/PointHistoryPolicyTest.java",
+      "rawSha256": "fa0feb19693d5b82dd3cf2043fd3c9dc335624a37b6cf540576eaf14c09a1231",
+      "sharedSha256": "fa0feb19693d5b82dd3cf2043fd3c9dc335624a37b6cf540576eaf14c09a1231"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final-source/NGNG-frontend/src/app/my_page/_api/api.ts",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final-source/NGNG-frontend/src/app/my_page/_api/api.ts",
+      "rawSha256": "d862050124a09de6ae29702bb6ace67d76fb6e757b8489ee95d74815930a84d2",
+      "sharedSha256": "d862050124a09de6ae29702bb6ace67d76fb6e757b8489ee95d74815930a84d2"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final-source/NGNG-frontend/src/app/my_page/_compoenets/BuyHistory.tsx",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final-source/NGNG-frontend/src/app/my_page/_compoenets/BuyHistory.tsx",
+      "rawSha256": "cad8c521f7d0d7a20b083ec7bf5ab4c2be1675f3f3c7a38d2f64cd38bad761e6",
+      "sharedSha256": "cad8c521f7d0d7a20b083ec7bf5ab4c2be1675f3f3c7a38d2f64cd38bad761e6"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final-source/NGNG-frontend/src/app/my_page/_compoenets/modal/BuyProductDetails.tsx",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final-source/NGNG-frontend/src/app/my_page/_compoenets/modal/BuyProductDetails.tsx",
+      "rawSha256": "975991e1260877a900e0d8870508a298bdbeb154431585a0b9ddceb2b2c3e72e",
+      "sharedSha256": "975991e1260877a900e0d8870508a298bdbeb154431585a0b9ddceb2b2c3e72e"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final-source/NGNG-frontend/src/app/my_page/_hooks/useMypageSWR.ts",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final-source/NGNG-frontend/src/app/my_page/_hooks/useMypageSWR.ts",
+      "rawSha256": "7435915836f4b1565a89c35ab32606ac2d2691303d68d84564f8ba5d1a4498bd",
+      "sharedSha256": "7435915836f4b1565a89c35ab32606ac2d2691303d68d84564f8ba5d1a4498bd"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/final-source/NGNG-frontend/tests/rf035-payment-trust.test.cjs",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/final-source/NGNG-frontend/tests/rf035-payment-trust.test.cjs",
+      "rawSha256": "4d1db13c24ea167dd7677aee54f05df98bd6f4398292141b648e93cf89a572a5",
+      "sharedSha256": "4d1db13c24ea167dd7677aee54f05df98bd6f4398292141b648e93cf89a572a5"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/frontend-after/console.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/frontend-after/console.txt",
+      "rawSha256": "cfc9e14e7f95835fab0ab4dc5fdfe4c0a8efcba4b960055b479231bbbcfc641b",
+      "sharedSha256": "cfc9e14e7f95835fab0ab4dc5fdfe4c0a8efcba4b960055b479231bbbcfc641b"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/frontend-after/exit-code.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/frontend-after/exit-code.txt",
+      "rawSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "sharedSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/frontend-final/console.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/frontend-final/console.txt",
+      "rawSha256": "fd2484873de815fe34940a77401fab919ef381a7a475727727479d4ab2c84a05",
+      "sharedSha256": "fd2484873de815fe34940a77401fab919ef381a7a475727727479d4ab2c84a05"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/frontend-final/exit-code.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/frontend-final/exit-code.txt",
+      "rawSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "sharedSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/frontend-final/lint-exit.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/frontend-final/lint-exit.txt",
+      "rawSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "sharedSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/frontend-final/lint.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/frontend-final/lint.txt",
+      "rawSha256": "e81e0e01a53dac58f902e4f7dba432d1815decc5ecb8e3467f94383765eef1a1",
+      "sharedSha256": "e81e0e01a53dac58f902e4f7dba432d1815decc5ecb8e3467f94383765eef1a1"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/frontend-final/tsc-exit.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/frontend-final/tsc-exit.txt",
+      "rawSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "sharedSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/frontend-final/tsc.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/frontend-final/tsc.txt",
+      "rawSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sharedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/frontend-final-reviewed/console.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/frontend-final-reviewed/console.txt",
+      "rawSha256": "72ba6a5b77362c75038407ad56227706d3b7e1c64df41df2d0c0302091588ff0",
+      "sharedSha256": "72ba6a5b77362c75038407ad56227706d3b7e1c64df41df2d0c0302091588ff0"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/frontend-final-reviewed/exit-code.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/frontend-final-reviewed/exit-code.txt",
+      "rawSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "sharedSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/frontend-final-reviewed/lint-exit.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/frontend-final-reviewed/lint-exit.txt",
+      "rawSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "sharedSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/frontend-final-reviewed/lint.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/frontend-final-reviewed/lint.txt",
+      "rawSha256": "e81e0e01a53dac58f902e4f7dba432d1815decc5ecb8e3467f94383765eef1a1",
+      "sharedSha256": "e81e0e01a53dac58f902e4f7dba432d1815decc5ecb8e3467f94383765eef1a1"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/frontend-final-reviewed/tsc-exit.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/frontend-final-reviewed/tsc-exit.txt",
+      "rawSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "sharedSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/frontend-final-reviewed/tsc.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/frontend-final-reviewed/tsc.txt",
+      "rawSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sharedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/frontend-initial/console.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/frontend-initial/console.txt",
+      "rawSha256": "f8b3e69701fb473ca4d0a877da1a14f281cfea0a1247a960b5ebeb807787866d",
+      "sharedSha256": "8efacec0ab2e2acdf850557f96378b281e4995e4d1fed52b472f477c0809d64a"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/frontend-initial/exit-code.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/frontend-initial/exit-code.txt",
+      "rawSha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04",
+      "sharedSha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/frontend-review-final/console.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/frontend-review-final/console.txt",
+      "rawSha256": "40a6a541b12e48d976fd5238062695bf11403137ed637b80516255521d1f9c7b",
+      "sharedSha256": "40a6a541b12e48d976fd5238062695bf11403137ed637b80516255521d1f9c7b"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/frontend-review-final/exit-code.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/frontend-review-final/exit-code.txt",
+      "rawSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "sharedSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/frontend-review-final/lint-exit.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/frontend-review-final/lint-exit.txt",
+      "rawSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "sharedSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/frontend-review-final/lint.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/frontend-review-final/lint.txt",
+      "rawSha256": "e81e0e01a53dac58f902e4f7dba432d1815decc5ecb8e3467f94383765eef1a1",
+      "sharedSha256": "e81e0e01a53dac58f902e4f7dba432d1815decc5ecb8e3467f94383765eef1a1"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/frontend-review-final/tsc-exit.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/frontend-review-final/tsc-exit.txt",
+      "rawSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "sharedSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/frontend-review-final/tsc.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/frontend-review-final/tsc.txt",
+      "rawSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sharedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/initial/console.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/initial/console.txt",
+      "rawSha256": "e4f63f48898e2dc948e70dc5b3d310d2c5cd244c9ec8adfa25e4a13b1b4ea9bb",
+      "sharedSha256": "a87066372178bccfa6fbbc245bcaa79847e5712f3b66b898673b37db0f239764"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/initial/exit-code.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/initial/exit-code.txt",
+      "rawSha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04",
+      "sharedSha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/initial-compile/console.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/initial-compile/console.txt",
+      "rawSha256": "4e49a580199c9e50f3205b21fb88fb22a0ecce197c8b8e2fda8aa12a406902ac",
+      "sharedSha256": "0e87d829a41d19aa5d3586e980327410865693da1841ba9e49adc97a2a172de1"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/initial-compile/exit-code.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/initial-compile/exit-code.txt",
+      "rawSha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04",
+      "sharedSha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/joint-chain/console.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/joint-chain/console.txt",
+      "rawSha256": "339bbf2b8d5db8112290ad3ef8329ea4bc7c56683f8c49eddc27f31f624c47fc",
+      "sharedSha256": "e3c074501123efdecd0561d6b9aa3ee5f65e5f7bdddb25deef8dd93be8fe39f6"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/joint-chain/exit-code.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/joint-chain/exit-code.txt",
+      "rawSha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04",
+      "sharedSha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/joint-chain-final/console.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/joint-chain-final/console.txt",
+      "rawSha256": "9a587ce7dc5ae2fb9dc12648e6d022ffcb797589948024f7bbe7b1129689a419",
+      "sharedSha256": "9a587ce7dc5ae2fb9dc12648e6d022ffcb797589948024f7bbe7b1129689a419"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/joint-chain-final/exit-code.txt",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/joint-chain-final/exit-code.txt",
+      "rawSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "sharedSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/joint-chain-final/xml/binary/output.bin",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/joint-chain-final/xml/binary/output.bin",
+      "rawSha256": "f9a88522c34044c962f14c8fe44f411d8a3a42b7404d94708c3500bd6f81cde6",
+      "sharedSha256": "f12838103e1cd606a15b4456ada73bef2527f3bb52f34cb5371bcb85a3e4c18b"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/joint-chain-final/xml/binary/output.bin.idx",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/joint-chain-final/xml/binary/output.bin.idx",
+      "rawSha256": "a7a5916dd9b393a2eda9cf931ca3644c6db6a8cb830d2104c9684710c529dde5",
+      "sharedSha256": "e7731fa2231de2232988eff67eca0a86f0e8794ffac3af5a120a98cb8048d8dc"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/joint-chain-final/xml/binary/results.bin",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/joint-chain-final/xml/binary/results.bin",
+      "rawSha256": "6371448186425b64bc418ae4c8d6dba5db7a0113a38c13c6fb6ad6ec54d8e351",
+      "sharedSha256": "695669c27dc641b92c25b71b119e3b1997715efdc3d615a3c6bbfd26876df1bd"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/joint-chain-final/xml/TEST-com.ngng.api.user.point.payment.PaymentAndStatusChainTest.xml",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/joint-chain-final/xml/TEST-com.ngng.api.user.point.payment.PaymentAndStatusChainTest.xml",
+      "rawSha256": "c625b9e95075ff3026415df6824c30fd04aa977651012637b4468ed38f553a90",
+      "sharedSha256": "3bc2b1c5d86dae18d359c03f7e0c1afe57c0f92a80ba685e924e70383ea6c93a"
+    },
+    {
+      "raw": ".local-runtime/rf037-results/joint-chain-source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentAndStatusChainTest.java",
+      "shared": "docs/refactoring/evidence/RF-037/implementation/joint-chain-source/NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentAndStatusChainTest.java",
+      "rawSha256": "1c2fb3a78346ea4dbabc3e12648d644f64a309f97a39de169a3c99f5684b699f",
+      "sharedSha256": "1c2fb3a78346ea4dbabc3e12648d644f64a309f97a39de169a3c99f5684b699f"
+    }
+  ],
+  "excluded": [
+    {
+      "path": ".local-runtime/rf037-results/initial/preexisting-stale-xml-not-this-run",
+      "reason": "Previous build XML copied after wrapper/compile failure; zero tests executed in that failed run."
+    },
+    {
+      "path": ".local-runtime/rf037-results/initial-compile/preexisting-stale-xml-not-this-run",
+      "reason": "Previous build XML copied after wrapper/compile failure; zero tests executed in that failed run."
+    },
+    {
+      "path": ".local-runtime/rf037-results/joint-chain/preexisting-stale-xml-not-this-run",
+      "reason": "Previous build XML copied after wrapper/compile failure; zero tests executed in that failed run."
+    }
+  ],
+  "finalTests": {
+    "totals": {
+      "tests": 942,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "classes": [
+      {
+        "file": "TEST-com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest.xml",
+        "tests": 60,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "TEST-com.ngng.api.transaction.authorization.TransactionRequestAuthorizationServiceTest.xml",
+        "tests": 23,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "TEST-com.ngng.api.transaction.read.TransactionReadOwnershipTest.xml",
+        "tests": 40,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "TEST-com.ngng.api.transaction.read.TransactionReadSecurityChainTest.xml",
+        "tests": 33,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "TEST-com.ngng.api.transaction.service.TransactionAcceptancePolicyTest.xml",
+        "tests": 28,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "TEST-com.ngng.api.transaction.service.TransactionCreationContractTest.xml",
+        "tests": 15,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "TEST-com.ngng.api.transaction.status.TransactionStatusLockQueryTest.xml",
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "TEST-com.ngng.api.transaction.status.TransactionStatusOwnershipTest.xml",
+        "tests": 192,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "TEST-com.ngng.api.transaction.status.TransactionStatusSecurityChainTest.xml",
+        "tests": 160,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "TEST-com.ngng.api.user.point.controller.PointControllerContractTest.xml",
+        "tests": 28,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "TEST-com.ngng.api.user.point.controller.PointResponseSecurityChainTest.xml",
+        "tests": 24,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "TEST-com.ngng.api.user.point.payment.PaymentAtomicityTest.xml",
+        "tests": 28,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "TEST-com.ngng.api.user.point.payment.PaymentLockQueryContractTest.xml",
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "TEST-com.ngng.api.user.point.payment.PaymentTrustSecurityChainTest.xml",
+        "tests": 51,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "TEST-com.ngng.api.user.point.payment.PaymentTrustServiceTest.xml",
+        "tests": 42,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "TEST-com.ngng.api.user.point.payment.PaymentVerificationConfigurationTest.xml",
+        "tests": 15,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "TEST-com.ngng.api.user.point.payment.PaymentVerificationGateTest.xml",
+        "tests": 163,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "TEST-com.ngng.api.user.point.repository.PointHistoryRepositoryBatchTest.xml",
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "TEST-com.ngng.api.user.point.service.PointHistoryBehaviorTest.xml",
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "TEST-com.ngng.api.user.point.service.PointHistoryPolicyTest.xml",
+        "tests": 27,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    ]
+  },
+  "frontendFinal": {
+    "tests": 37,
+    "failures": 0,
+    "skipped": 0,
+    "phase": "frontend-review-final",
+    "typescriptExit": 0,
+    "lintExit": 0
+  },
+  "scope": "Synthetic manifest, mocks, actual MVC/security chain and transaction advice; no JDBC, physical locks, DB atomicity or operational approval. First 30 snapshots were captured after backend942/frontend37 while frozen. The additional joint-chain test was captured after its separate6 execution; all production/previous test snapshots stayed identical. Snapshots are selected sources captured after successful execution while frozen, not a whole worktree snapshot. Failed phases lack exact full source snapshots."
+}

@@ -1,0 +1,9 @@
+gradle.projectsEvaluated {
+    rootProject {
+        layout.buildDirectory = file('../.local-runtime/rf036-build')
+        sourceSets.test.java.setIncludes([
+            '**/PaymentVerificationGateTest.java',
+            '**/PaymentVerificationConfigurationTest.java'
+        ])
+    }
+}

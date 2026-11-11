@@ -1,0 +1,34 @@
+{
+  "basis": "Byte-for-byte equality, except the single explicitly reviewed fromFile Javadoc replacement.",
+  "testsRerun": false,
+  "files": [
+    {
+      "file": "NGNG-backend/src/main/java/com/ngng/api/user/point/payment/PaymentVerificationGate.java",
+      "executedSha256": "ffa1370c3466f7a3dfa6d060e43510abe4eb9e641f19d038c538c655dbd45aab",
+      "currentSha256": "a3df2ba5b3983331ef2b4859e84d64ccceeadf12d5f432bc12796df1c9b34ab4",
+      "unchanged": false,
+      "exactJavadocReplacementOnly": true
+    },
+    {
+      "file": "NGNG-backend/src/main/java/com/ngng/api/user/point/payment/PaymentVerificationConfiguration.java",
+      "executedSha256": "d45a2f841c62a6f96231b8e93f7363a68971359ce6a0f6a300aa398367b485c2",
+      "currentSha256": "d45a2f841c62a6f96231b8e93f7363a68971359ce6a0f6a300aa398367b485c2",
+      "unchanged": true,
+      "exactJavadocReplacementOnly": false
+    },
+    {
+      "file": "NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentVerificationGateTest.java",
+      "executedSha256": "6c4e3695d9015dfd4feda62df02969f37419089a1a18e084f5a04cd80304a85e",
+      "currentSha256": "6c4e3695d9015dfd4feda62df02969f37419089a1a18e084f5a04cd80304a85e",
+      "unchanged": true,
+      "exactJavadocReplacementOnly": false
+    },
+    {
+      "file": "NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentVerificationConfigurationTest.java",
+      "executedSha256": "1a32bd7c3dd840a920a204dadfec9aa33c97ec374c78e7d1a78564f6c9d3f9ab",
+      "currentSha256": "1a32bd7c3dd840a920a204dadfec9aa33c97ec374c78e7d1a78564f6c9d3f9ab",
+      "unchanged": true,
+      "exactJavadocReplacementOnly": false
+    }
+  ]
+}

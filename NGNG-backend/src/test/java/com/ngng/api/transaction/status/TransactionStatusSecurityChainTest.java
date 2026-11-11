@@ -1,177 +1,141 @@
 package com.ngng.api.transaction.status;
 
-import com.ngng.api.global.security.config.SecurityConfig;
-import com.ngng.api.global.security.handler.CustomLogoutHandler;
-import com.ngng.api.global.security.handler.CustomLogoutSuccessHandler;
-import com.ngng.api.global.security.jwt.util.JwtTokenProvider;
-import com.ngng.api.global.security.jwt.util.JwtTokenVerifier;
-import com.ngng.api.product.product.repository.ProductRepository;
-import com.ngng.api.transaction.controller.TransactionController;
-import com.ngng.api.transaction.entity.TransactionDetails;
 import com.ngng.api.transaction.entity.TransactionStatus;
 import com.ngng.api.transaction.repository.TransactionDetailsRepository;
-import com.ngng.api.transaction.repository.TransactionStatusRepository;
-import com.ngng.api.transaction.service.TransactionDetailsService;
-import com.ngng.api.transaction.service.TransactionRequestService;
-import com.ngng.api.user.user.entity.User;
-import com.ngng.api.user.user.repository.UserRepository;
-import com.ngng.api.user.user.service.AuthService;
+import com.ngng.api.product.product.repository.ProductRepository;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
-import io.jsonwebtoken.io.Encoders;
 import io.jsonwebtoken.security.Keys;
-import jakarta.servlet.http.Cookie;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.ValueSource;
-import org.springframework.context.annotation.*;
-import org.springframework.mock.web.MockServletContext;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.test.util.ReflectionTestUtils;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import java.nio.charset.StandardCharsets;
-import java.util.Date;
-import java.util.Optional;
-import static com.ngng.api.transaction.status.StatusFixture.*;
+import org.junit.jupiter.params.provider.*;
+import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
+import java.util.*;
+import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
-import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-/** Actual SecurityConfig/filter/JWT/controller/service/AuthService, with repository mocks only.
- * No Boot scan, application properties, datasource, network client, or transaction manager. */
-class TransactionStatusSecurityChainTest {
-    static final String SECRET = Encoders.BASE64URL.encode(
-            "rf006-synthetic-key-only-64-bytes-abcdefghijklmnopqrstuvwxyz-123456".getBytes(StandardCharsets.UTF_8));
-    static final String EMAIL = "rf006@example.test";
-    static AnnotationConfigWebApplicationContext context;
-    static MockMvc mvc;
-    TransactionDetailsRepository details;
-    TransactionStatusRepository statuses;
-    UserRepository users;
-    TransactionDetails transaction;
-    TransactionStatus next;
-    @BeforeAll static void start() {
-        context = new AnnotationConfigWebApplicationContext();
-        context.getEnvironment().getPropertySources().addFirst(new org.springframework.core.env.MapPropertySource(
-                "rf006-test-only", java.util.Map.of("jwt.expiration.access", "3600000", "jwt.expiration.refresh", "7200000")));
-        context.setServletContext(new MockServletContext());
-        context.register(IsolatedConfiguration.class);
-        context.refresh();
-        mvc = MockMvcBuilders.webAppContextSetup(context).apply(springSecurity()).build();
-    }
-    @AfterAll static void stop() { context.close(); }
-    @BeforeEach void setup() {
-        SecurityContextHolder.clearContext();
-        details = context.getBean(TransactionDetailsRepository.class);
-        statuses = context.getBean(TransactionStatusRepository.class);
-        users = context.getBean(UserRepository.class);
-        reset(details, statuses, users);
-        transaction = graph(distinctId(1000), distinctId(2000));
-        next = new TransactionStatus(4L, "completed");
+/** Real SecurityConfig/filter/JWT/AuthService/controller/service, mocked repositories. */
+class TransactionStatusSecurityChainTest extends StatusChainHarness {
+    TransactionDetailsRepository.StatusTransaction current;
+    @BeforeEach void currentState() { state(2L); }
+    void state(Long from) {
+        transaction = spy(Rf038Fixture.graph(from));
         when(details.findById(88L)).thenReturn(Optional.of(transaction));
-        when(statuses.findById(4L)).thenReturn(Optional.of(next));
-    }
-    @AfterEach void contextCleared() { assertNull(SecurityContextHolder.getContext().getAuthentication()); }
-    void caller(long id) {
-        User caller = user(distinctId(id));
-        when(users.findUserByEmail(EMAIL)).thenAnswer(invocation -> {
-            // Token principal carries no ID: AuthService must resolve by the token email.
-            var principal = (com.ngng.api.global.security.custom.CustomUserDetails)
-                    SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            assertNull(principal.getUser().getUserId());
-            return Optional.of(caller);
+        current = mock(TransactionDetailsRepository.StatusTransaction.class);
+        when(current.getTransactionId()).thenReturn(88L); when(current.getProductId()).thenReturn(7L);
+        when(current.getConsumerId()).thenReturn(2000L); when(current.getSellerId()).thenReturn(1000L);
+        when(current.getStatusId()).thenReturn(from); when(current.getPrice()).thenReturn(300L);
+        when(current.getAddress()).thenReturn("synthetic-address");
+        when(details.findStatusProductId(88L)).thenReturn(Optional.of(7L));
+        when(details.lockStatusTransaction(88L)).thenReturn(Optional.of(current));
+        var product = mock(ProductRepository.TransactionProduct.class); when(product.getProductId()).thenReturn(7L);
+        when(products.lockTransactionProduct(7L)).thenReturn(Optional.of(product));
+        when(statuses.findById(any())).thenAnswer(call -> {
+            Long id = call.getArgument(0);
+            return id == null || id == 99L ? Optional.empty() : Optional.of(new TransactionStatus(id, "synthetic-status-" + id));
         });
-        if (id == 1000) separateEqual(transaction.getProduct().getUser().getUserId(), caller.getUserId());
-        if (id == 2000) separateEqual(transaction.getConsumer().getUserId(), caller.getUserId());
     }
-    static String token(String type, String role, long seconds) {
-        return Jwts.builder().setSubject(EMAIL).claim("role", role).claim("type", type)
-                .setExpiration(new Date(System.currentTimeMillis() + seconds * 1000))
-                .signWith(Keys.hmacShaKeyFor(Decoders.BASE64URL.decode(SECRET))).compact();
+    MockHttpServletRequestBuilder update(Long target) {
+        return put("/transaction/88").contentType("application/json").content("{\"statusId\":" + target + "}");
     }
-    org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder update() {
-        return put("/transaction/88").contentType("application/json").content("{\"statusId\":4}");
+    static Stream<Arguments> rolesAndTransitions() {
+        long[][] cases = {{1,2}, {2,3}, {3,4}, {4,5}, {5,1}, {6,1}, {7,5}, {8,6}, {8,7}, {6,7}, {7,6}, {2,2}};
+        return Stream.of("USER","ADMIN","UNCONFIRMED_USER").flatMap(role -> Arrays.stream(cases)
+                .flatMap(pair -> Stream.of(1000L,2000L,3000L,4000L).map(actor -> Arguments.of(role,pair[0],pair[1],actor))));
     }
-    @ParameterizedTest @CsvSource({
-            "USER,1000", "USER,2000", "USER,4000", "ADMIN,1000", "ADMIN,2000", "ADMIN,4000",
-            "UNCONFIRMED_USER,1000", "UNCONFIRMED_USER,2000", "UNCONFIRMED_USER,4000"})
-    void roleAndOwnershipMatrixUsesIdValuesWithoutAdminOverride(String role, long id) throws Exception {
-        caller(id);
-        var result = mvc.perform(update().header("Authorization", "Bearer " + token("access", role, 3600)));
-        if (id == 4000) {
-            result.andExpect(status().isUnauthorized());
-            verifyNoInteractions(statuses);
-            assertEquals(1L, transaction.getStatus().getId());
-        } else {
-            result.andExpect(status().isOk()).andExpect(jsonPath("$.id").value(88))
-                    .andExpect(jsonPath("$.status.id").value(4)).andExpect(jsonPath("$.price").value(300))
-                    .andExpect(jsonPath("$.seller.name").value("user-3000"));
-            verify(statuses).findById(4L);
-            assertSame(next, transaction.getStatus());
+    @ParameterizedTest @MethodSource("rolesAndTransitions")
+    void actualChainEnforcesRecordedPartiesAndNormalExceptionalMatrix(String role, Long from, Long to, Long actor) throws Exception {
+        state(from); caller(actor);
+        boolean party = actor == 1000 || actor == 2000;
+        boolean same = from.equals(to);
+        boolean exceptional = to == 6 || to == 7;
+        boolean sellerAction = (from == 2 && to == 3) || (from == 3 && to == 4);
+        boolean buyerAction = from == 4 && to == 5;
+        int expected = !party ? 401 : same || exceptional ? 200 : sellerAction ? (actor == 1000 ? 200 : 403)
+                : buyerAction ? (actor == 2000 ? 200 : 403) : 409;
+        var result = mvc.perform(update(to).header("Authorization", "Bearer " + token("access",role,60)))
+                .andExpect(status().is(expected));
+        if (expected == 200) {
+            result.andExpect(jsonPath("$.id").value(88)).andExpect(jsonPath("$.status.id").value(to))
+                    .andExpect(jsonPath("$.address").value("synthetic-address"))
+                    .andExpect(jsonPath("$.price").value(300)).andExpect(jsonPath("$.product.id").value(7))
+                    .andExpect(jsonPath("$.seller.name").value("synthetic-1000"))
+                    .andExpect(jsonPath("$.status.status").value("synthetic-status-" + to))
+                    .andExpect(jsonPath("$.product.title").value("synthetic-product"))
+                    .andExpect(jsonPath("$.consumer.phoneNumber").value("000-0000-0000"));
         }
-        verify(users).findUserByEmail(EMAIL);
-        verify(details).findById(88L);
+        verify(transaction,times(expected == 200 && !same ? 1 : 0)).setStatus(any());
         verify(details, never()).save(any());
     }
-    @ParameterizedTest @ValueSource(strings = {"missing", "malformed"})
-    void authenticationFailureNeverReachesRepositories(String credentials) throws Exception {
-        var request = update();
-        if (credentials.equals("malformed")) request.header("Authorization", "Bearer broken");
-        mvc.perform(request).andExpect(status().isUnauthorized()).andExpect(content().string(""))
-                .andExpect(header().doesNotExist("Authorization"));
-        verifyNoInteractions(details, users, statuses);
+    @ParameterizedTest @ValueSource(strings = {"missing", "malformed", "wrongType", "expired"})
+    void invalidTokenNeverReachesServiceRepositories(String scenario) throws Exception {
+        var request = update(3L);
+        switch(scenario) {
+            case "malformed" -> request.header("Authorization","Bearer broken");
+            case "wrongType" -> request.header("Authorization","Bearer " + token("refresh","USER",60));
+            case "expired" -> request.header("Authorization","Bearer " + token("access","USER",-60));
+        }
+        mvc.perform(request).andExpect(status().isUnauthorized()).andExpect(content().string(""));
+        verifyNoInteractions(details, products, statuses, users);
     }
     @ParameterizedTest @ValueSource(strings = {"missing", "expired"})
-    void refreshFallbackUpdatesStatusThroughActualEndpoint(String access) throws Exception {
-        caller(2000);
-        var request = update().cookie(new Cookie("refreshToken", token("refresh", "USER", 3600)));
-        if (access.equals("expired")) request.header("Authorization", "Bearer " + token("access", "USER", -3600));
-        var result = mvc.perform(request).andExpect(status().isOk()).andExpect(jsonPath("$.status.id").value(4))
-                .andExpect(header().string("Authorization", org.hamcrest.Matchers.startsWith("Bearer "))).andReturn();
-        String issued = result.getResponse().getHeader("Authorization");
-        var verifier = context.getBean(JwtTokenVerifier.class);
-        assertEquals(EMAIL, verifier.getEmail(issued));
-        assertEquals("access", verifier.getType(issued));
-        verify(users).findUserByEmail(EMAIL);
-        verify(statuses).findById(4L);
-        assertSame(next, transaction.getStatus());
+    void refreshFallbackAndHeaderRetainedForAuthorizedSeller(String scenario) throws Exception {
+        caller(1000L);
+        var request = update(3L).cookie(new jakarta.servlet.http.Cookie("refreshToken",token("refresh","USER",60)));
+        if (scenario.equals("expired")) request.header("Authorization","Bearer " + token("access","USER",-60));
+        mvc.perform(request).andExpect(status().isOk()).andExpect(jsonPath("$.status.id").value(3))
+                .andExpect(header().string("Authorization",org.hamcrest.Matchers.startsWith("Bearer ")));
     }
-    @Configuration @EnableWebMvc @EnableWebSecurity @Import(SecurityConfig.class)
-    static class IsolatedConfiguration {
-        @Bean @Primary AuthenticationConfiguration authenticationConfiguration() throws Exception {
-            var config = mock(AuthenticationConfiguration.class);
-            when(config.getAuthenticationManager()).thenReturn(mock(AuthenticationManager.class));
-            return config;
+    @ParameterizedTest @ValueSource(strings = {"{", "{\"statusId\":\"invalid\"}"})
+    void malformedBodyRetains400BeforeService(String body) throws Exception {
+        mvc.perform(put("/transaction/88").header("Authorization","Bearer " + token("access","USER",60))
+                .contentType("application/json").content(body)).andExpect(status().isBadRequest());
+        verifyNoInteractions(details, products, statuses, users);
+    }
+    @Test void malformedPathRetains400BeforeService() throws Exception {
+        mvc.perform(put("/transaction/invalid").header("Authorization","Bearer " + token("access","USER",60))
+                .contentType("application/json").content("{\"statusId\":3}")).andExpect(status().isBadRequest());
+        verifyNoInteractions(details, products, statuses, users);
+    }
+    @ParameterizedTest @ValueSource(strings = {"seller", "consumer", "status"})
+    void incompletePersistedPartiesOrStatusAre409WithoutWrites(String field) throws Exception {
+        caller(2000L);
+        switch(field) {
+            case "seller" -> when(current.getSellerId()).thenReturn(null);
+            case "consumer" -> when(current.getConsumerId()).thenReturn(null);
+            case "status" -> when(current.getStatusId()).thenReturn(null);
         }
-        @Bean JwtTokenVerifier verifier() { return new JwtTokenVerifier(SECRET); }
-        @Bean JwtTokenProvider provider() {
-            var provider = new JwtTokenProvider(SECRET);
-            ReflectionTestUtils.setField(provider, "accessTokenExpirationMs", 3_600_000);
-            return provider;
-        }
-        @Bean CustomLogoutHandler logoutHandler() { return new CustomLogoutHandler(); }
-        @Bean CustomLogoutSuccessHandler logoutSuccessHandler() { return new CustomLogoutSuccessHandler(); }
-        @Bean TransactionDetailsRepository details() { return mock(TransactionDetailsRepository.class); }
-        @Bean TransactionStatusRepository statuses() { return mock(TransactionStatusRepository.class); }
-        @Bean ProductRepository products() { return mock(ProductRepository.class); }
-        @Bean UserRepository users() { return mock(UserRepository.class); }
-        @Bean AuthService authService(UserRepository users) { return new AuthService(users); }
-        @Bean TransactionDetailsService service(TransactionDetailsRepository details, TransactionStatusRepository statuses,
-                                               ProductRepository products, AuthService auth) {
-            return new TransactionDetailsService(details, statuses, products, auth);
-        }
-        @Bean TransactionRequestService requests() { return mock(TransactionRequestService.class); }
-        @Bean TransactionController controller(TransactionDetailsService service, TransactionRequestService requests) {
-            return new TransactionController(service, requests);
-        }
+        mvc.perform(update(6L).header("Authorization","Bearer " + token("access","USER",60))).andExpect(status().isConflict());
+        verify(transaction,never()).setStatus(any()); verify(details,never()).findById(any());
+    }
+    @Test void staleManagedStateIs409AndNeverLeaksDto() throws Exception {
+        caller(1000L); transaction.setStatus(new TransactionStatus(1L)); clearInvocations(transaction);
+        mvc.perform(update(3L).header("Authorization","Bearer " + token("access","USER",60)))
+                .andExpect(status().isConflict()).andExpect(content().string(""));
+        verify(transaction,never()).setStatus(any());
+    }
+    @Test void legacySamePaidPutIsReadOnlyAndNotPaymentProof() throws Exception {
+        caller(1000L);
+        var before = transaction.getStatus(); var updatedAt = transaction.getUpdatedAt();
+        mvc.perform(update(2L).header("Authorization","Bearer " + token("access","USER",60)))
+                .andExpect(status().isOk()).andExpect(jsonPath("$.status.id").value(2));
+        assertSame(before,transaction.getStatus()); assertEquals(updatedAt,transaction.getUpdatedAt());
+        verify(transaction,never()).setStatus(any()); verify(details,never()).save(any());
+    }
+    @Test void nullDatabaseUserNeverFallsBackToTokenPrincipal() throws Exception {
+        when(users.findUserByEmail(EMAIL)).thenReturn(Optional.empty());
+        mvc.perform(update(3L).header("Authorization","Bearer " + token("access","ADMIN",60)))
+                .andExpect(status().isUnauthorized());
+        verifyNoInteractions(details, products, statuses);
+    }
+    @Test void repositoryFailureIsPropagatedRatherThanConvertedToToken401() {
+        caller(1000L); var failure = new IllegalStateException("synthetic locking failure");
+        when(details.lockStatusTransaction(88L)).thenThrow(failure);
+        var error = assertThrows(jakarta.servlet.ServletException.class,
+                () -> mvc.perform(update(3L).header("Authorization","Bearer " + token("access","USER",60))));
+        assertSame(failure,error.getCause()); verify(transaction,never()).setStatus(any());
     }
 }

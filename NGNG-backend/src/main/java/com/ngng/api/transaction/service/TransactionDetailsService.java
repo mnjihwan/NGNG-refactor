@@ -137,45 +137,81 @@ public class TransactionDetailsService extends Exception {
         return transactionDetailsRepository.findAllByProductProductId(productId);
     }
 
-    @Transactional()
+    /** Supported entry: the controller's top-level RC write transaction, without a preloaded target.
+     * REQUIRED participation does not upgrade an arbitrary outer transaction or discard its managed state. */
+    @Transactional(isolation = Isolation.READ_COMMITTED)
     public ReadTransactionDetailsDTO updateTransactionStatus(Long transId, UpdateTransactionDetailsRequestDTO request){
-
-        TransactionDetails transactionDetails;
-        try{
-//            System.out.println(transId+"-"+request.getStatus().getId());
-//            int  ds = transactionDetailsRepository.updateTransactionStatus(transId,request.getStatus().getId());
-
-//            System.out.println(ds);
-
-
-            transactionDetails = transactionDetailsRepository.findById(transId).orElseThrow();
-
-            User user = authService.readAuthUser();
-
-            if(
-                !Objects.equals(transactionDetails.getProduct().getUser().getUserId(), user.getUserId()) &&
-                !Objects.equals(transactionDetails.getConsumer().getUserId(), user.getUserId())
-            ) throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,"소유권이 없는 유저 입니다.");
-
-//            TransactionStatus status = transactionStatusRepository.findById(request.getStatus().getId()).orElseThrow();
-            TransactionStatus status = transactionStatusRepository.findById(request.getStatusId()).orElseThrow();
-
-
-            transactionDetails.setStatus(status);
-
-            log.info("Success Update TransactionDetails id: {} Status :{} ",transactionDetails.getId(),status.getId());
-
-        } catch (ResponseStatusException e) {
-            System.out.println(e);
-
-            log.error("Faild Create TransactionDetails id: {} ",transId);
-            throw new ResponseStatusException(e.getStatusCode(),e.getMessage());
-//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"잘못된 쿼리 요청 입니다.");
+        User requester = readStatusRequester();
+        Long productId = transactionDetailsRepository.findStatusProductId(transId).orElseThrow();
+        ProductRepository.TransactionProduct product = productRepository.lockTransactionProduct(productId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.CONFLICT, "거래 상품 정보가 불완전합니다."));
+        if (!productId.equals(product.getProductId())) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "거래 상품 정보가 변경되었습니다.");
         }
-
-
-//        transactionDetailsRepository.save(transactionDetails);
-
+        TransactionDetailsRepository.StatusTransaction current = transactionDetailsRepository.lockStatusTransaction(transId).orElseThrow();
+        if (!Objects.equals(transId, current.getTransactionId()) || !productId.equals(current.getProductId())
+                || current.getSellerId() == null || current.getConsumerId() == null || current.getStatusId() == null) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "거래 정보가 불완전하거나 변경되었습니다.");
+        }
+        if (!requester.getUserId().equals(current.getSellerId()) && !requester.getUserId().equals(current.getConsumerId())) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "소유권이 없는 유저 입니다.");
+        }
+        TransactionStatus status = transactionStatusRepository.findById(request.getStatusId()).orElseThrow();
+        Long target = status.getId();
+        boolean sameStatus = current.getStatusId().equals(target) && target >= 1 && target <= 7;
+        if (!sameStatus) {
+            validateStatusTransition(current, target, requester.getUserId());
+        }
+        // First target entity read: fresh under the supported top-level RC boundary.
+        TransactionDetails transactionDetails = transactionDetailsRepository.findById(transId).orElseThrow();
+        requireCurrentEntity(transactionDetails, current);
+        if (!sameStatus) {
+            transactionDetails.setStatus(status);
+            log.info("Success Update TransactionDetails id: {} Status :{} ", transactionDetails.getId(), target);
+        }
         return new ReadTransactionDetailsDTO().from(transactionDetails);
+    }
+
+    private User readStatusRequester() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || !authentication.isAuthenticated()
+                || !(authentication.getPrincipal() instanceof CustomUserDetails principal)
+                || principal.getUser() == null || principal.getUser().getEmail() == null
+                || principal.getUser().getEmail().isBlank()) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "인증이 필요합니다.");
+        }
+        User requester = authService.readAuthUser();
+        if (requester == null || requester.getUserId() == null) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "인증이 필요합니다.");
+        }
+        return requester;
+    }
+
+    private void validateStatusTransition(TransactionDetailsRepository.StatusTransaction current, Long target, Long requesterId) {
+        if (Objects.equals(target, 6L) || Objects.equals(target, 7L)) return;
+        Long from = current.getStatusId();
+        Long actor;
+        if ((from == 2L && Objects.equals(target, 3L)) || (from == 3L && Objects.equals(target, 4L))) {
+            actor = current.getSellerId();
+        } else if (from == 4L && Objects.equals(target, 5L)) {
+            actor = current.getConsumerId();
+        } else {
+            // In particular, the first 1 -> 2 belongs exclusively to the atomic payment command.
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "허용되지 않은 거래 상태 전이입니다.");
+        }
+        if (!requesterId.equals(actor)) {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "해당 거래 상태를 변경할 권한이 없습니다.");
+        }
+    }
+
+    private void requireCurrentEntity(TransactionDetails details, TransactionDetailsRepository.StatusTransaction current) {
+        if (!Objects.equals(details.getId(), current.getTransactionId())
+                || details.getProduct() == null || !Objects.equals(details.getProduct().getProductId(), current.getProductId())
+                || details.getSeller() == null || !Objects.equals(details.getSeller().getUserId(), current.getSellerId())
+                || details.getConsumer() == null || !Objects.equals(details.getConsumer().getUserId(), current.getConsumerId())
+                || details.getStatus() == null || !Objects.equals(details.getStatus().getId(), current.getStatusId())
+                || !Objects.equals(details.getPrice(), current.getPrice()) || !Objects.equals(details.getAddress(), current.getAddress())) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "거래의 현재 정보와 조회 정보가 일치하지 않습니다.");
+        }
     }
 }

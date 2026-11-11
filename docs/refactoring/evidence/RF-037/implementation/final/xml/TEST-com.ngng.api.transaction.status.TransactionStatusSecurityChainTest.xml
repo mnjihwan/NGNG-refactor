@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" tests="160" skipped="0" failures="0" errors="0" timestamp="2026-11-11T00:55:35" hostname="[REDACTED]" time="0.827">
+  <properties/>
+  <testcase name="[1] field=seller" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.011"/>
+  <testcase name="[2] field=consumer" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="[3] field=status" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.007"/>
+  <testcase name="[1] scenario=missing" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.002"/>
+  <testcase name="[2] scenario=malformed" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.002"/>
+  <testcase name="[3] scenario=wrongType" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="[4] scenario=expired" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.006"/>
+  <testcase name="nullDatabaseUserNeverFallsBackToTokenPrincipal()" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[1] scenario=missing" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.01"/>
+  <testcase name="[2] scenario=expired" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.007"/>
+  <testcase name="[1] body={" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="[2] body={&quot;statusId&quot;:&quot;invalid&quot;}" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[1] role=USER, from=1, to=2, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.007"/>
+  <testcase name="[2] role=USER, from=1, to=2, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="[3] role=USER, from=1, to=2, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="[4] role=USER, from=1, to=2, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.007"/>
+  <testcase name="[5] role=USER, from=2, to=3, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.019"/>
+  <testcase name="[6] role=USER, from=2, to=3, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[7] role=USER, from=2, to=3, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[8] role=USER, from=2, to=3, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="[9] role=USER, from=3, to=4, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.007"/>
+  <testcase name="[10] role=USER, from=3, to=4, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.006"/>
+  <testcase name="[11] role=USER, from=3, to=4, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.007"/>
+  <testcase name="[12] role=USER, from=3, to=4, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="[13] role=USER, from=4, to=5, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.007"/>
+  <testcase name="[14] role=USER, from=4, to=5, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="[15] role=USER, from=4, to=5, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[16] role=USER, from=4, to=5, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.006"/>
+  <testcase name="[17] role=USER, from=5, to=1, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.007"/>
+  <testcase name="[18] role=USER, from=5, to=1, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="[19] role=USER, from=5, to=1, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[20] role=USER, from=5, to=1, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[21] role=USER, from=6, to=1, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[22] role=USER, from=6, to=1, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[23] role=USER, from=6, to=1, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="[24] role=USER, from=6, to=1, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.006"/>
+  <testcase name="[25] role=USER, from=7, to=5, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.006"/>
+  <testcase name="[26] role=USER, from=7, to=5, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="[27] role=USER, from=7, to=5, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.007"/>
+  <testcase name="[28] role=USER, from=7, to=5, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="[29] role=USER, from=8, to=6, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="[30] role=USER, from=8, to=6, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.007"/>
+  <testcase name="[31] role=USER, from=8, to=6, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[32] role=USER, from=8, to=6, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.006"/>
+  <testcase name="[33] role=USER, from=8, to=7, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.007"/>
+  <testcase name="[34] role=USER, from=8, to=7, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.009"/>
+  <testcase name="[35] role=USER, from=8, to=7, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="[36] role=USER, from=8, to=7, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="[37] role=USER, from=6, to=7, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.009"/>
+  <testcase name="[38] role=USER, from=6, to=7, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.014"/>
+  <testcase name="[39] role=USER, from=6, to=7, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[40] role=USER, from=6, to=7, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[41] role=USER, from=7, to=6, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.006"/>
+  <testcase name="[42] role=USER, from=7, to=6, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.006"/>
+  <testcase name="[43] role=USER, from=7, to=6, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[44] role=USER, from=7, to=6, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[45] role=USER, from=2, to=2, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="[46] role=USER, from=2, to=2, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.006"/>
+  <testcase name="[47] role=USER, from=2, to=2, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[48] role=USER, from=2, to=2, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[49] role=ADMIN, from=1, to=2, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[50] role=ADMIN, from=1, to=2, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[51] role=ADMIN, from=1, to=2, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="[52] role=ADMIN, from=1, to=2, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[53] role=ADMIN, from=2, to=3, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="[54] role=ADMIN, from=2, to=3, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[55] role=ADMIN, from=2, to=3, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[56] role=ADMIN, from=2, to=3, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.006"/>
+  <testcase name="[57] role=ADMIN, from=3, to=4, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.008"/>
+  <testcase name="[58] role=ADMIN, from=3, to=4, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="[59] role=ADMIN, from=3, to=4, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[60] role=ADMIN, from=3, to=4, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[61] role=ADMIN, from=4, to=5, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[62] role=ADMIN, from=4, to=5, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="[63] role=ADMIN, from=4, to=5, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[64] role=ADMIN, from=4, to=5, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[65] role=ADMIN, from=5, to=1, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[66] role=ADMIN, from=5, to=1, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[67] role=ADMIN, from=5, to=1, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[68] role=ADMIN, from=5, to=1, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[69] role=ADMIN, from=6, to=1, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[70] role=ADMIN, from=6, to=1, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="[71] role=ADMIN, from=6, to=1, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[72] role=ADMIN, from=6, to=1, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[73] role=ADMIN, from=7, to=5, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.006"/>
+  <testcase name="[74] role=ADMIN, from=7, to=5, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[75] role=ADMIN, from=7, to=5, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[76] role=ADMIN, from=7, to=5, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[77] role=ADMIN, from=8, to=6, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="[78] role=ADMIN, from=8, to=6, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.006"/>
+  <testcase name="[79] role=ADMIN, from=8, to=6, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[80] role=ADMIN, from=8, to=6, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[81] role=ADMIN, from=8, to=7, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="[82] role=ADMIN, from=8, to=7, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.006"/>
+  <testcase name="[83] role=ADMIN, from=8, to=7, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[84] role=ADMIN, from=8, to=7, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[85] role=ADMIN, from=6, to=7, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="[86] role=ADMIN, from=6, to=7, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.006"/>
+  <testcase name="[87] role=ADMIN, from=6, to=7, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[88] role=ADMIN, from=6, to=7, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[89] role=ADMIN, from=7, to=6, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.006"/>
+  <testcase name="[90] role=ADMIN, from=7, to=6, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[91] role=ADMIN, from=7, to=6, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[92] role=ADMIN, from=7, to=6, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[93] role=ADMIN, from=2, to=2, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[94] role=ADMIN, from=2, to=2, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[95] role=ADMIN, from=2, to=2, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[96] role=ADMIN, from=2, to=2, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[97] role=UNCONFIRMED_USER, from=1, to=2, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[98] role=UNCONFIRMED_USER, from=1, to=2, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[99] role=UNCONFIRMED_USER, from=1, to=2, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[100] role=UNCONFIRMED_USER, from=1, to=2, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[101] role=UNCONFIRMED_USER, from=2, to=3, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[102] role=UNCONFIRMED_USER, from=2, to=3, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[103] role=UNCONFIRMED_USER, from=2, to=3, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[104] role=UNCONFIRMED_USER, from=2, to=3, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[105] role=UNCONFIRMED_USER, from=3, to=4, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[106] role=UNCONFIRMED_USER, from=3, to=4, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[107] role=UNCONFIRMED_USER, from=3, to=4, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[108] role=UNCONFIRMED_USER, from=3, to=4, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[109] role=UNCONFIRMED_USER, from=4, to=5, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[110] role=UNCONFIRMED_USER, from=4, to=5, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.006"/>
+  <testcase name="[111] role=UNCONFIRMED_USER, from=4, to=5, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.009"/>
+  <testcase name="[112] role=UNCONFIRMED_USER, from=4, to=5, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="[113] role=UNCONFIRMED_USER, from=5, to=1, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[114] role=UNCONFIRMED_USER, from=5, to=1, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[115] role=UNCONFIRMED_USER, from=5, to=1, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[116] role=UNCONFIRMED_USER, from=5, to=1, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[117] role=UNCONFIRMED_USER, from=6, to=1, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[118] role=UNCONFIRMED_USER, from=6, to=1, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.002"/>
+  <testcase name="[119] role=UNCONFIRMED_USER, from=6, to=1, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[120] role=UNCONFIRMED_USER, from=6, to=1, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[121] role=UNCONFIRMED_USER, from=7, to=5, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[122] role=UNCONFIRMED_USER, from=7, to=5, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[123] role=UNCONFIRMED_USER, from=7, to=5, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[124] role=UNCONFIRMED_USER, from=7, to=5, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[125] role=UNCONFIRMED_USER, from=8, to=6, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="[126] role=UNCONFIRMED_USER, from=8, to=6, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[127] role=UNCONFIRMED_USER, from=8, to=6, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="[128] role=UNCONFIRMED_USER, from=8, to=6, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[129] role=UNCONFIRMED_USER, from=8, to=7, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[130] role=UNCONFIRMED_USER, from=8, to=7, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[131] role=UNCONFIRMED_USER, from=8, to=7, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[132] role=UNCONFIRMED_USER, from=8, to=7, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[133] role=UNCONFIRMED_USER, from=6, to=7, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[134] role=UNCONFIRMED_USER, from=6, to=7, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[135] role=UNCONFIRMED_USER, from=6, to=7, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[136] role=UNCONFIRMED_USER, from=6, to=7, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[137] role=UNCONFIRMED_USER, from=7, to=6, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="[138] role=UNCONFIRMED_USER, from=7, to=6, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="[139] role=UNCONFIRMED_USER, from=7, to=6, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[140] role=UNCONFIRMED_USER, from=7, to=6, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[141] role=UNCONFIRMED_USER, from=2, to=2, actor=1000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="[142] role=UNCONFIRMED_USER, from=2, to=2, actor=2000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="[143] role=UNCONFIRMED_USER, from=2, to=2, actor=3000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="[144] role=UNCONFIRMED_USER, from=2, to=2, actor=4000" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <testcase name="staleManagedStateIs409AndNeverLeaksDto()" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="repositoryFailureIsPropagatedRatherThanConvertedToToken401()" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.004"/>
+  <testcase name="legacySamePaidPutIsReadOnlyAndNotPaymentProof()" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.005"/>
+  <testcase name="malformedPathRetains400BeforeService()" classname="com.ngng.api.transaction.status.TransactionStatusSecurityChainTest" time="0.003"/>
+  <system-out><![CDATA[09:55:35.367 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3d640f70, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5dae85f7, org.springframework.security.web.context.SecurityContextHolderFilter@38280b42, org.springframework.security.web.header.HeaderWriterFilter@cd041f9, org.springframework.web.filter.CorsFilter@4a52c13c, org.springframework.security.web.authentication.logout.LogoutFilter@7292470c, com.ngng.api.global.security.filter.TokenFilter@47651c28, com.ngng.api.global.security.filter.LoginFilter@5a67843b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3bb6bcf8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3567edfe, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@73cf33bd, org.springframework.security.web.session.SessionManagementFilter@be694c0, org.springframework.security.web.access.ExceptionTranslationFilter@e71bd92, org.springframework.security.web.access.intercept.AuthorizationFilter@764f6eb0]
+09:55:35.367 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:55:35.367 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:55:35.367 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:55:35.426 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :3 
+09:55:35.438 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :3 
+09:55:35.445 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected end-of-input: expected close marker for Object (start marker at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 1])]
+09:55:35.450 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.lang.Long` from String "invalid": not a valid `java.lang.Long` value]
+09:55:35.483 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :3 
+09:55:35.517 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :4 
+09:55:35.550 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :5 
+09:55:35.641 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+09:55:35.647 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+09:55:35.657 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+09:55:35.670 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+09:55:35.695 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+09:55:35.704 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+09:55:35.725 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+09:55:35.733 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+09:55:35.785 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :3 
+09:55:35.811 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :4 
+09:55:35.835 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :5 
+09:55:35.895 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+09:55:35.901 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+09:55:35.916 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+09:55:35.919 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+09:55:35.935 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+09:55:35.943 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+09:55:35.958 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+09:55:35.958 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+09:55:36.003 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :3 
+09:55:36.018 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :4 
+09:55:36.037 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :5 
+09:55:36.100 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+09:55:36.104 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+09:55:36.118 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+09:55:36.122 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+09:55:36.134 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+09:55:36.137 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :7 
+09:55:36.148 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+09:55:36.155 [Test worker] INFO transaction-log -- Success Update TransactionDetails id: 88 Status :6 
+09:55:36.200 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "invalid"]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

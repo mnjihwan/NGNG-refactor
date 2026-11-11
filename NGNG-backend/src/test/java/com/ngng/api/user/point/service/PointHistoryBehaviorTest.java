@@ -1,5 +1,10 @@
 package com.ngng.api.user.point.service;
 
+import com.ngng.api.product.product.repository.ProductRepository;
+import com.ngng.api.transaction.repository.TransactionDetailsRepository;
+import com.ngng.api.user.point.payment.PaymentFixture;
+
+
 import com.ngng.api.user.point.dto.CreateAddPointRequestDTO;
 import com.ngng.api.user.point.dto.PaymentPointRequestDto;
 import com.ngng.api.user.point.entity.PointHistory;
@@ -18,19 +23,24 @@ import static org.mockito.Mockito.*;
 
 /** Offline behavior tests; no Spring application or database is started. */
 class PointHistoryBehaviorTest {
+    @org.junit.jupiter.api.AfterEach void clearAuthentication() { org.springframework.security.core.context.SecurityContextHolder.clearContext(); }
     private final PointHistoryRepository histories = mock(PointHistoryRepository.class);
     private final AuthService auth = mock(AuthService.class);
     private final UserRepository users = mock(UserRepository.class);
+    private final ProductRepository products = mock(ProductRepository.class);
+    private final TransactionDetailsRepository details = mock(TransactionDetailsRepository.class);
     private final User user = User.builder().userId(7L).name("Alice").build();
     private PointHistoryService service;
 
     @BeforeEach
     void setUp() {
-        service = new PointHistoryService(histories, auth, users);
+        service = new PointHistoryService(histories, auth, users, products, details, PaymentFixture.gate(), PaymentFixture.settlements());
         when(histories.save(any())).thenAnswer(invocation -> invocation.getArgument(0));
     }
 
     private void balance(long cost) {
+        PaymentFixture.authenticate();
+        PaymentFixture.allowPayment(products, details, 7L, 200L);
         when(auth.readAuthUser()).thenReturn(user);
         when(users.lockUserIdForPointUpdate(7L)).thenReturn(Optional.of(7L));
         when(histories.findLatestCostForUpdate(7L)).thenReturn(Optional.of(cost));
@@ -52,7 +62,7 @@ class PointHistoryBehaviorTest {
     @Test
     void paymentPreservesPositiveAddCostAndDescription() {
         balance(1000L);
-        PointHistory result = service.payment(new PaymentPointRequestDto(200L, 42L));
+        PointHistory result = new PointHistoryService(histories, auth, users, products, details, PaymentFixture.gate(), PaymentFixture.settlements()).payment(new PaymentPointRequestDto(200L, 42L));
         assertThat(result.getBeforeCost()).isEqualTo(1000L);
         assertThat(result.getAddCost()).isEqualTo(200L);
         assertThat(result.getCost()).isEqualTo(800L);

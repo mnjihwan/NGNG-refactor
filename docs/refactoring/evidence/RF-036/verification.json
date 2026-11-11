@@ -1,0 +1,207 @@
+{
+  "recordedAt": "2026-11-11T00:41:40.283Z",
+  "testExecutionSource": "executedSourceHashes and preserved source/; comment correction was not retested",
+  "executedSourceHashes": [
+    {
+      "file": "NGNG-backend/src/main/java/com/ngng/api/user/point/payment/PaymentVerificationGate.java",
+      "snapshot": ".local-runtime/rf036-results/source/PaymentVerificationGate.java",
+      "sha256": "ffa1370c3466f7a3dfa6d060e43510abe4eb9e641f19d038c538c655dbd45aab"
+    },
+    {
+      "file": "NGNG-backend/src/main/java/com/ngng/api/user/point/payment/PaymentVerificationConfiguration.java",
+      "snapshot": ".local-runtime/rf036-results/source/PaymentVerificationConfiguration.java",
+      "sha256": "d45a2f841c62a6f96231b8e93f7363a68971359ce6a0f6a300aa398367b485c2"
+    },
+    {
+      "file": "NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentVerificationGateTest.java",
+      "snapshot": ".local-runtime/rf036-results/source/PaymentVerificationGateTest.java",
+      "sha256": "6c4e3695d9015dfd4feda62df02969f37419089a1a18e084f5a04cd80304a85e"
+    },
+    {
+      "file": "NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentVerificationConfigurationTest.java",
+      "snapshot": ".local-runtime/rf036-results/source/PaymentVerificationConfigurationTest.java",
+      "sha256": "1a32bd7c3dd840a920a204dadfec9aa33c97ec374c78e7d1a78564f6c9d3f9ab"
+    }
+  ],
+  "sourceHashes": [
+    {
+      "file": "NGNG-backend/src/main/java/com/ngng/api/user/point/payment/PaymentVerificationGate.java",
+      "sha256": "a3df2ba5b3983331ef2b4859e84d64ccceeadf12d5f432bc12796df1c9b34ab4"
+    },
+    {
+      "file": "NGNG-backend/src/main/java/com/ngng/api/user/point/payment/PaymentVerificationConfiguration.java",
+      "sha256": "d45a2f841c62a6f96231b8e93f7363a68971359ce6a0f6a300aa398367b485c2"
+    },
+    {
+      "file": "NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentVerificationGateTest.java",
+      "sha256": "6c4e3695d9015dfd4feda62df02969f37419089a1a18e084f5a04cd80304a85e"
+    },
+    {
+      "file": "NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentVerificationConfigurationTest.java",
+      "sha256": "1a32bd7c3dd840a920a204dadfec9aa33c97ec374c78e7d1a78564f6c9d3f9ab"
+    }
+  ],
+  "preserved": [
+    {
+      "raw": ".local-runtime/rf036-results/isolated-tests.init.gradle",
+      "shared": "docs/refactoring/evidence/RF-036/implementation/isolated-tests.init.gradle",
+      "rawSha256": "62903c576878866d5b49d3b1d021e89bd09e3d5d588c7840facb992c0d309bbb",
+      "sharedSha256": "62903c576878866d5b49d3b1d021e89bd09e3d5d588c7840facb992c0d309bbb"
+    },
+    {
+      "raw": ".local-runtime/rf036-results/review-comment-only-check.json",
+      "shared": "docs/refactoring/evidence/RF-036/implementation/review-comment-only-check.json",
+      "rawSha256": "fc138de531de8dbd983b367e2911baa294711ce8bed20ac918fc8559347a6440",
+      "sharedSha256": "fc138de531de8dbd983b367e2911baa294711ce8bed20ac918fc8559347a6440"
+    },
+    {
+      "raw": ".local-runtime/rf036-results/reviewed-source/PaymentVerificationConfiguration.java",
+      "shared": "docs/refactoring/evidence/RF-036/implementation/reviewed-source/PaymentVerificationConfiguration.java",
+      "rawSha256": "d45a2f841c62a6f96231b8e93f7363a68971359ce6a0f6a300aa398367b485c2",
+      "sharedSha256": "d45a2f841c62a6f96231b8e93f7363a68971359ce6a0f6a300aa398367b485c2"
+    },
+    {
+      "raw": ".local-runtime/rf036-results/reviewed-source/PaymentVerificationConfigurationTest.java",
+      "shared": "docs/refactoring/evidence/RF-036/implementation/reviewed-source/PaymentVerificationConfigurationTest.java",
+      "rawSha256": "1a32bd7c3dd840a920a204dadfec9aa33c97ec374c78e7d1a78564f6c9d3f9ab",
+      "sharedSha256": "1a32bd7c3dd840a920a204dadfec9aa33c97ec374c78e7d1a78564f6c9d3f9ab"
+    },
+    {
+      "raw": ".local-runtime/rf036-results/reviewed-source/PaymentVerificationGate.java",
+      "shared": "docs/refactoring/evidence/RF-036/implementation/reviewed-source/PaymentVerificationGate.java",
+      "rawSha256": "a3df2ba5b3983331ef2b4859e84d64ccceeadf12d5f432bc12796df1c9b34ab4",
+      "sharedSha256": "a3df2ba5b3983331ef2b4859e84d64ccceeadf12d5f432bc12796df1c9b34ab4"
+    },
+    {
+      "raw": ".local-runtime/rf036-results/reviewed-source/PaymentVerificationGateTest.java",
+      "shared": "docs/refactoring/evidence/RF-036/implementation/reviewed-source/PaymentVerificationGateTest.java",
+      "rawSha256": "6c4e3695d9015dfd4feda62df02969f37419089a1a18e084f5a04cd80304a85e",
+      "sharedSha256": "6c4e3695d9015dfd4feda62df02969f37419089a1a18e084f5a04cd80304a85e"
+    },
+    {
+      "raw": ".local-runtime/rf036-results/source/PaymentVerificationConfiguration.java",
+      "shared": "docs/refactoring/evidence/RF-036/implementation/source/PaymentVerificationConfiguration.java",
+      "rawSha256": "d45a2f841c62a6f96231b8e93f7363a68971359ce6a0f6a300aa398367b485c2",
+      "sharedSha256": "d45a2f841c62a6f96231b8e93f7363a68971359ce6a0f6a300aa398367b485c2"
+    },
+    {
+      "raw": ".local-runtime/rf036-results/source/PaymentVerificationConfigurationTest.java",
+      "shared": "docs/refactoring/evidence/RF-036/implementation/source/PaymentVerificationConfigurationTest.java",
+      "rawSha256": "1a32bd7c3dd840a920a204dadfec9aa33c97ec374c78e7d1a78564f6c9d3f9ab",
+      "sharedSha256": "1a32bd7c3dd840a920a204dadfec9aa33c97ec374c78e7d1a78564f6c9d3f9ab"
+    },
+    {
+      "raw": ".local-runtime/rf036-results/source/PaymentVerificationGate.java",
+      "shared": "docs/refactoring/evidence/RF-036/implementation/source/PaymentVerificationGate.java",
+      "rawSha256": "ffa1370c3466f7a3dfa6d060e43510abe4eb9e641f19d038c538c655dbd45aab",
+      "sharedSha256": "ffa1370c3466f7a3dfa6d060e43510abe4eb9e641f19d038c538c655dbd45aab"
+    },
+    {
+      "raw": ".local-runtime/rf036-results/source/PaymentVerificationGateTest.java",
+      "shared": "docs/refactoring/evidence/RF-036/implementation/source/PaymentVerificationGateTest.java",
+      "rawSha256": "6c4e3695d9015dfd4feda62df02969f37419089a1a18e084f5a04cd80304a85e",
+      "sharedSha256": "6c4e3695d9015dfd4feda62df02969f37419089a1a18e084f5a04cd80304a85e"
+    },
+    {
+      "raw": ".local-runtime/rf036-results/unit-final/console.txt",
+      "shared": "docs/refactoring/evidence/RF-036/implementation/unit-final/console.txt",
+      "rawSha256": "76085b53a4bc2bbf52504df907f6446033bb9ab2dd7b979567ddb0267d9ed031",
+      "sharedSha256": "76085b53a4bc2bbf52504df907f6446033bb9ab2dd7b979567ddb0267d9ed031"
+    },
+    {
+      "raw": ".local-runtime/rf036-results/unit-final/exit-code.txt",
+      "shared": "docs/refactoring/evidence/RF-036/implementation/unit-final/exit-code.txt",
+      "rawSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "sharedSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "raw": ".local-runtime/rf036-results/unit-final/xml/TEST-com.ngng.api.user.point.payment.PaymentVerificationConfigurationTest.xml",
+      "shared": "docs/refactoring/evidence/RF-036/implementation/unit-final/xml/TEST-com.ngng.api.user.point.payment.PaymentVerificationConfigurationTest.xml",
+      "rawSha256": "79b58bcbae3bebcced0d215522ca8a3dadc1d7dc07b46ecd342d9a9f36de9883",
+      "sharedSha256": "79b58bcbae3bebcced0d215522ca8a3dadc1d7dc07b46ecd342d9a9f36de9883"
+    },
+    {
+      "raw": ".local-runtime/rf036-results/unit-final/xml/TEST-com.ngng.api.user.point.payment.PaymentVerificationGateTest.xml",
+      "shared": "docs/refactoring/evidence/RF-036/implementation/unit-final/xml/TEST-com.ngng.api.user.point.payment.PaymentVerificationGateTest.xml",
+      "rawSha256": "c4a08d664fa7718ea006edde82fc40cd154fd139e3cafaaadc66ff5b21c9d2a7",
+      "sharedSha256": "c4a08d664fa7718ea006edde82fc40cd154fd139e3cafaaadc66ff5b21c9d2a7"
+    },
+    {
+      "raw": ".local-runtime/rf036-results/unit-initial/console-approved.txt",
+      "shared": "docs/refactoring/evidence/RF-036/implementation/unit-initial/console-approved.txt",
+      "rawSha256": "0021373cdc9f6e20d3dd2ba507f4eea3638f6382acb1223439eb9de45062b5eb",
+      "sharedSha256": "3b125377125eb6c38454d629abf873dbfbf3979e3a77ef39c6e220eb5668a539"
+    },
+    {
+      "raw": ".local-runtime/rf036-results/unit-initial/console.txt",
+      "shared": "docs/refactoring/evidence/RF-036/implementation/unit-initial/console.txt",
+      "rawSha256": "e4f63f48898e2dc948e70dc5b3d310d2c5cd244c9ec8adfa25e4a13b1b4ea9bb",
+      "sharedSha256": "a87066372178bccfa6fbbc245bcaa79847e5712f3b66b898673b37db0f239764"
+    },
+    {
+      "raw": ".local-runtime/rf036-results/unit-initial/exit-code-approved.txt",
+      "shared": "docs/refactoring/evidence/RF-036/implementation/unit-initial/exit-code-approved.txt",
+      "rawSha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04",
+      "sharedSha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04"
+    },
+    {
+      "raw": ".local-runtime/rf036-results/unit-initial/exit-code.txt",
+      "shared": "docs/refactoring/evidence/RF-036/implementation/unit-initial/exit-code.txt",
+      "rawSha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04",
+      "sharedSha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04"
+    },
+    {
+      "raw": ".local-runtime/rf036-results/unit-isolated/console-run.txt",
+      "shared": "docs/refactoring/evidence/RF-036/implementation/unit-isolated/console-run.txt",
+      "rawSha256": "8e964159e4154f17e4a4cae8c89e05ec40089e444257974eb3978fb32836e686",
+      "sharedSha256": "8e964159e4154f17e4a4cae8c89e05ec40089e444257974eb3978fb32836e686"
+    },
+    {
+      "raw": ".local-runtime/rf036-results/unit-isolated/console.txt",
+      "shared": "docs/refactoring/evidence/RF-036/implementation/unit-isolated/console.txt",
+      "rawSha256": "acbb8ce4c98df11eb6d1beab53606ffae5d47c0eaa3c142e7833548b646c74e7",
+      "sharedSha256": "acbb8ce4c98df11eb6d1beab53606ffae5d47c0eaa3c142e7833548b646c74e7"
+    },
+    {
+      "raw": ".local-runtime/rf036-results/unit-isolated/exit-code-run.txt",
+      "shared": "docs/refactoring/evidence/RF-036/implementation/unit-isolated/exit-code-run.txt",
+      "rawSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "sharedSha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "raw": ".local-runtime/rf036-results/unit-isolated/exit-code.txt",
+      "shared": "docs/refactoring/evidence/RF-036/implementation/unit-isolated/exit-code.txt",
+      "rawSha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04",
+      "sharedSha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04"
+    },
+    {
+      "raw": ".local-runtime/rf036-results/unit-isolated/xml/TEST-com.ngng.api.user.point.payment.PaymentVerificationConfigurationTest.xml",
+      "shared": "docs/refactoring/evidence/RF-036/implementation/unit-isolated/xml/TEST-com.ngng.api.user.point.payment.PaymentVerificationConfigurationTest.xml",
+      "rawSha256": "33005df8f7389b8317f926692d1ede48cdfe31cd06d5d3abd69611d795296e4d",
+      "sharedSha256": "33005df8f7389b8317f926692d1ede48cdfe31cd06d5d3abd69611d795296e4d"
+    },
+    {
+      "raw": ".local-runtime/rf036-results/unit-isolated/xml/TEST-com.ngng.api.user.point.payment.PaymentVerificationGateTest.xml",
+      "shared": "docs/refactoring/evidence/RF-036/implementation/unit-isolated/xml/TEST-com.ngng.api.user.point.payment.PaymentVerificationGateTest.xml",
+      "rawSha256": "1f138b4fe3705ba28a6be2ad9948a0506896ad5c4d2fba4ac3345a93f80833f6",
+      "sharedSha256": "1f138b4fe3705ba28a6be2ad9948a0506896ad5c4d2fba4ac3345a93f80833f6"
+    }
+  ],
+  "environment": {
+    "node": "v20.10.0",
+    "platform": "win32",
+    "javaVersion": [
+      "IMPLEMENTOR=\"Oracle Corporation\"",
+      "JAVA_VERSION=\"17.0.10\"",
+      "OS_ARCH=\"x86_64\""
+    ]
+  },
+  "finalTests": {
+    "gate": 163,
+    "configuration": 15,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "scope": "Gate/config unit tests and offline compile/assemble only; no DB, HTTP, deployment, performance or operational approval."
+}

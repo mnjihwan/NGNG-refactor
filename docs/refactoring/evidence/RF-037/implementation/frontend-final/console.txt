@@ -1,0 +1,135 @@
+TAP version 13
+# Subtest: successful payment preserves request fields and reloads without a status PUT
+ok 1 - successful payment preserves request fields and reloads without a status PUT
+  ---
+  duration_ms: 163.3574
+  ...
+# Subtest: check false prevents payment and status change
+ok 2 - check false prevents payment and status change
+  ---
+  duration_ms: 66.3223
+  ...
+# Subtest: cancelled confirmation prevents payment and status change
+ok 3 - cancelled confirmation prevents payment and status change
+  ---
+  duration_ms: 67.983
+  ...
+# Subtest: check HTTP error prevents payment/status change and is handled
+ok 4 - check HTTP error prevents payment/status change and is handled
+  ---
+  duration_ms: 52.7088
+  ...
+# Subtest: check network error prevents payment/status change and is handled
+ok 5 - check network error prevents payment/status change and is handled
+  ---
+  duration_ms: 52.7806
+  ...
+# Subtest: check nonboolean payload prevents payment/status change and is handled
+ok 6 - check nonboolean payload prevents payment/status change and is handled
+  ---
+  duration_ms: 44.6716
+  ...
+# Subtest: check JSON error prevents payment/status change and is handled
+ok 7 - check JSON error prevents payment/status change and is handled
+  ---
+  duration_ms: 54.2502
+  ...
+# Subtest: payment HTTP error prevents status change and is handled
+ok 8 - payment HTTP error prevents status change and is handled
+  ---
+  duration_ms: 49.1446
+  ...
+# Subtest: payment network error prevents status change and is handled
+ok 9 - payment network error prevents status change and is handled
+  ---
+  duration_ms: 49.924
+  ...
+# Subtest: payment JSON error prevents status change and is handled
+ok 10 - payment JSON error prevents status change and is handled
+  ---
+  duration_ms: 31.061
+  ...
+# Subtest: payment HTTP 400 keeps access-header handling and stops the separate status PUT
+ok 11 - payment HTTP 400 keeps access-header handling and stops the separate status PUT
+  ---
+  duration_ms: 30.0189
+  ...
+# Subtest: payment HTTP 401 keeps access-header handling and stops the separate status PUT
+ok 12 - payment HTTP 401 keeps access-header handling and stops the separate status PUT
+  ---
+  duration_ms: 31.0052
+  ...
+# Subtest: payment HTTP 403 keeps access-header handling and stops the separate status PUT
+ok 13 - payment HTTP 403 keeps access-header handling and stops the separate status PUT
+  ---
+  duration_ms: 32.1802
+  ...
+# Subtest: payment HTTP 404 keeps access-header handling and stops the separate status PUT
+ok 14 - payment HTTP 404 keeps access-header handling and stops the separate status PUT
+  ---
+  duration_ms: 30.6905
+  ...
+# Subtest: payment HTTP 409 keeps access-header handling and stops the separate status PUT
+ok 15 - payment HTTP 409 keeps access-header handling and stops the separate status PUT
+  ---
+  duration_ms: 39.8216
+  ...
+# Subtest: repeated clicks share one pending submission
+ok 16 - repeated clicks share one pending submission
+  ---
+  duration_ms: 36.7901
+  ...
+# Subtest: insufficient check reloads transaction and balance without a payment
+ok 17 - insufficient check reloads transaction and balance without a payment
+  ---
+  duration_ms: 34.9017
+  ...
+# Subtest: lost payment response remains uncertain after a successful reload
+ok 18 - lost payment response remains uncertain after a successful reload
+  ---
+  duration_ms: 32.4977
+  ...
+# Subtest: success reports requery failure separately and never retries payment
+ok 19 - success reports requery failure separately and never retries payment
+  ---
+  duration_ms: 23.5227
+  ...
+# Subtest: conflict reports requery failure separately and never retries payment
+ok 20 - conflict reports requery failure separately and never retries payment
+  ---
+  duration_ms: 24.8287
+  ...
+# Subtest: insufficient reports requery failure separately and never retries payment
+ok 21 - insufficient reports requery failure separately and never retries payment
+  ---
+  duration_ms: 27.8648
+  ...
+# Subtest: network reports requery failure separately and never retries payment
+ok 22 - network reports requery failure separately and never retries payment
+  ---
+  duration_ms: 22.368
+  ...
+# Subtest: actual refresh hook awaits checked read and replaces point and transaction caches
+ok 23 - actual refresh hook awaits checked read and replaces point and transaction caches
+  ---
+  duration_ms: 30.7326
+  ...
+# Subtest: actual refresh hook propagates read failure without changing cache
+ok 24 - actual refresh hook propagates read failure without changing cache
+  ---
+  duration_ms: 15.576
+  ...
+# Subtest: actual mypage read rejects HTTP errors before parsing recovery state and handles access header
+ok 25 - actual mypage read rejects HTTP errors before parsing recovery state and handles access header
+  ---
+  duration_ms: 16.7094
+  ...
+1..25
+# tests 25
+# suites 0
+# pass 25
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1432.8462

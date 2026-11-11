@@ -309,3 +309,18 @@ RF009 독립 문서 최종 리뷰 완료: 보존된 실패 XML stack의 Transact
 ## 2026-11-10 RF023 거래 단건 상세 인가
 
 인증된 기록 seller 또는 consumer만 조회하도록 하고 양쪽 당사자 ID가 불완전하면 403으로 거부한다. 현재 product owner 및 ADMIN의 추가 예외는 없으며 없는 거래의 기존 200 빈 DTO는 유지한다. 변경 전 6건, 신규 73건, 별도 RF004/006 회귀 80건과 assemble 성공 및 독립 리뷰를 완료했다. 실DB·실제 HTTP·브라우저·성능과 전체 backend test/build는 미검증이다. 기존 DB read 테스트의 무인증 및 status 테스트의 후속 read 당사자 fixture는 별도 보완이 필요하다. 검증 근거와 원시 자료 보존·한계 및 재개 조건은 [명세](tasks/RF-023.md), [증빙](evidence/RF-023/README.md), [백로그](BACKLOG.md)를 따른다.
+
+
+## 2026-11-11 RF035·036·037·038 공동 결제 무결성2단계
+
+사용자 승인으로 `refactor/payment-integrity-stage2`에 기록buyer/거래price 권위·기록seller/status 완전성·과거차감검증 defaultdeny gate·거래당1차감/409·차감+1→2 단일transaction·상태전이 정책을 통합했다. 상품→거래 current scalar→user/latestpoint 순서이며 거래 잠금 뒤 gate를 검사하고, user/latest point 잠금·잔액 검사 뒤 쓰기 직전에 재검사한다. 포인트 save/flush 뒤 fulltuple/status1 nativeUPDATE가 정확1행이어야 성공한다. 기존 양수충전/REST성공8필드·양수addCost·설명문을 유지했고 direct-create도 검증조건 충족 때 허용하되 acceptedrequest를 강제하지 않았다. public최초PUT2는 차단, 동일2PUT의200은 결제증거가 아니다. schema/새의존성/환불/자동retry·clear/refresh/REQUIRES_NEW는 도입하지 않았다.
+
+프런트는 추가PUT2를 제거하고 check부족/409/응답유실/5xx에서 거래와 포인트를 강제재조회한다. 불명확 결제결과와 조회실패를 분리하고 자동 재차감하지 않는다. 독립 리뷰 P2의5xx를 거부로 단정하던 안내를 미확정으로 고쳤다. 새 재조회로 목록이 reorder/remove될 때 index 선택이 다른거래/예외를 만들 수 있어 BuyHistory를 거래ID 기준으로 최소 보완했고 누락 시 안전닫기/안내를 넣었다. 이 직접영향 외 판매자/취소/신고/구매확정 정책을 확대하지 않았다.
+
+- 기존 RF035 before89/after179·별도317, RF036178, RF038 before20/after355·별도199와 원시source/hash는 당시 실행으로 보존했다. 후속 통합 [RF037 증빙](evidence/RF-037/README.md)·[명령](evidence/RF-037/commands.md)·[manifest](evidence/RF-037/verification.json)은 backend942/942(failures/errors/skips0), compileJava/compileTestJava·bootJar/jar/assemble 성공을 별도 기록한다. point388에는 gate/config178·RF037Atomicity28·trust/service/chain/SQL96·기존point86이 포함되고, 나머지는 RF038355/RF00443/RF02183/RF02373이다. 과거/중간/최종의 겹치는 테스트를 합산하지 않는다.
+- 별도 joint-chain-final6/6은 실제 MVC/security/AuthService/두controller·service와 repository 대역으로 payment↔6/7 두 직렬순서, 최초PUT2차단 및 결제뒤동일PUT2와payment409의 차이를 확인한다. 기존942와 다른 클래스의 추가6건이며 동시 race·물리원자성/DB rollback 검증이 아니다. 최초 helper status(long)/staticstatus() 이름충돌 compile7오류·0test 및 stale942 XML분리를 보존했다.
+- frontend initial22중1실패(옛PUT2 기대)→22/25/26 통과를 거쳐 최종37/37·tsc/lint exit0이다.500/502/503/504×재조회성공/실패8, 목록 reorder/remove/empty3을 포함한다. 실제TS handler/hook/component 대역이며 browser/React scheduling/SWR network 증거가 아니다. 기존무관 img warning3을 유지했다.
+- wrappercache거부/compilehelper인자누락·0test, backend after-initial388중4fixture실패, stale 이전XML은 통과로 섞지 않았다. RF037 raw는 ignored .local-runtime/rf037-results, 정제shared와 pairedhash/선택source31개는 RF037evidence에 보존한다. 기존30snapshot은942/37 후 source동결 시점, 새test1snapshot은별도6 후 시점이며 전체worktree/실패시점 전체source가 아니다. 개인경로/hostname/합성JWT literal 정제는 raw를 덮지 않고 test수/시각을 유지했다. 후일 재실행은 새근거다.
+- 공통 독립 리뷰는 로컬 합의범위 신규 미해결P0/P1/P2 없이 완료했고 source/hash·942/37·assemble·lint/tsc와5xx/ID선택/개인경로P2수정을 확인했다. 후속6 source/manifest의 최종 독립 대조도 완료했고 신규 차단사항은 없었다. **동일PR 공동 최소기능·선택검증/리뷰 완료와 운영결제개방/배포차단을 구분**한다.
+
+물리DB lock/currentread·commit/rollback/affectedcount·OSIV/outerRC/RR·preloaded dirtyentity/다른writer는 미검증이다. nativeflush/bulkUPDATE의 dirty/stale 문제를 해결했다고 하지 않는다. 운영상태사전/원장완전성·독립복원세대/시계·ABA/복원/ID재사용·전체writer/drain/mixedversion·rollback/실HTTP·브라우저 및 RF021직접생성/가격오염은 배포차단이다. 승인manifest가 없으면 모든결제defaultdeny다. RF016 안전물리격리·소유fixture/외부차단/cleanup 및 별도 실행승인, 실제독립증거/운영조사범위·같은릴리스/drain전환 통제가 확보된 뒤 BACKLOG RF035~038/R3·R4·R6/R21을 근거로 재개한다. 전체test/build·frontendproductionbuild·성능 미실행/유예, 개선주장없음. 기존.tmp를 보존했고 DB/schema/운영allowlist·새의존성·commit/push/배포/다음작업 자동착수는 하지 않았다.

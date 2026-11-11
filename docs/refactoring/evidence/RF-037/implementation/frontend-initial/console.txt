@@ -1,0 +1,136 @@
+TAP version 13
+# Subtest: successful payment preserves request fields and reloads without a status PUT
+not ok 1 - successful payment preserves request fields and reloads without a status PUT
+  ---
+  duration_ms: 100.2956
+  location: '[WORKSPACE]\\NGNG-frontend\\tests\\rf035-payment-trust.test.cjs:70:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    0 !== 1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1
+  actual: 0
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> ([WORKSPACE]\NGNG-frontend\tests\rf035-payment-trust.test.cjs:76:10)
+    async Test.run (node:internal/test_runner/test:632:9)
+    async startSubtest (node:internal/test_runner/harness:216:3)
+  ...
+# Subtest: check false prevents payment and status change
+ok 2 - check false prevents payment and status change
+  ---
+  duration_ms: 41.973
+  ...
+# Subtest: cancelled confirmation prevents payment and status change
+ok 3 - cancelled confirmation prevents payment and status change
+  ---
+  duration_ms: 33.3035
+  ...
+# Subtest: check HTTP error prevents payment/status change and is handled
+ok 4 - check HTTP error prevents payment/status change and is handled
+  ---
+  duration_ms: 35.1728
+  ...
+# Subtest: check network error prevents payment/status change and is handled
+ok 5 - check network error prevents payment/status change and is handled
+  ---
+  duration_ms: 32.0049
+  ...
+# Subtest: check nonboolean payload prevents payment/status change and is handled
+ok 6 - check nonboolean payload prevents payment/status change and is handled
+  ---
+  duration_ms: 29.1775
+  ...
+# Subtest: check JSON error prevents payment/status change and is handled
+ok 7 - check JSON error prevents payment/status change and is handled
+  ---
+  duration_ms: 36.8212
+  ...
+# Subtest: payment HTTP error prevents status change and is handled
+ok 8 - payment HTTP error prevents status change and is handled
+  ---
+  duration_ms: 28.1518
+  ...
+# Subtest: payment network error prevents status change and is handled
+ok 9 - payment network error prevents status change and is handled
+  ---
+  duration_ms: 25.7742
+  ...
+# Subtest: payment JSON error prevents status change and is handled
+ok 10 - payment JSON error prevents status change and is handled
+  ---
+  duration_ms: 21.8961
+  ...
+# Subtest: payment HTTP 400 keeps access-header handling and stops the separate status PUT
+ok 11 - payment HTTP 400 keeps access-header handling and stops the separate status PUT
+  ---
+  duration_ms: 22.9059
+  ...
+# Subtest: payment HTTP 401 keeps access-header handling and stops the separate status PUT
+ok 12 - payment HTTP 401 keeps access-header handling and stops the separate status PUT
+  ---
+  duration_ms: 20.4911
+  ...
+# Subtest: payment HTTP 403 keeps access-header handling and stops the separate status PUT
+ok 13 - payment HTTP 403 keeps access-header handling and stops the separate status PUT
+  ---
+  duration_ms: 20.471
+  ...
+# Subtest: payment HTTP 404 keeps access-header handling and stops the separate status PUT
+ok 14 - payment HTTP 404 keeps access-header handling and stops the separate status PUT
+  ---
+  duration_ms: 23.0469
+  ...
+# Subtest: payment HTTP 409 keeps access-header handling and stops the separate status PUT
+ok 15 - payment HTTP 409 keeps access-header handling and stops the separate status PUT
+  ---
+  duration_ms: 22.6483
+  ...
+# Subtest: repeated clicks share one pending submission
+ok 16 - repeated clicks share one pending submission
+  ---
+  duration_ms: 21.2708
+  ...
+# Subtest: insufficient check reloads transaction and balance without a payment
+ok 17 - insufficient check reloads transaction and balance without a payment
+  ---
+  duration_ms: 21.2264
+  ...
+# Subtest: lost payment response remains uncertain after a successful reload
+ok 18 - lost payment response remains uncertain after a successful reload
+  ---
+  duration_ms: 19.4473
+  ...
+# Subtest: success reports requery failure separately and never retries payment
+ok 19 - success reports requery failure separately and never retries payment
+  ---
+  duration_ms: 21.4681
+  ...
+# Subtest: conflict reports requery failure separately and never retries payment
+ok 20 - conflict reports requery failure separately and never retries payment
+  ---
+  duration_ms: 19.5139
+  ...
+# Subtest: insufficient reports requery failure separately and never retries payment
+ok 21 - insufficient reports requery failure separately and never retries payment
+  ---
+  duration_ms: 18.5434
+  ...
+# Subtest: network reports requery failure separately and never retries payment
+ok 22 - network reports requery failure separately and never retries payment
+  ---
+  duration_ms: 22.5135
+  ...
+1..22
+# tests 22
+# suites 0
+# pass 21
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 931.0738

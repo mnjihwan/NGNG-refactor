@@ -14,6 +14,8 @@ public class PaymentPointRequestDto {
     @Positive
     private Long paymentCost;
 
+    @NotNull
+    @Positive
     private Long payProductId;
 
 }

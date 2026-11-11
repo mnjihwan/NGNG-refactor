@@ -195,6 +195,15 @@ const useMypageSWR = () => {
     }
   };
 
+  const refreshPaymentState = async () => {
+    const data = await getFetchMyPage();
+    await mutate({
+      ...data,
+      sellList: data.sellList.filter((product) => product.visible),
+      buyList: data.buyList.filter((transaction) => transaction.product.visible),
+    }, { revalidate: false });
+  };
+
   return {
     user,
     error,
@@ -206,6 +215,7 @@ const useMypageSWR = () => {
     deleteProduct,
     updateAddress,
     updateAccount,
+    refreshPaymentState,
   };
 };
 
