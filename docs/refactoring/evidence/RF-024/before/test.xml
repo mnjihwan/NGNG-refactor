@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.report.creation.ReportCreationSecurityChainTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-11-11T06:22:47" hostname="REDACTED_HOST" time="0.453">
+  <properties/>
+  <testcase name="beforeAnonymousStillRejectedBeforeRepositories()" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.061"/>
+  <testcase name="beforeSignedCallerCanForgeReporterAndBothNonNullStates()" classname="com.ngng.api.report.creation.ReportCreationSecurityChainTest" time="0.391"/>
+  <system-out><![CDATA[15:22:45.682 [Test worker] INFO org.hibernate.validator.internal.util.Version -- HV000001: Hibernate Validator 8.0.1.Final
+15:22:47.113 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@352e5a82, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@315b5913, org.springframework.security.web.context.SecurityContextHolderFilter@698f4aa, org.springframework.security.web.header.HeaderWriterFilter@6249a08d, org.springframework.web.filter.CorsFilter@2e929182, org.springframework.security.web.authentication.logout.LogoutFilter@17d2b646, com.ngng.api.global.security.filter.TokenFilter@5423a17, com.ngng.api.global.security.filter.LoginFilter@42ff9a77, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7c0de229, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6aa6c17, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2987d0fa, org.springframework.security.web.session.SessionManagementFilter@27438750, org.springframework.security.web.access.ExceptionTranslationFilter@134d7ffa, org.springframework.security.web.access.intercept.AuthorizationFilter@1fd37440]
+15:22:47.463 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+15:22:47.463 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+15:22:47.463 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+15:22:47.871 [Test worker] INFO report-log -- Success Create report id: 9000 reporter : 9000  user : 2000 product : 7
+15:22:47.918 [Test worker] INFO report-log -- Success Create report id: 9000 reporter : 9000  user : 2000 product : 7
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

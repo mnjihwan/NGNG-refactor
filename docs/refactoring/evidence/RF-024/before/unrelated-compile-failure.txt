@@ -1,0 +1,31 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.7/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :compileJava
+> Task :processResources
+> Task :classes
+
+> Task :compileTestJava
+<USER_HOME>\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\test\java\com\ngng\api\isolation\mysql\Rf016MySqlFixture.java:408: error: constructor PointHistoryService in class PointHistoryService cannot be applied to given types;
+            return new PointHistoryService(observed, auth, users);
+                   ^
+  required: PointHistoryRepository,AuthService,UserRepository,ProductRepository,TransactionDetailsRepository,PaymentVerificationGate,PaymentSettlementRepository
+  found:    PointHistoryRepository,AuthService,UserRepository
+  reason: actual and formal argument lists differ in length
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+1 error
+
+> Task :compileTestJava FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileTestJava'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+> Run with --info option to get more log output.
+> Run with --scan to get full insights.
+
+BUILD FAILED in 17s
+3 actionable tasks: 3 executed

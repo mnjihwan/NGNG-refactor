@@ -109,34 +109,55 @@ export const createPrivateChatRoom = async ({
   });
 };
 
+export type ReportCreationResult =
+  | { status: "created"; reportId: number }
+  | { status: "rejected" }
+  | { status: "unknown" }
+  | { status: "image-failed" | "image-unknown"; reportId: number };
+
 export const createReport = async (
   requestReport: RequestReport
-): Promise<boolean> => {
-  // console.log(mapProductToAPISepc(product));
-
-  const res = await fetch(`/api/reports`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: getAccessToken(),
-    },
-    body: JSON.stringify(requestReport),
-  });
-  setAccessToken(res);
-
-  if (res.ok === true) {
-    const reportIdResponse = await res.text();
-    const reportIdObject = JSON.parse(reportIdResponse);
-    const reportId = reportIdObject.reportId;
-
-    if (requestReport.images.length > 0) {
-      const resImages = await createImages(reportId, requestReport.images);
-      return resImages.ok;
-    }
-    return true;
+): Promise<ReportCreationResult> => {
+  let res: Response;
+  try {
+    res = await fetch(`/api/reports`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: getAccessToken(),
+      },
+      body: JSON.stringify(requestReport),
+    });
+    setAccessToken(res);
+  } catch {
+    return { status: "unknown" };
+  }
+  if (!res.ok) {
+    return { status: res.status >= 400 && res.status < 500 ? "rejected" : "unknown" };
   }
 
-  return false;
+  let reportId: number;
+  try {
+    const body: unknown = await res.json();
+    if (typeof body !== "object" || body === null || !("reportId" in body)
+      || typeof body.reportId !== "number" || !Number.isSafeInteger(body.reportId) || body.reportId <= 0) {
+      return { status: "unknown" };
+    }
+    reportId = body.reportId;
+  } catch {
+    return { status: "unknown" };
+  }
+  if (requestReport.images.length > 0) {
+    try {
+      const images = await createImages(String(reportId), requestReport.images);
+      if (!images.ok) {
+        return { status: images.status >= 400 && images.status < 500 ? "image-failed" : "image-unknown", reportId };
+      }
+    } catch {
+      return { status: "image-unknown", reportId };
+    }
+  }
+  return { status: "created", reportId };
 };
 
 const createImages = async (
@@ -153,9 +174,6 @@ const createImages = async (
   });
   fomData.append("reportId", reportId);
 
-  // console.log(fomData);
-
-  // return await fetch("/api/upload", {
   return await fetch(`/api/reportImages/upload`, {
     method: "POST",
     headers: {
@@ -164,6 +182,6 @@ const createImages = async (
     body: fomData,
   }).then((res) => {
     setAccessToken(res);
-    return res.json();
+    return res;
   });
 };
