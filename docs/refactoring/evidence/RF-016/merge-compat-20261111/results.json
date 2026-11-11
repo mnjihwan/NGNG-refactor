@@ -1,0 +1,58 @@
+[
+  {
+    "failures": 0,
+    "skipped": 0,
+    "name": "com.ngng.api.isolation.mysql.Rf016FixtureCompatibilityTest",
+    "tests": 3,
+    "errors": 0
+  },
+  {
+    "failures": 0,
+    "skipped": 0,
+    "name": "com.ngng.api.isolation.mysql.Rf016MySqlSafetyGateTest",
+    "tests": 18,
+    "errors": 0
+  },
+  {
+    "failures": 0,
+    "skipped": 0,
+    "name": "com.ngng.api.isolation.Rf016EnvironmentIsolationTest",
+    "tests": 1,
+    "errors": 0
+  },
+  {
+    "failures": 0,
+    "skipped": 0,
+    "name": "com.ngng.api.isolation.Rf016IsolatedBootSmokeTest",
+    "tests": 11,
+    "errors": 0
+  },
+  {
+    "failures": 0,
+    "skipped": 0,
+    "name": "com.ngng.api.user.point.payment.PaymentAtomicityTest",
+    "tests": 28,
+    "errors": 0
+  },
+  {
+    "failures": 0,
+    "skipped": 0,
+    "name": "com.ngng.api.user.point.payment.PaymentTrustServiceTest",
+    "tests": 42,
+    "errors": 0
+  },
+  {
+    "failures": 0,
+    "skipped": 0,
+    "name": "com.ngng.api.user.point.payment.PaymentVerificationConfigurationTest",
+    "tests": 15,
+    "errors": 0
+  },
+  {
+    "failures": 0,
+    "skipped": 0,
+    "name": "com.ngng.api.user.point.payment.PaymentVerificationGateTest",
+    "tests": 163,
+    "errors": 0
+  }
+]

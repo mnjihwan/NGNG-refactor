@@ -85,3 +85,11 @@ ReadOnlyPreflight는 별도 opt-in/class/mode이며 매 새 연결에서 server-
 리뷰에서 XML/console11개에 로컬 사용자/절대경로를 발견했다. 먼저 기존 증빙94파일의 **치환 전 원본 전체**를 Git ignored `.local-runtime/rf016-raw/20261110-final-review/original-evidence`에 복사하고, 그 파일들의 원본 SHA256/bytes를 같은 private 경로의 `original-sha256.json`에 보존했다. 공유본의 XML/console11개와 초기 source-hash metadata1개에만 `[WORKSPACE]`/`[USER_HOME]`/`[LOCAL_USER]` 경로·사용자 placeholder를 적용했다. 초기 source-hash의 source 내용 hash는 그대로이며 절대 경로 표기만 치환했다. 테스트 결과·실패 stack의 나머지 내용·timestamp는 바꾸지 않았고 후일 재실행으로 대체하지 않았다.
 
 [sharing-manifest.json](sharing-manifest.json)은 변경12개 각각의 원본/공유 SHA256·bytes·kind와 private 원본 위치/manifest digest를 기록한다. 따라서 기존 실행의 원본 보존과 Git 공유용 치환본을 구분할 수 있다. Java9+properties1 **source10개는 변경 없음**이며 source manifest와 snapshot hash가 일치한다. 현재 공유 증빙은 **96파일**이고 [artifact manifest](manifest-sha256.json)는 자기 자신을 제외한 **95항목**을 현재 공유 바이트로 기록한다. 과거 "94파일"은 치환 전 snapshot의 실제 개수이며 현재 파일 수로 소급하지 않는다. 기존 `.tmp`16파일의 변경/누락0도 재확인했다.
+
+## 2026-11-11 생성자·제한 context 호환 복구
+
+위96파일/최종30건은 2026-11-10 마감 당시 기록이다. 통합 기준 `2091fae`의 RF035~038 생성자 확장과 RF016 구성이 충돌하여 발생한 정상 compileTestJava 회귀를 RF016 test-only 범위에서 복구했다. 이는 **3단계 정상 컴파일을 위한 명시 범위 밖 긴급 복구**이며 B 물리 실행 재개가 아니다. B의 직접 생성자 및 A 명시 context에 신규 네 payment-only 의존성을 즉시 실패하는 대역으로 주입하고, guard/ledger/JPA managed types/운영 gate·config/default deny는 유지했다.
+
+[새 증빙](merge-compat-20261111/README.md)은 수정 전 RF024 compile 실패 원본 연결, 이번 wrapper 접근 실패, 복구 후 정상 sourceSet 컴파일 및 선택8클래스 **281/281·fail/error/skip0·5 task 실실행·exit0**, 실행 RF016 Java11개 source/hash를 보존한다. RF01633=A12+순수guard18+신규호환3, RF035~037 최소회귀248이며 과거 전수942/공동체인6의 재실행은 아니다. 치환 전 console2/XML8 원본은 `.local-runtime/rf016-raw/20261111-merge-compat/`에 남기고 공유본과 hash를 별도 manifest로 연결했다. 과거 마감 manifest 및 원시 증빙은 변경하지 않았다.
+
+MySQL 시작/접속/쓰기0이다. 실제 read-only preflight·B JPA/commit/rollback/cleanup·경쟁 probe 및 전체 test/build/assemble·운영 개방/성능은 미실행이다. 신규 호환 검증은 mock fixture/EMF를 사용하므로 물리 안전을 입증하지 않는다. 재검증은 새 증빙으로 선택 명령을 실행하며, B와 운영 결제 재개는 기존 안전·허용·배포 조건을 각각 충족해야 한다. RF016 A 제한 완료/B 준비·보류 판정은 유지한다.

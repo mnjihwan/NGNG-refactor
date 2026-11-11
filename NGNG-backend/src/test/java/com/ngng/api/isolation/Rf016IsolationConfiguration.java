@@ -7,9 +7,13 @@ import com.ngng.api.global.security.handler.CustomLogoutSuccessHandler;
 import com.ngng.api.global.security.jwt.util.JwtTokenProvider;
 import com.ngng.api.global.security.jwt.util.JwtTokenVerifier;
 import com.ngng.api.product.product.service.ProductService;
+import com.ngng.api.product.product.repository.ProductRepository;
+import com.ngng.api.transaction.repository.TransactionDetailsRepository;
 import com.ngng.api.transaction.service.TransactionDetailsService;
 import com.ngng.api.user.point.controller.PointController;
 import com.ngng.api.user.point.repository.PointHistoryRepository;
+import com.ngng.api.user.point.repository.PaymentSettlementRepository;
+import com.ngng.api.user.point.payment.PaymentVerificationGate;
 import com.ngng.api.user.point.service.PointHistoryService;
 import com.ngng.api.user.user.controller.JoinAuthController;
 import com.ngng.api.user.user.controller.UserController;
@@ -32,6 +36,7 @@ import java.util.List;
 import java.util.Properties;
 
 import static org.mockito.Mockito.*;
+import static com.ngng.api.isolation.Rf016UnusedPaymentCollaborator.unused;
 
 /** Closed list: no application/auto-configuration enablement, component/repository scanning,
  * datasource, transaction advice, Redis/ES/AWS configuration or real SMS constructor.
@@ -59,6 +64,11 @@ class Rf016IsolationConfiguration implements WebMvcConfigurer {
     @Bean CustomLogoutSuccessHandler logoutSuccessHandler() { return new CustomLogoutSuccessHandler(); }
     @Bean UserRepository userRepository() { return mock(UserRepository.class); }
     @Bean PointHistoryRepository pointHistoryRepository() { return mock(PointHistoryRepository.class); }
+    // Explicit payment-only doubles: no repository factory, entity graph or approval file loading.
+    @Bean ProductRepository productRepository() { return unused(ProductRepository.class); }
+    @Bean TransactionDetailsRepository transactionDetailsRepository() { return unused(TransactionDetailsRepository.class); }
+    @Bean PaymentVerificationGate paymentVerificationGate() { return unused(PaymentVerificationGate.class); }
+    @Bean PaymentSettlementRepository paymentSettlementRepository() { return unused(PaymentSettlementRepository.class); }
     // Unused user-page collaborators are service-boundary doubles, never real constructors.
     @Bean ProductService productService() { return mock(ProductService.class); }
     @Bean TransactionDetailsService transactionDetailsService() { return mock(TransactionDetailsService.class); }

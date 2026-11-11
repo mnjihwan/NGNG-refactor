@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.user.point.payment.PaymentAtomicityTest" tests="28" skipped="0" failures="0" errors="0" timestamp="2026-11-11T06:26:59" hostname="MOON" time="0.251">
+  <properties/>
+  <testcase name="[1] status=null" classname="com.ngng.api.user.point.payment.PaymentAtomicityTest" time="0.078"/>
+  <testcase name="[2] status=0" classname="com.ngng.api.user.point.payment.PaymentAtomicityTest" time="0.006"/>
+  <testcase name="[3] status=2" classname="com.ngng.api.user.point.payment.PaymentAtomicityTest" time="0.004"/>
+  <testcase name="[4] status=3" classname="com.ngng.api.user.point.payment.PaymentAtomicityTest" time="0.004"/>
+  <testcase name="[5] status=4" classname="com.ngng.api.user.point.payment.PaymentAtomicityTest" time="0.004"/>
+  <testcase name="[6] status=5" classname="com.ngng.api.user.point.payment.PaymentAtomicityTest" time="0.004"/>
+  <testcase name="[7] status=6" classname="com.ngng.api.user.point.payment.PaymentAtomicityTest" time="0.004"/>
+  <testcase name="[8] status=7" classname="com.ngng.api.user.point.payment.PaymentAtomicityTest" time="0.003"/>
+  <testcase name="[9] status=8" classname="com.ngng.api.user.point.payment.PaymentAtomicityTest" time="0.004"/>
+  <testcase name="expiryWhileWaitingForBalancePreventsEveryWrite()" classname="com.ngng.api.user.point.payment.PaymentAtomicityTest" time="0.006"/>
+  <testcase name="[1] stage=save" classname="com.ngng.api.user.point.payment.PaymentAtomicityTest" time="0.008"/>
+  <testcase name="[2] stage=flush" classname="com.ngng.api.user.point.payment.PaymentAtomicityTest" time="0.005"/>
+  <testcase name="[3] stage=transition" classname="com.ngng.api.user.point.payment.PaymentAtomicityTest" time="0.006"/>
+  <testcase name="[4] stage=commit" classname="com.ngng.api.user.point.payment.PaymentAtomicityTest" time="0.007"/>
+  <testcase name="[1] seller=null" classname="com.ngng.api.user.point.payment.PaymentAtomicityTest" time="0.004"/>
+  <testcase name="[2] seller=0" classname="com.ngng.api.user.point.payment.PaymentAtomicityTest" time="0.006"/>
+  <testcase name="[3] seller=-1" classname="com.ngng.api.user.point.payment.PaymentAtomicityTest" time="0.003"/>
+  <testcase name="[1] changed=0" classname="com.ngng.api.user.point.payment.PaymentAtomicityTest" time="0.004"/>
+  <testcase name="[2] changed=2" classname="com.ngng.api.user.point.payment.PaymentAtomicityTest" time="0.004"/>
+  <testcase name="[1] id=89, product=42, buyerId=7, seller=999, price=200" classname="com.ngng.api.user.point.payment.PaymentAtomicityTest" time="0.004"/>
+  <testcase name="[2] id=88, product=43, buyerId=7, seller=999, price=200" classname="com.ngng.api.user.point.payment.PaymentAtomicityTest" time="0.004"/>
+  <testcase name="[3] id=88, product=42, buyerId=8, seller=999, price=200" classname="com.ngng.api.user.point.payment.PaymentAtomicityTest" time="0.003"/>
+  <testcase name="[4] id=88, product=42, buyerId=7, seller=998, price=200" classname="com.ngng.api.user.point.payment.PaymentAtomicityTest" time="0.004"/>
+  <testcase name="[5] id=88, product=42, buyerId=7, seller=999, price=201" classname="com.ngng.api.user.point.payment.PaymentAtomicityTest" time="0.004"/>
+  <testcase name="debitFlushAndStatusTransitionCommitThroughOneAdviceInLockOrder()" classname="com.ngng.api.user.point.payment.PaymentAtomicityTest" time="0.005"/>
+  <testcase name="conditionalSqlUsesWholeTupleWithoutContextClearOrSeparateTransaction()" classname="com.ngng.api.user.point.payment.PaymentAtomicityTest" time="0.001"/>
+  <testcase name="successThenRetryReturns409WithOneAppendAndOneTransition()" classname="com.ngng.api.user.point.payment.PaymentAtomicityTest" time="0.004"/>
+  <testcase name="unverifiedIncludingFreshPendingTransactionFailsBeforeBalanceOrWrite()" classname="com.ngng.api.user.point.payment.PaymentAtomicityTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
