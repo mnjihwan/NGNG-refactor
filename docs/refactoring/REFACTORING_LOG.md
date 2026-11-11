@@ -333,3 +333,7 @@ B는 명시 JPA/실제 tx 프록시·소유 PK journal·독립 연결 commit/INS
 - 공통 독립 리뷰는 로컬 합의범위 신규 미해결P0/P1/P2 없이 완료했고 source/hash·942/37·assemble·lint/tsc와5xx/ID선택/개인경로P2수정을 확인했다. 후속6 source/manifest의 최종 독립 대조도 완료했고 신규 차단사항은 없었다. **동일PR 공동 최소기능·선택검증/리뷰 완료와 운영결제개방/배포차단을 구분**한다.
 
 물리DB lock/currentread·commit/rollback/affectedcount·OSIV/outerRC/RR·preloaded dirtyentity/다른writer는 미검증이다. nativeflush/bulkUPDATE의 dirty/stale 문제를 해결했다고 하지 않는다. 운영상태사전/원장완전성·독립복원세대/시계·ABA/복원/ID재사용·전체writer/drain/mixedversion·rollback/실HTTP·브라우저 및 RF021직접생성/가격오염은 배포차단이다. 승인manifest가 없으면 모든결제defaultdeny다. RF016 안전물리격리·소유fixture/외부차단/cleanup 및 별도 실행승인, 실제독립증거/운영조사범위·같은릴리스/drain전환 통제가 확보된 뒤 BACKLOG RF035~038/R3·R4·R6/R21을 근거로 재개한다. 전체test/build·frontendproductionbuild·성능 미실행/유예, 개선주장없음. 기존.tmp를 보존했고 DB/schema/운영allowlist·새의존성·commit/push/배포/다음작업 자동착수는 하지 않았다.
+
+## 2026-11-11 RF016 머지 후 테스트 호환 복구
+
+통합 기준 `2091fae`에서 PointHistoryService 생성자 확장과 RF016 테스트 구성이 충돌해 전체 테스트 소스 컴파일이 실패했다. 테스트 전용 fail-fast 대역과 호환 검증으로 복구했으며 정상 sourceSet 선택 281건, 실패·오류·skip 0, 독립 리뷰 완료다. 실제 DB/preflight·fixture·전체 suite/assemble 및 운영·성능은 미실행이다. 원시 자료와 치환본, 검증 한계 및 재개 조건은 [증빙](evidence/RF-016/merge-compat-20261111/README.md)과 [명세](tasks/RF-016.md)에 기록했다.

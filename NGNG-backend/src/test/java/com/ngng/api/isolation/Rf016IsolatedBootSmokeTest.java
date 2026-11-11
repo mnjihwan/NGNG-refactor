@@ -7,6 +7,10 @@ import com.ngng.api.global.security.filter.TokenFilter;
 import com.ngng.api.global.security.jwt.util.JwtTokenProvider;
 import com.ngng.api.user.point.entity.PointHistory;
 import com.ngng.api.user.point.repository.PointHistoryRepository;
+import com.ngng.api.user.point.repository.PaymentSettlementRepository;
+import com.ngng.api.user.point.payment.PaymentVerificationGate;
+import com.ngng.api.product.product.repository.ProductRepository;
+import com.ngng.api.transaction.repository.TransactionDetailsRepository;
 import com.ngng.api.user.user.entity.Role;
 import com.ngng.api.user.user.entity.User;
 import com.ngng.api.user.user.repository.UserRepository;
@@ -113,6 +117,8 @@ class Rf016IsolatedBootSmokeTest {
     @AfterEach void noLeak() {
         assertNull(SecurityContextHolder.getContext().getAuthentication());
         verifyNoInteractions(context.getBean(ProductService.class), context.getBean(TransactionDetailsService.class));
+        verifyNoInteractions(context.getBean(ProductRepository.class), context.getBean(TransactionDetailsRepository.class),
+                context.getBean(PaymentVerificationGate.class), context.getBean(PaymentSettlementRepository.class));
         mailbox.messages.clear();
         reset(users, points, sms);
         clearInvocations(sender);

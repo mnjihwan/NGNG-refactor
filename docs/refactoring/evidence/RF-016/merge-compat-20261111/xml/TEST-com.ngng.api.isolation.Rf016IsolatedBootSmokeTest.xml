@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.isolation.Rf016IsolatedBootSmokeTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-11-11T06:26:58" hostname="MOON" time="0.749">
+  <properties/>
+  <testcase name="newEmailRunsRealServiceButOnlyMemorySenderReceivesIt()" classname="com.ngng.api.isolation.Rf016IsolatedBootSmokeTest" time="0.349"/>
+  <testcase name="duplicateEmailHas409AndNoMessageCreationOrSend()" classname="com.ngng.api.isolation.Rf016IsolatedBootSmokeTest" time="0.01"/>
+  <testcase name="[1] kind=missing" classname="com.ngng.api.isolation.Rf016IsolatedBootSmokeTest" time="0.026"/>
+  <testcase name="[2] kind=malformed" classname="com.ngng.api.isolation.Rf016IsolatedBootSmokeTest" time="0.005"/>
+  <testcase name="[3] kind=expired" classname="com.ngng.api.isolation.Rf016IsolatedBootSmokeTest" time="0.068"/>
+  <testcase name="configurationWasSanitizedBeforeConfigDataAndOnlyExplicitBeansExist()" classname="com.ngng.api.isolation.Rf016IsolatedBootSmokeTest" time="0.02"/>
+  <testcase name="authenticatedUserReadUsesDatabaseIdentityAndPointDouble()" classname="com.ngng.api.isolation.Rf016IsolatedBootSmokeTest" time="0.026"/>
+  <testcase name="[1] path=/points" classname="com.ngng.api.isolation.Rf016IsolatedBootSmokeTest" time="0.016"/>
+  <testcase name="[2] path=/points/all" classname="com.ngng.api.isolation.Rf016IsolatedBootSmokeTest" time="0.012"/>
+  <testcase name="smsControllerUsesServiceBoundaryDoubleWithoutSdkConstruction()" classname="com.ngng.api.isolation.Rf016IsolatedBootSmokeTest" time="0.013"/>
+  <testcase name="authenticatedChargeUsesRealServiceAndOrderedRepositoryDoubles()" classname="com.ngng.api.isolation.Rf016IsolatedBootSmokeTest" time="0.162"/>
+  <system-out><![CDATA[15:26:55,421 |-INFO in ch.qos.logback.classic.LoggerContext[default] - This is logback-classic version 1.4.14
+15:26:55,421 |-INFO in ch.qos.logback.classic.util.ContextInitializer@376e7531 - Here is a list of configurators discovered as a service, by rank: 
+15:26:55,421 |-INFO in ch.qos.logback.classic.util.ContextInitializer@376e7531 -   org.springframework.boot.logging.logback.RootLogLevelConfigurator
+15:26:55,421 |-INFO in ch.qos.logback.classic.util.ContextInitializer@376e7531 - They will be invoked in order until ExecutionStatus.DO_NOT_INVOKE_NEXT_IF_ANY is returned.
+15:26:55,421 |-INFO in ch.qos.logback.classic.util.ContextInitializer@376e7531 - Constructed configurator of type class org.springframework.boot.logging.logback.RootLogLevelConfigurator
+15:26:55,427 |-INFO in ch.qos.logback.classic.util.ContextInitializer@376e7531 - org.springframework.boot.logging.logback.RootLogLevelConfigurator.configure() call lasted 0 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
+15:26:55,427 |-INFO in ch.qos.logback.classic.util.ContextInitializer@376e7531 - Trying to configure with ch.qos.logback.classic.joran.SerializedModelConfigurator
+15:26:55,427 |-INFO in ch.qos.logback.classic.util.ContextInitializer@376e7531 - Constructed configurator of type class ch.qos.logback.classic.joran.SerializedModelConfigurator
+15:26:55,427 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.scmo]
+15:26:55,427 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.scmo]
+15:26:55,427 |-INFO in ch.qos.logback.classic.util.ContextInitializer@376e7531 - ch.qos.logback.classic.joran.SerializedModelConfigurator.configure() call lasted 0 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
+15:26:55,427 |-INFO in ch.qos.logback.classic.util.ContextInitializer@376e7531 - Trying to configure with ch.qos.logback.classic.util.DefaultJoranConfigurator
+15:26:55,427 |-INFO in ch.qos.logback.classic.util.ContextInitializer@376e7531 - Constructed configurator of type class ch.qos.logback.classic.util.DefaultJoranConfigurator
+15:26:55,427 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
+15:26:55,427 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.xml]
+15:26:55,427 |-INFO in ch.qos.logback.classic.util.ContextInitializer@376e7531 - ch.qos.logback.classic.util.DefaultJoranConfigurator.configure() call lasted 0 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
+15:26:55,427 |-INFO in ch.qos.logback.classic.util.ContextInitializer@376e7531 - Trying to configure with ch.qos.logback.classic.BasicConfigurator
+15:26:55,427 |-INFO in ch.qos.logback.classic.util.ContextInitializer@376e7531 - Constructed configurator of type class ch.qos.logback.classic.BasicConfigurator
+15:26:55,427 |-INFO in ch.qos.logback.classic.BasicConfigurator@23202c31 - Setting up default configuration.
+15:26:55,458 |-INFO in ch.qos.logback.classic.util.ContextInitializer@376e7531 - ch.qos.logback.classic.BasicConfigurator.configure() call lasted 31 milliseconds. ExecutionStatus=NEUTRAL
+15:26:56,243 |-WARN in ch.qos.logback.core.model.processor.AppenderModelHandler - Appender named [LOGFILE] not referenced. Skipping further processing.
+15:26:56,243 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [USERLOG]
+15:26:56,243 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.FileAppender]
+15:26:56,243 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+15:26:56,259 |-INFO in ch.qos.logback.core.FileAppender[USERLOG] - File property is set to [./logs/user-log.txt]
+15:26:56,259 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [PRODUCT]
+15:26:56,259 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.FileAppender]
+15:26:56,259 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+15:26:56,259 |-INFO in ch.qos.logback.core.FileAppender[PRODUCT] - File property is set to [./logs/product-log.txt]
+15:26:56,259 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [TRANSACTION]
+15:26:56,259 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.FileAppender]
+15:26:56,259 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+15:26:56,259 |-INFO in ch.qos.logback.core.FileAppender[TRANSACTION] - File property is set to [./logs/transaction-log.txt]
+15:26:56,259 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [PENALTY]
+15:26:56,259 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.FileAppender]
+15:26:56,259 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+15:26:56,259 |-INFO in ch.qos.logback.core.FileAppender[PENALTY] - File property is set to [./logs/penalty-log.txt]
+15:26:56,259 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [POINT]
+15:26:56,259 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.FileAppender]
+15:26:56,259 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+15:26:56,259 |-INFO in ch.qos.logback.core.FileAppender[POINT] - File property is set to [./logs/point-log.txt]
+15:26:56,259 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [REPORT]
+15:26:56,259 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.FileAppender]
+15:26:56,259 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+15:26:56,259 |-INFO in ch.qos.logback.core.FileAppender[REPORT] - File property is set to [./logs/report-log.txt]
+15:26:56,259 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [CONSOLE]
+15:26:56,259 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+15:26:56,259 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+15:26:56,259 |-INFO in ch.qos.logback.classic.model.processor.RootLoggerModelHandler - Setting level of ROOT logger to INFO
+15:26:56,259 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@5782d777 - Propagating INFO level on Logger[ROOT] onto the JUL framework
+15:26:56,259 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [CONSOLE] to Logger[ROOT]
+15:26:56,259 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [user-log] to INFO
+15:26:56,259 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@5782d777 - Propagating INFO level on Logger[user-log] onto the JUL framework
+15:26:56,259 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [user-log] to false
+15:26:56,259 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [USERLOG] to Logger[user-log]
+15:26:56,259 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [product-log] to INFO
+15:26:56,259 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@5782d777 - Propagating INFO level on Logger[product-log] onto the JUL framework
+15:26:56,259 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [product-log] to false
+15:26:56,259 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [PRODUCT] to Logger[product-log]
+15:26:56,259 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [transaction-log] to INFO
+15:26:56,259 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@5782d777 - Propagating INFO level on Logger[transaction-log] onto the JUL framework
+15:26:56,259 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [transaction-log] to false
+15:26:56,259 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [TRANSACTION] to Logger[transaction-log]
+15:26:56,259 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [point-log] to INFO
+15:26:56,259 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@5782d777 - Propagating INFO level on Logger[point-log] onto the JUL framework
+15:26:56,259 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [point-log] to false
+15:26:56,259 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [POINT] to Logger[point-log]
+15:26:56,259 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [report-log] to INFO
+15:26:56,259 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@5782d777 - Propagating INFO level on Logger[report-log] onto the JUL framework
+15:26:56,259 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [report-log] to false
+15:26:56,259 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [REPORT] to Logger[report-log]
+15:26:56,259 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [penalty-log] to INFO
+15:26:56,259 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@5782d777 - Propagating INFO level on Logger[penalty-log] onto the JUL framework
+15:26:56,259 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [penalty-log] to false
+15:26:56,259 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [PENALTY] to Logger[penalty-log]
+15:26:56,259 |-INFO in ch.qos.logback.core.model.processor.DefaultProcessor@4f824872 - End of configuration.
+15:26:56,259 |-INFO in org.springframework.boot.logging.logback.SpringBootJoranConfigurator@b016b4e - Registering current configuration as safe fallback point
+
+2026-11-11 15:26:56.299 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-11-11 15:26:56.335 [Test worker] INFO  c.n.a.i.Rf016IsolatedBootSmokeTest - Starting Rf016IsolatedBootSmokeTest using Java 17.0.10 with PID 4392 (started by [LOCAL_USER] in [WORKSPACE]\NGNG-backend)
+2026-11-11 15:26:56.335 [Test worker] INFO  c.n.a.i.Rf016IsolatedBootSmokeTest - No active profile set, falling back to 1 default profile: "default"
+2026-11-11 15:26:58.160 [Test worker] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3ff8a3ad, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@550fa96f, org.springframework.security.web.context.SecurityContextHolderFilter@52657d5f, org.springframework.security.web.header.HeaderWriterFilter@28fa541, org.springframework.web.filter.CorsFilter@54275b5d, org.springframework.security.web.authentication.logout.LogoutFilter@74bbc273, com.ngng.api.global.security.filter.TokenFilter@5d01b0d8, com.ngng.api.global.security.filter.LoginFilter@271e851e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2211b44f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6c830ebd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@ff21443, org.springframework.security.web.session.SessionManagementFilter@4aab7195, org.springframework.security.web.access.ExceptionTranslationFilter@41be8db9, org.springframework.security.web.access.intercept.AuthorizationFilter@9dc782d]
+2026-11-11 15:26:58.686 [Test worker] INFO  c.n.a.i.Rf016IsolatedBootSmokeTest - Started Rf016IsolatedBootSmokeTest in 2.625 seconds (process running for 4.453)
+2026-11-11 15:26:58.804 [Test worker] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-11 15:26:58.804 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-11 15:26:58.820 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 16 ms
+2026-11-11 15:26:59.084 [Test worker] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-11 15:26:59.084 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-11 15:26:59.084 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2026-11-11 15:26:59.121 [Test worker] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-11 15:26:59.121 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-11 15:26:59.121 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2026-11-11 15:26:59.147 [Test worker] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-11 15:26:59.147 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-11 15:26:59.147 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2026-11-11 15:26:59.147 [Test worker] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-11 15:26:59.147 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-11 15:26:59.147 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2026-11-11 15:26:59.226 [Test worker] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-11 15:26:59.226 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-11 15:26:59.226 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+RF016_BEAN authenticationManager=org.springframework.security.authentication.AuthenticationManager$MockitoMock$tZDhcCbV
+RF016_BEAN authenticationManagerBuilder=org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration$DefaultPasswordEncoderAuthenticationManagerBuilder
+RF016_BEAN bCryptPasswordEncoder=org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
+RF016_BEAN beanNameHandlerMapping=org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping
+RF016_BEAN com.ngng.api.global.security.config.SecurityConfig=com.ngng.api.global.security.config.SecurityConfig$$SpringCGLIB$$0
+RF016_BEAN com.ngng.api.user.point.controller.PointController=com.ngng.api.user.point.controller.PointController
+RF016_BEAN com.ngng.api.user.point.service.PointHistoryService=com.ngng.api.user.point.service.PointHistoryService
+RF016_BEAN com.ngng.api.user.user.controller.JoinAuthController=com.ngng.api.user.user.controller.JoinAuthController
+RF016_BEAN com.ngng.api.user.user.controller.UserController=com.ngng.api.user.user.controller.UserController
+RF016_BEAN com.ngng.api.user.user.service.AuthService=com.ngng.api.user.user.service.AuthService
+RF016_BEAN com.ngng.api.user.user.service.EmailAuthService=com.ngng.api.user.user.service.EmailAuthService
+RF016_BEAN com.ngng.api.user.user.service.UserService=com.ngng.api.user.user.service.UserService
+RF016_BEAN conversionServicePostProcessor=org.springframework.security.config.crypto.RsaKeyConversionServicePostProcessor
+RF016_BEAN defaultServletHandlerMapping=org.springframework.web.servlet.HandlerMapping
+RF016_BEAN delegatingApplicationListener=org.springframework.security.context.DelegatingApplicationListener
+RF016_BEAN enableGlobalAuthenticationAutowiredConfigurer=org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration$EnableGlobalAuthenticationAutowiredConfigurer
+RF016_BEAN filterChain=org.springframework.security.web.DefaultSecurityFilterChain
+RF016_BEAN flashMapManager=org.springframework.web.servlet.support.SessionFlashMapManager
+RF016_BEAN handlerExceptionResolver=org.springframework.web.servlet.handler.HandlerExceptionResolverComposite
+RF016_BEAN handlerFunctionAdapter=org.springframework.web.servlet.function.support.HandlerFunctionAdapter
+RF016_BEAN httpRequestHandlerAdapter=org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter
+RF016_BEAN initializeAuthenticationProviderBeanManagerConfigurer=org.springframework.security.config.annotation.authentication.configuration.InitializeAuthenticationProviderBeanManagerConfigurer
+RF016_BEAN initializeUserDetailsBeanManagerConfigurer=org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer
+RF016_BEAN jacksonObjectMapper=com.fasterxml.jackson.databind.ObjectMapper
+RF016_BEAN jacksonObjectMapperBuilder=org.springframework.http.converter.json.Jackson2ObjectMapperBuilder
+RF016_BEAN javaMailSender=org.springframework.mail.javamail.JavaMailSender$MockitoMock$MirHTXE8
+RF016_BEAN jsonComponentModule=org.springframework.boot.jackson.JsonComponentModule
+RF016_BEAN jsonMixinModule=org.springframework.boot.jackson.JsonMixinModule
+RF016_BEAN jsonMixinModuleEntries=org.springframework.boot.jackson.JsonMixinModuleEntries
+RF016_BEAN localeResolver=org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver
+RF016_BEAN logoutHandler=com.ngng.api.global.security.handler.CustomLogoutHandler
+RF016_BEAN logoutSuccessHandler=com.ngng.api.global.security.handler.CustomLogoutSuccessHandler
+RF016_BEAN mailbox=com.ngng.api.isolation.Rf016IsolationConfiguration$MemoryMailbox
+RF016_BEAN mvcContentNegotiationManager=org.springframework.web.accept.ContentNegotiationManager
+RF016_BEAN mvcConversionService=org.springframework.format.support.DefaultFormattingConversionService
+RF016_BEAN mvcHandlerMappingIntrospector=org.springframework.web.servlet.handler.HandlerMappingIntrospector
+RF016_BEAN mvcHandlerMappingIntrospectorRequestTransformer=org.springframework.security.web.access.HandlerMappingIntrospectorRequestTransformer
+RF016_BEAN mvcPathMatcher=org.springframework.util.AntPathMatcher
+RF016_BEAN mvcPatternParser=org.springframework.web.util.pattern.PathPatternParser
+RF016_BEAN mvcResourceUrlProvider=org.springframework.web.servlet.resource.ResourceUrlProvider
+RF016_BEAN mvcUriComponentsContributor=org.springframework.web.method.support.CompositeUriComponentsContributor
+RF016_BEAN mvcUrlPathHelper=org.springframework.web.util.UrlPathHelper
+RF016_BEAN mvcValidator=org.springframework.validation.beanvalidation.OptionalValidatorFactoryBean
+RF016_BEAN mvcViewResolver=org.springframework.web.servlet.view.ViewResolverComposite
+RF016_BEAN objectPostProcessor=org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor
+RF016_BEAN org.springframework.boot.autoconfigure.internalCachingMetadataReaderFactory=org.springframework.core.type.classreading.CachingMetadataReaderFactory
+RF016_BEAN org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$Jackson2ObjectMapperBuilderCustomizerConfiguration=org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$Jackson2ObjectMapperBuilderCustomizerConfiguration
+RF016_BEAN org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$JacksonMixinConfiguration=org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$JacksonMixinConfiguration
+RF016_BEAN org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$JacksonObjectMapperBuilderConfiguration=org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$JacksonObjectMapperBuilderConfiguration
+RF016_BEAN org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$JacksonObjectMapperConfiguration=org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$JacksonObjectMapperConfiguration
+RF016_BEAN org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$ParameterNamesModuleConfiguration=org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$ParameterNamesModuleConfiguration
+RF016_BEAN org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration=org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration
+RF016_BEAN org.springframework.boot.context.internalConfigurationPropertiesBinder=org.springframework.boot.context.properties.ConfigurationPropertiesBinder
+RF016_BEAN org.springframework.boot.context.properties.BoundConfigurationProperties=org.springframework.boot.context.properties.BoundConfigurationProperties
+RF016_BEAN org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor=org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor
+RF016_BEAN org.springframework.boot.context.properties.EnableConfigurationPropertiesRegistrar.methodValidationExcludeFilter=org.springframework.boot.validation.beanvalidation.MethodValidationExcludeFilter$$Lambda$1058/0x0000027b8165ce38
+RF016_BEAN org.springframework.boot.test.mock.mockito.MockitoPostProcessor$SpyPostProcessor=org.springframework.boot.test.mock.mockito.MockitoPostProcessor$SpyPostProcessor
+RF016_BEAN org.springframework.boot.test.mock.mockito.MockitoPostProcessor=org.springframework.boot.test.mock.mockito.MockitoPostProcessor
+RF016_BEAN org.springframework.context.annotation.internalAutowiredAnnotationProcessor=org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor
+RF016_BEAN org.springframework.context.annotation.internalCommonAnnotationProcessor=org.springframework.context.annotation.CommonAnnotationBeanPostProcessor
+RF016_BEAN org.springframework.context.annotation.internalConfigurationAnnotationProcessor=org.springframework.context.annotation.ConfigurationClassPostProcessor
+RF016_BEAN org.springframework.context.annotation.internalPersistenceAnnotationProcessor=org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor
+RF016_BEAN org.springframework.context.event.internalEventListenerFactory=org.springframework.context.event.DefaultEventListenerFactory
+RF016_BEAN org.springframework.context.event.internalEventListenerProcessor=org.springframework.context.event.EventListenerMethodProcessor
+RF016_BEAN org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration=org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration
+RF016_BEAN org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration=org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration
+RF016_BEAN org.springframework.security.config.annotation.web.configuration.HttpSecurityConfiguration.httpSecurity=org.springframework.security.config.annotation.web.builders.HttpSecurity
+RF016_BEAN org.springframework.security.config.annotation.web.configuration.HttpSecurityConfiguration=org.springframework.security.config.annotation.web.configuration.HttpSecurityConfiguration
+RF016_BEAN org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration=org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration
+RF016_BEAN org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration=org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration
+RF016_BEAN org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration=org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration
+RF016_BEAN parameterNamesModule=com.fasterxml.jackson.module.paramnames.ParameterNamesModule
+RF016_BEAN paymentSettlementRepository=com.ngng.api.user.point.repository.PaymentSettlementRepository$MockitoMock$QnVwCqAw
+RF016_BEAN paymentVerificationGate=com.ngng.api.user.point.payment.PaymentVerificationGate
+RF016_BEAN phoneNumberAuthService=com.ngng.api.user.user.service.PhoneNumberAuthService
+RF016_BEAN pointHistoryRepository=com.ngng.api.user.point.repository.PointHistoryRepository$MockitoMock$9FQJxkRO
+RF016_BEAN privilegeEvaluator=org.springframework.security.web.access.RequestMatcherDelegatingWebInvocationPrivilegeEvaluator
+RF016_BEAN productRepository=com.ngng.api.product.product.repository.ProductRepository$MockitoMock$4W524YHl
+RF016_BEAN productService=com.ngng.api.product.product.service.ProductService
+RF016_BEAN requestDataValueProcessor=org.springframework.security.web.servlet.support.csrf.CsrfRequestDataValueProcessor
+RF016_BEAN requestMappingHandlerAdapter=org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter
+RF016_BEAN requestMappingHandlerMapping=org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+RF016_BEAN resourceHandlerMapping=org.springframework.web.servlet.HandlerMapping
+RF016_BEAN rf016IsolationConfiguration=com.ngng.api.isolation.Rf016IsolationConfiguration
+RF016_BEAN routerFunctionMapping=org.springframework.web.servlet.function.support.RouterFunctionMapping
+RF016_BEAN simpleControllerHandlerAdapter=org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter
+RF016_BEAN spring.jackson-org.springframework.boot.autoconfigure.jackson.JacksonProperties=org.springframework.boot.autoconfigure.jackson.JacksonProperties
+RF016_BEAN springSecurityFilterChain=org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy
+RF016_BEAN springSecurityHandlerMappingIntrospectorBeanDefinitionRegistryPostProcessor=org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$1
+RF016_BEAN standardJacksonObjectMapperBuilderCustomizer=org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$Jackson2ObjectMapperBuilderCustomizerConfiguration$StandardJackson2ObjectMapperBuilderCustomizer
+RF016_BEAN themeResolver=org.springframework.web.servlet.theme.FixedThemeResolver
+RF016_BEAN tokenProvider=com.ngng.api.global.security.jwt.util.JwtTokenProvider
+RF016_BEAN tokenVerifier=com.ngng.api.global.security.jwt.util.JwtTokenVerifier
+RF016_BEAN transactionDetailsRepository=com.ngng.api.transaction.repository.TransactionDetailsRepository$MockitoMock$fbGXt3JY
+RF016_BEAN transactionDetailsService=com.ngng.api.transaction.service.TransactionDetailsService
+RF016_BEAN unusedLoginConfiguration=org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration
+RF016_BEAN userRepository=com.ngng.api.user.user.repository.UserRepository$MockitoMock$z3L13r7h
+RF016_BEAN viewControllerHandlerMapping=org.springframework.web.servlet.HandlerMapping
+RF016_BEAN viewNameTranslator=org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator
+RF016_BEAN webSecurityExpressionHandler=org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler
+RF016_SOURCE configurationProperties
+RF016_SOURCE test
+RF016_SOURCE rf016-controlled
+RF016_SOURCE random
+RF016_SOURCE Config resource 'class path resource [rf016-isolation.properties]' via location 'classpath:/rf016-isolation.properties'
+2026-11-11 15:26:59.241 [Test worker] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-11 15:26:59.241 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-11 15:26:59.241 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2026-11-11 15:26:59.273 [Test worker] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-11 15:26:59.273 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-11 15:26:59.273 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2026-11-11 15:26:59.289 [Test worker] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-11 15:26:59.289 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-11 15:26:59.289 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2026-11-11 15:26:59.304 [Test worker] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-11 15:26:59.304 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-11 15:26:59.304 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2026-11-11 15:26:59.321 [Test worker] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-11 15:26:59.321 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-11 15:26:59.321 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+RF016 restricted-context-closed=true
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,34 @@
+[
+  {
+    "sha256": "9558AA77A7EAF889A7C3BCAC237DDB0E14730791939C9B65DA4B0C49D86E8B4C",
+    "path": "NGNG-backend/src/test/java/com/ngng/api/isolation/mysql/Rf016MySqlFixture.java"
+  },
+  {
+    "sha256": "6E9AA0C55427F472DD13D73ACB57B3DA7A54FF1F7166EDD5C7237422976EDB58",
+    "path": "NGNG-backend/src/test/java/com/ngng/api/isolation/Rf016IsolationConfiguration.java"
+  },
+  {
+    "sha256": "3C49C1ED9568C2ECA7BBBD5171BED6D41732580118913060CE5E3E70D8C46893",
+    "path": "NGNG-backend/src/test/java/com/ngng/api/isolation/mysql/Rf016MySqlSafetyGate.java"
+  },
+  {
+    "sha256": "5973DF5856777758D5F779A65CAD31F8C5FF954F74D48C47D7BC9DE8136072FB",
+    "path": "NGNG-backend/src/test/java/com/ngng/api/isolation/mysql/Rf016MySqlSafetyGateTest.java"
+  },
+  {
+    "sha256": "038CE2DE4ED9F043ECFCE1EEFA7DDB2D8516855C36A275B50BCE7FBE8EDFFAC5",
+    "path": "NGNG-backend/src/test/java/com/ngng/api/isolation/mysql/Rf016MySqlReadOnlyPreflightTest.java"
+  },
+  {
+    "sha256": "024BD4AD6A4C8CF394BA515FBAAD7E0F3C023C12E576790274274454C2F446CE",
+    "path": "NGNG-backend/src/main/java/com/ngng/api/user/point/service/PointHistoryService.java"
+  },
+  {
+    "sha256": "A3DF2BA5B3983331EF2B4859E84D64CCCEEADF12D5F432BC12796DF1C9B34AB4",
+    "path": "NGNG-backend/src/main/java/com/ngng/api/user/point/payment/PaymentVerificationGate.java"
+  },
+  {
+    "sha256": "D45A2F841C62A6F96231B8E93F7363A68971359CE6A0F6A300AA398367B485C2",
+    "path": "NGNG-backend/src/main/java/com/ngng/api/user/point/payment/PaymentVerificationConfiguration.java"
+  }
+]

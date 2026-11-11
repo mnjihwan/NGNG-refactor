@@ -1,0 +1,62 @@
+[
+  {
+    "private": ".local-runtime/rf016-raw/20261111-merge-compat/TEST-com.ngng.api.isolation.mysql.Rf016FixtureCompatibilityTest.xml",
+    "sharedSha256": "D604BDCAF04C3276C7914DD2F66DF5087B8F88A3C56C4E136894762112284277",
+    "shared": "docs/refactoring/evidence/RF-016/merge-compat-20261111/xml/TEST-com.ngng.api.isolation.mysql.Rf016FixtureCompatibilityTest.xml",
+    "originalSha256": "D604BDCAF04C3276C7914DD2F66DF5087B8F88A3C56C4E136894762112284277"
+  },
+  {
+    "private": ".local-runtime/rf016-raw/20261111-merge-compat/TEST-com.ngng.api.isolation.mysql.Rf016MySqlSafetyGateTest.xml",
+    "sharedSha256": "DEA51B98662970DF6C9E6F8C3960A56E678F416104AA3D62E78C9227D1D11949",
+    "shared": "docs/refactoring/evidence/RF-016/merge-compat-20261111/xml/TEST-com.ngng.api.isolation.mysql.Rf016MySqlSafetyGateTest.xml",
+    "originalSha256": "DEA51B98662970DF6C9E6F8C3960A56E678F416104AA3D62E78C9227D1D11949"
+  },
+  {
+    "private": ".local-runtime/rf016-raw/20261111-merge-compat/TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+    "sharedSha256": "8898D42FEF30AB75FC59E4B2CB1E210DA089F09EFF77C6E1952E9B612437903C",
+    "shared": "docs/refactoring/evidence/RF-016/merge-compat-20261111/xml/TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+    "originalSha256": "8898D42FEF30AB75FC59E4B2CB1E210DA089F09EFF77C6E1952E9B612437903C"
+  },
+  {
+    "private": ".local-runtime/rf016-raw/20261111-merge-compat/TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+    "sharedSha256": "1E276900CBC799BD029467B108F222AA0581AA87A774CFA8DB83717CD463E919",
+    "shared": "docs/refactoring/evidence/RF-016/merge-compat-20261111/xml/TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+    "originalSha256": "23C8BE72FAD34881D6DF2E8107BCE1A3EF3F1F220AC6E0FE9389683D6ECFE2F4"
+  },
+  {
+    "private": ".local-runtime/rf016-raw/20261111-merge-compat/TEST-com.ngng.api.user.point.payment.PaymentAtomicityTest.xml",
+    "sharedSha256": "0E21FBCD68169C65069CB6E86A54391A6A604CDC6CA46C5C5F37E19274033DB0",
+    "shared": "docs/refactoring/evidence/RF-016/merge-compat-20261111/xml/TEST-com.ngng.api.user.point.payment.PaymentAtomicityTest.xml",
+    "originalSha256": "0E21FBCD68169C65069CB6E86A54391A6A604CDC6CA46C5C5F37E19274033DB0"
+  },
+  {
+    "private": ".local-runtime/rf016-raw/20261111-merge-compat/TEST-com.ngng.api.user.point.payment.PaymentTrustServiceTest.xml",
+    "sharedSha256": "E84AE16EE97953CAED88D4BF64AE0535D610BEF01CF5ADEBDA3131E99B082D6B",
+    "shared": "docs/refactoring/evidence/RF-016/merge-compat-20261111/xml/TEST-com.ngng.api.user.point.payment.PaymentTrustServiceTest.xml",
+    "originalSha256": "E84AE16EE97953CAED88D4BF64AE0535D610BEF01CF5ADEBDA3131E99B082D6B"
+  },
+  {
+    "private": ".local-runtime/rf016-raw/20261111-merge-compat/TEST-com.ngng.api.user.point.payment.PaymentVerificationConfigurationTest.xml",
+    "sharedSha256": "F3A99BB38D0FDB3739237A419A61F668FB1DD22B46C3DC71ACC3077CA9B56B89",
+    "shared": "docs/refactoring/evidence/RF-016/merge-compat-20261111/xml/TEST-com.ngng.api.user.point.payment.PaymentVerificationConfigurationTest.xml",
+    "originalSha256": "F3A99BB38D0FDB3739237A419A61F668FB1DD22B46C3DC71ACC3077CA9B56B89"
+  },
+  {
+    "private": ".local-runtime/rf016-raw/20261111-merge-compat/TEST-com.ngng.api.user.point.payment.PaymentVerificationGateTest.xml",
+    "sharedSha256": "FBD529E372F8E4057700AF38CB33DE378B9318AE476D4BF077B7AD757F8F5963",
+    "shared": "docs/refactoring/evidence/RF-016/merge-compat-20261111/xml/TEST-com.ngng.api.user.point.payment.PaymentVerificationGateTest.xml",
+    "originalSha256": "FBD529E372F8E4057700AF38CB33DE378B9318AE476D4BF077B7AD757F8F5963"
+  },
+  {
+    "private": ".local-runtime/rf016-raw/20261111-merge-compat/selected-console.txt",
+    "sharedSha256": "2950A71EBCF6A1B5CB677B9E7DD2ADED2A5C4932E05030AFAB059C5CACC7F9E5",
+    "shared": "docs/refactoring/evidence/RF-016/merge-compat-20261111/selected-console.txt",
+    "originalSha256": "2950A71EBCF6A1B5CB677B9E7DD2ADED2A5C4932E05030AFAB059C5CACC7F9E5"
+  },
+  {
+    "private": ".local-runtime/rf016-raw/20261111-merge-compat/wrapper-denied-console.txt",
+    "sharedSha256": "1B4F777C24B6CF055CAAD77DC938FCB1DE089094F1381C9B866A3A654DA7E7AC",
+    "shared": "docs/refactoring/evidence/RF-016/merge-compat-20261111/wrapper-denied-console.txt",
+    "originalSha256": "E4F63F48898E2DC948E70DC5B3D310D2C5CD244C9EC8ADFA25E4A13B1B4EA9BB"
+  }
+]

@@ -294,3 +294,7 @@ R4-연동/운영/성능의 기존 미실행·별도 범위는 유지한다. 공�
 | RF035~038-범위/성능 | 충전 외부증명·전체backendtest/build·frontend productionbuild·실브라우저·성능은 미실행/별도범위/사용자유예 | 독립 범위/환경 승인 전 자동착수하지 않음. 성능개선 주장 없음 |
 
 승인manifest가 없는 현재 기본설정은 모든 결제를 거부한다. 이번에는 운영자료/DB/schema·새의존성·배포·commit/push를 실행하지 않았고 기존 .tmp 자료를 보존했다.
+
+### RF016 머지 후 컴파일 호환 복구 (2026-11-11)
+
+PR20/19 통합 후 생성자 불일치로 발생한 테스트 컴파일 회귀는 RF016 전용 대역으로 복구했고 정상 sourceSet 선택 281건이 통과했다. 실제 DB/preflight·fixture·전체 suite/assemble 및 운영·성능 검증은 미실행이며 기존 RF016 잔여 조건을 유지한다. 상세 근거와 재개 조건은 [명세](tasks/RF-016.md)와 [증빙](evidence/RF-016/merge-compat-20261111/README.md)을 따른다.

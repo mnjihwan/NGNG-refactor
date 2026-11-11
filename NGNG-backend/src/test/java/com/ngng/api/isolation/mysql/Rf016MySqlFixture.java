@@ -1,9 +1,13 @@
 package com.ngng.api.isolation.mysql;
 
 import com.ngng.api.global.security.custom.CustomUserDetails;
+import com.ngng.api.product.product.repository.ProductRepository;
+import com.ngng.api.transaction.repository.TransactionDetailsRepository;
 import com.ngng.api.user.point.dto.CreateAddPointRequestDTO;
 import com.ngng.api.user.point.entity.PointHistory;
 import com.ngng.api.user.point.repository.PointHistoryRepository;
+import com.ngng.api.user.point.repository.PaymentSettlementRepository;
+import com.ngng.api.user.point.payment.PaymentVerificationGate;
 import com.ngng.api.user.point.service.PointHistoryService;
 import com.ngng.api.user.user.entity.Role;
 import com.ngng.api.user.user.entity.User;
@@ -36,6 +40,7 @@ import java.util.concurrent.*;
 import java.util.function.Function;
 
 import static com.ngng.api.isolation.mysql.Rf016MySqlSafetyGate.*;
+import static com.ngng.api.isolation.Rf016UnusedPaymentCollaborator.unused;
 
 /** Explicit opt-in physical fixture. Constructing it is a DB connection and must only happen
  * after host/environment review. No Boot/YAML, broad scanning, DDL or network integrations. */
@@ -405,7 +410,10 @@ final class Rf016MySqlFixture implements AutoCloseable {
                         try { Object result = method.invoke(histories, args); return method.getName().equals("save") ? fixture.observe((PointHistory) result, factory) : result; }
                         catch (InvocationTargetException failure) { fixture.ledger.uncertain(); throw failure.getCause(); }
                     });
-            return new PointHistoryService(observed, auth, users);
+            // charge() calls updateCost only. Payment-only access must never reach JPA or files.
+            return new PointHistoryService(observed, auth, users, unused(ProductRepository.class),
+                    unused(TransactionDetailsRepository.class), unused(PaymentVerificationGate.class),
+                    unused(PaymentSettlementRepository.class));
         }
     }
 }

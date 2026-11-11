@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.isolation.mysql.Rf016FixtureCompatibilityTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-11-11T06:26:59" hostname="MOON" time="0.015">
+  <properties/>
+  <testcase name="eachPaymentOnlyCollaboratorRejectsBusinessCalls()" classname="com.ngng.api.isolation.mysql.Rf016FixtureCompatibilityTest" time="0.005"/>
+  <testcase name="accidentalPaymentFailsBeforeAnyPointRepositoryWork()" classname="com.ngng.api.isolation.mysql.Rf016FixtureCompatibilityTest" time="0.002"/>
+  <testcase name="chargingRetainsRepositoryDelegationAndObservationWithoutPaymentWork()" classname="com.ngng.api.isolation.mysql.Rf016FixtureCompatibilityTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

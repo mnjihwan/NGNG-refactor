@@ -1,0 +1,162 @@
+[
+  {
+    "sha256": "AE4D34B1E0614F754D962B0C1143E90D4B22C65DA4870BF3A3FB20D8E072D892",
+    "bytes": 1569,
+    "path": "before-sha256.json"
+  },
+  {
+    "sha256": "8AE2DCF397890767E171DCE3A1FC8DFA0153F510643DE2BB64E732EFBBEA13DB",
+    "bytes": 6876,
+    "path": "README.md"
+  },
+  {
+    "sha256": "702951946464795B49CBF14C78448A46B9F2D08BF79743B490628DEF81AD5D2D",
+    "bytes": 1266,
+    "path": "results.json"
+  },
+  {
+    "sha256": "6E78BAEEA581D10689E09DB72C6BA5C9DB5B1FFB1018E5303A8ED7EDAAD73511",
+    "bytes": 175,
+    "path": "review.json"
+  },
+  {
+    "sha256": "2950A71EBCF6A1B5CB677B9E7DD2ADED2A5C4932E05030AFAB059C5CACC7F9E5",
+    "bytes": 1144,
+    "path": "selected-console.txt"
+  },
+  {
+    "sha256": "13BF7B3039C63BF5A50491FA3CFD8EB4E699D1BA1436315AEF9CBE5711530354",
+    "bytes": 3,
+    "path": "selected-exit.txt"
+  },
+  {
+    "sha256": "D9A76E2F0387B597043E235BCEC665A3121889F4BD3718931A93E6BA0F906D2F",
+    "bytes": 4475,
+    "path": "sharing-manifest.json"
+  },
+  {
+    "sha256": "E38E17620115BD96B564CE7457B79955872A590B28228F7777E442BC559FC5B9",
+    "bytes": 1553,
+    "path": "source-after-sha256.json"
+  },
+  {
+    "sha256": "4D742490850A90ADB4C8F84AB6B24043B5A9ECC72C48A9DAAE60FF9F596A86B0",
+    "bytes": 1825,
+    "path": "unchanged-boundaries.json"
+  },
+  {
+    "sha256": "1B4F777C24B6CF055CAAD77DC938FCB1DE089094F1381C9B866A3A654DA7E7AC",
+    "bytes": 550,
+    "path": "wrapper-denied-console.txt"
+  },
+  {
+    "sha256": "F1B2F662800122BED0FF255693DF89C4487FBDCF453D3524A42D4EC20C3D9C04",
+    "bytes": 3,
+    "path": "wrapper-denied-exit.txt"
+  },
+  {
+    "sha256": "3193BBDE26916ED6AE1FF7CFD2051D5EAC498EEA000EFE378FA919C1C3D08FE2",
+    "bytes": 1805,
+    "path": "source-after/Rf016EnvironmentIsolationTest.java"
+  },
+  {
+    "sha256": "0A1C9C101E3690A663E6A388BABD85DD67CDC256457C3EA48B6AB9AFD832E4E2",
+    "bytes": 4469,
+    "path": "source-after/Rf016FixtureCompatibilityTest.java"
+  },
+  {
+    "sha256": "C62E70210853EC16064A9CD7F4E5463B09A653DFB0E8759A45F680456569D3EB",
+    "bytes": 16401,
+    "path": "source-after/Rf016IsolatedBootSmokeTest.java"
+  },
+  {
+    "sha256": "D41917E6910DAEAEB569D1228510CF6133806FF301ACA87E4180AA129511D195",
+    "bytes": 5641,
+    "path": "source-after/Rf016IsolationConfiguration.java"
+  },
+  {
+    "sha256": "048F6F0EDDE934067EA7189574904F29B49595049081E1BBF4BA22C896EAAC77",
+    "bytes": 2331,
+    "path": "source-after/Rf016MySqlCommitRollbackTest.java"
+  },
+  {
+    "sha256": "53B7B099E0BD0C3A8C29B108AA6AA903E7A83ECF39E3FF29B106C3B6DEF06F41",
+    "bytes": 32527,
+    "path": "source-after/Rf016MySqlFixture.java"
+  },
+  {
+    "sha256": "038CE2DE4ED9F043ECFCE1EEFA7DDB2D8516855C36A275B50BCE7FBE8EDFFAC5",
+    "bytes": 1073,
+    "path": "source-after/Rf016MySqlReadOnlyPreflightTest.java"
+  },
+  {
+    "sha256": "3C49C1ED9568C2ECA7BBBD5171BED6D41732580118913060CE5E3E70D8C46893",
+    "bytes": 7416,
+    "path": "source-after/Rf016MySqlSafetyGate.java"
+  },
+  {
+    "sha256": "5973DF5856777758D5F779A65CAD31F8C5FF954F74D48C47D7BC9DE8136072FB",
+    "bytes": 6901,
+    "path": "source-after/Rf016MySqlSafetyGateTest.java"
+  },
+  {
+    "sha256": "84CC0C7CB869511BE3F17D00B0EBE7E9A0BF65096961C2A68DBCF47B3F42F3A1",
+    "bytes": 3432,
+    "path": "source-after/Rf016SafeContextLoader.java"
+  },
+  {
+    "sha256": "ABB9372AB49C0565EB6CD6CA8AD1B37C68A7356C92D522D5C229CE8A6A937F67",
+    "bytes": 730,
+    "path": "source-after/Rf016UnusedPaymentCollaborator.java"
+  },
+  {
+    "sha256": "6E9AA0C55427F472DD13D73ACB57B3DA7A54FF1F7166EDD5C7237422976EDB58",
+    "bytes": 4732,
+    "path": "source-before/Rf016IsolationConfiguration.java"
+  },
+  {
+    "sha256": "9558AA77A7EAF889A7C3BCAC237DDB0E14730791939C9B65DA4B0C49D86E8B4C",
+    "bytes": 31872,
+    "path": "source-before/Rf016MySqlFixture.java"
+  },
+  {
+    "sha256": "D604BDCAF04C3276C7914DD2F66DF5087B8F88A3C56C4E136894762112284277",
+    "bytes": 830,
+    "path": "xml/TEST-com.ngng.api.isolation.mysql.Rf016FixtureCompatibilityTest.xml"
+  },
+  {
+    "sha256": "DEA51B98662970DF6C9E6F8C3960A56E678F416104AA3D62E78C9227D1D11949",
+    "bytes": 2925,
+    "path": "xml/TEST-com.ngng.api.isolation.mysql.Rf016MySqlSafetyGateTest.xml"
+  },
+  {
+    "sha256": "8898D42FEF30AB75FC59E4B2CB1E210DA089F09EFF77C6E1952E9B612437903C",
+    "bytes": 511,
+    "path": "xml/TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml"
+  },
+  {
+    "sha256": "1E276900CBC799BD029467B108F222AA0581AA87A774CFA8DB83717CD463E919",
+    "bytes": 32083,
+    "path": "xml/TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml"
+  },
+  {
+    "sha256": "0E21FBCD68169C65069CB6E86A54391A6A604CDC6CA46C5C5F37E19274033DB0",
+    "bytes": 3987,
+    "path": "xml/TEST-com.ngng.api.user.point.payment.PaymentAtomicityTest.xml"
+  },
+  {
+    "sha256": "E84AE16EE97953CAED88D4BF64AE0535D610BEF01CF5ADEBDA3131E99B082D6B",
+    "bytes": 5718,
+    "path": "xml/TEST-com.ngng.api.user.point.payment.PaymentTrustServiceTest.xml"
+  },
+  {
+    "sha256": "F3A99BB38D0FDB3739237A419A61F668FB1DD22B46C3DC71ACC3077CA9B56B89",
+    "bytes": 2585,
+    "path": "xml/TEST-com.ngng.api.user.point.payment.PaymentVerificationConfigurationTest.xml"
+  },
+  {
+    "sha256": "FBD529E372F8E4057700AF38CB33DE378B9318AE476D4BF077B7AD757F8F5963",
+    "bytes": 23409,
+    "path": "xml/TEST-com.ngng.api.user.point.payment.PaymentVerificationGateTest.xml"
+  }
+]
