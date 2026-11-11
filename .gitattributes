@@ -34,3 +34,6 @@ docs/refactoring/evidence/RF-038/** -text
 /NGNG-backend/src/test/java/com/ngng/api/transaction/status/TransactionStatusLockQueryTest.java -text
 /NGNG-backend/src/test/java/com/ngng/api/transaction/status/Rf038Fixture.java -text
 /NGNG-backend/src/test/java/com/ngng/api/transaction/status/StatusChainHarness.java -text
+
+# Preserve RF-044 evidence bytes and recorded hashes.
+docs/refactoring/evidence/RF-044/** -text

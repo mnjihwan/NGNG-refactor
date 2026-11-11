@@ -1,0 +1,8 @@
+RF044 prepare-time observations (not tests passed):
+1. First draft test compile was triggered by concurrent RF039 full compile and failed on package typo, Role wildcard ambiguity, nonexistent product UserDTO.builder. Fixed before RF044 baseline; original concurrent RF039 console is tracked by RF039 owner. No original draft source snapshot retained.
+2. frontend-first.txt: RF0445 + RF02422 =27 tests,26 pass1 fail; vm realm TypeError prototype assertion was a fixture error. Corrected to error name. frontend-after.txt:27/27.
+3. Added explicit eight-field creation JSON to image reportId upload case; frontend-final.txt:28/28 (RF0446 + RF02422).
+4. java -version through PATH hung; only exec session66981 was interrupted with Ctrl+C, exit1. JDK release file read instead. Other Java processes were not stopped.
+5. Get-CimInstance Win32_Process failed because CIM access unavailable; Get-Process read-only inventory succeeded with no Java results later.
+6. Exploratory Role/UserDTO reads used two wrong directories; found the real user/user/entity/Role.java and product/product/dto/UserDTO.java. Search/read output only in tool history.
+7. Whole-workspace diff --check reported RF039 frontend trailing whitespace. No unrelated file changed by RF044; scoped RF044 check is performed after implementation.

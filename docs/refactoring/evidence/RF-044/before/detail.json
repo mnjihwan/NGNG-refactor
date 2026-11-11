@@ -1,0 +1,57 @@
+{
+  "reportId" : 88,
+  "reportContents" : "fixture-contents",
+  "reportType" : {
+    "reportTypeId" : 1,
+    "reportType" : "fixture-type"
+  },
+  "reporter" : {
+    "userId" : 1000,
+    "name" : "fixture-name-1000",
+    "nickname" : "fixture-nickname-1000",
+    "email" : "[SYNTHETIC-REDACTED]",
+    "password" : "[SYNTHETIC-REDACTED]",
+    "address" : "[SYNTHETIC-REDACTED]",
+    "phoneNumber" : "[SYNTHETIC-REDACTED]",
+    "visible" : true,
+    "createdAt" : "2026-01-01T18:04:05.123+00:00",
+    "updatedAt" : "2026-01-01T18:04:05.123+00:00",
+    "accountBank" : "[SYNTHETIC-REDACTED]",
+    "accountNumber" : "[SYNTHETIC-REDACTED]",
+    "role" : {
+      "roleId" : 1,
+      "roleType" : "USER"
+    }
+  },
+  "user" : {
+    "userId" : 2000,
+    "name" : "fixture-name-2000",
+    "nickname" : "fixture-nickname-2000",
+    "email" : "[SYNTHETIC-REDACTED]",
+    "password" : "[SYNTHETIC-REDACTED]",
+    "address" : "[SYNTHETIC-REDACTED]",
+    "phoneNumber" : "[SYNTHETIC-REDACTED]",
+    "visible" : true,
+    "createdAt" : "2026-01-01T18:04:05.123+00:00",
+    "updatedAt" : "2026-01-01T18:04:05.123+00:00",
+    "accountBank" : "[SYNTHETIC-REDACTED]",
+    "accountNumber" : "[SYNTHETIC-REDACTED]",
+    "role" : {
+      "roleId" : 1,
+      "roleType" : "USER"
+    }
+  },
+  "isReport" : null,
+  "createdAt" : "2026-01-01T18:04:05.123+00:00",
+  "updatedAt" : "2026-01-01T18:04:05.123+00:00",
+  "productId" : 7,
+  "privateChatId" : 9,
+  "visible" : null,
+  "reportImages" : [ {
+    "reportImageId" : 4,
+    "imageUrl" : "https://example.test/fixture.png",
+    "contentType" : "IMAGE",
+    "createdAt" : "2026-01-01T18:04:05.123+00:00",
+    "updatedAt" : null
+  } ]
+}

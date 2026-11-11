@@ -2,7 +2,6 @@ package com.ngng.api.report.report.dto;
 
 import com.ngng.api.report.report.entity.Report;
 import com.ngng.api.report.report.entity.ReportType;
-import com.ngng.api.user.user.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -18,8 +17,8 @@ public class ReadReportListResponseDTO {
     private Long reportId;
     private String reportContents;
     private ReportType reportType;
-    private User reporter;
-    private User user;
+    private ReportUserResponseDTO reporter;
+    private ReportUserResponseDTO user;
     private Boolean isReport;
     private Timestamp createdAt;
     private Long productId;
@@ -32,8 +31,8 @@ public class ReadReportListResponseDTO {
         final Long reportId = report.getReportId();
         final String reportContents = report.getReportContents();
         final ReportType reportType = report.getReportType();
-        final User reporter = report.getReporter();
-        final User user = report.getUser();
+        final ReportUserResponseDTO reporter = ReportUserResponseDTO.from(report.getReporter());
+        final ReportUserResponseDTO user = ReportUserResponseDTO.from(report.getUser());
         final Boolean isReport = report.getIsReport();
         final Timestamp createdAt = report.getCreatedAt();
         final Long productId = report.getProductId();
