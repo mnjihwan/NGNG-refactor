@@ -157,9 +157,12 @@ export const updateProductPurchaseById = async (productId: number) => {
       "Content-Type": "application/json",
       Authorization: getAccessToken(),
     },
-  }).then((res) => {
+  }).then(async (res) => {
     setAccessToken(res);
-    return res.text();
+    if (!res.ok) throw new Error("상품 게시 시간 갱신에 실패했습니다.");
+    const id: unknown = await res.json();
+    if (id !== productId) throw new Error("상품 게시 시간 갱신 결과를 확인하지 못했습니다.");
+    return String(id);
   });
 };
 

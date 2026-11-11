@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest" tests="32" skipped="0" failures="0" errors="0" timestamp="2026-11-11T07:05:05" hostname="REDACTED_HOST" time="0.55">
+  <properties/>
+  <testcase name="[1] method=PUT, kind=missing" classname="com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest" time="0.049"/>
+  <testcase name="[2] method=PUT, kind=malformed" classname="com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest" time="0.002"/>
+  <testcase name="[3] method=PUT, kind=refresh-type" classname="com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest" time="0.109"/>
+  <testcase name="[4] method=DELETE, kind=missing" classname="com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest" time="0.003"/>
+  <testcase name="[5] method=DELETE, kind=malformed" classname="com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest" time="0.003"/>
+  <testcase name="[6] method=DELETE, kind=refresh-type" classname="com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest" time="0.006"/>
+  <testcase name="[1] method=PUT, role=USER, id=1000" classname="com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest" time="0.187"/>
+  <testcase name="[2] method=PUT, role=USER, id=2000" classname="com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest" time="0.008"/>
+  <testcase name="[3] method=PUT, role=ADMIN, id=1000" classname="com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest" time="0.008"/>
+  <testcase name="[4] method=PUT, role=ADMIN, id=2000" classname="com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest" time="0.008"/>
+  <testcase name="[5] method=PUT, role=UNCONFIRMED_USER, id=1000" classname="com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest" time="0.005"/>
+  <testcase name="[6] method=PUT, role=UNCONFIRMED_USER, id=2000" classname="com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest" time="0.005"/>
+  <testcase name="[7] method=DELETE, role=USER, id=1000" classname="com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest" time="0.007"/>
+  <testcase name="[8] method=DELETE, role=USER, id=2000" classname="com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest" time="0.005"/>
+  <testcase name="[9] method=DELETE, role=ADMIN, id=1000" classname="com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest" time="0.007"/>
+  <testcase name="[10] method=DELETE, role=ADMIN, id=2000" classname="com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest" time="0.005"/>
+  <testcase name="[11] method=DELETE, role=UNCONFIRMED_USER, id=1000" classname="com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest" time="0.004"/>
+  <testcase name="[12] method=DELETE, role=UNCONFIRMED_USER, id=2000" classname="com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest" time="0.004"/>
+  <testcase name="deleteBusinessRefusalRemains204WithoutWrites()" classname="com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest" time="0.006"/>
+  <testcase name="[1] method=PUT" classname="com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest" time="0.008"/>
+  <testcase name="[2] method=DELETE" classname="com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest" time="0.005"/>
+  <testcase name="badBodyRemains400()" classname="com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest" time="0.005"/>
+  <testcase name="[1] method=PUT, kind=missing" classname="com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest" time="0.01"/>
+  <testcase name="[2] method=PUT, kind=expired" classname="com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest" time="0.013"/>
+  <testcase name="[3] method=DELETE, kind=missing" classname="com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest" time="0.01"/>
+  <testcase name="[4] method=DELETE, kind=expired" classname="com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest" time="0.012"/>
+  <testcase name="[1] method=PUT, kind=malformed" classname="com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest" time="0.002"/>
+  <testcase name="[2] method=PUT, kind=expired" classname="com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest" time="0.006"/>
+  <testcase name="[3] method=PUT, kind=access-type" classname="com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest" time="0.007"/>
+  <testcase name="[4] method=DELETE, kind=malformed" classname="com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest" time="0.002"/>
+  <testcase name="[5] method=DELETE, kind=expired" classname="com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest" time="0.004"/>
+  <testcase name="[6] method=DELETE, kind=access-type" classname="com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest" time="0.005"/>
+  <system-out><![CDATA[16:05:04.371 [Test worker] INFO org.hibernate.validator.internal.util.Version -- HV000001: Hibernate Validator 8.0.1.Final
+16:05:05.154 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2fa47368, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@35841d6, org.springframework.security.web.context.SecurityContextHolderFilter@22002459, org.springframework.security.web.header.HeaderWriterFilter@6297cb4b, org.springframework.web.filter.CorsFilter@5e9ea380, org.springframework.security.web.authentication.logout.LogoutFilter@297c3a43, com.ngng.api.global.security.filter.TokenFilter@1e50eb3f, com.ngng.api.global.security.filter.LoginFilter@12e3f4ae, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@21e702b8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7f1fec57, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@537451d5, org.springframework.security.web.session.SessionManagementFilter@672d8370, org.springframework.security.web.access.ExceptionTranslationFilter@32e65852, org.springframework.security.web.access.intercept.AuthorizationFilter@60a99f3d]
+16:05:05.510 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+16:05:05.510 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+16:05:05.519 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 9 ms
+16:05:05.858 [Test worker] INFO product-log -- Success Update Product id: 77 
+16:05:05.938 [Test worker] INFO product-log -- Success Update Product id: 77 
+16:05:05.938 [Test worker] INFO product-log -- Success Update Product id: 77 
+16:05:05.969 [Test worker] INFO product-log -- Success Delete Product id: 77 
+16:05:05.969 [Test worker] INFO product-log -- Success Delete Product id: 77
+16:05:05.985 [Test worker] INFO product-log -- Success Delete Product id: 77 
+16:05:05.985 [Test worker] INFO product-log -- Success Delete Product id: 77
+16:05:05.985 [Test worker] INFO product-log -- Success Delete Product id: 77 
+16:05:05.985 [Test worker] INFO product-log -- Success Delete Product id: 77
+16:05:06.001 [Test worker] INFO product-log -- Fail Delete Product id: 77
+16:05:06.017 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "bad"]
+16:05:06.017 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "bad"]
+16:05:06.032 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected end-of-input: expected close marker for Object (start marker at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 1])]
+16:05:06.038 [Test worker] INFO product-log -- Success Update Product id: 77 
+16:05:06.048 [Test worker] INFO product-log -- Success Update Product id: 77 
+16:05:06.064 [Test worker] INFO product-log -- Success Delete Product id: 77 
+16:05:06.064 [Test worker] INFO product-log -- Success Delete Product id: 77
+16:05:06.080 [Test worker] INFO product-log -- Success Delete Product id: 77 
+16:05:06.080 [Test worker] INFO product-log -- Success Delete Product id: 77
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

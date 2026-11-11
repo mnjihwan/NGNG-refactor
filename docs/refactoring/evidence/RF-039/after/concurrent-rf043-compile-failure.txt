@@ -1,0 +1,40 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.7/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Task :compileJava
+[USER_HOME]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\main\java\com\ngng\api\user\user\service\signup\SignupVerification.java:73: error: cannot find symbol
+        checked(store.run("consume", List.of(attemptKey(request.attemptId())), secret(request.attemptSecret()),
+                                                               ^
+  symbol:   method attemptId()
+  location: variable request of type JoinRequest
+[USER_HOME]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\main\java\com\ngng\api\user\user\service\signup\SignupVerification.java:73: error: cannot find symbol
+        checked(store.run("consume", List.of(attemptKey(request.attemptId())), secret(request.attemptSecret()),
+                                                                                             ^
+  symbol:   method attemptSecret()
+  location: variable request of type JoinRequest
+[USER_HOME]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\main\java\com\ngng\api\user\user\service\signup\SignupVerification.java:74: error: cannot find symbol
+                target("email", email), crypto.digest("signup-proof-email", request.emailProof()),
+                                                                                   ^
+  symbol:   method emailProof()
+  location: variable request of type JoinRequest
+[USER_HOME]\OneDrive\���� ȭ��\PJT\NGNG\NGNG-backend\src\main\java\com\ngng\api\user\user\service\signup\SignupVerification.java:75: error: cannot find symbol
+                target("phone", phone), crypto.digest("signup-proof-phone", request.phoneProof())));
+                                                                                   ^
+  symbol:   method phoneProof()
+  location: variable request of type JoinRequest
+4 errors
+
+
+> Task :compileJava FAILED
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+> Run with --info option to get more log output.
+> Run with --scan to get full insights.
+
+BUILD FAILED in 12s
+1 actionable task: 1 executed

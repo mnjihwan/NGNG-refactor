@@ -341,3 +341,7 @@ B는 명시 JPA/실제 tx 프록시·소유 PK journal·독립 연결 commit/INS
 ## 2026-11-11 RF024 신고 생성 최소 보호
 
 신고자를 인증된 DB 사용자에서 결정하고 다른 reporterId는 403, isReport true/false는 400으로 거부한다. 프런트는 생성 거부·결과 불명·접수 후 이미지 실패/불명을 구분하며 같은 모달의 불확실한 재제출을 막는다. 오프라인 backend before 2/2·after 210/210 및 assemble, frontend before 3/3·after 22/22 및 lint/tsc 성공과 공통 독립 리뷰 차단 결함 없음은 [명세](tasks/RF-024.md)·[증빙](evidence/RF-024/README.md)에 기록했다. 대역 검증이며 실제 DB NULL/default, HTTP/브라우저, 유형별 대상 관계 인가, 이미지 직접 인가·개별 저장, 재오픈 멱등성, RF044 직렬화 및 물리 S3는 검증하지 않았다. 전체 suite/production build·성능도 미실행이다. 잔여의 이유와 재개 조건은 BACKLOG와 두 문서에 기록했다.
+
+## 2026-11-11 RF-039 상품 writer 객체 인가
+
+상품 생성·끌올·이미지 및 썸네일 writer에 객체 인가를 적용하고 화면의 부분 실패 처리를 보강했다. 독립 코드 리뷰에서 차단 결함이 없었으며 증빙의 개인 경로·hostname 지적을 정제 후 재검토했다. 정상 sourceSet 컴파일과 선택 테스트 291건, frontend 49건, lint·tsc·assemble이 통과했다. 전체 suite나 실제 DB·S3·브라우저 통합 검증을 뜻하지 않는다. 실행 실패 이력, 원본 보존과 비식별화, ADMIN/기존 역할 범위 및 잔여 경합·보상·캐시 검증은 [명세](tasks/RF-039.md), [증빙](evidence/RF-039/README.md), [백로그](BACKLOG.md)에 기록했다.

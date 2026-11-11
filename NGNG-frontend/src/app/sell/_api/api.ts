@@ -28,29 +28,53 @@ const mapProductToAPISepc = ({
   };
 };
 
+export type ProductCreationResult =
+  | { status: "created"; productId: number }
+  | { status: "rejected" }
+  | { status: "unknown" }
+  | { status: "image-failed" | "image-unknown"; productId: number };
+
 export const createProduct = async ({
   product,
   userId,
 }: {
   product: Product;
   userId: number;
-}): Promise<string> => {
-  const res = await fetch(`/products`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: getAccessToken(),
-    },
-    body: JSON.stringify(mapProductToAPISepc({ product, userId })),
-  });
-  setAccessToken(res);
-  if (res.ok === true) {
-    const productId = await res.text();
-    const resImages = await createImages(productId, product.images);
-    return `product/${productId}`;
+}): Promise<ProductCreationResult> => {
+  let res: Response;
+  try {
+    res = await fetch(`/products`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: getAccessToken(),
+      },
+      body: JSON.stringify(mapProductToAPISepc({ product, userId })),
+    });
+    setAccessToken(res);
+  } catch {
+    return { status: "unknown" };
   }
-
-  return "";
+  if (!res.ok) return { status: res.status >= 400 && res.status < 500 ? "rejected" : "unknown" };
+  let productId: number;
+  try {
+    const id: unknown = await res.json();
+    if (typeof id !== "number" || !Number.isSafeInteger(id) || id <= 0) return { status: "unknown" };
+    productId = id;
+  } catch {
+    return { status: "unknown" };
+  }
+  if (product.images.length > 0) {
+    try {
+      const images = await createImages(String(productId), product.images);
+      if (!images.ok) return { status: images.status >= 400 && images.status < 500 ? "image-failed" : "image-unknown", productId };
+      const uploadedId: unknown = await images.json();
+      if (uploadedId !== productId) return { status: "image-unknown", productId };
+    } catch {
+      return { status: "image-unknown", productId };
+    }
+  }
+  return { status: "created", productId };
 };
 
 const createImages = async (
@@ -75,6 +99,6 @@ const createImages = async (
     body: fomData,
   }).then((res) => {
     setAccessToken(res);
-    return res.json();
+    return res;
   });
 };

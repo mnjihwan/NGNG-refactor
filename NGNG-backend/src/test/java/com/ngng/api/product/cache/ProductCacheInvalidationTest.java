@@ -29,6 +29,18 @@ class ProductCacheInvalidationTest {
     ProductService service;
     @BeforeEach void setup() { state = new State(); context = context(state); service = context.getBean(ProductService.class); admin(); }
     @AfterEach void close() { SecurityContextHolder.clearContext(); context.close(); }
+    @Test void rf039RefreshDenialDoesNotMutateOrRegisterEviction() {
+        var old = service.read(77L);
+        SecurityContextHolder.getContext().setAuthentication(new org.springframework.security.authentication.UsernamePasswordAuthenticationToken(
+                new com.ngng.api.global.security.custom.CustomUserDetails(user(2000)), "unused",
+                List.of(new org.springframework.security.core.authority.SimpleGrantedAuthority("ROLE_USER"))));
+        when(context.getBean(com.ngng.api.user.user.service.AuthService.class).readAuthUser()).thenReturn(user(2000));
+        assertEquals(org.springframework.http.HttpStatus.FORBIDDEN,
+                assertThrows(ResponseStatusException.class, () -> service.updateRefresh(77L)).getStatusCode());
+        assertNull(state.product.getRefreshedAt());
+        assertSame(old, state.cache.get(77L).get());
+        verify(state.cache, never()).evict(any());
+    }
     void write(String writer) {
         switch (writer) {
             case "PUT" -> service.update(77L, update());
@@ -183,6 +195,8 @@ class ProductCacheInvalidationTest {
         var old = service.read(77L);
         when(state.products.findById(77L)).thenReturn(Optional.empty());
         if (writer.equals("PUT") || writer.equals("DELETE")) assertThrows(NoSuchElementException.class, () -> write(writer));
+        else if (writer.equals("REFRESH")) assertEquals(org.springframework.http.HttpStatus.NOT_FOUND,
+                assertThrows(ResponseStatusException.class, () -> write(writer)).getStatusCode()); // RF039 local 404 boundary.
         else assertThrows(NullPointerException.class, () -> write(writer));
         assertSame(old, state.cache.get(77L).get());
         verify(state.cache, never()).evict(any());

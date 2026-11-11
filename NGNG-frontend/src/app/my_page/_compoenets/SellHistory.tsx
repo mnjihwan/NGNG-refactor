@@ -32,12 +32,11 @@ export default function SellHistory({ sellList, deleteProduct }: Props) {
   const updateDate = async () => {
     if (!selectIndex) return;
 
-    const data = (await updateProductPurchaseById(
-      sellList[selectIndex].id
-    )) as string;
-
-    if (+data == sellList[selectIndex].id) {
-      alert("상품의 게시 시간을 갱신 하였습니다.");
+    try {
+      const data = await updateProductPurchaseById(sellList[selectIndex].id);
+      if (+data == sellList[selectIndex].id) alert("상품의 게시 시간을 갱신 하였습니다.");
+    } catch {
+      alert("상품 게시 시간 갱신 결과를 확인하지 못했습니다. 상품 페이지에서 확인해 주세요.");
     }
   };
 

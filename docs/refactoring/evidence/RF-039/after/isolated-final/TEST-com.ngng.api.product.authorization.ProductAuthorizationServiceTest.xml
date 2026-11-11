@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" tests="50" skipped="0" failures="0" errors="0" timestamp="2026-11-11T07:05:06" hostname="REDACTED_HOST" time="0.344">
+  <properties/>
+  <testcase name="[1] role=USER, branch=null-reports, allowed=true" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.073"/>
+  <testcase name="[2] role=USER, branch=null-transaction, allowed=true" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.006"/>
+  <testcase name="[3] role=USER, branch=status6, allowed=true" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.004"/>
+  <testcase name="[4] role=USER, branch=status1, allowed=false" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.002"/>
+  <testcase name="[5] role=ADMIN, branch=null-reports, allowed=true" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.003"/>
+  <testcase name="[6] role=ADMIN, branch=null-transaction, allowed=true" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.003"/>
+  <testcase name="[7] role=ADMIN, branch=status6, allowed=true" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.003"/>
+  <testcase name="[8] role=ADMIN, branch=status1, allowed=false" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.004"/>
+  <testcase name="[1] method=PUT" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.038"/>
+  <testcase name="[2] method=DELETE" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.003"/>
+  <testcase name="[1] method=PUT" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.038"/>
+  <testcase name="[2] method=DELETE" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.016"/>
+  <testcase name="[1] method=PUT, kind=other" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.005"/>
+  <testcase name="[2] method=DELETE, kind=other" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.003"/>
+  <testcase name="[3] method=PUT, kind=no-caller" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.004"/>
+  <testcase name="[4] method=DELETE, kind=no-caller" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.004"/>
+  <testcase name="[5] method=PUT, kind=no-caller-id" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.002"/>
+  <testcase name="[6] method=DELETE, kind=no-caller-id" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.001"/>
+  <testcase name="[7] method=PUT, kind=no-owner" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.002"/>
+  <testcase name="[8] method=DELETE, kind=no-owner" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.002"/>
+  <testcase name="[9] method=PUT, kind=no-owner-id" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.002"/>
+  <testcase name="[10] method=DELETE, kind=no-owner-id" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.002"/>
+  <testcase name="[11] method=PUT, kind=both-null-id" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.003"/>
+  <testcase name="[12] method=DELETE, kind=both-null-id" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.003"/>
+  <testcase name="[13] method=PUT, kind=wrong-role" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.002"/>
+  <testcase name="[14] method=DELETE, kind=wrong-role" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.003"/>
+  <testcase name="[1] role=USER" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.005"/>
+  <testcase name="[2] role=ADMIN" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.006"/>
+  <testcase name="[1] method=PUT, kind=null" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.002"/>
+  <testcase name="[2] method=DELETE, kind=null" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.001"/>
+  <testcase name="[3] method=PUT, kind=unauth-user" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.003"/>
+  <testcase name="[4] method=DELETE, kind=unauth-user" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.003"/>
+  <testcase name="[5] method=PUT, kind=unauth-admin" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.002"/>
+  <testcase name="[6] method=DELETE, kind=unauth-admin" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.003"/>
+  <testcase name="[7] method=PUT, kind=string-user" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.003"/>
+  <testcase name="[8] method=DELETE, kind=string-user" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.002"/>
+  <testcase name="[9] method=PUT, kind=string-admin" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.001"/>
+  <testcase name="[10] method=DELETE, kind=string-admin" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.001"/>
+  <testcase name="[11] method=PUT, kind=anonymous" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.002"/>
+  <testcase name="[12] method=DELETE, kind=anonymous" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.003"/>
+  <testcase name="[13] method=PUT, kind=null-internal-user" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.003"/>
+  <testcase name="[14] method=DELETE, kind=null-internal-user" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.002"/>
+  <testcase name="[15] method=PUT, kind=null-email" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.003"/>
+  <testcase name="[16] method=DELETE, kind=null-email" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.003"/>
+  <testcase name="[17] method=PUT, kind=blank-email" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.003"/>
+  <testcase name="[18] method=DELETE, kind=blank-email" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.003"/>
+  <testcase name="[19] method=PUT, kind=null-principal" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.003"/>
+  <testcase name="[20] method=DELETE, kind=null-principal" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.004"/>
+  <testcase name="[21] method=PUT, kind=anonymous-custom-principal" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.001"/>
+  <testcase name="[22] method=DELETE, kind=anonymous-custom-principal" classname="com.ngng.api.product.authorization.ProductAuthorizationServiceTest" time="0.003"/>
+  <system-out><![CDATA[16:05:06.190 [Test worker] INFO product-log -- Success Delete Product id: 77 
+16:05:06.190 [Test worker] INFO product-log -- Success Delete Product id: 77 
+16:05:06.205 [Test worker] INFO product-log -- Success Delete Product id: 77 
+16:05:06.205 [Test worker] INFO product-log -- Success Delete Product id: 77 
+16:05:06.205 [Test worker] INFO product-log -- Success Delete Product id: 77 
+16:05:06.205 [Test worker] INFO product-log -- Success Delete Product id: 77 
+16:05:06.300 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+16:05:06.300 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+16:05:06.300 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+16:05:06.316 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+16:05:06.316 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+16:05:06.316 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+16:05:06.380 [Test worker] INFO product-log -- Success Update Product id: 77 
+16:05:06.380 [Test worker] INFO product-log -- Success Update Product id: 77 
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
