@@ -98,13 +98,15 @@ class PaymentAndStatusChainTest {
         details = context.getBean(TransactionDetailsRepository.class);
         reset(users, histories, products, details);
         PaymentFixture.allowPayment(products, details, 7001L, 800L);
-        user = User.builder().userId(7001L).name("Fixture").email(EMAIL).password("synthetic-password")
+        user = User.builder().userId(7001L).visible(true).name("Fixture").email(EMAIL).password("synthetic-password")
                 .address("synthetic-address").phoneNumber("synthetic-phone").accountBank("synthetic-bank")
                 .accountNumber("synthetic-account").role(Role.builder().roleType("USER").build()).build();
         latest = history(102L, 1000L);
         when(users.findUserByEmail(EMAIL)).thenAnswer(inv -> {
-            var principal = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            assertNull(principal.getUser().getUserId(), "JWT must not supply a database ID");
+            if (SecurityContextHolder.getContext().getAuthentication() != null) {
+                var principal = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+                assertNull(principal.getUser().getUserId(), "JWT must not supply a database ID");
+            }
             return Optional.of(user);
         });
         when(histories.findLastByUserId(7001L)).thenReturn(Optional.of(latest));

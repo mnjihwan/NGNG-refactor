@@ -1,0 +1,156 @@
+{
+  "baselineCommit": "be5c615baabe921501964dcd0e3fd84fc252942a",
+  "candidateRoot": ".tmp/rf040-standalone-20261126",
+  "baselineBackendFileCount": 267,
+  "operation": "git archive --format=zip --output=<candidate>/baseline-backend.zip be5c615baabe921501964dcd0e3fd84fc252942a -- NGNG-backend",
+  "unchangedRf016Configuration": {
+    "path": "NGNG-backend/src/test/java/com/ngng/api/isolation/Rf016IsolationConfiguration.java",
+    "sha256": "d41917e6910daeaeb569d1228510cf6133806ff301aca87e4180aa129511d195"
+  },
+  "applyFiles": [
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/global/security/config/SecurityConfig.java",
+      "status": "modified",
+      "baselineSha256": "835b6d136fbde21eb1e6308842228abd20bd7afec81fd2895ea7bd3b7306f932",
+      "candidateSha256": "b5bd79cbe0cfc34c651c19115ee473790618313abf89912428ac3d539bcb791e"
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/global/security/filter/TokenFilter.java",
+      "status": "modified",
+      "baselineSha256": "9e6642a3a4c68274aa7d22453c4b073527368ae108729ebf2c8237e9b24d920a",
+      "candidateSha256": "3d87bf19805c72672b099b017c91d7a8446349e864c03692dac48d641aeac9e7"
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/global/security/SecurityChainTest.java",
+      "status": "modified",
+      "baselineSha256": "6c3c41b3d748fec5571c163fbbe0419a50d898ee50909c00fe57d7c74e00ad6f",
+      "candidateSha256": "01f8bd6c41ebb6c78ed4280e6ed4457dbc4fdf1c8649b8fd94b69fa871e86abc"
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/global/security/TokenFilterTest.java",
+      "status": "modified",
+      "baselineSha256": "6725ce606502f16c29195f9ce7c960461a8983e96f9fcac95a0183759c18e5b7",
+      "candidateSha256": "52ce0bb7e821f20b4b91d30f90c249e1225565c98936f05d6b3894e272542901"
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/global/security/TokenStateSecurityChainTest.java",
+      "status": "added",
+      "baselineSha256": null,
+      "candidateSha256": "879685306ebed226bca2adc970299d90c3ac40cc677962e1b345d5af774269c0"
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/isolation/Rf016IsolatedBootSmokeTest.java",
+      "status": "modified",
+      "baselineSha256": "c62e70210853ec16064a9cd7f4e5463b09a653dfb0e8759a45f680456569d3eb",
+      "candidateSha256": "bf9248f7cf51e058562c53d36065ced9fd267b4d9ca7a00358dc5d3b29312c62"
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/product/authorization/ProductAuthorizationSecurityChainTest.java",
+      "status": "modified",
+      "baselineSha256": "d54a8b570d36ff42225f289bd6793e4446d922d14479915fd803fe8a9516d742",
+      "candidateSha256": "039ca01531fcc4a4c187fd47eb3a74255eb48b11dc1f19a27a32ab69ca2c5a01"
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/product/writer/ProductAdditionalWriterSecurityChainTest.java",
+      "status": "modified",
+      "baselineSha256": "f777e9f56ab76e8d10ae15da397ad333648423a64b3a87040c829b1b9d3f982c",
+      "candidateSha256": "a8ce4934e41c3c3282c6c3436f0f5c9dfe73e88bea767efa4caacc049d7d6661"
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/report/creation/ReportCreationSecurityChainTest.java",
+      "status": "modified",
+      "baselineSha256": "7d35617125d009c3c65c4e383231575bd505c274e07c09d8fa874b818969d2a1",
+      "candidateSha256": "f5d53eb8db7410b71f5f7f597abd22432495dcfc0c57c61fd86d52d9c7081181"
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/report/response/ReportResponseSecurityChainTest.java",
+      "status": "modified",
+      "baselineSha256": "7d0e54e341f3ad8d09ea06523339c57210fd15749faca0865c21529d4c3c5339",
+      "candidateSha256": "032bfc3ef772a3aceeb821f60695d3c118e98f90b540a8625a2ca1da8c366f3d"
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/transaction/authorization/TransactionRequestAuthorizationChainTest.java",
+      "status": "modified",
+      "baselineSha256": "331395349fc9c7c279c0ea1bd09c143cbd56d3e2be109ddafc913aaccd73ddf2",
+      "candidateSha256": "4b90ff26a284ea4cb938e9ab30efaf39769bd9927fe15adb24d49a53c8143a8c"
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/transaction/read/ReadChainHarness.java",
+      "status": "modified",
+      "baselineSha256": "da4cc2ea6dd3fb574499c0a400584e45aa3cb80a057c7cc52bd2a930cdfceb3a",
+      "candidateSha256": "11d3e7e301c1f65befc64942aa09a140e92df5f1ab5f25f3cbe5bd5a3df50517"
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/transaction/read/TransactionReadSecurityChainTest.java",
+      "status": "modified",
+      "baselineSha256": "09f10fc6680ec567fe25351de0bd2c3e0e401d8fe444856443eeba5beb1f0192",
+      "candidateSha256": "e5b8ca104636f4d975146eff3657890f1a0d8db8d74223fb560ccb2f83b4ff84"
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/transaction/status/StatusChainHarness.java",
+      "status": "modified",
+      "baselineSha256": "8ec52c495bea61b8b3e8b6d1b88d1bdd0ed72231691fd85cd49fffc0146779ab",
+      "candidateSha256": "7a21872eaf244b7d7fa67d944cd08ef9661ebc9ee58dd820690dbd2a70d48460"
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/transaction/status/TransactionStatusSecurityChainTest.java",
+      "status": "modified",
+      "baselineSha256": "f70251c2a48eebfa13323555e27eaa7a5db35c349af6bc279f31aaa1fb6ac8c9",
+      "candidateSha256": "ff931531e01e57a51415fa9e4673c1be5b7c751703c21eedd7723452394e5088"
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/user/point/controller/PointResponseSecurityChainTest.java",
+      "status": "modified",
+      "baselineSha256": "23ddb20992d447abe57562c81ee7bbcf4a87cc4c7865bf48b454bea1a2498923",
+      "candidateSha256": "329d79b387ccf4f49870477c4f34c977c6369da56575e8cb32df4fab3fc6c9de"
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentAndStatusChainTest.java",
+      "status": "modified",
+      "baselineSha256": "1c2fb3a78346ea4dbabc3e12648d644f64a309f97a39de169a3c99f5684b699f",
+      "candidateSha256": "925559787c6d0ad08ac210f58e10d643ba833d364787cad0697d3320fbc612eb"
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/user/point/payment/PaymentTrustSecurityChainTest.java",
+      "status": "modified",
+      "baselineSha256": "8d3597f9517c6964578c5a5e3d11475e4cc5905e07c3617878894fecb9f66989",
+      "candidateSha256": "1c388fb7d53799f6082e021927dd94df0a952ee9854b8ca1094b5bae1461e03f"
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/user/user/address/ConfirmAddressSecurityChainTest.java",
+      "status": "modified",
+      "baselineSha256": "d5dc90228c7dfa27384964364e269ea06ec73471f868851285a4d195761d4a1e",
+      "candidateSha256": "6fd1c27fec5df4c3a948cc401578dbeb32a3c845f83f3916116ef9fc8e4ca27a"
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/user/user/confirmation/ConfirmAccountSecurityChainTest.java",
+      "status": "modified",
+      "baselineSha256": "137bfcebcc482a0bad93714a57d0fa6bc75a633dd4beb5501e305b1ac0d7813d",
+      "candidateSha256": "660bf669a4911e58753c5657909015a3fcb0f09d4038e67fd281fc4e8bfe79cc"
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/user/user/dropout/DropOutSecurityChainTest.java",
+      "status": "modified",
+      "baselineSha256": "d63db4102e9b6e0ad62b15176b1d2cf2e0dd3c335d1d27334fd42a30422c0f6b",
+      "candidateSha256": "b50bd23947f5ad89c9b8ca3c8b826b47669d3872def984485400463ade7dc80a"
+    }
+  ],
+  "baselineFixtureFiles": [
+    {
+      "path": "docs/refactoring/evidence/RF-044/before/create.json",
+      "sha256": "444e1555186b902909e8d741509f7e479d4e5128072ca7bfe48f2b64cabcc9a5"
+    },
+    {
+      "path": "docs/refactoring/evidence/RF-044/before/detail.json",
+      "sha256": "f79b1f3ad88354fa11f5aadd65cba88a092f48f0c13c399cfcc0a4be65018b02"
+    },
+    {
+      "path": "docs/refactoring/evidence/RF-044/before/list.json",
+      "sha256": "0b661ec195c754a24d18a890a31630392cdf23737692f469851333cfe13daf39"
+    },
+    {
+      "path": "docs/refactoring/evidence/RF-044/before/patch.json",
+      "sha256": "b92756d83466b9fe96acf81949efe1df7a41597f1d1af80717cc3b3e9d7e0c8f"
+    }
+  ]
+}

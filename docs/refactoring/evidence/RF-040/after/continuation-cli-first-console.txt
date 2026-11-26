@@ -1,0 +1,19 @@
+.\gradlew.bat --offline --no-daemon --console=plain --rerun-tasks test assemble --tests com.ngng.api.global.security.SecurityChainTest --tests com.ngng.api.global.security.TokenFilterTest --tests com.ngng.api.global.security.TokenStateSecurityChainTest --tests com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest --tests com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest --tests com.ngng.api.report.creation.ReportCreationSecurityChainTest --tests com.ngng.api.report.response.ReportResponseSecurityChainTest --tests com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest --tests com.ngng.api.transaction.read.TransactionReadSecurityChainTest --tests com.ngng.api.transaction.status.TransactionStatusSecurityChainTest --tests com.ngng.api.user.point.controller.PointResponseSecurityChainTest --tests com.ngng.api.user.point.payment.PaymentAndStatusChainTest --tests com.ngng.api.user.point.payment.PaymentTrustSecurityChainTest --tests com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest --tests com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest --tests com.ngng.api.user.user.dropout.DropOutSecurityChainTest --tests com.ngng.api.isolation.Rf016IsolatedBootSmokeTest --tests com.ngng.api.isolation.Rf016EnvironmentIsolationTest
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.7/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Problem configuring task :assemble from command line.
+> Unknown command-line option '--tests'.
+
+* Try:
+> Run gradlew help --task :assemble to get task usage details.
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 5s
+exitCode=1

@@ -6,6 +6,7 @@ import com.ngng.api.global.security.handler.CustomLogoutHandler;
 import com.ngng.api.global.security.handler.CustomLogoutSuccessHandler;
 import com.ngng.api.global.security.jwt.util.JwtTokenProvider;
 import com.ngng.api.global.security.jwt.util.JwtTokenVerifier;
+import com.ngng.api.user.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -31,6 +32,7 @@ public class SecurityConfig {
     private final AuthenticationConfiguration authenticationConfiguration;
     private final JwtTokenVerifier tokenVerifier;
     private final JwtTokenProvider tokenProvider;
+    private final UserRepository userRepository;
     private final CustomLogoutHandler logoutHandler;
     private final CustomLogoutSuccessHandler logoutSuccessHandler;
 
@@ -81,7 +83,7 @@ public class SecurityConfig {
                 * jwt를 통한 인증/인가 필터 설정
                 * */
                 .addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration), tokenProvider), UsernamePasswordAuthenticationFilter.class)
-                .addFilterBefore(new TokenFilter(tokenProvider, tokenVerifier), LoginFilter.class)
+                .addFilterBefore(new TokenFilter(tokenProvider, tokenVerifier, userRepository), LoginFilter.class)
 
                 /*
                 * 요청별 권한 설정

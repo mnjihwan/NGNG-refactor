@@ -5,6 +5,9 @@ import com.ngng.api.global.security.handler.CustomLogoutHandler;
 import com.ngng.api.global.security.handler.CustomLogoutSuccessHandler;
 import com.ngng.api.global.security.jwt.util.JwtTokenProvider;
 import com.ngng.api.global.security.jwt.util.JwtTokenVerifier;
+import com.ngng.api.user.user.entity.Role;
+import com.ngng.api.user.user.entity.User;
+import com.ngng.api.user.user.repository.UserRepository;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -55,7 +58,14 @@ class SecurityChainTest {
         mvc = MockMvcBuilders.webAppContextSetup(context).apply(springSecurity()).build();
     }
     @AfterAll static void stop() { context.close(); }
-    @BeforeEach void reset() { calls.set(0); SecurityContextHolder.clearContext(); }
+    @BeforeEach void reset() {
+        calls.set(0); SecurityContextHolder.clearContext();
+        org.mockito.Mockito.reset(context.getBean(UserRepository.class)); databaseRole("USER");
+    }
+    void databaseRole(String role) {
+        when(context.getBean(UserRepository.class).findUserByEmail("rf005@example.test")).thenReturn(java.util.Optional.of(
+                User.builder().userId(5L).visible(true).role(Role.builder().roleType(role).build()).build()));
+    }
     @AfterEach void noLeakedContext() { assertThat(SecurityContextHolder.getContext().getAuthentication()).isNull(); }
 
     @ParameterizedTest
@@ -69,6 +79,7 @@ class SecurityChainTest {
             "ADMIN,POST,/confirm/account,403", "USER,POST,/confirm/account,403", "UNCONFIRMED_USER,POST,/confirm/account,200"
     })
     void preservesRoleTable(String role, String method, String path, int status) throws Exception {
+        databaseRole(role);
         mvc.perform(request(HttpMethod.valueOf(method), path)
                 .header("Authorization", "Bearer " + TokenFilterTest.token("access", role, 3600)))
                 .andExpect(status().is(status));
@@ -135,6 +146,7 @@ class SecurityChainTest {
     }
 
     @Test void consecutiveRequestsDoNotRetainAuthentication() throws Exception {
+        databaseRole("ADMIN");
         mvc.perform(request(HttpMethod.GET, "/admin/probe")
                         .header("Authorization", "Bearer " + TokenFilterTest.token("access", "ADMIN", 3600)))
                 .andExpect(status().isOk());
@@ -168,6 +180,7 @@ class SecurityChainTest {
         }
         @Bean CustomLogoutHandler logoutHandler() { return new CustomLogoutHandler(); }
         @Bean CustomLogoutSuccessHandler logoutSuccessHandler() { return new CustomLogoutSuccessHandler(); }
+        @Bean UserRepository users() { return mock(UserRepository.class); }
         @Bean ProbeController controller() { return new ProbeController(); }
     }
 

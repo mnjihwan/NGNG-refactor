@@ -60,7 +60,8 @@ class ConfirmAccountSecurityChainTest {
         provider = context.getBean(JwtTokenProvider.class); reset(users, roles); clearInvocations(provider);
         caller = user(7001L, EMAIL); other = user(8001L, "rf020-other@example.invalid");
         when(users.findUserByEmail(EMAIL)).thenAnswer(inv -> {
-            assertNull(((CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser().getUserId());
+            if (SecurityContextHolder.getContext().getAuthentication() != null)
+                assertNull(((CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser().getUserId());
             return Optional.of(caller);
         });
         when(users.findById(7001L)).thenReturn(Optional.of(caller));
@@ -68,7 +69,7 @@ class ConfirmAccountSecurityChainTest {
         when(roles.findByRoleType("USER")).thenReturn(Role.builder().roleType("USER").build());
     }
     @AfterEach void noContextLeak() { assertNull(SecurityContextHolder.getContext().getAuthentication()); }
-    static User user(Long id, String email) { return User.builder().userId(id).email(email).role(Role.builder().roleType("UNCONFIRMED_USER").build()).build(); }
+    static User user(Long id, String email) { return User.builder().userId(id).email(email).visible(true).role(Role.builder().roleType("UNCONFIRMED_USER").build()).build(); }
     static String token(String email, String role, String type, int seconds) {
         return Jwts.builder().setSubject(email).claim("role", role).claim("type", type)
                 .setExpiration(new Date(System.currentTimeMillis() + seconds * 1000L))
@@ -105,7 +106,7 @@ class ConfirmAccountSecurityChainTest {
     }
     @Test void ownAccountRetains204HeadersAndState() throws Exception {
         success(mvc.perform(access(7001L)).andExpect(status().isNoContent()).andReturn(), caller);
-        verify(users).findUserByEmail(EMAIL); verify(provider).createAccessToken(any());
+        verify(users,times(2)).findUserByEmail(EMAIL); verify(provider).createAccessToken(any());
         assertNull(other.getAccountNumber()); assertEquals("UNCONFIRMED_USER", other.getRole().getRoleType());
     }
     @ParameterizedTest @ValueSource(strings = {"other", "registered-other", "duplicate-other", "missing-target", "null-id", "missing-caller", "null-caller-id"})
@@ -117,9 +118,10 @@ class ConfirmAccountSecurityChainTest {
         if (kind.equals("null-id")) id = null;
         if (kind.equals("missing-caller")) doReturn(Optional.empty()).when(users).findUserByEmail(EMAIL);
         if (kind.equals("null-caller-id")) caller.setUserId(null);
-        mvc.perform(access(id)).andExpect(status().isForbidden()).andExpect(content().string(""))
+        boolean invalidIdentity = kind.equals("missing-caller") || kind.equals("null-caller-id");
+        mvc.perform(access(id)).andExpect(status().is(invalidIdentity ? 401 : 403)).andExpect(content().string(""))
                 .andExpect(header().doesNotExist("Authorization")).andExpect(header().doesNotExist("Set-Cookie"));
-        verify(users).findUserByEmail(EMAIL); verifyNoMoreInteractions(users); verifyNoInteractions(roles, provider);
+        verify(users,times(invalidIdentity ? 1 : 2)).findUserByEmail(EMAIL); verifyNoMoreInteractions(users); verifyNoInteractions(roles, provider);
         assertNull(caller.getAccountBank()); assertNull(caller.getAccountNumber());
         assertEquals("UNCONFIRMED_USER", caller.getRole().getRoleType());
         assertNull(other.getAccountBank()); assertEquals(kind.equals("registered-other") ? "existing-other" : null, other.getAccountNumber());
@@ -135,7 +137,7 @@ class ConfirmAccountSecurityChainTest {
         } else {
             assertToken(result.getResponse().getHeader("Authorization").substring(7), EMAIL,"UNCONFIRMED_USER","access");
             assertNull(result.getResponse().getHeader("Set-Cookie"));
-            verify(users).findUserByEmail(EMAIL); verifyNoMoreInteractions(users); verify(provider).createAccessToken(any()); unchanged();
+            verify(users,times(2)).findUserByEmail(EMAIL); verifyNoMoreInteractions(users); verify(provider).createAccessToken(any()); unchanged();
         }
     }
     @ParameterizedTest @ValueSource(strings = {"registered", "duplicate"})
@@ -158,18 +160,21 @@ class ConfirmAccountSecurityChainTest {
         if (own) success(result,caller);
         else {
             assertNull(result.getResponse().getHeader("Authorization")); assertNull(result.getResponse().getHeader("Set-Cookie"));
-            verify(users).findUserByEmail(EMAIL); verifyNoMoreInteractions(users); verifyNoInteractions(provider); unchanged();
+            verify(users,times(2)).findUserByEmail(EMAIL); verifyNoMoreInteractions(users); verifyNoInteractions(provider); unchanged();
         }
     }
     @ParameterizedTest @CsvSource({"USER,7001", "USER,8001", "ADMIN,7001", "ADMIN,8001"})
     void existingRolesDeniedBeforeService(String role, long id) throws Exception {
+        caller.setRole(Role.builder().roleType(role).build());
         mvc.perform(request(id).header("Authorization","Bearer " + token(EMAIL,role,"access",3600)).cookie(new Cookie("refreshToken","unused")))
                 .andExpect(status().isForbidden()).andExpect(content().string(""));
-        verifyNoInteractions(users, provider); unchanged();
+        verify(users).findUserByEmail(EMAIL); verifyNoMoreInteractions(users); verifyNoInteractions(provider,roles);
+        assertNull(caller.getAccountBank()); assertNull(caller.getAccountNumber()); assertEquals(role,caller.getRole().getRoleType());
+        assertNull(other.getAccountBank()); assertNull(other.getAccountNumber());
     }
     @Test void mandatoryCookieRemainsRequiredWithValidAccess() throws Exception {
         mvc.perform(request(7001L).header("Authorization","Bearer " + token(EMAIL,"UNCONFIRMED_USER","access",3600)))
-                .andExpect(status().isBadRequest()); verifyNoInteractions(users, provider); unchanged();
+                .andExpect(status().isBadRequest()); verify(users).findUserByEmail(EMAIL); verifyNoMoreInteractions(users); verifyNoInteractions(provider); unchanged();
     }
     @ParameterizedTest @ValueSource(strings = {"missing", "malformed", "access-type", "refresh-type", "bad-refresh"})
     void invalidCredentialsNeverReachService(String kind) throws Exception {

@@ -74,14 +74,19 @@ abstract class StatusChainHarness {
         reset(details, statuses, products, users, requests);
         transaction = spy(Rf038Fixture.graph(1L));
         when(details.findById(88L)).thenReturn(Optional.of(transaction));
+        caller(1000L);
     }
     @AfterEach void contextCleared() { assertNull(SecurityContextHolder.getContext().getAuthentication()); }
-    void caller(Long userId) {
+    void caller(Long userId) { caller(userId,"USER"); }
+    void caller(Long userId,String role) {
         User caller = Rf038Fixture.user(userId);
+        caller.setVisible(true); caller.setRole(com.ngng.api.user.user.entity.Role.builder().roleType(role).build());
         when(users.findUserByEmail(EMAIL)).thenAnswer(invocation -> {
-            var principal = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            assertNull(principal.getUser().getUserId(), "ID must be resolved from the token email by AuthService");
-            assertEquals(EMAIL, principal.getUser().getEmail());
+            if (SecurityContextHolder.getContext().getAuthentication() != null) {
+                var principal = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+                assertNull(principal.getUser().getUserId(), "ID must be resolved from the token email by AuthService");
+                assertEquals(EMAIL, principal.getUser().getEmail());
+            }
             return Optional.of(caller);
         });
     }

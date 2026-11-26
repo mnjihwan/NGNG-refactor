@@ -5,6 +5,7 @@ import com.ngng.api.global.security.jwt.util.JwtTokenProvider;
 import com.ngng.api.global.security.jwt.util.JwtTokenVerifier;
 import com.ngng.api.user.user.entity.Role;
 import com.ngng.api.user.user.entity.User;
+import com.ngng.api.user.user.repository.UserRepository;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.JwtException;
@@ -30,6 +31,7 @@ public class TokenFilter extends OncePerRequestFilter {
 
     private final JwtTokenProvider tokenProvider;
     private final JwtTokenVerifier tokenVerifier;
+    private final UserRepository userRepository;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
@@ -49,6 +51,10 @@ public class TokenFilter extends OncePerRequestFilter {
         }
 
         CustomUserDetails customUserDetails = createCustomUserDetails(claims);
+        if (customUserDetails == null) {
+            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+            return;
+        }
         if (refresh) {
             response.setHeader(HttpHeaders.AUTHORIZATION, tokenProvider.createAccessToken(customUserDetails));
         }
@@ -70,12 +76,21 @@ public class TokenFilter extends OncePerRequestFilter {
         return (uri.startsWith("/products") && method.equals("GET")) || uriPattern.matcher(uri).matches();
     }
 
-    // createAccessToken이 UserDetails를 인자로 받기 때문에 token의 정보를 기준으로 UserDetails를 생성하는 메서드
+    // credential 검증 뒤 현재 계정 상태와 역할을 확인한다. 저장소 장애는 credential401로 숨기지 않는다.
     private CustomUserDetails createCustomUserDetails(Claims claims) {
 
         String email = claims.getSubject();
-        String role = claims.get("role", String.class);
+        User current = userRepository.findUserByEmail(email).orElse(null);
+        if (current == null || current.getUserId() == null || !Boolean.TRUE.equals(current.getVisible())) {
+            return null;
+        }
+        Role currentRole = current.getRole();
+        String role = currentRole == null ? null : currentRole.getRoleType();
+        if (!"ADMIN".equals(role) && !"USER".equals(role) && !"UNCONFIRMED_USER".equals(role)) {
+            return null;
+        }
 
+        // 기존 principal 형태를 유지하고 현재 role만 복사한다. 업무의 DB 주체 해석은 그대로다.
         return new CustomUserDetails(User.builder()
                 .email(email)
                 .role(Role.builder()

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" tests="30" skipped="0" failures="0" errors="0" timestamp="2026-11-11T07:45:54" hostname="[HOST]" time="0.258">
+  <properties/>
+  <testcase name="[1] kind=registered" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.02"/>
+  <testcase name="[2] kind=duplicate" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.01"/>
+  <testcase name="[1] accessKind=missing, own=true" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.021"/>
+  <testcase name="[2] accessKind=expired, own=true" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.015"/>
+  <testcase name="[3] accessKind=missing, own=false" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.009"/>
+  <testcase name="[4] accessKind=expired, own=false" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.011"/>
+  <testcase name="mandatoryCookieRemainsRequiredWithValidAccess()" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.008"/>
+  <testcase name="[1] kind=registered" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.006"/>
+  <testcase name="[2] kind=duplicate" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.006"/>
+  <testcase name="ownAccountRetains204HeadersAndState()" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.01"/>
+  <testcase name="[1] kind=missing" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.002"/>
+  <testcase name="[2] kind=malformed" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.001"/>
+  <testcase name="[3] kind=access-type" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.004"/>
+  <testcase name="[4] kind=refresh-type" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.004"/>
+  <testcase name="[5] kind=bad-refresh" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.003"/>
+  <testcase name="[1] cookieKind=other, own=true" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.013"/>
+  <testcase name="[2] cookieKind=malformed, own=true" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.01"/>
+  <testcase name="[3] cookieKind=other, own=false" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.009"/>
+  <testcase name="[4] cookieKind=malformed, own=false" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.006"/>
+  <testcase name="[1] role=USER, id=7001" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.004"/>
+  <testcase name="[2] role=USER, id=8001" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.004"/>
+  <testcase name="[3] role=ADMIN, id=7001" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.006"/>
+  <testcase name="[4] role=ADMIN, id=8001" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.005"/>
+  <testcase name="[1] kind=other" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.006"/>
+  <testcase name="[2] kind=registered-other" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.007"/>
+  <testcase name="[3] kind=duplicate-other" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.007"/>
+  <testcase name="[4] kind=missing-target" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.007"/>
+  <testcase name="[5] kind=null-id" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.006"/>
+  <testcase name="[6] kind=missing-caller" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.004"/>
+  <testcase name="[7] kind=null-caller-id" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.005"/>
+  <system-out><![CDATA[16:45:54.128 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@25e24908, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2941631f, org.springframework.security.web.context.SecurityContextHolderFilter@75df4b1d, org.springframework.security.web.header.HeaderWriterFilter@3696d12d, org.springframework.web.filter.CorsFilter@6130a6f5, org.springframework.security.web.authentication.logout.LogoutFilter@1a22c1ba, com.ngng.api.global.security.filter.TokenFilter@3fb0d9de, com.ngng.api.global.security.filter.LoginFilter@8ad6d29, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@43120a77, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@430db481, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2ad6aeb8, org.springframework.security.web.session.SessionManagementFilter@656672fb, org.springframework.security.web.access.ExceptionTranslationFilter@76980c75, org.springframework.security.web.access.intercept.AuthorizationFilter@67372d20]
+16:45:54.137 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+16:45:54.137 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+16:45:54.141 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 4 ms
+16:45:54.158 [Test worker] ERROR user-log -- Failed Confirm account , userId : 7001  bank : fixture-bank  number : fixture-account
+16:45:54.162 [Test worker] ERROR user-log -- Failed Confirm account , userId : 7001  bank : fixture-bank  number : fixture-account
+16:45:54.191 [Test worker] INFO user-log -- Success  Confirm account , userId : 7001  bank : fixture-bank  number : fixture-account
+16:45:54.207 [Test worker] INFO user-log -- Success  Confirm account , userId : 7001  bank : fixture-bank  number : fixture-account
+16:45:54.241 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MissingRequestCookieException: Required cookie 'refreshToken' for method parameter type Cookie is not present]
+16:45:54.247 [Test worker] ERROR user-log -- Failed Confirm account , userId : 7001  bank : fixture-bank  number : fixture-account
+16:45:54.254 [Test worker] ERROR user-log -- Failed Confirm account , userId : 7001  bank : fixture-bank  number : fixture-account
+16:45:54.258 [Test worker] INFO user-log -- Success  Confirm account , userId : 7001  bank : fixture-bank  number : fixture-account
+16:45:54.286 [Test worker] INFO user-log -- Success  Confirm account , userId : 7001  bank : fixture-bank  number : fixture-account
+16:45:54.302 [Test worker] INFO user-log -- Success  Confirm account , userId : 7001  bank : fixture-bank  number : fixture-account
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

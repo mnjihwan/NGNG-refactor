@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" tests="57" skipped="0" failures="0" errors="0" timestamp="2026-11-11T07:45:54" hostname="[HOST]" time="0.627">
+  <properties/>
+  <testcase name="[1] kind=missing" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.069"/>
+  <testcase name="[2] kind=null-id" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.01"/>
+  <testcase name="[1] kind=missing" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.002"/>
+  <testcase name="[2] kind=malformed" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.003"/>
+  <testcase name="[3] kind=forged" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.005"/>
+  <testcase name="[4] kind=refresh-as-access" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.005"/>
+  <testcase name="[5] kind=blank-role" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.006"/>
+  <testcase name="[6] kind=blank-subject" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.005"/>
+  <testcase name="[7] kind=missing-exp" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.003"/>
+  <testcase name="[8] kind=missing-type" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.005"/>
+  <testcase name="[1] role=USER, id=7002, visible=true" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.014"/>
+  <testcase name="[2] role=USER, id=7002, visible=false" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.01"/>
+  <testcase name="[3] role=USER, id=9999, visible=true" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.005"/>
+  <testcase name="[4] role=USER, id=9999, visible=false" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.006"/>
+  <testcase name="[5] role=USER, id=null, visible=true" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.005"/>
+  <testcase name="[6] role=USER, id=null, visible=false" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.007"/>
+  <testcase name="[7] role=UNCONFIRMED_USER, id=7002, visible=true" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.008"/>
+  <testcase name="[8] role=UNCONFIRMED_USER, id=7002, visible=false" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.007"/>
+  <testcase name="[9] role=UNCONFIRMED_USER, id=9999, visible=true" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.007"/>
+  <testcase name="[10] role=UNCONFIRMED_USER, id=9999, visible=false" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.008"/>
+  <testcase name="[11] role=UNCONFIRMED_USER, id=null, visible=true" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.008"/>
+  <testcase name="[12] role=UNCONFIRMED_USER, id=null, visible=false" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.009"/>
+  <testcase name="[13] role=ADMIN, id=7002, visible=true" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.012"/>
+  <testcase name="[14] role=ADMIN, id=7002, visible=false" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.007"/>
+  <testcase name="[15] role=ADMIN, id=9999, visible=true" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.007"/>
+  <testcase name="[16] role=ADMIN, id=9999, visible=false" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.01"/>
+  <testcase name="[17] role=ADMIN, id=null, visible=true" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.008"/>
+  <testcase name="[18] role=ADMIN, id=null, visible=false" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.008"/>
+  <testcase name="[1] access=missing, role=USER, own=true" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.021"/>
+  <testcase name="[2] access=missing, role=USER, own=false" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.009"/>
+  <testcase name="[3] access=missing, role=UNCONFIRMED_USER, own=true" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.012"/>
+  <testcase name="[4] access=missing, role=UNCONFIRMED_USER, own=false" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.013"/>
+  <testcase name="[5] access=missing, role=ADMIN, own=true" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.013"/>
+  <testcase name="[6] access=missing, role=ADMIN, own=false" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.011"/>
+  <testcase name="[7] access=expired, role=USER, own=true" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.012"/>
+  <testcase name="[8] access=expired, role=USER, own=false" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.014"/>
+  <testcase name="[9] access=expired, role=UNCONFIRMED_USER, own=true" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.015"/>
+  <testcase name="[10] access=expired, role=UNCONFIRMED_USER, own=false" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.015"/>
+  <testcase name="[11] access=expired, role=ADMIN, own=true" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.012"/>
+  <testcase name="[12] access=expired, role=ADMIN, own=false" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.012"/>
+  <testcase name="sameTokenCannotReactivateSelfAfterFirstDropout()" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.01"/>
+  <testcase name="[1] body=" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.006"/>
+  <testcase name="[2] body={broken" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.006"/>
+  <testcase name="[3] body=[]" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.008"/>
+  <testcase name="[1] role=USER" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.008"/>
+  <testcase name="[2] role=UNCONFIRMED_USER" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.006"/>
+  <testcase name="[3] role=ADMIN" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.041"/>
+  <testcase name="[1] role=USER, visible=true" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.01"/>
+  <testcase name="[2] role=USER, visible=false" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.006"/>
+  <testcase name="[3] role=UNCONFIRMED_USER, visible=true" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.008"/>
+  <testcase name="[4] role=UNCONFIRMED_USER, visible=false" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.006"/>
+  <testcase name="[5] role=ADMIN, visible=true" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.006"/>
+  <testcase name="[6] role=ADMIN, visible=false" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.007"/>
+  <testcase name="[7] role=FUTURE_ROLE, visible=true" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.004"/>
+  <testcase name="[8] role=FUTURE_ROLE, visible=false" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.005"/>
+  <testcase name="[1] kind=different-subject" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.007"/>
+  <testcase name="[2] kind=invalid" classname="com.ngng.api.user.user.dropout.DropOutSecurityChainTest" time="0.006"/>
+  <system-out><![CDATA[16:45:54.491 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1ec09a68, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7da9b32c, org.springframework.security.web.context.SecurityContextHolderFilter@765eb801, org.springframework.security.web.header.HeaderWriterFilter@70ab1ce0, org.springframework.web.filter.CorsFilter@7e5c8c80, org.springframework.security.web.authentication.logout.LogoutFilter@1d0fc0bc, com.ngng.api.global.security.filter.TokenFilter@46df794e, com.ngng.api.global.security.filter.LoginFilter@5cd6a827, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@53b9952f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7bdddfa4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6cd65042, org.springframework.security.web.session.SessionManagementFilter@50d6af87, org.springframework.security.web.access.ExceptionTranslationFilter@574e4184, org.springframework.security.web.access.intercept.AuthorizationFilter@1735e1c4]
+16:45:54.511 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+16:45:54.511 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+16:45:54.511 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+16:45:54.807 [Test worker] INFO user-log -- Success DropOut User id: 7001
+16:45:54.844 [Test worker] INFO user-log -- Success DropOut User id: 7001
+16:45:54.874 [Test worker] INFO user-log -- Success DropOut User id: 7001
+16:45:54.900 [Test worker] INFO user-log -- Success DropOut User id: 7001
+16:45:54.923 [Test worker] INFO user-log -- Success DropOut User id: 7001
+16:45:54.960 [Test worker] INFO user-log -- Success DropOut User id: 7001
+16:45:54.981 [Test worker] INFO user-log -- Success DropOut User id: 7001
+16:45:54.987 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<?> com.ngng.api.user.user.controller.DropOutController.dropOut(com.ngng.api.user.user.dto.request.DropOutRequest)]
+16:45:54.996 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('b' (code 98)): was expecting double-quote to start field name]
+16:45:54.996 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `com.ngng.api.user.user.dto.request.DropOutRequest` from Array value (token `JsonToken.START_ARRAY`)]
+16:45:55.073 [Test worker] INFO user-log -- Success DropOut User id: 7001
+16:45:55.088 [Test worker] INFO user-log -- Success DropOut User id: 7001
+16:45:55.102 [Test worker] INFO user-log -- Success DropOut User id: 7001
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

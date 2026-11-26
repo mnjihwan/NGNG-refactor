@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.report.response.ReportResponseSecurityChainTest" tests="72" skipped="0" failures="0" errors="0" timestamp="2026-11-26T00:01:02" hostname="[HOST]" time="0.495">
+  <properties/>
+  <testcase name="sharedDtoInPenaltyDetailStillContainsOnlyIdsAndNullUnpopulatedFields()" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.018"/>
+  <testcase name="[1] nullSide=reporter" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.053"/>
+  <testcase name="[2] nullSide=user" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.015"/>
+  <testcase name="unprocessedNullPageSortMetadataOrderAndEmptyPageArePreserved()" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.016"/>
+  <testcase name="[1] op=create, kind=missing" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.001"/>
+  <testcase name="[2] op=create, kind=malformed" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.002"/>
+  <testcase name="[3] op=create, kind=refreshMissing" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.002"/>
+  <testcase name="[4] op=create, kind=refreshMalformed" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.002"/>
+  <testcase name="[5] op=create, kind=refreshExpired" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.004"/>
+  <testcase name="[6] op=create, kind=refreshWrongType" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.003"/>
+  <testcase name="[7] op=create, kind=validRefresh" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.01"/>
+  <testcase name="[8] op=create, kind=expiredAccessRefresh" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.008"/>
+  <testcase name="[9] op=list, kind=missing" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.001"/>
+  <testcase name="[10] op=list, kind=malformed" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.001"/>
+  <testcase name="[11] op=list, kind=refreshMissing" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.001"/>
+  <testcase name="[12] op=list, kind=refreshMalformed" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.002"/>
+  <testcase name="[13] op=list, kind=refreshExpired" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.004"/>
+  <testcase name="[14] op=list, kind=refreshWrongType" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.003"/>
+  <testcase name="[15] op=list, kind=validRefresh" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.006"/>
+  <testcase name="[16] op=list, kind=expiredAccessRefresh" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.007"/>
+  <testcase name="[17] op=detail, kind=missing" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.001"/>
+  <testcase name="[18] op=detail, kind=malformed" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.001"/>
+  <testcase name="[19] op=detail, kind=refreshMissing" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.001"/>
+  <testcase name="[20] op=detail, kind=refreshMalformed" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.001"/>
+  <testcase name="[21] op=detail, kind=refreshExpired" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.003"/>
+  <testcase name="[22] op=detail, kind=refreshWrongType" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.005"/>
+  <testcase name="[23] op=detail, kind=validRefresh" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.004"/>
+  <testcase name="[24] op=detail, kind=expiredAccessRefresh" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.008"/>
+  <testcase name="[25] op=patch, kind=missing" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.001"/>
+  <testcase name="[26] op=patch, kind=malformed" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.001"/>
+  <testcase name="[27] op=patch, kind=refreshMissing" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.001"/>
+  <testcase name="[28] op=patch, kind=refreshMalformed" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.001"/>
+  <testcase name="[29] op=patch, kind=refreshExpired" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.004"/>
+  <testcase name="[30] op=patch, kind=refreshWrongType" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.005"/>
+  <testcase name="[31] op=patch, kind=validRefresh" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.007"/>
+  <testcase name="[32] op=patch, kind=expiredAccessRefresh" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.01"/>
+  <testcase name="creationMappingDoesNotAccessEitherUserAssociation()" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.063"/>
+  <testcase name="[1] op=list, role=USER, identity=reporter" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.006"/>
+  <testcase name="[2] op=list, role=USER, identity=target" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.005"/>
+  <testcase name="[3] op=list, role=USER, identity=third" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.004"/>
+  <testcase name="[4] op=list, role=UNCONFIRMED_USER, identity=reporter" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.004"/>
+  <testcase name="[5] op=list, role=UNCONFIRMED_USER, identity=target" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.003"/>
+  <testcase name="[6] op=list, role=UNCONFIRMED_USER, identity=third" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.004"/>
+  <testcase name="[7] op=detail, role=USER, identity=reporter" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.006"/>
+  <testcase name="[8] op=detail, role=USER, identity=target" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.004"/>
+  <testcase name="[9] op=detail, role=USER, identity=third" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.009"/>
+  <testcase name="[10] op=detail, role=UNCONFIRMED_USER, identity=reporter" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.005"/>
+  <testcase name="[11] op=detail, role=UNCONFIRMED_USER, identity=target" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.002"/>
+  <testcase name="[12] op=detail, role=UNCONFIRMED_USER, identity=third" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.003"/>
+  <testcase name="[13] op=patch, role=USER, identity=reporter" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.003"/>
+  <testcase name="[14] op=patch, role=USER, identity=target" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.003"/>
+  <testcase name="[15] op=patch, role=USER, identity=third" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.002"/>
+  <testcase name="[16] op=patch, role=UNCONFIRMED_USER, identity=reporter" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.003"/>
+  <testcase name="[17] op=patch, role=UNCONFIRMED_USER, identity=target" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.004"/>
+  <testcase name="[18] op=patch, role=UNCONFIRMED_USER, identity=third" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.004"/>
+  <testcase name="[1] op=detail" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.005"/>
+  <testcase name="[2] op=patch" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.005"/>
+  <testcase name="ordinaryCreationBuilderCanKeepBothAssociationsNull()" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.007"/>
+  <testcase name="deleteStillReturnsOnlyIdAndVisibleTrue()" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.008"/>
+  <testcase name="[1] op=list" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.011"/>
+  <testcase name="[2] op=detail" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.007"/>
+  <testcase name="[3] op=patch" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.007"/>
+  <testcase name="[1] role=USER" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.007"/>
+  <testcase name="[2] role=ADMIN" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.007"/>
+  <testcase name="[3] role=UNCONFIRMED_USER" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.006"/>
+  <testcase name="productReportDtoRetainsSeparateIdContract()" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.004"/>
+  <testcase name="[1] op=create" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.006"/>
+  <testcase name="[2] op=list" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.005"/>
+  <testcase name="[3] op=detail" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.005"/>
+  <testcase name="[4] op=patch" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.005"/>
+  <testcase name="adminMappingAndSerializationOnlyReadThreeAllowedUserGetters()" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.017"/>
+  <testcase name="bootMapperIsTheActualUniqueMvcJacksonMapper()" classname="com.ngng.api.report.response.ReportResponseSecurityChainTest" time="0.001"/>
+  <system-out><![CDATA[2026-11-26 09:01:02.036 [Test worker] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@db05f0e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4e97e564, org.springframework.security.web.context.SecurityContextHolderFilter@58f83032, org.springframework.security.web.header.HeaderWriterFilter@33246f17, org.springframework.web.filter.CorsFilter@31b1a4e0, org.springframework.security.web.authentication.logout.LogoutFilter@255cc703, com.ngng.api.global.security.filter.TokenFilter@2478f64c, com.ngng.api.global.security.filter.LoginFilter@2bbf85e2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@22fc3e19, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3230a186, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5af2f934, org.springframework.security.web.session.SessionManagementFilter@2165fcfa, org.springframework.security.web.access.ExceptionTranslationFilter@5ee4935f, org.springframework.security.web.access.intercept.AuthorizationFilter@51989892]
+2026-11-26 09:01:02.044 [Test worker] INFO  o.s.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-26 09:01:02.044 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-26 09:01:02.044 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

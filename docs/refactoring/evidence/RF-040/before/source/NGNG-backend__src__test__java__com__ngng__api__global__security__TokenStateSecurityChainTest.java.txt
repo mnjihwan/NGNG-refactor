@@ -1,0 +1,99 @@
+package com.ngng.api.global.security;
+
+import com.ngng.api.global.security.config.SecurityConfig;
+import com.ngng.api.global.security.handler.CustomLogoutHandler;
+import com.ngng.api.global.security.handler.CustomLogoutSuccessHandler;
+import com.ngng.api.global.security.jwt.util.JwtTokenProvider;
+import com.ngng.api.global.security.jwt.util.JwtTokenVerifier;
+import com.ngng.api.user.user.entity.Role;
+import com.ngng.api.user.user.entity.User;
+import com.ngng.api.user.user.repository.UserRepository;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import org.springframework.context.annotation.*;
+import org.springframework.mock.web.MockServletContext;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.test.util.ReflectionTestUtils;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import jakarta.servlet.http.Cookie;
+import java.util.Map;
+import java.util.Optional;
+import java.util.concurrent.atomic.AtomicInteger;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+/** RF040 baseline: actual SecurityConfig/TokenFilter/JWT with a repository double, no Boot/network. */
+class TokenStateSecurityChainTest {
+    static AnnotationConfigWebApplicationContext context;
+    static MockMvc mvc;
+    static final AtomicInteger calls = new AtomicInteger();
+    UserRepository users;
+    User current;
+    @BeforeAll static void start() {
+        context = new AnnotationConfigWebApplicationContext();
+        context.getEnvironment().getPropertySources().addFirst(new org.springframework.core.env.MapPropertySource(
+                "rf040-only", Map.of("jwt.expiration.access", "3600000", "jwt.expiration.refresh", "7200000")));
+        context.setServletContext(new MockServletContext()); context.register(Config.class); context.refresh();
+        mvc = MockMvcBuilders.webAppContextSetup(context).apply(springSecurity()).build();
+    }
+    @AfterAll static void stop() { context.close(); }
+    @BeforeEach void setup() {
+        calls.set(0); SecurityContextHolder.clearContext(); users = context.getBean(UserRepository.class); reset(users);
+        current = User.builder().userId(40L).email("rf005@example.test").visible(true).role(Role.builder().roleType("USER").build()).build();
+        when(users.findUserByEmail("rf005@example.test")).thenAnswer(inv -> Optional.ofNullable(current));
+    }
+    @AfterEach void cleared() { assertNull(SecurityContextHolder.getContext().getAuthentication()); }
+    @ParameterizedTest @ValueSource(strings = {"false", "null", "missing"})
+    void beforeAccessIgnoresAccountState(String state) throws Exception {
+        if (state.equals("missing")) current = null;
+        else current.setVisible(state.equals("null") ? null : false);
+        mvc.perform(get("/my_page/state").header("Authorization", "Bearer " + TokenFilterTest.token("access", "USER", 3600)))
+                .andExpect(status().isOk()).andExpect(content().string("ROLE_USER"));
+        assertEquals(1, calls.get()); verifyNoInteractions(users);
+    }
+    @Test void beforeAdminClaimKeepsAuthorityAfterDatabaseDowngrade() throws Exception {
+        mvc.perform(get("/admin/state").header("Authorization", "Bearer " + TokenFilterTest.token("access", "ADMIN", 3600)))
+                .andExpect(status().isOk()).andExpect(content().string("ROLE_ADMIN"));
+        verifyNoInteractions(users);
+    }
+    @Test void beforeUserClaimDoesNotSeeDatabaseUpgrade() throws Exception {
+        current.getRole().setRoleType("ADMIN");
+        mvc.perform(get("/admin/state").header("Authorization", "Bearer " + TokenFilterTest.token("access", "USER", 3600)))
+                .andExpect(status().isForbidden()); assertEquals(0, calls.get()); verifyNoInteractions(users);
+    }
+    @Test void beforeRefreshReissuesOldRoleForInactiveAccount() throws Exception {
+        current.setVisible(false);
+        var result = mvc.perform(get("/admin/state").cookie(new Cookie("refreshToken", TokenFilterTest.token("refresh", "ADMIN", 3600))))
+                .andExpect(status().isOk()).andReturn();
+        assertEquals("ADMIN", context.getBean(JwtTokenVerifier.class).getRole(result.getResponse().getHeader("Authorization")));
+        verifyNoInteractions(users);
+    }
+    @Configuration @EnableWebMvc @EnableWebSecurity @Import(SecurityConfig.class)
+    static class Config {
+        @Bean @Primary AuthenticationConfiguration authenticationConfiguration() throws Exception {
+            var c = mock(AuthenticationConfiguration.class); when(c.getAuthenticationManager()).thenReturn(mock(AuthenticationManager.class)); return c;
+        }
+        @Bean JwtTokenVerifier verifier() { return new JwtTokenVerifier(TokenFilterTest.SECRET); }
+        @Bean JwtTokenProvider provider() { var p = spy(new JwtTokenProvider(TokenFilterTest.SECRET)); ReflectionTestUtils.setField(p, "accessTokenExpirationMs", 3_600_000); return p; }
+        @Bean CustomLogoutHandler logoutHandler() { return new CustomLogoutHandler(); }
+        @Bean CustomLogoutSuccessHandler logoutSuccessHandler() { return new CustomLogoutSuccessHandler(); }
+        @Bean UserRepository users() { return mock(UserRepository.class); }
+        @Bean Probe probe() { return new Probe(); }
+    }
+    @RestController static class Probe {
+        @RequestMapping("/**") String state(Authentication auth) { calls.incrementAndGet(); return auth == null ? "anonymous" : auth.getAuthorities().iterator().next().getAuthority(); }
+    }
+}

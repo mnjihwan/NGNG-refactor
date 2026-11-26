@@ -2,6 +2,7 @@ package com.ngng.api.transaction.read;
 
 import com.ngng.api.user.user.entity.User;
 import jakarta.servlet.http.Cookie;
+import jakarta.servlet.ServletException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -19,7 +20,7 @@ class TransactionReadSecurityChainTest extends ReadChainHarness {
             "ADMIN,1000", "ADMIN,2000", "ADMIN,3000", "ADMIN,4000",
             "UNCONFIRMED_USER,1000", "UNCONFIRMED_USER,2000", "UNCONFIRMED_USER,3000", "UNCONFIRMED_USER,4000"})
     void roleAndRecordedPartyMatrixHasNoAdminOrCurrentProductOwnerOverride(String role, long id) throws Exception {
-        caller(ReadFixture.id(id));
+        caller(ReadFixture.id(id), role);
         var result = mvc.perform(get("/transaction/88").header("Authorization", "Bearer " + token("access", role, 3600)));
         if (id == 1000 || id == 2000) {
             result.andExpect(status().isOk()).andExpect(jsonPath("$.id").value(88))
@@ -32,7 +33,7 @@ class TransactionReadSecurityChainTest extends ReadChainHarness {
             verify(transaction, never()).getProduct();
         }
         result.andExpect(header().doesNotExist("Authorization"));
-        verify(users).findUserByEmail(EMAIL);
+        verify(users,times(2)).findUserByEmail(EMAIL);
         verify(details).findById(88L);
         verifyNoMoreInteractions(details);
     }
@@ -107,7 +108,7 @@ class TransactionReadSecurityChainTest extends ReadChainHarness {
         assertEquals(EMAIL, verifier.getEmail(issued));
         assertEquals("access", verifier.getType(issued));
         if (id == 4000) assertEquals("", result.getResponse().getContentAsString());
-        verify(users).findUserByEmail(EMAIL);
+        verify(users,times(2)).findUserByEmail(EMAIL);
     }
     @ParameterizedTest @ValueSource(strings = {"absent", "nullId"})
     void validJwtWithUnresolvedDbUserIs401AndDoesNotReadTransaction(String condition) throws Exception {
@@ -122,20 +123,22 @@ class TransactionReadSecurityChainTest extends ReadChainHarness {
         mvc.perform(get("/transaction/99").header("Authorization", "Bearer " + token("access", "USER", 3600)))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{\"id\":null,\"address\":null,\"product\":null,\"consumer\":null,\"seller\":null,\"status\":null,\"price\":null}", true));
-        verify(users).findUserByEmail(EMAIL);
+        verify(users,times(2)).findUserByEmail(EMAIL);
         verify(details).findById(99L);
     }
     @Test void invalidPathKeepsBinding400WithoutServiceRepositoryAccess() throws Exception {
         mvc.perform(get("/transaction/not-a-number").header("Authorization", "Bearer " + token("access", "USER", 3600)))
                 .andExpect(status().isBadRequest()).andExpect(header().doesNotExist("Authorization"));
-        verifyNoInteractions(users, details);
+        verify(users).findUserByEmail(EMAIL); verifyNoMoreInteractions(users); verifyNoInteractions(details);
     }
-    @Test void dbFailurePropagatesThroughTokenFilterInsteadOfBecoming401Or403() {
+    @Test void businessIdentityLookupFailurePropagatesAfterAuthentication() {
         var failure = new DataAccessResourceFailureException("synthetic-database-unavailable");
-        when(users.findUserByEmail(EMAIL)).thenThrow(failure);
-        Exception thrown = assertThrows(Exception.class, () -> mvc.perform(get("/transaction/88")
+        User activeAccount = caller(ReadFixture.id(1000));
+        when(users.findUserByEmail(EMAIL)).thenReturn(Optional.of(activeAccount)).thenThrow(failure);
+        var thrown = assertThrows(ServletException.class, () -> mvc.perform(get("/transaction/88")
                 .header("Authorization", "Bearer " + token("access", "USER", 3600))));
         assertSame(failure, thrown.getCause());
+        verify(users, times(2)).findUserByEmail(EMAIL);
         verifyNoInteractions(details);
     }
 }

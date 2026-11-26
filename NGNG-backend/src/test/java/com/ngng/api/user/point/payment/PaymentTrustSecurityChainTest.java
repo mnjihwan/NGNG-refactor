@@ -11,6 +11,7 @@ import com.ngng.api.transaction.repository.TransactionDetailsRepository;
 import com.ngng.api.transaction.repository.TransactionStatusRepository;
 import com.ngng.api.transaction.service.TransactionDetailsService;
 import com.ngng.api.transaction.service.TransactionRequestService;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.Cookie;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -98,13 +99,15 @@ class PaymentTrustSecurityChainTest {
         details = context.getBean(TransactionDetailsRepository.class);
         reset(users, histories, products, details);
         PaymentFixture.allowPayment(products, details, 7001L, 800L);
-        user = User.builder().userId(7001L).name("Fixture").email(EMAIL).password("synthetic-password")
+        user = User.builder().userId(7001L).visible(true).name("Fixture").email(EMAIL).password("synthetic-password")
                 .address("synthetic-address").phoneNumber("synthetic-phone").accountBank("synthetic-bank")
                 .accountNumber("synthetic-account").role(Role.builder().roleType("USER").build()).build();
         latest = history(102L, 1000L);
         when(users.findUserByEmail(EMAIL)).thenAnswer(inv -> {
-            var principal = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            assertNull(principal.getUser().getUserId(), "JWT must not supply a database ID");
+            if (SecurityContextHolder.getContext().getAuthentication() != null) {
+                var principal = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+                assertNull(principal.getUser().getUserId(), "JWT must not supply a database ID");
+            }
             return Optional.of(user);
         });
         when(histories.findLastByUserId(7001L)).thenReturn(Optional.of(latest));
@@ -164,7 +167,7 @@ class PaymentTrustSecurityChainTest {
     @ParameterizedTest @CsvSource({"USER,7001", "USER,999", "USER,888", "ADMIN,7001", "ADMIN,999", "ADMIN,888",
             "UNCONFIRMED_USER,7001", "UNCONFIRMED_USER,999", "UNCONFIRMED_USER,888"})
     void onlyRecordedBuyerMayPayRegardlessOfRoleAndCurrentProductOwner(String role, long caller) throws Exception {
-        user.setUserId(caller);
+        user.setUserId(caller); user.getRole().setRoleType(role);
         var result = mvc.perform(pay(role, "800", "42"));
         if (caller == 7001) {
             result.andExpect(status().isOk()).andExpect(jsonPath("$.cost").value(200))
@@ -173,22 +176,22 @@ class PaymentTrustSecurityChainTest {
         } else {
             result.andExpect(status().isForbidden()).andExpect(content().string("")); noBalance();
         }
-        verify(users).findUserByEmail(EMAIL);
+        verify(users,times(2)).findUserByEmail(EMAIL);
         verify(products).lockTransactionProduct(42L); verify(details).lockPaymentTransactions(42L);
         verifyNoMoreInteractions(products, details);
     }
     @ParameterizedTest @ValueSource(strings = {"null", "0", "-1", "-9223372036854775808", "\"bad\"", "9223372036854775808"})
     void invalidProductIs400BeforeServiceDbReads(String id) throws Exception {
-        refused(400, "800", id); verifyNoInteractions(users, products, details, histories);
+        refused(400, "800", id); verify(users).findUserByEmail(EMAIL); verifyNoMoreInteractions(users); verifyNoInteractions(products, details, histories);
     }
     @ParameterizedTest @ValueSource(strings = {"null", "0", "-1", "-9223372036854775808", "\"bad\"", "9223372036854775808"})
     void invalidAmountIs400BeforeServiceDbReads(String amount) throws Exception {
-        refused(400, amount, "42"); verifyNoInteractions(users, products, details, histories);
+        refused(400, amount, "42"); verify(users).findUserByEmail(EMAIL); verifyNoMoreInteractions(users); verifyNoInteractions(products, details, histories);
     }
     @Test void missingProductFieldIs400() throws Exception {
         mvc.perform(post("/points/payment").contentType("application/json").content("{\"paymentCost\":800}")
                 .header("Authorization", "Bearer " + token("USER"))).andExpect(status().isBadRequest());
-        verifyNoInteractions(users, products, details, histories);
+        verify(users).findUserByEmail(EMAIL); verifyNoMoreInteractions(users); verifyNoInteractions(products, details, histories);
     }
     @ParameterizedTest @ValueSource(strings = {"missing", "malformed", "tampered", "expired"})
     void invalidCredentialIs401BeforeAllBusinessRepositories(String kind) throws Exception {
@@ -206,9 +209,14 @@ class PaymentTrustSecurityChainTest {
         verifyNoInteractions(users, products, details, histories);
     }
     @ParameterizedTest @ValueSource(strings = {"absent", "nullId"})
-    void unresolvedDatabaseUserIs401BeforeProductLock(String missing) throws Exception {
-        doReturn(missing.equals("absent") ? Optional.empty() : Optional.of(new User())).when(users).findUserByEmail(EMAIL);
-        refused(401, "800", "42"); verifyNoInteractions(products, details, histories); noBalance();
+    void unresolvedPaymentUserIs401BeforeProductLock(String missing) throws Exception {
+        Optional<User> paymentUser = missing.equals("absent") ? Optional.empty() : Optional.of(new User());
+        when(users.findUserByEmail(EMAIL)).thenReturn(Optional.of(user)).thenReturn(paymentUser);
+        refused(401, "800", "42");
+        verify(users, times(2)).findUserByEmail(EMAIL);
+        verifyNoInteractions(products, details);
+        noBalance();
+        verifyNoMoreInteractions(users);
     }
     @ParameterizedTest @ValueSource(strings = {"product", "transaction"})
     void missingProductOrTransactionIs404BeforeBalance(String missing) throws Exception {
@@ -257,11 +265,15 @@ class PaymentTrustSecurityChainTest {
                 .andExpect(header().string("Authorization", org.hamcrest.Matchers.startsWith("Bearer ")));
         if (buyer != 7001) noBalance();
     }
-    @Test void dbErrorIsNotSwallowedByTokenFilter() {
+    @Test void paymentIdentityLookupFailurePropagatesAfterAuthentication() {
         var error = new org.springframework.dao.DataAccessResourceFailureException("synthetic-unavailable");
-        doThrow(error).when(users).findUserByEmail(EMAIL);
-        Exception thrown = assertThrows(Exception.class, () -> mvc.perform(pay("USER", "800", "42")));
-        assertSame(error, thrown.getCause()); verifyNoInteractions(products, details, histories);
+        when(users.findUserByEmail(EMAIL)).thenReturn(Optional.of(user)).thenThrow(error);
+        var thrown = assertThrows(ServletException.class, () -> mvc.perform(pay("USER", "800", "42")));
+        assertSame(error, thrown.getCause());
+        verify(users, times(2)).findUserByEmail(EMAIL);
+        verifyNoInteractions(products, details);
+        noBalance();
+        verifyNoMoreInteractions(users);
     }
     @ParameterizedTest @CsvSource({"1,1", "800,2", "800,3", "800,4", "800,5", "800,0"})
     void directCreatedTransactionNeedsVerifiedTupleAndPendingStatusWithoutAcceptance(long storedPrice, long status) throws Exception {

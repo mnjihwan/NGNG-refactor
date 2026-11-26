@@ -57,7 +57,7 @@ class TransactionRequestAuthorizationChainTest {
     Product product;
     TransactionRequest request;
     @SuppressWarnings("removal")
-    static User user(long id) { return User.builder().userId(new Long(id)).name("fixture").phoneNumber("000").email(EMAIL).build(); }
+    static User user(long id) { return User.builder().userId(new Long(id)).name("fixture").phoneNumber("000").email(EMAIL).visible(true).role(com.ngng.api.user.user.entity.Role.builder().roleType("USER").build()).build(); }
     @BeforeAll static void start() {
         context = new AnnotationConfigWebApplicationContext();
         context.getEnvironment().getPropertySources().addFirst(new org.springframework.core.env.MapPropertySource(
@@ -97,12 +97,15 @@ class TransactionRequestAuthorizationChainTest {
         });
     }
     @AfterEach void contextCleared() { assertNull(SecurityContextHolder.getContext().getAuthentication()); }
-    void caller(long id) {
+    void caller(long id) { caller(id,"USER"); }
+    void caller(long id,String role) {
         doAnswer(call -> {
-            var principal = (com.ngng.api.global.security.custom.CustomUserDetails)
-                    SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            assertNull(principal.getUser().getUserId());
-            var caller = user(id);
+            if (SecurityContextHolder.getContext().getAuthentication() != null) {
+                var principal = (com.ngng.api.global.security.custom.CustomUserDetails)
+                        SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+                assertNull(principal.getUser().getUserId());
+            }
+            var caller = user(id); caller.getRole().setRoleType(role);
             assertNotSame(product.getUser().getUserId(), caller.getUserId());
             return Optional.of(caller);
         }).when(users).findUserByEmail(EMAIL);
@@ -131,7 +134,7 @@ class TransactionRequestAuthorizationChainTest {
     @ParameterizedTest @CsvSource({"USER,2000", "USER,1000", "USER,4000", "ADMIN,2000", "ADMIN,1000", "ADMIN,4000",
             "UNCONFIRMED_USER,2000", "UNCONFIRMED_USER,1000", "UNCONFIRMED_USER,4000"})
     void createUsesEmailResolvedBuyerForEveryRole(String role, long id) throws Exception {
-        caller(id);
+        caller(id,role);
         var result = mvc.perform(create(2000, 1000).header("Authorization", "Bearer " + token("access", role, 3600)));
         if (id == 2000) {
             result.andExpect(status().isOk()).andExpect(content().string("9000"));
@@ -142,7 +145,7 @@ class TransactionRequestAuthorizationChainTest {
             verify(requests, never()).findByProductProductIdAndBuyerUserId(any(), any());
             verifyNoInteractions(products);
         }
-        verify(users).findUserByEmail(EMAIL);
+        verify(users,times(2)).findUserByEmail(EMAIL);
     }
     @ParameterizedTest @CsvSource({"USER,1000,true", "USER,2000,true", "USER,3000,true", "USER,4000,true",
             "ADMIN,1000,true", "ADMIN,2000,true", "ADMIN,3000,true", "ADMIN,4000,true",
@@ -151,7 +154,7 @@ class TransactionRequestAuthorizationChainTest {
             "ADMIN,1000,false", "ADMIN,2000,false", "ADMIN,3000,false", "ADMIN,4000,false",
             "UNCONFIRMED_USER,1000,false", "UNCONFIRMED_USER,2000,false", "UNCONFIRMED_USER,3000,false", "UNCONFIRMED_USER,4000,false"})
     void onlyCurrentProductOwnerProcessesRequests(String role, long id, boolean accept) throws Exception {
-        caller(id);
+        caller(id,role);
         var result = mvc.perform(update(accept).header("Authorization", "Bearer " + token("access", role, 3600)));
         if (id == 1000) {
             result.andExpect(status().isOk()).andExpect(content().string("9000"));
@@ -167,7 +170,7 @@ class TransactionRequestAuthorizationChainTest {
             verify(requests, never()).findById(any());
             verifyNoInteractions(details);
         }
-        verify(users).findUserByEmail(EMAIL);
+        verify(users,times(2)).findUserByEmail(EMAIL);
     }
     @ParameterizedTest @ValueSource(strings = {"missing", "malformed", "expired"})
     void authenticationFailureNeverReachesRepositories(String credentials) throws Exception {
@@ -261,7 +264,7 @@ class TransactionRequestAuthorizationChainTest {
     }
     @ParameterizedTest @ValueSource(strings = {"USER", "ADMIN", "UNCONFIRMED_USER"})
     void directCreationRemainsPermittedAsDeferredSecurityRisk(String role) throws Exception {
-        caller(4000);
+        caller(4000,role);
         mvc.perform(post("/transaction").contentType("application/json")
                 .content("{\"productId\":7000,\"buyerId\":2000,\"price\":300}")
                 .header("Authorization", "Bearer " + token("access", role, 3600)))
@@ -269,7 +272,7 @@ class TransactionRequestAuthorizationChainTest {
                 .andExpect(jsonPath("$.seller.name").value("fixture")).andExpect(jsonPath("$.price").value(300))
                 .andExpect(jsonPath("$.status.id").value(1));
         assertTrue(product.getForSale()); assertNull(request.getIsAccepted());
-        verifyNoInteractions(requests, users, cache);
+        verify(users).findUserByEmail(EMAIL); verifyNoMoreInteractions(users); verifyNoInteractions(requests, cache);
     }
     @Configuration @EnableWebMvc @EnableWebSecurity @Import(SecurityConfig.class)
     static class IsolatedConfiguration {

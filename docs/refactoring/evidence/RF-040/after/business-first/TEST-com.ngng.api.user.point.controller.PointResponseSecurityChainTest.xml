@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.user.point.controller.PointResponseSecurityChainTest" tests="24" skipped="0" failures="0" errors="0" timestamp="2026-11-11T07:49:05" hostname="[HOST]" time="0.327">
+  <properties/>
+  <testcase name="actualBootMapperIsTheOnlyMvcJacksonMapper()" classname="com.ngng.api.user.point.controller.PointResponseSecurityChainTest" time="0.005"/>
+  <testcase name="nullFieldsRetainKeysAndJsonNull()" classname="com.ngng.api.user.point.controller.PointResponseSecurityChainTest" time="0.021"/>
+  <testcase name="dtoMappingAndBootSerializationNeverAccessUser()" classname="com.ngng.api.user.point.controller.PointResponseSecurityChainTest" time="0.039"/>
+  <testcase name="[1] role=USER, operation=latest" classname="com.ngng.api.user.point.controller.PointResponseSecurityChainTest" time="0.005"/>
+  <testcase name="[2] role=USER, operation=all" classname="com.ngng.api.user.point.controller.PointResponseSecurityChainTest" time="0.008"/>
+  <testcase name="[3] role=USER, operation=charge" classname="com.ngng.api.user.point.controller.PointResponseSecurityChainTest" time="0.148"/>
+  <testcase name="[4] role=USER, operation=payment" classname="com.ngng.api.user.point.controller.PointResponseSecurityChainTest" time="0.026"/>
+  <testcase name="[5] role=ADMIN, operation=latest" classname="com.ngng.api.user.point.controller.PointResponseSecurityChainTest" time="0.006"/>
+  <testcase name="[6] role=ADMIN, operation=all" classname="com.ngng.api.user.point.controller.PointResponseSecurityChainTest" time="0.003"/>
+  <testcase name="[7] role=ADMIN, operation=charge" classname="com.ngng.api.user.point.controller.PointResponseSecurityChainTest" time="0.005"/>
+  <testcase name="[8] role=ADMIN, operation=payment" classname="com.ngng.api.user.point.controller.PointResponseSecurityChainTest" time="0.006"/>
+  <testcase name="[9] role=UNCONFIRMED_USER, operation=latest" classname="com.ngng.api.user.point.controller.PointResponseSecurityChainTest" time="0.004"/>
+  <testcase name="[10] role=UNCONFIRMED_USER, operation=all" classname="com.ngng.api.user.point.controller.PointResponseSecurityChainTest" time="0.006"/>
+  <testcase name="[11] role=UNCONFIRMED_USER, operation=charge" classname="com.ngng.api.user.point.controller.PointResponseSecurityChainTest" time="0.014"/>
+  <testcase name="[12] role=UNCONFIRMED_USER, operation=payment" classname="com.ngng.api.user.point.controller.PointResponseSecurityChainTest" time="0.004"/>
+  <testcase name="[1] kind=missing, operation=latest" classname="com.ngng.api.user.point.controller.PointResponseSecurityChainTest" time="0.002"/>
+  <testcase name="[2] kind=missing, operation=all" classname="com.ngng.api.user.point.controller.PointResponseSecurityChainTest" time="0.001"/>
+  <testcase name="[3] kind=missing, operation=charge" classname="com.ngng.api.user.point.controller.PointResponseSecurityChainTest" time="0.001"/>
+  <testcase name="[4] kind=missing, operation=payment" classname="com.ngng.api.user.point.controller.PointResponseSecurityChainTest" time="0.002"/>
+  <testcase name="[5] kind=malformed, operation=latest" classname="com.ngng.api.user.point.controller.PointResponseSecurityChainTest" time="0.001"/>
+  <testcase name="[6] kind=malformed, operation=all" classname="com.ngng.api.user.point.controller.PointResponseSecurityChainTest" time="0.001"/>
+  <testcase name="[7] kind=malformed, operation=charge" classname="com.ngng.api.user.point.controller.PointResponseSecurityChainTest" time="0.001"/>
+  <testcase name="[8] kind=malformed, operation=payment" classname="com.ngng.api.user.point.controller.PointResponseSecurityChainTest" time="0.001"/>
+  <testcase name="emptyReadsKeep200EmptyBodyAndEmptyArray()" classname="com.ngng.api.user.point.controller.PointResponseSecurityChainTest" time="0.006"/>
+  <system-out><![CDATA[16:49:05.028 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@156542b7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1485c961, org.springframework.security.web.context.SecurityContextHolderFilter@183d22c5, org.springframework.security.web.header.HeaderWriterFilter@abadf5b, org.springframework.web.filter.CorsFilter@6e0a0baa, org.springframework.security.web.authentication.logout.LogoutFilter@aa16802, com.ngng.api.global.security.filter.TokenFilter@88432f5, com.ngng.api.global.security.filter.LoginFilter@374ba9a8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3316aded, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6f8aecd3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@d3fa0e1, org.springframework.security.web.session.SessionManagementFilter@ef342c2, org.springframework.security.web.access.ExceptionTranslationFilter@27a18433, org.springframework.security.web.access.intercept.AuthorizationFilter@340a5c52]
+16:49:05.187 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+16:49:05.187 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+16:49:05.187 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+16:49:05.408 [Test worker] INFO point-log -- Success Charge Point UserId: 7001 cost : 200 
+16:49:05.440 [Test worker] INFO point-log -- Success Payment Point UserId: 7001 ProductId : 42 cost : 1000 
+16:49:05.456 [Test worker] INFO point-log -- Success Charge Point UserId: 7001 cost : 200 
+16:49:05.456 [Test worker] INFO point-log -- Success Payment Point UserId: 7001 ProductId : 42 cost : 1000 
+16:49:05.472 [Test worker] INFO point-log -- Success Charge Point UserId: 7001 cost : 200 
+16:49:05.492 [Test worker] INFO point-log -- Success Payment Point UserId: 7001 ProductId : 42 cost : 1000 
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

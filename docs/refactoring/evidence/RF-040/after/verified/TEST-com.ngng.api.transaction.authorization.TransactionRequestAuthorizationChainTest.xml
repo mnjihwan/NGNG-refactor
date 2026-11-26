@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" tests="60" skipped="0" failures="0" errors="0" timestamp="2026-11-26T00:01:02" hostname="[HOST]" time="0.472">
+  <properties/>
+  <testcase name="existingDirectDetailsRetains409ForOwnerBut403ForThirdParty()" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.063"/>
+  <testcase name="[1] accept=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.006"/>
+  <testcase name="[2] accept=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.005"/>
+  <testcase name="missingRequestRetains404()" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.005"/>
+  <testcase name="[1] role=USER, id=2000" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.024"/>
+  <testcase name="[2] role=USER, id=1000" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.006"/>
+  <testcase name="[3] role=USER, id=4000" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.004"/>
+  <testcase name="[4] role=ADMIN, id=2000" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.006"/>
+  <testcase name="[5] role=ADMIN, id=1000" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.004"/>
+  <testcase name="[6] role=ADMIN, id=4000" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.004"/>
+  <testcase name="[7] role=UNCONFIRMED_USER, id=2000" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.004"/>
+  <testcase name="[8] role=UNCONFIRMED_USER, id=1000" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.005"/>
+  <testcase name="[9] role=UNCONFIRMED_USER, id=4000" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.005"/>
+  <testcase name="[1] credentials=missing" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.001"/>
+  <testcase name="[2] credentials=malformed" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.001"/>
+  <testcase name="[3] credentials=expired" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.005"/>
+  <testcase name="[1] role=USER" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.024"/>
+  <testcase name="[2] role=ADMIN" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.005"/>
+  <testcase name="[3] role=UNCONFIRMED_USER" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.005"/>
+  <testcase name="[1] create=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.003"/>
+  <testcase name="[2] create=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.004"/>
+  <testcase name="authorizedDuplicatePreservesNegativeOneContract()" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.007"/>
+  <testcase name="missingProductCreateIs404WithoutDuplicateRead()" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.005"/>
+  <testcase name="[1] seller=3000" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.004"/>
+  <testcase name="[2] seller=4000" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.005"/>
+  <testcase name="[1] access=missing, allowed=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.007"/>
+  <testcase name="[2] access=expired, allowed=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.017"/>
+  <testcase name="[3] access=missing, allowed=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.006"/>
+  <testcase name="[4] access=expired, allowed=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.007"/>
+  <testcase name="[1] credentials=missing" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.001"/>
+  <testcase name="[2] credentials=malformed" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.001"/>
+  <testcase name="[3] credentials=expired" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.003"/>
+  <testcase name="[1] role=USER, id=1000, accept=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.007"/>
+  <testcase name="[2] role=USER, id=2000, accept=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.01"/>
+  <testcase name="[3] role=USER, id=3000, accept=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.005"/>
+  <testcase name="[4] role=USER, id=4000, accept=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.005"/>
+  <testcase name="[5] role=ADMIN, id=1000, accept=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.006"/>
+  <testcase name="[6] role=ADMIN, id=2000, accept=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.004"/>
+  <testcase name="[7] role=ADMIN, id=3000, accept=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.004"/>
+  <testcase name="[8] role=ADMIN, id=4000, accept=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.005"/>
+  <testcase name="[9] role=UNCONFIRMED_USER, id=1000, accept=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.006"/>
+  <testcase name="[10] role=UNCONFIRMED_USER, id=2000, accept=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.005"/>
+  <testcase name="[11] role=UNCONFIRMED_USER, id=3000, accept=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.006"/>
+  <testcase name="[12] role=UNCONFIRMED_USER, id=4000, accept=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.005"/>
+  <testcase name="[13] role=USER, id=1000, accept=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.004"/>
+  <testcase name="[14] role=USER, id=2000, accept=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.003"/>
+  <testcase name="[15] role=USER, id=3000, accept=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.005"/>
+  <testcase name="[16] role=USER, id=4000, accept=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.006"/>
+  <testcase name="[17] role=ADMIN, id=1000, accept=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.005"/>
+  <testcase name="[18] role=ADMIN, id=2000, accept=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.006"/>
+  <testcase name="[19] role=ADMIN, id=3000, accept=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.006"/>
+  <testcase name="[20] role=ADMIN, id=4000, accept=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.006"/>
+  <testcase name="[21] role=UNCONFIRMED_USER, id=1000, accept=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.008"/>
+  <testcase name="[22] role=UNCONFIRMED_USER, id=2000, accept=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.006"/>
+  <testcase name="[23] role=UNCONFIRMED_USER, id=3000, accept=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.004"/>
+  <testcase name="[24] role=UNCONFIRMED_USER, id=4000, accept=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.003"/>
+  <testcase name="[1] access=missing, allowed=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.01"/>
+  <testcase name="[2] access=expired, allowed=true" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.018"/>
+  <testcase name="[3] access=missing, allowed=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.008"/>
+  <testcase name="[4] access=expired, allowed=false" classname="com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest" time="0.009"/>
+  <system-out><![CDATA[2026-11-26 09:01:02.618 [Test worker] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4e7b9365, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@519565a5, org.springframework.security.web.context.SecurityContextHolderFilter@3631bac6, org.springframework.security.web.header.HeaderWriterFilter@4d61d93a, org.springframework.web.filter.CorsFilter@419ffde3, org.springframework.security.web.authentication.logout.LogoutFilter@17c10601, com.ngng.api.global.security.filter.TokenFilter@73c29540, com.ngng.api.global.security.filter.LoginFilter@61b0d0e6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6ad0d419, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@293b7870, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1bf22938, org.springframework.security.web.session.SessionManagementFilter@366668a9, org.springframework.security.web.access.ExceptionTranslationFilter@4113b5cc, org.springframework.security.web.access.intercept.AuthorizationFilter@957771f]
+2026-11-26 09:01:02.764 [Test worker] INFO  o.s.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-26 09:01:02.764 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-26 09:01:02.764 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+이미 요청 했었음
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

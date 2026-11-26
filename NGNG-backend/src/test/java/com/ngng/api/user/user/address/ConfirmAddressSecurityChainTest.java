@@ -61,7 +61,8 @@ class ConfirmAddressSecurityChainTest {
         provider = context.getBean(JwtTokenProvider.class); reset(users, roles); clearInvocations(provider);
         caller = user(7001L, EMAIL); other = user(8001L, "rf041-other@example.invalid");
         when(users.findUserByEmail(EMAIL)).thenAnswer(inv -> {
-            assertNull(((CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser().getUserId());
+            if (SecurityContextHolder.getContext().getAuthentication() != null)
+                assertNull(((CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser().getUserId());
             return Optional.of(caller);
         });
         caller.setAddress("old-caller"); other.setAddress("old-other");
@@ -71,7 +72,7 @@ class ConfirmAddressSecurityChainTest {
         when(roles.findByRoleType("USER")).thenReturn(Role.builder().roleType("USER").build());
     }
     @AfterEach void noContextLeak() { assertNull(SecurityContextHolder.getContext().getAuthentication()); }
-    static User user(Long id, String email) { return User.builder().userId(id).email(email).role(Role.builder().roleType("UNCONFIRMED_USER").build()).build(); }
+    static User user(Long id, String email) { return User.builder().userId(id).email(email).visible(true).role(Role.builder().roleType("UNCONFIRMED_USER").build()).build(); }
     static String token(String email, String role, String type, int seconds) {
         return Jwts.builder().setSubject(email).claim("role", role).claim("type", type)
                 .setExpiration(new Date(System.currentTimeMillis() + seconds * 1000L))
@@ -88,31 +89,37 @@ class ConfirmAddressSecurityChainTest {
         Claims claims = Jwts.parserBuilder().setSigningKey(Keys.hmacShaKeyFor(Decoders.BASE64URL.decode(SECRET))).build().parseClaimsJws(raw.substring(7)).getBody();
         assertEquals(EMAIL,claims.getSubject()); assertEquals(role,claims.get("role")); assertEquals("access",claims.get("type"));
     }
-    void unchanged() {
-        assertEquals("old-caller",caller.getAddress()); assertEquals("old-other",other.getAddress());
+    void assertOtherAddressAndAccountState(String databaseRole) {
+        assertEquals("old-other",other.getAddress());
         assertEquals("old-bank",caller.getAccountBank()); assertEquals("old-account",caller.getAccountNumber());
         assertNull(other.getAccountBank()); assertNull(other.getAccountNumber());
-        assertEquals("UNCONFIRMED_USER",caller.getRole().getRoleType()); assertEquals("UNCONFIRMED_USER",other.getRole().getRoleType());
+        assertEquals(databaseRole,caller.getRole().getRoleType()); assertEquals("UNCONFIRMED_USER",other.getRole().getRoleType());
+    }
+    void unchanged(String databaseRole) {
+        assertEquals("old-caller",caller.getAddress());
+        assertOtherAddressAndAccountState(databaseRole);
         verifyNoInteractions(roles); verify(provider,never()).createRefreshToken(any()); verify(users,never()).save(any());
     }
-    void ownSuccess() {
-        assertEquals("new-address",caller.getAddress()); assertEquals("old-other",other.getAddress());
-        assertEquals("old-bank",caller.getAccountBank()); assertEquals("old-account",caller.getAccountNumber());
-        assertEquals("UNCONFIRMED_USER",caller.getRole().getRoleType()); assertEquals("UNCONFIRMED_USER",other.getRole().getRoleType());
-        var order=inOrder(users); order.verify(users).findUserByEmail(EMAIL); order.verify(users).findById(7001L);
+    void ownSuccess(String databaseRole) {
+        assertEquals("new-address",caller.getAddress());
+        assertOtherAddressAndAccountState(databaseRole);
+        var order=inOrder(users); order.verify(users,times(2)).findUserByEmail(EMAIL); order.verify(users).findById(7001L);
         verifyNoMoreInteractions(users); verifyNoInteractions(roles); verify(provider,never()).createRefreshToken(any());
     }
-    @ParameterizedTest @ValueSource(strings={"USER", "UNCONFIRMED_USER", "ADMIN", "OTHER"})
-    void ownAddressAllowsEveryPreviouslyAcceptedRoleWithoutRefreshCookie(String role) throws Exception {
-        mvc.perform(access(7001L,role)).andExpect(status().isNoContent()).andExpect(content().string(""))
+    @ParameterizedTest @CsvSource({"USER,USER", "UNCONFIRMED_USER,UNCONFIRMED_USER", "ADMIN,ADMIN", "OTHER,USER"})
+    void ownAddressAllowsEachCurrentRoleWithoutRefreshCookie(String claimRole, String databaseRole) throws Exception {
+        caller.getRole().setRoleType(databaseRole);
+        mvc.perform(access(7001L,claimRole)).andExpect(status().isNoContent()).andExpect(content().string(""))
                 .andExpect(header().doesNotExist("Authorization")).andExpect(header().doesNotExist("Set-Cookie"));
-        ownSuccess(); verifyNoInteractions(provider);
+        ownSuccess(databaseRole); verifyNoInteractions(provider);
     }
-    @ParameterizedTest @CsvSource({"USER,8001", "USER,9001", "UNCONFIRMED_USER,8001", "UNCONFIRMED_USER,9001", "ADMIN,8001", "ADMIN,9001", "OTHER,8001", "OTHER,9001"})
-    void otherOrMissingTargetIs403BeforeTargetReadForEveryRole(String role,long id) throws Exception {
-        mvc.perform(access(id,role)).andExpect(status().isForbidden()).andExpect(content().string(""))
+    @ParameterizedTest @CsvSource({"USER,USER,8001", "USER,USER,9001", "UNCONFIRMED_USER,UNCONFIRMED_USER,8001",
+            "UNCONFIRMED_USER,UNCONFIRMED_USER,9001", "ADMIN,ADMIN,8001", "ADMIN,ADMIN,9001", "OTHER,USER,8001", "OTHER,USER,9001"})
+    void otherOrMissingTargetIs403BeforeTargetReadForEveryRole(String claimRole, String databaseRole, long id) throws Exception {
+        caller.getRole().setRoleType(databaseRole);
+        mvc.perform(access(id,claimRole)).andExpect(status().isForbidden()).andExpect(content().string(""))
                 .andExpect(header().doesNotExist("Authorization")).andExpect(header().doesNotExist("Set-Cookie"));
-        verify(users).findUserByEmail(EMAIL); verifyNoMoreInteractions(users); unchanged(); verifyNoInteractions(provider);
+        verify(users,times(2)).findUserByEmail(EMAIL); verifyNoMoreInteractions(users); unchanged(databaseRole); verifyNoInteractions(provider);
     }
     @ParameterizedTest @ValueSource(strings={"null-id", "missing-caller", "null-caller-id", "both-null"})
     void missingIdentityIs403AndNoWrite(String kind) throws Exception {
@@ -120,26 +127,29 @@ class ConfirmAddressSecurityChainTest {
         if (kind.equals("null-id") || kind.equals("both-null")) id=null;
         if (kind.equals("missing-caller")) doReturn(Optional.empty()).when(users).findUserByEmail(EMAIL);
         if (kind.equals("null-caller-id") || kind.equals("both-null")) caller.setUserId(null);
-        mvc.perform(access(id,"USER")).andExpect(status().isForbidden());
-        verify(users).findUserByEmail(EMAIL); verifyNoMoreInteractions(users); unchanged(); verifyNoInteractions(provider);
+        boolean invalidIdentity = !kind.equals("null-id");
+        mvc.perform(access(id,"USER")).andExpect(status().is(invalidIdentity ? 401 : 403));
+        verify(users,times(invalidIdentity ? 1 : 2)).findUserByEmail(EMAIL); verifyNoMoreInteractions(users); unchanged("UNCONFIRMED_USER"); verifyNoInteractions(provider);
     }
-    @ParameterizedTest @CsvSource({"missing,USER,true", "expired,USER,true", "missing,USER,false", "expired,USER,false",
-            "missing,UNCONFIRMED_USER,true", "expired,UNCONFIRMED_USER,false", "missing,ADMIN,true", "expired,ADMIN,false", "missing,OTHER,true", "expired,OTHER,false"})
-    void refreshFallbackKeepsOnlyCallerAccessOnOwn204OrOther403(String accessKind,String role,boolean own) throws Exception {
-        var request=request(own ? 7001L : 8001L).cookie(new Cookie("refreshToken",token(EMAIL,role,"refresh",3600)));
-        if (accessKind.equals("expired")) request.header("Authorization","Bearer " + token(EMAIL,role,"access",-3600));
+    @ParameterizedTest @CsvSource({"missing,USER,USER,true", "expired,USER,USER,true", "missing,USER,USER,false", "expired,USER,USER,false",
+            "missing,UNCONFIRMED_USER,UNCONFIRMED_USER,true", "expired,UNCONFIRMED_USER,UNCONFIRMED_USER,false",
+            "missing,ADMIN,ADMIN,true", "expired,ADMIN,ADMIN,false", "missing,OTHER,USER,true", "expired,OTHER,USER,false"})
+    void refreshFallbackUsesCurrentRoleOnOwn204OrOther403(String accessKind, String claimRole, String databaseRole, boolean own) throws Exception {
+        caller.getRole().setRoleType(databaseRole);
+        var request=request(own ? 7001L : 8001L).cookie(new Cookie("refreshToken",token(EMAIL,claimRole,"refresh",3600)));
+        if (accessKind.equals("expired")) request.header("Authorization","Bearer " + token(EMAIL,claimRole,"access",-3600));
         var result=mvc.perform(request).andExpect(status().is(own ? 204 : 403)).andExpect(content().string(""))
                 .andExpect(header().doesNotExist("Set-Cookie")).andReturn();
-        assertAccessToken(result.getResponse().getHeader("Authorization"),role);
+        assertAccessToken(result.getResponse().getHeader("Authorization"),databaseRole);
         verify(provider).createAccessToken(any()); verify(provider,never()).createRefreshToken(any());
-        if (own) ownSuccess(); else { verify(users).findUserByEmail(EMAIL); verifyNoMoreInteractions(users); unchanged(); }
+        if (own) ownSuccess(databaseRole); else { verify(users,times(2)).findUserByEmail(EMAIL); verifyNoMoreInteractions(users); unchanged(databaseRole); }
     }
     @ParameterizedTest @CsvSource({"other,true", "malformed,true", "other,false", "malformed,false"})
     void validAccessIdentityWinsOverPresentRefresh(String cookieKind,boolean own) throws Exception {
         String refresh=cookieKind.equals("other") ? token(other.getEmail(),"ADMIN","refresh",3600) : "malformed";
         mvc.perform(access(own ? 7001L : 8001L,"USER").cookie(new Cookie("refreshToken",refresh)))
                 .andExpect(status().is(own ? 204 : 403)).andExpect(header().doesNotExist("Authorization")).andExpect(header().doesNotExist("Set-Cookie"));
-        if (own) ownSuccess(); else { verify(users).findUserByEmail(EMAIL); verifyNoMoreInteractions(users); unchanged(); }
+        if (own) ownSuccess("UNCONFIRMED_USER"); else { verify(users,times(2)).findUserByEmail(EMAIL); verifyNoMoreInteractions(users); unchanged("UNCONFIRMED_USER"); }
         verifyNoInteractions(provider);
     }
     @ParameterizedTest @ValueSource(strings={"missing", "malformed", "signature", "access-type", "refresh-type", "bad-refresh", "blank-role", "blank-subject"})
@@ -156,14 +166,14 @@ class ConfirmAddressSecurityChainTest {
         }
         mvc.perform(request).andExpect(status().isUnauthorized()).andExpect(content().string(""))
                 .andExpect(header().doesNotExist("Authorization")).andExpect(header().doesNotExist("Set-Cookie"));
-        verifyNoInteractions(users,provider); unchanged();
+        verifyNoInteractions(users,provider); unchanged("UNCONFIRMED_USER");
     }
     @ParameterizedTest @ValueSource(strings={"malformed", "missing", "null", "invalid-id"})
     void malformedOrMissingBodyRetainsMvc400(String kind) throws Exception {
         String body=switch(kind) { case "malformed" -> "{"; case "missing" -> ""; case "null" -> "null"; default -> "{\"id\":\"not-number\"}"; };
         mvc.perform(put("/confirm/address").contentType("application/json").content(body)
                 .header("Authorization","Bearer " + token(EMAIL,"USER","access",3600))).andExpect(status().isBadRequest());
-        verifyNoInteractions(users,provider); unchanged();
+        verify(users).findUserByEmail(EMAIL); verifyNoMoreInteractions(users); verifyNoInteractions(provider); unchanged("UNCONFIRMED_USER");
     }
     @ParameterizedTest @NullAndEmptySource @ValueSource(strings={" ", "  new-address  "})
     void ownNullEmptyWhitespaceAddressPreservesOriginalAssignment(String address) throws Exception {
@@ -171,17 +181,24 @@ class ConfirmAddressSecurityChainTest {
         mvc.perform(put("/confirm/address").contentType("application/json").content("{\"id\":7001,\"address\":"+jsonAddress+"}")
                 .header("Authorization","Bearer " + token(EMAIL,"USER","access",3600))).andExpect(status().isNoContent()).andExpect(content().string(""));
         assertEquals(address,caller.getAddress()); assertEquals("old-other",other.getAddress());
-        verify(users).findUserByEmail(EMAIL); verify(users).findById(7001L); verifyNoMoreInteractions(users); verifyNoInteractions(roles,provider);
+        verify(users,times(2)).findUserByEmail(EMAIL); verify(users).findById(7001L); verifyNoMoreInteractions(users); verifyNoInteractions(roles,provider);
     }
     @ParameterizedTest @ValueSource(strings={"ADMIN", "USER", "UNCONFIRMED_USER", "OTHER"})
     void separateAdminEndpointRetainsAdminOtherAddressEditAndRoleBoundary(String role) throws Exception {
+        caller.setRole(Role.builder().roleType(role.equals("OTHER") ? "UNCONFIRMED_USER" : role).build());
         mvc.perform(put("/admin/users/8001").contentType("application/json").content("{\"userId\":8001,\"address\":\"admin-address\"}")
                 .header("Authorization","Bearer " + token(EMAIL,role,"access",3600)))
                 .andExpect(status().is(role.equals("ADMIN") ? 200 : 403));
         if (role.equals("ADMIN")) {
             assertEquals("admin-address",other.getAddress()); assertEquals("old-caller",caller.getAddress());
-            verify(users,times(2)).findById(8001L); verifyNoMoreInteractions(users);
-        } else { verifyNoInteractions(users); unchanged(); }
+            verify(users).findUserByEmail(EMAIL); verify(users,times(2)).findById(8001L); verifyNoMoreInteractions(users);
+        } else {
+            verify(users).findUserByEmail(EMAIL); verifyNoMoreInteractions(users);
+            assertEquals("old-caller",caller.getAddress()); assertEquals("old-other",other.getAddress());
+            assertEquals("old-bank",caller.getAccountBank()); assertEquals("old-account",caller.getAccountNumber());
+            assertNull(other.getAccountBank()); assertNull(other.getAccountNumber());
+            assertEquals(role.equals("OTHER") ? "UNCONFIRMED_USER" : role,caller.getRole().getRoleType());
+        }
         verifyNoInteractions(roles,provider);
     }
     @Configuration @EnableWebMvc @EnableWebSecurity

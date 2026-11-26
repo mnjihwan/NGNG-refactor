@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.global.security.TokenStateSecurityChainTest" tests="306" skipped="0" failures="0" errors="0" timestamp="2026-11-26T00:37:49" hostname="[HOST]" time="1.841">
+  <properties/>
+  <testcase name="accessAndRefreshIssuedBeforeLogoutRemainUsableAfterCookieClearing()" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.096"/>
+  <testcase name="[1] header= " classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.002"/>
+  <testcase name="[2] header=undefined" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.002"/>
+  <testcase name="[3] header=Basic eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJhY2Nlc3MiLCJleHAiOjE3OTU2NTcwNjl9.E0YaLyLFjhz2FhpUXGvcIsp5i429ejbeUulXw1hUqo27vBiFCPV8qZalTuJldcVqCmfWKc5NZlehBtbcgc2jAw" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.002"/>
+  <testcase name="[4] header=bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJhY2Nlc3MiLCJleHAiOjE3OTU2NTcwNjl9.E0YaLyLFjhz2FhpUXGvcIsp5i429ejbeUulXw1hUqo27vBiFCPV8qZalTuJldcVqCmfWKc5NZlehBtbcgc2jAw" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.002"/>
+  <testcase name="[5] header=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJhY2Nlc3MiLCJleHAiOjE3OTU2NTcwNjl9.E0YaLyLFjhz2FhpUXGvcIsp5i429ejbeUulXw1hUqo27vBiFCPV8qZalTuJldcVqCmfWKc5NZlehBtbcgc2jAw" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[6] header=Bearer " classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.007"/>
+  <testcase name="[7] header=Bearer  eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJhY2Nlc3MiLCJleHAiOjE3OTU2NTcwNjl9.E0YaLyLFjhz2FhpUXGvcIsp5i429ejbeUulXw1hUqo27vBiFCPV8qZalTuJldcVqCmfWKc5NZlehBtbcgc2jAw" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[8] header=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJhY2Nlc3MiLCJleHAiOjE3OTU2NTcwNjl9.E0YaLyLFjhz2FhpUXGvcIsp5i429ejbeUulXw1hUqo27vBiFCPV8qZalTuJldcVqCmfWKc5NZlehBtbcgc2jAw " classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[9] header=Bearer broken" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[10] header=Bearer null" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[11] header=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxNzk1NjU3MDY5fQ.3rmoJRbglaUDGHEsWy__9VrUQipfmK8Pb-pAD6q042nv23Vt0CF4LlaGrd69gY_Zc8xRdPLIlw5hF3K127xqKA" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[12] header=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxNzk1NjQ5ODY5fQ.9FZvIXOd9X_wxiZD28CEeK6bvV_VspgBG4tUH2ztCcQxg_Lv-r57xhVv1u2InWYjp4W1ddqlgczPbBXgjiWOTw" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[13] header=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJhY2Nlc3MiLCJleHAiOjE3OTU2NTcwNjl9.A0YaLyLFjhz2FhpUXGvcIsp5i429ejbeUulXw1hUqo27vBiFCPV8qZalTuJldcVqCmfWKc5NZlehBtbcgc2jAw" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[14] header=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJhY2Nlc3MiLCJleHAiOjE3OTU2NDk4Njl9.AB5fcxkv-g4woUmSOH1aOWRWVx_OFr4H13UBfIHw3x5xNUE-gW4EAdoyNJPHfrWoyJMd4OBG6bSDodRFlXexDQ" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[15] header=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJhY2Nlc3MiLCJleHAiOjE3OTU2NTcwNjl9.v5dRIzoyBLSB3eKBUDqnKiZEFQSfccKw_UdH8j8GZhjKgi2MWmwaQE1xxw-pbWKpOziE8V5R5ubXZP7wVzZJFw" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[16] header=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJhY2Nlc3MiLCJleHAiOjE3OTU2NDk4Njl9.qZR8gDAax4LgxPjqahd-KLHO8xczjP-lQf06znAtSxVLUlK8tEAmWXXVqB_fnI0UfDuHJieoQDWVpOdjg_L6Wg" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[17] header=Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTU2NTcwNjksInJvbGUiOiJVU0VSIiwidHlwZSI6ImFjY2VzcyJ9.5OckpdZ5JxVc7hPLqMy-RGzVHrTaWaQewOq-xWfHEiSSFXke8yovC2gsZEi2CINPefwcxyQAtTjYd2a5lqPcFA" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.002"/>
+  <testcase name="[18] header=Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTU2NTcwNjksInJvbGUiOiJVU0VSIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6WyJ3cm9uZy10eXBlIl19.pGk8pfxNA8wRdil2CT2w8CXAbNxAay2ngAaA5RZLjegdaRYAN0ahhkAPgzqPWEybPx_zqsrPKxt2JrLLtaLCQQ" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[19] header=Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTU2NTcwNjksInJvbGUiOiJVU0VSIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IiAifQ.sa1rbQZf3Ol58dUxUs3gdykwOGXB1crg0_eWYjdW8VMPvgkpo74-tOxi_hyLrDDkqAhUTv5sN6mXL3dXlpjErg" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[20] header=Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTU2NTcwNjksInN1YiI6InJmMDA1QGV4YW1wbGUudGVzdCIsInR5cGUiOiJhY2Nlc3MifQ.wAHZ7lekXRQ0ZXxl5yBFUqx7GUl3f-gLr0moX6KBTN6H7dL7HXCJopnbpnCzGjl6UHW59HXz7hJf8zYEo64fmQ" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[21] header=Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTU2NTcwNjksInN1YiI6InJmMDA1QGV4YW1wbGUudGVzdCIsInR5cGUiOiJhY2Nlc3MiLCJyb2xlIjpbIndyb25nLXR5cGUiXX0.IG6pcoD8nRcxZrpChZkRm2UG1bkw3vG2GmCqKKUiHKS4Com7s3TIBf4Nk4rxnodAaUOqzSaKa5lgFAzGRq7J-w" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[22] header=Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTU2NTcwNjksInN1YiI6InJmMDA1QGV4YW1wbGUudGVzdCIsInR5cGUiOiJhY2Nlc3MiLCJyb2xlIjoiICJ9.nPhdWYm2Gk2vS2Wa-pRJ7MfijEzy0tFgoyQy9IPE2jEYC78y5SrpgDwJLKxXQIfmpFd3C1AY3RKCo8ZiT_hayQ" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[23] header=Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTU2NTcwNjksInJvbGUiOiJVU0VSIiwic3ViIjoicmYwMDVAZXhhbXBsZS50ZXN0In0.mjDKgPhaUOWGZIHU9aPYQqpdzQSlXb21oclDjgJYYwQ37XnYzfQeX5UzP1BFeHoCWIPpEL8JoavfnQr7yKdAng" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[24] header=Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTU2NTcwNjksInJvbGUiOiJVU0VSIiwic3ViIjoicmYwMDVAZXhhbXBsZS50ZXN0IiwidHlwZSI6WyJ3cm9uZy10eXBlIl19.UKwkCnkzJvaw1EGdcuWtinEG7tTb6TC_AwpvuhO6_dQmV968-4ECWwzw2FhchJM0UG7CgxSIJco5uJploXD_7Q" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[25] header=Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTU2NTcwNjksInJvbGUiOiJVU0VSIiwic3ViIjoicmYwMDVAZXhhbXBsZS50ZXN0IiwidHlwZSI6IiAifQ.TG79IKP1OTlljIHxO4LsWzVkVkL6oadz1Qtj8cMmDK7rVZ_hkBeJTnFLP_8eW-nRQM2ZnSkj5TZkkIwQT25MnQ" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.002"/>
+  <testcase name="[26] header=Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiVVNFUiIsInN1YiI6InJmMDA1QGV4YW1wbGUudGVzdCIsInR5cGUiOiJhY2Nlc3MifQ.s4MyOBdt1xaMm7aIGn85ZzfLYTnYfeLK5ITo6iHAQgb-mutz0hQCBmofYa6Hw2HtoBvEyD6o11LkdV3X6nDNdA" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.002"/>
+  <testcase name="[27] header=Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiVVNFUiIsInN1YiI6InJmMDA1QGV4YW1wbGUudGVzdCIsInR5cGUiOiJhY2Nlc3MiLCJleHAiOlsid3JvbmctdHlwZSJdfQ.V9-SUHZaY8YIJzH2UNydyhwxETWRQ0mRQMRxoJh2SneBtRVpu0FS7wim1zwl98lP0Gsuzmgd9ZIIpL6FIgmf4w" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[28] header=Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOiI0MTAyNDQ0ODAwIiwicm9sZSI6IlVTRVIiLCJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJ0eXBlIjoiYWNjZXNzIn0.qvjYdCIPhvdIBtaiKaOqJTskedW37DW3NwXnZwmnz_86KPolJ0DFV_YarNGxKCv2v5SES9JVsPDo6ndDfD0l7A" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[29] header=Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTU2NTcwNjksInJvbGUiOiJVU0VSIiwic3ViIjoicmYwMDVAZXhhbXBsZS50ZXN0IiwidHlwZSI6InVua25vd24ifQ.bsoBYt_X4YZdyQ4zOMWV6lgmpqSysf5wnS87znE7K4BgCpFVGk6wI0MSU33pHBV2HaciZgioJIOFZ3XzxRtDHQ" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[30] header=Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTU2NDk4NjksInJvbGUiOiJVU0VSIiwidHlwZSI6ImFjY2VzcyJ9.5p03GUSZKJUR3DCQSYKdygX9Lptng5QNv1OwNdxIjrUR-DSyzdl4O-E5gfhpV1zWtj55Ypu9rQWTWnmQJhch_A" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[31] header=Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTU2NDk4NjksInN1YiI6InJmMDA1QGV4YW1wbGUudGVzdCIsInR5cGUiOiJhY2Nlc3MifQ.fl0sUd587jYwZK6ZwspiMQADVmu96l7hdzpvOCQUzzD14MWBQcUopZTU9t1fH3Yo7oC-D1hJ66j5ONkjulq8Yw" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[32] header=Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTU2NDk4NjksInJvbGUiOiJVU0VSIiwic3ViIjoicmYwMDVAZXhhbXBsZS50ZXN0In0.ny3Oj4Pg_tvjwvrqYFAlaQ9MXiRPkLfuifVC8fxY84gjMiAulQMsaboGgshqghQEeCpdrPFGd6tJ4lWocHqtEw" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[1] raw=" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.002"/>
+  <testcase name="[2] raw= " classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.001"/>
+  <testcase name="[3] raw=undefined" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.001"/>
+  <testcase name="[4] raw=broken" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.002"/>
+  <testcase name="[5] raw=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxNzk1NjU3MDY5fQ.3rmoJRbglaUDGHEsWy__9VrUQipfmK8Pb-pAD6q042nv23Vt0CF4LlaGrd69gY_Zc8xRdPLIlw5hF3K127xqKA" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.002"/>
+  <testcase name="[6] raw=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxNzk1NjU3MDY5fQ.3rmoJRbglaUDGHEsWy__9VrUQipfmK8Pb-pAD6q042nv23Vt0CF4LlaGrd69gY_Zc8xRdPLIlw5hF3K127xqKA " classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.002"/>
+  <testcase name="[7] raw=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJhY2Nlc3MiLCJleHAiOjE3OTU2NTcwNjl9.E0YaLyLFjhz2FhpUXGvcIsp5i429ejbeUulXw1hUqo27vBiFCPV8qZalTuJldcVqCmfWKc5NZlehBtbcgc2jAw" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[8] raw=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxNzk1NjQ5ODY5fQ.9FZvIXOd9X_wxiZD28CEeK6bvV_VspgBG4tUH2ztCcQxg_Lv-r57xhVv1u2InWYjp4W1ddqlgczPbBXgjiWOTw" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[9] raw=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxNzk1NjU3MDY5fQ.ArmoJRbglaUDGHEsWy__9VrUQipfmK8Pb-pAD6q042nv23Vt0CF4LlaGrd69gY_Zc8xRdPLIlw5hF3K127xqKA" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[10] raw=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJyb2xlIjoiVVNFUiIsInR5cGUiOiJhY2Nlc3MiLCJleHAiOjE3OTU2NTcwNjl9.v5dRIzoyBLSB3eKBUDqnKiZEFQSfccKw_UdH8j8GZhjKgi2MWmwaQE1xxw-pbWKpOziE8V5R5ubXZP7wVzZJFw" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[11] raw=eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTU2NTcwNjksInJvbGUiOiJVU0VSIiwidHlwZSI6InJlZnJlc2gifQ.-uhmVdqUIBW28S5Xj7lalVs685fZZqtgowGt8IUU1gbftz2bPFLoKr2e9GymW2rPoRS_xCEW_OIZiQJZf8DmeQ" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.002"/>
+  <testcase name="[12] raw=eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTU2NTcwNjksInJvbGUiOiJVU0VSIiwidHlwZSI6InJlZnJlc2giLCJzdWIiOlsid3JvbmctdHlwZSJdfQ.oNQC1MUeBI32zPeX7xBi5bQcdpj7GMd7ZvnggDkx3TDIkzVQDIIhRMNChI4B5iihj1rSJvUod_1CKIrBMD3CoQ" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.002"/>
+  <testcase name="[13] raw=eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTU2NTcwNjksInJvbGUiOiJVU0VSIiwidHlwZSI6InJlZnJlc2giLCJzdWIiOiIgIn0.LUzy_MNLi_3j4joqdIggY3nR-V0GA4xWsdxCYjTmJw5Wew65z5dJbZ2D0a3Qlnk7AQAxiBPV1uxRU64QY_pr4g" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[14] raw=eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTU2NTcwNjksInN1YiI6InJmMDA1QGV4YW1wbGUudGVzdCIsInR5cGUiOiJyZWZyZXNoIn0.0Zc8-fM-J05Eb_pBrhYiOEE2Pj6pJUX-n3l_VyQdON9bRlKQEAK8MUZX8iXrYlxiL412hKbllzvKqec-uvPjLw" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.002"/>
+  <testcase name="[15] raw=eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTU2NTcwNjksInN1YiI6InJmMDA1QGV4YW1wbGUudGVzdCIsInR5cGUiOiJyZWZyZXNoIiwicm9sZSI6WyJ3cm9uZy10eXBlIl19.N2Q7tix1WcNr8HnEGDGZbTaHBTxx8Qq94NqANvUK0R3XcGknijqz8YY7HJJYGHuXVAxm_d3T-GqDGaXviZEkZw" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[16] raw=eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTU2NTcwNjksInN1YiI6InJmMDA1QGV4YW1wbGUudGVzdCIsInR5cGUiOiJyZWZyZXNoIiwicm9sZSI6IiAifQ.zBqB0Bz0rq_HRoLW7-c5irSymwSVz-OobdJRWroZ3oiP3F9lHadvpb0qqngwfzJHJSI_Jmz2HwqcLnsstyOHyg" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.002"/>
+  <testcase name="[17] raw=eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTU2NTcwNjksInJvbGUiOiJVU0VSIiwic3ViIjoicmYwMDVAZXhhbXBsZS50ZXN0In0.mjDKgPhaUOWGZIHU9aPYQqpdzQSlXb21oclDjgJYYwQ37XnYzfQeX5UzP1BFeHoCWIPpEL8JoavfnQr7yKdAng" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.002"/>
+  <testcase name="[18] raw=eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTU2NTcwNjksInJvbGUiOiJVU0VSIiwic3ViIjoicmYwMDVAZXhhbXBsZS50ZXN0IiwidHlwZSI6WyJ3cm9uZy10eXBlIl19.UKwkCnkzJvaw1EGdcuWtinEG7tTb6TC_AwpvuhO6_dQmV968-4ECWwzw2FhchJM0UG7CgxSIJco5uJploXD_7Q" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.002"/>
+  <testcase name="[19] raw=eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTU2NTcwNjksInJvbGUiOiJVU0VSIiwic3ViIjoicmYwMDVAZXhhbXBsZS50ZXN0IiwidHlwZSI6IiAifQ.TG79IKP1OTlljIHxO4LsWzVkVkL6oadz1Qtj8cMmDK7rVZ_hkBeJTnFLP_8eW-nRQM2ZnSkj5TZkkIwQT25MnQ" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.002"/>
+  <testcase name="[20] raw=eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiVVNFUiIsInN1YiI6InJmMDA1QGV4YW1wbGUudGVzdCIsInR5cGUiOiJyZWZyZXNoIn0._abidVZ_E0awpUxfPXRn6ZwMzMWs0qCYp2MXtEQr6FHXws6utLhzKFnINYqvbJPGXUBdsUYoL5eg3JeCwaDByg" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.002"/>
+  <testcase name="[21] raw=eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiVVNFUiIsInN1YiI6InJmMDA1QGV4YW1wbGUudGVzdCIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjpbIndyb25nLXR5cGUiXX0.MYaJZKv2g-IE7SwSqo6i_Msa5ahbYFjBEc858JQUzwl-dRHRACR_c-lfkoHJvtKlBrqH-qxar-JGR5G7Lgxi6A" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[22] raw=eyJhbGciOiJIUzUxMiJ9.eyJleHAiOiI0MTAyNDQ0ODAwIiwicm9sZSI6IlVTRVIiLCJzdWIiOiJyZjAwNUBleGFtcGxlLnRlc3QiLCJ0eXBlIjoicmVmcmVzaCJ9.NlxJd_n8wEvRZsIlnBogNj6Sr6tamxlUN3S-UInL3MHvpSP5PbjRTMc8hg3Hv0PT-b9igAsjI3RI7E2_y22emA" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[23] raw=eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTU2NTcwNjksInJvbGUiOiJVU0VSIiwic3ViIjoicmYwMDVAZXhhbXBsZS50ZXN0IiwidHlwZSI6InVua25vd24ifQ.bsoBYt_X4YZdyQ4zOMWV6lgmpqSysf5wnS87znE7K4BgCpFVGk6wI0MSU33pHBV2HaciZgioJIOFZ3XzxRtDHQ" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.002"/>
+  <testcase name="[24] raw=eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTU2NDk4NjksInJvbGUiOiJVU0VSIiwidHlwZSI6InJlZnJlc2gifQ.qBlW_Au98qH3vGXFduzJRGpF89xJnqrnt21bas-03ZiS9scvhFNN0Uu63rugWHDTNOJyaqdgPiyz4lfML4_WUg" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.002"/>
+  <testcase name="[25] raw=eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTU2NDk4NjksInN1YiI6InJmMDA1QGV4YW1wbGUudGVzdCIsInR5cGUiOiJyZWZyZXNoIn0.rMIYCOmJrrpuWnUFZVCU0s0dQ1YqzS7teAmND2KWz0DJEnTgl4DNOAvg4vI5Jo3WNglJiwbsyVX6yYsb6zkKWQ" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[26] raw=eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3OTU2NDk4NjksInJvbGUiOiJVU0VSIiwic3ViIjoicmYwMDVAZXhhbXBsZS50ZXN0In0.ny3Oj4Pg_tvjwvrqYFAlaQ9MXiRPkLfuifVC8fxY84gjMiAulQMsaboGgshqghQEeCpdrPFGd6tJ4lWocHqtEw" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[1] state=missing, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[2] state=missing, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[3] state=missing, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[4] state=missing, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[5] state=null-id, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[6] state=null-id, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[7] state=null-id, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[8] state=null-id, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[9] state=false, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[10] state=false, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[11] state=false, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[12] state=false, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[13] state=null-visible, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[14] state=null-visible, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[15] state=null-visible, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[16] state=null-visible, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[17] state=null-role, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[18] state=null-role, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[19] state=null-role, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[20] state=null-role, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[21] state=null-role-type, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[22] state=null-role-type, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[23] state=null-role-type, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[24] state=null-role-type, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[25] state=empty-role, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[26] state=empty-role, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[27] state=empty-role, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[28] state=empty-role, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[29] state=blank-role, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[30] state=blank-role, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[31] state=blank-role, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[32] state=blank-role, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[33] state=unknown-role, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[34] state=unknown-role, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[35] state=unknown-role, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[36] state=unknown-role, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="corsPreflightDoesNotReadCurrentState()" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.002"/>
+  <testcase name="reusedEmailCanBindOldTokenToNewDatabaseIdentityAsKnownUnresolvedLimit()" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[1] db=ADMIN, claim=ADMIN, path=/admin/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[2] db=ADMIN, claim=ADMIN, path=/admin/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.01"/>
+  <testcase name="[3] db=ADMIN, claim=ADMIN, path=/admin/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.009"/>
+  <testcase name="[4] db=ADMIN, claim=ADMIN, path=/admin/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.013"/>
+  <testcase name="[5] db=ADMIN, claim=ADMIN, path=/chat/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.007"/>
+  <testcase name="[6] db=ADMIN, claim=ADMIN, path=/chat/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[7] db=ADMIN, claim=ADMIN, path=/chat/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.007"/>
+  <testcase name="[8] db=ADMIN, claim=ADMIN, path=/chat/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.009"/>
+  <testcase name="[9] db=ADMIN, claim=ADMIN, path=/my_page/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[10] db=ADMIN, claim=ADMIN, path=/my_page/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.007"/>
+  <testcase name="[11] db=ADMIN, claim=ADMIN, path=/my_page/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.008"/>
+  <testcase name="[12] db=ADMIN, claim=ADMIN, path=/my_page/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.008"/>
+  <testcase name="[13] db=ADMIN, claim=ADMIN, path=/confirm/account, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[14] db=ADMIN, claim=ADMIN, path=/confirm/account, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[15] db=ADMIN, claim=ADMIN, path=/confirm/account, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.008"/>
+  <testcase name="[16] db=ADMIN, claim=ADMIN, path=/confirm/account, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.007"/>
+  <testcase name="[17] db=ADMIN, claim=USER, path=/admin/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[18] db=ADMIN, claim=USER, path=/admin/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[19] db=ADMIN, claim=USER, path=/admin/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[20] db=ADMIN, claim=USER, path=/admin/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.011"/>
+  <testcase name="[21] db=ADMIN, claim=USER, path=/chat/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[22] db=ADMIN, claim=USER, path=/chat/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.011"/>
+  <testcase name="[23] db=ADMIN, claim=USER, path=/chat/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.007"/>
+  <testcase name="[24] db=ADMIN, claim=USER, path=/chat/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.01"/>
+  <testcase name="[25] db=ADMIN, claim=USER, path=/my_page/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[26] db=ADMIN, claim=USER, path=/my_page/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.007"/>
+  <testcase name="[27] db=ADMIN, claim=USER, path=/my_page/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.007"/>
+  <testcase name="[28] db=ADMIN, claim=USER, path=/my_page/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.008"/>
+  <testcase name="[29] db=ADMIN, claim=USER, path=/confirm/account, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[30] db=ADMIN, claim=USER, path=/confirm/account, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[31] db=ADMIN, claim=USER, path=/confirm/account, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.007"/>
+  <testcase name="[32] db=ADMIN, claim=USER, path=/confirm/account, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.008"/>
+  <testcase name="[33] db=ADMIN, claim=UNCONFIRMED_USER, path=/admin/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[34] db=ADMIN, claim=UNCONFIRMED_USER, path=/admin/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.007"/>
+  <testcase name="[35] db=ADMIN, claim=UNCONFIRMED_USER, path=/admin/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.007"/>
+  <testcase name="[36] db=ADMIN, claim=UNCONFIRMED_USER, path=/admin/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.011"/>
+  <testcase name="[37] db=ADMIN, claim=UNCONFIRMED_USER, path=/chat/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[38] db=ADMIN, claim=UNCONFIRMED_USER, path=/chat/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.008"/>
+  <testcase name="[39] db=ADMIN, claim=UNCONFIRMED_USER, path=/chat/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.009"/>
+  <testcase name="[40] db=ADMIN, claim=UNCONFIRMED_USER, path=/chat/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.011"/>
+  <testcase name="[41] db=ADMIN, claim=UNCONFIRMED_USER, path=/my_page/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[42] db=ADMIN, claim=UNCONFIRMED_USER, path=/my_page/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.008"/>
+  <testcase name="[43] db=ADMIN, claim=UNCONFIRMED_USER, path=/my_page/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.007"/>
+  <testcase name="[44] db=ADMIN, claim=UNCONFIRMED_USER, path=/my_page/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.01"/>
+  <testcase name="[45] db=ADMIN, claim=UNCONFIRMED_USER, path=/confirm/account, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[46] db=ADMIN, claim=UNCONFIRMED_USER, path=/confirm/account, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[47] db=ADMIN, claim=UNCONFIRMED_USER, path=/confirm/account, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.007"/>
+  <testcase name="[48] db=ADMIN, claim=UNCONFIRMED_USER, path=/confirm/account, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.009"/>
+  <testcase name="[49] db=ADMIN, claim=LEGACY_ROLE, path=/admin/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[50] db=ADMIN, claim=LEGACY_ROLE, path=/admin/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.008"/>
+  <testcase name="[51] db=ADMIN, claim=LEGACY_ROLE, path=/admin/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.012"/>
+  <testcase name="[52] db=ADMIN, claim=LEGACY_ROLE, path=/admin/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.011"/>
+  <testcase name="[53] db=ADMIN, claim=LEGACY_ROLE, path=/chat/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[54] db=ADMIN, claim=LEGACY_ROLE, path=/chat/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.007"/>
+  <testcase name="[55] db=ADMIN, claim=LEGACY_ROLE, path=/chat/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.008"/>
+  <testcase name="[56] db=ADMIN, claim=LEGACY_ROLE, path=/chat/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.011"/>
+  <testcase name="[57] db=ADMIN, claim=LEGACY_ROLE, path=/my_page/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[58] db=ADMIN, claim=LEGACY_ROLE, path=/my_page/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.009"/>
+  <testcase name="[59] db=ADMIN, claim=LEGACY_ROLE, path=/my_page/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.009"/>
+  <testcase name="[60] db=ADMIN, claim=LEGACY_ROLE, path=/my_page/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.009"/>
+  <testcase name="[61] db=ADMIN, claim=LEGACY_ROLE, path=/confirm/account, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[62] db=ADMIN, claim=LEGACY_ROLE, path=/confirm/account, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[63] db=ADMIN, claim=LEGACY_ROLE, path=/confirm/account, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.009"/>
+  <testcase name="[64] db=ADMIN, claim=LEGACY_ROLE, path=/confirm/account, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.01"/>
+  <testcase name="[65] db=USER, claim=ADMIN, path=/admin/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[66] db=USER, claim=ADMIN, path=/admin/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[67] db=USER, claim=ADMIN, path=/admin/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[68] db=USER, claim=ADMIN, path=/admin/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.008"/>
+  <testcase name="[69] db=USER, claim=ADMIN, path=/chat/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[70] db=USER, claim=ADMIN, path=/chat/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[71] db=USER, claim=ADMIN, path=/chat/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[72] db=USER, claim=ADMIN, path=/chat/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.01"/>
+  <testcase name="[73] db=USER, claim=ADMIN, path=/my_page/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[74] db=USER, claim=ADMIN, path=/my_page/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[75] db=USER, claim=ADMIN, path=/my_page/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.007"/>
+  <testcase name="[76] db=USER, claim=ADMIN, path=/my_page/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.011"/>
+  <testcase name="[77] db=USER, claim=ADMIN, path=/confirm/account, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[78] db=USER, claim=ADMIN, path=/confirm/account, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[79] db=USER, claim=ADMIN, path=/confirm/account, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.009"/>
+  <testcase name="[80] db=USER, claim=ADMIN, path=/confirm/account, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.009"/>
+  <testcase name="[81] db=USER, claim=USER, path=/admin/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[82] db=USER, claim=USER, path=/admin/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[83] db=USER, claim=USER, path=/admin/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[84] db=USER, claim=USER, path=/admin/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.01"/>
+  <testcase name="[85] db=USER, claim=USER, path=/chat/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[86] db=USER, claim=USER, path=/chat/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[87] db=USER, claim=USER, path=/chat/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[88] db=USER, claim=USER, path=/chat/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.008"/>
+  <testcase name="[89] db=USER, claim=USER, path=/my_page/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[90] db=USER, claim=USER, path=/my_page/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[91] db=USER, claim=USER, path=/my_page/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[92] db=USER, claim=USER, path=/my_page/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.007"/>
+  <testcase name="[93] db=USER, claim=USER, path=/confirm/account, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[94] db=USER, claim=USER, path=/confirm/account, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[95] db=USER, claim=USER, path=/confirm/account, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[96] db=USER, claim=USER, path=/confirm/account, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.007"/>
+  <testcase name="[97] db=USER, claim=UNCONFIRMED_USER, path=/admin/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[98] db=USER, claim=UNCONFIRMED_USER, path=/admin/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[99] db=USER, claim=UNCONFIRMED_USER, path=/admin/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[100] db=USER, claim=UNCONFIRMED_USER, path=/admin/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.007"/>
+  <testcase name="[101] db=USER, claim=UNCONFIRMED_USER, path=/chat/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[102] db=USER, claim=UNCONFIRMED_USER, path=/chat/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[103] db=USER, claim=UNCONFIRMED_USER, path=/chat/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.008"/>
+  <testcase name="[104] db=USER, claim=UNCONFIRMED_USER, path=/chat/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.007"/>
+  <testcase name="[105] db=USER, claim=UNCONFIRMED_USER, path=/my_page/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[106] db=USER, claim=UNCONFIRMED_USER, path=/my_page/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[107] db=USER, claim=UNCONFIRMED_USER, path=/my_page/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.008"/>
+  <testcase name="[108] db=USER, claim=UNCONFIRMED_USER, path=/my_page/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.009"/>
+  <testcase name="[109] db=USER, claim=UNCONFIRMED_USER, path=/confirm/account, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[110] db=USER, claim=UNCONFIRMED_USER, path=/confirm/account, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[111] db=USER, claim=UNCONFIRMED_USER, path=/confirm/account, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[112] db=USER, claim=UNCONFIRMED_USER, path=/confirm/account, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[113] db=USER, claim=LEGACY_ROLE, path=/admin/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[114] db=USER, claim=LEGACY_ROLE, path=/admin/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[115] db=USER, claim=LEGACY_ROLE, path=/admin/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[116] db=USER, claim=LEGACY_ROLE, path=/admin/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.007"/>
+  <testcase name="[117] db=USER, claim=LEGACY_ROLE, path=/chat/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[118] db=USER, claim=LEGACY_ROLE, path=/chat/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[119] db=USER, claim=LEGACY_ROLE, path=/chat/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.007"/>
+  <testcase name="[120] db=USER, claim=LEGACY_ROLE, path=/chat/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.007"/>
+  <testcase name="[121] db=USER, claim=LEGACY_ROLE, path=/my_page/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[122] db=USER, claim=LEGACY_ROLE, path=/my_page/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[123] db=USER, claim=LEGACY_ROLE, path=/my_page/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.007"/>
+  <testcase name="[124] db=USER, claim=LEGACY_ROLE, path=/my_page/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.008"/>
+  <testcase name="[125] db=USER, claim=LEGACY_ROLE, path=/confirm/account, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[126] db=USER, claim=LEGACY_ROLE, path=/confirm/account, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[127] db=USER, claim=LEGACY_ROLE, path=/confirm/account, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[128] db=USER, claim=LEGACY_ROLE, path=/confirm/account, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.009"/>
+  <testcase name="[129] db=UNCONFIRMED_USER, claim=ADMIN, path=/admin/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[130] db=UNCONFIRMED_USER, claim=ADMIN, path=/admin/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[131] db=UNCONFIRMED_USER, claim=ADMIN, path=/admin/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.007"/>
+  <testcase name="[132] db=UNCONFIRMED_USER, claim=ADMIN, path=/admin/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.007"/>
+  <testcase name="[133] db=UNCONFIRMED_USER, claim=ADMIN, path=/chat/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.002"/>
+  <testcase name="[134] db=UNCONFIRMED_USER, claim=ADMIN, path=/chat/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[135] db=UNCONFIRMED_USER, claim=ADMIN, path=/chat/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[136] db=UNCONFIRMED_USER, claim=ADMIN, path=/chat/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.007"/>
+  <testcase name="[137] db=UNCONFIRMED_USER, claim=ADMIN, path=/my_page/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[138] db=UNCONFIRMED_USER, claim=ADMIN, path=/my_page/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[139] db=UNCONFIRMED_USER, claim=ADMIN, path=/my_page/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[140] db=UNCONFIRMED_USER, claim=ADMIN, path=/my_page/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[141] db=UNCONFIRMED_USER, claim=ADMIN, path=/confirm/account, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[142] db=UNCONFIRMED_USER, claim=ADMIN, path=/confirm/account, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[143] db=UNCONFIRMED_USER, claim=ADMIN, path=/confirm/account, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[144] db=UNCONFIRMED_USER, claim=ADMIN, path=/confirm/account, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.007"/>
+  <testcase name="[145] db=UNCONFIRMED_USER, claim=USER, path=/admin/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[146] db=UNCONFIRMED_USER, claim=USER, path=/admin/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.008"/>
+  <testcase name="[147] db=UNCONFIRMED_USER, claim=USER, path=/admin/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[148] db=UNCONFIRMED_USER, claim=USER, path=/admin/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[149] db=UNCONFIRMED_USER, claim=USER, path=/chat/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.002"/>
+  <testcase name="[150] db=UNCONFIRMED_USER, claim=USER, path=/chat/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[151] db=UNCONFIRMED_USER, claim=USER, path=/chat/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[152] db=UNCONFIRMED_USER, claim=USER, path=/chat/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.007"/>
+  <testcase name="[153] db=UNCONFIRMED_USER, claim=USER, path=/my_page/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[154] db=UNCONFIRMED_USER, claim=USER, path=/my_page/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[155] db=UNCONFIRMED_USER, claim=USER, path=/my_page/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.007"/>
+  <testcase name="[156] db=UNCONFIRMED_USER, claim=USER, path=/my_page/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.008"/>
+  <testcase name="[157] db=UNCONFIRMED_USER, claim=USER, path=/confirm/account, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[158] db=UNCONFIRMED_USER, claim=USER, path=/confirm/account, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[159] db=UNCONFIRMED_USER, claim=USER, path=/confirm/account, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.007"/>
+  <testcase name="[160] db=UNCONFIRMED_USER, claim=USER, path=/confirm/account, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[161] db=UNCONFIRMED_USER, claim=UNCONFIRMED_USER, path=/admin/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.002"/>
+  <testcase name="[162] db=UNCONFIRMED_USER, claim=UNCONFIRMED_USER, path=/admin/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[163] db=UNCONFIRMED_USER, claim=UNCONFIRMED_USER, path=/admin/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.007"/>
+  <testcase name="[164] db=UNCONFIRMED_USER, claim=UNCONFIRMED_USER, path=/admin/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.011"/>
+  <testcase name="[165] db=UNCONFIRMED_USER, claim=UNCONFIRMED_USER, path=/chat/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[166] db=UNCONFIRMED_USER, claim=UNCONFIRMED_USER, path=/chat/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.011"/>
+  <testcase name="[167] db=UNCONFIRMED_USER, claim=UNCONFIRMED_USER, path=/chat/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[168] db=UNCONFIRMED_USER, claim=UNCONFIRMED_USER, path=/chat/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[169] db=UNCONFIRMED_USER, claim=UNCONFIRMED_USER, path=/my_page/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.007"/>
+  <testcase name="[170] db=UNCONFIRMED_USER, claim=UNCONFIRMED_USER, path=/my_page/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.013"/>
+  <testcase name="[171] db=UNCONFIRMED_USER, claim=UNCONFIRMED_USER, path=/my_page/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.019"/>
+  <testcase name="[172] db=UNCONFIRMED_USER, claim=UNCONFIRMED_USER, path=/my_page/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.013"/>
+  <testcase name="[173] db=UNCONFIRMED_USER, claim=UNCONFIRMED_USER, path=/confirm/account, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[174] db=UNCONFIRMED_USER, claim=UNCONFIRMED_USER, path=/confirm/account, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.012"/>
+  <testcase name="[175] db=UNCONFIRMED_USER, claim=UNCONFIRMED_USER, path=/confirm/account, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.01"/>
+  <testcase name="[176] db=UNCONFIRMED_USER, claim=UNCONFIRMED_USER, path=/confirm/account, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.011"/>
+  <testcase name="[177] db=UNCONFIRMED_USER, claim=LEGACY_ROLE, path=/admin/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[178] db=UNCONFIRMED_USER, claim=LEGACY_ROLE, path=/admin/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[179] db=UNCONFIRMED_USER, claim=LEGACY_ROLE, path=/admin/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[180] db=UNCONFIRMED_USER, claim=LEGACY_ROLE, path=/admin/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[181] db=UNCONFIRMED_USER, claim=LEGACY_ROLE, path=/chat/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[182] db=UNCONFIRMED_USER, claim=LEGACY_ROLE, path=/chat/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[183] db=UNCONFIRMED_USER, claim=LEGACY_ROLE, path=/chat/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[184] db=UNCONFIRMED_USER, claim=LEGACY_ROLE, path=/chat/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[185] db=UNCONFIRMED_USER, claim=LEGACY_ROLE, path=/my_page/state, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[186] db=UNCONFIRMED_USER, claim=LEGACY_ROLE, path=/my_page/state, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[187] db=UNCONFIRMED_USER, claim=LEGACY_ROLE, path=/my_page/state, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[188] db=UNCONFIRMED_USER, claim=LEGACY_ROLE, path=/my_page/state, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="[189] db=UNCONFIRMED_USER, claim=LEGACY_ROLE, path=/confirm/account, kind=access" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.002"/>
+  <testcase name="[190] db=UNCONFIRMED_USER, claim=LEGACY_ROLE, path=/confirm/account, kind=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[191] db=UNCONFIRMED_USER, claim=LEGACY_ROLE, path=/confirm/account, kind=empty" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.004"/>
+  <testcase name="[192] db=UNCONFIRMED_USER, claim=LEGACY_ROLE, path=/confirm/account, kind=expired" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.006"/>
+  <testcase name="reactivationCanReviveOldTokenAndDoesNotProvePermanentRevocation()" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[1] kind=access, failure=org.springframework.dao.DataAccessResourceFailureException: synthetic unavailable" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.005"/>
+  <testcase name="[2] kind=access, failure=org.springframework.dao.IncorrectResultSizeDataAccessException: Incorrect result size: expected 1, actual 2" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.003"/>
+  <testcase name="[3] kind=access, failure=java.lang.IllegalArgumentException: synthetic repository failure" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.002"/>
+  <testcase name="[4] kind=access, failure=io.jsonwebtoken.JwtException: synthetic repository failure" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.002"/>
+  <testcase name="[5] kind=missing, failure=org.springframework.dao.DataAccessResourceFailureException: synthetic unavailable" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.002"/>
+  <testcase name="[6] kind=missing, failure=org.springframework.dao.IncorrectResultSizeDataAccessException: Incorrect result size: expected 1, actual 2" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.002"/>
+  <testcase name="[7] kind=missing, failure=java.lang.IllegalArgumentException: synthetic repository failure" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.002"/>
+  <testcase name="[8] kind=missing, failure=io.jsonwebtoken.JwtException: synthetic repository failure" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.001"/>
+  <testcase name="[1] method=GET, path=/main" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.001"/>
+  <testcase name="[2] method=GET, path=/products/state" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.002"/>
+  <testcase name="[3] method=GET, path=/products-other" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.001"/>
+  <testcase name="[4] method=POST, path=/join/child" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.001"/>
+  <testcase name="[5] method=GET, path=/search/child" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.001"/>
+  <testcase name="[6] method=GET, path=/find/child" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.0"/>
+  <testcase name="[7] method=GET, path=/category/child" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.001"/>
+  <testcase name="[8] method=GET, path=/logout/child" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.001"/>
+  <system-out><![CDATA[09:37:49.340 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@556a6320, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@45375bdf, org.springframework.security.web.context.SecurityContextHolderFilter@4b360a82, org.springframework.security.web.header.HeaderWriterFilter@a6204e4, org.springframework.web.filter.CorsFilter@3e8fe7db, org.springframework.security.web.authentication.logout.LogoutFilter@147097ad, com.ngng.api.global.security.filter.TokenFilter@62e586a6, com.ngng.api.global.security.filter.LoginFilter@64908ab9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@75fa9254, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6f25ed2b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1b06dc57, org.springframework.security.web.session.SessionManagementFilter@747e8659, org.springframework.security.web.access.ExceptionTranslationFilter@5dac6bc3, org.springframework.security.web.access.intercept.AuthorizationFilter@7535307c]
+09:37:49.340 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:37:49.340 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:37:49.340 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

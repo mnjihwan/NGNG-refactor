@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" tests="50" skipped="0" failures="0" errors="0" timestamp="2026-11-26T00:07:54" hostname="[HOST]" time="0.345">
+  <properties/>
+  <testcase name="[1] kind=malformed" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.014"/>
+  <testcase name="[2] kind=missing" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.006"/>
+  <testcase name="[3] kind=null" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.004"/>
+  <testcase name="[4] kind=invalid-id" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.005"/>
+  <testcase name="[1] address=null" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.034"/>
+  <testcase name="[2] address=" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.005"/>
+  <testcase name="[3] address= " classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.005"/>
+  <testcase name="[4] address=  new-address  " classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.004"/>
+  <testcase name="[1] kind=missing" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.002"/>
+  <testcase name="[2] kind=malformed" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.001"/>
+  <testcase name="[3] kind=signature" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.003"/>
+  <testcase name="[4] kind=access-type" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.005"/>
+  <testcase name="[5] kind=refresh-type" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.003"/>
+  <testcase name="[6] kind=bad-refresh" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.001"/>
+  <testcase name="[7] kind=blank-role" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.003"/>
+  <testcase name="[8] kind=blank-subject" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.003"/>
+  <testcase name="[1] cookieKind=other, own=true" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.014"/>
+  <testcase name="[2] cookieKind=malformed, own=true" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.004"/>
+  <testcase name="[3] cookieKind=other, own=false" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.006"/>
+  <testcase name="[4] cookieKind=malformed, own=false" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.006"/>
+  <testcase name="[1] claimRole=USER, databaseRole=USER, id=8001" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.003"/>
+  <testcase name="[2] claimRole=USER, databaseRole=USER, id=9001" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.003"/>
+  <testcase name="[3] claimRole=UNCONFIRMED_USER, databaseRole=UNCONFIRMED_USER, id=8001" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.003"/>
+  <testcase name="[4] claimRole=UNCONFIRMED_USER, databaseRole=UNCONFIRMED_USER, id=9001" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.006"/>
+  <testcase name="[5] claimRole=ADMIN, databaseRole=ADMIN, id=8001" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.006"/>
+  <testcase name="[6] claimRole=ADMIN, databaseRole=ADMIN, id=9001" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.005"/>
+  <testcase name="[7] claimRole=OTHER, databaseRole=USER, id=8001" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.005"/>
+  <testcase name="[8] claimRole=OTHER, databaseRole=USER, id=9001" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.008"/>
+  <testcase name="[1] kind=null-id" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.004"/>
+  <testcase name="[2] kind=missing-caller" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.005"/>
+  <testcase name="[3] kind=null-caller-id" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.003"/>
+  <testcase name="[4] kind=both-null" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.003"/>
+  <testcase name="[1] role=ADMIN" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.02"/>
+  <testcase name="[2] role=USER" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.004"/>
+  <testcase name="[3] role=UNCONFIRMED_USER" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.004"/>
+  <testcase name="[4] role=OTHER" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.002"/>
+  <testcase name="[1] accessKind=missing, claimRole=USER, databaseRole=USER, own=true" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.005"/>
+  <testcase name="[2] accessKind=expired, claimRole=USER, databaseRole=USER, own=true" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.01"/>
+  <testcase name="[3] accessKind=missing, claimRole=USER, databaseRole=USER, own=false" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.006"/>
+  <testcase name="[4] accessKind=expired, claimRole=USER, databaseRole=USER, own=false" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.007"/>
+  <testcase name="[5] accessKind=missing, claimRole=UNCONFIRMED_USER, databaseRole=UNCONFIRMED_USER, own=true" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.005"/>
+  <testcase name="[6] accessKind=expired, claimRole=UNCONFIRMED_USER, databaseRole=UNCONFIRMED_USER, own=false" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.005"/>
+  <testcase name="[7] accessKind=missing, claimRole=ADMIN, databaseRole=ADMIN, own=true" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.007"/>
+  <testcase name="[8] accessKind=expired, claimRole=ADMIN, databaseRole=ADMIN, own=false" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.008"/>
+  <testcase name="[9] accessKind=missing, claimRole=OTHER, databaseRole=USER, own=true" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.007"/>
+  <testcase name="[10] accessKind=expired, claimRole=OTHER, databaseRole=USER, own=false" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.007"/>
+  <testcase name="[1] claimRole=USER, databaseRole=USER" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.005"/>
+  <testcase name="[2] claimRole=UNCONFIRMED_USER, databaseRole=UNCONFIRMED_USER" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.006"/>
+  <testcase name="[3] claimRole=ADMIN, databaseRole=ADMIN" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.006"/>
+  <testcase name="[4] claimRole=OTHER, databaseRole=USER" classname="com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest" time="0.004"/>
+  <system-out><![CDATA[09:07:53.905 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@327dcf8c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@69c7b870, org.springframework.security.web.context.SecurityContextHolderFilter@5b7737eb, org.springframework.security.web.header.HeaderWriterFilter@3d48674, org.springframework.web.filter.CorsFilter@62ccf42c, org.springframework.security.web.authentication.logout.LogoutFilter@7fa498b3, com.ngng.api.global.security.filter.TokenFilter@65227bd6, com.ngng.api.global.security.filter.LoginFilter@397fd951, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3415ecfe, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@13553b2e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6d2fe236, org.springframework.security.web.session.SessionManagementFilter@24555012, org.springframework.security.web.access.ExceptionTranslationFilter@6ce07db6, org.springframework.security.web.access.intercept.AuthorizationFilter@5efb3259]
+09:07:54.166 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+09:07:54.166 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+09:07:54.168 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+09:07:54.181 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected end-of-input: expected close marker for Object (start marker at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 1])]
+09:07:54.187 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<?> com.ngng.api.user.user.controller.ConfirmController.addressConfirm(com.ngng.api.user.user.dto.request.AddressConfirmRequest)]
+09:07:54.193 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<?> com.ngng.api.user.user.controller.ConfirmController.addressConfirm(com.ngng.api.user.user.dto.request.AddressConfirmRequest)]
+09:07:54.197 [Test worker] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.lang.Long` from String "not-number": not a valid `java.lang.Long` value]
+09:07:54.205 [Test worker] INFO user-log -- Success Confirm address , userId : 7001  address : null
+09:07:54.236 [Test worker] INFO user-log -- Success Confirm address , userId : 7001  address : 
+09:07:54.246 [Test worker] INFO user-log -- Success Confirm address , userId : 7001  address :  
+09:07:54.250 [Test worker] INFO user-log -- Success Confirm address , userId : 7001  address :   new-address  
+09:07:54.282 [Test worker] INFO user-log -- Success Confirm address , userId : 7001  address : new-address
+09:07:54.299 [Test worker] INFO user-log -- Success Confirm address , userId : 7001  address : new-address
+09:07:54.416 [Test worker] INFO user-log -- Success Confirm address , userId : 7001  address : new-address
+09:07:54.424 [Test worker] INFO user-log -- Success Confirm address , userId : 7001  address : new-address
+09:07:54.451 [Test worker] INFO user-log -- Success Confirm address , userId : 7001  address : new-address
+09:07:54.461 [Test worker] INFO user-log -- Success Confirm address , userId : 7001  address : new-address
+09:07:54.476 [Test worker] INFO user-log -- Success Confirm address , userId : 7001  address : new-address
+09:07:54.495 [Test worker] INFO user-log -- Success Confirm address , userId : 7001  address : new-address
+09:07:54.500 [Test worker] INFO user-log -- Success Confirm address , userId : 7001  address : new-address
+09:07:54.509 [Test worker] INFO user-log -- Success Confirm address , userId : 7001  address : new-address
+09:07:54.511 [Test worker] INFO user-log -- Success Confirm address , userId : 7001  address : new-address
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -30,6 +30,7 @@ import org.springframework.context.event.ContextClosedEvent;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.FilterChainProxy;
 import org.springframework.test.annotation.DirtiesContext;
@@ -78,6 +79,7 @@ class Rf016IsolatedBootSmokeTest {
     MockMvc mvc;
     User user;
     PointHistory latest;
+    final List<Authentication> lookupAuthentications = new ArrayList<>();
 
     @BeforeAll static void observeLifecycle(@Autowired ConfigurableApplicationContext context) {
         lifecycleContext = context;
@@ -103,8 +105,7 @@ class Rf016IsolatedBootSmokeTest {
         latest = PointHistory.builder().id(16002L).beforeCost(0L).addCost(1000L).cost(1000L)
                 .type("충전").typeDetail("RF016 fixture").user(user).build();
         when(users.findUserByEmail(EMAIL)).thenAnswer(inv -> {
-            CustomUserDetails principal = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            assertNull(principal.getUser().getUserId(), "database identity must come from repository double");
+            lookupAuthentications.add(SecurityContextHolder.getContext().getAuthentication());
             return Optional.of(user);
         });
         when(points.findLastByUserId(16001L)).thenReturn(Optional.of(latest));
@@ -125,6 +126,14 @@ class Rf016IsolatedBootSmokeTest {
     }
     String access() { return tokens.createAccessToken(new CustomUserDetails(user)); }
     JsonNode json(byte[] bytes) throws Exception { return mapper.readTree(bytes); }
+
+    void assertIdentityLookupOrder() {
+        assertEquals(2, lookupAuthentications.size());
+        assertNull(lookupAuthentications.get(0), "the token filter must check current state before authentication");
+        var principal = assertInstanceOf(CustomUserDetails.class, lookupAuthentications.get(1).getPrincipal());
+        assertNull(principal.getUser().getUserId(), "database identity must come from repository double");
+        assertEquals(EMAIL, principal.getUsername());
+    }
 
     @Test void configurationWasSanitizedBeforeConfigDataAndOnlyExplicitBeansExist() {
         assertEquals("isolated-only", environment.getProperty("rf016.fixture.config"));
@@ -168,7 +177,8 @@ class Rf016IsolatedBootSmokeTest {
         JsonNode value = json(body);
         assertTrue(value.path("userId").asLong() == 16001L);
         assertTrue(value.path("point").asLong() == 1000L);
-        verify(users).findUserByEmail(EMAIL); verify(points).findLastByUserId(16001L);
+        assertIdentityLookupOrder();
+        verify(users, times(2)).findUserByEmail(EMAIL); verify(points).findLastByUserId(16001L);
         verifyNoMoreInteractions(users, points); verifyNoInteractions(sender, sms);
     }
     @ParameterizedTest @ValueSource(strings = {"/points", "/points/all"})
@@ -178,7 +188,8 @@ class Rf016IsolatedBootSmokeTest {
         if (path.endsWith("all")) { assertEquals(1, value.size()); value = value.get(0); }
         assertTrue(value.path("cost").asLong() == 1000L);
         assertFalse(value.has("user"));
-        verify(users).findUserByEmail(EMAIL);
+        assertIdentityLookupOrder();
+        verify(users, times(2)).findUserByEmail(EMAIL);
         if (path.endsWith("all")) verify(points).findAllByUserId(16001L); else verify(points).findLastByUserId(16001L);
         verifyNoMoreInteractions(users, points); verifyNoInteractions(sender, sms);
     }
@@ -188,8 +199,9 @@ class Rf016IsolatedBootSmokeTest {
                 .andReturn().getResponse().getContentAsByteArray());
         assertTrue(value.path("beforeCost").asLong() == 1000L);
         assertTrue(value.path("cost").asLong() == 1200L); assertFalse(value.has("user"));
+        assertIdentityLookupOrder();
         var order = inOrder(users, points);
-        order.verify(users).findUserByEmail(EMAIL); order.verify(users).lockUserIdForPointUpdate(16001L);
+        order.verify(users, times(2)).findUserByEmail(EMAIL); order.verify(users).lockUserIdForPointUpdate(16001L);
         order.verify(points).findLatestCostForUpdate(16001L);
         order.verify(points).save(argThat(p -> p.getUser() == user && p.getCost() == 1200L && p.getAddCost() == 200L));
         verifyNoMoreInteractions(users, points); verifyNoInteractions(sender, sms);

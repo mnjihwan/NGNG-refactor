@@ -85,8 +85,9 @@ class ProductAdditionalWriterSecurityChainTest {
         when(uploads.uploadFile(any())).thenReturn("new.mp4");
     }
     @AfterEach void cleared() { assertNull(SecurityContextHolder.getContext().getAuthentication()); }
-    static User user(Long id) { return User.builder().userId(id).email(EMAIL).build(); }
-    void caller(long id) { when(users.findUserByEmail(EMAIL)).thenReturn(Optional.of(user(id))); }
+    static User user(Long id) { return User.builder().userId(id).email(EMAIL).visible(true).role(com.ngng.api.user.user.entity.Role.builder().roleType("USER").build()).build(); }
+    void caller(long id) { caller(id,"USER"); }
+    void caller(long id,String role) { User actor=user(id); actor.getRole().setRoleType(role); when(users.findUserByEmail(EMAIL)).thenReturn(Optional.of(actor)); }
     static String token(String type, String role, long seconds) {
         return Jwts.builder().setSubject(EMAIL).claim("role",role).claim("type",type)
                 .setExpiration(new Date(System.currentTimeMillis()+seconds*1000))
@@ -107,7 +108,7 @@ class ProductAdditionalWriterSecurityChainTest {
             "/upload,USER,1000","/upload,USER,2000","/upload,ADMIN,1000","/upload,ADMIN,2000","/upload,UNCONFIRMED_USER,1000","/upload,UNCONFIRMED_USER,2000",
             "deleteImage,USER,1000","deleteImage,USER,2000","deleteImage,ADMIN,1000","deleteImage,ADMIN,2000","deleteImage,UNCONFIRMED_USER,1000","deleteImage,UNCONFIRMED_USER,2000"})
     void roleOwnershipMatrix(String op,String role,long callerId) throws Exception {
-        caller(callerId);
+        caller(callerId,role);
         boolean roleDenied = role.equals("UNCONFIRMED_USER") && !op.equals("/upload") && !op.equals("deleteImage");
         boolean denied = roleDenied || (callerId != 1000 && (op.equals("create") || !role.equals("ADMIN")));
         var result = mvc.perform(operation(op).header("Authorization","Bearer "+token("access",role,3600)));
@@ -162,7 +163,7 @@ class ProductAdditionalWriterSecurityChainTest {
     }
     @ParameterizedTest @ValueSource(strings={"create","refresh","/products/upload","/upload","deleteImage"})
     void missingDatabaseCallerDenied(String op) throws Exception {
-        mvc.perform(operation(op).header("Authorization","Bearer "+token("access","ADMIN",3600))).andExpect(status().isForbidden());
+        mvc.perform(operation(op).header("Authorization","Bearer "+token("access","ADMIN",3600))).andExpect(status().isUnauthorized());
         verifyNoInteractions(uploads,invalidator); verify(products,never()).save(any()); verify(images,never()).save(any()); verify(thumbnails,never()).save(any());
     }
     @ParameterizedTest @ValueSource(strings={"create","refresh","/products/upload","/upload","deleteImage"})

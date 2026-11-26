@@ -1,0 +1,201 @@
+package com.ngng.api.product.writer;
+
+import com.ngng.api.global.security.config.SecurityConfig;
+import com.ngng.api.global.security.handler.*;
+import com.ngng.api.global.security.jwt.util.*;
+import com.ngng.api.product.product.controller.ProductController;
+import com.ngng.api.product.product.dto.request.CreateProductRequestDTO;
+import com.ngng.api.product.product.entity.*;
+import com.ngng.api.product.product.repository.*;
+import com.ngng.api.product.product.service.*;
+import com.ngng.api.product.productImage.controller.ProductImageController;
+import com.ngng.api.product.thumbnail.entity.Thumbnail;
+import com.ngng.api.product.thumbnail.repository.ThumbnailRepository;
+import com.ngng.api.product.thumbnail.service.ThumbnailService;
+import com.ngng.api.user.user.entity.User;
+import com.ngng.api.user.user.repository.UserRepository;
+import com.ngng.api.user.user.service.AuthService;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.io.*;
+import io.jsonwebtoken.security.Keys;
+import jakarta.servlet.http.Cookie;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.*;
+import org.springframework.context.annotation.*;
+import org.springframework.mock.web.*;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.test.util.ReflectionTestUtils;
+import org.springframework.test.web.servlet.*;
+import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+/** Explicit real security/controller/services; repository and external upload doubles only. No Boot/network. */
+class ProductAdditionalWriterSecurityChainTest {
+    static final String EMAIL = "rf039@example.test";
+    static final String SECRET = Encoders.BASE64URL.encode("rf039-synthetic-test-key-only-64-bytes-abcdefghijklmnopqrstuvwxyz123456".getBytes(StandardCharsets.UTF_8));
+    static final String CREATE = """
+        {"userId":1000,"title":"fixture","content":"text","price":300,"isEscrow":false,
+        "discountable":false,"freeShipping":false,"statusId":1,"categoryId":1,"tags":[{"tagName":"tag"}]}
+        """;
+    static AnnotationConfigWebApplicationContext context;
+    static MockMvc mvc;
+    ProductRepository products;
+    ProductImageRepository images;
+    ThumbnailRepository thumbnails;
+    UserRepository users;
+    UploadService uploads;
+    ProductCacheInvalidator invalidator;
+    Product target;
+    ProductImage image;
+    @BeforeAll static void start() {
+        context = new AnnotationConfigWebApplicationContext();
+        context.getEnvironment().getPropertySources().addFirst(new org.springframework.core.env.MapPropertySource("rf039-only",
+                Map.of("jwt.expiration.access", "3600000", "jwt.expiration.refresh", "7200000")));
+        context.setServletContext(new MockServletContext()); context.register(Isolated.class); context.refresh();
+        mvc = MockMvcBuilders.webAppContextSetup(context).apply(springSecurity()).build();
+    }
+    @AfterAll static void stop() { context.close(); }
+    @BeforeEach void setup() throws Exception {
+        products = context.getBean(ProductRepository.class); images = context.getBean(ProductImageRepository.class);
+        thumbnails = context.getBean(ThumbnailRepository.class); users = context.getBean(UserRepository.class);
+        uploads = context.getBean(UploadService.class); invalidator = context.getBean(ProductCacheInvalidator.class);
+        reset(products, images, thumbnails, users, uploads, invalidator);
+        target = Product.builder().productId(77L).user(user(1000L)).build();
+        image = ProductImage.builder().productImageId(88L).product(target).imageUrl("fixture.png").visible(true).build();
+        when(products.findById(77L)).thenReturn(Optional.of(target));
+        when(products.save(any())).thenAnswer(inv -> { Product p = inv.getArgument(0); p.setProductId(77L); return p; });
+        when(images.findByProductProductIdAndImageUrl(77L,"fixture.png")).thenReturn(image);
+        when(images.save(any())).thenAnswer(inv -> inv.getArgument(0));
+        when(thumbnails.findByProduct(any())).thenReturn(Optional.of(Thumbnail.builder().product(target).thumbnailId(90L).build()));
+        when(uploads.uploadImageFile(any())).thenReturn("new.png");
+        when(uploads.uploadImageThumbnails(any())).thenReturn("thumb.png");
+        when(uploads.uploadFile(any())).thenReturn("new.mp4");
+    }
+    @AfterEach void cleared() { assertNull(SecurityContextHolder.getContext().getAuthentication()); }
+    static User user(Long id) { return User.builder().userId(id).email(EMAIL).build(); }
+    void caller(long id) { when(users.findUserByEmail(EMAIL)).thenReturn(Optional.of(user(id))); }
+    static String token(String type, String role, long seconds) {
+        return Jwts.builder().setSubject(EMAIL).claim("role",role).claim("type",type)
+                .setExpiration(new Date(System.currentTimeMillis()+seconds*1000))
+                .signWith(Keys.hmacShaKeyFor(Decoders.BASE64URL.decode(SECRET))).compact();
+    }
+    MockHttpServletRequestBuilder operation(String op) {
+        return switch(op) {
+            case "create" -> post("/products").contentType("application/json").content(CREATE);
+            case "refresh" -> post("/products/refresh/77");
+            case "deleteImage" -> delete("/deleteImage/77").contentType("application/json").content("{\"imageURL\":\"fixture.png\"}");
+            default -> multipart(op).file(new MockMultipartFile("files","fixture.png","image/png",new byte[]{1})).param("productId","77");
+        };
+    }
+    @ParameterizedTest @CsvSource({
+            "create,USER,1000","create,USER,2000","create,ADMIN,1000","create,ADMIN,2000","create,UNCONFIRMED_USER,1000","create,UNCONFIRMED_USER,2000",
+            "refresh,USER,1000","refresh,USER,2000","refresh,ADMIN,1000","refresh,ADMIN,2000","refresh,UNCONFIRMED_USER,1000","refresh,UNCONFIRMED_USER,2000",
+            "/products/upload,USER,1000","/products/upload,USER,2000","/products/upload,ADMIN,1000","/products/upload,ADMIN,2000","/products/upload,UNCONFIRMED_USER,1000","/products/upload,UNCONFIRMED_USER,2000",
+            "/upload,USER,1000","/upload,USER,2000","/upload,ADMIN,1000","/upload,ADMIN,2000","/upload,UNCONFIRMED_USER,1000","/upload,UNCONFIRMED_USER,2000",
+            "deleteImage,USER,1000","deleteImage,USER,2000","deleteImage,ADMIN,1000","deleteImage,ADMIN,2000","deleteImage,UNCONFIRMED_USER,1000","deleteImage,UNCONFIRMED_USER,2000"})
+    void roleOwnershipMatrix(String op,String role,long callerId) throws Exception {
+        caller(callerId);
+        boolean roleDenied = role.equals("UNCONFIRMED_USER") && !op.equals("/upload") && !op.equals("deleteImage");
+        boolean denied = roleDenied || (callerId != 1000 && (op.equals("create") || !role.equals("ADMIN")));
+        var result = mvc.perform(operation(op).header("Authorization","Bearer "+token("access",role,3600)));
+        if (denied) {
+            result.andExpect(status().isForbidden()); verifyNoInteractions(uploads,invalidator);
+            verify(products,never()).save(any()); verify(images,never()).save(any()); verify(thumbnails,never()).save(any());
+            assertNull(target.getRefreshedAt()); assertTrue(image.getVisible());
+        } else {
+            result.andExpect(status().is(op.equals("create")?201:200));
+            result.andExpect(content().string(op.equals("/upload")?"hihi":op.equals("deleteImage")?"88":"77"));
+            if(op.contains("upload")) {
+                var order=inOrder(uploads,images,thumbnails);
+                order.verify(uploads).uploadImageFile(any()); order.verify(images).save(any());
+                order.verify(uploads).uploadImageThumbnails(any()); order.verify(thumbnails).deleteByProduct(target);
+                order.verify(thumbnails).save(any());
+            }
+        }
+    }
+    static java.util.stream.Stream<Arguments> invalidTokens() {
+        return java.util.stream.Stream.of("create","refresh","/products/upload","/upload","deleteImage")
+                .flatMap(op -> java.util.stream.Stream.of("missing","malformed","expired","refresh-type").map(kind -> Arguments.of(op,kind)));
+    }
+    @ParameterizedTest @MethodSource("invalidTokens")
+    void invalidAuthentication(String op,String kind) throws Exception {
+        var request=operation(op);
+        if(!kind.equals("missing")) request.header("Authorization","Bearer "+(kind.equals("malformed")?"broken":token(kind.equals("refresh-type")?"refresh":"access","USER",kind.equals("expired")?-3600:3600)));
+        mvc.perform(request).andExpect(status().isUnauthorized()); verifyNoInteractions(products,images,thumbnails,users,uploads,invalidator);
+    }
+    @Test void refreshFallback() throws Exception {
+        caller(1000);
+        mvc.perform(operation("/upload").cookie(new Cookie("refreshToken",token("refresh","USER",3600))))
+                .andExpect(status().isOk()).andExpect(header().exists("Authorization"));
+    }
+    static java.util.stream.Stream<Arguments> invalidRefreshTokens() {
+        return java.util.stream.Stream.of("create","refresh","/products/upload","/upload","deleteImage")
+                .flatMap(op -> java.util.stream.Stream.of("malformed","expired","access-type").map(kind -> Arguments.of(op,kind)));
+    }
+    @ParameterizedTest @MethodSource("invalidRefreshTokens")
+    void invalidRefreshDoesNotReachWriters(String op,String kind) throws Exception {
+        String refresh=kind.equals("malformed")?"broken":token(kind.equals("access-type")?"access":"refresh","USER",kind.equals("expired")?-3600:3600);
+        mvc.perform(operation(op).cookie(new Cookie("refreshToken",refresh)))
+                .andExpect(status().isUnauthorized()).andExpect(header().doesNotExist("Authorization"));
+        verifyNoInteractions(products,images,thumbnails,users,uploads,invalidator);
+    }
+    @ParameterizedTest @CsvSource({"/products/upload,bad,400","/products/upload,9223372036854775808,400","/products/upload,0,400","/products/upload,-1,400","/products/upload,999,404",
+            "/upload,bad,400","/upload,9223372036854775808,400","/upload,0,400","/upload,-1,400","/upload,999,404"})
+    void uploadPreflightErrors(String uri,String id,int statusCode) throws Exception {
+        caller(1000);
+        mvc.perform(multipart(uri).file(new MockMultipartFile("files","fixture.png","image/png",new byte[]{1})).param("productId",id)
+                .header("Authorization","Bearer "+token("access","USER",3600))).andExpect(status().is(statusCode));
+        verifyNoInteractions(uploads,images,thumbnails,invalidator); verify(products,never()).save(any());
+    }
+    @ParameterizedTest @ValueSource(strings={"create","refresh","/products/upload","/upload","deleteImage"})
+    void missingDatabaseCallerDenied(String op) throws Exception {
+        mvc.perform(operation(op).header("Authorization","Bearer "+token("access","ADMIN",3600))).andExpect(status().isForbidden());
+        verifyNoInteractions(uploads,invalidator); verify(products,never()).save(any()); verify(images,never()).save(any()); verify(thumbnails,never()).save(any());
+    }
+    @ParameterizedTest @ValueSource(strings={"create","refresh","/products/upload","/upload","deleteImage"})
+    void expiredAccessUsesRefreshForEachWriter(String op) throws Exception {
+        caller(1000);
+        mvc.perform(operation(op).header("Authorization","Bearer "+token("access","USER",-3600))
+                .cookie(new Cookie("refreshToken",token("refresh","USER",3600))))
+                .andExpect(status().is(op.equals("create")?201:200)).andExpect(header().exists("Authorization"));
+        verify(users,atLeastOnce()).findUserByEmail(EMAIL);
+    }
+    @Test void createKeepsLocationAndOwnerAndTags() throws Exception {
+        caller(1000);
+        mvc.perform(operation("create").header("Authorization","Bearer "+token("access","USER",3600)))
+                .andExpect(status().isCreated()).andExpect(header().string("Location","/products/77"));
+        var saved=org.mockito.ArgumentCaptor.forClass(Product.class);verify(products).save(saved.capture());
+        assertEquals(1000L,saved.getValue().getUser().getUserId());assertEquals("tag",saved.getValue().getTags().get(0).getTagName());
+    }
+    @Configuration @EnableWebMvc @EnableWebSecurity
+    @Import({SecurityConfig.class,ProductService.class,ProductImageService.class,ThumbnailService.class,AuthService.class,ProductController.class,ProductImageController.class})
+    static class Isolated {
+        @Bean @Primary AuthenticationConfiguration authenticationConfiguration() throws Exception {var c=mock(AuthenticationConfiguration.class);when(c.getAuthenticationManager()).thenReturn(mock(AuthenticationManager.class));return c;}
+        @Bean JwtTokenVerifier verifier(){return new JwtTokenVerifier(SECRET);}
+        @Bean JwtTokenProvider provider(){var p=new JwtTokenProvider(SECRET);ReflectionTestUtils.setField(p,"accessTokenExpirationMs",3600000);return p;}
+        @Bean CustomLogoutHandler logoutHandler(){return new CustomLogoutHandler();}
+        @Bean CustomLogoutSuccessHandler logoutSuccessHandler(){return new CustomLogoutSuccessHandler();}
+        @Bean ProductRepository products(){return mock(ProductRepository.class);}
+        @Bean ProductImageRepository images(){return mock(ProductImageRepository.class);}
+        @Bean ThumbnailRepository thumbnails(){return mock(ThumbnailRepository.class);}
+        @Bean UserRepository users(){return mock(UserRepository.class);}
+        @Bean UploadService uploads(){return mock(UploadService.class);}
+        @Bean CompressService compression(){return mock(CompressService.class);}
+        @Bean AwsS3Service s3(){return mock(AwsS3Service.class);}
+        @Bean TagService tags(){return mock(TagService.class);}
+        @Bean ProductCacheInvalidator invalidator(){return mock(ProductCacheInvalidator.class);}
+    }
+}
