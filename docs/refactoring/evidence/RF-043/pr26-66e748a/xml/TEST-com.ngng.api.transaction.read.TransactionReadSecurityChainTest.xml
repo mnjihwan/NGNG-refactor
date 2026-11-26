@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" tests="33" skipped="0" failures="0" errors="0" timestamp="2026-11-26T01:24:14" hostname="[HOST]" time="0.23">
+  <properties/>
+  <testcase name="[1] access=missing, id=1000" classname="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" time="0.058"/>
+  <testcase name="[2] access=expired, id=2000" classname="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" time="0.009"/>
+  <testcase name="[3] access=missing, id=4000" classname="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" time="0.007"/>
+  <testcase name="[4] access=expired, id=4000" classname="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" time="0.007"/>
+  <testcase name="businessIdentityLookupFailurePropagatesAfterAuthentication()" classname="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" time="0.004"/>
+  <testcase name="[1] role=USER, id=1000" classname="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" time="0.005"/>
+  <testcase name="[2] role=USER, id=2000" classname="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" time="0.004"/>
+  <testcase name="[3] role=USER, id=3000" classname="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" time="0.004"/>
+  <testcase name="[4] role=USER, id=4000" classname="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" time="0.003"/>
+  <testcase name="[5] role=ADMIN, id=1000" classname="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" time="0.004"/>
+  <testcase name="[6] role=ADMIN, id=2000" classname="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" time="0.004"/>
+  <testcase name="[7] role=ADMIN, id=3000" classname="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" time="0.004"/>
+  <testcase name="[8] role=ADMIN, id=4000" classname="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" time="0.005"/>
+  <testcase name="[9] role=UNCONFIRMED_USER, id=1000" classname="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" time="0.004"/>
+  <testcase name="[10] role=UNCONFIRMED_USER, id=2000" classname="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" time="0.006"/>
+  <testcase name="[11] role=UNCONFIRMED_USER, id=3000" classname="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" time="0.007"/>
+  <testcase name="[12] role=UNCONFIRMED_USER, id=4000" classname="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" time="0.004"/>
+  <testcase name="authenticatedMissingTransactionKeepsExactNullDto200()" classname="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" time="0.024"/>
+  <testcase name="[1] credentials=malformed" classname="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" time="0.002"/>
+  <testcase name="[2] credentials=wrongType" classname="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" time="0.005"/>
+  <testcase name="[3] credentials=tampered" classname="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" time="0.004"/>
+  <testcase name="invalidPathKeepsBinding400WithoutServiceRepositoryAccess()" classname="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" time="0.004"/>
+  <testcase name="[1] condition=absent" classname="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" time="0.003"/>
+  <testcase name="[2] condition=nullId" classname="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" time="0.002"/>
+  <testcase name="[1] credentials=missing" classname="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" time="0.001"/>
+  <testcase name="[2] credentials=malformed" classname="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" time="0.001"/>
+  <testcase name="[3] credentials=tampered" classname="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" time="0.003"/>
+  <testcase name="[4] credentials=expired" classname="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" time="0.003"/>
+  <testcase name="[1] missing=seller" classname="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" time="0.006"/>
+  <testcase name="[2] missing=consumer" classname="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" time="0.005"/>
+  <testcase name="[3] missing=sellerId" classname="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" time="0.004"/>
+  <testcase name="[4] missing=consumerId" classname="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" time="0.004"/>
+  <testcase name="exactSuccessDtoAndNullableAddressArePreserved()" classname="com.ngng.api.transaction.read.TransactionReadSecurityChainTest" time="0.005"/>
+  <system-out><![CDATA[2026-11-26 10:24:14.204 [Test worker] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4669fdba, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@26c1f174, org.springframework.security.web.context.SecurityContextHolderFilter@51a862c, org.springframework.security.web.header.HeaderWriterFilter@c7cddb2, org.springframework.web.filter.CorsFilter@11d264c2, org.springframework.security.web.authentication.logout.LogoutFilter@156eb4cf, com.ngng.api.global.security.filter.TokenFilter@516beb6, com.ngng.api.global.security.filter.LoginFilter@c9b0783, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@50e43637, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3a9fe0d4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@25f80d35, org.springframework.security.web.session.SessionManagementFilter@2daa7bf3, org.springframework.security.web.access.ExceptionTranslationFilter@65b603a3, org.springframework.security.web.access.intercept.AuthorizationFilter@2196b8c6]
+2026-11-26 10:24:14.260 [Test worker] INFO  o.s.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-26 10:24:14.260 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-26 10:24:14.260 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2026-11-26 10:24:14.452 [Test worker] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "not-a-number"]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

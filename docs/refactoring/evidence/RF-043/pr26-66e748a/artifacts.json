@@ -1,0 +1,549 @@
+{
+  "recordedAt": "2026-11-26T10:25:13.2993363+09:00",
+  "testedHead": "66e748a9567db9543f0872fd597098c3f802cacb",
+  "testedTree": "ea211f0e943698f409d055c8cacc3607a7f0a1ce",
+  "environment": {
+    "os": "Windows",
+    "powershell": "7.6.9",
+    "java": "17.0.10",
+    "gradle": "8.7, offline candidate-local cache",
+    "node": "26.13.1",
+    "npm": "11.20.0",
+    "frontendTelemetry": "disabled"
+  },
+  "scope": "Selected local test doubles, compilation, backend packaging, Node test harness, TypeScript and lint. No external services, full application suite, browser, or load tests.",
+  "candidateManifest": {
+    "file": "candidate-files.json",
+    "sha256": "8b2055c39a3e7efaa128fd43b06f9240979752be040cc666d8b5e102f77452bc"
+  },
+  "redactions": "Windows profile paths, XML hostnames, Spring Boot startup OS account, synthetic JWTs in security test names or log output, Gradle diagnostic interface labels. Other test attributes and statuses were verified against originals.",
+  "pairedFiles": 28,
+  "xmlMetadataVerified": 23,
+  "redactionScan": "Shared logs and XML have no unmasked profile, XML host, Spring Boot startup account, complete JWT, URL userinfo, email or Korean mobile number candidates.",
+  "backend": {
+    "suites": 23,
+    "tests": 1261.0,
+    "failures": 0.0,
+    "errors": 0.0,
+    "skipped": 0.0,
+    "selectedSuites": [
+      {
+        "name": "com.ngng.api.global.security.SecurityChainTest",
+        "tests": 46,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "com.ngng.api.global.security.TokenFilterTest",
+        "tests": 72,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "com.ngng.api.global.security.TokenStateSecurityChainTest",
+        "tests": 306,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "com.ngng.api.isolation.Rf016EnvironmentIsolationTest",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "com.ngng.api.isolation.Rf016IsolatedBootSmokeTest",
+        "tests": 11,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest",
+        "tests": 32,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest",
+        "tests": 87,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "com.ngng.api.report.creation.ReportCreationSecurityChainTest",
+        "tests": 35,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "com.ngng.api.report.response.ReportResponseSecurityChainTest",
+        "tests": 72,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest",
+        "tests": 60,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "com.ngng.api.transaction.read.TransactionReadSecurityChainTest",
+        "tests": 33,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "com.ngng.api.transaction.status.TransactionStatusSecurityChainTest",
+        "tests": 160,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "com.ngng.api.user.point.controller.PointResponseSecurityChainTest",
+        "tests": 24,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "com.ngng.api.user.point.payment.PaymentAndStatusChainTest",
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "com.ngng.api.user.point.payment.PaymentTrustSecurityChainTest",
+        "tests": 51,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "com.ngng.api.user.signup.SignupSecurityChainTest",
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "com.ngng.api.user.signup.SignupVerificationTest",
+        "tests": 35,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest",
+        "tests": 50,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "com.ngng.api.user.user.address.ConfirmAddressServiceTest",
+        "tests": 27,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest",
+        "tests": 30,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "com.ngng.api.user.user.confirmation.ConfirmAccountServiceTest",
+        "tests": 22,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "com.ngng.api.user.user.dropout.DropOutSecurityChainTest",
+        "tests": 57,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "com.ngng.api.user.user.dropout.DropOutServiceTest",
+        "tests": 39,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    ]
+  },
+  "frontend": {
+    "signup": {
+      "tests": 51,
+      "pass": 51,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "regression": {
+      "tests": 218,
+      "pass": 218,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    }
+  },
+  "files": [
+    {
+      "raw": "raw/pr26-66e748a/backend-console.txt",
+      "shared": "backend-console.txt",
+      "originalSha256": "364d37552a3ec004c1f8f46a1ea88e5465c5d0cdfaef6b61c589227564885c65",
+      "sharedSha256": "364d37552a3ec004c1f8f46a1ea88e5465c5d0cdfaef6b61c589227564885c65",
+      "originalBytes": 3134,
+      "sharedBytes": 3134,
+      "xmlMetadataChecked": false,
+      "exitCode": 0,
+      "fixtureJwtMasks": 0,
+      "accountMasks": 0
+    },
+    {
+      "raw": "raw/pr26-66e748a/frontend-regression-console.txt",
+      "shared": "frontend-regression-console.txt",
+      "originalSha256": "1e6bb3bbe785b5bd312ae5312821405ef2b2d150fea45b2e6bfe244a855a0df4",
+      "sharedSha256": "1e6bb3bbe785b5bd312ae5312821405ef2b2d150fea45b2e6bfe244a855a0df4",
+      "originalBytes": 16641,
+      "sharedBytes": 16641,
+      "xmlMetadataChecked": false,
+      "exitCode": 0,
+      "fixtureJwtMasks": 0,
+      "accountMasks": 0
+    },
+    {
+      "raw": "raw/pr26-66e748a/frontend-signup-console.txt",
+      "shared": "frontend-signup-console.txt",
+      "originalSha256": "ec5a263b9a9a963d880a5290a1cefbc940c1ef04c5834948e1fffd3c12724266",
+      "sharedSha256": "ec5a263b9a9a963d880a5290a1cefbc940c1ef04c5834948e1fffd3c12724266",
+      "originalBytes": 4409,
+      "sharedBytes": 4409,
+      "xmlMetadataChecked": false,
+      "exitCode": 0,
+      "fixtureJwtMasks": 0,
+      "accountMasks": 0
+    },
+    {
+      "raw": "raw/pr26-66e748a/lint-console.txt",
+      "shared": "lint-console.txt",
+      "originalSha256": "b6c5fe140b7e10234dede2c7a041a2cd6c706e4a01e3259f888c55080fce4c9d",
+      "sharedSha256": "b6c5fe140b7e10234dede2c7a041a2cd6c706e4a01e3259f888c55080fce4c9d",
+      "originalBytes": 1220,
+      "sharedBytes": 1220,
+      "xmlMetadataChecked": false,
+      "exitCode": 0,
+      "fixtureJwtMasks": 0,
+      "accountMasks": 0
+    },
+    {
+      "raw": "raw/pr26-66e748a/tsc-console.txt",
+      "shared": "tsc-console.txt",
+      "originalSha256": "a5dcca52cf2e96f59c57c744d8c5b304bc354ecabdbea7db9ba014e09148b60e",
+      "sharedSha256": "a5dcca52cf2e96f59c57c744d8c5b304bc354ecabdbea7db9ba014e09148b60e",
+      "originalBytes": 81,
+      "sharedBytes": 81,
+      "xmlMetadataChecked": false,
+      "exitCode": 0,
+      "fixtureJwtMasks": 0,
+      "accountMasks": 0
+    },
+    {
+      "raw": "raw/pr26-66e748a/xml/TEST-com.ngng.api.global.security.SecurityChainTest.xml",
+      "shared": "xml/TEST-com.ngng.api.global.security.SecurityChainTest.xml",
+      "originalSha256": "645c6d14a6435ce01da62cfc6a58d2b6250f165f30e9dcca9c388611ed4376a7",
+      "sharedSha256": "106b48fcba791526e0f6a7e186c982679ce30675dd0d3ea49cc255984fb0f787",
+      "originalBytes": 8592,
+      "sharedBytes": 8594,
+      "xmlMetadataChecked": true,
+      "exitCode": null,
+      "fixtureJwtMasks": 0,
+      "accountMasks": 0
+    },
+    {
+      "raw": "raw/pr26-66e748a/xml/TEST-com.ngng.api.global.security.TokenFilterTest.xml",
+      "shared": "xml/TEST-com.ngng.api.global.security.TokenFilterTest.xml",
+      "originalSha256": "e71048ba839cdfc7529132c62f71b17367ca0e316d00e34987801a4c8f179bd3",
+      "sharedSha256": "44f26d65db1f4e2873a766ae1eed1451b8036a587f246695f0c82df27d54dadb",
+      "originalBytes": 18165,
+      "sharedBytes": 8557,
+      "xmlMetadataChecked": true,
+      "exitCode": null,
+      "fixtureJwtMasks": 49,
+      "accountMasks": 0
+    },
+    {
+      "raw": "raw/pr26-66e748a/xml/TEST-com.ngng.api.global.security.TokenStateSecurityChainTest.xml",
+      "shared": "xml/TEST-com.ngng.api.global.security.TokenStateSecurityChainTest.xml",
+      "originalSha256": "38490bb56c9968b65c82a2baf7bbdbc9b384f98c724649338d74dc0e79423a22",
+      "sharedSha256": "04deea7c6cd3fdb7a83c3b56aabb6a82389903af8f85b50706627f436e7c31b6",
+      "originalBytes": 60182,
+      "sharedBytes": 50574,
+      "xmlMetadataChecked": true,
+      "exitCode": null,
+      "fixtureJwtMasks": 49,
+      "accountMasks": 0
+    },
+    {
+      "raw": "raw/pr26-66e748a/xml/TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+      "shared": "xml/TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+      "originalSha256": "583b61e808941548b0db57fc2be090372c04639084f4d08eea68a3f9593dc5d2",
+      "sharedSha256": "f222e7e0a60e1ea2286629b7630ee0b19c2d349acef07db075a82d5653d205d8",
+      "originalBytes": 511,
+      "sharedBytes": 513,
+      "xmlMetadataChecked": true,
+      "exitCode": null,
+      "fixtureJwtMasks": 0,
+      "accountMasks": 0
+    },
+    {
+      "raw": "raw/pr26-66e748a/xml/TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+      "shared": "xml/TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+      "originalSha256": "e519a0db85a93a1bc7aa560780f22c322e07d5d3f6d67e77ddf6bf99dd772e8a",
+      "sharedSha256": "e7fa80f772232f25643372f24f6502e18e59ad341c6877dc61627d44c9f46ae4",
+      "originalBytes": 32080,
+      "sharedBytes": 32083,
+      "xmlMetadataChecked": true,
+      "exitCode": null,
+      "fixtureJwtMasks": 0,
+      "accountMasks": 1
+    },
+    {
+      "raw": "raw/pr26-66e748a/xml/TEST-com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest.xml",
+      "shared": "xml/TEST-com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest.xml",
+      "originalSha256": "e4131c408bc0344f038942b45096deb3581775892a802f9d6ebb8cd7ec80d54d",
+      "sharedSha256": "aaabf6790ba09548a39932ca96afe0745a4e6e9cde056e3c77f3090c4e6ed398",
+      "originalBytes": 7748,
+      "sharedBytes": 7750,
+      "xmlMetadataChecked": true,
+      "exitCode": null,
+      "fixtureJwtMasks": 0,
+      "accountMasks": 0
+    },
+    {
+      "raw": "raw/pr26-66e748a/xml/TEST-com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest.xml",
+      "shared": "xml/TEST-com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest.xml",
+      "originalSha256": "d836b4dd333ebd94c7f9a304dace3ca5008de2abb3f8639202acce5c96faa29b",
+      "sharedSha256": "983e05957052c665c2100d3973e714903dd3f5b84c142b2f43af4d82162b3a79",
+      "originalBytes": 15465,
+      "sharedBytes": 15467,
+      "xmlMetadataChecked": true,
+      "exitCode": null,
+      "fixtureJwtMasks": 0,
+      "accountMasks": 0
+    },
+    {
+      "raw": "raw/pr26-66e748a/xml/TEST-com.ngng.api.report.creation.ReportCreationSecurityChainTest.xml",
+      "shared": "xml/TEST-com.ngng.api.report.creation.ReportCreationSecurityChainTest.xml",
+      "originalSha256": "e6709637e6d720ba0cfb4fc445b36eec9f3e2e767bfa3b46d6f1791d2c1675b7",
+      "sharedSha256": "3a419b2c2f75b13a6ab83e61debfa2b58210b3e9399f5649e0352da8cb5e16e7",
+      "originalBytes": 6850,
+      "sharedBytes": 6852,
+      "xmlMetadataChecked": true,
+      "exitCode": null,
+      "fixtureJwtMasks": 0,
+      "accountMasks": 0
+    },
+    {
+      "raw": "raw/pr26-66e748a/xml/TEST-com.ngng.api.report.response.ReportResponseSecurityChainTest.xml",
+      "shared": "xml/TEST-com.ngng.api.report.response.ReportResponseSecurityChainTest.xml",
+      "originalSha256": "e83d8306400de8132d9fe87124d678449adf497d9d76a678d361218c1ba64bff",
+      "sharedSha256": "89dda0eb7f54ba5dd2a436821ead60e8a8888b49aed41e2cabbc0c40605606d3",
+      "originalBytes": 12233,
+      "sharedBytes": 12235,
+      "xmlMetadataChecked": true,
+      "exitCode": null,
+      "fixtureJwtMasks": 0,
+      "accountMasks": 0
+    },
+    {
+      "raw": "raw/pr26-66e748a/xml/TEST-com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest.xml",
+      "shared": "xml/TEST-com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest.xml",
+      "originalSha256": "c48b49fea3a41067290703b280625dbd02bbc1871db240a3454c8836a46380d8",
+      "sharedSha256": "823c3b487979974f461a72d38d02d19a9b334f36e88c36cd768961db3087d723",
+      "originalBytes": 11513,
+      "sharedBytes": 11515,
+      "xmlMetadataChecked": true,
+      "exitCode": null,
+      "fixtureJwtMasks": 0,
+      "accountMasks": 0
+    },
+    {
+      "raw": "raw/pr26-66e748a/xml/TEST-com.ngng.api.transaction.read.TransactionReadSecurityChainTest.xml",
+      "shared": "xml/TEST-com.ngng.api.transaction.read.TransactionReadSecurityChainTest.xml",
+      "originalSha256": "47711b33555f7de54ccedd1998d1d46408f39c9c57aa4e0e57513a50f924b6b9",
+      "sharedSha256": "30ccb26cf2e2b230a2c9ae26f67dedae93d604cbd7eeb46a3d969033d63a06a5",
+      "originalBytes": 6749,
+      "sharedBytes": 6751,
+      "xmlMetadataChecked": true,
+      "exitCode": null,
+      "fixtureJwtMasks": 0,
+      "accountMasks": 0
+    },
+    {
+      "raw": "raw/pr26-66e748a/xml/TEST-com.ngng.api.transaction.status.TransactionStatusSecurityChainTest.xml",
+      "shared": "xml/TEST-com.ngng.api.transaction.status.TransactionStatusSecurityChainTest.xml",
+      "originalSha256": "16946d29f3d2c17fcb2e42f7326e3e99a13959c09161636e12c62dbb699b1dbc",
+      "sharedSha256": "aad88fe951799d2420596193017f2d013b012306739e16cb121e0c60ba55a2ef",
+      "originalBytes": 28094,
+      "sharedBytes": 28096,
+      "xmlMetadataChecked": true,
+      "exitCode": null,
+      "fixtureJwtMasks": 0,
+      "accountMasks": 0
+    },
+    {
+      "raw": "raw/pr26-66e748a/xml/TEST-com.ngng.api.user.point.controller.PointResponseSecurityChainTest.xml",
+      "shared": "xml/TEST-com.ngng.api.user.point.controller.PointResponseSecurityChainTest.xml",
+      "originalSha256": "3fe07e7ca331bad4e3c28dccacd351093acb0790b0cea55526cba0fec3282824",
+      "sharedSha256": "26d557fe59ca161f6e3690c1dfa747548b8910d7ff8d5831e054c81d2920d744",
+      "originalBytes": 5452,
+      "sharedBytes": 5454,
+      "xmlMetadataChecked": true,
+      "exitCode": null,
+      "fixtureJwtMasks": 0,
+      "accountMasks": 0
+    },
+    {
+      "raw": "raw/pr26-66e748a/xml/TEST-com.ngng.api.user.point.payment.PaymentAndStatusChainTest.xml",
+      "shared": "xml/TEST-com.ngng.api.user.point.payment.PaymentAndStatusChainTest.xml",
+      "originalSha256": "8713cc5bce5440a1ec1efd72bdf6eb3101b0a6cc70143182372d4340ae8fa523",
+      "sharedSha256": "36ca7fac6d2bf7fb9bfd8f0fd69cf67bdec19942ac8e65fcc93a7dec53920cd8",
+      "originalBytes": 2726,
+      "sharedBytes": 2728,
+      "xmlMetadataChecked": true,
+      "exitCode": null,
+      "fixtureJwtMasks": 0,
+      "accountMasks": 0
+    },
+    {
+      "raw": "raw/pr26-66e748a/xml/TEST-com.ngng.api.user.point.payment.PaymentTrustSecurityChainTest.xml",
+      "shared": "xml/TEST-com.ngng.api.user.point.payment.PaymentTrustSecurityChainTest.xml",
+      "originalSha256": "9c93c40fc316b315b6acd98da69f6dc25f484dc073fead2ebc5cd688798df58a",
+      "sharedSha256": "d9b86e3a48de1f8af4532ac1b6017a7ec2cce6017def9ab9e01699e225be831f",
+      "originalBytes": 17604,
+      "sharedBytes": 17606,
+      "xmlMetadataChecked": true,
+      "exitCode": null,
+      "fixtureJwtMasks": 0,
+      "accountMasks": 0
+    },
+    {
+      "raw": "raw/pr26-66e748a/xml/TEST-com.ngng.api.user.signup.SignupSecurityChainTest.xml",
+      "shared": "xml/TEST-com.ngng.api.user.signup.SignupSecurityChainTest.xml",
+      "originalSha256": "82584597ffc63a6b74b93e031287d49004606a7173999adab561cad0da1c2239",
+      "sharedSha256": "f4ffd113338fe43dba0e526581d34265cc3a663cb51f656b388d6a34a143c85c",
+      "originalBytes": 2677,
+      "sharedBytes": 2679,
+      "xmlMetadataChecked": true,
+      "exitCode": null,
+      "fixtureJwtMasks": 0,
+      "accountMasks": 0
+    },
+    {
+      "raw": "raw/pr26-66e748a/xml/TEST-com.ngng.api.user.signup.SignupVerificationTest.xml",
+      "shared": "xml/TEST-com.ngng.api.user.signup.SignupVerificationTest.xml",
+      "originalSha256": "570da45bf34068b4574ae8b6dab3e11fce995b3f8d8535b0264dfdc0803f1555",
+      "sharedSha256": "180d2b18054bc1bdc75eeffbdccdf7b728d21e0b1008e7833805eccd1be649c9",
+      "originalBytes": 6401,
+      "sharedBytes": 6403,
+      "xmlMetadataChecked": true,
+      "exitCode": null,
+      "fixtureJwtMasks": 0,
+      "accountMasks": 0
+    },
+    {
+      "raw": "raw/pr26-66e748a/xml/TEST-com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest.xml",
+      "shared": "xml/TEST-com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest.xml",
+      "originalSha256": "8da40171c4796bf7f8c00d48b9b5de527844b1693a467006996929f14be5d271",
+      "sharedSha256": "5ae8c2bd2c7306203bc63ed6b8fd241589b43e9fbf642a04fbfe0b839cb6c5ad",
+      "originalBytes": 10706,
+      "sharedBytes": 10708,
+      "xmlMetadataChecked": true,
+      "exitCode": null,
+      "fixtureJwtMasks": 0,
+      "accountMasks": 0
+    },
+    {
+      "raw": "raw/pr26-66e748a/xml/TEST-com.ngng.api.user.user.address.ConfirmAddressServiceTest.xml",
+      "shared": "xml/TEST-com.ngng.api.user.user.address.ConfirmAddressServiceTest.xml",
+      "originalSha256": "04a479104f66cb4ae3eb00ac40c2b98a144bec070ace2b58ab150762ea5f0d0e",
+      "sharedSha256": "9beeafd79780c0a6faaf26d63737caa5fb14b2b237e11a8d8a49e277addec248",
+      "originalBytes": 3756,
+      "sharedBytes": 3758,
+      "xmlMetadataChecked": true,
+      "exitCode": null,
+      "fixtureJwtMasks": 0,
+      "accountMasks": 0
+    },
+    {
+      "raw": "raw/pr26-66e748a/xml/TEST-com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest.xml",
+      "shared": "xml/TEST-com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest.xml",
+      "originalSha256": "315d27df9bf85757d44c723ab16d5b2ef0c490ea6596b8488885a9e3bf890f2f",
+      "sharedSha256": "091d2d2d387c339322003beafebfbfe93da573b385b3d591f0ef6305ba581a0f",
+      "originalBytes": 6328,
+      "sharedBytes": 6330,
+      "xmlMetadataChecked": true,
+      "exitCode": null,
+      "fixtureJwtMasks": 0,
+      "accountMasks": 0
+    },
+    {
+      "raw": "raw/pr26-66e748a/xml/TEST-com.ngng.api.user.user.confirmation.ConfirmAccountServiceTest.xml",
+      "shared": "xml/TEST-com.ngng.api.user.user.confirmation.ConfirmAccountServiceTest.xml",
+      "originalSha256": "c5b137eca6904389a3ca1af6fba5a49a2bdb51f84ab46751e8157085d0f91086",
+      "sharedSha256": "624fdede26473b44befaba02d21c76043fed675cf99bd476efcb124b110c05fc",
+      "originalBytes": 3322,
+      "sharedBytes": 3324,
+      "xmlMetadataChecked": true,
+      "exitCode": null,
+      "fixtureJwtMasks": 0,
+      "accountMasks": 0
+    },
+    {
+      "raw": "raw/pr26-66e748a/xml/TEST-com.ngng.api.user.user.dropout.DropOutSecurityChainTest.xml",
+      "shared": "xml/TEST-com.ngng.api.user.user.dropout.DropOutSecurityChainTest.xml",
+      "originalSha256": "a9aeb81f441945ddb3116464656810cf3f9cc284728c34fb89afee0e033e7bba",
+      "sharedSha256": "8e3cb1dd620aa53cc1ff1d0f9892b3a3868ad243a0b6e86626d1b0810f07d890",
+      "originalBytes": 10633,
+      "sharedBytes": 10635,
+      "xmlMetadataChecked": true,
+      "exitCode": null,
+      "fixtureJwtMasks": 0,
+      "accountMasks": 0
+    },
+    {
+      "raw": "raw/pr26-66e748a/xml/TEST-com.ngng.api.user.user.dropout.DropOutServiceTest.xml",
+      "shared": "xml/TEST-com.ngng.api.user.user.dropout.DropOutServiceTest.xml",
+      "originalSha256": "eb21b8809211f7df62fb398af6a521aed18dc8d79d93823cf0c212bd8b59b7eb",
+      "sharedSha256": "c4084ac9e89a6304118ab0a237dea1652973bc6263c30074a347d2b62c3e4bf4",
+      "originalBytes": 5506,
+      "sharedBytes": 5508,
+      "xmlMetadataChecked": true,
+      "exitCode": null,
+      "fixtureJwtMasks": 0,
+      "accountMasks": 0
+    }
+  ]
+}

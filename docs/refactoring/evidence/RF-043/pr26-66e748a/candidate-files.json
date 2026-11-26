@@ -1,0 +1,77 @@
+{
+  "pr": 26,
+  "head": "66e748a9567db9543f0872fd597098c3f802cacb",
+  "parent": "ce4d388ae37ec74f0d1ccf59b7be0436162b7ba3",
+  "tree": "ea211f0e943698f409d055c8cacc3607a7f0a1ce",
+  "originalWorktreeHead": "be5c615baabe921501964dcd0e3fd84fc252942a",
+  "candidateRoot": ".tmp/rf043-pr26-66e748a",
+  "archiveOptions": "git -c core.autocrlf=false archive --format=zip, extracted using tar -xf",
+  "archiveSha256": "06ec6001eec901e6daaa27fca5b3a1fb54c801152cb443b191c7db8759294537",
+  "trackedBlobCount": 2371,
+  "exactGitBlobMatch": true,
+  "orderedManifestSha256": "b3702195f199f7ca796de42b38705d8b6c09d11a91862f187489075604b07a66",
+  "orderedManifestMethod": "SHA-256 of UTF-8 path + TAB + raw-file SHA-256 + LF in git ls-tree -r order",
+  "normalizedSourceCount": 10,
+  "normalizedSources": [
+    {
+      "relative": "NGNG-backend/src/main/java/com/ngng/api/user/user/controller/JoinController.java",
+      "expectedSha1": "a2396a72696b0fcd877fa7eb7fb3e9bed5460f6c",
+      "sha256": "fed915c64a0a54cc9a051af19a5ed426775b02eb80d49576e01902cbafb894da",
+      "previousSha1": "e0b8734852c0cd88f2532b6555e0d4c2d7f2f942"
+    },
+    {
+      "relative": "NGNG-backend/src/main/java/com/ngng/api/user/user/dto/request/EmailAuthRequest.java",
+      "expectedSha1": "c412b6f67c0d62d85f2d8d0b6ba002a62d574260",
+      "sha256": "c0892bc7020dceeb0cb1b99f265ce0db8d52bcbaf7aaa134e3438f00daf51241",
+      "previousSha1": "83df437ba0b570bd49087f531cf6d8aeed49b7ad"
+    },
+    {
+      "relative": "NGNG-backend/src/main/java/com/ngng/api/user/user/dto/request/JoinRequest.java",
+      "expectedSha1": "6b304a44fd5ede0e93119141f628a1cc555acffc",
+      "sha256": "15673247eda8294328cf3a8ecfd1f885574572c1dec4c62f03b90a6d13df64e2",
+      "previousSha1": "efd1b6209e64410d9c39bd516228cea9b1013a5b"
+    },
+    {
+      "relative": "NGNG-backend/src/main/java/com/ngng/api/user/user/dto/request/PhoneNumberAuthRequest.java",
+      "expectedSha1": "4d428ab750ce8269e5005515413ffb74e1edeadf",
+      "sha256": "61a7d2cae5d5115fcfa01661ac56ec20d2925cc1c56fb92574c672a4aac3af74",
+      "previousSha1": "a56b1c280dafd4fa8fc1b099efb3dfe533aaabec"
+    },
+    {
+      "relative": "NGNG-backend/src/main/java/com/ngng/api/user/user/service/JoinService.java",
+      "expectedSha1": "2b18b18a0a99373ccfb4c8ee7a931cb89ee54aec",
+      "sha256": "cb03a926a3e6882fb4595b282039402d6b85a6b25dbcc4b6bc0a2882a7e41719",
+      "previousSha1": "aa78ba06a73bfaa2e11c1b76a5402e08faf2b907"
+    },
+    {
+      "relative": "NGNG-backend/src/test/java/com/ngng/api/isolation/Rf016IsolatedBootSmokeTest.java",
+      "expectedSha1": "72b21416cf182cb282093a2240c0534974a283d9",
+      "sha256": "07c7198ce63b31180b62f07e1fd7b4a6c67ae2ac41f9e51afcc18f962c42fd73",
+      "previousSha1": "633f6f1bb798b10f8dad3d7afaa350e6616a7eda"
+    },
+    {
+      "relative": "NGNG-backend/src/test/java/com/ngng/api/isolation/Rf016IsolationConfiguration.java",
+      "expectedSha1": "eb33f4253cbce7c336e481c333c52acdb3601058",
+      "sha256": "28a55aacdb0ec5a3a15ee11cc15acfa7804714d9ab075e767fb2943d66d0e6c2",
+      "previousSha1": "7c7dc2a600e5722619401d71f78bdead069b12da"
+    },
+    {
+      "relative": "NGNG-frontend/src/app/join/_pages/secondPage.tsx",
+      "expectedSha1": "c5f5e8634febf0013712f37eef218b1ebc9fba7d",
+      "sha256": "9a724a316e5330b704df076f10571589a9e0b3abc7073d055ab42069ce90c6d5",
+      "previousSha1": "acba998c178e513330f04750198907331492acef"
+    },
+    {
+      "relative": "NGNG-frontend/src/app/join/_pages/thirdPage.tsx",
+      "expectedSha1": "be0c77573fae659acf4734fbaefacc1379f16116",
+      "sha256": "7dc62e74950068f2f48baf95848f3ac02df51d3f246e95f8b23cc3c411ac1460",
+      "previousSha1": "76d5a525b154a32dc62f718f2aea5945f5facfc1"
+    },
+    {
+      "relative": "NGNG-frontend/src/app/join/joinPage.tsx",
+      "expectedSha1": "5d32e9e8a3884b4c6697af941253b56bef7a1a98",
+      "sha256": "2261f98d04018913e839a1c2ec302ca30acaceb2b4a5439d4fe74d49fef78b11",
+      "previousSha1": "ad734ac690e82fc9611457cd891f281acfb0fcc5"
+    }
+  ]
+}

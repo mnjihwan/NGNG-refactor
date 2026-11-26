@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" tests="30" skipped="0" failures="0" errors="0" timestamp="2026-11-26T01:24:17" hostname="[HOST]" time="0.123">
+  <properties/>
+  <testcase name="[1] kind=registered" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.011"/>
+  <testcase name="[2] kind=duplicate" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.005"/>
+  <testcase name="[1] accessKind=missing, own=true" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.009"/>
+  <testcase name="[2] accessKind=expired, own=true" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.007"/>
+  <testcase name="[3] accessKind=missing, own=false" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.004"/>
+  <testcase name="[4] accessKind=expired, own=false" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.004"/>
+  <testcase name="mandatoryCookieRemainsRequiredWithValidAccess()" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.004"/>
+  <testcase name="[1] kind=registered" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.003"/>
+  <testcase name="[2] kind=duplicate" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.003"/>
+  <testcase name="ownAccountRetains204HeadersAndState()" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.006"/>
+  <testcase name="[1] kind=missing" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.001"/>
+  <testcase name="[2] kind=malformed" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.0"/>
+  <testcase name="[3] kind=access-type" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.002"/>
+  <testcase name="[4] kind=refresh-type" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.001"/>
+  <testcase name="[5] kind=bad-refresh" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.0"/>
+  <testcase name="[1] cookieKind=other, own=true" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.006"/>
+  <testcase name="[2] cookieKind=malformed, own=true" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.005"/>
+  <testcase name="[3] cookieKind=other, own=false" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.004"/>
+  <testcase name="[4] cookieKind=malformed, own=false" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.003"/>
+  <testcase name="[1] role=USER, id=7001" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.003"/>
+  <testcase name="[2] role=USER, id=8001" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.002"/>
+  <testcase name="[3] role=ADMIN, id=7001" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.002"/>
+  <testcase name="[4] role=ADMIN, id=8001" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.003"/>
+  <testcase name="[1] kind=other" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.003"/>
+  <testcase name="[2] kind=registered-other" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.004"/>
+  <testcase name="[3] kind=duplicate-other" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.003"/>
+  <testcase name="[4] kind=missing-target" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.005"/>
+  <testcase name="[5] kind=null-id" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.004"/>
+  <testcase name="[6] kind=missing-caller" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.002"/>
+  <testcase name="[7] kind=null-caller-id" classname="com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest" time="0.001"/>
+  <system-out><![CDATA[2026-11-26 10:24:17.496 [Test worker] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6bd0cd96, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4fb3caaf, org.springframework.security.web.context.SecurityContextHolderFilter@21faefc, org.springframework.security.web.header.HeaderWriterFilter@515846fb, org.springframework.web.filter.CorsFilter@69abf6de, org.springframework.security.web.authentication.logout.LogoutFilter@7dab2d9e, com.ngng.api.global.security.filter.TokenFilter@4f9cb2b7, com.ngng.api.global.security.filter.LoginFilter@224d6aaf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7d06a0ff, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6e7a4e3a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@737a2afb, org.springframework.security.web.session.SessionManagementFilter@2039926c, org.springframework.security.web.access.ExceptionTranslationFilter@62a3a8a8, org.springframework.security.web.access.intercept.AuthorizationFilter@955f884]
+2026-11-26 10:24:17.503 [Test worker] INFO  o.s.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-26 10:24:17.503 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-26 10:24:17.503 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2026-11-26 10:24:17.548 [Test worker] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingRequestCookieException: Required cookie 'refreshToken' for method parameter type Cookie is not present]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
