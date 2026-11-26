@@ -38,35 +38,5 @@ docs/refactoring/evidence/RF-038/** -text
 # Preserve RF-044 evidence bytes and recorded hashes.
 docs/refactoring/evidence/RF-044/** -text
 
-# Preserve RF-043 verified candidate and shared evidence bytes.
+# Preserve RF-043 shared evidence bytes.
 /docs/refactoring/evidence/RF-043/** -text
-/NGNG-backend/src/main/java/com/ngng/api/user/user/controller/JoinAuthController.java -text
-/NGNG-backend/src/main/java/com/ngng/api/user/user/controller/JoinController.java -text
-/NGNG-backend/src/main/java/com/ngng/api/user/user/controller/SignupExceptionHandler.java -text
-/NGNG-backend/src/main/java/com/ngng/api/user/user/dto/request/EmailAuthRequest.java -text
-/NGNG-backend/src/main/java/com/ngng/api/user/user/dto/request/JoinRequest.java -text
-/NGNG-backend/src/main/java/com/ngng/api/user/user/dto/request/PhoneNumberAuthRequest.java -text
-/NGNG-backend/src/main/java/com/ngng/api/user/user/dto/request/SignupVerifyRequest.java -text
-/NGNG-backend/src/main/java/com/ngng/api/user/user/dto/response/EmailAuthResponse.java -text
-/NGNG-backend/src/main/java/com/ngng/api/user/user/dto/response/PhoneNumberAuthResponse.java -text
-/NGNG-backend/src/main/java/com/ngng/api/user/user/service/EmailAuthService.java -text
-/NGNG-backend/src/main/java/com/ngng/api/user/user/service/JoinService.java -text
-/NGNG-backend/src/main/java/com/ngng/api/user/user/service/PhoneNumberAuthService.java -text
-/NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/NurigoSignupSmsSender.java -text
-/NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/RedisSignupStore.java -text
-/NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/SignupCrypto.java -text
-/NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/SignupFailure.java -text
-/NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/SignupSmsSender.java -text
-/NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/SignupStore.java -text
-/NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/SignupTarget.java -text
-/NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/SignupVerification.java -text
-/NGNG-backend/src/test/java/com/ngng/api/isolation/Rf016IsolatedBootSmokeTest.java -text
-/NGNG-backend/src/test/java/com/ngng/api/isolation/Rf016IsolationConfiguration.java -text
-/NGNG-backend/src/test/java/com/ngng/api/user/signup/MemorySignupStore.java -text
-/NGNG-backend/src/test/java/com/ngng/api/user/signup/SignupSecurityChainTest.java -text
-/NGNG-backend/src/test/java/com/ngng/api/user/signup/SignupVerificationTest.java -text
-/NGNG-frontend/src/app/join/_pages/secondPage.tsx -text
-/NGNG-frontend/src/app/join/_pages/thirdPage.tsx -text
-/NGNG-frontend/src/app/join/joinPage.tsx -text
-/NGNG-frontend/src/app/join/signupApi.ts -text
-/NGNG-frontend/tests/rf043-signup.test.cjs -text
