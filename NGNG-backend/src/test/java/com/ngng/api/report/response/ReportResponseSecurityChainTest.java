@@ -83,7 +83,7 @@ class ReportResponseSecurityChainTest {
         images = context.getBean(ReportImageRepository.class); users = context.getBean(UserRepository.class);
         reset(reports, types, images, users); SecurityContextHolder.clearContext();
         report = fixture();
-        when(users.findUserByEmail(anyString())).thenReturn(Optional.of(User.builder().userId(1000L).build()));
+        when(users.findUserByEmail(anyString())).thenReturn(Optional.of(User.builder().userId(1000L).visible(true).role(Role.builder().roleType("ADMIN").build()).build()));
         when(types.findById(1L)).thenReturn(Optional.of(report.getReportType()));
         when(reports.findById(88L)).thenAnswer(call -> Optional.of(report));
         when(reports.save(any())).thenAnswer(call -> report);
@@ -123,6 +123,8 @@ class ReportResponseSecurityChainTest {
         };
     }
     JsonNode response(String op, String role) throws Exception {
+        User actor = person(1000L); actor.getRole().setRoleType(role);
+        doReturn(Optional.of(actor)).when(users).findUserByEmail(EMAIL);
         var result = mvc.perform(request(op).header("Authorization", "Bearer " + token("access", role, EMAIL, 3600)))
                 .andExpect(status().is(op.equals("create") ? 201 : 200)).andReturn();
         return mapper.readTree(result.getResponse().getContentAsByteArray());
@@ -157,13 +159,13 @@ class ReportResponseSecurityChainTest {
     @ParameterizedTest @ValueSource(strings = {"USER", "ADMIN", "UNCONFIRMED_USER"})
     void creationUsesDatabaseIdentityAndEightFields(String role) throws Exception {
         JsonNode tree = response("create", role); contract("create", tree);
-        verify(users).findUserByEmail(EMAIL); verify(types).findById(1L);
+        verify(users,times(2)).findUserByEmail(EMAIL); verify(types).findById(1L);
         verify(reports).save(argThat(r -> r.getReporterId().equals(1000L) && r.getUserId().equals(2000L) && r.getIsReport() == null));
     }
     @ParameterizedTest @ValueSource(strings = {"list", "detail", "patch"})
     void adminResponsesRetainOnlyApprovedUserFields(String op) throws Exception {
         JsonNode tree = response(op, "ADMIN"); contract(op, tree);
-        verifyNoInteractions(users, types);
+        verify(users).findUserByEmail(EMAIL); verifyNoMoreInteractions(users); verifyNoInteractions(types);
         if (op.equals("patch")) { assertTrue(report.getIsReport()); verify(reports, times(2)).findById(88L); verify(reports).save(report); }
         else verify(reports, never()).save(any());
     }
@@ -182,10 +184,12 @@ class ReportResponseSecurityChainTest {
     @ParameterizedTest @MethodSource("rejectedRoles")
     void nonAdminIdentitiesCannotReadOrPatch(String op, String role, String identity) throws Exception {
         String email = identity + "@example.test";
-        when(users.findUserByEmail(email)).thenReturn(Optional.of(person(identity.equals("reporter") ? 1000 : identity.equals("target") ? 2000 : 3000)));
+        User actor = person(identity.equals("reporter") ? 1000 : identity.equals("target") ? 2000 : 3000);
+        actor.getRole().setRoleType(role);
+        when(users.findUserByEmail(email)).thenReturn(Optional.of(actor));
         mvc.perform(request(op).header("Authorization", "Bearer " + token("access", role, email, 3600)))
                 .andExpect(status().isForbidden()).andExpect(content().string(""));
-        verifyNoInteractions(reports, types, users);
+        verify(users).findUserByEmail(email); verifyNoMoreInteractions(users); verifyNoInteractions(reports, types);
     }
     static Stream<Arguments> credentialMatrix() {
         return Stream.of("create", "list", "detail", "patch").flatMap(op ->

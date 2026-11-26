@@ -48,7 +48,7 @@ class TransactionStatusSecurityChainTest extends StatusChainHarness {
     }
     @ParameterizedTest @MethodSource("rolesAndTransitions")
     void actualChainEnforcesRecordedPartiesAndNormalExceptionalMatrix(String role, Long from, Long to, Long actor) throws Exception {
-        state(from); caller(actor);
+        state(from); caller(actor,role);
         boolean party = actor == 1000 || actor == 2000;
         boolean same = from.equals(to);
         boolean exceptional = to == 6 || to == 7;
@@ -93,12 +93,12 @@ class TransactionStatusSecurityChainTest extends StatusChainHarness {
     void malformedBodyRetains400BeforeService(String body) throws Exception {
         mvc.perform(put("/transaction/88").header("Authorization","Bearer " + token("access","USER",60))
                 .contentType("application/json").content(body)).andExpect(status().isBadRequest());
-        verifyNoInteractions(details, products, statuses, users);
+        verify(users).findUserByEmail(EMAIL); verifyNoMoreInteractions(users); verifyNoInteractions(details, products, statuses);
     }
     @Test void malformedPathRetains400BeforeService() throws Exception {
         mvc.perform(put("/transaction/invalid").header("Authorization","Bearer " + token("access","USER",60))
                 .contentType("application/json").content("{\"statusId\":3}")).andExpect(status().isBadRequest());
-        verifyNoInteractions(details, products, statuses, users);
+        verify(users).findUserByEmail(EMAIL); verifyNoMoreInteractions(users); verifyNoInteractions(details, products, statuses);
     }
     @ParameterizedTest @ValueSource(strings = {"seller", "consumer", "status"})
     void incompletePersistedPartiesOrStatusAre409WithoutWrites(String field) throws Exception {

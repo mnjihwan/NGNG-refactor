@@ -90,13 +90,15 @@ class PointResponseSecurityChainTest {
         details = context.getBean(TransactionDetailsRepository.class);
         reset(users, histories, products, details);
         PaymentFixture.allowPayment(products, details, 7001L, 1000L);
-        user = User.builder().userId(7001L).name("Fixture").email(EMAIL).password("synthetic-password")
+        user = User.builder().userId(7001L).visible(true).name("Fixture").email(EMAIL).password("synthetic-password")
                 .address("synthetic-address").phoneNumber("synthetic-phone").accountBank("synthetic-bank")
                 .accountNumber("synthetic-account").role(Role.builder().roleType("USER").build()).build();
         latest = history(102L, 1000L);
         when(users.findUserByEmail(EMAIL)).thenAnswer(inv -> {
-            var principal = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            assertNull(principal.getUser().getUserId(), "JWT must not supply a database ID");
+            if (SecurityContextHolder.getContext().getAuthentication() != null) {
+                var principal = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+                assertNull(principal.getUser().getUserId(), "JWT must not supply a database ID");
+            }
             return Optional.of(user);
         });
         when(histories.findLastByUserId(7001L)).thenReturn(Optional.of(latest));
@@ -133,6 +135,7 @@ class PointResponseSecurityChainTest {
         };
     }
     private JsonNode response(String operation, String role) throws Exception {
+        user.getRole().setRoleType(role);
         var result = mvc.perform(operation(operation).header("Authorization", "Bearer " + token(role)))
                 .andExpect(status().is(operation.equals("charge") ? 201 : 200)).andReturn();
         return mapper.readTree(result.getResponse().getContentAsByteArray());
@@ -157,7 +160,7 @@ class PointResponseSecurityChainTest {
     @ParameterizedTest @MethodSource("roleOperations")
     void roleResponseMatrixPreservesValuesAndDatabaseIdentity(String role, String operation) throws Exception {
         JsonNode result = response(operation, role);
-        verify(users).findUserByEmail(EMAIL);
+        verify(users,times(2)).findUserByEmail(EMAIL);
         if (operation.equals("latest")) {
             assertResponse(result, latest); verify(histories).findLastByUserId(7001L);
         } else if (operation.equals("all")) {
@@ -166,7 +169,7 @@ class PointResponseSecurityChainTest {
         } else {
             var saved = org.mockito.ArgumentCaptor.forClass(PointHistory.class);
             var order = inOrder(users, histories);
-            order.verify(users).findUserByEmail(EMAIL);
+            order.verify(users,times(2)).findUserByEmail(EMAIL);
             order.verify(users).lockUserIdForPointUpdate(7001L);
             order.verify(histories).findLatestCostForUpdate(7001L);
             order.verify(histories).save(saved.capture());

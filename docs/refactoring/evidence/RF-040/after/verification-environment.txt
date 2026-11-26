@@ -1,0 +1,7 @@
+검증 시각 2026-11-26T09:01:08.3127237+09:00
+HEAD be5c615baabe921501964dcd0e3fd84fc252942a
+Windows PowerShell 7.6.9
+JDK 파일 버전 17.0.10.0
+Gradle Wrapper 8.7, 기존 캐시, --offline --no-daemon
+기존 미커밋 RF-040 및 RF-043 변경과 .tmp/가 같은 작업트리에 공존
+선택 테스트만 실행, 합성 JWT 및 repository/메일/SMS/회원가입 저장소 대역, 외부 서비스 또는 운영 HTTP 미실행

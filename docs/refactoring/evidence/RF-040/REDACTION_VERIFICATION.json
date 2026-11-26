@@ -1,0 +1,453 @@
+{
+  "originalAndSharedHashPairs": 63,
+  "xmlFilesWithUnchangedTestResultsAndTiming": 61,
+  "startupAccountsMasked": 2,
+  "hostnamesMasked": 61,
+  "homePathsMasked": 4,
+  "sharedFilesMatchingOriginalManifest": 78,
+  "sharedTextFilesScanned": 149,
+  "remainingKnownIdentityCandidates": 0,
+  "verifiedRedactions": [
+    {
+      "path": "after/business-chains-first-console.txt",
+      "xml": false,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 0,
+      "homePathsMasked": 1
+    },
+    {
+      "path": "after/business-first/TEST-com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/business-first/TEST-com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/business-first/TEST-com.ngng.api.report.creation.ReportCreationSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/business-first/TEST-com.ngng.api.report.response.ReportResponseSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/business-first/TEST-com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/business-first/TEST-com.ngng.api.transaction.read.TransactionReadSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/business-first/TEST-com.ngng.api.transaction.status.TransactionStatusSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/business-first/TEST-com.ngng.api.user.point.controller.PointResponseSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/business-first/TEST-com.ngng.api.user.point.payment.PaymentAndStatusChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/business-first/TEST-com.ngng.api.user.point.payment.PaymentTrustSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/continuation/TEST-com.ngng.api.global.security.SecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/continuation/TEST-com.ngng.api.global.security.TokenFilterTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/continuation/TEST-com.ngng.api.global.security.TokenStateSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/continuation/TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/continuation/TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 1,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 1
+    },
+    {
+      "path": "after/continuation/TEST-com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/continuation/TEST-com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/continuation/TEST-com.ngng.api.report.creation.ReportCreationSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/continuation/TEST-com.ngng.api.report.response.ReportResponseSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/continuation/TEST-com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/continuation/TEST-com.ngng.api.transaction.read.TransactionReadSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/continuation/TEST-com.ngng.api.transaction.status.TransactionStatusSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/continuation/TEST-com.ngng.api.user.point.controller.PointResponseSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/continuation/TEST-com.ngng.api.user.point.payment.PaymentAndStatusChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/continuation/TEST-com.ngng.api.user.point.payment.PaymentTrustSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/continuation/TEST-com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/continuation/TEST-com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/continuation/TEST-com.ngng.api.user.user.dropout.DropOutSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/core/TEST-com.ngng.api.global.security.SecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/core/TEST-com.ngng.api.global.security.TokenFilterTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/core/TEST-com.ngng.api.global.security.TokenStateSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/identity-chains/TEST-com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/identity-chains/TEST-com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/identity-chains/TEST-com.ngng.api.user.user.dropout.DropOutSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/signup-compatibility/TEST-com.ngng.api.user.signup.SignupSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/signup-compatibility/TEST-com.ngng.api.user.signup.SignupVerificationTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/verified/TEST-com.ngng.api.global.security.SecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/verified/TEST-com.ngng.api.global.security.TokenFilterTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/verified/TEST-com.ngng.api.global.security.TokenStateSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/verified/TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/verified/TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 1,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 1
+    },
+    {
+      "path": "after/verified/TEST-com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/verified/TEST-com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/verified/TEST-com.ngng.api.report.creation.ReportCreationSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/verified/TEST-com.ngng.api.report.response.ReportResponseSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/verified/TEST-com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/verified/TEST-com.ngng.api.transaction.read.TransactionReadSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/verified/TEST-com.ngng.api.transaction.status.TransactionStatusSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/verified/TEST-com.ngng.api.user.point.controller.PointResponseSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/verified/TEST-com.ngng.api.user.point.payment.PaymentAndStatusChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/verified/TEST-com.ngng.api.user.point.payment.PaymentTrustSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/verified/TEST-com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/verified/TEST-com.ngng.api.user.user.address.ConfirmAddressServiceTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/verified/TEST-com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/verified/TEST-com.ngng.api.user.user.confirmation.ConfirmAccountServiceTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/verified/TEST-com.ngng.api.user.user.dropout.DropOutSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/verified/TEST-com.ngng.api.user.user.dropout.DropOutServiceTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "before/sandbox-lock-failure.txt",
+      "xml": false,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 0,
+      "homePathsMasked": 1
+    },
+    {
+      "path": "before/TEST-com.ngng.api.global.security.TokenStateSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/review-fixes/TEST-com.ngng.api.global.security.TokenStateSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/review-fixes/TEST-com.ngng.api.user.point.payment.PaymentTrustSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    },
+    {
+      "path": "after/review-fixes/TEST-com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest.xml",
+      "xml": true,
+      "startupAccountsMasked": 0,
+      "hostnamesMasked": 1,
+      "homePathsMasked": 0
+    }
+  ]
+}

@@ -70,6 +70,7 @@ class ProductAuthorizationSecurityChainTest {
         target = product(distinctId(1000));
         when(products.findById(77L)).thenReturn(Optional.of(target));
         when(products.save(any())).thenAnswer(inv -> inv.getArgument(0));
+        caller(1000);
     }
     @AfterEach void cleared() { assertNull(SecurityContextHolder.getContext().getAuthentication()); }
     static String token(String type, String role, long seconds) {
@@ -80,12 +81,16 @@ class ProductAuthorizationSecurityChainTest {
     MockHttpServletRequestBuilder operation(String method) {
         return method.equals("PUT") ? put("/products/77").contentType("application/json").content(BODY) : delete("/products/77");
     }
-    void caller(long id) {
+    void caller(long id) { caller(id,"USER"); }
+    void caller(long id, String role) {
         var caller = user(distinctId(id));
+        caller.setVisible(true); caller.setRole(com.ngng.api.user.user.entity.Role.builder().roleType(role).build());
         if (id == 1000) { assertEquals(target.getUser().getUserId(), caller.getUserId()); assertNotSame(target.getUser().getUserId(), caller.getUserId()); }
         when(users.findUserByEmail(EMAIL)).thenAnswer(inv -> {
-            var details = (com.ngng.api.global.security.custom.CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            assertNull(details.getUser().getUserId(), "JWT principal has no DB ID");
+            if (SecurityContextHolder.getContext().getAuthentication() != null) {
+                var details = (com.ngng.api.global.security.custom.CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+                assertNull(details.getUser().getUserId(), "JWT principal has no DB ID");
+            }
             return Optional.of(caller);
         });
     }
@@ -93,7 +98,7 @@ class ProductAuthorizationSecurityChainTest {
             "PUT,UNCONFIRMED_USER,1000", "PUT,UNCONFIRMED_USER,2000", "DELETE,USER,1000", "DELETE,USER,2000",
             "DELETE,ADMIN,1000", "DELETE,ADMIN,2000", "DELETE,UNCONFIRMED_USER,1000", "DELETE,UNCONFIRMED_USER,2000"})
     void roleOwnershipMatrix(String method, String role, long id) throws Exception {
-        caller(id);
+        caller(id,role);
         boolean roleDenied = role.equals("UNCONFIRMED_USER");
         boolean objectDenied = role.equals("USER") && id != 1000;
         var result = mvc.perform(operation(method).header("Authorization", "Bearer " + token("access", role, 3600)));
@@ -102,7 +107,7 @@ class ProductAuthorizationSecurityChainTest {
             assertEquals("original", target.getTitle()); assertTrue(target.getVisible()); assertTrue(target.getForSale());
             assertEquals("old", target.getTags().get(0).getTagName());
             verifyNoInteractions(tags); verify(products, never()).save(any());
-            if (roleDenied) verifyNoInteractions(products, users);
+            if (roleDenied) { verifyNoInteractions(products); verify(users).findUserByEmail(EMAIL); verifyNoMoreInteractions(users); }
         } else if (method.equals("PUT")) {
             result.andExpect(status().isOk()).andExpect(jsonPath("$.id").value(77))
                     .andExpect(jsonPath("$.title").value("changed")).andExpect(jsonPath("$.price").value(400))
@@ -114,7 +119,7 @@ class ProductAuthorizationSecurityChainTest {
             result.andExpect(status().isOk()).andExpect(content().string("77"));
             assertFalse(target.getVisible()); assertFalse(target.getForSale()); verify(products).save(target);
         }
-        if (!roleDenied && role.equals("USER")) verify(users).findUserByEmail(EMAIL);
+        if (!roleDenied && role.equals("USER")) verify(users,times(2)).findUserByEmail(EMAIL);
         if (!roleDenied) verify(products).findById(77L);
     }
     @ParameterizedTest @CsvSource({"PUT,missing", "PUT,malformed", "PUT,refresh-type", "DELETE,missing", "DELETE,malformed", "DELETE,refresh-type"})
@@ -143,7 +148,7 @@ class ProductAuthorizationSecurityChainTest {
         String issued = response.getHeader("Authorization"); assertNotNull(issued);
         assertEquals(EMAIL, context.getBean(JwtTokenVerifier.class).getEmail(issued));
         assertEquals("access", context.getBean(JwtTokenVerifier.class).getType(issued));
-        verify(users).findUserByEmail(EMAIL);
+        verify(users,times(2)).findUserByEmail(EMAIL);
     }
     @Test void deleteBusinessRefusalRemains204WithoutWrites() throws Exception {
         caller(1000); target.setTransactionDetails(TransactionDetails.builder().status(new TransactionStatus(1L, "active")).build());
@@ -155,12 +160,12 @@ class ProductAuthorizationSecurityChainTest {
     void badPathRemains400(String method) throws Exception {
         var request = method.equals("PUT") ? put("/products/bad").contentType("application/json").content(BODY) : delete("/products/bad");
         mvc.perform(request.header("Authorization", "Bearer " + token("access", "USER", 3600))).andExpect(status().isBadRequest());
-        verifyNoInteractions(products, users, tags);
+        verify(users).findUserByEmail(EMAIL); verifyNoMoreInteractions(users); verifyNoInteractions(products, tags);
     }
     @Test void badBodyRemains400() throws Exception {
         mvc.perform(put("/products/77").contentType("application/json").content("{")
                 .header("Authorization", "Bearer " + token("access", "USER", 3600))).andExpect(status().isBadRequest());
-        verifyNoInteractions(products, users, tags);
+        verify(users).findUserByEmail(EMAIL); verifyNoMoreInteractions(users); verifyNoInteractions(products, tags);
     }
     @Configuration @EnableWebMvc @EnableWebSecurity @Import({SecurityConfig.class, ProductService.class, AuthService.class})
     static class IsolatedConfiguration {

@@ -73,8 +73,10 @@ class DropOutSecurityChainTest {
         transaction = TransactionDetails.builder().id(9001L).consumer(caller).seller(target).price(1000L)
                 .status(TransactionStatus.builder().id(1L).build()).build();
         when(users.findUserByEmail(EMAIL)).thenAnswer(inv -> {
-            var principal = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            assertNull(principal.getUser().getUserId(), "TokenFilter supplies email, not a database identity");
+            if (SecurityContextHolder.getContext().getAuthentication() != null) {
+                var principal = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+                assertNull(principal.getUser().getUserId(), "TokenFilter supplies email, not a database identity");
+            }
             return Optional.of(caller);
         });
         when(users.findById(7001L)).thenReturn(Optional.of(caller));
@@ -107,13 +109,20 @@ class DropOutSecurityChainTest {
                 Stream.of(true, false).map(visible -> Arguments.of(role, visible)));
     }
     @ParameterizedTest @MethodSource("selfMatrix")
-    void existingRolesCanToggleSelfWithNoRefreshCookie(String role, boolean visible) throws Exception {
+    void currentActiveRolesCanToggleSelfAndInactiveOrUnknownDatabaseRoleCannot(String role, boolean visible) throws Exception {
+        caller.setRole(Role.builder().roleType(role).build());
+        if (!visible || role.equals("FUTURE_ROLE")) {
+            caller.setVisible(visible); var beforeCaller = DropOutServiceTest.state(caller); var beforeTarget = DropOutServiceTest.state(target);
+            mvc.perform(dropout("7001").header("Authorization", "Bearer " + token(role)))
+                    .andExpect(status().isUnauthorized()).andExpect(header().doesNotExist("Authorization"));
+            verify(users).findUserByEmail(EMAIL); noMutation(beforeCaller, beforeTarget); return;
+        }
         caller.setVisible(visible); List<Object> expected = new ArrayList<>(DropOutServiceTest.state(caller)); expected.set(7, !visible);
         mvc.perform(dropout("7001").header("Authorization", "Bearer " + token(role)))
                 .andExpect(status().isNoContent()).andExpect(content().string(""))
                 .andExpect(header().doesNotExist("Authorization")).andExpect(header().doesNotExist("Set-Cookie"));
         assertEquals(expected, DropOutServiceTest.state(caller)); assertTrue(target.getVisible());
-        var order = inOrder(users, caller); order.verify(users).findUserByEmail(EMAIL);
+        var order = inOrder(users, caller); order.verify(users,times(2)).findUserByEmail(EMAIL);
         order.verify(users).findById(7001L); order.verify(caller).changeVisible();
         verifyNoMoreInteractions(users); verify(target, never()).changeVisible(); relatedStateUnchanged();
     }
@@ -123,19 +132,21 @@ class DropOutSecurityChainTest {
     }
     @ParameterizedTest @MethodSource("otherMatrix")
     void authenticatedOtherAndNullIdsAreForbiddenBeforeLookup(String role, String id, boolean visible) throws Exception {
+        caller.setRole(Role.builder().roleType(role).build());
         target.setVisible(visible); var beforeCaller = DropOutServiceTest.state(caller); var beforeTarget = DropOutServiceTest.state(target);
         mvc.perform(dropout(id).header("Authorization", "Bearer " + token(role)))
                 .andExpect(status().isForbidden()).andExpect(content().string(""))
                 .andExpect(header().doesNotExist("Authorization")).andExpect(header().doesNotExist("Set-Cookie"));
-        verify(users).findUserByEmail(EMAIL); noMutation(beforeCaller, beforeTarget);
+        verify(users,times(2)).findUserByEmail(EMAIL); noMutation(beforeCaller, beforeTarget);
     }
-    @Test void sameTokenCanStillReactivateSelfAsSeparatePolicyRemains() throws Exception {
+    @Test void sameTokenCannotReactivateSelfAfterFirstDropout() throws Exception {
         String access = token("USER");
-        for (boolean visible : List.of(false, true)) {
-            mvc.perform(delete("/dropout").contentType("application/json").content("{\"id\":7001}")
-                            .header("Authorization", "Bearer " + access)).andExpect(status().isNoContent());
-            assertEquals(visible, caller.getVisible());
-        }
+        mvc.perform(dropout("7001").header("Authorization", "Bearer " + access)).andExpect(status().isNoContent());
+        assertFalse(caller.getVisible());
+        mvc.perform(dropout("7001").header("Authorization", "Bearer " + access)
+                .cookie(new Cookie("refreshToken",token(EMAIL,"USER","refresh",3600000))))
+                .andExpect(status().isUnauthorized()).andExpect(header().doesNotExist("Authorization"));
+        assertFalse(caller.getVisible()); verify(caller).changeVisible(); verify(users,times(3)).findUserByEmail(EMAIL);
     }
     static Stream<Arguments> fallbackMatrix() {
         return Stream.of("missing", "expired").flatMap(access -> Stream.of("USER", "UNCONFIRMED_USER", "ADMIN")
@@ -143,6 +154,7 @@ class DropOutSecurityChainTest {
     }
     @ParameterizedTest @MethodSource("fallbackMatrix")
     void fallbackOnlyIssuesCallerAccessAndStillChecksOwnership(String access, String role, boolean own) throws Exception {
+        caller.setRole(Role.builder().roleType(role).build());
         var beforeCaller = DropOutServiceTest.state(caller); var beforeTarget = DropOutServiceTest.state(target);
         var request = dropout(own ? "7001" : "7002")
                 .cookie(new Cookie("refreshToken", token(EMAIL, role, "refresh", 3600000)));
@@ -152,7 +164,7 @@ class DropOutSecurityChainTest {
         String generated = result.getResponse().getHeader("Authorization"); assertNotNull(generated);
         var claims = context.getBean(JwtTokenVerifier.class).parseRawToken(generated.substring(7));
         assertEquals(EMAIL, claims.getSubject()); assertEquals(role, claims.get("role")); assertEquals("access", claims.get("type"));
-        verify(users).findUserByEmail(EMAIL);
+        verify(users,times(2)).findUserByEmail(EMAIL);
         if (own) { assertFalse(caller.getVisible()); assertTrue(target.getVisible()); verify(target, never()).changeVisible(); relatedStateUnchanged(); }
         else noMutation(beforeCaller, beforeTarget);
     }
@@ -162,7 +174,7 @@ class DropOutSecurityChainTest {
         mvc.perform(dropout("7002").header("Authorization", "Bearer " + token("USER")).cookie(new Cookie("refreshToken", refresh)))
                 .andExpect(status().isForbidden()).andExpect(header().doesNotExist("Authorization"))
                 .andExpect(header().doesNotExist("Set-Cookie"));
-        verify(users).findUserByEmail(EMAIL); verify(users, never()).findUserByEmail(target.getEmail());
+        verify(users,times(2)).findUserByEmail(EMAIL); verify(users, never()).findUserByEmail(target.getEmail());
         verify(users, never()).findById(any()); assertTrue(caller.getVisible()); assertTrue(target.getVisible());
     }
     @ParameterizedTest @ValueSource(strings = {"missing", "malformed", "forged", "refresh-as-access", "blank-role", "blank-subject", "missing-exp", "missing-type"})
@@ -188,31 +200,33 @@ class DropOutSecurityChainTest {
         verifyNoInteractions(users); assertTrue(caller.getVisible()); assertTrue(target.getVisible());
     }
     @ParameterizedTest @ValueSource(strings = {"missing", "null-id"})
-    void unresolvedDatabaseCallerIsForbidden(String kind) throws Exception {
+    void unresolvedDatabaseCallerIsUnauthorizedBeforeService(String kind) throws Exception {
         if (kind.equals("missing")) doReturn(Optional.empty()).when(users).findUserByEmail(EMAIL);
         else caller.setUserId(null);
         var beforeCaller = DropOutServiceTest.state(caller); var beforeTarget = DropOutServiceTest.state(target);
-        mvc.perform(dropout("7001").header("Authorization", "Bearer " + token("USER"))).andExpect(status().isForbidden());
+        mvc.perform(dropout("7001").header("Authorization", "Bearer " + token("USER"))).andExpect(status().isUnauthorized());
+        verify(users).findUserByEmail(EMAIL);
         noMutation(beforeCaller, beforeTarget);
     }
     @ParameterizedTest @ValueSource(strings = {"", "{broken", "[]"})
     void malformedOrMissingBodyKeepsMvc400(String body) throws Exception {
         mvc.perform(delete("/dropout").contentType("application/json").content(body)
                 .header("Authorization", "Bearer " + token("USER"))).andExpect(status().isBadRequest());
-        verifyNoInteractions(users); verify(caller, never()).changeVisible(); verify(target, never()).changeVisible();
+        verify(users).findUserByEmail(EMAIL); verifyNoMoreInteractions(users); verify(caller, never()).changeVisible(); verify(target, never()).changeVisible();
     }
     @ParameterizedTest @ValueSource(strings = {"USER", "UNCONFIRMED_USER", "ADMIN"})
     void separateAdminDeleteRetainsExistingRoleAndFalseAssignment(String role) throws Exception {
+        caller.setRole(Role.builder().roleType(role).build());
         when(users.save(target)).thenReturn(target);
         var request = delete("/admin/users/7002").header("Authorization", "Bearer " + token(role));
         if (role.equals("ADMIN")) {
             mvc.perform(request).andExpect(status().isOk()).andExpect(content().string("7002"));
             assertFalse(target.getVisible()); verify(users).findById(7002L); verify(users).save(target);
-            verify(target, never()).changeVisible(); verify(users, never()).findUserByEmail(any());
+            verify(target, never()).changeVisible(); verify(users).findUserByEmail(EMAIL);
             mvc.perform(delete("/admin/users/7002").header("Authorization", "Bearer " + token(role))).andExpect(status().isOk());
             assertFalse(target.getVisible());
         } else {
-            mvc.perform(request).andExpect(status().isForbidden()); verifyNoInteractions(users); assertTrue(target.getVisible());
+            mvc.perform(request).andExpect(status().isForbidden()); verify(users).findUserByEmail(EMAIL); verifyNoMoreInteractions(users); assertTrue(target.getVisible());
         }
         assertTrue(caller.getVisible()); relatedStateUnchanged();
     }

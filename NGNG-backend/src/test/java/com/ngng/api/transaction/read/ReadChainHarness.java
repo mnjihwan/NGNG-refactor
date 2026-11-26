@@ -13,6 +13,7 @@ import com.ngng.api.transaction.repository.TransactionDetailsRepository;
 import com.ngng.api.transaction.repository.TransactionStatusRepository;
 import com.ngng.api.transaction.service.TransactionDetailsService;
 import com.ngng.api.transaction.service.TransactionRequestService;
+import com.ngng.api.user.user.entity.Role;
 import com.ngng.api.user.user.entity.User;
 import com.ngng.api.user.user.repository.UserRepository;
 import com.ngng.api.user.user.service.AuthService;
@@ -74,6 +75,7 @@ abstract class ReadChainHarness {
         reset(details, statuses, products, users, requests);
         transaction = spy(ReadFixture.graph());
         when(details.findById(88L)).thenReturn(Optional.of(transaction));
+        caller(1000L);
     }
     @AfterEach void contextClearedAndReadOnly() {
         assertNull(SecurityContextHolder.getContext().getAuthentication());
@@ -85,14 +87,20 @@ abstract class ReadChainHarness {
         verify(transaction, never()).setStatus(any());
         verifyNoInteractions(statuses, products, requests);
     }
-    void caller(Long userId) {
+    User caller(Long userId) { return caller(userId, "USER"); }
+    User caller(Long userId, String role) {
         User caller = ReadFixture.user(userId);
+        caller.setVisible(true);
+        caller.setRole(Role.builder().roleType(role).build());
         when(users.findUserByEmail(EMAIL)).thenAnswer(invocation -> {
-            var principal = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            assertNull(principal.getUser().getUserId(), "ID must be resolved from the token email by AuthService");
-            assertEquals(EMAIL, principal.getUser().getEmail());
+            if (SecurityContextHolder.getContext().getAuthentication() != null) {
+                var principal = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+                assertNull(principal.getUser().getUserId(), "ID must be resolved from the token email by AuthService");
+                assertEquals(EMAIL, principal.getUser().getEmail());
+            }
             return Optional.of(caller);
         });
+        return caller;
     }
     static String token(String type, String role, long seconds) {
         return Jwts.builder().setSubject(EMAIL).claim("role", role).claim("type", type)

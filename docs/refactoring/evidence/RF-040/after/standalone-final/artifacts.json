@@ -1,0 +1,340 @@
+{
+  "recordedAt": "2026-11-26T09:40:10.2933146+09:00",
+  "environment": {
+    "powershell": "7.6.9",
+    "java": "17.0.10.0",
+    "gradle": "8.7 offline cache"
+  },
+  "scope": "Standalone backend candidate only; no live DB, Redis, mail, SMS, HTTP or performance tests",
+  "redactions": "Windows home path variants, XML hostnames, OS account in Boot startup; XML suite/testcase metadata apart from hostname and outcomes unchanged",
+  "runs": [
+    {
+      "run": "standalone",
+      "suites": 21,
+      "tests": 1221.0,
+      "skipped": 0.0,
+      "failures": 6.0,
+      "errors": 0.0,
+      "consoleExitCode": 1
+    },
+    {
+      "run": "standalone-final",
+      "suites": 21,
+      "tests": 1221.0,
+      "skipped": 0.0,
+      "failures": 0.0,
+      "errors": 0.0,
+      "consoleExitCode": 0
+    }
+  ],
+  "originalsAndShared": [
+    {
+      "raw": "raw/after/standalone/backend-console.txt",
+      "shared": "after/standalone/backend-console.txt",
+      "rawSha256": "4270aa122c958d2230a57c0acf3dce18bf7c1b3f6db54e63d32f880e62a15cbb",
+      "sharedSha256": "3e25a43678055e8ae52e089e30e4744c25b5aa732c04f768321fd92cfa4d16d5",
+      "xmlOutcomesUnchanged": null
+    },
+    {
+      "raw": "raw/after/standalone/xml/TEST-com.ngng.api.global.security.SecurityChainTest.xml",
+      "shared": "after/standalone/xml/TEST-com.ngng.api.global.security.SecurityChainTest.xml",
+      "rawSha256": "8adc5952a3a3fa1297f024b5e7b17068fc4d010a26543f45c78d99171a13f491",
+      "sharedSha256": "c3995d57cf44fd6ff79ddbda06cc4246657e5834e63122ade003b9ba6f33e685",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone/xml/TEST-com.ngng.api.global.security.TokenFilterTest.xml",
+      "shared": "after/standalone/xml/TEST-com.ngng.api.global.security.TokenFilterTest.xml",
+      "rawSha256": "25acacefcfec04441ef6b2ffc3d78fe2a75d229a49c5428362c62bc85e941ea1",
+      "sharedSha256": "50f2d264239c11b710a144332a56446e7bac9c8e30bd08c8e39d18678f95aed5",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone/xml/TEST-com.ngng.api.global.security.TokenStateSecurityChainTest.xml",
+      "shared": "after/standalone/xml/TEST-com.ngng.api.global.security.TokenStateSecurityChainTest.xml",
+      "rawSha256": "27ee9821a4dd753e6e796b4c7df8b1a976c0b2ac2fda251f6c3e3ae907cfc4e6",
+      "sharedSha256": "9024be7e70dd60fd6aa88e220b91cb194b4057dfe250d08634e4b2d490ffaffc",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone/xml/TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+      "shared": "after/standalone/xml/TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+      "rawSha256": "4169caab0a87aec139bbfe931afd580b9bb59c40c88a022f38351d1dc06fc350",
+      "sharedSha256": "67fb316e1ba7bf564f2b5bb89ef81db4dedb97a88b75b19b01e144a8c24433fa",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone/xml/TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+      "shared": "after/standalone/xml/TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+      "rawSha256": "eaa8c2388b470ae05d7c0f1d37dac09a132ea8433f9feb1bbbf53050fb9f102e",
+      "sharedSha256": "36d60d68dfa65d2cfde45eda2f7d598285d3c8e7ff34db89fd6c3bdbe48bdf28",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone/xml/TEST-com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest.xml",
+      "shared": "after/standalone/xml/TEST-com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest.xml",
+      "rawSha256": "50d4c17b00fadc870813e1496581db9a3cfa30faf842152908a0b455a338df36",
+      "sharedSha256": "c41222a2e83f030515f5c4e5b8e94ffec3fba64d67ce0f72855d5215e6990cf1",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone/xml/TEST-com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest.xml",
+      "shared": "after/standalone/xml/TEST-com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest.xml",
+      "rawSha256": "92e2369434f61bcd877052cd7ab8317bc7814e8bcacbbd467cc5c3922dc50272",
+      "sharedSha256": "22ae2eb28363ed876956b21455223e751e7dba532984a117d96c68e03e263307",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone/xml/TEST-com.ngng.api.report.creation.ReportCreationSecurityChainTest.xml",
+      "shared": "after/standalone/xml/TEST-com.ngng.api.report.creation.ReportCreationSecurityChainTest.xml",
+      "rawSha256": "da3c6b1312cc3dc8fe0e7148231467df08568743d2aaa44160fb4f21a78a8543",
+      "sharedSha256": "40412ba9fbc90d818374232663060cc69b0e18d5a6f889020989ea4386986ff7",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone/xml/TEST-com.ngng.api.report.response.ReportResponseSecurityChainTest.xml",
+      "shared": "after/standalone/xml/TEST-com.ngng.api.report.response.ReportResponseSecurityChainTest.xml",
+      "rawSha256": "3335920f887d49bdd6e04758be48c3635deb8e952bec0e7b2764d959c6e4894e",
+      "sharedSha256": "184bde34ec8d7e6c09c9bf2eec2cc79365c1a1cec7e3686903f01c365e621076",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone/xml/TEST-com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest.xml",
+      "shared": "after/standalone/xml/TEST-com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest.xml",
+      "rawSha256": "b2fcb128e6f216cf23a08b8dce2d7ebd1b959ed52b1004babfdd121807089f63",
+      "sharedSha256": "2dd626ea9ee26eb6a165c33ab19ca6d35e6da26c5621d1c245a1237ba25e5b36",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone/xml/TEST-com.ngng.api.transaction.read.TransactionReadSecurityChainTest.xml",
+      "shared": "after/standalone/xml/TEST-com.ngng.api.transaction.read.TransactionReadSecurityChainTest.xml",
+      "rawSha256": "0ebfb868a6787ec67ecd74419fb55611833dd5121f175cf74d62280db3dd289b",
+      "sharedSha256": "80314785a9249ac65ff252718f8a20cadc3863d268006c91d250b46227868212",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone/xml/TEST-com.ngng.api.transaction.status.TransactionStatusSecurityChainTest.xml",
+      "shared": "after/standalone/xml/TEST-com.ngng.api.transaction.status.TransactionStatusSecurityChainTest.xml",
+      "rawSha256": "485f5677f4e056c488de68f5762f07ee9eaa81ede514bb8da6dee1b997635931",
+      "sharedSha256": "841fbf46c78b78a5ced9817ca2566871fad492374bc937f98b0cebc2a21a8ab8",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone/xml/TEST-com.ngng.api.user.point.controller.PointResponseSecurityChainTest.xml",
+      "shared": "after/standalone/xml/TEST-com.ngng.api.user.point.controller.PointResponseSecurityChainTest.xml",
+      "rawSha256": "6ff35441ea325a8c41541fd5c6d7005361a78eabde909edc0cd531c8d500afa0",
+      "sharedSha256": "a2f8ec4d9667db230aae00901f56700abe8eeef2557aa81b29fadd7dc8f75100",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone/xml/TEST-com.ngng.api.user.point.payment.PaymentAndStatusChainTest.xml",
+      "shared": "after/standalone/xml/TEST-com.ngng.api.user.point.payment.PaymentAndStatusChainTest.xml",
+      "rawSha256": "8038310336a83323efe3036b378ec2928c38c7effec1f13aa5bd5d66473afd27",
+      "sharedSha256": "721251fa5b0f7107ae529f21ae75d119e032095a3782ce1610d37f0b9227ab61",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone/xml/TEST-com.ngng.api.user.point.payment.PaymentTrustSecurityChainTest.xml",
+      "shared": "after/standalone/xml/TEST-com.ngng.api.user.point.payment.PaymentTrustSecurityChainTest.xml",
+      "rawSha256": "9f6bdaddf2baa76f31778a6af5afe8ede6b5f05c5911bd17411d8dbf0e359fa2",
+      "sharedSha256": "66fc3cdc70dae0c0cf48b5a8634d6666c9e53d3039236cb1284a800413b372c2",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone/xml/TEST-com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest.xml",
+      "shared": "after/standalone/xml/TEST-com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest.xml",
+      "rawSha256": "b5932f79c02027a9ecc0308cc15949d525ab43fa1cde391b4960097b0983eec2",
+      "sharedSha256": "d1b2549b24d5f6c181beeefd3d75ea32f59d617226a111e0c35c9f45d900582c",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone/xml/TEST-com.ngng.api.user.user.address.ConfirmAddressServiceTest.xml",
+      "shared": "after/standalone/xml/TEST-com.ngng.api.user.user.address.ConfirmAddressServiceTest.xml",
+      "rawSha256": "38f1d71c9497c51305bcdf482b8b515f0d78ffa7858079087fb2c57dc45e9132",
+      "sharedSha256": "ce9f409c98659b648528f1df87339062f1c5fda950964f49803a7f4054ecf03e",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone/xml/TEST-com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest.xml",
+      "shared": "after/standalone/xml/TEST-com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest.xml",
+      "rawSha256": "25d7627fef9fecae6d99585c930599c16761210036d6b74e7f0a74f66b1105a8",
+      "sharedSha256": "dc9b70bdbfe1460e78ad78014a238800d15cdba1cdd59464484215e930f60b73",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone/xml/TEST-com.ngng.api.user.user.confirmation.ConfirmAccountServiceTest.xml",
+      "shared": "after/standalone/xml/TEST-com.ngng.api.user.user.confirmation.ConfirmAccountServiceTest.xml",
+      "rawSha256": "462a6ffa8b7755914382d398525dfa10b80392451c085a5aff0dec2de6c37d07",
+      "sharedSha256": "a300f20fe86c9a49482f70deefc0255e8e5db38e59712666827f5918e8f3b518",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone/xml/TEST-com.ngng.api.user.user.dropout.DropOutSecurityChainTest.xml",
+      "shared": "after/standalone/xml/TEST-com.ngng.api.user.user.dropout.DropOutSecurityChainTest.xml",
+      "rawSha256": "2b5081275e2f8065b8ce0ce70a071939eda18a8ec5216272d4ae51cab96ecab0",
+      "sharedSha256": "da867c229348c9d679984d6285993cfe15207c705593ba0a7855dd2dc825c25d",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone/xml/TEST-com.ngng.api.user.user.dropout.DropOutServiceTest.xml",
+      "shared": "after/standalone/xml/TEST-com.ngng.api.user.user.dropout.DropOutServiceTest.xml",
+      "rawSha256": "00c451239cf24c4e0b8ebeb22f1786f7a9345fc866ee4d6b34c27ed62d7deb90",
+      "sharedSha256": "831ca617f3792b8a0f10b2f6689fbb5830293c60bbb7eaaa196db224eba93418",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone-final/backend-console.txt",
+      "shared": "after/standalone-final/backend-console.txt",
+      "rawSha256": "e38c0b552415d4e321c8e9b2029cebcb8e1976886074b50a9be209291341d278",
+      "sharedSha256": "e38c0b552415d4e321c8e9b2029cebcb8e1976886074b50a9be209291341d278",
+      "xmlOutcomesUnchanged": null
+    },
+    {
+      "raw": "raw/after/standalone-final/xml/TEST-com.ngng.api.global.security.SecurityChainTest.xml",
+      "shared": "after/standalone-final/xml/TEST-com.ngng.api.global.security.SecurityChainTest.xml",
+      "rawSha256": "1e126da32a873439dc443669fe2e186eed507c954b196a9302bb606f4932c17c",
+      "sharedSha256": "cbb2ff13ae5e74f04bef2e74287ea1fa6560c19366544c0ec1a5148f732046fe",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone-final/xml/TEST-com.ngng.api.global.security.TokenFilterTest.xml",
+      "shared": "after/standalone-final/xml/TEST-com.ngng.api.global.security.TokenFilterTest.xml",
+      "rawSha256": "98ba93c092bdfc5feadd85dcb9cf7fb5b45caed2304ca6831277d045cbb2b5ee",
+      "sharedSha256": "b9f1e03bb5b70b3edfd13441ff8c80ec07e94cadf73e149cad6a328b1601165f",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone-final/xml/TEST-com.ngng.api.global.security.TokenStateSecurityChainTest.xml",
+      "shared": "after/standalone-final/xml/TEST-com.ngng.api.global.security.TokenStateSecurityChainTest.xml",
+      "rawSha256": "80d38f6837daba2f6add14cedb632ffa3cb47a8f74bf77da67c091b51c9106cf",
+      "sharedSha256": "a1c936e5c167cb979958670c4795422628d3f867e78a3ae5ed011e6632035aa0",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone-final/xml/TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+      "shared": "after/standalone-final/xml/TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+      "rawSha256": "6904e12b3acc17c98335fdd385e3659c5f6aafd178533aff452e02db1c9b8463",
+      "sharedSha256": "28919ea5a34ff19834c09d95450680b84e478ef2771280631bdefe08c1250622",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone-final/xml/TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+      "shared": "after/standalone-final/xml/TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+      "rawSha256": "a2d49b7d05060f19b63fc6026c63f974b7d9cfc0cad048c61e40141aaca73845",
+      "sharedSha256": "ee16f763aec9241924a336e8ae28eda93a7c286cc73e18753a0bad9e131f9287",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone-final/xml/TEST-com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest.xml",
+      "shared": "after/standalone-final/xml/TEST-com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest.xml",
+      "rawSha256": "b175e360fae971eb08ef44d9cdbd17ac925274c5ccc474e7ca8354ef9a4c625c",
+      "sharedSha256": "0d919da07bd5b7a1615fd4e07d187cf198ddc51ce38067bcfdb5e541cc58f5bc",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone-final/xml/TEST-com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest.xml",
+      "shared": "after/standalone-final/xml/TEST-com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest.xml",
+      "rawSha256": "ae3a5d72c7b06b8fa18cb1fc7cd5396ff91499d7a96f8d995f354dc1428ca443",
+      "sharedSha256": "810576d07bc2de366a9f768ec445f00b02172f0bc80f62bde0b86cb80fddfd50",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone-final/xml/TEST-com.ngng.api.report.creation.ReportCreationSecurityChainTest.xml",
+      "shared": "after/standalone-final/xml/TEST-com.ngng.api.report.creation.ReportCreationSecurityChainTest.xml",
+      "rawSha256": "9c13cd196ea7d9ade87508f36e6a7bcff9fb984f6e2248dbc0d3137847bab307",
+      "sharedSha256": "e96dbb6da7a2362642ba15d202d7c794b07d37d699e625479699df16ecee7628",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone-final/xml/TEST-com.ngng.api.report.response.ReportResponseSecurityChainTest.xml",
+      "shared": "after/standalone-final/xml/TEST-com.ngng.api.report.response.ReportResponseSecurityChainTest.xml",
+      "rawSha256": "3c9f31d9ec0c7a186bdefa7ec26cd875c6b04cf70aad9a1594c44802b2de418a",
+      "sharedSha256": "eb92c325bc72e49c969e0cbe185e13defa979173cbf8a68e0df727c662f92453",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone-final/xml/TEST-com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest.xml",
+      "shared": "after/standalone-final/xml/TEST-com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest.xml",
+      "rawSha256": "b954e27e137d7b83b3312446e69c14d08ee1e984ec5b65f7bc38f410a1e2e6f3",
+      "sharedSha256": "551a0c0d73ce2c4f4518e1f4ea46479367f2b803d42d10c4f42310b53d846602",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone-final/xml/TEST-com.ngng.api.transaction.read.TransactionReadSecurityChainTest.xml",
+      "shared": "after/standalone-final/xml/TEST-com.ngng.api.transaction.read.TransactionReadSecurityChainTest.xml",
+      "rawSha256": "618b0ad8787849b5b832646a60687c6455edfaafcf0e6624a0f81a1510347aaa",
+      "sharedSha256": "914fdecfc0b945a92484550d51a15293f3ae577dc45db977c35ad3b67eb71dbf",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone-final/xml/TEST-com.ngng.api.transaction.status.TransactionStatusSecurityChainTest.xml",
+      "shared": "after/standalone-final/xml/TEST-com.ngng.api.transaction.status.TransactionStatusSecurityChainTest.xml",
+      "rawSha256": "59b6197fd2d4b3cbc44695e30147933e646a969a4d8af0417798da689b6460b9",
+      "sharedSha256": "4cd1db7c21f1cedb2de943a93de88c42d394323823713d2ec27578fbf4303860",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone-final/xml/TEST-com.ngng.api.user.point.controller.PointResponseSecurityChainTest.xml",
+      "shared": "after/standalone-final/xml/TEST-com.ngng.api.user.point.controller.PointResponseSecurityChainTest.xml",
+      "rawSha256": "a0416609ec7a4869ab3e6f8bcef2dc5033a05127b1487e1f9d056dcd4c1a6ad7",
+      "sharedSha256": "b670c53a8a428faf8262b8869f9f377d22ee17a2a7b205a040808a332304ec3c",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone-final/xml/TEST-com.ngng.api.user.point.payment.PaymentAndStatusChainTest.xml",
+      "shared": "after/standalone-final/xml/TEST-com.ngng.api.user.point.payment.PaymentAndStatusChainTest.xml",
+      "rawSha256": "9f0827d7728430ba1c40302958ae705675162c60b131c272d69cc56bb9633051",
+      "sharedSha256": "6e8c11a4b43cf98c3e5c600db021a9510c598326447f5751c6406d9b7669e629",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone-final/xml/TEST-com.ngng.api.user.point.payment.PaymentTrustSecurityChainTest.xml",
+      "shared": "after/standalone-final/xml/TEST-com.ngng.api.user.point.payment.PaymentTrustSecurityChainTest.xml",
+      "rawSha256": "346c535cf5bac3374c03e9047cd1db4f4e3a90610cf40004813a8460a75a02bf",
+      "sharedSha256": "f932ca8a9d1f590c6232771ecc3ea76bfbaae32a726443d2572bdbfc5084b245",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone-final/xml/TEST-com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest.xml",
+      "shared": "after/standalone-final/xml/TEST-com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest.xml",
+      "rawSha256": "4309f133c0f04ecdced8089729527b2f4a25fc9f993c6e7b188e6541e6a25ba6",
+      "sharedSha256": "ee6e9a16440f4a220e10cbe0dbd375be3c65b2ae6a6415cd46909b7b2d29b9b9",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone-final/xml/TEST-com.ngng.api.user.user.address.ConfirmAddressServiceTest.xml",
+      "shared": "after/standalone-final/xml/TEST-com.ngng.api.user.user.address.ConfirmAddressServiceTest.xml",
+      "rawSha256": "764f92f0a45904345130985092689c87979fb9c923c8dc499616ba6fc47dfb84",
+      "sharedSha256": "74b7b3f2243c43dffe715e1461a4b11b78f49372150585a3177aa9afdf5d0592",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone-final/xml/TEST-com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest.xml",
+      "shared": "after/standalone-final/xml/TEST-com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest.xml",
+      "rawSha256": "49ca664151caffb69a35d4910ba1c58f6013f62084846c1e494bbd25d70cf324",
+      "sharedSha256": "38db34a8ee7ca60f931015dba3261d08b25473c9f25294f79f82deffe8788c94",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone-final/xml/TEST-com.ngng.api.user.user.confirmation.ConfirmAccountServiceTest.xml",
+      "shared": "after/standalone-final/xml/TEST-com.ngng.api.user.user.confirmation.ConfirmAccountServiceTest.xml",
+      "rawSha256": "b8de31010f909d01fd05571c021fb316d3e837ccdb71a22737695d01a6bab4ca",
+      "sharedSha256": "8febb8d8eec29cf926ad133644aaf22ac8a87abed18eb3c45692b5f13d4849c9",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone-final/xml/TEST-com.ngng.api.user.user.dropout.DropOutSecurityChainTest.xml",
+      "shared": "after/standalone-final/xml/TEST-com.ngng.api.user.user.dropout.DropOutSecurityChainTest.xml",
+      "rawSha256": "697c99bca5b7ce1e29b74f8febf0aee2a2b4181b0a9d72a2c06d5a36659454c1",
+      "sharedSha256": "27594b77e42ffee661acfe05ace60a473e7a801681d9d8c535e8cd5e1cbd2ba5",
+      "xmlOutcomesUnchanged": true
+    },
+    {
+      "raw": "raw/after/standalone-final/xml/TEST-com.ngng.api.user.user.dropout.DropOutServiceTest.xml",
+      "shared": "after/standalone-final/xml/TEST-com.ngng.api.user.user.dropout.DropOutServiceTest.xml",
+      "rawSha256": "440a730ec7ef1b51d081b343294b45561917f82b1b9655be3955fbdc34c2d543",
+      "sharedSha256": "49a139e9b967084354deef11983c06c92e5fc1152f1c9e13e1c383c277f9b8a0",
+      "xmlOutcomesUnchanged": true
+    }
+  ]
+}

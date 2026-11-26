@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.global.security.TokenStateSecurityChainTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-11-11T07:40:21" hostname="[HOST]" time="0.629">
+  <properties/>
+  <testcase name="beforeAdminClaimKeepsAuthorityAfterDatabaseDowngrade()" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.465"/>
+  <testcase name="[1] state=false" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.04"/>
+  <testcase name="[2] state=null" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.014"/>
+  <testcase name="[3] state=missing" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.014"/>
+  <testcase name="beforeRefreshReissuesOldRoleForInactiveAccount()" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.03"/>
+  <testcase name="beforeUserClaimDoesNotSeeDatabaseUpgrade()" classname="com.ngng.api.global.security.TokenStateSecurityChainTest" time="0.009"/>
+  <system-out><![CDATA[16:40:19.144 [Test worker] INFO org.hibernate.validator.internal.util.Version -- HV000001: Hibernate Validator 8.0.1.Final
+16:40:21.121 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@79308a2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@11574592, org.springframework.security.web.context.SecurityContextHolderFilter@39851c5, org.springframework.security.web.header.HeaderWriterFilter@1cc708a7, org.springframework.web.filter.CorsFilter@352e5a82, org.springframework.security.web.authentication.logout.LogoutFilter@27502e5c, com.ngng.api.global.security.filter.TokenFilter@315b5913, com.ngng.api.global.security.filter.LoginFilter@2e929182, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@698f4aa, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3dda8a2e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5423a17, org.springframework.security.web.session.SessionManagementFilter@6249a08d, org.springframework.security.web.access.ExceptionTranslationFilter@20dd5870, org.springframework.security.web.access.intercept.AuthorizationFilter@756c67cd]
+16:40:21.452 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+16:40:21.452 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+16:40:21.455 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 2 ms
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

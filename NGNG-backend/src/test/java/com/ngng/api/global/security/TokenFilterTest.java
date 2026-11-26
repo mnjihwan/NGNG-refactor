@@ -3,6 +3,9 @@ package com.ngng.api.global.security;
 import com.ngng.api.global.security.filter.TokenFilter;
 import com.ngng.api.global.security.jwt.util.JwtTokenProvider;
 import com.ngng.api.global.security.jwt.util.JwtTokenVerifier;
+import com.ngng.api.user.user.entity.Role;
+import com.ngng.api.user.user.entity.User;
+import com.ngng.api.user.user.repository.UserRepository;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Encoders;
 import io.jsonwebtoken.security.Keys;
@@ -39,6 +42,7 @@ class TokenFilterTest {
     MockHttpServletRequest request;
     MockHttpServletResponse response;
     FilterChain chain;
+    UserRepository users;
 
     @BeforeEach
     void setUp() {
@@ -46,7 +50,10 @@ class TokenFilterTest {
         verifier = new JwtTokenVerifier(SECRET);
         provider = new JwtTokenProvider(SECRET);
         ReflectionTestUtils.setField(provider, "accessTokenExpirationMs", 3_600_000);
-        filter = new TokenFilter(provider, verifier);
+        users = mock(UserRepository.class);
+        when(users.findUserByEmail("rf005@example.test")).thenReturn(java.util.Optional.of(User.builder()
+                .userId(5L).visible(true).role(Role.builder().roleType("USER").build()).build()));
+        filter = new TokenFilter(provider, verifier, users);
         request = new MockHttpServletRequest("GET", "/my_page/profile");
         response = new MockHttpServletResponse();
         chain = mock(FilterChain.class);
@@ -80,7 +87,7 @@ class TokenFilterTest {
         String issued = response.getHeader("Authorization");
         assertThat(issued).startsWith("Bearer ");
         assertThat(verifier.getType(issued)).isEqualTo("access");
-        assertThat(verifier.getRole(issued)).isEqualTo("ADMIN");
+        assertThat(verifier.getRole(issued)).isEqualTo("USER");
         assertThat(verifier.getEmail(issued)).isEqualTo("rf005@example.test");
         assertThat(response.getHeader("Set-Cookie")).isNull();
     }
@@ -196,11 +203,11 @@ class TokenFilterTest {
         verify(chain).doFilter(request, response);
     }
 
-    @Test void existingRoleValuesAreNotWhitelisted() throws Exception {
+    @Test void oldNonblankRoleClaimUsesCurrentDatabaseAuthority() throws Exception {
         request.addHeader("Authorization", "Bearer " + token("access", "LEGACY_ROLE", 3600));
         filter.doFilter(request, response, chain);
         verify(chain).doFilter(request, response);
-        assertThat(SecurityContextHolder.getContext().getAuthentication().getAuthorities()).extracting("authority").containsExactly("ROLE_LEGACY_ROLE");
+        assertThat(SecurityContextHolder.getContext().getAuthentication().getAuthorities()).extracting("authority").containsExactly("ROLE_USER");
     }
 
     @ParameterizedTest @ValueSource(booleans = {false, true})
@@ -224,5 +231,6 @@ class TokenFilterTest {
         assertThat(response.getHeader("WWW-Authenticate")).isNull();
         assertThat(SecurityContextHolder.getContext().getAuthentication()).isNull();
         verifyNoInteractions(chain);
+        verifyNoInteractions(users);
     }
 }

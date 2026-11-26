@@ -10,12 +10,14 @@ import com.ngng.api.report.report.controller.*;
 import com.ngng.api.report.report.entity.*;
 import com.ngng.api.report.report.repository.*;
 import com.ngng.api.report.report.service.ReportServiceImpl;
+import com.ngng.api.user.user.entity.Role;
 import com.ngng.api.user.user.entity.User;
 import com.ngng.api.user.user.repository.UserRepository;
 import com.ngng.api.user.user.service.AuthService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.*;
 import io.jsonwebtoken.security.Keys;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.Cookie;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -68,7 +70,7 @@ class ReportCreationSecurityChainTest {
         cache = context.getBean(com.ngng.api.product.product.service.ProductCacheInvalidator.class);
         reset(reports, types, images, users, penalties, levels, products, cache); SecurityContextHolder.clearContext();
         penaltyRegression = false;
-        when(users.findUserByEmail(EMAIL)).thenReturn(Optional.of(User.builder().userId(1000L).build()));
+        when(users.findUserByEmail(EMAIL)).thenReturn(Optional.of(activeCaller("USER")));
         when(types.findById(1L)).thenReturn(Optional.of(ReportType.builder().reportTypeId(1L).reportType("synthetic-type").build()));
         when(reports.save(any())).thenAnswer(call -> { Report r = call.getArgument(0); r.setReportId(88L); return r; });
     }
@@ -85,12 +87,17 @@ class ReportCreationSecurityChainTest {
         return "{\"reportTypeId\":1,\"reportContents\":\"synthetic-report\",\"userId\":2000,\"productId\":7,\"privateChatId\":9"
                 + (reporter == null ? "" : ",\"reporterId\":" + reporter) + (state == null ? "" : ",\"isReport\":" + state) + "}";
     }
+    static User activeCaller(String role) {
+        return User.builder().userId(1000L).visible(true).role(Role.builder().roleType(role).build()).build();
+    }
     @ParameterizedTest @ValueSource(strings = {"USER", "ADMIN", "UNCONFIRMED_USER"})
     void allowedCallerIdIsResolvedFromEmailAndNullStateAlwaysSentToRepository(String role) throws Exception {
         when(users.findUserByEmail(EMAIL)).thenAnswer(call -> {
-            var principal = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            assertNull(principal.getUser().getUserId()); assertEquals(EMAIL, principal.getUser().getEmail());
-            return Optional.of(User.builder().userId(1000L).build());
+            if (SecurityContextHolder.getContext().getAuthentication() != null) {
+                var principal = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+                assertNull(principal.getUser().getUserId()); assertEquals(EMAIL, principal.getUser().getEmail());
+            }
+            return Optional.of(activeCaller(role));
         });
         for (String reporter : Arrays.asList(null, "null", "1000")) {
             for (String state : Arrays.asList(null, "null")) {
@@ -107,10 +114,11 @@ class ReportCreationSecurityChainTest {
             assertEquals(2000L, report.getUserId()); assertEquals(7L, report.getProductId());
             assertEquals(9L, report.getPrivateChatId()); assertEquals("synthetic-report", report.getReportContents());
         }
-        verify(users, times(6)).findUserByEmail(EMAIL); verify(types, times(6)).findById(1L);
+        verify(users, times(12)).findUserByEmail(EMAIL); verify(types, times(6)).findById(1L);
     }
     @ParameterizedTest @ValueSource(strings = {"USER", "ADMIN", "UNCONFIRMED_USER"})
     void impersonationHasPriorityOverStateAndDoesNotLookupTypeOrSave(String role) throws Exception {
+        when(users.findUserByEmail(EMAIL)).thenReturn(Optional.of(activeCaller(role)));
         for (String state : Arrays.asList(null, "null", "true", "false")) {
             mvc.perform(post("/reports").header("Authorization", "Bearer " + token("access", role, 3600))
                     .contentType("application/json").content(body("9000", state)))
@@ -120,6 +128,7 @@ class ReportCreationSecurityChainTest {
     }
     @ParameterizedTest @ValueSource(strings = {"USER", "ADMIN", "UNCONFIRMED_USER"})
     void bothBooleanStatesAre400ForOwnOrOmittedReporterBeforeTargetAccess(String role) throws Exception {
+        when(users.findUserByEmail(EMAIL)).thenReturn(Optional.of(activeCaller(role)));
         for (String reporter : Arrays.asList(null, "null", "1000")) {
             for (String state : List.of("true", "false")) {
                 mvc.perform(post("/reports").header("Authorization", "Bearer " + token("access", role, 3600))
@@ -164,16 +173,18 @@ class ReportCreationSecurityChainTest {
     }
     @ParameterizedTest @ValueSource(strings = {"USER", "ADMIN", "UNCONFIRMED_USER"})
     void adminPatchRetainsOnlyAdminProcessedTransition(String role) throws Exception {
+        when(users.findUserByEmail(EMAIL)).thenReturn(Optional.of(activeCaller(role)));
         Report report = Report.builder().reportId(88L).reporterId(2000L).userId(3000L).build();
         when(reports.findById(88L)).thenReturn(Optional.of(report));
         mvc.perform(patch("/admin/reports/88").header("Authorization", "Bearer " + token("access", role, 3600)))
                 .andExpect(status().is(role.equals("ADMIN") ? 200 : 403));
         if (role.equals("ADMIN")) { assertTrue(report.getIsReport()); verify(reports).save(report); }
         else { assertNull(report.getIsReport()); verifyNoInteractions(reports); }
-        verifyNoInteractions(users, types);
+        verify(users).findUserByEmail(EMAIL); verifyNoMoreInteractions(users); verifyNoInteractions(types);
     }
     @ParameterizedTest @ValueSource(strings = {"USER", "ADMIN", "UNCONFIRMED_USER"})
     void separateAdminPenaltyStillSavesPenaltyProcessesReportAndDisablesProduct(String role) throws Exception {
+        when(users.findUserByEmail(EMAIL)).thenReturn(Optional.of(activeCaller(role)));
         penaltyRegression = true;
         Report report = Report.builder().reportId(88L).reporterId(2000L).productId(7L).build();
         var product = com.ngng.api.product.product.entity.Product.builder().productId(7L).forSale(true).build();
@@ -191,12 +202,12 @@ class ReportCreationSecurityChainTest {
         } else {
             assertNull(report.getIsReport()); assertTrue(product.getForSale()); verifyNoInteractions(reports, penalties, levels, products, cache);
         }
-        verifyNoInteractions(users, types);
+        verify(users).findUserByEmail(EMAIL); verifyNoMoreInteractions(users); verifyNoInteractions(types);
     }
     @Test void malformedJsonKeepsBinding400AndDoesNotLookupCaller() throws Exception {
         mvc.perform(post("/reports").header("Authorization", "Bearer " + token("access", "USER", 3600))
                 .contentType("application/json").content("{")).andExpect(status().isBadRequest());
-        verifyNoInteractions(reports, types, users);
+        verify(users).findUserByEmail(EMAIL); verifyNoMoreInteractions(users); verifyNoInteractions(reports, types);
     }
     @Test void missingTypeStillUsesExistingExceptionAfterIdentityChecks() {
         when(types.findById(1L)).thenReturn(Optional.empty());
@@ -205,13 +216,15 @@ class ReportCreationSecurityChainTest {
                 .contentType("application/json").content(body("1000", null))));
         assertInstanceOf(NoSuchElementException.class, thrown.getCause()); verify(reports, never()).save(any());
     }
-    @Test void databaseFailuresAreNotDisguisedAsAuthenticationErrors() {
+    @Test void businessIdentityLookupFailurePropagatesAfterAuthentication() {
         var failure = new org.springframework.dao.DataAccessResourceFailureException("synthetic-unavailable");
-        when(users.findUserByEmail(EMAIL)).thenThrow(failure);
-        Exception thrown = assertThrows(Exception.class, () -> mvc.perform(post("/reports")
+        when(users.findUserByEmail(EMAIL)).thenReturn(Optional.of(activeCaller("USER"))).thenThrow(failure);
+        var thrown = assertThrows(ServletException.class, () -> mvc.perform(post("/reports")
                 .header("Authorization", "Bearer " + token("access", "USER", 3600))
                 .contentType("application/json").content(body("1000", null))));
-        assertSame(failure, thrown.getCause()); verifyNoInteractions(reports, types);
+        assertSame(failure, thrown.getCause());
+        verify(users, times(2)).findUserByEmail(EMAIL);
+        verifyNoInteractions(reports, types);
     }
     @ParameterizedTest @ValueSource(strings = {"missing", "string", "anonymous", "unauthenticated", "nullUser", "nullEmail", "blankEmail"})
     void directServiceEntryRejectsInvalidPrincipalWithoutAuthServiceCastFailure(String condition) {

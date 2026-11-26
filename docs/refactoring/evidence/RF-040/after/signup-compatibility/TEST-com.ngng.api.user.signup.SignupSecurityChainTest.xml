@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.user.signup.SignupSecurityChainTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-25T23:59:19" hostname="[HOST]" time="0.91">
+  <properties/>
+  <testcase name="oldClientAndMissingChannelAreRejectedBeforeAnyUserOrPointWrite()" classname="com.ngng.api.user.signup.SignupSecurityChainTest" time="0.664"/>
+  <testcase name="wrongSecretAndLimitHaveGenericResponsesAndNoMailOrQuotaWrites()" classname="com.ngng.api.user.signup.SignupSecurityChainTest" time="0.065"/>
+  <testcase name="explicitContextContainsNoExternalConnectionsSdkOrConfigDiscovery()" classname="com.ngng.api.user.signup.SignupSecurityChainTest" time="0.01"/>
+  <testcase name="duplicateIssuanceRetains409AndFinalDuplicateRetains400AfterConsumption()" classname="com.ngng.api.user.signup.SignupSecurityChainTest" time="0.048"/>
+  <testcase name="publicSignupSkipsJwtButRequiresBothServerProofsAndCreatesEncodedUnconfirmedUserAndPoint()" classname="com.ngng.api.user.signup.SignupSecurityChainTest" time="0.118"/>
+  <system-out><![CDATA[08:59:16.987 [Test worker] INFO org.hibernate.validator.internal.util.Version -- HV000001: Hibernate Validator 8.0.1.Final
+08:59:18.845 [Test worker] INFO org.springframework.security.web.DefaultSecurityFilterChain -- Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@72a3462f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4ffa7041, org.springframework.security.web.context.SecurityContextHolderFilter@2fb48970, org.springframework.security.web.header.HeaderWriterFilter@1c171746, org.springframework.web.filter.CorsFilter@632c3f55, org.springframework.security.web.authentication.logout.LogoutFilter@71fb8301, com.ngng.api.global.security.filter.TokenFilter@56b05bd7, com.ngng.api.global.security.filter.LoginFilter@3e4afd10, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3de56885, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2673487b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@22aefae0, org.springframework.security.web.session.SessionManagementFilter@586737ff, org.springframework.security.web.access.ExceptionTranslationFilter@16ccd2bc, org.springframework.security.web.access.intercept.AuthorizationFilter@6076c66]
+08:59:19.396 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+08:59:19.396 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+08:59:19.401 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 5 ms
+08:59:20.328 [Test worker] INFO point-log -- Success Create PointHistory id: 43002 User : 43001 
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

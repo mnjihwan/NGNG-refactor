@@ -1,0 +1,36 @@
+ M NGNG-backend/src/main/java/com/ngng/api/report/report/dto/CreateReportResponseDTO.java
+ M NGNG-backend/src/main/java/com/ngng/api/report/report/dto/ReadReportListResponseDTO.java
+ M NGNG-backend/src/main/java/com/ngng/api/report/report/dto/ReadReportResponseDTO.java
+ M NGNG-backend/src/main/java/com/ngng/api/report/report/service/ReportServiceImpl.java
+ M NGNG-backend/src/main/java/com/ngng/api/user/user/controller/JoinAuthController.java
+ M NGNG-backend/src/main/java/com/ngng/api/user/user/controller/JoinController.java
+ M NGNG-backend/src/main/java/com/ngng/api/user/user/dto/request/EmailAuthRequest.java
+ M NGNG-backend/src/main/java/com/ngng/api/user/user/dto/request/JoinRequest.java
+ M NGNG-backend/src/main/java/com/ngng/api/user/user/dto/request/PhoneNumberAuthRequest.java
+ M NGNG-backend/src/main/java/com/ngng/api/user/user/dto/response/EmailAuthResponse.java
+ M NGNG-backend/src/main/java/com/ngng/api/user/user/dto/response/PhoneNumberAuthResponse.java
+ M NGNG-backend/src/main/java/com/ngng/api/user/user/service/EmailAuthService.java
+ M NGNG-backend/src/main/java/com/ngng/api/user/user/service/JoinService.java
+ M NGNG-backend/src/main/java/com/ngng/api/user/user/service/PhoneNumberAuthService.java
+ M NGNG-backend/src/test/java/com/ngng/api/isolation/Rf016IsolatedBootSmokeTest.java
+ M NGNG-backend/src/test/java/com/ngng/api/isolation/Rf016IsolationConfiguration.java
+ M NGNG-frontend/src/app/join/_pages/secondPage.tsx
+ M NGNG-frontend/src/app/join/_pages/thirdPage.tsx
+ M NGNG-frontend/src/app/join/joinPage.tsx
+?? .tmp/
+?? NGNG-backend/src/main/java/com/ngng/api/report/report/dto/ReportUserResponseDTO.java
+?? NGNG-backend/src/main/java/com/ngng/api/user/user/controller/SignupExceptionHandler.java
+?? NGNG-backend/src/main/java/com/ngng/api/user/user/dto/request/SignupVerifyRequest.java
+?? NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/
+?? NGNG-backend/src/test/java/com/ngng/api/global/security/TokenStateSecurityChainTest.java
+?? NGNG-backend/src/test/java/com/ngng/api/report/response/
+?? NGNG-backend/src/test/java/com/ngng/api/user/signup/
+?? NGNG-frontend/src/app/join/signupApi.ts
+?? NGNG-frontend/tests/rf043-signup.test.cjs
+?? NGNG-frontend/tests/rf044-report-response.test.cjs
+?? docs/refactoring/evidence/RF-040/
+?? docs/refactoring/evidence/RF-043/
+?? docs/refactoring/evidence/RF-044/
+?? docs/refactoring/tasks/RF-040.md
+?? docs/refactoring/tasks/RF-043.md
+?? docs/refactoring/tasks/RF-044.md

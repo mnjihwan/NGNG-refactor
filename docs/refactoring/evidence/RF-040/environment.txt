@@ -1,0 +1,8 @@
+Windows explicit MVC/security contexts; no Boot scan or external clients
+PowerShell 
+7.6.9
+Node 
+v20.10.0
+Java file version 
+17.0.10.0
+Offline existing Gradle cache; no DB/Redis/chat real WS/performance

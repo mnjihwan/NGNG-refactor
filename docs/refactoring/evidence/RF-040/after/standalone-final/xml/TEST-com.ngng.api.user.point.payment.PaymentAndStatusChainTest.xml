@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.user.point.payment.PaymentAndStatusChainTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-11-26T00:39:27" hostname="[HOST]" time="0.154">
+  <properties/>
+  <testcase name="[1] target=6, paymentFirst=false" classname="com.ngng.api.user.point.payment.PaymentAndStatusChainTest" time="0.097"/>
+  <testcase name="[2] target=7, paymentFirst=false" classname="com.ngng.api.user.point.payment.PaymentAndStatusChainTest" time="0.011"/>
+  <testcase name="[3] target=6, paymentFirst=true" classname="com.ngng.api.user.point.payment.PaymentAndStatusChainTest" time="0.015"/>
+  <testcase name="[4] target=7, paymentFirst=true" classname="com.ngng.api.user.point.payment.PaymentAndStatusChainTest" time="0.013"/>
+  <testcase name="publicInitialPut2CannotDebitOrCreatePaidState()" classname="com.ngng.api.user.point.payment.PaymentAndStatusChainTest" time="0.006"/>
+  <testcase name="legacyExtraPut2IsNoopAfterAtomicPaymentAndPaymentRetryRemains409()" classname="com.ngng.api.user.point.payment.PaymentAndStatusChainTest" time="0.011"/>
+  <system-out><![CDATA[2026-11-26 09:39:27.197 [Test worker] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1e5ba462, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1d694d9a, org.springframework.security.web.context.SecurityContextHolderFilter@3bad9493, org.springframework.security.web.header.HeaderWriterFilter@48e4d5cf, org.springframework.web.filter.CorsFilter@43f79aa0, org.springframework.security.web.authentication.logout.LogoutFilter@736e0bf8, com.ngng.api.global.security.filter.TokenFilter@3fa57a5a, com.ngng.api.global.security.filter.LoginFilter@7c9eb178, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@20953adc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4eb1c9ac, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2b4c26ec, org.springframework.security.web.session.SessionManagementFilter@7d62e12a, org.springframework.security.web.access.ExceptionTranslationFilter@ff28a30, org.springframework.security.web.access.intercept.AuthorizationFilter@3a98c6d2]
+2026-11-26 09:39:27.206 [Test worker] INFO  o.s.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-26 09:39:27.206 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-26 09:39:27.206 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
