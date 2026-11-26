@@ -1,0 +1,127 @@
+{
+  "capturedAt": "2026-11-26T09:24:55.0790266+09:00",
+  "environment": {
+    "powershell": "7.6.9",
+    "java": "17.0.10.0",
+    "gradle": "8.7 offline cache",
+    "node": "v26.13.1"
+  },
+  "sharedLogRedaction": "Local home variants, XML hostnames and OS account in Boot startup; XML suite and testcase attributes except hostname and result status unchanged",
+  "backend": [
+    {
+      "name": "com.ngng.api.isolation.Rf016EnvironmentIsolationTest",
+      "tests": 1,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "name": "com.ngng.api.isolation.Rf016IsolatedBootSmokeTest",
+      "tests": 11,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "name": "com.ngng.api.user.signup.SignupSecurityChainTest",
+      "tests": 5,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "name": "com.ngng.api.user.signup.SignupVerificationTest",
+      "tests": 35,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0
+    }
+  ],
+  "frontend": {
+    "passed": 51,
+    "failed": 0,
+    "skipped": 0,
+    "typecheckExitCode": 0,
+    "lintExitCode": 0
+  },
+  "logs": [
+    {
+      "raw": "raw/review-fixes/backend-console.txt",
+      "shared": "review-fixes/backend-console.txt",
+      "rawSha256": "f17d5261685ec0d77c4ea62956097bee0e554d677893f633793d1b8a122f9df8",
+      "sharedSha256": "f17d5261685ec0d77c4ea62956097bee0e554d677893f633793d1b8a122f9df8",
+      "xmlResultsUnchanged": null
+    },
+    {
+      "raw": "raw/review-fixes/frontend-console.txt",
+      "shared": "review-fixes/frontend-console.txt",
+      "rawSha256": "a9ae43e070e7bad6cae8f001e1a77960c60de4881f42742fe398f59db6a47da6",
+      "sharedSha256": "a9ae43e070e7bad6cae8f001e1a77960c60de4881f42742fe398f59db6a47da6",
+      "xmlResultsUnchanged": null
+    },
+    {
+      "raw": "raw/review-fixes/lint-console.txt",
+      "shared": "review-fixes/lint-console.txt",
+      "rawSha256": "a6a20acfb5d575fcb4abc14affeea587f212ac28931521a1c342a2678136db50",
+      "sharedSha256": "a6a20acfb5d575fcb4abc14affeea587f212ac28931521a1c342a2678136db50",
+      "xmlResultsUnchanged": null
+    },
+    {
+      "raw": "raw/review-fixes/tsc-console.txt",
+      "shared": "review-fixes/tsc-console.txt",
+      "rawSha256": "04cecf973a383b07f43b70d378148039117ac80b8059ebf5f001a17b5d274784",
+      "sharedSha256": "04cecf973a383b07f43b70d378148039117ac80b8059ebf5f001a17b5d274784",
+      "xmlResultsUnchanged": null
+    },
+    {
+      "raw": "raw/review-fixes/xml/TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+      "shared": "review-fixes/xml/TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+      "rawSha256": "cf077c7867452cb91d236296ca0819ad7c974057214c8aca728849ac8b9b0d28",
+      "sharedSha256": "71d08926da96cd2c538d57a5ad356b3f682650ea96ed016b2fd0778d2039c0bf",
+      "xmlResultsUnchanged": true
+    },
+    {
+      "raw": "raw/review-fixes/xml/TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+      "shared": "review-fixes/xml/TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+      "rawSha256": "4539d6363765e3aa5268c8f6e9ccbc2355a824118b18cf1f7fc25ef2f42eead6",
+      "sharedSha256": "499351bce664a62c2eb2172cb36e55ab8c87b7281edcb1ec4744f730976b5991",
+      "xmlResultsUnchanged": true
+    },
+    {
+      "raw": "raw/review-fixes/xml/TEST-com.ngng.api.user.signup.SignupSecurityChainTest.xml",
+      "shared": "review-fixes/xml/TEST-com.ngng.api.user.signup.SignupSecurityChainTest.xml",
+      "rawSha256": "1256906ef959eb3d359e35a52ca45b175d581250113ad3e4d86adf103f6d69dd",
+      "sharedSha256": "6d67acb2ece7c0382e4c125fc6b8ab04457e865ac152a122e609140ab3c1f7a6",
+      "xmlResultsUnchanged": true
+    },
+    {
+      "raw": "raw/review-fixes/xml/TEST-com.ngng.api.user.signup.SignupVerificationTest.xml",
+      "shared": "review-fixes/xml/TEST-com.ngng.api.user.signup.SignupVerificationTest.xml",
+      "rawSha256": "ff6153b4a6f89a455ec8f892f8c64dc39fb8ebdf7ec249330a0828fe70ff305f",
+      "sharedSha256": "946cc860a2f11fd1f38a1436e0019c6d728c5b45acbf8af195e941144000c11d",
+      "xmlResultsUnchanged": true
+    }
+  ],
+  "sources": [
+    {
+      "path": "review-fixes/source/NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/RedisSignupStore.java",
+      "sha256": "291b79773d2229e49767c9b3ebb53836caf2e4bf7dd5b9b43c02ab256326b43f"
+    },
+    {
+      "path": "review-fixes/source/NGNG-backend/src/test/java/com/ngng/api/user/signup/MemorySignupStore.java",
+      "sha256": "d918e32d30bd86dd3af63e4c6d8f5b642778a6ba3e6371f9fa28e3b5624707e1"
+    },
+    {
+      "path": "review-fixes/source/NGNG-backend/src/test/java/com/ngng/api/user/signup/SignupVerificationTest.java",
+      "sha256": "bb55e98b4d79f14ae47ef7e2bbabc38ffa38bdc79e79d0cb1c1c7b853a20d2a1"
+    },
+    {
+      "path": "review-fixes/source/NGNG-frontend/src/app/join/_pages/thirdPage.tsx",
+      "sha256": "fc8da8d21d7e989682bc2f8eed890b14b762d25870ad9a4e05f41f9dcac0a4fc"
+    },
+    {
+      "path": "review-fixes/source/NGNG-frontend/tests/rf043-signup.test.cjs",
+      "sha256": "f036333efade8abe5c16ca2ab1a04cb6ea1468d73ff207ddfaae78ac94e255cb"
+    }
+  ]
+}

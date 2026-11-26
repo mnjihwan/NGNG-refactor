@@ -349,3 +349,7 @@ B는 명시 JPA/실제 tx 프록시·소유 PK journal·독립 연결 commit/INS
 ## 2026-11-11 RF-044 신고 응답 User 축소
 
 생성 응답에서 reporter/user를 제거하고 관리자 신고 응답에서는 userId/name/nickname만 제공한다. 기존 상품 신고 reporter.id 및 RF024 저장 보호를 유지한다. before 72건 중 70통과·2skip, after 335/335, 프런트 28/28, assemble 및 공통 독립 리뷰를 완료했다. 실제 DB/JPA·OSIV·HTTP·브라우저, 외부 소비자와 본문/이미지 개인정보는 검증하지 않았다. 원시 증빙과 한계·재개 조건은 [명세](tasks/RF-044.md), [증빙](evidence/RF-044/README.md), BACKLOG에 기록했다. 이는 의도된 응답 계약 축소다.
+
+## 2026-11-26 RF-043 독립 후보 검토
+
+RF-040 기준 후보의 백엔드 선택 1,261건·assemble, 프런트 51건과 회귀 218건·타입 검사·린트 결과 및 증빙을 공통 독립 리뷰했고 신규 결함은 발견하지 못했다. 이는 물리 환경이나 운영 전환 검증이 아니다. 기본 비활성 시 가입이 중단되므로 실 Redis/DB와 공동 배포·구 writer 차단은 P1 병합 차단 조건이다. [명세](tasks/RF-043.md), [증빙](evidence/RF-043/README.md), [백로그](BACKLOG.md)를 참고한다.

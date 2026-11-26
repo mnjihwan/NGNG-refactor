@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.user.signup.SignupSecurityChainTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-11T07:36:44" hostname="[HOST]" time="0.435">
+  <properties/>
+  <testcase name="oldClientAndMissingChannelAreRejectedBeforeAnyUserOrPointWrite()" classname="com.ngng.api.user.signup.SignupSecurityChainTest" time="0.245"/>
+  <testcase name="wrongSecretAndLimitHaveGenericResponsesAndNoMailOrQuotaWrites()" classname="com.ngng.api.user.signup.SignupSecurityChainTest" time="0.04"/>
+  <testcase name="explicitContextContainsNoExternalConnectionsSdkOrConfigDiscovery()" classname="com.ngng.api.user.signup.SignupSecurityChainTest" time="0.003"/>
+  <testcase name="duplicateIssuanceRetains409AndFinalDuplicateRetains400AfterConsumption()" classname="com.ngng.api.user.signup.SignupSecurityChainTest" time="0.034"/>
+  <testcase name="publicSignupSkipsJwtButRequiresBothServerProofsAndCreatesEncodedUnconfirmedUserAndPoint()" classname="com.ngng.api.user.signup.SignupSecurityChainTest" time="0.11"/>
+  <system-out><![CDATA[2026-11-11 16:36:44.723 [Test worker] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5b86f4cb, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@468646ea, org.springframework.security.web.context.SecurityContextHolderFilter@270be080, org.springframework.security.web.header.HeaderWriterFilter@623ded82, org.springframework.web.filter.CorsFilter@4056cdb2, org.springframework.security.web.authentication.logout.LogoutFilter@69fe8c75, com.ngng.api.global.security.filter.TokenFilter@20462820, com.ngng.api.global.security.filter.LoginFilter@4c0ab04f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@752ffce3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@78f35e39, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@384f0e32, org.springframework.security.web.session.SessionManagementFilter@180e33b0, org.springframework.security.web.access.ExceptionTranslationFilter@5a010eec, org.springframework.security.web.access.intercept.AuthorizationFilter@15c3585]
+2026-11-11 16:36:44.834 [Test worker] INFO  o.s.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-11 16:36:44.834 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-11 16:36:44.834 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

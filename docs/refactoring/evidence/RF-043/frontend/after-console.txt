@@ -1,0 +1,245 @@
+TAP version 13
+# Subtest: SMS uses fresh server attempt and verify proof, preserving a leading-zero code
+ok 1 - SMS uses fresh server attempt and verify proof, preserving a leading-zero code
+  ---
+  duration_ms: 136.9319
+  ...
+# Subtest: SMS issuance 400 is not reported as sent or verified
+ok 2 - SMS issuance 400 is not reported as sent or verified
+  ---
+  duration_ms: 39.2237
+  ...
+# Subtest: SMS issuance 409 is not reported as sent or verified
+ok 3 - SMS issuance 409 is not reported as sent or verified
+  ---
+  duration_ms: 36.8567
+  ...
+# Subtest: SMS issuance 429 is not reported as sent or verified
+ok 4 - SMS issuance 429 is not reported as sent or verified
+  ---
+  duration_ms: 28.8975
+  ...
+# Subtest: SMS issuance 500 is not reported as sent or verified
+ok 5 - SMS issuance 500 is not reported as sent or verified
+  ---
+  duration_ms: 29.3076
+  ...
+# Subtest: SMS issuance 503 is not reported as sent or verified
+ok 6 - SMS issuance 503 is not reported as sent or verified
+  ---
+  duration_ms: 35.661
+  ...
+# Subtest: old authNumber response cannot complete verification
+ok 7 - old authNumber response cannot complete verification
+  ---
+  duration_ms: 25.8976
+  ...
+# Subtest: editing phone or name discards attempt and both proofs
+ok 8 - editing phone or name discards attempt and both proofs
+  ---
+  duration_ms: 23.9991
+  ...
+# Subtest: verify error never marks channel verified
+ok 9 - verify error never marks channel verified
+  ---
+  duration_ms: 27.5494
+  ...
+# Subtest: double click and late response after editing do not overwrite current phone state
+ok 10 - double click and late response after editing do not overwrite current phone state
+  ---
+  duration_ms: 22.8161
+  ...
+# Subtest: unmounted pending issuance response is ignored
+ok 11 - unmounted pending issuance response is ignored
+  ---
+  duration_ms: 23.0459
+  ...
+# Subtest: late verify response after contact edit cannot restore a proof
+ok 12 - late verify response after contact edit cannot restore a proof
+  ---
+  duration_ms: 20.5978
+  ...
+# Subtest: quota rejection leaves a prior verified proof intact and explicit restart clears it
+ok 13 - quota rejection leaves a prior verified proof intact and explicit restart clears it
+  ---
+  duration_ms: 21.4153
+  ...
+# Subtest: email uses server verification and submits exact both proofs with attempt secret
+ok 14 - email uses server verification and submits exact both proofs with attempt secret
+  ---
+  duration_ms: 24.353
+  ...
+# Subtest: final join 400 discards both proofs, keeps login optional, and never retries
+ok 15 - final join 400 discards both proofs, keeps login optional, and never retries
+  ---
+  duration_ms: 22.8595
+  ...
+# Subtest: final join 409 discards both proofs, keeps login optional, and never retries
+ok 16 - final join 409 discards both proofs, keeps login optional, and never retries
+  ---
+  duration_ms: 22.5544
+  ...
+# Subtest: final join 429 discards both proofs, keeps login optional, and never retries
+ok 17 - final join 429 discards both proofs, keeps login optional, and never retries
+  ---
+  duration_ms: 28.1842
+  ...
+# Subtest: final join 500 discards both proofs, keeps login optional, and never retries
+ok 18 - final join 500 discards both proofs, keeps login optional, and never retries
+  ---
+  duration_ms: 22.6676
+  ...
+# Subtest: final join 503 discards both proofs, keeps login optional, and never retries
+ok 19 - final join 503 discards both proofs, keeps login optional, and never retries
+  ---
+  duration_ms: 21.548
+  ...
+# Subtest: network loss after join is uncertain and cannot repeat the same proof
+ok 20 - network loss after join is uncertain and cannot repeat the same proof
+  ---
+  duration_ms: 20.7574
+  ...
+# Subtest: email change after verification restarts both channels and backward navigation discards secrets
+ok 21 - email change after verification restarts both channels and backward navigation discards secrets
+  ---
+  duration_ms: 21.118
+  ...
+# Subtest: email cannot issue without a verified phone and malformed attempt response never sends SMS
+ok 22 - email cannot issue without a verified phone and malformed attempt response never sends SMS
+  ---
+  duration_ms: 38.6444
+  ...
+# Subtest: second old proof resend 503 preserves only explicitly unchanged quota state
+ok 23 - second old proof resend 503 preserves only explicitly unchanged quota state
+  ---
+  duration_ms: 19.2604
+  ...
+# Subtest: second old proof resend network preserves only explicitly unchanged quota state
+ok 24 - second old proof resend network preserves only explicitly unchanged quota state
+  ---
+  duration_ms: 20.6497
+  ...
+# Subtest: second old proof resend malformed200 preserves only explicitly unchanged quota state
+ok 25 - second old proof resend malformed200 preserves only explicitly unchanged quota state
+  ---
+  duration_ms: 17.2136
+  ...
+# Subtest: second old proof resend 429 preserves only explicitly unchanged quota state
+ok 26 - second old proof resend 429 preserves only explicitly unchanged quota state
+  ---
+  duration_ms: 17.285
+  ...
+# Subtest: third old proof resend 503 preserves only explicitly unchanged quota state
+ok 27 - third old proof resend 503 preserves only explicitly unchanged quota state
+  ---
+  duration_ms: 20.3191
+  ...
+# Subtest: third old proof resend network preserves only explicitly unchanged quota state
+ok 28 - third old proof resend network preserves only explicitly unchanged quota state
+  ---
+  duration_ms: 16.9929
+  ...
+# Subtest: third old proof resend malformed200 preserves only explicitly unchanged quota state
+ok 29 - third old proof resend malformed200 preserves only explicitly unchanged quota state
+  ---
+  duration_ms: 20.3102
+  ...
+# Subtest: third old proof resend 429 preserves only explicitly unchanged quota state
+ok 30 - third old proof resend 429 preserves only explicitly unchanged quota state
+  ---
+  duration_ms: 17.6264
+  ...
+# Subtest: malformed attempt numeric-id never starts issuance
+ok 31 - malformed attempt numeric-id never starts issuance
+  ---
+  duration_ms: 17.1081
+  ...
+# Subtest: malformed attempt boolean-secret never starts issuance
+ok 32 - malformed attempt boolean-secret never starts issuance
+  ---
+  duration_ms: 15.6196
+  ...
+# Subtest: malformed attempt short-secret never starts issuance
+ok 33 - malformed attempt short-secret never starts issuance
+  ---
+  duration_ms: 17.4174
+  ...
+# Subtest: malformed attempt invalid-token-character never starts issuance
+ok 34 - malformed attempt invalid-token-character never starts issuance
+  ---
+  duration_ms: 17.2584
+  ...
+# Subtest: malformed attempt zero-expiry never starts issuance
+ok 35 - malformed attempt zero-expiry never starts issuance
+  ---
+  duration_ms: 17.5469
+  ...
+# Subtest: malformed attempt negative-expiry never starts issuance
+ok 36 - malformed attempt negative-expiry never starts issuance
+  ---
+  duration_ms: 15.5176
+  ...
+# Subtest: malformed attempt fractional-expiry never starts issuance
+ok 37 - malformed attempt fractional-expiry never starts issuance
+  ---
+  duration_ms: 15.4531
+  ...
+# Subtest: malformed attempt unsafe-expiry never starts issuance
+ok 38 - malformed attempt unsafe-expiry never starts issuance
+  ---
+  duration_ms: 16.8273
+  ...
+# Subtest: malformed attempt string-expiry never starts issuance
+ok 39 - malformed attempt string-expiry never starts issuance
+  ---
+  duration_ms: 14.6503
+  ...
+# Subtest: second malformed numeric proof never verifies channel
+ok 40 - second malformed numeric proof never verifies channel
+  ---
+  duration_ms: 20.4304
+  ...
+# Subtest: second malformed boolean proof never verifies channel
+ok 41 - second malformed boolean proof never verifies channel
+  ---
+  duration_ms: 14.7672
+  ...
+# Subtest: second malformed short proof never verifies channel
+ok 42 - second malformed short proof never verifies channel
+  ---
+  duration_ms: 16.6385
+  ...
+# Subtest: second malformed bad-alphabet proof never verifies channel
+ok 43 - second malformed bad-alphabet proof never verifies channel
+  ---
+  duration_ms: 14.6966
+  ...
+# Subtest: third malformed numeric proof never verifies channel
+ok 44 - third malformed numeric proof never verifies channel
+  ---
+  duration_ms: 15.9045
+  ...
+# Subtest: third malformed boolean proof never verifies channel
+ok 45 - third malformed boolean proof never verifies channel
+  ---
+  duration_ms: 15.77
+  ...
+# Subtest: third malformed short proof never verifies channel
+ok 46 - third malformed short proof never verifies channel
+  ---
+  duration_ms: 16.7958
+  ...
+# Subtest: third malformed bad-alphabet proof never verifies channel
+ok 47 - third malformed bad-alphabet proof never verifies channel
+  ---
+  duration_ms: 20.4875
+  ...
+1..47
+# tests 47
+# suites 0
+# pass 47
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1352.8557

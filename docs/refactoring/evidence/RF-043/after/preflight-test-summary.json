@@ -1,0 +1,30 @@
+[
+  {
+    "name": "com.ngng.api.isolation.Rf016EnvironmentIsolationTest",
+    "tests": "1",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  },
+  {
+    "name": "com.ngng.api.isolation.Rf016IsolatedBootSmokeTest",
+    "tests": "11",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  },
+  {
+    "name": "com.ngng.api.user.signup.SignupSecurityChainTest",
+    "tests": "5",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  },
+  {
+    "name": "com.ngng.api.user.signup.SignupVerificationTest",
+    "tests": "32",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  }
+]

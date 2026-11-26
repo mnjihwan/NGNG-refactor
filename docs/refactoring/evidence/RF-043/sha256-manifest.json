@@ -1,0 +1,712 @@
+[
+  {
+    "path": ".gitignore",
+    "sha256": "e138ca829d938927384c82d7f176eaa6c61a82bd28ba28320ddd736a505c3b4f",
+    "bytes": 5
+  },
+  {
+    "path": "final-summary.json",
+    "sha256": "a0a57f48dba88b34f7e976aa21458c08103686db87a12650833e3c65397204de",
+    "bytes": 1842
+  },
+  {
+    "path": "raw-secret-audit.json",
+    "sha256": "bb7d86332aa43b9ab6f7a63766237121c2d0542d62ef19719030089398ecf3ab",
+    "bytes": 7106
+  },
+  {
+    "path": "README.md",
+    "sha256": "202eb8f16a26bcd800fab2e7dacc3145c6b782448f1ab481a57c1bc8d802d2ce",
+    "bytes": 31957
+  },
+  {
+    "path": "redact-evidence.cjs",
+    "sha256": "33f4c109c90ee7faa26a24c477d524550b26cbee31fc61950f4b83b2ae4dbb48",
+    "bytes": 5757
+  },
+  {
+    "path": "redaction-pairs.json",
+    "sha256": "a0bdbe0f712dbfefd4b95edfc145fcc1a183512afa80a51f44a6e7816e7e900e",
+    "bytes": 15957
+  },
+  {
+    "path": "redaction-scan.json",
+    "sha256": "9b7dc5cca3d2ea27bf7347fd4d7c12006c0f4478d813dc998badb759c73f5c8b",
+    "bytes": 486
+  },
+  {
+    "path": "redaction-verification.json",
+    "sha256": "c05b08585bb6cf258d7f935a37dfcb1f1c49d7941a705a3f8e8c31503d232314",
+    "bytes": 11492
+  },
+  {
+    "path": "source-drift-review.json",
+    "sha256": "33c2219fbaedefa21b099cec7a4eb3eb3c70a56053a8d882e82062cbe741d90f",
+    "bytes": 11702
+  },
+  {
+    "path": "verify-redacted-evidence.ps1",
+    "sha256": "5fcc1d10f1e67b15a9f5587c17ad48af321518b52d908a0207d347be09d9910c",
+    "bytes": 4107
+  },
+  {
+    "path": "after/assemble-before-preflight-console.txt",
+    "sha256": "96a787797ca837fed668540c83e4238ec4e1da63f164948af3969d4f2320a155",
+    "bytes": 482
+  },
+  {
+    "path": "after/assemble-console.txt",
+    "sha256": "e72c150e18cca46f804523c815005cc4a3076c93797981b482dec64b89408e61",
+    "bytes": 482
+  },
+  {
+    "path": "after/assemble-final-console.txt",
+    "sha256": "96a787797ca837fed668540c83e4238ec4e1da63f164948af3969d4f2320a155",
+    "bytes": 482
+  },
+  {
+    "path": "after/assemble-preflight-final-console.txt",
+    "sha256": "fd9cb9b853589e2e7e4ffc6f71d040b44accab6f96272633b05f96068d473dd4",
+    "bytes": 482
+  },
+  {
+    "path": "after/before-preflight-console.txt",
+    "sha256": "421ef58bf18e036ca6714873075a9e1147d41bcde137d03f109f03b3c7e73d1c",
+    "bytes": 1144
+  },
+  {
+    "path": "after/final-console.txt",
+    "sha256": "421ef58bf18e036ca6714873075a9e1147d41bcde137d03f109f03b3c7e73d1c",
+    "bytes": 1144
+  },
+  {
+    "path": "after/first-success-console.txt",
+    "sha256": "c6fa9104272953b309c3a0a78b583299b5d680971c432b8059df940dcf7584da",
+    "bytes": 1144
+  },
+  {
+    "path": "after/initial-console.txt",
+    "sha256": "c5b3e3559edbfaf28e4d9ce236581a09a16be8d6c4e27cb3f4176f82bd191128",
+    "bytes": 1693
+  },
+  {
+    "path": "after/preflight-final-console.txt",
+    "sha256": "ff051fc2116a5e34d5f7afc6cbe30388b581c70f27cc4736c4e172053ca4ff39",
+    "bytes": 1144
+  },
+  {
+    "path": "after/preflight-test-summary.json",
+    "sha256": "1f3495b1f9ea40bd8b88f14229c856d3d27d00bc0df5f6920607d61eb095d20d",
+    "bytes": 639
+  },
+  {
+    "path": "after/test-summary.json",
+    "sha256": "2ce4cf5e6925f8844b6a15459b7b5b4b5b9b19278d6fd0ccf96917173b891229",
+    "bytes": 639
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-backend/src/main/java/com/ngng/api/global/security/config/SecurityConfig.java",
+    "sha256": "835b6d136fbde21eb1e6308842228abd20bd7afec81fd2895ea7bd3b7306f932",
+    "bytes": 6561
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-backend/src/main/java/com/ngng/api/global/security/filter/TokenFilter.java",
+    "sha256": "9e6642a3a4c68274aa7d22453c4b073527368ae108729ebf2c8237e9b24d920a",
+    "bytes": 5273
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-backend/src/main/java/com/ngng/api/global/security/jwt/util/JwtTokenProvider.java",
+    "sha256": "6f827a21c544acf43bde39e560d334e9678f2add8088bf2faf1d64a0a10998ad",
+    "bytes": 2084
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-backend/src/main/java/com/ngng/api/global/security/jwt/util/JwtTokenVerifier.java",
+    "sha256": "ae9d5f3e09757d39a4f00636ee2e88b8eea93035dcd742513ff010dc0881d763",
+    "bytes": 2694
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-backend/src/main/java/com/ngng/api/user/point/service/PointHistoryService.java",
+    "sha256": "024bd4ad6a4c8cf394ba515fbaad7e0f3c023c12e576790274274454c2f446ce",
+    "bytes": 10735
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-backend/src/main/java/com/ngng/api/user/user/controller/JoinAuthController.java",
+    "sha256": "58247c7f54aa7b759f72f23e76edee60d2fb77fdaa76c45059402843158ca3db",
+    "bytes": 2350
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-backend/src/main/java/com/ngng/api/user/user/controller/JoinController.java",
+    "sha256": "9f20bbbf2485d3dad11abf2f09d7b2df94e8e1637451f551849a420885fd4be8",
+    "bytes": 1313
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-backend/src/main/java/com/ngng/api/user/user/controller/SignupExceptionHandler.java",
+    "sha256": "2e88c00e7c2b12dd5f0f5c41a76f3432516a9cbcc5fb299fe8f2c955326e9490",
+    "bytes": 886
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-backend/src/main/java/com/ngng/api/user/user/dto/request/EmailAuthRequest.java",
+    "sha256": "9810b5d3acda06ed9f2ceff98c571eee63cc75323ac92dbfc606cde827afaab1",
+    "bytes": 355
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-backend/src/main/java/com/ngng/api/user/user/dto/request/JoinRequest.java",
+    "sha256": "6a9a8b61a7267f6010e0ffe59b69a433b82c834dac64dcf176b2f270387d155f",
+    "bytes": 729
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-backend/src/main/java/com/ngng/api/user/user/dto/request/PhoneNumberAuthRequest.java",
+    "sha256": "c4ce8c41e40e1ccc9f90f9ccb4043f9015906556c1f8486133019f44d139c3fa",
+    "bytes": 433
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-backend/src/main/java/com/ngng/api/user/user/dto/request/SignupVerifyRequest.java",
+    "sha256": "7224da9cea98ab47e753336001e381ddca970ee3a42352abb5f40124013ec82b",
+    "bytes": 239
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-backend/src/main/java/com/ngng/api/user/user/dto/response/EmailAuthResponse.java",
+    "sha256": "2193fb39f3efe6b3a48c58896df6e9a866e54c768b1b49b393715518e9b3d95a",
+    "bytes": 437
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-backend/src/main/java/com/ngng/api/user/user/dto/response/PhoneNumberAuthResponse.java",
+    "sha256": "99c5c599e492c71b6b8cd4cf78495473919d401844707e21710f87634454e838",
+    "bytes": 467
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-backend/src/main/java/com/ngng/api/user/user/service/EmailAuthService.java",
+    "sha256": "c83953128a5cdefb090bdcb26faa76c7a8a6391c8380379edfcfa08a78704ed1",
+    "bytes": 1905
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-backend/src/main/java/com/ngng/api/user/user/service/JoinService.java",
+    "sha256": "ed5cc94ec8e52c0cd70a511b85eb2b3f584dd39d3430c983c5300ee58d422b89",
+    "bytes": 2099
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-backend/src/main/java/com/ngng/api/user/user/service/PhoneNumberAuthService.java",
+    "sha256": "ebca35ebd99b19ee96e8118b0e0a8cf0b973cfb5f07acb0a0c9a7bee669d6599",
+    "bytes": 1809
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/NurigoSignupSmsSender.java",
+    "sha256": "e55da2cc741b24993017d542cd8285d8bbfa0f4d62d0f737cab52313c2de210b",
+    "bytes": 1356
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/RedisSignupStore.java",
+    "sha256": "4ebedd652aa2b90244273aae5de77c20350afc91eb9b70e2984fb6fa914d0fe3",
+    "bytes": 6560
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/SignupCrypto.java",
+    "sha256": "22c8195cf8ca2918c690162920a991930d1359da9965684727f0e3b56eafa9e9",
+    "bytes": 3576
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/SignupFailure.java",
+    "sha256": "15b8de019ca418c026dcfd8729f3d4eb150850afc21d858e480da2aa69938125",
+    "bytes": 824
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/SignupSmsSender.java",
+    "sha256": "138e3fd1d6629c6b06b2eb23396a85281a20ed6192eddd3aaf2194d30c4d4920",
+    "bytes": 138
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/SignupStore.java",
+    "sha256": "246401d48a6ba5428dcf6d3a3a6f0a0739db139c63cdcd9abd4f126b113c63c2",
+    "bytes": 276
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/SignupTarget.java",
+    "sha256": "5dcddc526922e2e2ff93cadaaaf02cc87556005919ef273c659bea3f0f8e3d06",
+    "bytes": 1725
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/SignupVerification.java",
+    "sha256": "91610670b0a18dc21147a383b62104c4542c5a9e42f9ae7022c06c228d1ab046",
+    "bytes": 5069
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-backend/src/test/java/com/ngng/api/isolation/Rf016IsolatedBootSmokeTest.java",
+    "sha256": "6797e22743b9c45be4a53e349e322e0a37f3391628b14c185b25cca9e74dcc95",
+    "bytes": 16712
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-backend/src/test/java/com/ngng/api/isolation/Rf016IsolationConfiguration.java",
+    "sha256": "5dec870ebd1ea23df1dedd4362c7a588f41fc194b211da359ac0fed13fb9aaeb",
+    "bytes": 6412
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-backend/src/test/java/com/ngng/api/user/signup/MemorySignupStore.java",
+    "sha256": "0317c1ee756e8652fd329005e81583d72fda479da0dd486435a37479a22eb258",
+    "bytes": 5073
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-backend/src/test/java/com/ngng/api/user/signup/SignupSecurityChainTest.java",
+    "sha256": "91bf454d7b73e99ccc05e3d3d86faea3a64b9442540cd4a12639846654f199a9",
+    "bytes": 12786
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-backend/src/test/java/com/ngng/api/user/signup/SignupVerificationTest.java",
+    "sha256": "65048557242b0cdf3ebea397c94890475822dcd197e2e413a7a184a67f3aec38",
+    "bytes": 23430
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-frontend/src/app/join/joinPage.tsx",
+    "sha256": "99da032a57d22e3559e0fcdd28a1df017f9ddc25e9b6fd076d5ee773fa49a647",
+    "bytes": 1321
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-frontend/src/app/join/signupApi.ts",
+    "sha256": "3542c1bcc2d314a35532ab3de0f94b5580bc6c92b565e95432141ec7e6e07481",
+    "bytes": 2478
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-frontend/src/app/join/_pages/secondPage.tsx",
+    "sha256": "a6610cce935b8a15a68d22e0cbaff366284af07b1d95aeaefd4cc0cebe3e0d9c",
+    "bytes": 9274
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-frontend/src/app/join/_pages/thirdPage.tsx",
+    "sha256": "26c1ba64dedb7ed32fd48927ef21c673b60d6355f38af54023de27f4920e69eb",
+    "bytes": 11611
+  },
+  {
+    "path": "after/before-preflight-source/NGNG-frontend/tests/rf043-signup.test.cjs",
+    "sha256": "f28227ac9d688d8c62c637091fe1cdfd4f7aaa4f1710dd44d8148f1ea8dbe956",
+    "bytes": 13584
+  },
+  {
+    "path": "after/before-preflight-xml/TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+    "sha256": "3dce0b9baf5db7a8f6ddba4931a374cb19461a3fe4321a9715198f0e45b2e4c0",
+    "bytes": 511
+  },
+  {
+    "path": "after/before-preflight-xml/TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+    "sha256": "0586671fd0b4e05f3620b5d47ee93c6f6bb61d94e8a3dc929e5bbb702abe8b93",
+    "bytes": 32207
+  },
+  {
+    "path": "after/before-preflight-xml/TEST-com.ngng.api.user.signup.SignupSecurityChainTest.xml",
+    "sha256": "ddc5313d7d7258c1c1aa7de55aa462435fb1dd468e98dea0813b82e3bff44c97",
+    "bytes": 2682
+  },
+  {
+    "path": "after/before-preflight-xml/TEST-com.ngng.api.user.signup.SignupVerificationTest.xml",
+    "sha256": "7b4313557063a91f86b0705040196ed4f5111e797e44bd17296892fe3ef0d5bd",
+    "bytes": 5411
+  },
+  {
+    "path": "after/final-xml/TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+    "sha256": "3dce0b9baf5db7a8f6ddba4931a374cb19461a3fe4321a9715198f0e45b2e4c0",
+    "bytes": 511
+  },
+  {
+    "path": "after/final-xml/TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+    "sha256": "0586671fd0b4e05f3620b5d47ee93c6f6bb61d94e8a3dc929e5bbb702abe8b93",
+    "bytes": 32207
+  },
+  {
+    "path": "after/final-xml/TEST-com.ngng.api.user.signup.SignupSecurityChainTest.xml",
+    "sha256": "ddc5313d7d7258c1c1aa7de55aa462435fb1dd468e98dea0813b82e3bff44c97",
+    "bytes": 2682
+  },
+  {
+    "path": "after/final-xml/TEST-com.ngng.api.user.signup.SignupVerificationTest.xml",
+    "sha256": "7b4313557063a91f86b0705040196ed4f5111e797e44bd17296892fe3ef0d5bd",
+    "bytes": 5411
+  },
+  {
+    "path": "after/first-success-source/SignupVerificationTest.java",
+    "sha256": "58004a187e28db63e487ddede7a6f1512c35f43fd789d1c8bfd5f9af2be13dbe",
+    "bytes": 20328
+  },
+  {
+    "path": "after/first-success-xml/TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+    "sha256": "8ea2211321ca9a311a8c5b0a76739543273feb078055d0dffbb12a058d0c18f9",
+    "bytes": 513
+  },
+  {
+    "path": "after/first-success-xml/TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+    "sha256": "3a91e2dda06787c37240baa06ac64a870fe12b9c15297dbbf085f2391a042ad7",
+    "bytes": 32074
+  },
+  {
+    "path": "after/first-success-xml/TEST-com.ngng.api.user.signup.SignupSecurityChainTest.xml",
+    "sha256": "c84d3db441a46c9ccad25f34e48761d701e1995b63fe268816c26afb00b9479e",
+    "bytes": 2682
+  },
+  {
+    "path": "after/first-success-xml/TEST-com.ngng.api.user.signup.SignupVerificationTest.xml",
+    "sha256": "ca4e526895306b4ac63931c282d8082ca5acdafdc97e795f77dad3cfa9ea0493",
+    "bytes": 5066
+  },
+  {
+    "path": "after/initial-source/SignupVerificationTest.java",
+    "sha256": "29edb9964854a228ce4658f1b738e29ee217c7a3d7fbd84ac5f8ba3cc70755fe",
+    "bytes": 20330
+  },
+  {
+    "path": "after/initial-xml/TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+    "sha256": "cd0e3547a2a0053b5e12bcb96bdc2d0753a7ec8cb5bfcc02cdbc81b40100e312",
+    "bytes": 513
+  },
+  {
+    "path": "after/initial-xml/TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+    "sha256": "e0514095226a43a0244732e377ee1d8e9b9ae66c6140b3e0ddd997da473d0eb6",
+    "bytes": 32206
+  },
+  {
+    "path": "after/initial-xml/TEST-com.ngng.api.user.signup.SignupSecurityChainTest.xml",
+    "sha256": "c7ec3aba32bb21e706d19b660d2986623b9e279ddcbdc04c61a90ecd721cc616",
+    "bytes": 2681
+  },
+  {
+    "path": "after/initial-xml/TEST-com.ngng.api.user.signup.SignupVerificationTest.xml",
+    "sha256": "48f4ed755df4a5531691afb802b02facec0e4bde9d574ebd8d7f7e9175bb06b0",
+    "bytes": 15591
+  },
+  {
+    "path": "after/preflight-final-xml/TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+    "sha256": "f5464db7fdc67c31e7d980cd097a6d57fc231b57a72a416f5bd4a1df8c8c07ee",
+    "bytes": 513
+  },
+  {
+    "path": "after/preflight-final-xml/TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+    "sha256": "2709b867c7bf5d8712c5f8e0d7934c25f33418325b46a3681a1a1d9ea94cb44e",
+    "bytes": 32205
+  },
+  {
+    "path": "after/preflight-final-xml/TEST-com.ngng.api.user.signup.SignupSecurityChainTest.xml",
+    "sha256": "ef4c5d312d8123278404089acead1723a88a17375d92f503bda80c512b1021d0",
+    "bytes": 2680
+  },
+  {
+    "path": "after/preflight-final-xml/TEST-com.ngng.api.user.signup.SignupVerificationTest.xml",
+    "sha256": "923a17e148fbff15efdb0b88ecc6ed85604435c9dd78b803304031743850e17e",
+    "bytes": 5927
+  },
+  {
+    "path": "after/source/NGNG-backend/src/main/java/com/ngng/api/global/security/config/SecurityConfig.java",
+    "sha256": "835b6d136fbde21eb1e6308842228abd20bd7afec81fd2895ea7bd3b7306f932",
+    "bytes": 6561
+  },
+  {
+    "path": "after/source/NGNG-backend/src/main/java/com/ngng/api/global/security/filter/TokenFilter.java",
+    "sha256": "9e6642a3a4c68274aa7d22453c4b073527368ae108729ebf2c8237e9b24d920a",
+    "bytes": 5273
+  },
+  {
+    "path": "after/source/NGNG-backend/src/main/java/com/ngng/api/global/security/jwt/util/JwtTokenProvider.java",
+    "sha256": "6f827a21c544acf43bde39e560d334e9678f2add8088bf2faf1d64a0a10998ad",
+    "bytes": 2084
+  },
+  {
+    "path": "after/source/NGNG-backend/src/main/java/com/ngng/api/global/security/jwt/util/JwtTokenVerifier.java",
+    "sha256": "ae9d5f3e09757d39a4f00636ee2e88b8eea93035dcd742513ff010dc0881d763",
+    "bytes": 2694
+  },
+  {
+    "path": "after/source/NGNG-backend/src/main/java/com/ngng/api/user/point/service/PointHistoryService.java",
+    "sha256": "024bd4ad6a4c8cf394ba515fbaad7e0f3c023c12e576790274274454c2f446ce",
+    "bytes": 10735
+  },
+  {
+    "path": "after/source/NGNG-backend/src/main/java/com/ngng/api/user/user/controller/JoinAuthController.java",
+    "sha256": "58247c7f54aa7b759f72f23e76edee60d2fb77fdaa76c45059402843158ca3db",
+    "bytes": 2350
+  },
+  {
+    "path": "after/source/NGNG-backend/src/main/java/com/ngng/api/user/user/controller/JoinController.java",
+    "sha256": "9f20bbbf2485d3dad11abf2f09d7b2df94e8e1637451f551849a420885fd4be8",
+    "bytes": 1313
+  },
+  {
+    "path": "after/source/NGNG-backend/src/main/java/com/ngng/api/user/user/controller/SignupExceptionHandler.java",
+    "sha256": "2e88c00e7c2b12dd5f0f5c41a76f3432516a9cbcc5fb299fe8f2c955326e9490",
+    "bytes": 886
+  },
+  {
+    "path": "after/source/NGNG-backend/src/main/java/com/ngng/api/user/user/dto/request/EmailAuthRequest.java",
+    "sha256": "9810b5d3acda06ed9f2ceff98c571eee63cc75323ac92dbfc606cde827afaab1",
+    "bytes": 355
+  },
+  {
+    "path": "after/source/NGNG-backend/src/main/java/com/ngng/api/user/user/dto/request/JoinRequest.java",
+    "sha256": "6a9a8b61a7267f6010e0ffe59b69a433b82c834dac64dcf176b2f270387d155f",
+    "bytes": 729
+  },
+  {
+    "path": "after/source/NGNG-backend/src/main/java/com/ngng/api/user/user/dto/request/PhoneNumberAuthRequest.java",
+    "sha256": "c4ce8c41e40e1ccc9f90f9ccb4043f9015906556c1f8486133019f44d139c3fa",
+    "bytes": 433
+  },
+  {
+    "path": "after/source/NGNG-backend/src/main/java/com/ngng/api/user/user/dto/request/SignupVerifyRequest.java",
+    "sha256": "7224da9cea98ab47e753336001e381ddca970ee3a42352abb5f40124013ec82b",
+    "bytes": 239
+  },
+  {
+    "path": "after/source/NGNG-backend/src/main/java/com/ngng/api/user/user/dto/response/EmailAuthResponse.java",
+    "sha256": "2193fb39f3efe6b3a48c58896df6e9a866e54c768b1b49b393715518e9b3d95a",
+    "bytes": 437
+  },
+  {
+    "path": "after/source/NGNG-backend/src/main/java/com/ngng/api/user/user/dto/response/PhoneNumberAuthResponse.java",
+    "sha256": "99c5c599e492c71b6b8cd4cf78495473919d401844707e21710f87634454e838",
+    "bytes": 467
+  },
+  {
+    "path": "after/source/NGNG-backend/src/main/java/com/ngng/api/user/user/service/EmailAuthService.java",
+    "sha256": "c83953128a5cdefb090bdcb26faa76c7a8a6391c8380379edfcfa08a78704ed1",
+    "bytes": 1905
+  },
+  {
+    "path": "after/source/NGNG-backend/src/main/java/com/ngng/api/user/user/service/JoinService.java",
+    "sha256": "ed5cc94ec8e52c0cd70a511b85eb2b3f584dd39d3430c983c5300ee58d422b89",
+    "bytes": 2099
+  },
+  {
+    "path": "after/source/NGNG-backend/src/main/java/com/ngng/api/user/user/service/PhoneNumberAuthService.java",
+    "sha256": "ebca35ebd99b19ee96e8118b0e0a8cf0b973cfb5f07acb0a0c9a7bee669d6599",
+    "bytes": 1809
+  },
+  {
+    "path": "after/source/NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/NurigoSignupSmsSender.java",
+    "sha256": "e55da2cc741b24993017d542cd8285d8bbfa0f4d62d0f737cab52313c2de210b",
+    "bytes": 1356
+  },
+  {
+    "path": "after/source/NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/RedisSignupStore.java",
+    "sha256": "42a78ff52c69bd84edb8518928015fc52c519e42f6cfccdfdea66fbdd52a052e",
+    "bytes": 11372
+  },
+  {
+    "path": "after/source/NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/SignupCrypto.java",
+    "sha256": "22c8195cf8ca2918c690162920a991930d1359da9965684727f0e3b56eafa9e9",
+    "bytes": 3576
+  },
+  {
+    "path": "after/source/NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/SignupFailure.java",
+    "sha256": "15b8de019ca418c026dcfd8729f3d4eb150850afc21d858e480da2aa69938125",
+    "bytes": 824
+  },
+  {
+    "path": "after/source/NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/SignupSmsSender.java",
+    "sha256": "138e3fd1d6629c6b06b2eb23396a85281a20ed6192eddd3aaf2194d30c4d4920",
+    "bytes": 138
+  },
+  {
+    "path": "after/source/NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/SignupStore.java",
+    "sha256": "246401d48a6ba5428dcf6d3a3a6f0a0739db139c63cdcd9abd4f126b113c63c2",
+    "bytes": 276
+  },
+  {
+    "path": "after/source/NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/SignupTarget.java",
+    "sha256": "5dcddc526922e2e2ff93cadaaaf02cc87556005919ef273c659bea3f0f8e3d06",
+    "bytes": 1725
+  },
+  {
+    "path": "after/source/NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/SignupVerification.java",
+    "sha256": "91610670b0a18dc21147a383b62104c4542c5a9e42f9ae7022c06c228d1ab046",
+    "bytes": 5069
+  },
+  {
+    "path": "after/source/NGNG-backend/src/test/java/com/ngng/api/isolation/Rf016IsolatedBootSmokeTest.java",
+    "sha256": "6797e22743b9c45be4a53e349e322e0a37f3391628b14c185b25cca9e74dcc95",
+    "bytes": 16712
+  },
+  {
+    "path": "after/source/NGNG-backend/src/test/java/com/ngng/api/isolation/Rf016IsolationConfiguration.java",
+    "sha256": "5dec870ebd1ea23df1dedd4362c7a588f41fc194b211da359ac0fed13fb9aaeb",
+    "bytes": 6412
+  },
+  {
+    "path": "after/source/NGNG-backend/src/test/java/com/ngng/api/user/signup/MemorySignupStore.java",
+    "sha256": "b7760ceba16ac5f41fc224e0b66162d5348d2779a71a833cfcdbf7774cfe5159",
+    "bytes": 8698
+  },
+  {
+    "path": "after/source/NGNG-backend/src/test/java/com/ngng/api/user/signup/SignupSecurityChainTest.java",
+    "sha256": "91bf454d7b73e99ccc05e3d3d86faea3a64b9442540cd4a12639846654f199a9",
+    "bytes": 12786
+  },
+  {
+    "path": "after/source/NGNG-backend/src/test/java/com/ngng/api/user/signup/SignupVerificationTest.java",
+    "sha256": "35a4794b15bda6f8f443836575b61bd5be40db223ee483f258bd89fea569df14",
+    "bytes": 27422
+  },
+  {
+    "path": "after/source/NGNG-frontend/src/app/join/joinPage.tsx",
+    "sha256": "99da032a57d22e3559e0fcdd28a1df017f9ddc25e9b6fd076d5ee773fa49a647",
+    "bytes": 1321
+  },
+  {
+    "path": "after/source/NGNG-frontend/src/app/join/signupApi.ts",
+    "sha256": "3542c1bcc2d314a35532ab3de0f94b5580bc6c92b565e95432141ec7e6e07481",
+    "bytes": 2478
+  },
+  {
+    "path": "after/source/NGNG-frontend/src/app/join/_pages/secondPage.tsx",
+    "sha256": "a6610cce935b8a15a68d22e0cbaff366284af07b1d95aeaefd4cc0cebe3e0d9c",
+    "bytes": 9274
+  },
+  {
+    "path": "after/source/NGNG-frontend/src/app/join/_pages/thirdPage.tsx",
+    "sha256": "26c1ba64dedb7ed32fd48927ef21c673b60d6355f38af54023de27f4920e69eb",
+    "bytes": 11611
+  },
+  {
+    "path": "after/source/NGNG-frontend/tests/rf043-signup.test.cjs",
+    "sha256": "f28227ac9d688d8c62c637091fe1cdfd4f7aaa4f1710dd44d8148f1ea8dbe956",
+    "bytes": 13584
+  },
+  {
+    "path": "before/backend-console.txt",
+    "sha256": "1b4f777c24b6cf055caad77dc938fcb1de089094f1381c9b866a3a654da7e7ac",
+    "bytes": 550
+  },
+  {
+    "path": "before/backend-retry-console.txt",
+    "sha256": "595f3a1dbc43a8ab1d68417561e5a322a8a371bc04c23785cb332315ab16bd59",
+    "bytes": 1048
+  },
+  {
+    "path": "before/baseline.init.gradle",
+    "sha256": "ea9ecb020e75eff7d253f3b06ea2131e0c0f950cc517352a6af890a3e60fb27f",
+    "bytes": 1463
+  },
+  {
+    "path": "before/source/NGNG-backend/src/main/java/com/ngng/api/user/user/controller/JoinAuthController.java",
+    "sha256": "65fda7ab9c20fa7824c0fff159b22cd486d233ae1251c2e02cb82c8e5162be49",
+    "bytes": 2373
+  },
+  {
+    "path": "before/source/NGNG-backend/src/main/java/com/ngng/api/user/user/controller/JoinController.java",
+    "sha256": "01edf0a845b020d343cefbe6413fffd41e2726a603ba60d0cb4495a7d34583f6",
+    "bytes": 1318
+  },
+  {
+    "path": "before/source/NGNG-backend/src/main/java/com/ngng/api/user/user/dto/request/EmailAuthRequest.java",
+    "sha256": "07e04b650465196b012e2b0f9ed1d585f8a71d5f7b6105c07de4c0c6099dd854",
+    "bytes": 138
+  },
+  {
+    "path": "before/source/NGNG-backend/src/main/java/com/ngng/api/user/user/dto/request/JoinRequest.java",
+    "sha256": "9b86d0700926c19be8ea4602d5cf7166da5f029cb9bdd80bd0c5c40015fbfb63",
+    "bytes": 260
+  },
+  {
+    "path": "before/source/NGNG-backend/src/main/java/com/ngng/api/user/user/dto/request/PhoneNumberAuthRequest.java",
+    "sha256": "113b33fce00a91ba6d0db2d07f6a7e30ba0d85c17d9c3bfcd82d3e281d8ea7b7",
+    "bytes": 189
+  },
+  {
+    "path": "before/source/NGNG-backend/src/main/java/com/ngng/api/user/user/dto/response/EmailAuthResponse.java",
+    "sha256": "c5243a671df5aca37fb4c85beb2321a2e4b978c92d83c73b018165f16a4ddcc2",
+    "bytes": 556
+  },
+  {
+    "path": "before/source/NGNG-backend/src/main/java/com/ngng/api/user/user/dto/response/PhoneNumberAuthResponse.java",
+    "sha256": "3766b67902e3af4209e15d4eb6ab5c090268eaa6dcc436d7011acba6c8c71256",
+    "bytes": 592
+  },
+  {
+    "path": "before/source/NGNG-backend/src/main/java/com/ngng/api/user/user/service/EmailAuthService.java",
+    "sha256": "46afd575fdfa25a12842f3635021564ec883758747f4ca30a5498ddfcc5fd77d",
+    "bytes": 1627
+  },
+  {
+    "path": "before/source/NGNG-backend/src/main/java/com/ngng/api/user/user/service/JoinService.java",
+    "sha256": "9b4fa538b2fab5dd6b4efb50e5e35cfd208e78b2902928f68aaee6673b07e54d",
+    "bytes": 1716
+  },
+  {
+    "path": "before/source/NGNG-backend/src/main/java/com/ngng/api/user/user/service/PhoneNumberAuthService.java",
+    "sha256": "e3fd6df64307796d226852cb0130a76015758d27653c18fefbdaddc5732510c3",
+    "bytes": 2508
+  },
+  {
+    "path": "before/source/NGNG-frontend/src/app/join/joinPage.tsx",
+    "sha256": "11e93881aefa14160d7800c271f141a26b2c520519e1a203d73b91115f718a9b",
+    "bytes": 1144
+  },
+  {
+    "path": "before/source/NGNG-frontend/src/app/join/_pages/secondPage.tsx",
+    "sha256": "9ace22c2dbb59e3917a94666aba9825af9bb410c46d6bed4aaf6af5a082bc870",
+    "bytes": 7439
+  },
+  {
+    "path": "before/source/NGNG-frontend/src/app/join/_pages/thirdPage.tsx",
+    "sha256": "374d117eaba2cec36f6fa0b9c4cc8cc22ca2e0141380275497321a1def65c231",
+    "bytes": 8707
+  },
+  {
+    "path": "before/test/com/ngng/api/user/signup/SignupBeforeTest.java",
+    "sha256": "8c4d2fd4b9e54436f3cdddf2b380ec97c1b67df9831354d112aeb70e9cf897da",
+    "bytes": 2535
+  },
+  {
+    "path": "before/xml/TEST-com.ngng.api.user.signup.SignupBeforeTest.xml",
+    "sha256": "fae1f11fd936648b55f5338e10bf3e1717369d60e1cceb337ec2978df1f06a40",
+    "bytes": 641
+  },
+  {
+    "path": "frontend/after-console.txt",
+    "sha256": "fed645679b635179da7d8faef5c0e3521b5c250c0287b0f90f634b205aef0a4a",
+    "bytes": 8997
+  },
+  {
+    "path": "frontend/before-console.txt",
+    "sha256": "8ab6ad76feba81703c0cd24af62695fa37eb17a7486404ade9ea41ecae744bcd",
+    "bytes": 492
+  },
+  {
+    "path": "frontend/first-success-console.txt",
+    "sha256": "510e94685d074469623749fd8b37b6fd074ed7f2f1eecb4807a920d4b33d136c",
+    "bytes": 4400
+  },
+  {
+    "path": "frontend/lint-console.txt",
+    "sha256": "e0f1286e28557052459c4d1cb997c705beba579075479b05a0287f6a278ec1b6",
+    "bytes": 1174
+  },
+  {
+    "path": "frontend/lint-final-console.txt",
+    "sha256": "e0f1286e28557052459c4d1cb997c705beba579075479b05a0287f6a278ec1b6",
+    "bytes": 1174
+  },
+  {
+    "path": "frontend/tsc-console.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "path": "frontend/tsc-final-console.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "path": "frontend/first-success-source/rf043-signup.test.cjs",
+    "sha256": "1ac64d4acba5cefc36cd787b81167cc62629aa76b163606a6114574df42d490a",
+    "bytes": 11059
+  },
+  {
+    "path": "frontend/first-success-source/secondPage.tsx",
+    "sha256": "03ce28a8ca088bbb1f135acba7897b95dc59b3ce938d80f45572495ee039ec92",
+    "bytes": 9031
+  },
+  {
+    "path": "frontend/first-success-source/signupApi.ts",
+    "sha256": "710342809efc17dc3d00041210e18043fe585808b92f1bb215548745e2f5914b",
+    "bytes": 1645
+  },
+  {
+    "path": "frontend/first-success-source/thirdPage.tsx",
+    "sha256": "6cbbdd876836b59efd19316c69a78789ff0aaf70bd7616962a19c25d4367bd66",
+    "bytes": 11368
+  }
+]

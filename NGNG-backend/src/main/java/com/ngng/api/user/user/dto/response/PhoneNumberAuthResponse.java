@@ -1,23 +1,6 @@
 package com.ngng.api.user.user.dto.response;
-
-import lombok.Builder;
-
-@Builder
-public record PhoneNumberAuthResponse(String authNumber,
-                                      boolean isSuccess) {
-
-    public static PhoneNumberAuthResponse success(String authNumber) {
-
-        return PhoneNumberAuthResponse.builder()
-                .authNumber(authNumber)
-                .isSuccess(true)
-                .build();
-    }
-
-    public static PhoneNumberAuthResponse fail() {
-
-        return PhoneNumberAuthResponse.builder()
-                .isSuccess(false)
-                .build();
-    }
+import com.fasterxml.jackson.annotation.JsonIgnore;
+public record PhoneNumberAuthResponse(String challengeId, long expiresAt, @JsonIgnore boolean isSuccess) {
+    public static PhoneNumberAuthResponse success(String challengeId, long expiresAt) { return new PhoneNumberAuthResponse(challengeId, expiresAt, true); }
+    public static PhoneNumberAuthResponse fail() { return new PhoneNumberAuthResponse(null, 0, false); }
 }

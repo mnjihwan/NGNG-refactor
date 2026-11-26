@@ -37,3 +37,6 @@ docs/refactoring/evidence/RF-038/** -text
 
 # Preserve RF-044 evidence bytes and recorded hashes.
 docs/refactoring/evidence/RF-044/** -text
+
+# Preserve RF-043 shared evidence bytes.
+/docs/refactoring/evidence/RF-043/** -text

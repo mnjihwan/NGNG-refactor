@@ -1,23 +1,6 @@
 package com.ngng.api.user.user.dto.response;
-
-import lombok.Builder;
-
-@Builder
-public record EmailAuthResponse(String authNumber,
-                                boolean isSuccess) {
-
-    public static EmailAuthResponse success(String authNumber) {
-
-        return EmailAuthResponse.builder()
-                .authNumber(authNumber)
-                .isSuccess(true)
-                .build();
-    }
-
-    public static EmailAuthResponse fail() {
-
-        return EmailAuthResponse.builder()
-                .isSuccess(false)
-                .build();
-    }
+import com.fasterxml.jackson.annotation.JsonIgnore;
+public record EmailAuthResponse(String challengeId, long expiresAt, @JsonIgnore boolean isSuccess) {
+    public static EmailAuthResponse success(String challengeId, long expiresAt) { return new EmailAuthResponse(challengeId, expiresAt, true); }
+    public static EmailAuthResponse fail() { return new EmailAuthResponse(null, 0, false); }
 }

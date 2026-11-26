@@ -2,13 +2,17 @@ import { useState } from "react";
 import FirstPage from "./_pages/firstPage";
 import SecondPage from "./_pages/secondPage";
 import ThirdPage from "./_pages/thirdPage";
+import { SignupAttempt } from "./signupApi";
 
 export interface userInfo {
   name: string;
   email: string;
   password: string;
   nickname: string;
-  phoneNumber: String;
+  phoneNumber: string;
+  attempt?: SignupAttempt;
+  phoneProof?: string;
+  emailProof?: string;
 };
 
 export default function JoinPage() {

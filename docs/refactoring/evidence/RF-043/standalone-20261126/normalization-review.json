@@ -1,0 +1,309 @@
+{
+  "description": "Comparison of the previously tested candidate bytes with the staged Git blobs after removing source-specific -text attributes. SHA-1 is Git blob object ID; SHA-256 hashes raw bytes. Tests were not rerun on normalized blob bytes.",
+  "candidateCount": 30,
+  "changedBlobCount": 10,
+  "allCandidateHashesMatch": true,
+  "allEqualAfterCrLfNormalization": true,
+  "entries": [
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/controller/JoinAuthController.java",
+      "verifiedCandidateSha256": "58247c7f54aa7b759f72f23e76edee60d2fb77fdaa76c45059402843158ca3db",
+      "expectedCandidateSha256": "58247c7f54aa7b759f72f23e76edee60d2fb77fdaa76c45059402843158ca3db",
+      "verifiedCandidateGitBlobSha1": "7d3d828684c41289397357cf85de1290a99eeb8b",
+      "normalizedGitBlobSha1": "7d3d828684c41289397357cf85de1290a99eeb8b",
+      "normalizedGitBlobSha256": "58247c7f54aa7b759f72f23e76edee60d2fb77fdaa76c45059402843158ca3db",
+      "candidateHashMatches": true,
+      "equalAfterCrLfNormalization": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/controller/JoinController.java",
+      "verifiedCandidateSha256": "9f20bbbf2485d3dad11abf2f09d7b2df94e8e1637451f551849a420885fd4be8",
+      "expectedCandidateSha256": "9f20bbbf2485d3dad11abf2f09d7b2df94e8e1637451f551849a420885fd4be8",
+      "verifiedCandidateGitBlobSha1": "e0b8734852c0cd88f2532b6555e0d4c2d7f2f942",
+      "normalizedGitBlobSha1": "a2396a72696b0fcd877fa7eb7fb3e9bed5460f6c",
+      "normalizedGitBlobSha256": "fed915c64a0a54cc9a051af19a5ed426775b02eb80d49576e01902cbafb894da",
+      "candidateHashMatches": true,
+      "equalAfterCrLfNormalization": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/controller/SignupExceptionHandler.java",
+      "verifiedCandidateSha256": "2e88c00e7c2b12dd5f0f5c41a76f3432516a9cbcc5fb299fe8f2c955326e9490",
+      "expectedCandidateSha256": "2e88c00e7c2b12dd5f0f5c41a76f3432516a9cbcc5fb299fe8f2c955326e9490",
+      "verifiedCandidateGitBlobSha1": "da68d69829e188c590acc7e8ac9cfa8cbf4d4984",
+      "normalizedGitBlobSha1": "da68d69829e188c590acc7e8ac9cfa8cbf4d4984",
+      "normalizedGitBlobSha256": "2e88c00e7c2b12dd5f0f5c41a76f3432516a9cbcc5fb299fe8f2c955326e9490",
+      "candidateHashMatches": true,
+      "equalAfterCrLfNormalization": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/dto/request/EmailAuthRequest.java",
+      "verifiedCandidateSha256": "9810b5d3acda06ed9f2ceff98c571eee63cc75323ac92dbfc606cde827afaab1",
+      "expectedCandidateSha256": "9810b5d3acda06ed9f2ceff98c571eee63cc75323ac92dbfc606cde827afaab1",
+      "verifiedCandidateGitBlobSha1": "83df437ba0b570bd49087f531cf6d8aeed49b7ad",
+      "normalizedGitBlobSha1": "c412b6f67c0d62d85f2d8d0b6ba002a62d574260",
+      "normalizedGitBlobSha256": "c0892bc7020dceeb0cb1b99f265ce0db8d52bcbaf7aaa134e3438f00daf51241",
+      "candidateHashMatches": true,
+      "equalAfterCrLfNormalization": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/dto/request/JoinRequest.java",
+      "verifiedCandidateSha256": "6a9a8b61a7267f6010e0ffe59b69a433b82c834dac64dcf176b2f270387d155f",
+      "expectedCandidateSha256": "6a9a8b61a7267f6010e0ffe59b69a433b82c834dac64dcf176b2f270387d155f",
+      "verifiedCandidateGitBlobSha1": "efd1b6209e64410d9c39bd516228cea9b1013a5b",
+      "normalizedGitBlobSha1": "6b304a44fd5ede0e93119141f628a1cc555acffc",
+      "normalizedGitBlobSha256": "15673247eda8294328cf3a8ecfd1f885574572c1dec4c62f03b90a6d13df64e2",
+      "candidateHashMatches": true,
+      "equalAfterCrLfNormalization": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/dto/request/PhoneNumberAuthRequest.java",
+      "verifiedCandidateSha256": "c4ce8c41e40e1ccc9f90f9ccb4043f9015906556c1f8486133019f44d139c3fa",
+      "expectedCandidateSha256": "c4ce8c41e40e1ccc9f90f9ccb4043f9015906556c1f8486133019f44d139c3fa",
+      "verifiedCandidateGitBlobSha1": "a56b1c280dafd4fa8fc1b099efb3dfe533aaabec",
+      "normalizedGitBlobSha1": "4d428ab750ce8269e5005515413ffb74e1edeadf",
+      "normalizedGitBlobSha256": "61a7d2cae5d5115fcfa01661ac56ec20d2925cc1c56fb92574c672a4aac3af74",
+      "candidateHashMatches": true,
+      "equalAfterCrLfNormalization": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/dto/request/SignupVerifyRequest.java",
+      "verifiedCandidateSha256": "7224da9cea98ab47e753336001e381ddca970ee3a42352abb5f40124013ec82b",
+      "expectedCandidateSha256": "7224da9cea98ab47e753336001e381ddca970ee3a42352abb5f40124013ec82b",
+      "verifiedCandidateGitBlobSha1": "cbc69ffc79b99eda9e59b6bdd82a4d2495ae9dc0",
+      "normalizedGitBlobSha1": "cbc69ffc79b99eda9e59b6bdd82a4d2495ae9dc0",
+      "normalizedGitBlobSha256": "7224da9cea98ab47e753336001e381ddca970ee3a42352abb5f40124013ec82b",
+      "candidateHashMatches": true,
+      "equalAfterCrLfNormalization": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/dto/response/EmailAuthResponse.java",
+      "verifiedCandidateSha256": "2193fb39f3efe6b3a48c58896df6e9a866e54c768b1b49b393715518e9b3d95a",
+      "expectedCandidateSha256": "2193fb39f3efe6b3a48c58896df6e9a866e54c768b1b49b393715518e9b3d95a",
+      "verifiedCandidateGitBlobSha1": "6a088c0aca000cd46566848b15d3a0be2a64a00b",
+      "normalizedGitBlobSha1": "6a088c0aca000cd46566848b15d3a0be2a64a00b",
+      "normalizedGitBlobSha256": "2193fb39f3efe6b3a48c58896df6e9a866e54c768b1b49b393715518e9b3d95a",
+      "candidateHashMatches": true,
+      "equalAfterCrLfNormalization": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/dto/response/PhoneNumberAuthResponse.java",
+      "verifiedCandidateSha256": "99c5c599e492c71b6b8cd4cf78495473919d401844707e21710f87634454e838",
+      "expectedCandidateSha256": "99c5c599e492c71b6b8cd4cf78495473919d401844707e21710f87634454e838",
+      "verifiedCandidateGitBlobSha1": "7423011949298d3844243a0d9c7c46f06d8abc51",
+      "normalizedGitBlobSha1": "7423011949298d3844243a0d9c7c46f06d8abc51",
+      "normalizedGitBlobSha256": "99c5c599e492c71b6b8cd4cf78495473919d401844707e21710f87634454e838",
+      "candidateHashMatches": true,
+      "equalAfterCrLfNormalization": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/service/EmailAuthService.java",
+      "verifiedCandidateSha256": "c83953128a5cdefb090bdcb26faa76c7a8a6391c8380379edfcfa08a78704ed1",
+      "expectedCandidateSha256": "c83953128a5cdefb090bdcb26faa76c7a8a6391c8380379edfcfa08a78704ed1",
+      "verifiedCandidateGitBlobSha1": "8b15440777d5af023b02c39ac68ce5de4a32dfbd",
+      "normalizedGitBlobSha1": "8b15440777d5af023b02c39ac68ce5de4a32dfbd",
+      "normalizedGitBlobSha256": "c83953128a5cdefb090bdcb26faa76c7a8a6391c8380379edfcfa08a78704ed1",
+      "candidateHashMatches": true,
+      "equalAfterCrLfNormalization": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/service/JoinService.java",
+      "verifiedCandidateSha256": "ed5cc94ec8e52c0cd70a511b85eb2b3f584dd39d3430c983c5300ee58d422b89",
+      "expectedCandidateSha256": "ed5cc94ec8e52c0cd70a511b85eb2b3f584dd39d3430c983c5300ee58d422b89",
+      "verifiedCandidateGitBlobSha1": "aa78ba06a73bfaa2e11c1b76a5402e08faf2b907",
+      "normalizedGitBlobSha1": "2b18b18a0a99373ccfb4c8ee7a931cb89ee54aec",
+      "normalizedGitBlobSha256": "cb03a926a3e6882fb4595b282039402d6b85a6b25dbcc4b6bc0a2882a7e41719",
+      "candidateHashMatches": true,
+      "equalAfterCrLfNormalization": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/service/PhoneNumberAuthService.java",
+      "verifiedCandidateSha256": "ebca35ebd99b19ee96e8118b0e0a8cf0b973cfb5f07acb0a0c9a7bee669d6599",
+      "expectedCandidateSha256": "ebca35ebd99b19ee96e8118b0e0a8cf0b973cfb5f07acb0a0c9a7bee669d6599",
+      "verifiedCandidateGitBlobSha1": "6f9743fe359bada356c0fe610c84a2af3a84c02a",
+      "normalizedGitBlobSha1": "6f9743fe359bada356c0fe610c84a2af3a84c02a",
+      "normalizedGitBlobSha256": "ebca35ebd99b19ee96e8118b0e0a8cf0b973cfb5f07acb0a0c9a7bee669d6599",
+      "candidateHashMatches": true,
+      "equalAfterCrLfNormalization": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/NurigoSignupSmsSender.java",
+      "verifiedCandidateSha256": "e55da2cc741b24993017d542cd8285d8bbfa0f4d62d0f737cab52313c2de210b",
+      "expectedCandidateSha256": "e55da2cc741b24993017d542cd8285d8bbfa0f4d62d0f737cab52313c2de210b",
+      "verifiedCandidateGitBlobSha1": "5f8948ad40a8130e75a5729f1a0b0f25abc865cb",
+      "normalizedGitBlobSha1": "5f8948ad40a8130e75a5729f1a0b0f25abc865cb",
+      "normalizedGitBlobSha256": "e55da2cc741b24993017d542cd8285d8bbfa0f4d62d0f737cab52313c2de210b",
+      "candidateHashMatches": true,
+      "equalAfterCrLfNormalization": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/RedisSignupStore.java",
+      "verifiedCandidateSha256": "291b79773d2229e49767c9b3ebb53836caf2e4bf7dd5b9b43c02ab256326b43f",
+      "expectedCandidateSha256": "291b79773d2229e49767c9b3ebb53836caf2e4bf7dd5b9b43c02ab256326b43f",
+      "verifiedCandidateGitBlobSha1": "c606654bf2dfdc1883b088dbf54e2ae8d2d010a7",
+      "normalizedGitBlobSha1": "c606654bf2dfdc1883b088dbf54e2ae8d2d010a7",
+      "normalizedGitBlobSha256": "291b79773d2229e49767c9b3ebb53836caf2e4bf7dd5b9b43c02ab256326b43f",
+      "candidateHashMatches": true,
+      "equalAfterCrLfNormalization": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/SignupCrypto.java",
+      "verifiedCandidateSha256": "22c8195cf8ca2918c690162920a991930d1359da9965684727f0e3b56eafa9e9",
+      "expectedCandidateSha256": "22c8195cf8ca2918c690162920a991930d1359da9965684727f0e3b56eafa9e9",
+      "verifiedCandidateGitBlobSha1": "151e1a7d678ede6c0467f1f0be67dcdc48f3ea89",
+      "normalizedGitBlobSha1": "151e1a7d678ede6c0467f1f0be67dcdc48f3ea89",
+      "normalizedGitBlobSha256": "22c8195cf8ca2918c690162920a991930d1359da9965684727f0e3b56eafa9e9",
+      "candidateHashMatches": true,
+      "equalAfterCrLfNormalization": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/SignupFailure.java",
+      "verifiedCandidateSha256": "15b8de019ca418c026dcfd8729f3d4eb150850afc21d858e480da2aa69938125",
+      "expectedCandidateSha256": "15b8de019ca418c026dcfd8729f3d4eb150850afc21d858e480da2aa69938125",
+      "verifiedCandidateGitBlobSha1": "1bccbeec3602758a1c7ee6e4638aa126f2c06ef2",
+      "normalizedGitBlobSha1": "1bccbeec3602758a1c7ee6e4638aa126f2c06ef2",
+      "normalizedGitBlobSha256": "15b8de019ca418c026dcfd8729f3d4eb150850afc21d858e480da2aa69938125",
+      "candidateHashMatches": true,
+      "equalAfterCrLfNormalization": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/SignupSmsSender.java",
+      "verifiedCandidateSha256": "138e3fd1d6629c6b06b2eb23396a85281a20ed6192eddd3aaf2194d30c4d4920",
+      "expectedCandidateSha256": "138e3fd1d6629c6b06b2eb23396a85281a20ed6192eddd3aaf2194d30c4d4920",
+      "verifiedCandidateGitBlobSha1": "0177c4ca1655da0123b63bbae680a5aa189e28fb",
+      "normalizedGitBlobSha1": "0177c4ca1655da0123b63bbae680a5aa189e28fb",
+      "normalizedGitBlobSha256": "138e3fd1d6629c6b06b2eb23396a85281a20ed6192eddd3aaf2194d30c4d4920",
+      "candidateHashMatches": true,
+      "equalAfterCrLfNormalization": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/SignupStore.java",
+      "verifiedCandidateSha256": "246401d48a6ba5428dcf6d3a3a6f0a0739db139c63cdcd9abd4f126b113c63c2",
+      "expectedCandidateSha256": "246401d48a6ba5428dcf6d3a3a6f0a0739db139c63cdcd9abd4f126b113c63c2",
+      "verifiedCandidateGitBlobSha1": "e27bb64cdbf1d05237ba22dfa1311da92e7ecc81",
+      "normalizedGitBlobSha1": "e27bb64cdbf1d05237ba22dfa1311da92e7ecc81",
+      "normalizedGitBlobSha256": "246401d48a6ba5428dcf6d3a3a6f0a0739db139c63cdcd9abd4f126b113c63c2",
+      "candidateHashMatches": true,
+      "equalAfterCrLfNormalization": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/SignupTarget.java",
+      "verifiedCandidateSha256": "5dcddc526922e2e2ff93cadaaaf02cc87556005919ef273c659bea3f0f8e3d06",
+      "expectedCandidateSha256": "5dcddc526922e2e2ff93cadaaaf02cc87556005919ef273c659bea3f0f8e3d06",
+      "verifiedCandidateGitBlobSha1": "95d2c82a9189ad1be3dd3d3b0a7ccb7141eedb58",
+      "normalizedGitBlobSha1": "95d2c82a9189ad1be3dd3d3b0a7ccb7141eedb58",
+      "normalizedGitBlobSha256": "5dcddc526922e2e2ff93cadaaaf02cc87556005919ef273c659bea3f0f8e3d06",
+      "candidateHashMatches": true,
+      "equalAfterCrLfNormalization": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/SignupVerification.java",
+      "verifiedCandidateSha256": "91610670b0a18dc21147a383b62104c4542c5a9e42f9ae7022c06c228d1ab046",
+      "expectedCandidateSha256": "91610670b0a18dc21147a383b62104c4542c5a9e42f9ae7022c06c228d1ab046",
+      "verifiedCandidateGitBlobSha1": "d512bd1c1ed335111fc559145aa2547f0f7530c9",
+      "normalizedGitBlobSha1": "d512bd1c1ed335111fc559145aa2547f0f7530c9",
+      "normalizedGitBlobSha256": "91610670b0a18dc21147a383b62104c4542c5a9e42f9ae7022c06c228d1ab046",
+      "candidateHashMatches": true,
+      "equalAfterCrLfNormalization": true
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/isolation/Rf016IsolatedBootSmokeTest.java",
+      "verifiedCandidateSha256": "c398f96d72c2b362dcc2b3c9ca05ef34d7f41b76bd43033648b4104b5dda204d",
+      "expectedCandidateSha256": "c398f96d72c2b362dcc2b3c9ca05ef34d7f41b76bd43033648b4104b5dda204d",
+      "verifiedCandidateGitBlobSha1": "633f6f1bb798b10f8dad3d7afaa350e6616a7eda",
+      "normalizedGitBlobSha1": "72b21416cf182cb282093a2240c0534974a283d9",
+      "normalizedGitBlobSha256": "07c7198ce63b31180b62f07e1fd7b4a6c67ae2ac41f9e51afcc18f962c42fd73",
+      "candidateHashMatches": true,
+      "equalAfterCrLfNormalization": true
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/isolation/Rf016IsolationConfiguration.java",
+      "verifiedCandidateSha256": "5dec870ebd1ea23df1dedd4362c7a588f41fc194b211da359ac0fed13fb9aaeb",
+      "expectedCandidateSha256": "5dec870ebd1ea23df1dedd4362c7a588f41fc194b211da359ac0fed13fb9aaeb",
+      "verifiedCandidateGitBlobSha1": "7c7dc2a600e5722619401d71f78bdead069b12da",
+      "normalizedGitBlobSha1": "eb33f4253cbce7c336e481c333c52acdb3601058",
+      "normalizedGitBlobSha256": "28a55aacdb0ec5a3a15ee11cc15acfa7804714d9ab075e767fb2943d66d0e6c2",
+      "candidateHashMatches": true,
+      "equalAfterCrLfNormalization": true
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/user/signup/MemorySignupStore.java",
+      "verifiedCandidateSha256": "d918e32d30bd86dd3af63e4c6d8f5b642778a6ba3e6371f9fa28e3b5624707e1",
+      "expectedCandidateSha256": "d918e32d30bd86dd3af63e4c6d8f5b642778a6ba3e6371f9fa28e3b5624707e1",
+      "verifiedCandidateGitBlobSha1": "0a36c958ef381f5ebd801ff4e138c4b28264194c",
+      "normalizedGitBlobSha1": "0a36c958ef381f5ebd801ff4e138c4b28264194c",
+      "normalizedGitBlobSha256": "d918e32d30bd86dd3af63e4c6d8f5b642778a6ba3e6371f9fa28e3b5624707e1",
+      "candidateHashMatches": true,
+      "equalAfterCrLfNormalization": true
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/user/signup/SignupSecurityChainTest.java",
+      "verifiedCandidateSha256": "91bf454d7b73e99ccc05e3d3d86faea3a64b9442540cd4a12639846654f199a9",
+      "expectedCandidateSha256": "91bf454d7b73e99ccc05e3d3d86faea3a64b9442540cd4a12639846654f199a9",
+      "verifiedCandidateGitBlobSha1": "b4b95d2880ad1a41f18ad8f6565fe05c38f9b9a3",
+      "normalizedGitBlobSha1": "b4b95d2880ad1a41f18ad8f6565fe05c38f9b9a3",
+      "normalizedGitBlobSha256": "91bf454d7b73e99ccc05e3d3d86faea3a64b9442540cd4a12639846654f199a9",
+      "candidateHashMatches": true,
+      "equalAfterCrLfNormalization": true
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/user/signup/SignupVerificationTest.java",
+      "verifiedCandidateSha256": "bb55e98b4d79f14ae47ef7e2bbabc38ffa38bdc79e79d0cb1c1c7b853a20d2a1",
+      "expectedCandidateSha256": "bb55e98b4d79f14ae47ef7e2bbabc38ffa38bdc79e79d0cb1c1c7b853a20d2a1",
+      "verifiedCandidateGitBlobSha1": "640d23bd623285292d7b937733926f6ab73ef275",
+      "normalizedGitBlobSha1": "640d23bd623285292d7b937733926f6ab73ef275",
+      "normalizedGitBlobSha256": "bb55e98b4d79f14ae47ef7e2bbabc38ffa38bdc79e79d0cb1c1c7b853a20d2a1",
+      "candidateHashMatches": true,
+      "equalAfterCrLfNormalization": true
+    },
+    {
+      "path": "NGNG-frontend/src/app/join/_pages/secondPage.tsx",
+      "verifiedCandidateSha256": "a6610cce935b8a15a68d22e0cbaff366284af07b1d95aeaefd4cc0cebe3e0d9c",
+      "expectedCandidateSha256": "a6610cce935b8a15a68d22e0cbaff366284af07b1d95aeaefd4cc0cebe3e0d9c",
+      "verifiedCandidateGitBlobSha1": "acba998c178e513330f04750198907331492acef",
+      "normalizedGitBlobSha1": "c5f5e8634febf0013712f37eef218b1ebc9fba7d",
+      "normalizedGitBlobSha256": "9a724a316e5330b704df076f10571589a9e0b3abc7073d055ab42069ce90c6d5",
+      "candidateHashMatches": true,
+      "equalAfterCrLfNormalization": true
+    },
+    {
+      "path": "NGNG-frontend/src/app/join/_pages/thirdPage.tsx",
+      "verifiedCandidateSha256": "fc8da8d21d7e989682bc2f8eed890b14b762d25870ad9a4e05f41f9dcac0a4fc",
+      "expectedCandidateSha256": "fc8da8d21d7e989682bc2f8eed890b14b762d25870ad9a4e05f41f9dcac0a4fc",
+      "verifiedCandidateGitBlobSha1": "76d5a525b154a32dc62f718f2aea5945f5facfc1",
+      "normalizedGitBlobSha1": "be0c77573fae659acf4734fbaefacc1379f16116",
+      "normalizedGitBlobSha256": "7dc62e74950068f2f48baf95848f3ac02df51d3f246e95f8b23cc3c411ac1460",
+      "candidateHashMatches": true,
+      "equalAfterCrLfNormalization": true
+    },
+    {
+      "path": "NGNG-frontend/src/app/join/joinPage.tsx",
+      "verifiedCandidateSha256": "99da032a57d22e3559e0fcdd28a1df017f9ddc25e9b6fd076d5ee773fa49a647",
+      "expectedCandidateSha256": "99da032a57d22e3559e0fcdd28a1df017f9ddc25e9b6fd076d5ee773fa49a647",
+      "verifiedCandidateGitBlobSha1": "ad734ac690e82fc9611457cd891f281acfb0fcc5",
+      "normalizedGitBlobSha1": "5d32e9e8a3884b4c6697af941253b56bef7a1a98",
+      "normalizedGitBlobSha256": "2261f98d04018913e839a1c2ec302ca30acaceb2b4a5439d4fe74d49fef78b11",
+      "candidateHashMatches": true,
+      "equalAfterCrLfNormalization": true
+    },
+    {
+      "path": "NGNG-frontend/src/app/join/signupApi.ts",
+      "verifiedCandidateSha256": "3542c1bcc2d314a35532ab3de0f94b5580bc6c92b565e95432141ec7e6e07481",
+      "expectedCandidateSha256": "3542c1bcc2d314a35532ab3de0f94b5580bc6c92b565e95432141ec7e6e07481",
+      "verifiedCandidateGitBlobSha1": "b3076eba87cd426a5b952a642a82575bb23ba10c",
+      "normalizedGitBlobSha1": "b3076eba87cd426a5b952a642a82575bb23ba10c",
+      "normalizedGitBlobSha256": "3542c1bcc2d314a35532ab3de0f94b5580bc6c92b565e95432141ec7e6e07481",
+      "candidateHashMatches": true,
+      "equalAfterCrLfNormalization": true
+    },
+    {
+      "path": "NGNG-frontend/tests/rf043-signup.test.cjs",
+      "verifiedCandidateSha256": "f036333efade8abe5c16ca2ab1a04cb6ea1468d73ff207ddfaae78ac94e255cb",
+      "expectedCandidateSha256": "f036333efade8abe5c16ca2ab1a04cb6ea1468d73ff207ddfaae78ac94e255cb",
+      "verifiedCandidateGitBlobSha1": "1dd2976164693335ffe47f1552f5b04451c19c44",
+      "normalizedGitBlobSha1": "1dd2976164693335ffe47f1552f5b04451c19c44",
+      "normalizedGitBlobSha256": "f036333efade8abe5c16ca2ab1a04cb6ea1468d73ff207ddfaae78ac94e255cb",
+      "candidateHashMatches": true,
+      "equalAfterCrLfNormalization": true
+    }
+  ]
+}

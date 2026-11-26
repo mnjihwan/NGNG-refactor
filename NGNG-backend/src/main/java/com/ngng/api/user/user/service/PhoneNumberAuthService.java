@@ -3,68 +3,29 @@ package com.ngng.api.user.user.service;
 import com.ngng.api.user.user.dto.request.PhoneNumberAuthRequest;
 import com.ngng.api.user.user.dto.response.PhoneNumberAuthResponse;
 import com.ngng.api.user.user.repository.UserRepository;
-import net.nurigo.sdk.NurigoApp;
-import net.nurigo.sdk.message.model.Message;
-import net.nurigo.sdk.message.request.SingleMessageSendingRequest;
-import net.nurigo.sdk.message.response.SingleMessageSentResponse;
-import net.nurigo.sdk.message.service.DefaultMessageService;
+import com.ngng.api.user.user.service.signup.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
 public class PhoneNumberAuthService {
-
-    private final DefaultMessageService messageService;
     private final UserRepository userRepository;
-
-    @Value("${message.from}")
-    private String from;
-
-    @Value("${message.send-enabled:true}")
-    private boolean sendEnabled;
-
-    public PhoneNumberAuthService(@Value("${message.key.api}")
-                                  String apiKey,
-                                  @Value("${message.key.secret}")
-                                  String secretKey,
-                                  UserRepository userRepository) {
-
-        String nurigoDomain = "https://api.coolsms.co.kr";
-
-        this.messageService = NurigoApp.INSTANCE.initialize(apiKey, secretKey, nurigoDomain);
-        this.userRepository = userRepository;
+    private final SignupVerification verification;
+    private final SignupSmsSender sender;
+    private final boolean sendEnabled;
+    public PhoneNumberAuthService(UserRepository userRepository, SignupVerification verification, SignupSmsSender sender,
+                                  @Value("${message.send-enabled:true}") boolean sendEnabled) {
+        this.userRepository = userRepository; this.verification = verification; this.sender = sender; this.sendEnabled = sendEnabled;
     }
-
     public PhoneNumberAuthResponse sendMessage(PhoneNumberAuthRequest request) {
-
-        if (!sendEnabled) {
-            return PhoneNumberAuthResponse.fail();
-        }
-
-        String phoneNumber = request.phoneNumber();
-
-        if (userRepository.existsByPhoneNumber(phoneNumber)) {
-
-            return PhoneNumberAuthResponse.fail();
-        }
-
-        Message message = new Message();
-        message.setFrom(from); // 발신
-        message.setTo(phoneNumber); // 수신
-
-        // 인증번호 세팅
-        int randomNum = (int) (Math.random() * 999999) + 1;
-        String formattedRandomNum = String.format("%06d", randomNum);
-
-        message.setText(request.name() + "님의 내꺼니꺼 인증번호\n" + formattedRandomNum); // 내용
-
-        SingleMessageSentResponse response = messageService.sendOne(new SingleMessageSendingRequest(message)); // 발송 후  get response
-
-        if (response.getStatusCode().equals("2000")) { // 정상 처리
-
-            return PhoneNumberAuthResponse.success(formattedRandomNum);
-        }
-
-        return PhoneNumberAuthResponse.fail();
+        verification.gate();
+        String phone = SignupTarget.phone(request.phoneNumber());
+        if (!sendEnabled || userRepository.existsByPhoneNumber(phone)) return PhoneNumberAuthResponse.fail();
+        SignupVerification.Reservation reservation = verification.reserve(request.attemptId(), request.attemptSecret(), "phone", phone);
+        boolean sent;
+        try { sent = sender.send(phone, request.name(), reservation.code()); }
+        catch (RuntimeException e) { verification.complete(reservation, false); throw SignupFailure.unavailable(); }
+        SignupVerification.Challenge challenge = verification.complete(reservation, sent);
+        return PhoneNumberAuthResponse.success(challenge.challengeId(), challenge.expiresAt());
     }
 }

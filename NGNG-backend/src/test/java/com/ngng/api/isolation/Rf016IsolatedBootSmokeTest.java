@@ -164,7 +164,9 @@ class Rf016IsolatedBootSmokeTest {
         environment.getPropertySources().forEach(source -> System.out.println("RF016_SOURCE " + source.getName()));
         assertTrue(mockingDetails(users).isMock()); assertTrue(mockingDetails(points).isMock());
         assertTrue(mockingDetails(sender).isMock()); assertTrue(mockingDetails(sms).isMock());
-        assertNull(org.springframework.test.util.ReflectionTestUtils.getField(sms, "messageService"), "SMS SDK constructor must not run");
+        assertNull(org.springframework.test.util.ReflectionTestUtils.getField(sms, "sender"), "SMS adapter constructor must not run");
+        assertTrue(context.getBeansOfType(com.ngng.api.user.user.service.signup.SignupSmsSender.class).isEmpty(), "no SMS SDK adapter bean may be created");
+        assertTrue(mockingDetails(context.getBean(com.ngng.api.user.user.service.signup.SignupVerification.class)).isMock());
         FilterChainProxy chain = context.getBean(FilterChainProxy.class);
         assertTrue(chain.getFilterChains().stream().flatMap(c -> c.getFilters().stream()).anyMatch(TokenFilter.class::isInstance));
         var converters = context.getBean(RequestMappingHandlerAdapter.class).getMessageConverters().stream()
@@ -232,8 +234,9 @@ class Rf016IsolatedBootSmokeTest {
         var message = mailbox.messages.get(0);
         assertTrue(message.getFrom()[0].toString().equals("rf016-sender@example.invalid"));
         assertTrue(message.getRecipients(Message.RecipientType.TO)[0].toString().equals("rf016-new@example.invalid"));
-        String code = value.path("authNumber").asText();
-        assertTrue(code.matches("[0-9]{6}")); assertTrue(message.getContent().toString().contains(code));
+        assertFalse(value.has("authNumber"));
+        assertEquals("c".repeat(43), value.path("challengeId").asText());
+        assertTrue(message.getContent().toString().contains("000043"));
         verify(sender).createMimeMessage(); verify(sender).send(any(jakarta.mail.internet.MimeMessage.class));
         verifyNoMoreInteractions(sender); verifyNoInteractions(points, sms);
     }

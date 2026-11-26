@@ -1,0 +1,120 @@
+TAP version 13
+# Subtest: SMS uses fresh server attempt and verify proof, preserving a leading-zero code
+ok 1 - SMS uses fresh server attempt and verify proof, preserving a leading-zero code
+  ---
+  duration_ms: 132.6578
+  ...
+# Subtest: SMS issuance 400 is not reported as sent or verified
+ok 2 - SMS issuance 400 is not reported as sent or verified
+  ---
+  duration_ms: 39.3254
+  ...
+# Subtest: SMS issuance 409 is not reported as sent or verified
+ok 3 - SMS issuance 409 is not reported as sent or verified
+  ---
+  duration_ms: 33.794
+  ...
+# Subtest: SMS issuance 429 is not reported as sent or verified
+ok 4 - SMS issuance 429 is not reported as sent or verified
+  ---
+  duration_ms: 29.5915
+  ...
+# Subtest: SMS issuance 500 is not reported as sent or verified
+ok 5 - SMS issuance 500 is not reported as sent or verified
+  ---
+  duration_ms: 27.966
+  ...
+# Subtest: SMS issuance 503 is not reported as sent or verified
+ok 6 - SMS issuance 503 is not reported as sent or verified
+  ---
+  duration_ms: 28.2152
+  ...
+# Subtest: old authNumber response cannot complete verification
+ok 7 - old authNumber response cannot complete verification
+  ---
+  duration_ms: 29.4451
+  ...
+# Subtest: editing phone or name discards attempt and both proofs
+ok 8 - editing phone or name discards attempt and both proofs
+  ---
+  duration_ms: 22.9319
+  ...
+# Subtest: verify error never marks channel verified
+ok 9 - verify error never marks channel verified
+  ---
+  duration_ms: 24.6935
+  ...
+# Subtest: double click and late response after editing do not overwrite current phone state
+ok 10 - double click and late response after editing do not overwrite current phone state
+  ---
+  duration_ms: 20.7498
+  ...
+# Subtest: unmounted pending issuance response is ignored
+ok 11 - unmounted pending issuance response is ignored
+  ---
+  duration_ms: 19.4099
+  ...
+# Subtest: late verify response after contact edit cannot restore a proof
+ok 12 - late verify response after contact edit cannot restore a proof
+  ---
+  duration_ms: 22.52
+  ...
+# Subtest: quota rejection leaves a prior verified proof intact and explicit restart clears it
+ok 13 - quota rejection leaves a prior verified proof intact and explicit restart clears it
+  ---
+  duration_ms: 18.6755
+  ...
+# Subtest: email uses server verification and submits exact both proofs with attempt secret
+ok 14 - email uses server verification and submits exact both proofs with attempt secret
+  ---
+  duration_ms: 28.0608
+  ...
+# Subtest: final join 400 discards both proofs, keeps login optional, and never retries
+ok 15 - final join 400 discards both proofs, keeps login optional, and never retries
+  ---
+  duration_ms: 19.6964
+  ...
+# Subtest: final join 409 discards both proofs, keeps login optional, and never retries
+ok 16 - final join 409 discards both proofs, keeps login optional, and never retries
+  ---
+  duration_ms: 22.1507
+  ...
+# Subtest: final join 429 discards both proofs, keeps login optional, and never retries
+ok 17 - final join 429 discards both proofs, keeps login optional, and never retries
+  ---
+  duration_ms: 22.4747
+  ...
+# Subtest: final join 500 discards both proofs, keeps login optional, and never retries
+ok 18 - final join 500 discards both proofs, keeps login optional, and never retries
+  ---
+  duration_ms: 21.69
+  ...
+# Subtest: final join 503 discards both proofs, keeps login optional, and never retries
+ok 19 - final join 503 discards both proofs, keeps login optional, and never retries
+  ---
+  duration_ms: 18.5212
+  ...
+# Subtest: network loss after join is uncertain and cannot repeat the same proof
+ok 20 - network loss after join is uncertain and cannot repeat the same proof
+  ---
+  duration_ms: 20.6677
+  ...
+# Subtest: email change after verification restarts both channels and backward navigation discards secrets
+ok 21 - email change after verification restarts both channels and backward navigation discards secrets
+  ---
+  duration_ms: 18.6814
+  ...
+# Subtest: email cannot issue without a verified phone and malformed attempt response never sends SMS
+ok 22 - email cannot issue without a verified phone and malformed attempt response never sends SMS
+  ---
+  duration_ms: 34.9322
+  ...
+1..22
+# tests 22
+# suites 0
+# pass 22
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 877.5078

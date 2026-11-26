@@ -1,0 +1,116 @@
+const test=require('node:test');const assert=require('node:assert/strict');const fs=require('node:fs');const path=require('node:path');const vm=require('node:vm');const ts=require('typescript');const react=require('react');
+const before=process.env.RF043_BEFORE==='1';
+const root=before?path.resolve(__dirname,'../../docs/refactoring/evidence/RF-043/before/source/NGNG-frontend'):path.resolve(__dirname,'..');
+function load(file,deps,globals={}){const filename=path.join(root,file);const source=ts.transpileModule(fs.readFileSync(filename,'utf8'),{fileName:filename,compilerOptions:{target:ts.ScriptTarget.ES2020,module:ts.ModuleKind.CommonJS,jsx:ts.JsxEmit.ReactJSX,esModuleInterop:true}}).outputText;const module={exports:{}};vm.runInNewContext(source,{module,exports:module.exports,...globals,require(name){if(name==='react/jsx-runtime')return require(name);if(Object.hasOwn(deps,name))return deps[name];if(name.endsWith('.svg')||name.endsWith('/caution')||name.includes('ColorMode')||name==='next/link')return ()=>null;throw Error(`unexpected dependency ${name}`);}},{filename});return module.exports;}
+function fixture(page,responses,userOverrides={}){
+  const requests=[],alerts=[],routes=[],pages=[],values=[],refs=[],cleanups=[];let stateIndex=0,refIndex=0,first=true;
+  let user={name:'Synthetic',phoneNumber:'01112345678',email:'Local@example.test',nickname:'fixture',password:'',...userOverrides};
+  const globals={fetch:async(url,options)=>{requests.push({url,...options});const r=responses.shift();if(r instanceof Error)throw r;return await r;},alert:m=>alerts.push(m),Number,Error};
+  const hooks={...react,useState(initial){const index=stateIndex++;if(first)values[index]=typeof initial==='function'?initial():initial;return [values[index],value=>{values[index]=typeof value==='function'?value(values[index]):value;}];},useRef(initial){const index=refIndex++;return refs[index]??={current:initial};},useEffect(effect){if(first){const cleanup=effect();if(cleanup)cleanups.push(cleanup);}}};
+  const api=before?{}:load('src/app/join/signupApi.ts',{},globals);
+  const Component=load(`src/app/join/_pages/${page}Page.tsx`,{react:hooks,'next/navigation':{useRouter:()=>({push:p=>routes.push(p)})},'../signupApi':api},globals).default;
+  function render(){stateIndex=0;refIndex=0;const tree=Component({user,setUser:value=>{user=typeof value==='function'?value(user):value;},currentPage:page==='second'?2:3,setCurrentPage:p=>pages.push(p)});first=false;return tree;}
+  function all(node,out=[]){if(node&&typeof node==='object'){out.push(node);react.Children.toArray(node.props?.children).forEach(child=>all(child,out));}return out;}
+  function text(node){return typeof node==='string'||typeof node==='number'?String(node):react.Children.toArray(node?.props?.children).map(text).join('');}
+  const nodes=()=>all(render());
+  const input=placeholder=>nodes().find(n=>n.type==='input'&&n.props.placeholder===placeholder);
+  const button=label=>nodes().find(n=>n.type==='button'&&text(n).trim()===label);
+  return {requests,alerts,routes,pages,values,refs,user:()=>user,render,input,button,change:(placeholder,value)=>input(placeholder).props.onChange({target:{value}}),click:async label=>{const b=button(label);assert.ok(b,`button ${label}`);return b.props.onClick();},unmount:()=>cleanups.forEach(c=>c())};
+}
+const token='s'.repeat(43),id='i'.repeat(43),challenge='c'.repeat(43),proof='p'.repeat(43);
+const attempt={attemptId:id,attemptSecret:token,expiresAt:2000000};
+const json=(body,status=200)=>new Response(JSON.stringify(body),{status});
+if(before){
+ test('HEAD signup SMS UI trusts issued authNumber and performs no server verify',async()=>{const f=fixture('second',[json({authNumber:'000043',isSuccess:true})]);f.change('이름','Synthetic');f.change('전화번호','01112345678');await f.click('인증');f.change('전화번호 인증','000043');await f.click('확인');assert.equal(f.requests.length,1);assert.equal(f.button('다음').props.disabled,false);assert.match(f.alerts.at(-1),/인증되/);});
+ test('HEAD signup final denial still navigates to login',async()=>{const f=fixture('third',[new Response('',{status:400})]);await f.click('가입');assert.deepEqual(f.routes,['/login']);assert.equal(f.requests.length,1);});
+}else{
+ test('SMS uses fresh server attempt and verify proof, preserving a leading-zero code',async()=>{const f=fixture('second',[json(attempt,201),json({challengeId:challenge,expiresAt:1500000}),json({proof,expiresAt:1500000})]);await f.click('인증');assert.equal(f.button('다음').props.disabled,true);f.change('전화번호 인증','000043');await f.click('확인');assert.equal(f.requests.length,3);assert.equal(f.requests[2].url,'/api/join/auth/phonenumber/verify');assert.equal(JSON.parse(f.requests[2].body).code,'000043');assert.equal(f.user().phoneProof,proof);assert.equal(f.input('전화번호 인증').props.type,'text');assert.equal(f.button('다음').props.disabled,false);});
+ for(const status of [400,409,429,500,503])test(`SMS issuance ${status} is not reported as sent or verified`,async()=>{const f=fixture('second',[json(attempt,201),new Response('',{status})]);await f.click('인증');assert.equal(f.requests.length,2);assert.equal(f.user().phoneProof,undefined);assert.equal(f.button('다음').props.disabled,true);assert.equal(f.alerts.length,1);assert.doesNotMatch(f.alerts[0],/전송했습니다|인증되었습니다/);});
+ test('old authNumber response cannot complete verification',async()=>{const f=fixture('second',[json(attempt,201),json({authNumber:'000043',expiresAt:1500000})]);await f.click('인증');f.change('전화번호 인증','000043');await f.click('확인');assert.equal(f.requests.length,2);assert.equal(f.user().phoneProof,undefined);});
+ test('editing phone or name discards attempt and both proofs',()=>{const f=fixture('second',[],{attempt,phoneProof:proof,emailProof:proof});f.change('전화번호','0191234567');assert.equal(f.user().attempt,undefined);assert.equal(f.user().phoneProof,undefined);assert.equal(f.user().emailProof,undefined);});
+ test('verify error never marks channel verified',async()=>{const f=fixture('second',[json(attempt,201),json({challengeId:challenge,expiresAt:1500000}),new Response('',{status:409})]);await f.click('인증');f.change('전화번호 인증','000043');await f.click('확인');assert.equal(f.user().phoneProof,undefined);assert.equal(f.button('다음').props.disabled,true);});
+ test('double click and late response after editing do not overwrite current phone state',async()=>{let resolve;const pending=new Promise(r=>resolve=r);const f=fixture('second',[pending]);const first=f.click('인증');await f.click('인증');assert.equal(f.requests.length,1);f.change('전화번호','0191234567');resolve(json(attempt,201));await first;assert.equal(f.requests.length,1);assert.equal(f.user().attempt,undefined);assert.equal(f.user().phoneProof,undefined);});
+ test('unmounted pending issuance response is ignored',async()=>{let resolve;const f=fixture('second',[new Promise(r=>resolve=r)]);const work=f.click('인증');f.unmount();resolve(json(attempt,201));await work;assert.equal(f.requests.length,1);assert.equal(f.alerts.length,0);assert.equal(f.user().attempt,undefined);});
+ test('late verify response after contact edit cannot restore a proof',async()=>{let resolve;const f=fixture('second',[json(attempt,201),json({challengeId:challenge,expiresAt:1500000}),new Promise(r=>resolve=r)]);await f.click('인증');f.change('전화번호 인증','000043');const work=f.click('확인');f.change('이름','Changed');resolve(json({proof,expiresAt:1500000}));await work;assert.equal(f.user().attempt,undefined);assert.equal(f.user().phoneProof,undefined);assert.equal(f.button('다음').props.disabled,true);});
+ test('quota rejection leaves a prior verified proof intact and explicit restart clears it',async()=>{const f=fixture('second',[new Response('',{status:429})],{attempt,phoneProof:proof,emailProof:proof});await f.click('인증');assert.equal(f.user().phoneProof,proof);assert.equal(f.user().emailProof,proof);await f.click('인증 처음부터 다시 시작');assert.equal(f.user().attempt,undefined);assert.equal(f.user().phoneProof,undefined);assert.equal(f.user().emailProof,undefined);});
+ test('email uses server verification and submits exact both proofs with attempt secret',async()=>{const f=fixture('third',[json({challengeId:challenge,expiresAt:1500000}),json({proof,expiresAt:1500000}),new Response('',{status:201})],{attempt,phoneProof:'h'.repeat(43)});await f.click('인증');f.change('인증번호','000043');await f.click('확인');f.change('비밀번호','synthetic-password');f.change('비밀번호 확인','synthetic-password');await f.click('가입');assert.deepEqual(f.routes,['/login']);const body=JSON.parse(f.requests[2].body);assert.equal(body.emailProof,proof);assert.equal(body.phoneProof,'h'.repeat(43));assert.equal(body.attemptId,id);assert.equal(body.attemptSecret,token);assert.equal(body.password,'synthetic-password');assert.equal(body.attempt,undefined);assert.equal(f.user().phoneProof,undefined);assert.equal(f.user().emailProof,undefined);});
+ for(const status of [400,409,429,500,503])test(`final join ${status} discards both proofs, keeps login optional, and never retries`,async()=>{const f=fixture('third',[new Response('',{status})],{attempt,emailProof:proof,phoneProof:proof});f.change('비밀번호','synthetic-password');f.change('비밀번호 확인','synthetic-password');await f.click('가입');await f.click('가입');assert.equal(f.requests.length,1);assert.equal(f.routes.length,0);assert.equal(f.user().emailProof,undefined);assert.equal(f.user().phoneProof,undefined);assert.deepEqual(f.pages,[2]);assert.match(f.alerts[0],/이미 가입|로그인/);});
+ test('network loss after join is uncertain and cannot repeat the same proof',async()=>{const f=fixture('third',[new Error('synthetic network loss')],{attempt,emailProof:proof,phoneProof:proof});f.change('비밀번호','synthetic-password');f.change('비밀번호 확인','synthetic-password');await f.click('가입');await f.click('가입');assert.equal(f.requests.length,1);assert.equal(f.routes.length,0);assert.equal(f.user().attempt,undefined);assert.equal(f.pages[0],2);});
+ test('email change after verification restarts both channels and backward navigation discards secrets',async()=>{const f=fixture('third',[],{attempt,emailProof:proof,phoneProof:proof});f.change('이메일','Other@example.test');assert.equal(f.user().attempt,undefined);assert.equal(f.user().phoneProof,undefined);await f.click('이전');assert.deepEqual(f.pages,[2]);assert.equal(f.user().emailProof,undefined);});
+ test('email edits before any reservation or after an initial quota rejection preserve the phone attempt', async () => {
+   const phoneProof = 'h'.repeat(43);
+   const f = fixture('third', [new Response('', {status: 429}), json({challengeId: challenge, expiresAt: 1500000})], {attempt, phoneProof});
+   f.change('이메일', 'First@example.test');
+   assert.equal(f.user().attempt, attempt);
+   assert.equal(f.user().phoneProof, phoneProof);
+   await f.click('인증');
+
+   f.change('이메일', 'Other@example.test');
+   assert.equal(f.user().attempt, attempt);
+   assert.equal(f.user().phoneProof, phoneProof);
+   await f.click('인증');
+   assert.deepEqual(f.requests.map(({body}) => JSON.parse(body).email), ['First@example.test', 'Other@example.test']);
+   assert.ok(f.requests.every(({body}) => JSON.parse(body).attemptId === attempt.attemptId));
+   assert.equal(f.input('인증번호').props.disabled, false);
+
+   f.change('이메일', 'Third@example.test');
+   assert.equal(f.user().attempt, undefined);
+   assert.equal(f.user().phoneProof, undefined);
+   assert.equal(f.user().emailProof, undefined);
+   assert.equal(f.input('인증번호').props.disabled, true);
+   await f.click('인증');
+   assert.equal(f.requests.length, 2);
+   assert.deepEqual(f.pages, [2]);
+ });
+ for (const [label, response] of [
+   ['503', () => new Response('', {status: 503})],
+   ['network loss', () => new Error('synthetic response loss')],
+   ['malformed success', () => json({challengeId: 1, expiresAt: 1500000})],
+ ]) test(`email edit after first ${label} starts over even without a challenge`, async () => {
+   const phoneProof = 'h'.repeat(43);
+   const f = fixture('third', [response(), new Response('', {status: 429})], {attempt, phoneProof});
+   await f.click('인증');
+   assert.equal(f.user().attempt, attempt);
+   assert.equal(f.user().phoneProof, phoneProof);
+   assert.equal(f.user().emailProof, undefined);
+   assert.equal(f.input('인증번호').props.disabled, true);
+
+   await f.click('인증');
+   assert.deepEqual(f.requests.map(({body}) => JSON.parse(body).email), ['Local@example.test', 'Local@example.test']);
+   assert.ok(f.requests.every(({body}) => JSON.parse(body).attemptId === attempt.attemptId));
+   f.change('이메일', 'Other@example.test');
+   assert.equal(f.user().attempt, undefined);
+   assert.equal(f.user().phoneProof, undefined);
+   assert.equal(f.user().emailProof, undefined);
+   await f.click('인증');
+   assert.equal(f.requests.length, 2);
+   assert.deepEqual(f.pages, [2]);
+ });
+ test('email cannot issue without a verified phone and malformed attempt response never sends SMS',async()=>{const email=fixture('third',[]);await email.click('인증');assert.equal(email.requests.length,0);assert.equal(email.pages[0],2);const phone=fixture('second',[json({expiresAt:1},201)]);await phone.click('인증');assert.equal(phone.requests.length,1);assert.equal(phone.user().phoneProof,undefined);});
+ for(const page of ['second','third'])for(const [label,response,keep]of[
+   ['503',()=>new Response('',{status:503}),false],['network',()=>new Error('synthetic response loss'),false],
+   ['malformed200',()=>json({challengeId:1,expiresAt:1500000}),false],['429',()=>new Response('',{status:429}),true],
+ ])test(`${page} old proof resend ${label} preserves only explicitly unchanged quota state`,async()=>{
+   const f=fixture(page,[response()],{attempt,phoneProof:'h'.repeat(43),emailProof:'e'.repeat(43)});f.render();f.values[page==='second'?3:5]={challengeId:challenge,expiresAt:1500000};await f.click('인증');
+   assert.equal(f.user()[page==='second'?'phoneProof':'emailProof'],keep?(page==='second'?'h'.repeat(43):'e'.repeat(43)):undefined);
+   assert.equal(f.user()[page==='second'?'emailProof':'phoneProof'],page==='second'?'e'.repeat(43):'h'.repeat(43));assert.equal(f.values[page==='second'?3:5]?.challengeId,keep?challenge:undefined);
+   assert.equal(f.requests.length,1);assert.equal(f.user().attempt.attemptId,id);assert.equal(f.routes.length,0);
+   if (page === 'third') {
+     f.change('이메일', 'Other@example.test');
+     assert.equal(f.user().attempt, undefined);
+     assert.equal(f.user().phoneProof, undefined);
+     assert.equal(f.user().emailProof, undefined);
+     await f.click('인증');
+     assert.equal(f.requests.length, 1);
+     assert.deepEqual(f.pages, [2]);
+   }
+ });
+ for(const [label,body]of[
+   ['numeric-id',{...attempt,attemptId:43}],['boolean-secret',{...attempt,attemptSecret:true}],['short-secret',{...attempt,attemptSecret:'s'}],
+   ['invalid-token-character',{...attempt,attemptId:'='.repeat(43)}],['zero-expiry',{...attempt,expiresAt:0}],['negative-expiry',{...attempt,expiresAt:-1}],
+   ['fractional-expiry',{...attempt,expiresAt:1.5}],['unsafe-expiry',{...attempt,expiresAt:9007199254740992}],['string-expiry',{...attempt,expiresAt:'1500000'}],
+ ])test(`malformed attempt ${label} never starts issuance`,async()=>{const f=fixture('second',[json(body,201)]);await f.click('인증');assert.equal(f.requests.length,1);assert.equal(f.user().attempt,undefined);assert.equal(f.user().phoneProof,undefined);assert.equal(f.button('다음').props.disabled,true);});
+ for(const page of ['second','third'])for(const [label,badProof]of[['numeric',43],['boolean',true],['short','p'],['bad-alphabet','='.repeat(43)]])test(`${page} malformed ${label} proof never verifies channel`,async()=>{
+   const f=fixture(page,[json({challengeId:challenge,expiresAt:1500000}),json({proof:badProof,expiresAt:1500000})],{attempt,phoneProof:page==='third'?'h'.repeat(43):undefined});await f.click('인증');f.change(page==='second'?'전화번호 인증':'인증번호','000043');await f.click('확인');assert.equal(f.user()[page==='second'?'phoneProof':'emailProof'],undefined);assert.doesNotMatch(f.alerts.at(-1),/인증되었습니다/);
+ });
+}

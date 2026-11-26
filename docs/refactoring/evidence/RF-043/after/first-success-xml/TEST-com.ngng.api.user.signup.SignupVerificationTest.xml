@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.user.signup.SignupVerificationTest" tests="26" skipped="0" failures="0" errors="0" timestamp="2026-11-11T07:11:30" hostname="[HOST]" time="4.474">
+  <properties/>
+  <testcase name="failedQuotaReservationPreservesPriorProofAndCollisionNeverOverwrites()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="1.984"/>
+  <testcase name="databaseFailureAndDuplicateRetainConsumedStateAndForbidRetry()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.058"/>
+  <testcase name="secretsAndHmacAreFullLengthDomainSeparatedAndLengthUnambiguous()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.006"/>
+  <testcase name="rollingQuotaIncludesFailedReservationAndNewAttemptsAndExactBoundary()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.014"/>
+  <testcase name="lateProviderAcceptanceAfterExpiryIsNotReportedAsIssuanceSuccess()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.006"/>
+  <testcase name="consumedAttemptIsTerminalForResendVerifyAndLateCompletion()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.015"/>
+  <testcase name="pointFailureLeavesConsumedProofsAndDoesNotAutomaticallyReplayUserSave()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.025"/>
+  <testcase name="proofExpirationNeverExceedsAbsoluteAttemptDeadline()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.006"/>
+  <testcase name="proofAndAttemptAbsoluteExpiriesAreEnforcedEvenWhenKeyCleanupIsDelayed()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.007"/>
+  <testcase name="resendBeforeJoinInvalidatesOnlyCurrentChannelAndLateSenderCannotActivateOldGeneration()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.011"/>
+  <testcase name="consumeTimeoutNeverStartsDatabaseAndNeverRestoresConsumedProofs()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.007"/>
+  <testcase name="joinRequiresBothExactTargetsAndNoPartialConsumptionBeforeDatabaseAccess()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.012"/>
+  <testcase name="missingOrInvalidConfigurationAndDisabledFlagBlockEveryEntryWithoutStoreOrPersistence()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.039"/>
+  <testcase name="verificationSuccessCannotBeReplayedToRecoverOrMintAProof()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.005"/>
+  <testcase name="fifthComparisonCanSucceedAndCountersSurviveResend()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.01"/>
+  <testcase name="codesExpireAtExactlyFiveMinutesAndPendingNeverVerifies()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.006"/>
+  <testcase name="failedSmsDeliveryKeepsQuotaAndCannotBecomeVerified()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.035"/>
+  <testcase name="actualMailServiceUsesOnlyCanonicalMailboxAndNeverReturnsPin()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.589"/>
+  <testcase name="asciiCanonicalTargetsRejectAmbiguousRecipientsAndPermitExistingPhonePrefixesAndPunycode()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.005"/>
+  <testcase name="fiveFailuresLockChannelWithoutSixthComparisonOrResendReset()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.008"/>
+  <testcase name="challengeCollisionRetriesAreBoundedAndPreserveCurrentProofAndQuota()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.006"/>
+  <testcase name="actualSmsServiceUsesAdapterAndDisabledOrInvalidRequestsNeverReachIt()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.006"/>
+  <testcase name="changedEpochRejectsPreviousAttemptAndMissingRedisFailsClosed()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.005"/>
+  <testcase name="wrongSecretNeverChangesQuotaGenerationProofOrChecks()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.007"/>
+  <testcase name="concurrentModelVerificationAndJoinHaveOneWinnerWithoutClaimingRedisAtomicity()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.009"/>
+  <testcase name="missingConfigurationControllersFailClosedIncludingOldJoinWithoutAnySenderOrDatabaseCall()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="1.551"/>
+  <system-out><![CDATA[16:11:34.162 [Test worker] INFO org.hibernate.validator.internal.util.Version -- HV000001: Hibernate Validator 8.0.1.Final
+16:11:34.993 [Test worker] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+16:11:34.993 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+16:11:35.001 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 6 ms
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

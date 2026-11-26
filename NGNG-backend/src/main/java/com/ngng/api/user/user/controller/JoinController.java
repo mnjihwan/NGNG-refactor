@@ -6,6 +6,7 @@ import com.ngng.api.user.user.service.JoinService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.CacheControl;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,16 +29,13 @@ public class JoinController {
 
         if (!response.isJoinSuccess()) {
 
-            log.error("Faild Create User , Email - {}", request.email());
-
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.badRequest().cacheControl(CacheControl.noStore()).build();
         }
 
-        log.info("Success Create User id: {} email: {} ", response.id(), request.email());
 
 
         URI location = URI.create("/users/" + response.id());
 
-        return ResponseEntity.created(location).build();
+        return ResponseEntity.created(location).cacheControl(CacheControl.noStore()).build();
     }
 }
