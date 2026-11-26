@@ -3,8 +3,8 @@ package com.ngng.api.user.user.service;
 import com.ngng.api.user.user.dto.request.EmailAuthRequest;
 import com.ngng.api.user.user.dto.response.EmailAuthResponse;
 import com.ngng.api.user.user.repository.UserRepository;
+import com.ngng.api.user.user.service.signup.*;
 import jakarta.mail.Message;
-import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,34 +14,26 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 @Service
 public class EmailAuthService {
-
     private final JavaMailSender javaMailSender;
     private final UserRepository userRepository;
-
-    @Value("${spring.mail.username}")
-    private String from;
-
-    public EmailAuthResponse sendMail(EmailAuthRequest request) throws MessagingException {
-
-        if (userRepository.existsByEmail(request.email())) {
-
-            return EmailAuthResponse.fail();
+    private final SignupVerification verification;
+    @Value("${spring.mail.username}") private String from;
+    public EmailAuthResponse sendMail(EmailAuthRequest request) {
+        verification.gate();
+        String email = SignupTarget.email(request.email());
+        if (userRepository.existsByEmail(email)) return EmailAuthResponse.fail();
+        SignupVerification.Reservation reservation = verification.reserve(request.attemptId(), request.attemptSecret(), "email", email);
+        try {
+            MimeMessage message = javaMailSender.createMimeMessage();
+            message.setFrom(from); message.setRecipients(Message.RecipientType.TO, email);
+            message.setSubject("[내꺼니꺼] 회원가입 인증번호 알림");
+            message.setText("내꺼니꺼 인증번호 : " + reservation.code());
+            javaMailSender.send(message);
+        } catch (Exception e) {
+            verification.complete(reservation, false);
+            throw SignupFailure.unavailable();
         }
-
-        MimeMessage message = javaMailSender.createMimeMessage();
-
-        message.setFrom(from); // 발신
-        message.setRecipients(Message.RecipientType.TO, request.email()); // 수신
-
-        // 인증번호 세팅
-        int randomNum = (int) (Math.random() * 999999) + 1;
-        String formattedRandomNum = String.format("%06d", randomNum);
-
-        message.setSubject("[내꺼니꺼] 회원가입 인증번호 알림"); // 제목
-        message.setText("내꺼니꺼 인증번호 : " + formattedRandomNum); // 내용
-
-        javaMailSender.send(message); // 발송
-
-        return EmailAuthResponse.success(formattedRandomNum);
+        SignupVerification.Challenge challenge = verification.complete(reservation, true);
+        return EmailAuthResponse.success(challenge.challengeId(), challenge.expiresAt());
     }
 }

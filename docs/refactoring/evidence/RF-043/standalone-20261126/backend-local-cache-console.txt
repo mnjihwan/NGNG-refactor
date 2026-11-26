@@ -1,0 +1,50 @@
+./gradlew.bat --offline --no-daemon --console=plain --rerun-tasks test --tests com.ngng.api.global.security.SecurityChainTest --tests com.ngng.api.global.security.TokenFilterTest --tests com.ngng.api.global.security.TokenStateSecurityChainTest --tests com.ngng.api.isolation.Rf016EnvironmentIsolationTest --tests com.ngng.api.isolation.Rf016IsolatedBootSmokeTest --tests com.ngng.api.product.authorization.ProductAuthorizationSecurityChainTest --tests com.ngng.api.product.writer.ProductAdditionalWriterSecurityChainTest --tests com.ngng.api.report.creation.ReportCreationSecurityChainTest --tests com.ngng.api.report.response.ReportResponseSecurityChainTest --tests com.ngng.api.transaction.authorization.TransactionRequestAuthorizationChainTest --tests com.ngng.api.transaction.read.TransactionReadSecurityChainTest --tests com.ngng.api.transaction.status.TransactionStatusSecurityChainTest --tests com.ngng.api.user.point.controller.PointResponseSecurityChainTest --tests com.ngng.api.user.point.payment.PaymentAndStatusChainTest --tests com.ngng.api.user.point.payment.PaymentTrustSecurityChainTest --tests com.ngng.api.user.user.address.ConfirmAddressSecurityChainTest --tests com.ngng.api.user.user.address.ConfirmAddressServiceTest --tests com.ngng.api.user.user.confirmation.ConfirmAccountSecurityChainTest --tests com.ngng.api.user.user.confirmation.ConfirmAccountServiceTest --tests com.ngng.api.user.user.dropout.DropOutSecurityChainTest --tests com.ngng.api.user.user.dropout.DropOutServiceTest --tests com.ngng.api.user.signup.SignupVerificationTest --tests com.ngng.api.user.signup.SignupSecurityChainTest assemble
+
+Welcome to Gradle 8.7!
+
+Here are the highlights of this release:
+ - Compiling and testing with Java 22
+ - Cacheable Groovy script compilation
+ - New methods in lazy collection properties
+
+For more details see https://docs.gradle.org/8.7/release-notes.html
+
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.7/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Could not connect to the Gradle daemon.
+Daemon uid: 8e46fb19-2298-40ac-a8dc-edf30939956e with diagnostics:
+Daemon pid: 18556
+  log file: [USER_HOME]\OneDrive\���� ȭ��\PJT\NGNG\.tmp\rf043-standalone-20261126\run-cache\gradle\daemon\8.7\daemon-18556.out.log
+----- Last  20 lines from daemon log file - daemon-18556.out.log -----
+2026-11-26T09:57:13.679+0900 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface [INTERFACE]
+2026-11-26T09:57:13.680+0900 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2026-11-26T09:57:13.680+0900 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface [INTERFACE]
+2026-11-26T09:57:13.681+0900 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2026-11-26T09:57:13.684+0900 [DEBUG] [org.gradle.internal.remote.internal.inet.TcpIncomingConnector] Listening on [cc9c35cc-6c5c-42f1-b670-f158c370e013 port:54530, addresses:[localhost/127.0.0.1]].
+2026-11-26T09:57:13.693+0900 [DEBUG] [org.gradle.launcher.daemon.server.Daemon] Daemon starting at: Thu Nov 26 09:57:13 KST 2026, with address: [cc9c35cc-6c5c-42f1-b670-f158c370e013 port:54530, addresses:[localhost/127.0.0.1]]
+2026-11-26T09:57:13.693+0900 [INFO] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Advertising the daemon address to the clients: [cc9c35cc-6c5c-42f1-b670-f158c370e013 port:54530, addresses:[localhost/127.0.0.1]]
+2026-11-26T09:57:13.694+0900 [DEBUG] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Advertised daemon context: DefaultDaemonContext[uid=8e46fb19-2298-40ac-a8dc-edf30939956e,javaHome=C:\Program Files\Java\jdk-17,daemonRegistryDir=[USER_HOME]\OneDrive\���� ȭ��\PJT\NGNG\.tmp\rf043-standalone-20261126\run-cache\gradle\daemon,pid=18556,idleTimeout=120000,priority=NORMAL,applyInstrumentationAgent=true,daemonOpts=--add-opens=java.base/java.util=ALL-UNNAMED,--add-opens=java.base/java.lang=ALL-UNNAMED,--add-opens=java.base/java.lang.invoke=ALL-UNNAMED,--add-opens=java.prefs/java.util.prefs=ALL-UNNAMED,--add-opens=java.base/java.nio.charset=ALL-UNNAMED,--add-opens=java.base/java.net=ALL-UNNAMED,--add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED,-XX:MaxMetaspaceSize=384m,-XX:+HeapDumpOnOutOfMemoryError,-Xms256m,-Xmx512m,-Dfile.encoding=x-windows-949,-Duser.country=KR,-Duser.language=ko,-Duser.variant]
+2026-11-26T09:57:13.694+0900 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Storing daemon address: [cc9c35cc-6c5c-42f1-b670-f158c370e013 port:54530, addresses:[localhost/127.0.0.1]], context: DefaultDaemonContext[uid=8e46fb19-2298-40ac-a8dc-edf30939956e,javaHome=C:\Program Files\Java\jdk-17,daemonRegistryDir=[USER_HOME]\OneDrive\���� ȭ��\PJT\NGNG\.tmp\rf043-standalone-20261126\run-cache\gradle\daemon,pid=18556,idleTimeout=120000,priority=NORMAL,applyInstrumentationAgent=true,daemonOpts=--add-opens=java.base/java.util=ALL-UNNAMED,--add-opens=java.base/java.lang=ALL-UNNAMED,--add-opens=java.base/java.lang.invoke=ALL-UNNAMED,--add-opens=java.prefs/java.util.prefs=ALL-UNNAMED,--add-opens=java.base/java.nio.charset=ALL-UNNAMED,--add-opens=java.base/java.net=ALL-UNNAMED,--add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED,-XX:MaxMetaspaceSize=384m,-XX:+HeapDumpOnOutOfMemoryError,-Xms256m,-Xmx512m,-Dfile.encoding=x-windows-949,-Duser.country=KR,-Duser.language=ko,-Duser.variant]
+2026-11-26T09:57:13.703+0900 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+2026-11-26T09:57:13.706+0900 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2026-11-26T09:57:13.707+0900 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2026-11-26T09:57:13.710+0900 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+2026-11-26T09:57:13.711+0900 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2026-11-26T09:57:13.713+0900 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2026-11-26T09:57:13.714+0900 [LIFECYCLE] [org.gradle.launcher.daemon.server.Daemon] Daemon server started.
+2026-11-26T09:57:13.715+0900 [DEBUG] [org.gradle.launcher.daemon.bootstrap.DaemonStartupCommunication] Completed writing the daemon greeting. Closing streams...
+2026-11-26T09:57:13.720+0900 [DEBUG] [org.gradle.launcher.daemon.server.Daemon] stopOnExpiration() called on daemon
+2026-11-26T09:57:13.721+0900 [DEBUG] [org.gradle.launcher.daemon.server.Daemon] awaitExpiration() called on daemon
+2026-11-26T09:57:13.721+0900 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] daemon is running. Sleeping until state changes.
+----- End of the daemon log -----
+
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+Exit code: 1

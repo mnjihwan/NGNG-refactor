@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ngng.api.user.signup.SignupVerificationTest" tests="35" skipped="0" failures="0" errors="0" timestamp="2026-11-26T00:23:22" hostname="[HOST]" time="0.628">
+  <properties/>
+  <testcase name="actualMailUnknownDeliveryKeepsQuotaAndNeverActivatesTheCode()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.082"/>
+  <testcase name="failedQuotaReservationPreservesPriorProofAndCollisionNeverOverwrites()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.009"/>
+  <testcase name="databaseFailureAndDuplicateRetainConsumedStateAndForbidRetry()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.014"/>
+  <testcase name="secretsAndHmacAreFullLengthDomainSeparatedAndLengthUnambiguous()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.002"/>
+  <testcase name="rollingQuotaIncludesFailedReservationAndNewAttemptsAndExactBoundary()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.01"/>
+  <testcase name="lateProviderAcceptanceAfterExpiryIsNotReportedAsIssuanceSuccess()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.003"/>
+  <testcase name="consumedAttemptIsTerminalForResendVerifyAndLateCompletion()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.008"/>
+  <testcase name="pointFailureLeavesConsumedProofsAndDoesNotAutomaticallyReplayUserSave()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.007"/>
+  <testcase name="proofExpirationNeverExceedsAbsoluteAttemptDeadline()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.003"/>
+  <testcase name="corruptedAttemptOrChannelStateAndNonNumericTtlFailClosedWithoutReservingQuota()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.01"/>
+  <testcase name="proofAndAttemptAbsoluteExpiriesAreEnforcedEvenWhenKeyCleanupIsDelayed()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.005"/>
+  <testcase name="resendBeforeJoinInvalidatesOnlyCurrentChannelAndLateSenderCannotActivateOldGeneration()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.007"/>
+  <testcase name="consumeTimeoutNeverStartsDatabaseAndNeverRestoresConsumedProofs()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.004"/>
+  <testcase name="proofCanOutliveTheCodeWhileBothExpiryWindowsRespectTheAttemptDeadline()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.003"/>
+  <testcase name="concurrentFourIssuancesAtSameModelTimeReserveOnlyThreeAndCallSenderThreeTimes()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.006"/>
+  <testcase name="joinRequiresBothExactTargetsAndNoPartialConsumptionBeforeDatabaseAccess()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.009"/>
+  <testcase name="malformedOperationArgumentsAndAliasedIssueKeysHaveNoBehavioralStoreWrites()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.002"/>
+  <testcase name="missingOrInvalidConfigurationAndDisabledFlagBlockEveryEntryWithoutStoreOrPersistence()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.036"/>
+  <testcase name="verificationSuccessCannotBeReplayedToRecoverOrMintAProof()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.002"/>
+  <testcase name="fifthComparisonCanSucceedAndCountersSurviveResend()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.005"/>
+  <testcase name="codesExpireAtExactlyFiveMinutesAndPendingNeverVerifies()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.005"/>
+  <testcase name="failedSmsDeliveryKeepsQuotaAndCannotBecomeVerified()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.007"/>
+  <testcase name="productionRedisAdapterMapsNullAndExecutionFailureToUnavailableWithoutFallback()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.169"/>
+  <testcase name="actualMailServiceUsesOnlyCanonicalMailboxAndNeverReturnsPin()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.009"/>
+  <testcase name="asciiCanonicalTargetsRejectAmbiguousRecipientsAndPermitExistingPhonePrefixesAndPunycode()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.004"/>
+  <testcase name="fiveFailuresLockChannelWithoutSixthComparisonOrResendReset()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.006"/>
+  <testcase name="challengeCollisionRetriesAreBoundedAndPreserveCurrentProofAndQuota()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.003"/>
+  <testcase name="luaPreflightGuardsStructurallyPrecedeEveryMutationWithoutExecutingRedis()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.003"/>
+  <testcase name="actualSmsServiceUsesAdapterAndDisabledOrInvalidRequestsNeverReachIt()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.006"/>
+  <testcase name="changedEpochRejectsPreviousAttemptAndMissingRedisFailsClosed()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.004"/>
+  <testcase name="overlongPendingAndSentCodeExpiriesFailWithoutUpdatingState()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.005"/>
+  <testcase name="wrongSecretNeverChangesQuotaGenerationProofOrChecks()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.004"/>
+  <testcase name="overlongStoredExpiriesLeaveBothProofsAndDatabaseUntouched()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.006"/>
+  <testcase name="concurrentModelVerificationAndJoinHaveOneWinnerWithoutClaimingRedisAtomicity()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.009"/>
+  <testcase name="missingConfigurationControllersFailClosedIncludingOldJoinWithoutAnySenderOrDatabaseCall()" classname="com.ngng.api.user.signup.SignupVerificationTest" time="0.141"/>
+  <system-out><![CDATA[2026-11-26 09:23:22.740 [Test worker] INFO  o.s.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-26 09:23:22.740 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-26 09:23:22.740 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -19,6 +19,7 @@ import com.ngng.api.user.user.controller.JoinAuthController;
 import com.ngng.api.user.user.controller.UserController;
 import com.ngng.api.user.user.repository.UserRepository;
 import com.ngng.api.user.user.service.*;
+import com.ngng.api.user.user.service.signup.SignupVerification;
 import jakarta.mail.Session;
 import jakarta.mail.internet.MimeMessage;
 import org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration;
@@ -73,6 +74,15 @@ class Rf016IsolationConfiguration implements WebMvcConfigurer {
     @Bean ProductService productService() { return mock(ProductService.class); }
     @Bean TransactionDetailsService transactionDetailsService() { return mock(TransactionDetailsService.class); }
     @Bean PhoneNumberAuthService phoneNumberAuthService() { return mock(PhoneNumberAuthService.class); }
+    // RF043 changed the signup protocol. This RF016 mail smoke isolates that new state-machine
+    // boundary; RF043's own tests exercise the real verification service with a behavioral store.
+    @Bean SignupVerification signupVerification() {
+        SignupVerification verification = mock(SignupVerification.class);
+        when(verification.reserve(any(), any(), eq("email"), anyString())).thenReturn(
+                new SignupVerification.Reservation("i".repeat(43), "d".repeat(64), "email", "c".repeat(43), "000043", 300000L));
+        when(verification.complete(any(), eq(true))).thenReturn(new SignupVerification.Challenge("c".repeat(43), 300000L));
+        return verification;
+    }
     @Bean MemoryMailbox mailbox() { return new MemoryMailbox(); }
     @Bean JavaMailSender javaMailSender(MemoryMailbox mailbox) {
         JavaMailSender sender = mock(JavaMailSender.class);

@@ -1,0 +1,353 @@
+[
+  {
+    "shared": "after/assemble-before-preflight-console.txt",
+    "raw": "raw/after/assemble-before-preflight-console.txt",
+    "originalSha256": "96a787797ca837fed668540c83e4238ec4e1da63f164948af3969d4f2320a155",
+    "sharedSha256": "96a787797ca837fed668540c83e4238ec4e1da63f164948af3969d4f2320a155",
+    "originalBytes": 482,
+    "sharedBytes": 482,
+    "changed": false
+  },
+  {
+    "shared": "after/assemble-console.txt",
+    "raw": "raw/after/assemble-console.txt",
+    "originalSha256": "e72c150e18cca46f804523c815005cc4a3076c93797981b482dec64b89408e61",
+    "sharedSha256": "e72c150e18cca46f804523c815005cc4a3076c93797981b482dec64b89408e61",
+    "originalBytes": 482,
+    "sharedBytes": 482,
+    "changed": false
+  },
+  {
+    "shared": "after/assemble-final-console.txt",
+    "raw": "raw/after/assemble-final-console.txt",
+    "originalSha256": "96a787797ca837fed668540c83e4238ec4e1da63f164948af3969d4f2320a155",
+    "sharedSha256": "96a787797ca837fed668540c83e4238ec4e1da63f164948af3969d4f2320a155",
+    "originalBytes": 482,
+    "sharedBytes": 482,
+    "changed": false
+  },
+  {
+    "shared": "after/assemble-preflight-final-console.txt",
+    "raw": "raw/after/assemble-preflight-final-console.txt",
+    "originalSha256": "fd9cb9b853589e2e7e4ffc6f71d040b44accab6f96272633b05f96068d473dd4",
+    "sharedSha256": "fd9cb9b853589e2e7e4ffc6f71d040b44accab6f96272633b05f96068d473dd4",
+    "originalBytes": 482,
+    "sharedBytes": 482,
+    "changed": false
+  },
+  {
+    "shared": "after/before-preflight-console.txt",
+    "raw": "raw/after/before-preflight-console.txt",
+    "originalSha256": "421ef58bf18e036ca6714873075a9e1147d41bcde137d03f109f03b3c7e73d1c",
+    "sharedSha256": "421ef58bf18e036ca6714873075a9e1147d41bcde137d03f109f03b3c7e73d1c",
+    "originalBytes": 1144,
+    "sharedBytes": 1144,
+    "changed": false
+  },
+  {
+    "shared": "after/before-preflight-xml/TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+    "raw": "raw/after/before-preflight-xml/TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+    "originalSha256": "81d13d0c2801417a09b428de49579821b1d0036aa806bfd0b8380b0213d0493b",
+    "sharedSha256": "3dce0b9baf5db7a8f6ddba4931a374cb19461a3fe4321a9715198f0e45b2e4c0",
+    "originalBytes": 509,
+    "sharedBytes": 511,
+    "changed": true
+  },
+  {
+    "shared": "after/before-preflight-xml/TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+    "raw": "raw/after/before-preflight-xml/TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+    "originalSha256": "cbc8b8f1f62cfb53aedf343f8c7204107b6795cad288532b41e069cdf51ec555",
+    "sharedSha256": "0586671fd0b4e05f3620b5d47ee93c6f6bb61d94e8a3dc929e5bbb702abe8b93",
+    "originalBytes": 32204,
+    "sharedBytes": 32207,
+    "changed": true
+  },
+  {
+    "shared": "after/before-preflight-xml/TEST-com.ngng.api.user.signup.SignupSecurityChainTest.xml",
+    "raw": "raw/after/before-preflight-xml/TEST-com.ngng.api.user.signup.SignupSecurityChainTest.xml",
+    "originalSha256": "08cdf8dbaa9a3dacfd094622eb0db1ba6d0cd250efdefc8c4bf21975e18ab8c4",
+    "sharedSha256": "ddc5313d7d7258c1c1aa7de55aa462435fb1dd468e98dea0813b82e3bff44c97",
+    "originalBytes": 2680,
+    "sharedBytes": 2682,
+    "changed": true
+  },
+  {
+    "shared": "after/before-preflight-xml/TEST-com.ngng.api.user.signup.SignupVerificationTest.xml",
+    "raw": "raw/after/before-preflight-xml/TEST-com.ngng.api.user.signup.SignupVerificationTest.xml",
+    "originalSha256": "ff9c66e704fb6ade6bc0cada7250ca8327c2f86f66ea881e4e2a672b0736c0dc",
+    "sharedSha256": "7b4313557063a91f86b0705040196ed4f5111e797e44bd17296892fe3ef0d5bd",
+    "originalBytes": 5409,
+    "sharedBytes": 5411,
+    "changed": true
+  },
+  {
+    "shared": "after/final-console.txt",
+    "raw": "raw/after/final-console.txt",
+    "originalSha256": "421ef58bf18e036ca6714873075a9e1147d41bcde137d03f109f03b3c7e73d1c",
+    "sharedSha256": "421ef58bf18e036ca6714873075a9e1147d41bcde137d03f109f03b3c7e73d1c",
+    "originalBytes": 1144,
+    "sharedBytes": 1144,
+    "changed": false
+  },
+  {
+    "shared": "after/final-xml/TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+    "raw": "raw/after/final-xml/TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+    "originalSha256": "81d13d0c2801417a09b428de49579821b1d0036aa806bfd0b8380b0213d0493b",
+    "sharedSha256": "3dce0b9baf5db7a8f6ddba4931a374cb19461a3fe4321a9715198f0e45b2e4c0",
+    "originalBytes": 509,
+    "sharedBytes": 511,
+    "changed": true
+  },
+  {
+    "shared": "after/final-xml/TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+    "raw": "raw/after/final-xml/TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+    "originalSha256": "cbc8b8f1f62cfb53aedf343f8c7204107b6795cad288532b41e069cdf51ec555",
+    "sharedSha256": "0586671fd0b4e05f3620b5d47ee93c6f6bb61d94e8a3dc929e5bbb702abe8b93",
+    "originalBytes": 32204,
+    "sharedBytes": 32207,
+    "changed": true
+  },
+  {
+    "shared": "after/final-xml/TEST-com.ngng.api.user.signup.SignupSecurityChainTest.xml",
+    "raw": "raw/after/final-xml/TEST-com.ngng.api.user.signup.SignupSecurityChainTest.xml",
+    "originalSha256": "08cdf8dbaa9a3dacfd094622eb0db1ba6d0cd250efdefc8c4bf21975e18ab8c4",
+    "sharedSha256": "ddc5313d7d7258c1c1aa7de55aa462435fb1dd468e98dea0813b82e3bff44c97",
+    "originalBytes": 2680,
+    "sharedBytes": 2682,
+    "changed": true
+  },
+  {
+    "shared": "after/final-xml/TEST-com.ngng.api.user.signup.SignupVerificationTest.xml",
+    "raw": "raw/after/final-xml/TEST-com.ngng.api.user.signup.SignupVerificationTest.xml",
+    "originalSha256": "ff9c66e704fb6ade6bc0cada7250ca8327c2f86f66ea881e4e2a672b0736c0dc",
+    "sharedSha256": "7b4313557063a91f86b0705040196ed4f5111e797e44bd17296892fe3ef0d5bd",
+    "originalBytes": 5409,
+    "sharedBytes": 5411,
+    "changed": true
+  },
+  {
+    "shared": "after/first-success-console.txt",
+    "raw": "raw/after/first-success-console.txt",
+    "originalSha256": "c6fa9104272953b309c3a0a78b583299b5d680971c432b8059df940dcf7584da",
+    "sharedSha256": "c6fa9104272953b309c3a0a78b583299b5d680971c432b8059df940dcf7584da",
+    "originalBytes": 1144,
+    "sharedBytes": 1144,
+    "changed": false
+  },
+  {
+    "shared": "after/first-success-xml/TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+    "raw": "raw/after/first-success-xml/TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+    "originalSha256": "367f1134f437b61150fce5ad6395d094166c4a0cd146b9c8dd612ae108c29ed2",
+    "sharedSha256": "8ea2211321ca9a311a8c5b0a76739543273feb078055d0dffbb12a058d0c18f9",
+    "originalBytes": 511,
+    "sharedBytes": 513,
+    "changed": true
+  },
+  {
+    "shared": "after/first-success-xml/TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+    "raw": "raw/after/first-success-xml/TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+    "originalSha256": "6d371f752120ab905a4fc927a19e217cec100a2f4fe6023641f06f37004628f0",
+    "sharedSha256": "3a91e2dda06787c37240baa06ac64a870fe12b9c15297dbbf085f2391a042ad7",
+    "originalBytes": 32071,
+    "sharedBytes": 32074,
+    "changed": true
+  },
+  {
+    "shared": "after/first-success-xml/TEST-com.ngng.api.user.signup.SignupSecurityChainTest.xml",
+    "raw": "raw/after/first-success-xml/TEST-com.ngng.api.user.signup.SignupSecurityChainTest.xml",
+    "originalSha256": "1f77d6c5626536cacf3296b5be4619c316693a27b1ba69633ba413e83f90f148",
+    "sharedSha256": "c84d3db441a46c9ccad25f34e48761d701e1995b63fe268816c26afb00b9479e",
+    "originalBytes": 2680,
+    "sharedBytes": 2682,
+    "changed": true
+  },
+  {
+    "shared": "after/first-success-xml/TEST-com.ngng.api.user.signup.SignupVerificationTest.xml",
+    "raw": "raw/after/first-success-xml/TEST-com.ngng.api.user.signup.SignupVerificationTest.xml",
+    "originalSha256": "1f460c1f305d423a31afe973ef77feefe1482c74f64783ed0e8a8e2ee729aee3",
+    "sharedSha256": "ca4e526895306b4ac63931c282d8082ca5acdafdc97e795f77dad3cfa9ea0493",
+    "originalBytes": 5064,
+    "sharedBytes": 5066,
+    "changed": true
+  },
+  {
+    "shared": "after/initial-console.txt",
+    "raw": "raw/after/initial-console.txt",
+    "originalSha256": "7068b58cf58f7e95159137823071569cbb41ecc1e9791660f98ce80fa1c8bc94",
+    "sharedSha256": "c5b3e3559edbfaf28e4d9ce236581a09a16be8d6c4e27cb3f4176f82bd191128",
+    "originalBytes": 1696,
+    "sharedBytes": 1693,
+    "changed": true
+  },
+  {
+    "shared": "after/initial-xml/TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+    "raw": "raw/after/initial-xml/TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+    "originalSha256": "5461ece261eb9c7e1d91e4796146eff911132552c9f5e0fc66dc7318a3c847c7",
+    "sharedSha256": "cd0e3547a2a0053b5e12bcb96bdc2d0753a7ec8cb5bfcc02cdbc81b40100e312",
+    "originalBytes": 511,
+    "sharedBytes": 513,
+    "changed": true
+  },
+  {
+    "shared": "after/initial-xml/TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+    "raw": "raw/after/initial-xml/TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+    "originalSha256": "5211c284bf60e48c9168aeec047a9a257724f61c62df0cec92d5575a0e72cebf",
+    "sharedSha256": "e0514095226a43a0244732e377ee1d8e9b9ae66c6140b3e0ddd997da473d0eb6",
+    "originalBytes": 32203,
+    "sharedBytes": 32206,
+    "changed": true
+  },
+  {
+    "shared": "after/initial-xml/TEST-com.ngng.api.user.signup.SignupSecurityChainTest.xml",
+    "raw": "raw/after/initial-xml/TEST-com.ngng.api.user.signup.SignupSecurityChainTest.xml",
+    "originalSha256": "e18dfd41d40cf0378aed11eaf9938c788c59d2b960d5670a0208e88470a7aeed",
+    "sharedSha256": "c7ec3aba32bb21e706d19b660d2986623b9e279ddcbdc04c61a90ecd721cc616",
+    "originalBytes": 2679,
+    "sharedBytes": 2681,
+    "changed": true
+  },
+  {
+    "shared": "after/initial-xml/TEST-com.ngng.api.user.signup.SignupVerificationTest.xml",
+    "raw": "raw/after/initial-xml/TEST-com.ngng.api.user.signup.SignupVerificationTest.xml",
+    "originalSha256": "a288a4d4c3a2e4632ba7e878a51aa974df1afb7f12400364f5cf6da47cdf2d99",
+    "sharedSha256": "48f4ed755df4a5531691afb802b02facec0e4bde9d574ebd8d7f7e9175bb06b0",
+    "originalBytes": 15589,
+    "sharedBytes": 15591,
+    "changed": true
+  },
+  {
+    "shared": "after/preflight-final-console.txt",
+    "raw": "raw/after/preflight-final-console.txt",
+    "originalSha256": "ff051fc2116a5e34d5f7afc6cbe30388b581c70f27cc4736c4e172053ca4ff39",
+    "sharedSha256": "ff051fc2116a5e34d5f7afc6cbe30388b581c70f27cc4736c4e172053ca4ff39",
+    "originalBytes": 1144,
+    "sharedBytes": 1144,
+    "changed": false
+  },
+  {
+    "shared": "after/preflight-final-xml/TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+    "raw": "raw/after/preflight-final-xml/TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+    "originalSha256": "8b4ea7f15d1450fab0e5e187d97c0d51bf359ac094f97a0900d18c52c1dc4b62",
+    "sharedSha256": "f5464db7fdc67c31e7d980cd097a6d57fc231b57a72a416f5bd4a1df8c8c07ee",
+    "originalBytes": 511,
+    "sharedBytes": 513,
+    "changed": true
+  },
+  {
+    "shared": "after/preflight-final-xml/TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+    "raw": "raw/after/preflight-final-xml/TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+    "originalSha256": "ef991d23231b4b44f53d8af07b897930b59bf0e77c6ada6558b4775c3462b82a",
+    "sharedSha256": "2709b867c7bf5d8712c5f8e0d7934c25f33418325b46a3681a1a1d9ea94cb44e",
+    "originalBytes": 32202,
+    "sharedBytes": 32205,
+    "changed": true
+  },
+  {
+    "shared": "after/preflight-final-xml/TEST-com.ngng.api.user.signup.SignupSecurityChainTest.xml",
+    "raw": "raw/after/preflight-final-xml/TEST-com.ngng.api.user.signup.SignupSecurityChainTest.xml",
+    "originalSha256": "0c07fee796360c475e3da7e24f535b46c61a6b89929fbb5031691341cc7e01ee",
+    "sharedSha256": "ef4c5d312d8123278404089acead1723a88a17375d92f503bda80c512b1021d0",
+    "originalBytes": 2678,
+    "sharedBytes": 2680,
+    "changed": true
+  },
+  {
+    "shared": "after/preflight-final-xml/TEST-com.ngng.api.user.signup.SignupVerificationTest.xml",
+    "raw": "raw/after/preflight-final-xml/TEST-com.ngng.api.user.signup.SignupVerificationTest.xml",
+    "originalSha256": "bae752dbccc02a4cdf8397161502d4cb104638ffd96e53e45c6d0da302071d94",
+    "sharedSha256": "923a17e148fbff15efdb0b88ecc6ed85604435c9dd78b803304031743850e17e",
+    "originalBytes": 5925,
+    "sharedBytes": 5927,
+    "changed": true
+  },
+  {
+    "shared": "before/backend-console.txt",
+    "raw": "raw/before/backend-console.txt",
+    "originalSha256": "e4f63f48898e2dc948e70dc5b3d310d2c5cd244c9ec8adfa25e4a13b1b4ea9bb",
+    "sharedSha256": "1b4f777c24b6cf055caad77dc938fcb1de089094f1381c9b866a3a654da7e7ac",
+    "originalBytes": 553,
+    "sharedBytes": 550,
+    "changed": true
+  },
+  {
+    "shared": "before/backend-retry-console.txt",
+    "raw": "raw/before/backend-retry-console.txt",
+    "originalSha256": "595f3a1dbc43a8ab1d68417561e5a322a8a371bc04c23785cb332315ab16bd59",
+    "sharedSha256": "595f3a1dbc43a8ab1d68417561e5a322a8a371bc04c23785cb332315ab16bd59",
+    "originalBytes": 1048,
+    "sharedBytes": 1048,
+    "changed": false
+  },
+  {
+    "shared": "before/xml/TEST-com.ngng.api.user.signup.SignupBeforeTest.xml",
+    "raw": "raw/before/xml/TEST-com.ngng.api.user.signup.SignupBeforeTest.xml",
+    "originalSha256": "6824a5da605f49f12a83a3da66b001560f52ae1f0e3e7372ceeaba61e8e11a70",
+    "sharedSha256": "fae1f11fd936648b55f5338e10bf3e1717369d60e1cceb337ec2978df1f06a40",
+    "originalBytes": 639,
+    "sharedBytes": 641,
+    "changed": true
+  },
+  {
+    "shared": "frontend/after-console.txt",
+    "raw": "raw/frontend/after-console.txt",
+    "originalSha256": "fed645679b635179da7d8faef5c0e3521b5c250c0287b0f90f634b205aef0a4a",
+    "sharedSha256": "fed645679b635179da7d8faef5c0e3521b5c250c0287b0f90f634b205aef0a4a",
+    "originalBytes": 8997,
+    "sharedBytes": 8997,
+    "changed": false
+  },
+  {
+    "shared": "frontend/before-console.txt",
+    "raw": "raw/frontend/before-console.txt",
+    "originalSha256": "8ab6ad76feba81703c0cd24af62695fa37eb17a7486404ade9ea41ecae744bcd",
+    "sharedSha256": "8ab6ad76feba81703c0cd24af62695fa37eb17a7486404ade9ea41ecae744bcd",
+    "originalBytes": 492,
+    "sharedBytes": 492,
+    "changed": false
+  },
+  {
+    "shared": "frontend/first-success-console.txt",
+    "raw": "raw/frontend/first-success-console.txt",
+    "originalSha256": "510e94685d074469623749fd8b37b6fd074ed7f2f1eecb4807a920d4b33d136c",
+    "sharedSha256": "510e94685d074469623749fd8b37b6fd074ed7f2f1eecb4807a920d4b33d136c",
+    "originalBytes": 4400,
+    "sharedBytes": 4400,
+    "changed": false
+  },
+  {
+    "shared": "frontend/lint-console.txt",
+    "raw": "raw/frontend/lint-console.txt",
+    "originalSha256": "e0f1286e28557052459c4d1cb997c705beba579075479b05a0287f6a278ec1b6",
+    "sharedSha256": "e0f1286e28557052459c4d1cb997c705beba579075479b05a0287f6a278ec1b6",
+    "originalBytes": 1174,
+    "sharedBytes": 1174,
+    "changed": false
+  },
+  {
+    "shared": "frontend/lint-final-console.txt",
+    "raw": "raw/frontend/lint-final-console.txt",
+    "originalSha256": "e0f1286e28557052459c4d1cb997c705beba579075479b05a0287f6a278ec1b6",
+    "sharedSha256": "e0f1286e28557052459c4d1cb997c705beba579075479b05a0287f6a278ec1b6",
+    "originalBytes": 1174,
+    "sharedBytes": 1174,
+    "changed": false
+  },
+  {
+    "shared": "frontend/tsc-console.txt",
+    "raw": "raw/frontend/tsc-console.txt",
+    "originalSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sharedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "originalBytes": 0,
+    "sharedBytes": 0,
+    "changed": false
+  },
+  {
+    "shared": "frontend/tsc-final-console.txt",
+    "raw": "raw/frontend/tsc-final-console.txt",
+    "originalSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sharedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "originalBytes": 0,
+    "sharedBytes": 0,
+    "changed": false
+  }
+]

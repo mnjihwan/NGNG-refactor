@@ -1,0 +1,18 @@
+{
+  "scope": "Shared RF043 evidence and task specification; ignored raw/ excluded. Values are never printed.",
+  "reviewedRawFiles": 39,
+  "changedFiles": 23,
+  "scannedSharedTextFiles": 144,
+  "replacementCategories": [
+    "USER_HOME, native/slash/escaped/URI variants",
+    "actual XML hostname",
+    "OS account in Spring Boot startup log"
+  ],
+  "startupAccountsRedacted": 5,
+  "contactCandidates": {
+    "email": 160,
+    "koreanMobile": 85,
+    "ipv4": 4
+  },
+  "findings": []
+}

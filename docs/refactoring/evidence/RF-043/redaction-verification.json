@@ -1,0 +1,322 @@
+{
+  "scope": "Raw backup bytes match the prior manifest. Shared bytes match paired hashes and startup accounts are masked. XML suite/test attributes except hostname and failure/error/skipped status counts remain identical, including timestamp/time.",
+  "files": 39,
+  "xmlFiles": 21,
+  "startupAccountsRedacted": 5.0,
+  "unchangedExecutionSourceSnapshots": 35,
+  "allPassed": true,
+  "results": [
+    {
+      "path": "after/assemble-before-preflight-console.txt",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": false,
+      "xmlTestStatusTimestampUnchanged": null
+    },
+    {
+      "path": "after/assemble-console.txt",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": false,
+      "xmlTestStatusTimestampUnchanged": null
+    },
+    {
+      "path": "after/assemble-final-console.txt",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": false,
+      "xmlTestStatusTimestampUnchanged": null
+    },
+    {
+      "path": "after/assemble-preflight-final-console.txt",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": false,
+      "xmlTestStatusTimestampUnchanged": null
+    },
+    {
+      "path": "after/before-preflight-console.txt",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": false,
+      "xmlTestStatusTimestampUnchanged": null
+    },
+    {
+      "path": "after/before-preflight-xml/TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": true,
+      "xmlTestStatusTimestampUnchanged": true
+    },
+    {
+      "path": "after/before-preflight-xml/TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 1,
+      "xmlChecked": true,
+      "xmlTestStatusTimestampUnchanged": true
+    },
+    {
+      "path": "after/before-preflight-xml/TEST-com.ngng.api.user.signup.SignupSecurityChainTest.xml",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": true,
+      "xmlTestStatusTimestampUnchanged": true
+    },
+    {
+      "path": "after/before-preflight-xml/TEST-com.ngng.api.user.signup.SignupVerificationTest.xml",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": true,
+      "xmlTestStatusTimestampUnchanged": true
+    },
+    {
+      "path": "after/final-console.txt",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": false,
+      "xmlTestStatusTimestampUnchanged": null
+    },
+    {
+      "path": "after/final-xml/TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": true,
+      "xmlTestStatusTimestampUnchanged": true
+    },
+    {
+      "path": "after/final-xml/TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 1,
+      "xmlChecked": true,
+      "xmlTestStatusTimestampUnchanged": true
+    },
+    {
+      "path": "after/final-xml/TEST-com.ngng.api.user.signup.SignupSecurityChainTest.xml",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": true,
+      "xmlTestStatusTimestampUnchanged": true
+    },
+    {
+      "path": "after/final-xml/TEST-com.ngng.api.user.signup.SignupVerificationTest.xml",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": true,
+      "xmlTestStatusTimestampUnchanged": true
+    },
+    {
+      "path": "after/first-success-console.txt",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": false,
+      "xmlTestStatusTimestampUnchanged": null
+    },
+    {
+      "path": "after/first-success-xml/TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": true,
+      "xmlTestStatusTimestampUnchanged": true
+    },
+    {
+      "path": "after/first-success-xml/TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 1,
+      "xmlChecked": true,
+      "xmlTestStatusTimestampUnchanged": true
+    },
+    {
+      "path": "after/first-success-xml/TEST-com.ngng.api.user.signup.SignupSecurityChainTest.xml",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": true,
+      "xmlTestStatusTimestampUnchanged": true
+    },
+    {
+      "path": "after/first-success-xml/TEST-com.ngng.api.user.signup.SignupVerificationTest.xml",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": true,
+      "xmlTestStatusTimestampUnchanged": true
+    },
+    {
+      "path": "after/initial-console.txt",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": false,
+      "xmlTestStatusTimestampUnchanged": null
+    },
+    {
+      "path": "after/initial-xml/TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": true,
+      "xmlTestStatusTimestampUnchanged": true
+    },
+    {
+      "path": "after/initial-xml/TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 1,
+      "xmlChecked": true,
+      "xmlTestStatusTimestampUnchanged": true
+    },
+    {
+      "path": "after/initial-xml/TEST-com.ngng.api.user.signup.SignupSecurityChainTest.xml",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": true,
+      "xmlTestStatusTimestampUnchanged": true
+    },
+    {
+      "path": "after/initial-xml/TEST-com.ngng.api.user.signup.SignupVerificationTest.xml",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": true,
+      "xmlTestStatusTimestampUnchanged": true
+    },
+    {
+      "path": "after/preflight-final-console.txt",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": false,
+      "xmlTestStatusTimestampUnchanged": null
+    },
+    {
+      "path": "after/preflight-final-xml/TEST-com.ngng.api.isolation.Rf016EnvironmentIsolationTest.xml",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": true,
+      "xmlTestStatusTimestampUnchanged": true
+    },
+    {
+      "path": "after/preflight-final-xml/TEST-com.ngng.api.isolation.Rf016IsolatedBootSmokeTest.xml",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 1,
+      "xmlChecked": true,
+      "xmlTestStatusTimestampUnchanged": true
+    },
+    {
+      "path": "after/preflight-final-xml/TEST-com.ngng.api.user.signup.SignupSecurityChainTest.xml",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": true,
+      "xmlTestStatusTimestampUnchanged": true
+    },
+    {
+      "path": "after/preflight-final-xml/TEST-com.ngng.api.user.signup.SignupVerificationTest.xml",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": true,
+      "xmlTestStatusTimestampUnchanged": true
+    },
+    {
+      "path": "before/backend-console.txt",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": false,
+      "xmlTestStatusTimestampUnchanged": null
+    },
+    {
+      "path": "before/backend-retry-console.txt",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": false,
+      "xmlTestStatusTimestampUnchanged": null
+    },
+    {
+      "path": "before/xml/TEST-com.ngng.api.user.signup.SignupBeforeTest.xml",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": true,
+      "xmlTestStatusTimestampUnchanged": true
+    },
+    {
+      "path": "frontend/after-console.txt",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": false,
+      "xmlTestStatusTimestampUnchanged": null
+    },
+    {
+      "path": "frontend/before-console.txt",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": false,
+      "xmlTestStatusTimestampUnchanged": null
+    },
+    {
+      "path": "frontend/first-success-console.txt",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": false,
+      "xmlTestStatusTimestampUnchanged": null
+    },
+    {
+      "path": "frontend/lint-console.txt",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": false,
+      "xmlTestStatusTimestampUnchanged": null
+    },
+    {
+      "path": "frontend/lint-final-console.txt",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": false,
+      "xmlTestStatusTimestampUnchanged": null
+    },
+    {
+      "path": "frontend/tsc-console.txt",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": false,
+      "xmlTestStatusTimestampUnchanged": null
+    },
+    {
+      "path": "frontend/tsc-final-console.txt",
+      "originalMatchesPriorManifest": true,
+      "pairedHashesVerified": true,
+      "startupAccountsRedacted": 0,
+      "xmlChecked": false,
+      "xmlTestStatusTimestampUnchanged": null
+    }
+  ]
+}

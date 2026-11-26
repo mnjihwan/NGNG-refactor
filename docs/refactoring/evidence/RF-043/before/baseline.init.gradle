@@ -1,0 +1,25 @@
+allprojects {
+    afterEvaluate {
+        def evidence = new File(rootDir, '../docs/refactoring/evidence/RF-043/before')
+        def original = new File(evidence, 'source/NGNG-backend/src/main/java')
+        def restored = fileTree(original).matching { include '**/*.java' }
+        def relativePaths = restored.files.collect { original.toPath().relativize(it.toPath()).toString().replace('\\','/') }
+        def current = new File(rootDir, 'src/main/java')
+        sourceSets.main.java.setSrcDirs([current, original])
+        sourceSets.main.java.exclude { element ->
+            if (!element.file.toPath().startsWith(current.toPath())) return false
+            def path = current.toPath().relativize(element.file.toPath()).toString().replace('\\','/')
+            return relativePaths.contains(path) || path.startsWith('com/ngng/api/user/user/service/signup/') ||
+                path == 'com/ngng/api/user/user/controller/SignupExceptionHandler.java' ||
+                path == 'com/ngng/api/user/user/dto/request/SignupVerifyRequest.java'
+        }
+        sourceSets.test.java.setSrcDirs([new File(evidence, 'test')])
+        sourceSets.main.resources.setSrcDirs([])
+        sourceSets.test.resources.setSrcDirs([])
+        layout.buildDirectory = new File(evidence, 'build')
+        tasks.withType(Test).configureEach {
+            useJUnitPlatform()
+            filter { includeTestsMatching 'com.ngng.api.user.signup.SignupBeforeTest' }
+        }
+    }
+}

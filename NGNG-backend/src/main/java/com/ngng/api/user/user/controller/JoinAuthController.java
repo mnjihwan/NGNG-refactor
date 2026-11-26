@@ -1,61 +1,41 @@
 package com.ngng.api.user.user.controller;
 
-import com.ngng.api.user.user.dto.request.EmailAuthRequest;
-import com.ngng.api.user.user.dto.request.PhoneNumberAuthRequest;
-import com.ngng.api.user.user.dto.response.EmailAuthResponse;
-import com.ngng.api.user.user.dto.response.PhoneNumberAuthResponse;
+import com.ngng.api.user.user.dto.request.*;
+import com.ngng.api.user.user.dto.response.*;
 import com.ngng.api.user.user.service.EmailAuthService;
 import com.ngng.api.user.user.service.PhoneNumberAuthService;
-import jakarta.mail.MessagingException;
+import com.ngng.api.user.user.service.signup.SignupVerification;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
+import org.springframework.http.CacheControl;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RequestMapping("/join/auth")
 @RestController
-@Slf4j(topic = "user-log")
 public class JoinAuthController {
-
     private final EmailAuthService emailAuthService;
     private final PhoneNumberAuthService phoneNumberAuthService;
-
+    private final SignupVerification verification;
+    @PostMapping("/attempt")
+    public ResponseEntity<?> attempt() { return ResponseEntity.status(201).cacheControl(CacheControl.noStore()).body(verification.create()); }
     @PostMapping("/phonenumber")
     public ResponseEntity<?> sendMessage(@RequestBody PhoneNumberAuthRequest request) {
-
         PhoneNumberAuthResponse response = phoneNumberAuthService.sendMessage(request);
-
-        if (!response.isSuccess()) {
-
-            log.error("Failed Auth PhoneNumber , name - {}",request.name());
-
-            return ResponseEntity.status(HttpStatus.CONFLICT).build(); // 서버(데이터베이스)의 데이터와 충돌(쭝복)이 발생했다는 409 코드
-        }
-
-        log.info("Success  Auth PhoneNumber , name - {}",request.name());
-
-        return ResponseEntity.ok().body(response);
+        return response.isSuccess() ? ResponseEntity.ok().cacheControl(CacheControl.noStore()).body(response)
+                : ResponseEntity.status(409).cacheControl(CacheControl.noStore()).build();
     }
-
     @PostMapping("/email")
-    public ResponseEntity<?> sendEmail(@RequestBody EmailAuthRequest request) throws MessagingException {
-
+    public ResponseEntity<?> sendEmail(@RequestBody EmailAuthRequest request) {
         EmailAuthResponse response = emailAuthService.sendMail(request);
-
-        if (!response.isSuccess()) {
-
-            log.error("Faild Auth email , name - {}",request.name());
-
-            return ResponseEntity.status(HttpStatus.CONFLICT).build(); // 서버(데이터베이스)의 데이터와 충돌(쭝복)이 발생했다는 409 코드
-        }
-
-        log.info("Success  Auth email , name - {}",request.name());
-
-        return ResponseEntity.ok().body(response);
+        return response.isSuccess() ? ResponseEntity.ok().cacheControl(CacheControl.noStore()).body(response)
+                : ResponseEntity.status(409).cacheControl(CacheControl.noStore()).build();
+    }
+    @PostMapping("/email/verify")
+    public ResponseEntity<?> emailVerify(@RequestBody SignupVerifyRequest request) { return verify(request, "email"); }
+    @PostMapping("/phonenumber/verify")
+    public ResponseEntity<?> phoneVerify(@RequestBody SignupVerifyRequest request) { return verify(request, "phone"); }
+    private ResponseEntity<?> verify(SignupVerifyRequest request, String channel) {
+        return ResponseEntity.ok().cacheControl(CacheControl.noStore()).body(verification.verify(request.attemptId(), request.attemptSecret(), channel, request.challengeId(), request.code()));
     }
 }

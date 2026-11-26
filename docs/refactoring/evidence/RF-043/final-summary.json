@@ -1,0 +1,64 @@
+{
+  "date": "2026-11-11",
+  "baselineHead": "2091fae3b590f0286fe11e8a1354fc27d81e10c6",
+  "java": "17.0.10",
+  "gradle": "8.7",
+  "node": "20.10.0",
+  "npm": "10.2.3",
+  "backendBefore": {
+    "tests": 2,
+    "scope": "HEAD signup source substitution, memory mail and repository doubles",
+    "failures": 0,
+    "skipped": 0,
+    "errors": 0
+  },
+  "backendFinal": {
+    "rf016Isolation": 12,
+    "console": "after/preflight-final-console.txt",
+    "service": 32,
+    "failures": 0,
+    "actualMvcSecurityChain": 5,
+    "errors": 0,
+    "tests": 49,
+    "sourceSet": "normal",
+    "skipped": 0
+  },
+  "assemble": {
+    "exit": 0,
+    "executedTasks": 5,
+    "console": "after/assemble-preflight-final-console.txt"
+  },
+  "frontendBefore": {
+    "tests": 2,
+    "failures": 0
+  },
+  "frontendFinal": {
+    "tests": 47,
+    "scope": "actual components with hook/fetch doubles",
+    "failures": 0,
+    "skipped": 0
+  },
+  "lintExit": 0,
+  "tscExit": 0,
+  "realDbConnections": 0,
+  "realRedisConnections": 0,
+  "realSenders": 0,
+  "actualLuaExecution": 0,
+  "newDependencies": 0,
+  "schemaChanges": 0,
+  "performanceMeasured": false,
+  "operationalReleaseBlocked": true,
+  "limitations": "Actual Lua/parser/TTL/cluster/failover/restore, external epoch/writer drain, legacy accounts and actual DB commit/HTTP response loss, browser/TLS/APM and supplier delivery remain unverified; see README.",
+  "evidenceSanitization": {
+    "rf043Rf040IntegratedRegressionStillRequired": true,
+    "changedShared": 23,
+    "originalPairs": 39,
+    "rawIgnored": true,
+    "rf040SourceDifferences": 2,
+    "sourceSnapshotsReplaced": false,
+    "xmlInvariantChecks": 21,
+    "applicationTestsRerun": false,
+    "startupAccountXmlFiles": 5,
+    "startupAccountOnlyByteComparisonVerified": true
+  }
+}

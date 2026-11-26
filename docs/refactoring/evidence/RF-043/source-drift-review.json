@@ -1,0 +1,217 @@
+{
+  "scope": "Read-only comparison after RF043 validation; original after/source snapshots are unchanged. Current uncommitted workspace includes parallel RF040 work. This is source drift metadata, not a new test run.",
+  "files": 35,
+  "different": 2,
+  "results": [
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/global/security/config/SecurityConfig.java",
+      "snapshotSha256": "835b6d136fbde21eb1e6308842228abd20bd7afec81fd2895ea7bd3b7306f932",
+      "currentWorkspaceSha256": "b5bd79cbe0cfc34c651c19115ee473790618313abf89912428ac3d539bcb791e",
+      "equal": false
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/global/security/filter/TokenFilter.java",
+      "snapshotSha256": "9e6642a3a4c68274aa7d22453c4b073527368ae108729ebf2c8237e9b24d920a",
+      "currentWorkspaceSha256": "3d87bf19805c72672b099b017c91d7a8446349e864c03692dac48d641aeac9e7",
+      "equal": false
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/global/security/jwt/util/JwtTokenProvider.java",
+      "snapshotSha256": "6f827a21c544acf43bde39e560d334e9678f2add8088bf2faf1d64a0a10998ad",
+      "currentWorkspaceSha256": "6f827a21c544acf43bde39e560d334e9678f2add8088bf2faf1d64a0a10998ad",
+      "equal": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/global/security/jwt/util/JwtTokenVerifier.java",
+      "snapshotSha256": "ae9d5f3e09757d39a4f00636ee2e88b8eea93035dcd742513ff010dc0881d763",
+      "currentWorkspaceSha256": "ae9d5f3e09757d39a4f00636ee2e88b8eea93035dcd742513ff010dc0881d763",
+      "equal": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/point/service/PointHistoryService.java",
+      "snapshotSha256": "024bd4ad6a4c8cf394ba515fbaad7e0f3c023c12e576790274274454c2f446ce",
+      "currentWorkspaceSha256": "024bd4ad6a4c8cf394ba515fbaad7e0f3c023c12e576790274274454c2f446ce",
+      "equal": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/controller/JoinAuthController.java",
+      "snapshotSha256": "58247c7f54aa7b759f72f23e76edee60d2fb77fdaa76c45059402843158ca3db",
+      "currentWorkspaceSha256": "58247c7f54aa7b759f72f23e76edee60d2fb77fdaa76c45059402843158ca3db",
+      "equal": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/controller/JoinController.java",
+      "snapshotSha256": "9f20bbbf2485d3dad11abf2f09d7b2df94e8e1637451f551849a420885fd4be8",
+      "currentWorkspaceSha256": "9f20bbbf2485d3dad11abf2f09d7b2df94e8e1637451f551849a420885fd4be8",
+      "equal": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/controller/SignupExceptionHandler.java",
+      "snapshotSha256": "2e88c00e7c2b12dd5f0f5c41a76f3432516a9cbcc5fb299fe8f2c955326e9490",
+      "currentWorkspaceSha256": "2e88c00e7c2b12dd5f0f5c41a76f3432516a9cbcc5fb299fe8f2c955326e9490",
+      "equal": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/dto/request/EmailAuthRequest.java",
+      "snapshotSha256": "9810b5d3acda06ed9f2ceff98c571eee63cc75323ac92dbfc606cde827afaab1",
+      "currentWorkspaceSha256": "9810b5d3acda06ed9f2ceff98c571eee63cc75323ac92dbfc606cde827afaab1",
+      "equal": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/dto/request/JoinRequest.java",
+      "snapshotSha256": "6a9a8b61a7267f6010e0ffe59b69a433b82c834dac64dcf176b2f270387d155f",
+      "currentWorkspaceSha256": "6a9a8b61a7267f6010e0ffe59b69a433b82c834dac64dcf176b2f270387d155f",
+      "equal": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/dto/request/PhoneNumberAuthRequest.java",
+      "snapshotSha256": "c4ce8c41e40e1ccc9f90f9ccb4043f9015906556c1f8486133019f44d139c3fa",
+      "currentWorkspaceSha256": "c4ce8c41e40e1ccc9f90f9ccb4043f9015906556c1f8486133019f44d139c3fa",
+      "equal": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/dto/request/SignupVerifyRequest.java",
+      "snapshotSha256": "7224da9cea98ab47e753336001e381ddca970ee3a42352abb5f40124013ec82b",
+      "currentWorkspaceSha256": "7224da9cea98ab47e753336001e381ddca970ee3a42352abb5f40124013ec82b",
+      "equal": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/dto/response/EmailAuthResponse.java",
+      "snapshotSha256": "2193fb39f3efe6b3a48c58896df6e9a866e54c768b1b49b393715518e9b3d95a",
+      "currentWorkspaceSha256": "2193fb39f3efe6b3a48c58896df6e9a866e54c768b1b49b393715518e9b3d95a",
+      "equal": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/dto/response/PhoneNumberAuthResponse.java",
+      "snapshotSha256": "99c5c599e492c71b6b8cd4cf78495473919d401844707e21710f87634454e838",
+      "currentWorkspaceSha256": "99c5c599e492c71b6b8cd4cf78495473919d401844707e21710f87634454e838",
+      "equal": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/service/EmailAuthService.java",
+      "snapshotSha256": "c83953128a5cdefb090bdcb26faa76c7a8a6391c8380379edfcfa08a78704ed1",
+      "currentWorkspaceSha256": "c83953128a5cdefb090bdcb26faa76c7a8a6391c8380379edfcfa08a78704ed1",
+      "equal": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/service/JoinService.java",
+      "snapshotSha256": "ed5cc94ec8e52c0cd70a511b85eb2b3f584dd39d3430c983c5300ee58d422b89",
+      "currentWorkspaceSha256": "ed5cc94ec8e52c0cd70a511b85eb2b3f584dd39d3430c983c5300ee58d422b89",
+      "equal": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/service/PhoneNumberAuthService.java",
+      "snapshotSha256": "ebca35ebd99b19ee96e8118b0e0a8cf0b973cfb5f07acb0a0c9a7bee669d6599",
+      "currentWorkspaceSha256": "ebca35ebd99b19ee96e8118b0e0a8cf0b973cfb5f07acb0a0c9a7bee669d6599",
+      "equal": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/NurigoSignupSmsSender.java",
+      "snapshotSha256": "e55da2cc741b24993017d542cd8285d8bbfa0f4d62d0f737cab52313c2de210b",
+      "currentWorkspaceSha256": "e55da2cc741b24993017d542cd8285d8bbfa0f4d62d0f737cab52313c2de210b",
+      "equal": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/RedisSignupStore.java",
+      "snapshotSha256": "42a78ff52c69bd84edb8518928015fc52c519e42f6cfccdfdea66fbdd52a052e",
+      "currentWorkspaceSha256": "42a78ff52c69bd84edb8518928015fc52c519e42f6cfccdfdea66fbdd52a052e",
+      "equal": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/SignupCrypto.java",
+      "snapshotSha256": "22c8195cf8ca2918c690162920a991930d1359da9965684727f0e3b56eafa9e9",
+      "currentWorkspaceSha256": "22c8195cf8ca2918c690162920a991930d1359da9965684727f0e3b56eafa9e9",
+      "equal": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/SignupFailure.java",
+      "snapshotSha256": "15b8de019ca418c026dcfd8729f3d4eb150850afc21d858e480da2aa69938125",
+      "currentWorkspaceSha256": "15b8de019ca418c026dcfd8729f3d4eb150850afc21d858e480da2aa69938125",
+      "equal": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/SignupSmsSender.java",
+      "snapshotSha256": "138e3fd1d6629c6b06b2eb23396a85281a20ed6192eddd3aaf2194d30c4d4920",
+      "currentWorkspaceSha256": "138e3fd1d6629c6b06b2eb23396a85281a20ed6192eddd3aaf2194d30c4d4920",
+      "equal": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/SignupStore.java",
+      "snapshotSha256": "246401d48a6ba5428dcf6d3a3a6f0a0739db139c63cdcd9abd4f126b113c63c2",
+      "currentWorkspaceSha256": "246401d48a6ba5428dcf6d3a3a6f0a0739db139c63cdcd9abd4f126b113c63c2",
+      "equal": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/SignupTarget.java",
+      "snapshotSha256": "5dcddc526922e2e2ff93cadaaaf02cc87556005919ef273c659bea3f0f8e3d06",
+      "currentWorkspaceSha256": "5dcddc526922e2e2ff93cadaaaf02cc87556005919ef273c659bea3f0f8e3d06",
+      "equal": true
+    },
+    {
+      "path": "NGNG-backend/src/main/java/com/ngng/api/user/user/service/signup/SignupVerification.java",
+      "snapshotSha256": "91610670b0a18dc21147a383b62104c4542c5a9e42f9ae7022c06c228d1ab046",
+      "currentWorkspaceSha256": "91610670b0a18dc21147a383b62104c4542c5a9e42f9ae7022c06c228d1ab046",
+      "equal": true
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/isolation/Rf016IsolatedBootSmokeTest.java",
+      "snapshotSha256": "6797e22743b9c45be4a53e349e322e0a37f3391628b14c185b25cca9e74dcc95",
+      "currentWorkspaceSha256": "6797e22743b9c45be4a53e349e322e0a37f3391628b14c185b25cca9e74dcc95",
+      "equal": true
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/isolation/Rf016IsolationConfiguration.java",
+      "snapshotSha256": "5dec870ebd1ea23df1dedd4362c7a588f41fc194b211da359ac0fed13fb9aaeb",
+      "currentWorkspaceSha256": "5dec870ebd1ea23df1dedd4362c7a588f41fc194b211da359ac0fed13fb9aaeb",
+      "equal": true
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/user/signup/MemorySignupStore.java",
+      "snapshotSha256": "b7760ceba16ac5f41fc224e0b66162d5348d2779a71a833cfcdbf7774cfe5159",
+      "currentWorkspaceSha256": "b7760ceba16ac5f41fc224e0b66162d5348d2779a71a833cfcdbf7774cfe5159",
+      "equal": true
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/user/signup/SignupSecurityChainTest.java",
+      "snapshotSha256": "91bf454d7b73e99ccc05e3d3d86faea3a64b9442540cd4a12639846654f199a9",
+      "currentWorkspaceSha256": "91bf454d7b73e99ccc05e3d3d86faea3a64b9442540cd4a12639846654f199a9",
+      "equal": true
+    },
+    {
+      "path": "NGNG-backend/src/test/java/com/ngng/api/user/signup/SignupVerificationTest.java",
+      "snapshotSha256": "35a4794b15bda6f8f443836575b61bd5be40db223ee483f258bd89fea569df14",
+      "currentWorkspaceSha256": "35a4794b15bda6f8f443836575b61bd5be40db223ee483f258bd89fea569df14",
+      "equal": true
+    },
+    {
+      "path": "NGNG-frontend/src/app/join/joinPage.tsx",
+      "snapshotSha256": "99da032a57d22e3559e0fcdd28a1df017f9ddc25e9b6fd076d5ee773fa49a647",
+      "currentWorkspaceSha256": "99da032a57d22e3559e0fcdd28a1df017f9ddc25e9b6fd076d5ee773fa49a647",
+      "equal": true
+    },
+    {
+      "path": "NGNG-frontend/src/app/join/signupApi.ts",
+      "snapshotSha256": "3542c1bcc2d314a35532ab3de0f94b5580bc6c92b565e95432141ec7e6e07481",
+      "currentWorkspaceSha256": "3542c1bcc2d314a35532ab3de0f94b5580bc6c92b565e95432141ec7e6e07481",
+      "equal": true
+    },
+    {
+      "path": "NGNG-frontend/src/app/join/_pages/secondPage.tsx",
+      "snapshotSha256": "a6610cce935b8a15a68d22e0cbaff366284af07b1d95aeaefd4cc0cebe3e0d9c",
+      "currentWorkspaceSha256": "a6610cce935b8a15a68d22e0cbaff366284af07b1d95aeaefd4cc0cebe3e0d9c",
+      "equal": true
+    },
+    {
+      "path": "NGNG-frontend/src/app/join/_pages/thirdPage.tsx",
+      "snapshotSha256": "26c1ba64dedb7ed32fd48927ef21c673b60d6355f38af54023de27f4920e69eb",
+      "currentWorkspaceSha256": "26c1ba64dedb7ed32fd48927ef21c673b60d6355f38af54023de27f4920e69eb",
+      "equal": true
+    },
+    {
+      "path": "NGNG-frontend/tests/rf043-signup.test.cjs",
+      "snapshotSha256": "f28227ac9d688d8c62c637091fe1cdfd4f7aaa4f1710dd44d8148f1ea8dbe956",
+      "currentWorkspaceSha256": "f28227ac9d688d8c62c637091fe1cdfd4f7aaa4f1710dd44d8148f1ea8dbe956",
+      "equal": true
+    }
+  ]
+}
